@@ -1,6 +1,6 @@
-# public-data-platform
+# CFPB's Public Data Platform
 
-CFPB's Public Data Platform
+
 
 ## Getting Started
 

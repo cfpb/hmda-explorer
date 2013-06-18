@@ -2,8 +2,9 @@ define([
     'jquery',
     'backbone',
     'underscore',
-    'models/app'
-  ], function( $, Backbone, _, App ) {
+    'models/app',
+    'layoutmanager'
+  ], function( $, Backbone, _, App, LayoutManager ) {
 
   var AppView = Backbone.View.extend({
 
@@ -12,7 +13,8 @@ define([
     model: new App(),
 
     initialize: function() {
-
+      var foo = new LayoutManager();
+      return foo;
     },
 
     events: {

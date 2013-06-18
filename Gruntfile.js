@@ -85,7 +85,14 @@ module.exports = function(grunt) {
          '  * @license RequireJS text 2.0.6 Copyright (c) 2010-2012, The Dojo Foundation All Rights Reserved.\n' +
          '  * Available via the MIT or new BSD license.\n' +
          '  * see: http://github.com/requirejs/text for details\n' +
-         '  */\n\n'
+         '  */\n\n',
+
+      layoutmanager:
+        '/*!\n' +
+         '   * backbone.layoutmanager.js v0.8.8\n' +
+         '   * Copyright 2013, Tim Branyen (@tbranyen)\n' +
+         '   * backbone.layoutmanager.js may be freely distributed under the MIT license.\n' +
+         '   */\n\n'
 
     },
 
@@ -225,7 +232,7 @@ module.exports = function(grunt) {
      */
     uglify: {
       options: {
-        banner: '<%= banner.cfpb %> <%= banner.requirejs %> <%= banner.jquery %> <%= banner.sizzle %> <%= banner.underscore %> <%= banner.backbone %> <%= banner.requirejstext %>'
+        banner: '<%= banner.cfpb %> <%= banner.requirejs %> <%= banner.jquery %> <%= banner.sizzle %> <%= banner.underscore %> <%= banner.backbone %> <%= banner.requirejstext %> <%= banner.layoutmanager %>'
       },
       main: {
         files: {
