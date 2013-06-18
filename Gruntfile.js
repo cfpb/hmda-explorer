@@ -216,10 +216,28 @@ module.exports = function(grunt) {
      */
     jasmine: {
       test: {
-        src: 'dist/static/js/main.js',
+        src: ['src/js/**/*.js', '!src/js/vendor/**/*'],
         options: {
-          specs: 'test/*Spec.js',
-          helpers: ['test/helpers/*Helper.js', 'test/helpers/sinon.js']
+          specs: 'test/specs/*.js',
+          helpers: 'test/specs/helpers/*.js',
+          host: 'http://127.0.0.1:8001/',
+          template: require('grunt-template-jasmine-requirejs'),
+          templateOptions: {
+            requireConfig: {
+              mainConfigFile: 'src/js/main.js',
+              baseUrl: './src/js/',
+              paths: {
+                jquery: 'vendor/jquery/jquery',
+                underscore: 'vendor/underscore-amd/underscore',
+                backbone: 'vendor/backbone-amd/backbone',
+                text: 'vendor/requirejs-text/text',
+                layoutmanager: 'vendor/layoutmanager/backbone.layoutmanager'
+              },
+              shim: {
+                layoutmanager: ['backbone']
+              }
+            }
+          }
         }
       }
     },
@@ -252,6 +270,11 @@ module.exports = function(grunt) {
           port: 8000,
           base: 'dist'
         }
+      },
+      test: {
+        options: {
+          port: 8001
+        }
       }
     },
 
@@ -263,8 +286,8 @@ module.exports = function(grunt) {
      */
     watch: {
       scripts: {
-        files: ['src/**/*'],
-        tasks: ['build']
+        files: ['src/**/*', 'test/**/*'],
+        tasks: ['test', 'build']
       }
     }
 
@@ -287,12 +310,12 @@ module.exports = function(grunt) {
   /**
    * Create task aliases by registering new tasks
    */
-  grunt.registerTask('test', ['jshint', 'jasmine']);
-  grunt.registerTask('build', ['jshint', 'requirejs', 'shell', 'less', 'sed', 'uglify']);
+  grunt.registerTask('test', ['jshint', 'connect:test', 'jasmine']);
+  grunt.registerTask('build', ['requirejs', 'shell', 'less', 'sed', 'uglify']);
 
   /**
    * The 'default' task will run whenever `grunt` is run without specifying a task
    */
-  grunt.registerTask('default', ['connect', 'watch']);
+  grunt.registerTask('default', ['connect:demo', 'watch']);
 
 };

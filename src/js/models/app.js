@@ -1,6 +1,7 @@
 define([
-    'config'
-  ], function( config ) {
+    'config',
+    'backbone'
+  ], function( config, Backbone ) {
 
   var AppModel = Backbone.Model.extend({
 
