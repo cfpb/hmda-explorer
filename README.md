@@ -1,6 +1,6 @@
 # CFPB's Public Data Platform
 
-
+An interactive front-end for [Qu](https://github.com/cfpb/qu).
 
 ## Getting Started
 
