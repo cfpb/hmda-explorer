@@ -188,7 +188,11 @@ module.exports = function(grunt) {
             jquery: 'vendor/jquery/jquery',
             underscore: 'vendor/underscore-amd/underscore',
             backbone: 'vendor/backbone-amd/backbone',
-            text: 'vendor/requirejs-text/text'
+            text: 'vendor/requirejs-text/text',
+            layoutmanager: 'vendor/layoutmanager/backbone.layoutmanager'
+          },
+          shim: {
+            layoutmanager: ['backbone']
           },
           include: ['requireLib'],
           optimize: 'none',
