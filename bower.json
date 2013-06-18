@@ -1,0 +1,16 @@
+{
+  "name": "CFPB Boilerplate",
+  "version": "0.1.0",
+  "dependencies": {
+    "requirejs-text": "~2.0.6",
+    "requirejs-domready": "~2.0.1",
+    "backbone-amd": "~1.0.0",
+    "underscore-amd": "~1.4.4",
+    "requirejs": "~2.1.6",
+    "jquery": "~1.10.1"
+  },
+  "devDependencies": {
+    "html5shiv": "~3.6.2",
+    "requirejs": "~2.1.6"
+  }
+}

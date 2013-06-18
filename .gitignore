@@ -1,0 +1,18 @@
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Node packages #
+#################
+node_modules/
+
+# Bower vendor scripts #
+########################
+src/js/vendor
+dist/js/vendor
