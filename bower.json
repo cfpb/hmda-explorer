@@ -7,7 +7,8 @@
     "backbone-amd": "~1.0.0",
     "underscore-amd": "~1.4.4",
     "requirejs": "~2.1.6",
-    "jquery": "~1.10.1"
+    "jquery": "~1.10.1",
+    "layoutmanager": "~0.8.8"
   },
   "devDependencies": {
     "html5shiv": "~3.6.2",
