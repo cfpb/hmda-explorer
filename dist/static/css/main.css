@@ -393,6 +393,21 @@ html {
   padding: 0 calc(15px);
   font-family: "Avenir Next", Arial, sans-serif;
 }
+#main {
+  margin: 0 auto;
+  width: 100%;
+  overflow: hidden;
+  clear: both;
+  *zoom: 1;
+}
+#main:before,
+#main:after {
+  content: " ";
+  display: table;
+}
+#main:after {
+  clear: both;
+}
 .hero {
   text-align: center;
 }
