@@ -296,14 +296,6 @@ blockquote strong {
   color: #fff;
   text-shadow: none;
 }
-hr {
-  display: block;
-  height: 1px;
-  padding: 0;
-  border: 0;
-  border-top: 1px solid #d0d0ce;
-  margin: 1em 0;
-}
 img {
   vertical-align: middle;
 }
