@@ -2,6 +2,7 @@
   "name": "CFPB Boilerplate",
   "version": "0.1.0",
   "dependencies": {
+    "ghost": "git@fake.ghe.domain:contolini/ghost.git",
     "requirejs-text": "~2.0.6",
     "requirejs-domready": "~2.0.1",
     "backbone-amd": "~1.0.0",

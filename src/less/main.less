@@ -3,13 +3,34 @@
    Master LESS File
    ========================================================================== */
 
+@import "js/vendor/ghost/dist/ghost.less";
 @import "less/color.less";
 @import "less/fonts.less";
 @import "less/typo.less";
 @import "less/utils.less";
 
+// Override some grid variables
+@wrapper-width: 1200px;
+
 // Your LESS goes below
 
 body, html {
+  .wrapper();
   font-family: "Avenir Next", Arial, sans-serif;
+}
+
+.hero {
+  text-align: center;
+}
+
+// Footer at the bottom of the page
+
+footer {
+  .row();
+  .primary {
+    .span(8);
+  }
+  .social {
+    .span(4);
+  }
 }

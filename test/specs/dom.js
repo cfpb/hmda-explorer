@@ -2,7 +2,7 @@ describe('DOM', function(){
     beforeEach(function(){
         $('body').append('<div id="js-injected">An injected DOM node</div>');
     });
-    
+
     afterEach(function(){
         $('#js-injected').remove();
     });

@@ -104,6 +104,7 @@ module.exports = function(grunt) {
     less: {
       main: {
         options: {
+          banner: '<%= banner.cfpb %>',
           paths: ['src']
         },
         files: {
@@ -218,7 +219,7 @@ module.exports = function(grunt) {
       test: {
         src: ['src/js/**/*.js', '!src/js/vendor/**/*'],
         options: {
-          specs: 'test/specs/*.js',
+          specs: ['test/specs/**/*.js', '!test/specs/helpers/*'],
           helpers: 'test/specs/helpers/*.js',
           host: 'http://127.0.0.1:8001/',
           template: require('grunt-template-jasmine-requirejs'),
