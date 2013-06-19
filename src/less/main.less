@@ -11,23 +11,28 @@
 
 // Override some grid variables
 
-@wrapper-width: 1200px;
+@wrapper-width: 960px;
 
 // General housekeeping
 
 body, html {
-  .wrapper();
+  margin: 0;
   font-family: "Avenir Next", Arial, sans-serif;
 }
 
 // PDP GO
 
-#main {
-  .row();
+header,
+.explorer,
+footer {
+  .wrapper();
+  
 }
 
 .hero {
+  min-height: 100px;
   text-align: center;
+  background: @gold url() scroll no-repeat top center;
 }
 
 // Footer at the bottom of the page

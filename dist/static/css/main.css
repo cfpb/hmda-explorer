@@ -377,31 +377,23 @@ textarea {
  */
 body,
 html {
-  max-width: 1200px;
+  margin: 0;
+  font-family: "Avenir Next", Arial, sans-serif;
+}
+header,
+.explorer,
+footer {
+  max-width: 960px;
   margin: 0 auto;
   padding: 0;
   position: relative;
-  padding: 0 1.25%;
+  padding: 0 1.5625%;
   padding: 0 calc(15px);
-  font-family: "Avenir Next", Arial, sans-serif;
-}
-#main {
-  margin: 0 auto;
-  width: 100%;
-  overflow: hidden;
-  clear: both;
-  *zoom: 1;
-}
-#main:before,
-#main:after {
-  content: " ";
-  display: table;
-}
-#main:after {
-  clear: both;
 }
 .hero {
+  min-height: 100px;
   text-align: center;
+  background: #ff9e1b url() scroll no-repeat top center;
 }
 footer {
   margin: 0 auto;
@@ -420,9 +412,9 @@ footer:after {
 }
 footer .primary {
   float: left;
-  width: 65.83333333333333%;
-  width: calc(68.33333333333333% - 30px);
-  margin: 0 0 0 2.5%;
+  width: 65.62499999999999%;
+  width: calc(68.74999999999999% - 30px);
+  margin: 0 0 0 3.125%;
   margin: 0 0 0 calc(30px);
 }
 footer .primary:first-child {
@@ -436,9 +428,9 @@ footer .primary:first-child {
 }
 footer .social {
   float: left;
-  width: 31.66666666666666%;
-  width: calc(34.166666666666664% - 30px);
-  margin: 0 0 0 2.5%;
+  width: 31.249999999999996%;
+  width: calc(34.37499999999999% - 30px);
+  margin: 0 0 0 3.125%;
   margin: 0 0 0 calc(30px);
 }
 footer .social:first-child {
