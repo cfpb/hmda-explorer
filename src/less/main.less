@@ -18,15 +18,16 @@
 body, html {
   margin: 0;
   font-family: "Avenir Next", Arial, sans-serif;
+  background: @white url(img/bg_grid.png) scroll repeat top left;
 }
 
-// PDP GO
+// There's no global wrapper because the hero needs to bleed.
+// The wrapper mixin is applied only to non-hero wrappers.
 
 header,
 .explorer,
 footer {
   .wrapper();
-  
 }
 
 .hero {
@@ -45,4 +46,17 @@ footer {
   .social {
     .span(4);
   }
+}
+
+// Viewport adjustments
+
+@media only screen and ( max-width: 767px ) {
+
+  footer {
+    .primary,
+    .social {
+      .span(12);
+    }
+  }
+
 }
