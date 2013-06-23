@@ -162,6 +162,7 @@ module.exports = function(grunt) {
         command: [
           'cp src/index.html dist/index.html',
           'cp -r src/fonts dist/static',
+          'cp -r src/img dist/static',
           'cp src/js/vendor/html5shiv/dist/html5shiv.js dist/static/js/html5shiv.js'
         ].join('&&')
       }

@@ -379,7 +379,7 @@ body,
 html {
   margin: 0;
   font-family: "Avenir Next", Arial, sans-serif;
-  background: #ffffff url(img/bg_grid.png) scroll repeat top left;
+  background: #ffffff url(../img/bg_grid.png) scroll repeat top left;
 }
 header,
 .explorer,
