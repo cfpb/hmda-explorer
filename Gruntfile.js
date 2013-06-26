@@ -163,7 +163,7 @@ module.exports = function(grunt) {
           'cp src/index.html dist/index.html',
           'cp -r src/fonts dist/static',
           'cp -r src/img dist/static',
-          'cp src/js/vendor/html5shiv/dist/html5shiv.js dist/static/js/html5shiv.js'
+          'cp src/js/vendor/html5shiv/dist/* dist/static/js/'
         ].join('&&')
       }
     },
@@ -288,7 +288,7 @@ module.exports = function(grunt) {
      */
     watch: {
       scripts: {
-        files: ['src/**/*', 'test/**/*'],
+        files: ['src/**/*.html', 'src/**/*.less', 'src/**/*.js', 'test/specs/*.js'],
         tasks: ['test', 'build']
       }
     }

@@ -12,9 +12,15 @@
     <link rel="stylesheet" href="static/css/main.css">
     <!--[if lt IE 9]>
       <script src="static/js/html5shiv.js"></script>
+      <script src="static/js/html5shiv-printshiv.js"></script>
     <![endif]-->
+    <script>
+      var docElement = document.documentElement;
+      docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2');
+    </script>
   </head>
   <body class="hmda homepage">
+
     <div id="main">
 
       <header role="banner">
@@ -39,6 +45,7 @@
       <div class="hero" role="main">
 
         <h1>Home Mortgage Disclosure Act</h1>
+
         <nav>
           <ul>
             <li><a href="#">HMDA</a></li>
@@ -51,23 +58,40 @@
       </div>
 
       <section class="video">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sagittis ligula non sem ultricies, vitae tempus enim dictum. Cras mattis, mauris eu pulvinar ultrices, diam metus venenatis urna, sit amet varius augue ante sed dolor. Vestibulum tempus mattis mattis.
       </section>
 
       <section class="map">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sagittis ligula non sem ultricies, vitae tempus enim dictum. Cras mattis, mauris eu pulvinar ultrices, diam metus venenatis urna, sit amet varius augue ante sed dolor. Vestibulum tempus mattis mattis.
       </section>
 
       <section class="charts">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sagittis ligula non sem ultricies, vitae tempus enim dictum. Cras mattis, mauris eu pulvinar ultrices, diam metus venenatis urna, sit amet varius augue ante sed dolor. Vestibulum tempus mattis mattis.
+        
+        <h2>Change in number of applications & loans by county, 2010 - 2012</h2>
+
+        <img src="static/img/ph_charts.jpg" alt="Just a dummy chart" style="margin:0 auto">
+
+        <a href="#" class="continue">See more in trends</a>
+
       </section>
 
       <section class="browse">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sagittis ligula non sem ultricies, vitae tempus enim dictum. Cras mattis, mauris eu pulvinar ultrices, diam metus venenatis urna, sit amet varius augue ante sed dolor. Vestibulum tempus mattis mattis.
+
+        <h2>Browse the HMDA Records Data Set</h2>
+
+        <div class="explore">
+
+          The data mortgage lenders report can give us some insight into lending patterns across the country. Dive deeper into learning about the mortgage market. Filter, sort, and aggregate HMDA records, and create your own visualizations.
+
+          <a href="#" class="continue">Explore the Data</a>
+
+        </div>
+
+        <hr>
+
       </section>
 
       <section class="download">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sagittis ligula non sem ultricies, vitae tempus enim dictum. Cras mattis, mauris eu pulvinar ultrices, diam metus venenatis urna, sit amet varius augue ante sed dolor. Vestibulum tempus mattis mattis.
+
       </section>
 
       <footer>
@@ -90,6 +114,7 @@
       </footer>
 
     </div>
+
     <script data-main="scripts/main" src="scripts/vendor/requirejs/require.js"></script>
   </body>
 </html>

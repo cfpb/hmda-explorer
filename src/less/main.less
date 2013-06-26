@@ -3,6 +3,7 @@
    Master LESS File
    ========================================================================== */
 
+@import (less) "js/vendor/normalize-css/normalize.css";
 @import "js/vendor/ghost/dist/ghost.less";
 @import "less/color.less";
 @import "less/fonts.less";
@@ -17,8 +18,26 @@
 
 body, html {
   margin: 0;
-  font-family: "Avenir Next", Arial, sans-serif;
-  background: @white url(../img/bg_grid.png) scroll repeat top left;
+  font-family: @body-font;
+  background: @white;
+}
+
+nav ul {
+  padding-left: 0;
+}
+
+nav li {
+  list-style-type: none;
+  display: inline-block;
+}
+
+// Links
+
+.hmda .continue {
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  .avenir-next-bold;
 }
 
 // There's no global wrapper because the hero needs to bleed.
@@ -31,9 +50,71 @@ footer {
 }
 
 .hero {
-  min-height: 100px;
+
+  min-height: 300px;
+  padding-top: 38px;
   text-align: center;
-  background: @gold url() scroll no-repeat top center;
+  background: #fbbc6b url(../img/bg_hero-angled.png) scroll no-repeat center center;
+  background-size: cover;
+
+  h1 {
+    background: transparent url(../img/hr_the-data.png) scroll no-repeat top center;
+    padding-top: 77px;
+  }
+
+  nav {
+    background: transparent url(../img/hr_the-data-lower.png) scroll no-repeat top center;
+  }
+
+}
+
+.video {
+  
+}
+
+.map {
+  
+}
+
+.charts {
+
+  .row();
+  text-align: center;
+  
+}
+
+// Browse section with grid background and chart divider
+
+.browse {
+
+  .row();
+  background: @white url(../img/bg_grid.png) scroll repeat left top;
+  text-align: center;
+
+  h2 {
+    padding-top: 200px;
+    background: transparent url(../img/hr_line-graph.png) scroll repeat-x left top;
+  }
+
+  .explore {
+    max-width: 770px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid @light_field;
+    text-align: left;
+  }
+
+  hr {
+    padding-bottom: 200px;
+    clear: both;
+    border: 0;
+    background: transparent url(../img/hr_line-graph-rev.png) scroll repeat-x left top;
+  }
+
+}
+
+.download {
+  background: @white
 }
 
 // Footer at the bottom of the page
@@ -41,10 +122,10 @@ footer {
 footer {
   .row();
   .primary {
-    .span(8);
+    .column(8);
   }
   .social {
-    .span(4);
+    .column(4);
   }
 }
 
@@ -55,7 +136,7 @@ footer {
   footer {
     .primary,
     .social {
-      .span(12);
+      .column(12);
     }
   }
 
