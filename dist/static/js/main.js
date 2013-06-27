@@ -14704,16 +14704,48 @@ define('models/app',[
   return AppModel;
 
 });
+define('views/fields',[
+    'jquery',
+    'backbone',
+    'underscore'
+  ], function( $, Backbone, _ ) {
+
+  var FieldsView = Backbone.View.extend({
+
+    tagName: 'div',
+
+    className: 'fields',
+
+    //template: _.template( someTemplate ),
+
+    events: {
+
+
+    },
+
+    render: function() {
+
+      this.$el.html( this.template( this.model.toJSON() ) );
+      return this;
+
+    }
+
+  });
+
+  return FieldsView;
+
+});
 define('views/app',[
     'jquery',
     'backbone',
     'underscore',
-    'models/app'
-  ], function( $, Backbone, _, App ) {
+    'models/app',
+    'views/fields'
+  ], function( $, Backbone, _, App, fieldsView ) {
 
   var AppView = Backbone.View.extend({
 
-    el: '',
+    el: '#filter',
 
     model: new App(),
 
@@ -14726,6 +14758,8 @@ define('views/app',[
     },
 
     render: function() {
+
+      this.$el.html( fieldsView.render().el );
 
     }
 

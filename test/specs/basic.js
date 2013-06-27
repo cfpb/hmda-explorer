@@ -6,21 +6,15 @@ define([
   describe('Basic functionality', function(){
 
     it('should pass a single assertion without causing an error', function(){
-
         expect(true).toBeTruthy();
-
     });
 
     it('should let me test our AMD modules', function(){
-
         expect($).toBeDefined();
-
     });
 
     it('should play nicely with Backbone', function(){
-
       expect(Backbone).toBeDefined();
-
     });
 
   });
@@ -36,9 +30,7 @@ define([
     });
 
     it('should insert some fixture data into the SpecRunner', function(){
-
         expect(document.getElementById('js-injected').innerHTML).toBe('An injected DOM node');
-
     });
 
   });
@@ -46,9 +38,7 @@ define([
   describe('More DOM', function(){
 
     it('should remove our fixture data after tearDown', function(){
-
         expect(document.getElementById('js-injected')).toBeNull();
-
     });
 
   });

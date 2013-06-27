@@ -1,14 +1,14 @@
 define([
   'backbone',
-  'models/widget'
-  ], function( Backbone, Widget ) {
+  'models/field'
+  ], function( Backbone, Field ) {
 
-  describe('Widget model', function(){
+  describe('Field model', function(){
 
     it('should have a default type', function(){
 
-      var widget = new Widget();
-      expect(widget.get('type')).toBe('select');
+      var field = new Field();
+      expect(field.get('type')).toBe('select');
 
     });
 

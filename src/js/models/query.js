@@ -3,7 +3,7 @@ define([
     'backbone'
   ], function( _, Backbone ) {
 
-  var WidgetModel = Backbone.Model.extend({
+  var QueryModel = Backbone.Model.extend({
 
     defaults: {
 
@@ -16,6 +16,6 @@ define([
 
   });
 
-  return WidgetModel;
+  return QueryModel;
 
 });

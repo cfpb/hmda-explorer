@@ -133,7 +133,6 @@ module.exports = function(grunt) {
         quotmark: true,
         sub: true,
         undef: true,
-        unused: true,
         boss: true,
         eqnull: true,
         browser: true,
@@ -160,7 +159,7 @@ module.exports = function(grunt) {
     shell: {
       packageExample: {
         command: [
-          'cp src/index.html dist/index.html',
+          'cp src/*.html dist/',
           'cp -r src/fonts dist/static',
           'cp -r src/img dist/static',
           'cp src/js/vendor/html5shiv/dist/* dist/static/js/'

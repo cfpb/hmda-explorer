@@ -2,12 +2,13 @@ define([
     'jquery',
     'backbone',
     'underscore',
-    'models/app'
-  ], function( $, Backbone, _, App ) {
+    'models/app',
+    'views/fields'
+  ], function( $, Backbone, _, App, fieldsView ) {
 
   var AppView = Backbone.View.extend({
 
-    el: '',
+    el: '#filter',
 
     model: new App(),
 
@@ -20,6 +21,8 @@ define([
     },
 
     render: function() {
+
+      this.$el.html( fieldsView.render().el );
 
     }
 
