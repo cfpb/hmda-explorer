@@ -1,8 +1,9 @@
 define([
     'jquery',
     'backbone',
-    'underscore'
-  ], function( $, Backbone, _ ) {
+    'underscore',
+    'views/field'
+  ], function( $, Backbone, _, FieldView ) {
 
   var FieldsView = Backbone.View.extend({
 
@@ -10,16 +11,33 @@ define([
 
     className: 'fields',
 
-    //template: _.template( someTemplate ),
+    initialize: function() {
+
+      this.fragment = document.createDocumentFragment();
+      this.isRendered = false;
+
+      //this.listenTo( this.collection, 'add', this.addField );
+
+    },
 
     events: {
 
 
     },
 
+    addField: function ( field ) {
+
+      var fieldView = new FieldView({ model: field });
+
+      this.$el.append( fieldView.render().el );
+
+      return this;
+
+    },
+
     render: function() {
 
-      this.$el.html( this.template( this.model.toJSON() ) );
+      this.collection.each( this.addField, this );
       return this;
 
     }

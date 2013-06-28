@@ -134,6 +134,7 @@ module.exports = function(grunt) {
         sub: true,
         undef: true,
         boss: true,
+        evil: true,
         eqnull: true,
         browser: true,
         globals: {
@@ -143,7 +144,8 @@ module.exports = function(grunt) {
           _: true,
           module: true,
           require: true,
-          define: true
+          define: true,
+          console: true
         }
       },
       files: ['Gruntfile.js', 'src/js/**/*.js', '!src/js/vendor/**/*']
@@ -160,6 +162,7 @@ module.exports = function(grunt) {
       packageExample: {
         command: [
           'cp src/*.html dist/',
+          'cp src/*.json dist/',
           'cp -r src/fonts dist/static',
           'cp -r src/img dist/static',
           'cp src/js/vendor/html5shiv/dist/* dist/static/js/'

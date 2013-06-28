@@ -12,15 +12,19 @@ define([
       type: 'select',
       options: [
         {
-          label: 'one'
+          label: 'One',
+          slug: 'one'
         },
         {
-          label: 'two'
+          label: 'Two',
+          slug: 'two'
         },
         {
-          label: 'three'
+          label: 'Three',
+          slug: 'three'
         }
       ],
+      requires: [],
       visible: true,
       popular: false,
       created: new Date()

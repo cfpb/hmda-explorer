@@ -17,14 +17,21 @@ define([
 
     template: function( type, json ) {
 
-      var template = _.template( type + 'Template' );
+      var tmpl = _.template( selectTemplate );
 
-      return template( json );
+      return tmpl( json );
 
     },
 
     events: {
 
+      'change': 'alertChange'
+
+    },
+
+    alertChange: function( ev ) {
+
+      console.log( $(ev.target).val() );
 
     },
 

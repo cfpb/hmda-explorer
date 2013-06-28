@@ -1,5 +1,6 @@
-<select name="select">
+<label for="<%= slug %>"><%= label %></label>
+<select name="<%= slug %>" id="<%= slug %>">
   <% _.each( options, function( option, i ) { %>
-    <option value="option"><%= option.label %></option>
+    <option value="<%= option.slug %>"><%= option.label %></option>
   <% }); %>
 </select>
