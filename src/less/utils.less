@@ -139,24 +139,3 @@ textarea {
   /* Good browsers */
   opacity: 0.1;
 }
-
-/**
- *  Mixin to justify a horizontal list, useful for navs
- **/
-
-.horiz() {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-  text-align: justify;
-
-  &:after {
-      content: "";
-      width: 100%;
-      display: inline-block;
-  }
-
-  li {
-      display: inline;
-  }
-}

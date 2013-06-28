@@ -1,34 +1,3 @@
-// Big orange hero on the HMDA homepage
-
-.hero {
-  
-  &> .inner {
-    .wrapper();
-  }
-  
-  min-height: 300px;
-  padding-top: 38px;
-  text-align: center;
-  background: #fbbc6b url(../img/bg_hero-angled.png) scroll no-repeat center center;
-  background-size: cover;
-
-  h1 {
-    .avenir-next-demi;
-    font-size: 49.5px;
-    line-height: 1.3em;
-    background: transparent url(../img/hr_the-data.png) scroll no-repeat top center;
-    padding: 67px 0 10px;
-  }
-
-  nav {
-    background: transparent url(../img/hr_the-data-lower.png) scroll no-repeat top center;
-    ul {
-      .horiz();
-    }
-  }
-
-}
-
 .video {
   
 }
@@ -54,14 +23,12 @@
 
   h2 {
     padding-top: 200px;
-    background: transparent url(../img/hr_line-graph.png) scroll repeat-x left top;
+    background: transparent url(../img/hr_line-graph.png) scroll repeat-x center top;
   }
 
   .explore {
-    //max-width: 770px;
-    //margin: 0 auto;
-    .column( 10 );
-    .push( 1 );
+    max-width: 770px;
+    margin: 0 auto;
     padding: 20px;
     border: 2px solid @light_field;
     text-align: left;
@@ -71,11 +38,19 @@
     padding-bottom: 200px;
     clear: both;
     border: 0;
-    background: transparent url(../img/hr_line-graph-rev.png) scroll repeat-x left top;
+    background: transparent url(../img/hr_line-graph-rev.png) scroll repeat-x center top;
   }
 
 }
 
 .download {
   background: @white
+}
+
+// Viewport adjustments
+
+@media only screen and ( min-width: 768px ) {
+
+  
+
 }
