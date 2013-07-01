@@ -10,23 +10,12 @@ define([
       label: '',
       slug: '',
       type: 'select',
-      options: [
-        {
-          label: 'One',
-          slug: 'one'
-        },
-        {
-          label: 'Two',
-          slug: 'two'
-        },
-        {
-          label: 'Three',
-          slug: 'three'
-        }
-      ],
-      requires: [],
+      options: [],
+      requires: '',
+      help: '',
+      section: '',
       visible: true,
-      popular: false,
+      disabled: false,
       created: new Date()
 
     }

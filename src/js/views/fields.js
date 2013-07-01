@@ -2,14 +2,17 @@ define([
     'jquery',
     'backbone',
     'underscore',
-    'views/field'
-  ], function( $, Backbone, _, FieldView ) {
+    'views/field',
+    'text!templates/fields.html'
+  ], function( $, Backbone, _, FieldView, fieldsTemplate ) {
 
   var FieldsView = Backbone.View.extend({
 
     tagName: 'div',
 
-    className: 'fields',
+    fields: {},
+
+    template: _.template( fieldsTemplate ),
 
     initialize: function() {
 
@@ -17,11 +20,31 @@ define([
       this.isRendered = false;
 
       //this.listenTo( this.collection, 'add', this.addField );
+      this.collection.each( this.addField, this );
 
     },
 
     events: {
 
+      'change select': 'alertChange'
+
+    },
+
+    alertChange: function( ev ) {
+
+      var slug = $(ev.target).attr('name');
+
+      if ( $(ev.target).val() ) {
+
+        $('li[data-requires="' + slug + '"]').removeClass('hidden');
+
+      } else {
+
+        $('li[data-requires="' + slug + '"]').addClass('hidden');
+
+      }
+
+      console.log(  );
 
     },
 
@@ -29,7 +52,7 @@ define([
 
       var fieldView = new FieldView({ model: field });
 
-      this.$el.append( fieldView.render().el );
+      this.fields[ field.get('slug') ] = fieldView.render();
 
       return this;
 
@@ -37,7 +60,8 @@ define([
 
     render: function() {
 
-      this.collection.each( this.addField, this );
+      this.$el.html( this.template( this.fields ) );
+
       return this;
 
     }

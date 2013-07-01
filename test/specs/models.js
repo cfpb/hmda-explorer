@@ -8,7 +8,14 @@ define([
     it('should have a default type', function(){
 
       var field = new Field();
-      expect(field.get('type')).toBe('select');
+      expect( field.get('type') ).toBe('select');
+
+    });
+
+    it('should accept overrided properties', function(){
+
+      var field = new Field({type: 'checkbox'});
+      expect( field.get('type') ).toBe('checkbox');
 
     });
 

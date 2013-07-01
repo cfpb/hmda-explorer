@@ -1,0 +1,70 @@
+// Wrapper on explore page
+
+#filters {
+  .wrapper();
+}
+
+// Each block of fields is a .filter (Location, Lender, Borrower, etc.)
+
+.filter {
+
+  .row();
+  // The fields are displayed in an unordered list
+
+  ul {
+    padding: 0;
+  }
+
+  li {
+    list-style-type: none;
+    .row();
+    margin-bottom: 1em;
+  }
+
+  label {
+    .column( 5 );
+    text-align: right;
+  }
+
+  .widget {
+    .column( 7 );
+  }
+
+  select {
+    width: 100%;
+  }
+
+  .help {
+    display: none;
+  }
+
+}
+
+// Viewport adjustments
+
+@media only screen and ( min-width: 768px ) {
+
+  .filter {
+    
+    h3,
+    ul {
+      .column( 10 );
+      .push( 1 );
+    }
+
+    label {
+      .column( 2, 10 );
+      text-align: right;
+    }
+
+    .widget {
+      .column( 2, 10 );
+    }
+
+    .help {
+      .column( 6, 10 );
+      display: block;
+    }
+  }
+
+}

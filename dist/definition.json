@@ -1,16 +1,16 @@
 {
   "info": {
-    "name": "2011 State Populations",
-    "description": "State population by age, sex, race, and Hispanic origin.",
-    "url": "http://www.census.gov/popest/data/datasets.html"
+    "name": "Explore HMDA Data",
+    "description": "Fields used to filter HMDA data prior to visualizing or downloading.",
+    "url": "http://data.consumerfinance.gov/hmda"
   },
   "fields": [
     {
       "label": "State",
-      "slug": "state",
+      "slug": "state_abbr",
       "type": "select",
       "options": ["CA","OR","WA"],
-      "requires": [],
+      "requires": "",
       "help": "Select one or more states you would like to see mortgage data from.",
       "section": "location",
       "visible": true,
@@ -21,10 +21,10 @@
       "slug": "county",
       "type": "select",
       "options": ["Springfield","Multnomah","Clackamas","Willamette"],
-      "requires": ["state"],
+      "requires": "state_abbr",
       "help": "Select one or more counties within the state(s) you would like to see mortgage data from.",
       "section": "location",
-      "visible": true,
+      "visible": false,
       "disabled": false
     },
     {
@@ -32,10 +32,10 @@
       "slug": "msa_md",
       "type": "select",
       "options": ["53472","62344","83456"],
-      "requires": ["state"],
-      "help": "MSA/MDs are really neat things.",
+      "requires": "state_abbr",
+      "help": "Metropolitan statistical area",
       "section": "location",
-      "visible": true,
+      "visible": false,
       "disabled": false
     },
     {
@@ -43,10 +43,10 @@
       "slug": "census_tract",
       "type": "select",
       "options": ["8493","3875","2553"],
-      "requires": ["state"],
+      "requires": "state_abbr",
       "help": "Census tracts are super useful. They're how people vote and stuff.",
       "section": "location",
-      "visible": true,
+      "visible": false,
       "disabled": false
     },
     {
@@ -54,7 +54,7 @@
       "slug": "respondent_id",
       "type": "select",
       "options": ["some thing","other thing","other option"],
-      "requires": [],
+      "requires": "",
       "help": "The respondent ID is the ID of the respondent. Duh.",
       "section": "lender",
       "visible": true,
@@ -65,7 +65,7 @@
       "slug": "agency_code",
       "type": "select",
       "options": ["98374545","364982833","98298368"],
-      "requires": [],
+      "requires": "",
       "help": "You can find an Agency's code by looking in the phone book.",
       "section": "lender",
       "visible": true,
@@ -76,7 +76,7 @@
       "slug": "property_type",
       "type": "select",
       "options": ["Single family","Duplex","Castle"],
-      "requires": [],
+      "requires": "",
       "help": "Houses comes in all different shapes and sizes.",
       "section": "property",
       "visible": true,
@@ -87,7 +87,7 @@
       "slug": "occupancy",
       "type": "select",
       "options": ["Single","Double","Triple","Ultra"],
-      "requires": [],
+      "requires": "",
       "help": "The occupancy is how much stuff is being horded in the home.",
       "section": "property",
       "visible": true,

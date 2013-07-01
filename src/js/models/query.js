@@ -1,16 +1,25 @@
 define([
-    'underscore',
+    'config',
     'backbone'
-  ], function( _, Backbone ) {
+  ], function( config, Backbone ) {
 
   var QueryModel = Backbone.Model.extend({
 
-    defaults: {
+    // Manually override these values in config.js
+    defaults: function() {
 
-      label: '',
-      type: 'select',
-      visibile: true,
-      modified: new Date()
+      return {
+        endpoint: config.endpoint || this.getEndpoint()
+      };
+
+    },
+
+    getEndpoint: function() {
+
+      // You could do some magic here
+      var endpoint = 'http://qu.demo.cfpb.gov/';
+
+      return endpoint;
 
     }
 

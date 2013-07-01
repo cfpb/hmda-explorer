@@ -14716,23 +14716,12 @@ define('models/field',[
       label: '',
       slug: '',
       type: 'select',
-      options: [
-        {
-          label: 'One',
-          slug: 'one'
-        },
-        {
-          label: 'Two',
-          slug: 'two'
-        },
-        {
-          label: 'Three',
-          slug: 'three'
-        }
-      ],
-      requires: [],
+      options: [],
+      requires: '',
+      help: '',
+      section: '',
       visible: true,
-      popular: false,
+      disabled: false,
       created: new Date()
 
     }
@@ -14743,30 +14732,38 @@ define('models/field',[
 
 });
 define('collections/fields',[
-    'jquery',
     'backbone',
     'underscore',
     'models/field'
-  ], function( $, Backbone, _, Field ) {
+  ], function( Backbone, _, Field ) {
 
   var FieldCollection = Backbone.Collection.extend({
 
     model: Field,
 
-    // Parses JSON, returning an array of artifacts
+    // Parses JSON, returning an array of fields
     parse: function( json ) {
 
-      console.log('parsing json');
+      // Pull out the fields array
+      var fields = json.fields;
 
-      var fields = _.map( json, function( item ){
+      // Process the array and create models
+      fields = _.map( fields, function( item ){
 
-        // Build an artifact from each JSON record
+        // Build a field from each JSON record
         var field = {
-          label: 'Test label',
-          slug: Math.floor((Math.random() * ((9999999999 + 1) - 1111111111)) + 1111111111)
+          label: item.label,
+          slug: item.slug,
+          type: item.type,
+          options: item.options,
+          requires: item.requires,
+          help: item.help,
+          section: item.section,
+          visible: item.visible,
+          disabled: item.disabled
         };
 
-        // Return the artifact we've built
+        // Return the field we've built
         return field;
 
       }, this);
@@ -15154,13 +15151,13 @@ define('text',['module'], function (module) {
     return text;
 });
 
-define('text!templates/select.html',[],function () { return '<label for="<%= slug %>"><%= label %></label>\n<select name="<%= slug %>" id="<%= slug %>">\n  <% _.each( options, function( option, i ) { %>\n    <option value="<%= option.slug %>"><%= option.label %></option>\n  <% }); %>\n</select>';});
+define('text!templates/select.html',[],function () { return '<li data-requires="<%= requires %>" class="<% if ( !visible ) { %>hidden<% } %>">\n  <label for="<%= slug %>"><%= label %>:</label>\n  <div class="widget">\n    <select name="<%= slug %>" id="<%= slug %>" multiple data-placeholder="Select an option...">\n      <option value="">Select one...</option>\n      <% _.each( options, function( option, i ) { %>\n        <option value="<%= option %>"><%= option %></option>\n      <% }); %>\n    </select>\n  </div>\n  <div class="help"><%= help %></div>\n</li>';});
 
 define('text!templates/chosen.html',[],function () { return '<% _.each( options, function( option, i ) { %>\n  <label><input type="checkbox" name="<%= slug %>[]" value="<%= option.label %>" /><%= option.label %></label>\n<% }); %>';});
 
-define('text!templates/checkbox.html',[],function () { return '<% _.each( options, function( option, i ) { %>\n  <label><input type="checkbox" name="<%= slug %>[]" value="<%= option.label %>" /><%= option.label %></label>\n<% }); %>';});
+define('text!templates/checkbox.html',[],function () { return '<div class="checkbox">\n  <% _.each( options, function( option, i ) { %>\n    <label><input type="checkbox" name="<%= slug %>[]" value="<%= option %>" /><%= option %></label>\n  <% }); %>\n</div>';});
 
-define('text!templates/radio.html',[],function () { return '<% _.each( options, function( option, i ) { %>\n  <input type="radio" name="<%= slug %>" value="<%= option.label %>"><%= option.label %>\n<% }); %>';});
+define('text!templates/radio.html',[],function () { return '<div class="radio">\n  <% _.each( options, function( option, i ) { %>\n    <label><input type="radio" name="<%= slug %>" value="<%= option %>"><%= option %></label>\n  <% }); %>\n</div>';});
 
 define('text!templates/text.html',[],function () { return '<input type="text" name="<%= slug %>" value="" placeholder="Enter something...">';});
 
@@ -15183,28 +15180,20 @@ define('views/field',[
 
     template: function( type, json ) {
 
-      var tmpl = _.template( selectTemplate );
+      var temp;
+
+      // You want to fight about it?
+      eval('temp = ' + type + 'Template');
+
+      var tmpl = _.template( temp );
 
       return tmpl( json );
 
     },
 
-    events: {
-
-      'change': 'alertChange'
-
-    },
-
-    alertChange: function( ev ) {
-
-      console.log( $(ev.target).val() );
-
-    },
-
     render: function() {
 
-      this.$el.html( this.template( this.model.get('type'), this.model.toJSON() ) );
-      return this;
+      return this.template( this.model.get('type'), this.model.toJSON() );
 
     }
 
@@ -15213,18 +15202,23 @@ define('views/field',[
   return FieldView;
 
 });
+define('text!templates/fields.html',[],function () { return '<div class="filter location">\n\n  <h3>Location</h3>\n  <ul>\n    <%= state_abbr %>\n    <%= county %>\n    <%= msa_md %>\n    <%= census_tract %>\n  </ul>\n  \n</div>\n\n<div class="filter lender">\n\n  <h3>Lender</h3>\n  <ul>\n    <%= respondent_id %>\n    <%= agency_code %>\n  </ul>\n  \n</div>\n\n<div class="filter property">\n\n  <h3>Property</h3>\n  <ul>\n    <%= property_type %>\n    <%= occupancy %>\n  </ul>\n  \n</div>\n\n<div class="filter borrower">\n  \n</div>\n\n<div class="filter description">\n  \n</div>\n\n<div class="filter action">\n  \n</div>';});
+
 define('views/fields',[
     'jquery',
     'backbone',
     'underscore',
-    'views/field'
-  ], function( $, Backbone, _, FieldView ) {
+    'views/field',
+    'text!templates/fields.html'
+  ], function( $, Backbone, _, FieldView, fieldsTemplate ) {
 
   var FieldsView = Backbone.View.extend({
 
     tagName: 'div',
 
-    className: 'fields',
+    fields: {},
+
+    template: _.template( fieldsTemplate ),
 
     initialize: function() {
 
@@ -15232,11 +15226,31 @@ define('views/fields',[
       this.isRendered = false;
 
       //this.listenTo( this.collection, 'add', this.addField );
+      this.collection.each( this.addField, this );
 
     },
 
     events: {
 
+      'change select': 'alertChange'
+
+    },
+
+    alertChange: function( ev ) {
+
+      var slug = $(ev.target).attr('name');
+
+      if ( $(ev.target).val() ) {
+
+        $('li[data-requires="' + slug + '"]').removeClass('hidden');
+
+      } else {
+
+        $('li[data-requires="' + slug + '"]').addClass('hidden');
+
+      }
+
+      console.log(  );
 
     },
 
@@ -15244,7 +15258,7 @@ define('views/fields',[
 
       var fieldView = new FieldView({ model: field });
 
-      this.$el.append( fieldView.render().el );
+      this.fields[ field.get('slug') ] = fieldView.render();
 
       return this;
 
@@ -15252,7 +15266,8 @@ define('views/fields',[
 
     render: function() {
 
-      this.collection.each( this.addField, this );
+      this.$el.html( this.template( this.fields ) );
+
       return this;
 
     }
@@ -15273,7 +15288,7 @@ define('views/app',[
 
   var AppView = Backbone.View.extend({
 
-    el: '#filter',
+    el: '#filters',
 
     model: new App(),
 
@@ -15285,7 +15300,7 @@ define('views/app',[
       _.bindAll( this, 'render' );
 
       // Instantiate a Fields collection
-      this.fields = new Fields([], { url: '/data.json' });
+      this.fields = new Fields([], { url: '/definition.json' });
 
       this.fields.on( 'sync', this.render );
 
@@ -15299,8 +15314,6 @@ define('views/app',[
     },
 
     render: function() {
-
-      console.log('rendered app view');
 
       var fieldsView = new FieldsView({ collection: this.fields });
 

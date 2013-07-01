@@ -1,3 +1,5 @@
-<% _.each( options, function( option, i ) { %>
-  <input type="radio" name="<%= slug %>" value="<%= option.label %>"><%= option.label %>
-<% }); %>
+<div class="radio">
+  <% _.each( options, function( option, i ) { %>
+    <label><input type="radio" name="<%= slug %>" value="<%= option %>"><%= option %></label>
+  <% }); %>
+</div>

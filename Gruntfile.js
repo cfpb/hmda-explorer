@@ -200,10 +200,10 @@ module.exports = function(grunt) {
             underscore: 'vendor/underscore-amd/underscore',
             backbone: 'vendor/backbone-amd/backbone',
             text: 'vendor/requirejs-text/text',
-            layoutmanager: 'vendor/layoutmanager/backbone.layoutmanager'
+            chosen: 'vendor/chosen/public/chosen.jquery'
           },
           shim: {
-            layoutmanager: ['backbone']
+            chosen: ['jquery']
           },
           include: ['requireLib'],
           optimize: 'none',
@@ -235,10 +235,10 @@ module.exports = function(grunt) {
                 underscore: 'vendor/underscore-amd/underscore',
                 backbone: 'vendor/backbone-amd/backbone',
                 text: 'vendor/requirejs-text/text',
-                layoutmanager: 'vendor/layoutmanager/backbone.layoutmanager'
+                chosen: 'vendor/chosen/public/chosen.jquery'
               },
               shim: {
-                layoutmanager: ['backbone']
+                chosen: ['jquery']
               }
             }
           }

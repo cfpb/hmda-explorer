@@ -17,28 +17,20 @@ define([
 
     template: function( type, json ) {
 
-      var tmpl = _.template( selectTemplate );
+      var temp;
+
+      // You want to fight about it?
+      eval('temp = ' + type + 'Template');
+
+      var tmpl = _.template( temp );
 
       return tmpl( json );
 
     },
 
-    events: {
-
-      'change': 'alertChange'
-
-    },
-
-    alertChange: function( ev ) {
-
-      console.log( $(ev.target).val() );
-
-    },
-
     render: function() {
 
-      this.$el.html( this.template( this.model.get('type'), this.model.toJSON() ) );
-      return this;
+      return this.template( this.model.get('type'), this.model.toJSON() );
 
     }
 

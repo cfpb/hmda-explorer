@@ -9,7 +9,7 @@ define([
 
   var AppView = Backbone.View.extend({
 
-    el: '#filter',
+    el: '#filters',
 
     model: new App(),
 
@@ -21,7 +21,7 @@ define([
       _.bindAll( this, 'render' );
 
       // Instantiate a Fields collection
-      this.fields = new Fields([], { url: '/data.json' });
+      this.fields = new Fields([], { url: '/definition.json' });
 
       this.fields.on( 'sync', this.render );
 
@@ -35,8 +35,6 @@ define([
     },
 
     render: function() {
-
-      console.log('rendered app view');
 
       var fieldsView = new FieldsView({ collection: this.fields });
 

@@ -1,28 +1,36 @@
 define([
-    'jquery',
     'backbone',
     'underscore',
     'models/field'
-  ], function( $, Backbone, _, Field ) {
+  ], function( Backbone, _, Field ) {
 
   var FieldCollection = Backbone.Collection.extend({
 
     model: Field,
 
-    // Parses JSON, returning an array of artifacts
+    // Parses JSON, returning an array of fields
     parse: function( json ) {
 
-      console.log('parsing json');
+      // Pull out the fields array
+      var fields = json.fields;
 
-      var fields = _.map( json, function( item ){
+      // Process the array and create models
+      fields = _.map( fields, function( item ){
 
-        // Build an artifact from each JSON record
+        // Build a field from each JSON record
         var field = {
-          label: 'Test label',
-          slug: Math.floor((Math.random() * ((9999999999 + 1) - 1111111111)) + 1111111111)
+          label: item.label,
+          slug: item.slug,
+          type: item.type,
+          options: item.options,
+          requires: item.requires,
+          help: item.help,
+          section: item.section,
+          visible: item.visible,
+          disabled: item.disabled
         };
 
-        // Return the artifact we've built
+        // Return the field we've built
         return field;
 
       }, this);
