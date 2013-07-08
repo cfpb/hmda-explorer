@@ -1,7 +1,7 @@
 <li data-requires="<%= requires %>" class="<% if ( !visible ) { %>hidden<% } %>">
   <label for="<%= slug %>"><%= label %>:</label>
   <div class="widget">
-    <select name="<%= slug %>" id="<%= slug %>" multiple data-placeholder="Select an option...">
+    <select name="<%= slug %>" id="<%= slug %>" class="chzn" multiple data-placeholder="Select an option...">
       <option value="">Select one...</option>
       <% _.each( options, function( option, i ) { %>
         <option value="<%= option %>"><%= option %></option>

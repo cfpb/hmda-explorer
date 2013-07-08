@@ -15151,7 +15151,7 @@ define('text',['module'], function (module) {
     return text;
 });
 
-define('text!templates/select.html',[],function () { return '<li data-requires="<%= requires %>" class="<% if ( !visible ) { %>hidden<% } %>">\n  <label for="<%= slug %>"><%= label %>:</label>\n  <div class="widget">\n    <select name="<%= slug %>" id="<%= slug %>" multiple data-placeholder="Select an option...">\n      <option value="">Select one...</option>\n      <% _.each( options, function( option, i ) { %>\n        <option value="<%= option %>"><%= option %></option>\n      <% }); %>\n    </select>\n  </div>\n  <div class="help"><%= help %></div>\n</li>';});
+define('text!templates/select.html',[],function () { return '<li data-requires="<%= requires %>" class="item<% if ( !visible ) { %> hidden<% } %>">\n  <label for="<%= slug %>"><%= label %>:</label>\n  <div class="widget">\n    <select name="<%= slug %>" id="<%= slug %>" class="chzn" multiple data-placeholder="Select an option...">\n      <option value="">Select one...</option>\n      <% _.each( options, function( option, i ) { %>\n        <option value="<%= option %>"><%= option %></option>\n      <% }); %>\n    </select>\n  </div>\n  <div class="help"><%= help %></div>\n</li>';});
 
 define('text!templates/chosen.html',[],function () { return '<% _.each( options, function( option, i ) { %>\n  <label><input type="checkbox" name="<%= slug %>[]" value="<%= option.label %>" /><%= option.label %></label>\n<% }); %>';});
 

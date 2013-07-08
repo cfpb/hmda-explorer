@@ -839,22 +839,6 @@ table {
   }
 }
 /* @end */
-/*                                      
-            /$$$$$$          /$$        
-           /$$__  $$        | $$        
-  /$$$$$$$| $$  \__//$$$$$$ | $$$$$$$  
- /$$_____/| $$$$   /$$__  $$| $$__  $$  
-| $$      | $$_/  | $$  \ $$| $$  \ $$
-| $$      | $$    | $$  | $$| $$  | $$  
-|  $$$$$$$| $$    | $$$$$$$/| $$$$$$$/  
- \_______/|__/    | $$____/ |_______/  
-                  | $$                  
-                  | $$                  
-                  |__/                  
-
-* Ghost - v0.2.0 - 2013-06-24
-* http://consumerfinance.gov
-* A Public Domain work of the Consumer Financial Protection Bureau */
 /* ==========================================================================
    CFPB Boilerplate
    Color Variables
@@ -1401,7 +1385,7 @@ textarea {
 .filter ul {
   padding: 0;
 }
-.filter li {
+.filter li.item {
   list-style-type: none;
   margin: 0 auto;
   width: 100%;
@@ -1410,111 +1394,36 @@ textarea {
   *zoom: 1;
   margin-bottom: 1em;
 }
-.filter li:before,
-.filter li:after {
+.filter li.item:before,
+.filter li.item:after {
   content: " ";
   display: table;
 }
-.filter li:after {
+.filter li.item:after {
   clear: both;
 }
 .filter label {
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   float: left;
-  width: 39.84375000000001%;
-  width: calc(42.96875000000001% - 30px);
-  margin: 0 0 0 3.125%;
-  margin: 0 0 0 calc(30px);
+  width: 41.66666666666667%;
+  padding: 0 15px;
   text-align: right;
 }
-.filter label:first-child {
-  margin-left: 0;
-}
 .filter .widget {
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   float: left;
-  width: 57.03125%;
-  width: calc(60.15625% - 30px);
-  margin: 0 0 0 3.125%;
-  margin: 0 0 0 calc(30px);
-}
-.filter .widget:first-child {
-  margin-left: 0;
+  width: 58.333333333333336%;
+  padding: 0 15px;
 }
 .filter select {
   width: 100%;
 }
 .filter .help {
   display: none;
-}
-@media only screen and (min-width: 768px) {
-  .filter h3,
-  .filter ul {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    float: left;
-    width: 82.81250000000001%;
-    width: calc(85.93750000000001% - 30px);
-    margin: 0 0 0 3.125%;
-    margin: 0 0 0 calc(30px);
-    margin-left: 11.718749999999998%;
-    margin-left: calc(8.593749999999998% + 30px);
-  }
-  .filter h3:first-child,
-  .filter ul:first-child {
-    margin-left: 0;
-  }
-  .filter h3:first-child,
-  .filter ul:first-child {
-    margin-left: 8.593749999999998%;
-    margin-left: calc(8.593749999999998%);
-  }
-  .filter label {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    float: left;
-    width: 17.5%;
-    width: calc(20.625% - 30px);
-    margin: 0 0 0 3.125%;
-    margin: 0 0 0 calc(30px);
-    text-align: right;
-  }
-  .filter label:first-child {
-    margin-left: 0;
-  }
-  .filter .widget {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    float: left;
-    width: 17.5%;
-    width: calc(20.625% - 30px);
-    margin: 0 0 0 3.125%;
-    margin: 0 0 0 calc(30px);
-  }
-  .filter .widget:first-child {
-    margin-left: 0;
-  }
-  .filter .help {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    float: left;
-    width: 58.75%;
-    width: calc(61.875% - 30px);
-    margin: 0 0 0 3.125%;
-    margin: 0 0 0 calc(30px);
-    display: block;
-  }
-  .filter .help:first-child {
-    margin-left: 0;
-  }
 }
 body,
 html {
@@ -1563,39 +1472,29 @@ footer:after {
 }
 footer .primary,
 footer .social {
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   float: left;
+  padding: 0 15px;
   width: 100%;
-  width: calc(103.125% - 30px);
-  margin: 0;
+  margin-left: 0;
 }
 @media only screen and (min-width: 768px) {
   footer .primary {
-    -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
     float: left;
-    width: 65.62499999999999%;
-    width: calc(68.74999999999999% - 30px);
-    margin: 0 0 0 3.125%;
-    margin: 0 0 0 calc(30px);
-  }
-  footer .primary:first-child {
-    margin-left: 0;
+    width: 66.66666666666666%;
+    padding: 0 15px;
   }
   footer .social {
-    -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
     float: left;
-    width: 31.249999999999996%;
-    width: calc(34.37499999999999% - 30px);
-    margin: 0 0 0 3.125%;
-    margin: 0 0 0 calc(30px);
-  }
-  footer .social:first-child {
-    margin-left: 0;
+    width: 33.33333333333333%;
+    padding: 0 15px;
   }
 }
