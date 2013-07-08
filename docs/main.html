@@ -1,0 +1,24 @@
+<!DOCTYPE html>  <html> <head>   <title>main.js</title>   <meta http-equiv="content-type" content="text/html; charset=UTF-8">   <link rel="stylesheet" media="all" href="docco.css" /> </head> <body>   <div id="container">     <div id="background"></div>          <table cellpadding="0" cellspacing="0">       <thead>         <tr>           <th class="docs">             <h1>               main.js             </h1>           </th>           <th class="code">           </th>         </tr>       </thead>       <tbody>                               <tr id="section-1">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-1">&#182;</a>               </div>               <h2>Scope</h2>             </td>             <td class="code">               <div class="highlight"><pre></pre></div>             </td>           </tr>                               <tr id="section-2">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-2">&#182;</a>               </div>               <p>To avoid global scope pollution, assign all properties and methods to a
+PDP object, first checking if the object already exists.</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="kd">var</span> <span class="nx">PDP</span> <span class="o">=</span> <span class="nx">PDP</span> <span class="o">||</span> <span class="p">(</span><span class="kd">function</span><span class="p">(){</span></pre></div>             </td>           </tr>                               <tr id="section-3">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-3">&#182;</a>               </div>               <h2>The Query Object</h2>             </td>             <td class="code">               <div class="highlight"><pre></pre></div>             </td>           </tr>                               <tr id="section-4">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-4">&#182;</a>               </div>               <p>The <code>query</code> object is used to store all our filter values. 
+Whenever a filter is changed, <code>query</code> is updated.
+We can also do the reverse: populate filters based on <code>query</code>'s values.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="kd">var</span> <span class="nx">query</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">as_of_year</span><span class="o">:</span> <span class="p">[</span><span class="mi">2012</span><span class="p">],</span>
+    <span class="nx">state_abbr</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">msamd</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">county_name</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">census_tract_number</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">agency_code</span><span class="o">:</span> <span class="p">[]</span>
+  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-5">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-5">&#182;</a>               </div>               <p>Mix in the EventEmitter</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">$</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span> <span class="nx">query</span><span class="p">,</span> <span class="nx">EventEmitter</span><span class="p">.</span><span class="nx">prototype</span> <span class="p">);</span>
+
+  <span class="kd">var</span> <span class="nx">setQuery</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="p">};</span>
+
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="nx">query</span><span class="o">:</span> <span class="nx">query</span><span class="p">,</span>
+    <span class="nx">setQuery</span><span class="o">:</span> <span class="nx">setQuery</span>
+  <span class="p">};</span>
+
+<span class="p">}());</span>
+
+</pre></div>             </td>           </tr>                </tbody>     </table>   </div> </body> </html> 

@@ -849,18 +849,9 @@ table {
                   | $$                  
                   |__/                  
 
-* Ghost - v0.2.0 - 2013-07-05
+* Ghost - v0.2.0 - 2013-07-01
 * http://consumerfinance.gov
 * A Public Domain work of the Consumer Financial Protection Bureau */
-.column {
-  display: inline-block;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  border: solid transparent;
-  border-width: 0 15px;
-  margin-right: -0.25em;
-}
 /* ==========================================================================
    CFPB Boilerplate
    Color Variables
@@ -1311,7 +1302,8 @@ textarea {
   margin: 0 auto;
   padding: 0;
   position: relative;
-  padding: 0 15px;
+  padding: 0 1.5625%;
+  padding: 0 calc(15px);
 }
 .hero h1 {
   font-family: "Avenir Next Demi", Arial, sans-serif;
@@ -1385,33 +1377,19 @@ textarea {
   margin: 0 auto;
   padding: 0;
   position: relative;
-  padding: 0 15px;
-}
-.filter {
-  margin: 0 auto;
-  width: 100%;
-  overflow: hidden;
-  clear: both;
-  *zoom: 1;
-}
-.filter:before,
-.filter:after {
-  content: " ";
-  display: table;
-}
-.filter:after {
-  clear: both;
+  padding: 0 1.5625%;
+  padding: 0 calc(15px);
 }
 .filter ul {
   padding: 0;
 }
 .filter li.field {
-  list-style-type: none;
   margin: 0 auto;
   width: 100%;
   overflow: hidden;
   clear: both;
   *zoom: 1;
+  list-style-type: none;
   margin-bottom: 1em;
 }
 .filter li.field:before,
@@ -1423,11 +1401,33 @@ textarea {
   clear: both;
 }
 .filter li.field > label {
-  width: 41.66666666666667%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  width: 39.84375000000001%;
+  width: calc(42.96875000000001% - 30px);
+  margin-right: 0;
+  margin-left: 3.125%;
+  margin-left: calc(30px);
   text-align: right;
 }
+.filter li.field > label:first-child {
+  margin-left: 0;
+}
 .filter .widget {
-  width: 58.333333333333336%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  width: 57.03125%;
+  width: calc(60.15625% - 30px);
+  margin-right: 0;
+  margin-left: 3.125%;
+  margin-left: calc(30px);
+}
+.filter .widget:first-child {
+  margin-left: 0;
 }
 .filter select {
   width: 100%;
@@ -1438,20 +1438,70 @@ textarea {
 @media only screen and (min-width: 768px) {
   .filter h3,
   .filter ul {
-    width: 83.33333333333334%;
-    position: relative;
-    left: 8.333333333333332%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    width: 82.81250000000001%;
+    width: calc(85.93750000000001% - 30px);
+    margin-right: 0;
+    margin-left: 3.125%;
+    margin-left: calc(30px);
+    margin-left: 11.718749999999998%;
+    margin-left: calc(8.593749999999998% + 30px);
+  }
+  .filter h3:first-child,
+  .filter ul:first-child {
+    margin-left: 0;
+  }
+  .filter h3:first-child,
+  .filter ul:first-child {
+    margin-left: 8.593749999999998%;
+    margin-left: calc(8.593749999999998%);
   }
   .filter li.field > label {
-    width: 20%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    width: 17.5%;
+    width: calc(20.625% - 30px);
+    margin-right: 0;
+    margin-left: 3.125%;
+    margin-left: calc(30px);
     text-align: right;
   }
+  .filter li.field > label:first-child {
+    margin-left: 0;
+  }
   .filter .widget {
-    width: 20%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    width: 17.5%;
+    width: calc(20.625% - 30px);
+    margin-right: 0;
+    margin-left: 3.125%;
+    margin-left: calc(30px);
+  }
+  .filter .widget:first-child {
+    margin-left: 0;
   }
   .filter .help {
-    width: 60%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    width: 58.75%;
+    width: calc(61.875% - 30px);
+    margin-right: 0;
+    margin-left: 3.125%;
+    margin-left: calc(30px);
     display: block;
+  }
+  .filter .help:first-child {
+    margin-left: 0;
   }
 }
 body,
@@ -1481,7 +1531,8 @@ nav li {
   margin: 0 auto;
   padding: 0;
   position: relative;
-  padding: 0 15px;
+  padding: 0 1.5625%;
+  padding: 0 calc(15px);
 }
 footer {
   margin: 0 auto;
@@ -1500,14 +1551,41 @@ footer:after {
 }
 footer .primary,
 footer .social {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  width: calc(103.125% - 30px);
   width: 100%;
   margin-left: 0;
 }
 @media only screen and (min-width: 768px) {
   footer .primary {
-    width: 66.66666666666666%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    width: 65.62499999999999%;
+    width: calc(68.74999999999999% - 30px);
+    margin-right: 0;
+    margin-left: 3.125%;
+    margin-left: calc(30px);
+  }
+  footer .primary:first-child {
+    margin-left: 0;
   }
   footer .social {
-    width: 33.33333333333333%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    width: 31.249999999999996%;
+    width: calc(34.37499999999999% - 30px);
+    margin-right: 0;
+    margin-left: 3.125%;
+    margin-left: calc(30px);
+  }
+  footer .social:first-child {
+    margin-left: 0;
   }
 }

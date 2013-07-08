@@ -162,7 +162,12 @@ module.exports = function(grunt) {
       },
       main: {
         files: {
-          'dist/static/js/main.min.js': ['dist/static/js/main.js']
+          'dist/static/js/main.min.js': [
+            'src/static/vendor/jquery/jquery.js',
+            'src/static/vendor/EventEmitter/EventEmitter.js',
+            'src/static/vendor/chosen/public/chosen.jquery.js',
+            'src/static/js/main.js'
+          ]
         }
       }
     },
@@ -182,6 +187,20 @@ module.exports = function(grunt) {
       test: {
         options: {
           port: 8001
+        }
+      }
+    },
+
+    /**
+     * Docco: https://github.com/DavidSouther/grunt-docco
+     * 
+     * Grunt Docco plugin.
+     */
+    docco: {
+      debug: {
+        src: ['src/static/js/main.js'],
+        options: {
+          output: 'docs/'
         }
       }
     },
@@ -214,11 +233,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-notify');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-cfpb-internal');
+  grunt.loadNpmTasks('grunt-docco');
 
   /**
    * Create task aliases by registering new tasks
    */
-  grunt.registerTask('build', ['uglify', 'shell', 'less', 'cssmin', 'build-cfpb']);
+  grunt.registerTask('build', ['uglify', 'shell', 'less', 'cssmin', 'build-cfpb', 'docco']);
 
   /**
    * The 'default' task will run whenever `grunt` is run without specifying a task
