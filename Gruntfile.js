@@ -34,13 +34,6 @@ module.exports = function(grunt) {
         '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
         ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n\n',
 
-      requirejs:
-        '/** vim: et:ts=4:sw=4:sts=4\n' +
-         '  * @license RequireJS 2.1.6 Copyright (c) 2010-2012, The Dojo Foundation All Rights Reserved.\n' +
-         '  * Available via the MIT or new BSD license.\n' +
-         '  * see: http://github.com/jrburke/requirejs for details\n' +
-         '  */\n\n',
-
       jquery:
         '/*!\n' +
          '  * jQuery JavaScript Library v1.10.1\n' +
@@ -65,34 +58,7 @@ module.exports = function(grunt) {
          '  * http://jquery.org/license\n' +
          '  *\n' +
          '  * Date: 2013-05-27\n' +
-         '  */\n\n',
-
-      underscore:
-        ' //     Underscore.js 1.4.4\n' +
-        '  //     http://underscorejs.org\n' +
-        '  //     (c) 2009-2013 Jeremy Ashkenas, DocumentCloud Inc.\n' +
-        '  //     Underscore may be freely distributed under the MIT license.\n\n',
-
-      backbone:
-        ' //     Backbone.js 1.0.0\n' +
-        '  //     (c) 2010-2013 Jeremy Ashkenas, DocumentCloud Inc.\n' +
-        '  //     Backbone may be freely distributed under the MIT license.\n' +
-        '  //     For all details and documentation:\n' +
-        '  //     http://backbonejs.org\n\n',
-
-      requirejstext:
-        '/**\n' +
-         '  * @license RequireJS text 2.0.6 Copyright (c) 2010-2012, The Dojo Foundation All Rights Reserved.\n' +
-         '  * Available via the MIT or new BSD license.\n' +
-         '  * see: http://github.com/requirejs/text for details\n' +
-         '  */\n\n',
-
-      layoutmanager:
-        '/*!\n' +
-         '   * backbone.layoutmanager.js v0.8.8\n' +
-         '   * Copyright 2013, Tim Branyen (@tbranyen)\n' +
-         '   * backbone.layoutmanager.js may be freely distributed under the MIT license.\n' +
-         '   */\n\n'
+         '  */\n\n'
 
     },
 
@@ -105,10 +71,24 @@ module.exports = function(grunt) {
       main: {
         options: {
           banner: '<%= banner.cfpb %>',
-          paths: ['src']
+          paths: ['src/static']
         },
         files: {
-          'dist/static/css/main.css': ['<%= banner.cfpb %>', 'src/less/main.less']
+          'dist/static/css/main.css': ['src/static/less/main.less']
+        }
+      }
+    },
+
+    /**
+     * CSSMin: https://github.com/gruntjs/grunt-contrib-cssmin
+     * 
+     * Compress CSS files.
+     */
+    cssmin: {
+      combine: {
+        keepSpecialComments: '*',
+        files: {
+          'dist/static/css/main.min.css': ['<%= banner.cfpb %>', 'dist/static/css/main.css']
         }
       }
     },
@@ -148,7 +128,7 @@ module.exports = function(grunt) {
           console: true
         }
       },
-      files: ['Gruntfile.js', 'src/js/**/*.js', '!src/js/vendor/**/*']
+      files: ['Gruntfile.js', 'src/js/**/*.js']
     },
 
     /**
@@ -162,87 +142,11 @@ module.exports = function(grunt) {
       packageExample: {
         command: [
           'cp src/*.html dist/',
-          'cp src/*.json dist/',
-          'cp -r src/fonts dist/static',
-          'cp -r src/img dist/static',
-          'cp src/js/vendor/html5shiv/dist/* dist/static/js/'
+          'cp -r src/static/fonts dist/static',
+          'cp -r src/static/img dist/static',
+          'cp -r src/static/js dist/static',
+          'cp src/static/vendor/html5shiv/dist/* dist/static/js/'
         ].join('&&')
-      }
-    },
-
-    /**
-     * Sed: https://github.com/jharding/grunt-sed
-     * 
-     * Built on top of replace, grunt-sed is a Grunt plugin for performing search and replace on files.
-     */
-    sed: {
-      replaceScript: {
-        path: 'dist/index.html',
-        pattern: '<script data-main[^>]*>',
-        replacement: '<script src="static/js/main.min.js">'
-      }
-    },
-
-    /**
-     * RequireJS: https://github.com/gruntjs/grunt-contrib-requirejs
-     * 
-     * Optimize RequireJS projects using r.js.
-     */
-    requirejs: {
-      compile: {
-        options: {
-          baseUrl: 'src/js',
-          name: 'main',
-          mainConfigFile: 'src/js/main.js',
-          paths: {
-            requireLib: 'vendor/requirejs/require',
-            jquery: 'vendor/jquery/jquery',
-            underscore: 'vendor/underscore-amd/underscore',
-            backbone: 'vendor/backbone-amd/backbone',
-            text: 'vendor/requirejs-text/text',
-            chosen: 'vendor/chosen/public/chosen.jquery'
-          },
-          shim: {
-            chosen: ['jquery']
-          },
-          include: ['requireLib'],
-          optimize: 'none',
-          out: 'dist/static/js/main.js'
-        }
-      }
-    },
-
-    /**
-     * Jasmine: https://github.com/gruntjs/grunt-contrib-jasmine
-     * 
-     * Run jasmine specs headlessly through PhantomJS.
-     * jQuery and Jasmine jQuery is included for your pleasure: https://github.com/velesin/jasmine-jquery
-     */
-    jasmine: {
-      test: {
-        src: ['src/js/**/*.js', '!src/js/vendor/**/*'],
-        options: {
-          specs: ['test/specs/**/*.js', '!test/specs/helpers/*'],
-          helpers: 'test/specs/helpers/*.js',
-          host: 'http://127.0.0.1:8001/',
-          template: require('grunt-template-jasmine-requirejs'),
-          templateOptions: {
-            requireConfig: {
-              mainConfigFile: 'src/js/main.js',
-              baseUrl: './src/js/',
-              paths: {
-                jquery: 'vendor/jquery/jquery',
-                underscore: 'vendor/underscore-amd/underscore',
-                backbone: 'vendor/backbone-amd/backbone',
-                text: 'vendor/requirejs-text/text',
-                chosen: 'vendor/chosen/public/chosen.jquery'
-              },
-              shim: {
-                chosen: ['jquery']
-              }
-            }
-          }
-        }
       }
     },
 
@@ -254,7 +158,7 @@ module.exports = function(grunt) {
      */
     uglify: {
       options: {
-        banner: '<%= banner.cfpb %> <%= banner.requirejs %> <%= banner.jquery %> <%= banner.sizzle %> <%= banner.underscore %> <%= banner.backbone %> <%= banner.requirejstext %> <%= banner.layoutmanager %>'
+        banner: '<%= banner.cfpb %> <%= banner.jquery %> <%= banner.sizzle %>'
       },
       main: {
         files: {
@@ -291,7 +195,7 @@ module.exports = function(grunt) {
     watch: {
       scripts: {
         files: ['src/**/*.html', 'src/**/*.less', 'src/**/*.js', 'test/specs/*.js'],
-        tasks: ['test', 'build']
+        tasks: ['build']
       }
     }
 
@@ -301,21 +205,20 @@ module.exports = function(grunt) {
    * The above tasks are loaded here.
    */
   grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.loadNpmTasks('grunt-shell');
-  grunt.loadNpmTasks('grunt-sed');
   grunt.loadNpmTasks('grunt-notify');
-  grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-cfpb-internal');
 
   /**
    * Create task aliases by registering new tasks
    */
-  grunt.registerTask('test', ['jshint', 'connect:test', 'jasmine']);
-  grunt.registerTask('build', ['requirejs', 'shell', 'less', 'sed', 'uglify']);
+  grunt.registerTask('build', ['uglify', 'shell', 'less', 'cssmin', 'build-cfpb']);
 
   /**
    * The 'default' task will run whenever `grunt` is run without specifying a task

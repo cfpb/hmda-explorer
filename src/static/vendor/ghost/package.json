@@ -1,0 +1,43 @@
+{
+  "name": "Ghost",
+  "description": "An invisible, LESS-based grid system using parametric mixins to encourage semantic HTML",
+  "version": "0.2.0",
+  "homepage": "http://consumerfinance.gov",
+  "author": {
+    "name": "Consumer Financial Protection Bureau",
+    "email": "christopher.contolini@cfpb.gov",
+    "url": "http://consumerfinance.gov"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@fake.ghe.domain:contolini/ghost.git"
+  },
+  "bugs": {
+    "url": ""
+  },
+  "licenses": [
+    {
+      "type": "Public Domain",
+      "url": "http://consumerfinance.gov/blob/master/LICENSE-Public"
+    }
+  ],
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "scripts": {
+    "test": "grunt jasmine"
+  },
+  "devDependencies": {
+    "grunt-contrib-jasmine": "~0.3.3",
+    "grunt-recess": "~0.3.3",
+    "grunt-contrib-watch": "~0.4.4",
+    "grunt-notify": "~0.1.4",
+    "grunt": "~0.4.1",
+    "grunt-shell": "~0.2.2",
+    "grunt-contrib-less": "~0.5.2",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-connect": "~0.3.0",
+    "grunt-cfpb-internal": "git://fake.ghe.domain/contolini/grunt-cfpb-internal.git"
+  },
+  "keywords": []
+}

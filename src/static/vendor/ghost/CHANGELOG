@@ -1,0 +1,4 @@
+v0.4.0:
+  date: 2013-07-01
+  changes:
+    - Add grunt-cfpb-internal to manage versioning.
