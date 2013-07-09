@@ -102,7 +102,7 @@ module.exports = function(grunt) {
      */
     jshint: {
       options: {
-        camelcase: true,
+        camelcase: false,
         curly: true,
         eqeqeq: true,
         forin: true,
@@ -117,6 +117,7 @@ module.exports = function(grunt) {
         evil: true,
         eqnull: true,
         browser: true,
+        strict: true,
         globals: {
           jQuery: true,
           $: true,
@@ -125,10 +126,11 @@ module.exports = function(grunt) {
           module: true,
           require: true,
           define: true,
-          console: true
+          console: true,
+          EventEmitter: true
         }
       },
-      files: ['Gruntfile.js', 'src/js/**/*.js']
+      files: ['Gruntfile.js', 'src/static/js/main.js']
     },
 
     /**
@@ -158,12 +160,18 @@ module.exports = function(grunt) {
      */
     uglify: {
       options: {
-        banner: '<%= banner.cfpb %> <%= banner.jquery %> <%= banner.sizzle %>'
+        banner: '<%= banner.cfpb %> <%= banner.jquery %> <%= banner.sizzle %>',
+        compress: false,
+        mangle: false,
+        beautify: true
       },
       main: {
         files: {
           'dist/static/js/main.min.js': [
+            'src/static/js/bind.js',
+            'src/static/vendor/json3/lib/json3.js',
             'src/static/vendor/jquery/jquery.js',
+            'src/static/vendor/lodash/lodash.js',
             'src/static/vendor/EventEmitter/EventEmitter.js',
             'src/static/vendor/chosen/public/chosen.jquery.js',
             'src/static/js/main.js'
@@ -238,7 +246,7 @@ module.exports = function(grunt) {
   /**
    * Create task aliases by registering new tasks
    */
-  grunt.registerTask('build', ['uglify', 'shell', 'less', 'cssmin', 'build-cfpb', 'docco']);
+  grunt.registerTask('build', ['jshint', 'uglify', 'shell', 'less', 'cssmin', 'build-cfpb', 'docco']);
 
   /**
    * The 'default' task will run whenever `grunt` is run without specifying a task
