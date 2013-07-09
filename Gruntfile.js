@@ -149,11 +149,6 @@ module.exports = function(grunt) {
           'cp -r src/static/js dist/static',
           'cp src/static/vendor/html5shiv/dist/* dist/static/js/'
         ].join('&&')
-      },
-      ghpages: {
-        command: [
-          'cp -r dist/* .'
-        ].join('&&')
       }
     },
 
@@ -251,7 +246,6 @@ module.exports = function(grunt) {
   /**
    * Create task aliases by registering new tasks
    */
-  grunt.registerTask('ghpages', ['shell:ghpages']);
   grunt.registerTask('test', ['jshint', 'uglify']);
   grunt.registerTask('build', ['shell:dist', 'less', 'cssmin', 'build-cfpb', 'docco']);
 
