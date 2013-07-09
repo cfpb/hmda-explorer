@@ -141,7 +141,7 @@ module.exports = function(grunt) {
      * zipping the example directory.
      */
     shell: {
-      packageExample: {
+      dist: {
         command: [
           'cp src/*.html dist/',
           'cp -r src/static/fonts dist/static',
@@ -149,6 +149,11 @@ module.exports = function(grunt) {
           'cp -r src/static/js dist/static',
           'cp src/static/vendor/html5shiv/dist/* dist/static/js/'
         ].join('&&')
+      },
+      ghpages: {
+        command: [
+          'cp -r dist/* .'
+        ]
       }
     },
 
@@ -222,7 +227,7 @@ module.exports = function(grunt) {
     watch: {
       scripts: {
         files: ['src/**/*.html', 'src/**/*.less', 'src/**/*.js', 'test/specs/*.js'],
-        tasks: ['build']
+        tasks: ['test', 'build']
       }
     }
 
@@ -246,7 +251,9 @@ module.exports = function(grunt) {
   /**
    * Create task aliases by registering new tasks
    */
-  grunt.registerTask('build', ['jshint', 'uglify', 'shell', 'less', 'cssmin', 'build-cfpb', 'docco']);
+  grunt.registerTask('ghpages', ['shell:ghpages']);
+  grunt.registerTask('test', ['jshint', 'uglify']);
+  grunt.registerTask('build', ['shell:dist', 'less', 'cssmin', 'build-cfpb', 'docco']);
 
   /**
    * The 'default' task will run whenever `grunt` is run without specifying a task
