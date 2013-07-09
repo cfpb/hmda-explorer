@@ -8,7 +8,7 @@ var PDP = PDP || (function(){
 
   'use strict';
 
-  var observer = new EventEmitter(),
+  var gary = new EventEmitter(),
       app = {},
       query = {},
       form = {},
@@ -21,6 +21,14 @@ var PDP = PDP || (function(){
   // Cache a reference to the app's jQuery object.
 
   app.$el = $('body');
+
+  // The `start` method is called when we're ready for the app to start chooglin'.
+
+  app.start = function() {
+
+    console.log('App started!');
+
+  };
 
   // The `startLoading` method adds a class to the app's element so we can
   // visualize the loading of content.
@@ -55,54 +63,54 @@ var PDP = PDP || (function(){
 
   query.format = 'json';
 
-  // `query`'s `params` stores filter values. Set some defaults for now.
+  // `query`'s `params` stores filter values.
 
-  query.params = {
-    as_of_year: [2012]
+  query.params = {};
+
+  // The `reset` method resets the params object to some defaults.
+
+  query.reset = function() {
+    this.params = {
+      as_of_year: [2012]
+    };
   };
 
-  // The `updateAll` method runs through all the filter values the user has selected
+  // The `updateAll` method runs through all the filter field values the user has selected
   // and stores them in the `params` object.
 
   query.updateAll = function() {
 
-    var $params = app.$el.find('.param'),
+    var $fields = app.$el.find('.param'),
         url;
 
     // Broadcast that an update is beginning.
 
-    observer.emitEvent('update:started');
+    gary.emitEvent('update:started');
 
-    $params.each(function(){
+    // Clear out current params
+
+    this.reset();
+
+    // Iterate over all the filter field values
+
+    $fields.each(function(){
 
       var $this = $( this ),
           field = form.getField( $this );
 
-      if ( field.value ) {
+      // If the field has a value AND it's either a `select` element or it's checked
+      // (meaning it's a radio or checkbox)
 
-        // `select` elements can have multiple values.
+      if ( field.value && ( field.tagName === 'select' || $this.is(':checked') ) ) {
 
-        if ( field.tagName === 'select' ) {
+        // Initalize an empty array if need be
+        console.log(query.params[ field.name ]);
+
+        if ( typeof query.params[ field.name ] === 'undefined' ) {
           query.params[ field.name ] = [];
-          query.params[ field.name ].push( '"' + field.value + '"' );
         }
 
-        // `checkbox`es can as well. Find the checked ones.
-
-        if ( field.type === 'checkbox' ) {
-          if ( $this.is(':checked') ) {
-            query.params[ field.name ] = [];
-            query.params[ field.name ].push( '"' + field.value + '"' );
-          }
-        }
-
-        // `radio` elements can only have one value, though.
-
-        if ( field.type === 'radio' ) {
-          if ( $this.is(':checked') ) {
-            query.params[ field.name ] = '"' + field.value + '"';
-          }
-        }
+        query.params[ field.name ].push( field.value );
 
       }
 
@@ -110,7 +118,7 @@ var PDP = PDP || (function(){
 
     url = this.getUrl();
 
-    observer.emitEvent('update:stopped');
+    gary.emitEvent('update:stopped');
 
     console.log(url);
 
@@ -229,7 +237,8 @@ var PDP = PDP || (function(){
 
   // Listen for specific events and act accordingly.
 
-  observer.addListeners({
+  gary.addListeners({
+    'dom:loaded': app.start.bind( app ),
     'filter:changed': [
       query.updateAll.bind( query ),
       form.checkDeps.bind( form )
@@ -247,14 +256,25 @@ var PDP = PDP || (function(){
   // Whenever a `select` element is changed, emit an event.
 
   $('select, input').on( 'change', function(){
-    observer.emitEvent('filter:changed');
+    gary.emitEvent('filter:changed');
   });
 
   // Export the public API.
 
   return {
-    query: query
+    query: query,
+    observer: gary
   };
 
 }());
 
+// When the DOM is Ready
+// ----------------
+
+$(function() {
+
+  'use strict';
+
+  PDP.observer.emitEvent('dom:loaded');
+
+});

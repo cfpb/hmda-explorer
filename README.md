@@ -4,7 +4,7 @@ An interactive front-end for [Qu](https://github.com/cfpb/qu).
 
 ## Documentation
 
-See some [front-end notes](https://fake.ghe.domain/data-platform/data-platform-notes/wiki/Front-End-Framework-Notes).
+See some [front-end notes](https://fake.ghe.domain/data-platform/data-platform-docs/wiki/Front-End-Framework-Notes).
 
 ## Contributing
 
@@ -12,10 +12,10 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
- * 2013-07-09   v0.1.6   Initial URL building methods General refactoring
- * 2013-07-08   v0.1.3   Add global observer
- * 2013-07-06   v0.1.1   Configure build process
- * 2013-07-05   v0.1.0   Initial commit of static version (forked from `backbone` branch)
+ * 2013-07-09   v0.1.6   Initial URL building methods. General refactoring.
+ * 2013-07-08   v0.1.3   Add global observer.
+ * 2013-07-06   v0.1.1   Configure build process.
+ * 2013-07-05   v0.1.0   Initial commit of static version (forked from `backbone` branch).
 
 ## License
 
@@ -27,4 +27,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Tue Jul 09 2013 14:25:07.*
+*This file was generated on Tue Jul 09 2013 15:24:57.*
