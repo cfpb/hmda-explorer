@@ -8,7 +8,7 @@ var PDP = PDP || (function(){
 
   'use strict';
 
-  var gary = new EventEmitter(),
+  var observer = new EventEmitter(),
       app = {},
       query = {},
       form = {},
@@ -85,7 +85,7 @@ var PDP = PDP || (function(){
 
     // Broadcast that an update is beginning.
 
-    gary.emitEvent('update:started');
+    observer.emitEvent('update:started');
 
     // Clear out current params
 
@@ -103,24 +103,29 @@ var PDP = PDP || (function(){
 
       if ( field.value && ( field.tagName === 'select' || $this.is(':checked') ) ) {
 
-        // Initalize an empty array if need be
-        console.log(query.params[ field.name ]);
+        // Initalize an empty array if need be.
 
         if ( typeof query.params[ field.name ] === 'undefined' ) {
           query.params[ field.name ] = [];
         }
 
-        query.params[ field.name ].push( field.value );
+        _.forEach( field.value, function( val, name ){
+
+          query.params[ field.name ].push( val );
+
+        });
 
       }
 
     });
 
-    url = this.getUrl();
+    url = encodeURI( this.getUrl() );
 
-    gary.emitEvent('update:stopped');
+    console.log( url );
 
-    console.log(url);
+    observer.emitEvent('update:stopped');
+
+    return url;
 
   };
 
@@ -137,15 +142,38 @@ var PDP = PDP || (function(){
 
     // Convert each param to a proper [`$where` clause](http://cfpb.github.io/qu/articles/queries.html#where_in_detail).
 
-    function buildParam( val, key ) {
-      if ( val.length > 0 ) {
-        params.push( key + '=' + val );
+    function buildParam( param, name ) {
+
+      // If there's only value for the param, meaning they only selected one item or
+      // it's a radio button that only allows once value, add the stringified
+      // param to the `params` array.
+
+      if ( param.length === 1 ) {
+
+        params.push( name + '="' + param[0] + '"' );
+
+      // If there are multiple values for a single parameter, we iterate over them and
+      // put an `OR` operator between them. We then then [group them](http://cfpb.github.io/qu/articles/queries.html#boolean_operators)
+      // with parens and add the grouping to the `params` array.
+
+      } else if ( param.length > 1 ) {
+
+        var _params = [];
+
+        _.forEach( param, function( val, key ){
+          _params.push( name + '="' + val + '"' );
+        });
+
+        _params = '(' + _params.join(' OR ') + ')';
+
+        params.push( _params );
+
       }
     }
 
     _.forEach( query.params, buildParam );
 
-    // Join params with `AND` operators
+    // Join all the params with `AND` operators and append it to the base url.
 
     url += '?$where=' + params.join(' AND ');
 
@@ -237,7 +265,7 @@ var PDP = PDP || (function(){
 
   // Listen for specific events and act accordingly.
 
-  gary.addListeners({
+  observer.addListeners({
     'dom:loaded': app.start.bind( app ),
     'filter:changed': [
       query.updateAll.bind( query ),
@@ -256,14 +284,14 @@ var PDP = PDP || (function(){
   // Whenever a `select` element is changed, emit an event.
 
   $('select, input').on( 'change', function(){
-    gary.emitEvent('filter:changed');
+    observer.emitEvent('filter:changed');
   });
 
   // Export the public API.
 
   return {
     query: query,
-    observer: gary
+    observer: observer
   };
 
 }());

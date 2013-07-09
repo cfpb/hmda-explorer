@@ -1372,6 +1372,14 @@ textarea {
     background-color: transparent;
   }
 }
+.widget label {
+  display: block;
+  margin-bottom: 10px;
+}
+input[type=radio],
+input[type=checkbox] {
+  margin-right: 5px;
+}
 #filters {
   max-width: 960px;
   margin: 0 auto;

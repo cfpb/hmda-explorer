@@ -114,10 +114,10 @@ module.exports = function(grunt) {
         sub: true,
         undef: true,
         boss: true,
+        strict: true,
         evil: true,
         eqnull: true,
         browser: true,
-        strict: true,
         globals: {
           jQuery: true,
           $: true,
