@@ -153,7 +153,7 @@ module.exports = function(grunt) {
       ghpages: {
         command: [
           'cp -r dist/* .'
-        ]
+        ].join('&&')
       }
     },
 
