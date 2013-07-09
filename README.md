@@ -12,8 +12,10 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2013-07-09   v0.1.6   Initial URL building methods General refactoring
+ * 2013-07-08   v0.1.3   Add global observer
  * 2013-07-06   v0.1.1   Configure build process
- * 2013-07-05   v0.1.0   Initial commit of static version (fork from `backbone` branch)
+ * 2013-07-05   v0.1.0   Initial commit of static version (forked from `backbone` branch)
 
 ## License
 
@@ -25,4 +27,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Tue Jul 09 2013 14:20:21.*
+*This file was generated on Tue Jul 09 2013 14:25:07.*
