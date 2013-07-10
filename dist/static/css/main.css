@@ -1231,6 +1231,9 @@ textarea {
 /**
  *  Mixin to justify a horizontal list, useful for navs
  **/
+/**
+ *  Clearfix
+ **/
 .charts {
   margin: 0 auto;
   width: 100%;
@@ -1392,13 +1395,10 @@ input[type=checkbox] {
   padding: 0;
 }
 .filter li.field {
-  margin: 0 auto;
   width: 100%;
-  overflow: hidden;
-  clear: both;
-  *zoom: 1;
   list-style-type: none;
   margin-bottom: 1em;
+  *zoom: 1;
 }
 .filter li.field:before,
 .filter li.field:after {
@@ -1409,113 +1409,30 @@ input[type=checkbox] {
   clear: both;
 }
 .filter li.field > label {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+  width: 40%;
+  padding-right: 10px;
   float: left;
-  width: 39.84375000000001%;
-  width: calc(42.96875000000001% - 30px);
-  margin-right: 0;
-  margin-left: 3.125%;
-  margin-left: calc(30px);
   text-align: right;
 }
-.filter li.field > label:first-child {
-  margin-left: 0;
-}
 .filter .widget {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+  width: 60%;
   float: left;
-  width: 57.03125%;
-  width: calc(60.15625% - 30px);
-  margin-right: 0;
-  margin-left: 3.125%;
-  margin-left: calc(30px);
-}
-.filter .widget:first-child {
-  margin-left: 0;
 }
 .filter select {
   width: 100%;
 }
 .filter .help {
+  margin-left: 40%;
   display: none;
 }
 @media only screen and (min-width: 768px) {
-  .filter h3,
-  .filter ul {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    float: left;
-    width: 82.81250000000001%;
-    width: calc(85.93750000000001% - 30px);
-    margin-right: 0;
-    margin-left: 3.125%;
-    margin-left: calc(30px);
-    margin-left: 11.718749999999998%;
-    margin-left: calc(8.593749999999998% + 30px);
-  }
-  .filter h3:first-child,
-  .filter ul:first-child {
-    margin-left: 0;
-  }
-  .filter h3:first-child,
-  .filter ul:first-child {
-    margin-left: 8.593749999999998%;
-    margin-left: calc(8.593749999999998%);
-  }
-  .filter li.field > label {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    float: left;
-    width: 17.5%;
-    width: calc(20.625% - 30px);
-    margin-right: 0;
-    margin-left: 3.125%;
-    margin-left: calc(30px);
-    text-align: right;
-  }
-  .filter li.field > label:first-child {
-    margin-left: 0;
-  }
-  .filter .widget {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    float: left;
-    width: 17.5%;
-    width: calc(20.625% - 30px);
-    margin-right: 0;
-    margin-left: 3.125%;
-    margin-left: calc(30px);
-  }
-  .filter .widget:first-child {
-    margin-left: 0;
-  }
   .filter .help {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    float: left;
-    width: 58.75%;
-    width: calc(61.875% - 30px);
-    margin-right: 0;
-    margin-left: 3.125%;
-    margin-left: calc(30px);
     display: block;
-  }
-  .filter .help:first-child {
-    margin-left: 0;
   }
 }
 body,
 html {
   margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
   background: #ffffff;
 }
 nav ul {

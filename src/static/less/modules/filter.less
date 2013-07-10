@@ -17,18 +17,23 @@
   // Fields are the individual filters
 
   li.field {
-    .row();
+    
+    width: 100%;
     list-style-type: none;
     margin-bottom: 1em;
+    .clearfix();
 
     &> label {
-      .column( 5 );
+      width: 40%;
+      padding-right: 10px;
+      float: left;
       text-align: right;
     }
   }
 
   .widget {
-    .column( 7 );
+    width: 60%;
+    float: left;
   }
 
   select {
@@ -36,6 +41,7 @@
   }
 
   .help {
+    margin-left: 40%;
     display: none;
   }
 
@@ -49,21 +55,18 @@
     
     h3,
     ul {
-      .column( 10 );
-      .push( 1 );
+
     }
 
     li.field > label {
-      .column( 2, 10 );
-      text-align: right;
+
     }
 
     .widget {
-      .column( 2, 10 );
+
     }
 
     .help {
-      .column( 6, 10 );
       display: block;
     }
   }

@@ -81,7 +81,8 @@
               <li class="field">
                 <label for="state_abbr">State:</label>
                 <div class="widget select">
-                  <select class="param" name="state_abbr" id="state_abbr" multiple data-placeholder="Select a state">
+                  <select class="param" name="state_abbr" id="state_abbr" multiple data-dependent="county_name msamd" data-placeholder="Select a state">
+                    <option value=""></option>
                     <option value="CA">CA</option>
                     <option value="OR">OR</option>
                     <option value="WA">WA</option>
@@ -92,10 +93,11 @@
               <!-- /filter field -->
 
               <!-- filter field -->
-              <li data-requires="state_abbr" class="field">
+              <li class="field hidden">
                 <label for="county_name">County:</label>
                 <div class="widget select">
                   <select class="param" name="county_name" id="county_name" multiple data-placeholder="Select a county">
+                    <option value=""></option>
                     <option value="Springfield">Springfield</option>
                     <option value="Clackamas">Clackamas</option>
                     <option value="Wilamette">Wilamette</option>
@@ -106,10 +108,11 @@
               <!-- /filter field -->
 
               <!-- filter field -->
-              <li data-requires="state_abbr" class="field">
+              <li class="field hidden">
                 <label for="msamd">MSA:</label>
                 <div class="widget select">
                   <select class="param" name="msamd" id="msamd" multiple data-placeholder="Select an MSA">
+                    <option value=""></option>
                     <option value="1234">1234</option>
                     <option value="5678">5678</option>
                     <option value="9012">9012</option>
@@ -147,6 +150,7 @@
                 <label for="agency_code">Regulatory agency:</label>
                 <div class="widget select">
                   <select class="param" name="agency_code" id="agency_code" multiple data-placeholder="Select an Agency Code">
+                    <option value=""></option>
                     <option value="1">Office of the Comprtoller of the Currency (OCC)</option>
                     <option value="2">Federal Reserve System (FRS)</option>
                     <option value="3">Federal Deposit Insurance Corporation(FDIC)</option>
@@ -237,6 +241,7 @@
                 <label for="applicant_race_1">Applicant Race:</label>
                 <div class="widget select single">
                   <select class="param" name="applicant_race_1" id="applicant_race_1" data-placeholder="Select an Applicant Race">
+                    <option value=""></option>
                     <option value="1">American Indian or Alaska Native</option>
                     <option value="2">Asian</option>
                     <option value="3">Black or African American</option>
@@ -255,6 +260,7 @@
                 <label for="applicant_ethnicity">Applicant Ethnicity:</label>
                 <div class="widget select">
                   <select class="param" name="applicant_ethnicity" id="applicant_ethnicity" data-placeholder="Select an Applicant Race">
+                    <option value=""></option>
                     <option value="1">Hispanic or Latino</option>
                     <option value="2">Not Hispanic or Latino</option>
                     <option value="3">Information not provided by applicant in mail, Internet, or telephone application</option>
@@ -272,6 +278,7 @@
                 <label for="co_applicant_ethnicity">Co-Applicant Ethnicity:</label>
                 <div class="widget select">
                   <select class="param" name="co_applicant_ethnicity" id="co_applicant_ethnicity" data-placeholder="Select an Applicant Race">
+                    <option value=""></option>
                     <option value="1">Hispanic or Latino</option>
                     <option value="2">Not Hispanic or Latino</option>
                     <option value="3">Information not provided by applicant in mail, Internet, or telephone application</option>
@@ -302,6 +309,7 @@
                 <label for="co_applicant_race_1">Co-Applicant Race:</label>
                 <div class="widget select">
                   <select class="param" name="co_applicant_race_1" id="co_applicant_race_1" data-placeholder="Select an Applicant Race">
+                    <option value=""></option>
                     <option value="1">American Indian or Alaska Native</option>
                     <option value="2">Asian</option>
                     <option value="3">Black or African American</option>
@@ -329,6 +337,7 @@
                 <label for="lien_status">Lien Status:</label>
                 <div class="widget select">
                   <select class="param" name="lien_status" id="lien_status" multiple data-placeholder="Select a Lien Status">
+                    <option value=""></option>
                     <option value="1">Secured by a first lien</option>
                     <option value="2">Secured by a subordinate lien</option>
                     <option value="3">Not secured by a lien</option>
@@ -400,6 +409,7 @@
                 <label for="action_type">What decision was made on the application?</label>
                 <div class="widget select">
                   <select class="param" name="action_type" id="action_type" multiple data-placeholder="Select a Lien Status">
+                    <option value=""></option>
                     <option value="1">Secured by a first lien</option>
                     <option value="2">Secured by a subordinate lien</option>
                     <option value="3">Not secured by a lien</option>

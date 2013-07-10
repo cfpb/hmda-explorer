@@ -28,6 +28,14 @@ var PDP = PDP || (function(){
 
     console.log('App started!');
 
+    // Activate [chosen](http://harvesthq.github.io/chosen/) on select elements.
+
+    app.$el.find('select').chosen({ width: '100%' });
+
+    // Populate field options
+
+
+
   };
 
   // The `startLoading` method adds a class to the app's element so we can
@@ -201,7 +209,7 @@ var PDP = PDP || (function(){
   form.$fields = form.$el.find('.field');
 
   // The 'getField' method returns a field's name and value when given
-  // a jQuery object wrapping the field's HTML element.
+  // a jQuery object of the field's HTML element.
 
   form.getField = function( $el ) {
 
@@ -242,11 +250,44 @@ var PDP = PDP || (function(){
 
   };
 
+  // The `fetchFieldOptions` method returns a promise to a field's options.
+
+  form.fetchFieldOptions = function( id ) {
+
+    var endpoint = '/static/js/data/',
+        promise = $.ajax( endpoint + 'options.json' );
+
+    return promise;
+
+  };
+
   // Check if any filter fields need to be shown or hidden.
 
-  form.checkDeps = function() {
+  form.checkDeps = function( el ) {
 
+    // The form field element is passed from the observer.
+    // Grab the data-dependent attribute on the form field and join it with 
+    // hashes if there are multiple so we can reference the appropriate
+    // fields by id later.
 
+    var $el = $( el ),
+        dependents = $el.attr('data-dependent').split(' ').join(', #'),
+        $dependents;
+
+    // If the form field does in fact have any dependents, create a jQuery
+    // object of their field containers and show/hide them as needed.
+
+    if ( dependents ) {
+
+      $dependents = $( '#' + dependents ).parents('.field');
+
+      if ( $el.val() ) {
+        $dependents.removeClass('hidden');
+      } else {
+        $dependents.addClass('hidden');
+      }
+
+    }
 
   };
 
@@ -283,8 +324,8 @@ var PDP = PDP || (function(){
 
   // Whenever a `select` element is changed, emit an event.
 
-  $('select, input').on( 'change', function(){
-    observer.emitEvent('filter:changed');
+  $('.field select, .field input').on( 'change', function(){
+    observer.emitEvent('filter:changed', $( this ) );
   });
 
   // Export the public API.

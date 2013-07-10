@@ -16,9 +16,7 @@ See some [front-end notes](https://fake.ghe.domain/data-platform/data-platform-d
 1. `grunt`
 1. Open `localhost:8000` in a browser.
 
-Only edit files in `src`. When anything is changed, Grunt will lint, test, compile and build everything.
-
-[grunt-cfpb-internal](https://fake.ghe.domain/contolini/grunt-cfpb-internal) generates this README.
+Only edit files in `src`. When anything is changed, Grunt will lint, test, compile and build everything. [grunt-cfpb-internal](https://fake.ghe.domain/contolini/grunt-cfpb-internal) generates this README. Bump versions in CHANGELOG when appropriate.
 
 In lieu of a formal styleguide, take care to maintain the existing coding style.
 
@@ -39,4 +37,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Wed Jul 10 2013 12:31:39.*
+*This file was generated on Wed Jul 10 2013 18:37:14.*
