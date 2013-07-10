@@ -18,6 +18,8 @@ See some [front-end notes](https://fake.ghe.domain/data-platform/data-platform-d
 
 Only edit files in `src`. When anything is changed, Grunt will lint, test, compile and build everything.
 
+[grunt-cfpb-internal](https://fake.ghe.domain/contolini/grunt-cfpb-internal) generates this README.
+
 In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
@@ -37,4 +39,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Wed Jul 10 2013 12:27:04.*
+*This file was generated on Wed Jul 10 2013 12:31:39.*
