@@ -1390,6 +1390,10 @@ input[type=checkbox] {
   position: relative;
   padding: 0 1.5625%;
   padding: 0 calc(15px);
+  display: none;
+}
+#filters.ready {
+  display: block;
 }
 .filter ul {
   padding: 0;
@@ -1513,7 +1517,4 @@ footer .social {
   footer .social:first-child {
     margin-left: 0;
   }
-}
-body.loading {
-  opacity: .3;
 }

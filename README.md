@@ -22,6 +22,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2013-07-10   v0.2.0   Asynchronously populate field options. Field dependency management.
  * 2013-07-09   v0.1.6   Initial URL building methods. General refactoring.
  * 2013-07-08   v0.1.3   Add global observer.
  * 2013-07-06   v0.1.1   Configure build process.
@@ -37,4 +38,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Wed Jul 10 2013 18:37:14.*
+*This file was generated on Wed Jul 10 2013 19:49:29.*

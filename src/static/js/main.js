@@ -20,7 +20,23 @@ var PDP = PDP || (function(){
 
   // Cache a reference to the app's jQuery object.
 
-  app.$el = $('body');
+  app.$el = $('#filters');
+
+  // The `init` method is called when the DOM is loaded so we can do some preparation.
+
+  app.init = function() {
+
+    // Activate [chosen](http://harvesthq.github.io/chosen/) on select elements.
+
+    app.$el.find('select').chosen({ width: '100%' });
+
+    this.$el.addClass('ready');
+
+    // Broadcast that the app is loaded and good to go.
+
+    observer.emitEvent('app:ready');
+
+  };
 
   // The `start` method is called when we're ready for the app to start chooglin'.
 
@@ -28,13 +44,9 @@ var PDP = PDP || (function(){
 
     console.log('App started!');
 
-    // Activate [chosen](http://harvesthq.github.io/chosen/) on select elements.
+    // Broadcast that the app has started.
 
-    app.$el.find('select').chosen({ width: '100%' });
-
-    // Populate field options
-
-
+    observer.emitEvent('app:started');
 
   };
 
@@ -307,7 +319,11 @@ var PDP = PDP || (function(){
   // Listen for specific events and act accordingly.
 
   observer.addListeners({
-    'dom:loaded': app.start.bind( app ),
+    'dom:loaded': app.init.bind( app ),
+    'app:ready': [
+      app.start.bind( app ),
+      app.stopLoading.bind( app )
+    ],
     'filter:changed': [
       query.updateAll.bind( query ),
       form.checkDeps.bind( form )
