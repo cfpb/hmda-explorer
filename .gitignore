@@ -15,5 +15,6 @@ node_modules/
 # Bower vendor scripts #
 ########################
 src/static/vendor
+dist/static/vendor
 src/js/vendor
 dist/js/vendor
