@@ -8,6 +8,16 @@ See some [front-end notes](https://fake.ghe.domain/data-platform/data-platform-d
 
 ## Contributing
 
+1. [Install Node and Grunt](https://fake.ghe.domain/contolini/grunt-init-cfpb#prerequisites)
+1. `git clone git@fake.ghe.domain:data-platform/public-data-platform.git`
+1. `cd public-data-platform`
+1. `npm install`
+1. `bower install`
+1. `grunt`
+1. Open `localhost:8000` in a browser.
+
+Only edit files in `src`. When anything is changed, Grunt will lint, test, compile and build everything.
+
 In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
@@ -27,4 +37,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Tue Jul 09 2013 17:17:06.*
+*This file was generated on Wed Jul 10 2013 12:27:04.*
