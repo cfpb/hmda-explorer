@@ -1,3 +1,5 @@
+// @TODO Break the objects into separate files using AMD
+
 // Scope
 // -----
 
