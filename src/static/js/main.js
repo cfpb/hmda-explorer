@@ -84,7 +84,7 @@ var PDP = PDP || (function(){
 
   // Set a default endpoint for AJAX requests.
 
-  query.endpoint = '/static/js/dummy_data/';
+  query.endpoint = 'static/js/dummy_data/';
 
   // `query`'s `params` stores filter values.
 
