@@ -1196,37 +1196,13 @@ textarea {
   visibility: hidden;
 }
 /*
- * Clearfix: contain floats
- *
- * For modern browsers
- * 1. The space content is one way to avoid an Opera bug when the
- *    `contenteditable` attribute is included anywhere else in the document.
- *    Otherwise it causes space to appear at the top and bottom of elements
- *    that receive the `clearfix` class.
- * 2. The use of `table` rather than `block` is only necessary if using
- *    `:before` to contain the top-margins of child elements.
- */
-.clearfix:before,
-.clearfix:after {
-  content: " ";
-  /* 1 */
-
-  display: table;
-  /* 2 */
-
-}
-.clearfix:after {
-  clear: both;
-}
-/*
- * For IE 6/7 only
- * Include this rule to trigger hasLayout and contain floats.
- */
-.clearfix {
-  *zoom: 1;
-}
-/*
  * Transparency
+ */
+/*
+ * Translucency
+ */
+/*
+ * Opaqueness
  */
 /**
  *  Mixin to justify a horizontal list, useful for navs
@@ -1390,10 +1366,55 @@ input[type=checkbox] {
   position: relative;
   padding: 0 1.5625%;
   padding: 0 calc(15px);
-  display: none;
+  /* IE 8 */
+
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  /* IE 5-7 */
+
+  filter: alpha(opacity=0);
+  /* Netscape */
+
+  -moz-opacity: 0;
+  /* Safari 1.x */
+
+  -khtml-opacity: 0;
+  /* Good browsers */
+
+  opacity: 0;
 }
 #filters.ready {
-  display: block;
+  /* IE 8 */
+
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  /* IE 5-7 */
+
+  filter: alpha(opacity=100);
+  /* Netscape */
+
+  -moz-opacity: 1;
+  /* Safari 1.x */
+
+  -khtml-opacity: 1;
+  /* Good browsers */
+
+  opacity: 1;
+}
+#filters.loading {
+  /* IE 8 */
+
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+  /* IE 5-7 */
+
+  filter: alpha(opacity=30);
+  /* Netscape */
+
+  -moz-opacity: .3;
+  /* Safari 1.x */
+
+  -khtml-opacity: .3;
+  /* Good browsers */
+
+  opacity: .3;
 }
 .filter ul {
   padding: 0;

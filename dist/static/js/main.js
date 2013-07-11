@@ -30,11 +30,10 @@ var PDP = PDP || (function(){
 
     app.$el.find('select').chosen({ width: '100%' });
 
-    this.$el.addClass('ready');
-
     // Broadcast that the app is loaded and good to go.
 
     observer.emitEvent('app:ready');
+    this.$el.addClass('ready');
 
   };
 
@@ -82,6 +81,10 @@ var PDP = PDP || (function(){
   // Set a default format for the data download.
 
   query.format = 'json';
+
+  // Set a default endpoint for AJAX requests.
+
+  query.endpoint = '/static/js/dummy_data/';
 
   // `query`'s `params` stores filter values.
 
@@ -138,6 +141,8 @@ var PDP = PDP || (function(){
       }
 
     });
+
+    // Encode the URL.
 
     url = encodeURI( this.getUrl() );
 
@@ -262,14 +267,64 @@ var PDP = PDP || (function(){
 
   };
 
+  form.updateField = function( el, dependency ) {
+
+    // Broadcast that an update is starting.
+
+    observer.emitEvent('update:started');
+
+    // Remove all current options from field.
+
+    this.resetField( el );
+
+    var id = $(el).find('select').attr('id');
+
+    // Fetch form field options and set fields when that request is fulfilled.
+
+    this.fetchFieldOptions( id ).done( function( options ) {
+
+        this.setFieldOptions( el, options );
+
+        // Broadcast that the update has ended.
+
+        observer.emitEvent('update:stopped');
+
+    }.bind( this ));
+
+  };
+
+  // The `setFieldOptions` populates a select element with supplied options.
+
+  form.setFieldOptions = function( el, options ) {
+
+    var dropdown = $( el ).find('select'),
+        template = _.template('<option value="<%= value %>"><%= label %></option>');
+
+    _.forEach( options, function( option ) {
+      dropdown.append( template( option ) );
+    });
+
+    dropdown.trigger('liszt:updated');
+
+  };
+
   // The `fetchFieldOptions` method returns a promise to a field's options.
 
   form.fetchFieldOptions = function( id ) {
 
-    var endpoint = '/static/js/data/',
-        promise = $.ajax( endpoint + 'options.json' );
+    var promise = $.ajax( query.endpoint + id + '.json' );
 
     return promise;
+
+  };
+
+  // The `emptyField` method removes all options from a `select` element and tells
+  // chosen to update the element accordingly.
+
+  form.resetField = function( el ) {
+
+    $( el ).find('option').remove();
+    $( el ).find('select').trigger('liszt:updated');
 
   };
 
@@ -278,23 +333,37 @@ var PDP = PDP || (function(){
   form.checkDeps = function( el ) {
 
     // The form field element is passed from the observer.
-    // Grab the data-dependent attribute on the form field and join it with 
-    // hashes if there are multiple so we can reference the appropriate
-    // fields by id later.
+    // Grab the data-dependent attribute on the form field.
 
     var $el = $( el ),
-        dependents = $el.attr('data-dependent').split(' ').join(', #'),
+        dependents = $el.attr('data-dependent'),
         $dependents;
+
+    // Helper function to emit events
+
+    function emit( el, id ) {
+      observer.emitEvent( 'field:shown', [el, id] );
+    }
 
     // If the form field does in fact have any dependents, create a jQuery
     // object of their field containers and show/hide them as needed.
 
     if ( dependents ) {
 
+      // Split and join the dependents with hashes if there are multiple 
+      // so we can reference the appropriate fields by id later.
+
+      dependents = dependents.split(' ').join(', #');
       $dependents = $( '#' + dependents ).parents('.field');
+
+      // If it has a value, show all of its dependent fields. For each
+      // dependent field, broadcast that is has been shown.
 
       if ( $el.val() ) {
         $dependents.removeClass('hidden');
+        _.forEach( $dependents, function( $dependent ){
+          emit( $dependent, $el.attr('id') );
+        });
       } else {
         $dependents.addClass('hidden');
       }
@@ -327,6 +396,9 @@ var PDP = PDP || (function(){
     'filter:changed': [
       query.updateAll.bind( query ),
       form.checkDeps.bind( form )
+    ],
+    'field:shown': [
+      form.updateField.bind( form )
     ],
     'update:started': app.startLoading.bind( app ),
     'update:stopped': app.stopLoading.bind( app ),
