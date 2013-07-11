@@ -4,7 +4,7 @@ An interactive front-end for [Qu](https://github.com/cfpb/qu).
 
 ## Documentation
 
-See some [front-end notes](https://fake.ghe.domain/data-platform/data-platform-docs/wiki/Front-End-Framework-Notes).
+See some [front-end notes](https://fake.ghe.domain/data-platform/data-platform-docs/wiki/Front-End-Framework-Notes) or the [documented source](https://fake.ghe.domain/pages/data-platform/public-data-platform/docs/main.html).
 
 ## Contributing
 
@@ -16,7 +16,7 @@ See some [front-end notes](https://fake.ghe.domain/data-platform/data-platform-d
 1. `grunt`
 1. Open `localhost:8000` in a browser.
 
-Only edit files in `src`. When anything is changed, Grunt will lint, test, compile and build everything. [grunt-cfpb-internal](https://fake.ghe.domain/contolini/grunt-cfpb-internal) generates this README. Bump versions in CHANGELOG when appropriate.
+Only edit files in `src`. When anything is changed, Grunt will lint, test, compile and build everything. Or you can start your own server and manually run `grunt build`. [grunt-cfpb-internal](https://fake.ghe.domain/contolini/grunt-cfpb-internal) generates this README. Bump versions in CHANGELOG when appropriate.
 
 In lieu of a formal styleguide, take care to maintain the existing coding style.
 
