@@ -16,5 +16,3 @@ node_modules/
 ########################
 src/static/vendor
 dist/static/vendor
-src/js/vendor
-dist/js/vendor
