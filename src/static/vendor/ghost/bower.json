@@ -1,9 +1,0 @@
-{
-  "name": "ghost",
-  "version": "0.0.0",
-  "commit": "b31e460b8aeacd6589bb0a5fce9a01b2bd83a02c",
-  "repository": {
-    "type": "git",
-    "url": "git@fake.ghe.domain:contolini/ghost.git"
-  }
-}

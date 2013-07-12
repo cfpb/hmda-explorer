@@ -173,7 +173,7 @@ module.exports = function(grunt) {
             'src/static/vendor/json3/lib/json3.js',
             'src/static/vendor/jquery/jquery.js',
             'src/static/vendor/lodash/lodash.js',
-            'src/static/vendor/EventEmitter/EventEmitter.js',
+            'src/static/vendor/eventEmitter/EventEmitter.js',
             'src/static/vendor/chosen/public/chosen.jquery.js',
             'src/static/js/main.js'
           ]
@@ -247,8 +247,8 @@ module.exports = function(grunt) {
   /**
    * Create task aliases by registering new tasks
    */
-  grunt.registerTask('test', ['jshint', 'uglify']);
-  grunt.registerTask('build', ['shell:dist', 'less', 'cssmin', 'build-cfpb', 'docco']);
+  grunt.registerTask('test', ['jshint']);
+  grunt.registerTask('build', ['shell:dist', 'uglify', 'less', 'cssmin', 'build-cfpb', 'docco']);
 
   /**
    * The 'default' task will run whenever `grunt` is run without specifying a task

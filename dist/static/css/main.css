@@ -849,7 +849,7 @@ table {
                   | $$                  
                   |__/                  
 
-* Ghost - v0.2.0 - 2013-07-01
+* Ghost - v0.4.2 - 2013-07-12
 * http://consumerfinance.gov
 * A Public Domain work of the Consumer Financial Protection Bureau */
 /* ==========================================================================
@@ -1311,10 +1311,11 @@ textarea {
 .hero nav div {
   display: none;
 }
-.hero h2 {
-  font-family: "Avenir Next Demi", Arial, sans-serif;
-  font-weight: 600;
+.hero .title {
+  font-family: "Avenir Next", Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
+  text-transform: uppercase;
 }
 .hero ul {
   width: 100%;
@@ -1402,6 +1403,7 @@ textarea {
   }
   .hero nav div {
     display: block;
+    margin-bottom: 10px;
     width: 160px;
     height: 160px;
     -webkit-border-radius: 80px;
@@ -1414,6 +1416,9 @@ textarea {
     padding: 30% 13% 0;
     text-align: center;
     font-size: .75em;
+  }
+  .explore .hero {
+    min-height: 200px;
   }
 }
 .widget label {
