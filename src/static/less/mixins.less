@@ -15,10 +15,37 @@
   }
 
   li {
-      display: inline;
+      display: inline-block;
       a {
         display: inline-block;
       }
+  }
+}
+
+/**
+ *  Mixin to put nav items into a touch-friendly list
+ **/
+
+.mobile-nav() {
+  width: 100%;
+  margin: 5px auto 0;
+  font-size: 1.1em;
+  text-align: center;
+  li {
+    display: block;
+    margin-bottom: 5px;
+  }
+  a {
+    background-color: #FAB051;
+    padding: 3px 0;
+    display: block;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: @black;
+  }
+  a:hover,
+  a:active {
+    background-color: @gold;
   }
 }
 

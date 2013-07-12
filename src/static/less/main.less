@@ -34,6 +34,7 @@
 body, html {
   margin: 0;
   background: @white;
+  font-family: @body-font;
 }
 
 nav ul {
@@ -68,25 +69,64 @@ nav li {
 
 // Footer at the bottom of the page
 
-footer {
-  .row();
-  .primary,
-  .social {
-    .column(12);
+.hmda {
+
+  header {
+    ul {
+      .mobile-nav();
+    }
+    a.active {
+      .avenir-next-bold;
+    }
   }
+
+  footer {
+    .row();
+    .primary,
+    .social {
+      .column(12);
+    }
+  }
+
 }
 
 // Viewport adjustments
 
 @media only screen and ( min-width: 768px ) {
 
-  footer {
-    .primary {
-      .column(8);
+  .hmda {
+
+    header {
+      .logo {
+        width: 30%;
+        float: left;
+      }
+      nav {
+        width: 70%;
+        float: left;
+        height: 30px;
+        margin-top: 20px;
+      }
+      ul {
+        .horiz();
+        a {
+          background-color: transparent;
+          text-transform: capitalize;
+          .avenir-next;
+        }
+      }
+      .clearfix();
     }
-    .social {
-      .column(4);
+
+    footer {
+      .primary {
+        .column(8);
+      }
+      .social {
+        .column(4);
+      }
     }
+
   }
 
 }

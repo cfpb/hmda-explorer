@@ -206,7 +206,7 @@ module.exports = function(grunt) {
      * Grunt Docco plugin.
      */
     docco: {
-      debug: {
+      js: {
         src: ['src/static/js/main.js'],
         options: {
           output: 'docs/'

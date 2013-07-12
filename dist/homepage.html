@@ -23,15 +23,15 @@
 
       <header role="banner">
 
-        <img src="http://placehold.it/180x60&text=CFPB logo" class="logo" />
+        <div class="logo">
 
-        <aside class="disclaimer">
-          An official website of the United States Government
-        </aside>
+          <img src="http://placehold.it/180x60&text=CFPB logo"/>
+
+        </div>
 
         <nav role="navigation">
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="#" class="active">Home</a></li>
                 <li><a href="#">About HMDA</a></li>
                 <li><a href="#">Explore Data</a></li>
                 <li><a href="#">Query Builder</a></li>
@@ -48,10 +48,30 @@
 
           <nav>
             <ul>
-              <li><a href="#">About</a></li>
-              <li><a href="#">HMDA Data</a></li>
-              <li><a href="#">Developers</a></li>
-              <li><a href="#">Public Data Platform</a></li>
+              <li>
+                <a href="#" class="visualizations">
+                  <div>
+                    <span class="inner">It's pronounced "hum-duh" and other useful things.</span>
+                  </div>
+                  <span class="title">Data Visualizations</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="data">
+                  <div>
+                    <span class="inner">Download annual data, filter the data or create summary tables.</span>
+                  </div>
+                  <span class="title">Get the Data</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="developers">
+                  <div>
+                    <span class="inner">API documentation, console or visit our project on GitHub.</span>
+                  </div>
+                  <span class="title">Developers</span>
+                </a>
+              </li>
             </ul>
           </nav>
 

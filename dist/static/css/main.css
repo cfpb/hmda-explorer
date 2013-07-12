@@ -1208,6 +1208,9 @@ textarea {
  *  Mixin to justify a horizontal list, useful for navs
  **/
 /**
+ *  Mixin to put nav items into a touch-friendly list
+ **/
+/**
  *  Clearfix
  **/
 .charts {
@@ -1267,14 +1270,10 @@ textarea {
   
 }
 .hero {
-  min-height: 300px;
   padding-top: 33px;
   text-align: center;
   background-color: #FAB051;
   background-size: cover;
-  font-family: "Avenir Next Demi", Arial, sans-serif;
-  font-weight: 600;
-  font-style: normal;
 }
 .hero > .inner {
   max-width: 960px;
@@ -1290,13 +1289,13 @@ textarea {
   font-style: normal;
   font-size: 30px;
   line-height: 1.3em;
-  padding: 0 0 30px;
+  padding-bottom: 0 0 30px;
 }
 .hero h1:before {
   content: " ";
   display: block;
   width: 100%;
-  height: 68px;
+  height: 40px;
   background: transparent url() scroll no-repeat top center;
   background-image: url('../img/hr_hero-top.png');
 }
@@ -1307,54 +1306,114 @@ textarea {
   }
 }
 .hero nav {
+  font-family: Georgia, "Times New Roman", serif;
+}
+.hero nav div {
+  display: none;
+}
+.hero h2 {
+  font-family: "Avenir Next Demi", Arial, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+.hero ul {
   width: 100%;
   margin: 5px auto 0;
   font-size: 1.1em;
+  text-align: center;
 }
-.hero nav ul {
-  margin: 0;
-}
-.hero nav li {
+.hero ul li {
   display: block;
   margin-bottom: 5px;
 }
-.hero nav a {
-  font-family: "Avenir Next", Arial, sans-serif;
-  font-weight: 700;
-  font-style: normal;
-  background-color: #fbbc6b;
+.hero ul a {
+  background-color: #FAB051;
   padding: 3px 0;
   display: block;
   text-transform: uppercase;
+  text-decoration: none;
   color: #101820;
 }
+.hero ul a:hover,
+.hero ul a:active {
+  background-color: #ff9e1b;
+}
 @media only screen and (min-width: 768px) {
+  .hero {
+    min-height: 300px;
+  }
   .hero h1 {
     font-size: 49.5px;
+    padding: 0;
   }
   .hero nav {
-    width: 77%;
+    width: 82%;
+    margin: 0 auto;
     margin-top: 25px;
+    *zoom: 1;
   }
-  .hero nav ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    text-align: justify;
+  .hero nav:before,
+  .hero nav:after {
+    content: " ";
+    display: table;
   }
-  .hero nav ul:after {
-    content: "";
-    width: 100%;
-    display: inline-block;
+  .hero nav:after {
+    clear: both;
   }
-  .hero nav ul li {
-    display: inline;
+  .hero nav li {
+    width: 33%;
+    float: left;
+    *zoom: 1;
   }
-  .hero nav ul li a {
-    display: inline-block;
+  .hero nav li:before,
+  .hero nav li:after {
+    content: " ";
+    display: table;
   }
-  .hero nav ul a {
+  .hero nav li:after {
+    clear: both;
+  }
+  .hero nav a {
     background-color: transparent;
+    text-transform: none;
+    width: 160px;
+  }
+  .hero nav a.data {
+    margin: 0 auto;
+  }
+  .hero nav a.data .inner {
+    padding-left: 9%;
+    padding-right: 9%;
+  }
+  .hero nav a.developers {
+    *zoom: 1;
+    float: right;
+  }
+  .hero nav a.developers:before,
+  .hero nav a.developers:after {
+    content: " ";
+    display: table;
+  }
+  .hero nav a.developers:after {
+    clear: both;
+  }
+  .hero nav a:hover {
+    background-color: transparent;
+  }
+  .hero nav div {
+    display: block;
+    width: 160px;
+    height: 160px;
+    -webkit-border-radius: 80px;
+    -moz-border-radius: 80px;
+    border-radius: 80px;
+    background: #fbcd96;
+  }
+  .hero nav .inner {
+    display: block;
+    padding: 30% 13% 0;
+    text-align: center;
+    font-size: .75em;
   }
 }
 .widget label {
@@ -1465,6 +1524,7 @@ body,
 html {
   margin: 0;
   background: #ffffff;
+  font-family: Georgia, "Times New Roman", serif;
 }
 nav ul {
   padding-left: 0;
@@ -1490,23 +1550,50 @@ nav li {
   padding: 0 1.5625%;
   padding: 0 calc(15px);
 }
-footer {
+.hmda header ul {
+  width: 100%;
+  margin: 5px auto 0;
+  font-size: 1.1em;
+  text-align: center;
+}
+.hmda header ul li {
+  display: block;
+  margin-bottom: 5px;
+}
+.hmda header ul a {
+  background-color: #FAB051;
+  padding: 3px 0;
+  display: block;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #101820;
+}
+.hmda header ul a:hover,
+.hmda header ul a:active {
+  background-color: #ff9e1b;
+}
+.hmda header a.active {
+  font-family: "Avenir Next", Arial, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.hmda footer {
   margin: 0 auto;
   width: 100%;
   overflow: hidden;
   clear: both;
   *zoom: 1;
 }
-footer:before,
-footer:after {
+.hmda footer:before,
+.hmda footer:after {
   content: " ";
   display: table;
 }
-footer:after {
+.hmda footer:after {
   clear: both;
 }
-footer .primary,
-footer .social {
+.hmda footer .primary,
+.hmda footer .social {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -1516,7 +1603,52 @@ footer .social {
   margin-left: 0;
 }
 @media only screen and (min-width: 768px) {
-  footer .primary {
+  .hmda header {
+    *zoom: 1;
+  }
+  .hmda header .logo {
+    width: 30%;
+    float: left;
+  }
+  .hmda header nav {
+    width: 70%;
+    float: left;
+    height: 30px;
+    margin-top: 20px;
+  }
+  .hmda header ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-align: justify;
+  }
+  .hmda header ul:after {
+    content: "";
+    width: 100%;
+    display: inline-block;
+  }
+  .hmda header ul li {
+    display: inline-block;
+  }
+  .hmda header ul li a {
+    display: inline-block;
+  }
+  .hmda header ul a {
+    background-color: transparent;
+    text-transform: capitalize;
+    font-family: "Avenir Next", Arial, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .hmda header:before,
+  .hmda header:after {
+    content: " ";
+    display: table;
+  }
+  .hmda header:after {
+    clear: both;
+  }
+  .hmda footer .primary {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -1527,10 +1659,10 @@ footer .social {
     margin-left: 3.125%;
     margin-left: calc(30px);
   }
-  footer .primary:first-child {
+  .hmda footer .primary:first-child {
     margin-left: 0;
   }
-  footer .social {
+  .hmda footer .social {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -1541,7 +1673,7 @@ footer .social {
     margin-left: 3.125%;
     margin-left: calc(30px);
   }
-  footer .social:first-child {
+  .hmda footer .social:first-child {
     margin-left: 0;
   }
 }
