@@ -2,7 +2,7 @@
   "name": "CFPB PDP",
   "version": "0.1.0",
   "devDependencies": {
-    "ghost": "git@fake.ghe.domain:contolini/ghost.git",
+    "ghost": "git@fake.ghe.domain:contolini/ghost.git#v0.4.2",
     "jquery": "~1.10.1",
     "normalize-css": "~2.1.2",
     "chosen": "~0.10.0",
