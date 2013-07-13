@@ -169,12 +169,12 @@ module.exports = function(grunt) {
       main: {
         files: {
           'dist/static/js/main.min.js': [
-            'src/static/js/bind.js',
             'src/static/vendor/json3/lib/json3.js',
             'src/static/vendor/jquery/jquery.js',
             'src/static/vendor/lodash/lodash.js',
             'src/static/vendor/eventEmitter/EventEmitter.js',
             'src/static/vendor/chosen/public/chosen.jquery.js',
+            'src/static/js/modules/*.js',
             'src/static/js/main.js'
           ]
         }
@@ -207,7 +207,7 @@ module.exports = function(grunt) {
      */
     docco: {
       js: {
-        src: ['src/static/js/main.js'],
+        src: ['src/static/js/**/*.js'],
         options: {
           output: 'docs/'
         }
