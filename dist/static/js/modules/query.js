@@ -81,7 +81,7 @@ var PDP = (function ( pdp ) {
 
     // Encode the URL.
 
-    url = encodeURI( this.getUrl() );
+    url = encodeURI( this.getApiUrl() );
 
     console.log( url );
 
@@ -91,20 +91,43 @@ var PDP = (function ( pdp ) {
 
   };
 
-  // The `getUrl` method builds and returns a Qu URL from `query`'s `params`.
+  // The `getHash` method builds and returns a URL hash from `query`'s `params`.
 
-  query.getUrl = function() {
+  query.getHash = function() {
+
+    var hashParams = [];
+
+    // Loop through params, stringify them and push them into the temp array.
+
+    function buildHashParam( param, name ) {
+
+      // If it's not a number, add quotes around the params.
+
+      hashParams.push( name + '=' + param.join(',') );
+
+    }
+
+    _.forEach( query.params, buildHashParam );
+
+    return hashParams.join('&');
+
+  };
+
+  // The `getApiUrl` method builds and returns a Qu URL from `query`'s `params`.
+
+  query.getApiUrl = function( format ) {
 
     var url,
+        downloadFormat = format || this.format,
         params = [];
 
     // Set a base url to append params to
 
-    url = 'http://qu.demo.cfpb.gov/data/hmda/hmda_lar';
+    url = 'http://qu.demo.cfpb.gov/data/hmda/hmda_lar.' + downloadFormat;
 
     // Convert each param to a proper [`$where` clause](http://cfpb.github.io/qu/articles/queries.html#where_in_detail).
 
-    function buildParam( param, name ) {
+    function buildClause( param, name ) {
 
       // If there's only value for the param, meaning they only selected one item or
       // it's a radio button that only allows once value, add the stringified
@@ -112,7 +135,13 @@ var PDP = (function ( pdp ) {
 
       if ( param.length === 1 ) {
 
-        params.push( name + '="' + param[0] + '"' );
+        // Wrap it in quotes if it's NaN.
+
+        if ( isNaN( param[0] ) ) {
+          params.push( name + '="' + param[0] + '"' );
+        } else {
+          params.push( name + '=' + param[0]);
+        }
 
       // If there are multiple values for a single parameter, we iterate over them and
       // put an `OR` operator between them. We then then [group them](http://cfpb.github.io/qu/articles/queries.html#boolean_operators)
@@ -123,7 +152,15 @@ var PDP = (function ( pdp ) {
         var _params = [];
 
         _.forEach( param, function( val, key ){
-          _params.push( name + '="' + val + '"' );
+
+          // Wrap it in quotes if it's NaN.
+
+          if ( isNaN( val ) ) {
+            _params.push( name + '="' + val + '"' );
+          } else {
+            _params.push( name + '=' + val);
+          }
+
         });
 
         _params = '(' + _params.join(' OR ') + ')';
@@ -131,9 +168,10 @@ var PDP = (function ( pdp ) {
         params.push( _params );
 
       }
+
     }
 
-    _.forEach( query.params, buildParam );
+    _.forEach( query.params, buildClause );
 
     // Join all the params with `AND` operators and append it to the base url.
 

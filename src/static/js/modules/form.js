@@ -29,7 +29,7 @@ var PDP = (function ( pdp ) {
 
     var tagName = $el.prop('tagName').toLowerCase(),
         type = $el.attr('type'),
-        name = $el.attr('name') || 'untitled',
+        name = $el.attr('name') || undefined,
         value = $el.val(),
         field = {};
 
@@ -64,13 +64,13 @@ var PDP = (function ( pdp ) {
 
   };
 
-  // The `setField` method sets a field's method
+  // The `setFields` method sets all fields' values/options from the `query.params` hash.
 
-  form.setField = function() {
+  form.setFields = function() {
 
     var params = pdp.query.params;
 
-    // Helper function to set all params of a field
+    // Helper function to set all options of a field.
 
     function setOptions( val, param ) {
 
@@ -169,8 +169,7 @@ var PDP = (function ( pdp ) {
       pdp.observer.emitEvent( 'field:shown', [el, id] );
     }
 
-    // If the form field does in fact have any dependents, create a jQuery
-    // object of their field containers and show/hide them as needed.
+    // If the form field does in fact have any dependents.
 
     if ( dependents ) {
 

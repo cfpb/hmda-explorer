@@ -14,23 +14,39 @@ var PDP = (function ( pdp ) {
 
   pdp.observer.addListeners({
 
-    'dom:loaded': pdp.app.init.bind( pdp.app ),
+    // When the DOM is loaded: Initalize the app and update the `query.params` hash.
+
+    'dom:loaded': [
+      pdp.app.init.bind( pdp.app ),
+      pdp.query.updateAll.bind( pdp.query )
+    ],
+
+    // When the app is ready: Start the app and stop any loading visualizations.
 
     'app:ready': [
       pdp.app.start.bind( pdp.app ),
       pdp.app.stopLoading.bind( pdp.app )
     ],
 
+    // When a filter is changed: Update the `query.params` hash and check form
+    // field dependencies.
+
     'filter:changed': [
       pdp.query.updateAll.bind( pdp.query ),
       pdp.form.checkDeps.bind( pdp.form )
     ],
 
+    // When a previously hidden field is shown: Update the field's options.
+
     'field:shown': [
       pdp.form.updateField.bind( pdp.form )
     ],
 
+    // When an update is started: Start loading visualizations.
+
     'update:started': pdp.app.startLoading.bind( pdp.app ),
+
+    // When an update is stopped: Stop loading visualizations.
 
     'update:stopped': pdp.app.stopLoading.bind( pdp.app ),
 
