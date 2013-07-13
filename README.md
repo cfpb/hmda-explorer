@@ -22,7 +22,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
- * 2013-07-12   v0.2.1   Modularize all JavaScript. Add hash deparam feature. Ability to set DOM fields from params hash.
+ * 2013-07-12   v0.3.0   Modularize all JavaScript. Add hash deparam feature. Ability to set DOM fields from params hash.
  * 2013-07-10   v0.2.0   Asynchronously populate field options. Field dependency management.
  * 2013-07-09   v0.1.6   Initial URL building methods. General refactoring.
  * 2013-07-08   v0.1.3   Add global observer.
@@ -39,4 +39,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Sat Jul 13 2013 03:07:37.*
+*This file was generated on Sat Jul 13 2013 03:09:30.*
