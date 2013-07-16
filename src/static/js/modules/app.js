@@ -44,7 +44,8 @@ var PDP = (function ( pdp ) {
 
   app.start = function() {
 
-    var hashParams = pdp.utils.getHashParams();
+    var hashParams = pdp.utils.getHashParams(),
+        $parents = $('select[data-dependent], input[data-dependent]');
 
     // If there are hash params in the URL, grab them and populate the DOM fields.
 
@@ -63,6 +64,14 @@ var PDP = (function ( pdp ) {
     // Pull any `param` entries into the DOM.
 
     pdp.form.setFields();
+
+    // Check if any fields that were preloaded have dependents we need to show.
+
+    pdp.form.checkDeps( $parents );
+
+    // Check if any filter sections are hiding fields with values.
+
+    pdp.form.checkFilters();
 
     // Broadcast that the app has started.
 

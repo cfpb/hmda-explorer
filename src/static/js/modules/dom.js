@@ -48,21 +48,20 @@ var PDP = (function ( pdp ) {
 
   $('.filter .title').on( 'click', function( ev ){
 
-    var id = $( this ).parents('.filter').attr('id');
+    var id = $( this ).parents('.filter').attr('id'),
+        $el = $('#' + id);
 
     ev.preventDefault();
 
-    if ( $( '#' + id ).hasClass('closed') ) {
+    if ( $el.hasClass('closed') ) {
 
-      pdp.form.showFilter( id );
+      pdp.form.showFilter( $el );
 
     } else {
 
-      pdp.form.hideFilter( id );
+      pdp.form.hideFilter( $el );
 
-    }
-
-    console.log(id);    
+    } 
 
   });
 

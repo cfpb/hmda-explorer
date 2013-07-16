@@ -24,9 +24,10 @@ var PDP = (function ( pdp ) {
 
   // The `showFilter` method shows all the fields of a given filter section.
 
-  form.showFilter = function( id ) {
+  form.showFilter = function( el ) {
 
-    var $fields = $( '#' + id ).find('.fields'),
+    var $el = $( el ),
+        $fields = $el.find('.fields'),
         height = Math.max( $fields.show().height(), 150 );
 
     // This is a hack to calculate the height of the DOM element ahead of time so
@@ -35,19 +36,70 @@ var PDP = (function ( pdp ) {
     $fields.hide().css( 'height', 0 );
     $fields.show().animate( {height: height}, 150 );
 
-    $( '#' + id ).removeClass('closed').attr( 'title', 'Hide this filter section' );
+    $el.removeClass('closed').attr( 'title', 'Hide this filter section' );
 
-    pdp.observer.emitEvent( 'filter:shown', id );
+    pdp.observer.emitEvent( 'filter:shown', el );
 
   };
 
   // The `hideFilter` method hides all the fields of a given filter section.
 
-  form.hideFilter = function( id ) {
+  form.hideFilter = function( el ) {
 
-    $( '#' + id ).addClass('closed').attr( 'title', 'Show this filter section' ).find('.fields').slideUp( 200 );
+    $( el ).addClass('closed').attr( 'title', 'Show this filter section' ).find('.fields').slideUp( 200 );
 
-    pdp.observer.emitEvent( 'filter:hidden', id );
+    pdp.observer.emitEvent( 'filter:hidden', el );
+
+  };
+
+  // The `checkFilters` method checks if a filter has any fields with values.
+
+  form.checkFilters = function() {
+
+    pdp.form.$fields.each(function(){
+
+      var $el = $( this ),
+          $parentFilter = $(this).parents('.filter.closed');
+
+      if ( pdp.form.hasValue( $el ) && $parentFilter.length > 0 ) {
+        pdp.form.showFilter( $parentFilter );
+      }
+
+    });
+
+  };
+
+  // The 'hasValue' method checks if a field has any value selected.
+
+  form.hasValue = function( el ) {
+
+    var $el = $( el ).find('select, input');
+
+    //$el.css('background', 'orange')
+
+    //console.log(el);
+
+    // If it's a select element or text box
+
+    if ( $el.prop('tagName').toLowerCase() === 'select' || $el.attr('type') === 'text' ) {
+
+      if ( $el.val() ) {
+
+        return $el.val().length > 0;
+
+      }
+
+    // If it's a checkbox or radio element
+
+    } else if ( $el.attr('type') === ( 'checkbox' || 'radio' ) ) {
+
+      return $el.prop('checked');
+
+    }
+
+    // Return false by default
+
+    return false;
 
   };
 
