@@ -22,7 +22,27 @@ var PDP = (function ( pdp ) {
 
   form.$fields = form.$el.find('.field');
 
-  // The 'getField' method returns a field's attributes and value(s) when given
+  // The `showFilter` method shows all the fields of a given filter section.
+
+  form.showFilter = function( id ) {
+
+    $('.' + id).find('.fields').slideDown();
+
+    pdp.observer.emitEvent( 'filter:shown', id );
+
+  };
+
+  // The `hideFilter` method hides all the fields of a given filter section.
+
+  form.hideFilter = function( id ) {
+
+    $('.' + id).find('.fields').slideUp();
+
+    pdp.observer.emitEvent( 'filter:hidden', id );
+
+  };
+
+  // The `getField` method returns a field's attributes and value(s) when given
   // a jQuery object of the field's HTML element.
 
   form.getField = function( $el ) {
@@ -113,9 +133,9 @@ var PDP = (function ( pdp ) {
 
   };
 
-  // The `updateField` method updates a field's options
+  // The `updateFieldOptions` method fetches and sets a field's options
 
-  form.updateField = function( el, dependency ) {
+  form.updateFieldOptions = function( el, dependency ) {
 
     // Broadcast that an update is starting.
 

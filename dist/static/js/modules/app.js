@@ -90,7 +90,7 @@ var PDP = (function ( pdp ) {
   // The `redirect` method redirects the browser to a new URL.
   // It is used to send the user to the Qu URL with their results.
 
-  app.redirect = function() {
+  app.redirect = function( url ) {
     console.log('The user has been redirected!');
   };
 

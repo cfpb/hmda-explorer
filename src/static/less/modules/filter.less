@@ -40,8 +40,9 @@
 
   // The fields are displayed in an unordered list
 
-  ul {
+  ul.fields {
     padding: 0;
+    display: none;
   }
 
   // Fields are the individual filters
@@ -53,6 +54,7 @@
 
     &> label {
       .column( 3 );
+      .avenir-next-demi;
       text-align: right;
     }
   }
@@ -95,6 +97,7 @@
   .filter {
 
     .column( 10 );
+    .push( 1 );
 
     .intro {
       .column( 8, 10 );
