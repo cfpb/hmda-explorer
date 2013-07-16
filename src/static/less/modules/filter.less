@@ -19,19 +19,18 @@
 
 .filter {
 
-  .column( 10 );
+  .column( 12 );
 
   &:nth-child( even ) {
     background-color: @grey;
   }
   
   h3 {
-    .column( 3 );
     text-transform: uppercase;
   }
 
   .desc {
-    .column( 7 );
+
   }
 
   // The fields are displayed in an unordered list
@@ -46,7 +45,6 @@
     
     list-style-type: none;
     margin-bottom: 1em;
-    .clearfix();
 
     &> label {
       .column( 3 );
@@ -55,10 +53,23 @@
   }
 
   .widget {
-    .column( 4 );
+    .column( 8 );
     label {
       display: block;
-      margin-bottom: 10px;
+      //margin-bottom: 10px;
+      padding-left: 23px;
+      text-indent: -25px;
+    }
+    input[type=checkbox],
+    input[type=radio] {
+        width: 25px;
+        height: 16px;
+        padding: 0;
+        margin:0;
+        vertical-align: bottom;
+        position: relative;
+        top: -1px;
+        *overflow: hidden;
     }
   }
 
@@ -68,7 +79,6 @@
 
   .help {
     .column( 1 );
-    display: none;
   }
 
 }
@@ -78,23 +88,32 @@
 @media only screen and ( min-width: 768px ) {
 
   .filter {
-    
-    h3,
-    ul {
 
+    .column( 10 );
+
+    .intro {
+      .column( 8, 10 );
+    }
+    
+    h3 {
+      .column( 3, 10 );
     }
 
-    li.field > label {
+    .desc {
+      .column( 7, 10 );
+    }
 
+    li.field {
+
+      &> label {
+        .column( 3, 10 );
+      }
     }
 
     .widget {
-
+      .column( 4, 10 );
     }
 
-    .help {
-      display: inline-block;
-    }
   }
 
 }

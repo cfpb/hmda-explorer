@@ -1618,7 +1618,7 @@ textarea {
   border-width: 0 15px;
   margin-right: -0.25em;
   vertical-align: top;
-  width: 83.33333333333334%;
+  width: 100%;
 }
 .ie .filter {
   margin-right: -0.26em;
@@ -1632,43 +1632,7 @@ textarea {
   background-color: #e7e7e6;
 }
 .filter h3 {
-  display: inline-block;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  border: solid transparent;
-  border-width: 0 15px;
-  margin-right: -0.25em;
-  vertical-align: top;
-  width: 25%;
   text-transform: uppercase;
-}
-.ie .filter h3 {
-  margin-right: -0.26em;
-}
-.lt-ie8 .filter h3 {
-  display: inline;
-  *zoom: 1;
-  *behavior: url(boxsizing.htc);
-}
-.filter .desc {
-  display: inline-block;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  border: solid transparent;
-  border-width: 0 15px;
-  margin-right: -0.25em;
-  vertical-align: top;
-  width: 58.333333333333336%;
-}
-.ie .filter .desc {
-  margin-right: -0.26em;
-}
-.lt-ie8 .filter .desc {
-  display: inline;
-  *zoom: 1;
-  *behavior: url(boxsizing.htc);
 }
 .filter ul {
   padding: 0;
@@ -1676,15 +1640,6 @@ textarea {
 .filter li.field {
   list-style-type: none;
   margin-bottom: 1em;
-  *zoom: 1;
-}
-.filter li.field:before,
-.filter li.field:after {
-  content: " ";
-  display: table;
-}
-.filter li.field:after {
-  clear: both;
 }
 .filter li.field > label {
   display: inline-block;
@@ -1715,7 +1670,7 @@ textarea {
   border-width: 0 15px;
   margin-right: -0.25em;
   vertical-align: top;
-  width: 33.33333333333333%;
+  width: 66.66666666666666%;
 }
 .ie .filter .widget {
   margin-right: -0.26em;
@@ -1727,7 +1682,19 @@ textarea {
 }
 .filter .widget label {
   display: block;
-  margin-bottom: 10px;
+  padding-left: 23px;
+  text-indent: -25px;
+}
+.filter .widget input[type=checkbox],
+.filter .widget input[type=radio] {
+  width: 25px;
+  height: 16px;
+  padding: 0;
+  margin: 0;
+  vertical-align: bottom;
+  position: relative;
+  top: -1px;
+  *overflow: hidden;
 }
 .filter select {
   width: 100%;
@@ -1742,7 +1709,6 @@ textarea {
   margin-right: -0.25em;
   vertical-align: top;
   width: 8.333333333333332%;
-  display: none;
 }
 .ie .filter .help {
   margin-right: -0.26em;
@@ -1753,8 +1719,119 @@ textarea {
   *behavior: url(boxsizing.htc);
 }
 @media only screen and (min-width: 768px) {
-  .filter .help {
+  .filter {
     display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: solid transparent;
+    border-width: 0 15px;
+    margin-right: -0.25em;
+    vertical-align: top;
+    width: 83.33333333333334%;
+  }
+  .ie .filter {
+    margin-right: -0.26em;
+  }
+  .lt-ie8 .filter {
+    display: inline;
+    *zoom: 1;
+    *behavior: url(boxsizing.htc);
+  }
+  .filter .intro {
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: solid transparent;
+    border-width: 0 15px;
+    margin-right: -0.25em;
+    vertical-align: top;
+    width: 80%;
+  }
+  .ie .filter .intro {
+    margin-right: -0.26em;
+  }
+  .lt-ie8 .filter .intro {
+    display: inline;
+    *zoom: 1;
+    *behavior: url(boxsizing.htc);
+  }
+  .filter h3 {
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: solid transparent;
+    border-width: 0 15px;
+    margin-right: -0.25em;
+    vertical-align: top;
+    width: 30%;
+  }
+  .ie .filter h3 {
+    margin-right: -0.26em;
+  }
+  .lt-ie8 .filter h3 {
+    display: inline;
+    *zoom: 1;
+    *behavior: url(boxsizing.htc);
+  }
+  .filter .desc {
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: solid transparent;
+    border-width: 0 15px;
+    margin-right: -0.25em;
+    vertical-align: top;
+    width: 70%;
+  }
+  .ie .filter .desc {
+    margin-right: -0.26em;
+  }
+  .lt-ie8 .filter .desc {
+    display: inline;
+    *zoom: 1;
+    *behavior: url(boxsizing.htc);
+  }
+  .filter li.field > label {
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: solid transparent;
+    border-width: 0 15px;
+    margin-right: -0.25em;
+    vertical-align: top;
+    width: 30%;
+  }
+  .ie .filter li.field > label {
+    margin-right: -0.26em;
+  }
+  .lt-ie8 .filter li.field > label {
+    display: inline;
+    *zoom: 1;
+    *behavior: url(boxsizing.htc);
+  }
+  .filter .widget {
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: solid transparent;
+    border-width: 0 15px;
+    margin-right: -0.25em;
+    vertical-align: top;
+    width: 40%;
+  }
+  .ie .filter .widget {
+    margin-right: -0.26em;
+  }
+  .lt-ie8 .filter .widget {
+    display: inline;
+    *zoom: 1;
+    *behavior: url(boxsizing.htc);
   }
 }
 ul.chzn-choices {
