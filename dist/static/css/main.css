@@ -1619,6 +1619,7 @@ textarea {
   margin-right: -0.25em;
   vertical-align: top;
   width: 100%;
+  background-color: #f4f3f2;
 }
 .ie .filter {
   margin-right: -0.26em;
@@ -1628,8 +1629,11 @@ textarea {
   *zoom: 1;
   *behavior: url(boxsizing.htc);
 }
-.filter:nth-child( even ) {
+.filter:nth-child( odd ) {
   background-color: #e7e7e6;
+}
+.filter .title {
+  margin: 30px 0;
 }
 .filter h3 {
   text-transform: uppercase;
@@ -1851,6 +1855,30 @@ ul.chzn-choices {
 }
 .chzn-container .chzn-results .highlighted {
   background: #0072ce;
+}
+.chzn-container-single .chzn-drop {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+.chzn-container-single .chzn-single {
+  height: 30px;
+  padding-top: 3px;
+  background: #ffffff;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+.chzn-container-single .chzn-single div b {
+  background-position: 0 5px;
+}
+.chzn-container-multi .chzn-choices .search-field .default {
+  font-family: "Avenir Next", Arial, sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 .tooltip {
   position: absolute;
