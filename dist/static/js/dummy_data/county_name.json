@@ -1,26 +1,18 @@
 [
   {
-    "label": "Option 1",
+    "label": "Springfield",
     "value": "option_1"
   },
   {
-    "label": "Option 2",
+    "label": "Clackamas",
     "value": "option_2"
   },
   {
-    "label": "Option 3",
+    "label": "Willamette",
     "value": "option_3"
   },
   {
-    "label": "Option 4",
+    "label": "Washington",
     "value": "option_4"
-  },
-  {
-    "label": "Option 5",
-    "value": "option_5"
-  },
-  {
-    "label": "Option 6",
-    "value": "option_6"
   }
 ]

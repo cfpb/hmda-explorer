@@ -4,7 +4,7 @@ An interactive front-end for [Qu](https://github.com/cfpb/qu).
 
 ## Documentation
 
-See some [front-end notes](https://fake.ghe.domain/data-platform/data-platform-docs/wiki/Front-End-Framework-Notes) or the [documented source](https://fake.ghe.domain/pages/data-platform/public-data-platform/docs/main.html).
+See some [front-end notes](https://fake.ghe.domain/data-platform/data-platform-docs/wiki/Front-End-Framework-Notes) or the [documented source](https://fake.ghe.domain/pages/data-platform/public-data-platform/docs/main.html) (use the top right menu).
 
 ## Contributing
 
@@ -22,6 +22,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2013-07-15   v0.4.0   Help tooltips. Form styling. Chosen JS implementation.
  * 2013-07-12   v0.3.0   Modularize all JavaScript. Add hash deparam feature. Ability to set DOM fields from params hash.
  * 2013-07-10   v0.2.0   Asynchronously populate field options. Field dependency management.
  * 2013-07-09   v0.1.6   Initial URL building methods. General refactoring.
@@ -39,4 +40,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Sat Jul 13 2013 18:42:14.*
+*This file was generated on Mon Jul 15 2013 23:58:25.*

@@ -26,9 +26,16 @@ var PDP = (function ( pdp ) {
 
     app.$el.find('select').chosen({ width: '100%' });
 
+    // Initialize Bootstrap tooltips
+
+    app.$el.find('.help').tooltip({ placement: 'left' });
+
     // Broadcast that the app is loaded and good to go.
 
     pdp.observer.emitEvent('app:ready');
+
+    // Give our app a special class.
+
     this.$el.addClass('ready');
 
   };
@@ -37,7 +44,25 @@ var PDP = (function ( pdp ) {
 
   app.start = function() {
 
-    console.log('App started!');
+    var hashParams = pdp.utils.getHashParams();
+
+    // If there are hash params in the URL, grab them and populate the DOM fields.
+
+    if ( !_.isEmpty( hashParams ) ) {
+
+      pdp.query.updateAll({source: 'url'});
+
+    } else {
+
+      // Clear out any cached values.
+
+      pdp.query.reset();
+
+    }
+
+    // Pull any `param` entries into the DOM.
+
+    pdp.form.setFields();
 
     // Broadcast that the app has started.
 
@@ -67,6 +92,57 @@ var PDP = (function ( pdp ) {
 
   app.redirect = function() {
     console.log('The user has been redirected!');
+  };
+
+  // The 'getUrlValue' method returns an object containing a hash params name and value
+  // when passed the param's name.
+
+  app.getUrlValue = function( name ) {
+
+    var param,
+        params = pdp.utils.getHashParams();
+
+    // Build and return the param's deets.
+
+    param = {
+      name: name,
+      value: params[ name ]
+    };
+
+    return param;
+
+  };
+
+  // The 'getUrlValues' method returns an array of *all* hash param attributes and values.
+
+  app.getUrlValues = function() {
+
+    var _params = [],
+        params = pdp.utils.getHashParams();
+
+    function buildParam( val, name ) {
+
+      var _param = {},
+          _values = [],
+          values = val.split(',');
+
+      _.forEach( values, function( value ){
+        _values.push( value );
+      });
+
+      _param = {
+        name: name,
+        value: _values
+      };
+
+      _params.push( _param );
+
+    }
+
+    _.forEach( params, buildParam );
+
+    return _params;
+
   };
 
   // Export the public API.

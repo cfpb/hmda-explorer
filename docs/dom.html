@@ -7,7 +7,23 @@
 
     <span class="nx">pdp</span><span class="p">.</span><span class="nx">observer</span><span class="p">.</span><span class="nx">emitEvent</span><span class="p">(</span><span class="s1">&#39;filter:changed&#39;</span><span class="p">,</span> <span class="nx">$</span><span class="p">(</span> <span class="k">this</span> <span class="p">)</span> <span class="p">);</span>
 
-  <span class="p">});</span></pre></div>             </td>           </tr>                               <tr id="section-5">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-5">&#182;</a>               </div>               <h2>When the DOM is Ready</h2>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="p">});</span></pre></div>             </td>           </tr>                               <tr id="section-5">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-5">&#182;</a>               </div>               <p>Hijack the submit button.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;form#explore&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span> <span class="s1">&#39;submit&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">ev</span> <span class="p">){</span>
+
+    <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">generateApiUrl</span><span class="p">();</span>
+
+    <span class="nx">ev</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+
+    <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span> <span class="nx">url</span> <span class="p">);</span>
+
+  <span class="p">});</span></pre></div>             </td>           </tr>                               <tr id="section-6">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-6">&#182;</a>               </div>               <p>Share functionality</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#share&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span> <span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">ev</span> <span class="p">){</span>
+
+    <span class="kd">var</span> <span class="nx">hash</span> <span class="o">=</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">generateUrlHash</span><span class="p">();</span>
+
+    <span class="nx">ev</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+
+    <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">hash</span> <span class="o">=</span> <span class="nx">hash</span><span class="p">;</span>
+
+  <span class="p">});</span></pre></div>             </td>           </tr>                               <tr id="section-7">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-7">&#182;</a>               </div>               <h2>When the DOM is Ready</h2>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 
     <span class="nx">pdp</span><span class="p">.</span><span class="nx">observer</span><span class="p">.</span><span class="nx">emitEvent</span><span class="p">(</span><span class="s1">&#39;dom:loaded&#39;</span><span class="p">);</span>
 

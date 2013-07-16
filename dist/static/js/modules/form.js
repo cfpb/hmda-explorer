@@ -22,7 +22,7 @@ var PDP = (function ( pdp ) {
 
   form.$fields = form.$el.find('.field');
 
-  // The 'getField' method returns a field's name and value when given
+  // The 'getField' method returns a field's attributes and value(s) when given
   // a jQuery object of the field's HTML element.
 
   form.getField = function( $el ) {
@@ -64,6 +64,26 @@ var PDP = (function ( pdp ) {
 
   };
 
+  // The 'getFields' method returns an array of *all* fields' attributes and values.
+
+  form.getFields = function( $el ) {
+
+    var fields = [],
+        $fields = pdp.app.$el.find('.param');
+
+    $fields.each(function(){
+
+      var $this = $( this ),
+          field = pdp.form.getField( $this );
+
+      fields.push( field );
+
+    });
+
+    return fields;
+
+  };
+
   // The `setFields` method sets all fields' values/options from the `query.params` hash.
 
   form.setFields = function() {
@@ -74,11 +94,15 @@ var PDP = (function ( pdp ) {
 
     function setOptions( val, param ) {
 
-      // Set radios.
-      $('input[name=' + param + '][value=' + val + ']').prop('checked', true);
+      _.forEach( val, function( val ){
 
-      // Set checkboxes.
-      $('input[name=' + param + '\\[\\]][value=' + val + ']').prop('checked', true);
+        // Set radios.
+        $('input[name=' + param + '][value="' + val + '"]').prop('checked', true);
+
+        // Set checkboxes.
+        $('input[name=' + param + '\\[\\]][value="' + val + '"]').prop('checked', true);
+
+      });
 
       // Set selects.
       $('select[name=' + param + ']').val( val ).trigger('liszt:updated');
@@ -142,13 +166,33 @@ var PDP = (function ( pdp ) {
 
   };
 
-  // The `emptyField` method removes all options from a `select` element and tells
-  // chosen to update the element accordingly.
+  // The `resetField` method removes all options from a `select` element and tells
+  // `chosen` to update the element accordingly.
 
   form.resetField = function( el ) {
 
     $( el ).find('option').remove();
     $( el ).find('select').trigger('liszt:updated');
+
+  };
+
+  // The `disableField` method disables a `select` and its `chosen` container.
+
+  form.disableField = function( el ) {
+
+    $( el ).addClass('hidden');
+
+    return el;
+
+  };
+
+  // The `enableField` method disables a `select` and its `chosen` container.
+
+  form.enableField = function( el ) {
+
+    $( el ).removeClass('hidden');
+
+    return el;
 
   };
 
@@ -165,8 +209,8 @@ var PDP = (function ( pdp ) {
 
     // Helper function to emit events
 
-    function emit( el, id ) {
-      pdp.observer.emitEvent( 'field:shown', [el, id] );
+    function emit( el, id, activity ) {
+      pdp.observer.emitEvent( 'field:' + activity, [el, id] );
     }
 
     // If the form field does in fact have any dependents.
@@ -183,12 +227,13 @@ var PDP = (function ( pdp ) {
       // dependent field, broadcast that is has been shown.
 
       if ( $el.val() ) {
-        $dependents.removeClass('hidden');
         _.forEach( $dependents, function( $dependent ){
-          emit( $dependent, $el.attr('id') );
+          emit( $dependent, $el.attr('id'), 'shown' );
         });
       } else {
-        $dependents.addClass('hidden');
+        _.forEach( $dependents, function( $dependent ){
+          emit( $dependent, $el.attr('id'), 'hidden' );
+        });
       }
 
     }

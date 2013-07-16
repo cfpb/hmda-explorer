@@ -34,31 +34,7 @@ module.exports = function(grunt) {
         '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
         ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n\n',
 
-      jquery:
-        '/*!\n' +
-         '  * jQuery JavaScript Library v1.10.1\n' +
-         '  * http://jquery.com/\n' +
-         '  *\n' +
-         '  * Includes Sizzle.js\n' +
-         '  * http://sizzlejs.com/\n' +
-         '  *\n' +
-         '  * Copyright 2005, 2013 jQuery Foundation, Inc. and other contributors\n' +
-         '  * Released under the MIT license\n' +
-         '  * http://jquery.org/license\n' +
-         '  *\n' +
-         '  * Date: 2013-05-30T21:25Z\n' +
-         '  */\n\n',
-
-      sizzle:
-        '/* Sizzle CSS Selector Engine v1.9.4-pre\n' +
-         '  * http://sizzlejs.com/\n' +
-         '  *\n' +
-         '  * Copyright 2013 jQuery Foundation, Inc. and other contributors\n' +
-         '  * Released under the MIT license\n' +
-         '  * http://jquery.org/license\n' +
-         '  *\n' +
-         '  * Date: 2013-05-27\n' +
-         '  */\n\n'
+      vendors: grunt.file.read('docs/vendor-licenses.txt')
 
     },
 
@@ -161,7 +137,7 @@ module.exports = function(grunt) {
      */
     uglify: {
       options: {
-        banner: '<%= banner.cfpb %> <%= banner.jquery %> <%= banner.sizzle %>',
+        banner: '<%= banner.cfpb %> <%= banner.vendors %>',
         compress: false,
         mangle: false,
         beautify: true
@@ -174,6 +150,7 @@ module.exports = function(grunt) {
             'src/static/vendor/lodash/lodash.js',
             'src/static/vendor/eventEmitter/EventEmitter.js',
             'src/static/vendor/chosen/public/chosen.jquery.js',
+            'src/static/vendor/bootstrap/js/bootstrap-tooltip.js',
             'src/static/js/modules/*.js',
             'src/static/js/main.js'
           ]

@@ -1,21 +1,38 @@
 // Wrapper on explore page
 
 #filters {
+
   .wrapper();
-  .transparent();
+  //.transparent();
 
   &.ready {
-    .opaque();
+    //.opaque();
   }
 
   &.loading {
-    .translucent();
+    //.translucent();
   }
+
 }
 
 // Each block of fields is a .filter (Location, Lender, Borrower, etc.)
 
 .filter {
+
+  .column( 10 );
+
+  &:nth-child( even ) {
+    background-color: @grey;
+  }
+  
+  h3 {
+    .column( 3 );
+    text-transform: uppercase;
+  }
+
+  .desc {
+    .column( 7 );
+  }
 
   // The fields are displayed in an unordered list
 
@@ -27,22 +44,22 @@
 
   li.field {
     
-    width: 100%;
     list-style-type: none;
     margin-bottom: 1em;
     .clearfix();
 
     &> label {
-      width: 40%;
-      padding-right: 10px;
-      float: left;
+      .column( 3 );
       text-align: right;
     }
   }
 
   .widget {
-    width: 60%;
-    float: left;
+    .column( 4 );
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
   }
 
   select {
@@ -50,7 +67,7 @@
   }
 
   .help {
-    margin-left: 40%;
+    .column( 1 );
     display: none;
   }
 
@@ -76,7 +93,7 @@
     }
 
     .help {
-      display: block;
+      display: inline-block;
     }
   }
 

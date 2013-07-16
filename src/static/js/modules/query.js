@@ -27,41 +27,46 @@ var PDP = (function ( pdp ) {
 
   query.params = {};
 
-  // The `reset` method resets the params object to some defaults.
+  // The `reset` method resets the `params` object to some defaults.
+  // If empty: true is passed, `params` will be cleared completely.
 
-  query.reset = function() {
-    this.params = {
-      as_of_year: [2012]
-    };
+  query.reset = function( options ) {
+
+    var opts = options || {};
+
+    if ( opts.empty ) {
+      this.params = {};
+    } else {
+      this.params = {
+        as_of_year: [2011]
+      };
+    }
+
   };
 
   // The `updateAll` method runs through all the filter field values the user has selected
   // and stores them in the `params` object.
 
-  query.updateAll = function() {
+  query.updateAll = function( options ) {
 
-    var $fields = pdp.app.$el.find('.param'),
-        url;
+    var fields,
+        opts = options || {};
 
-    // Broadcast that an update is beginning.
+    // Get our fields array from either the hash in the url or the DOM field elements.
 
-    pdp.observer.emitEvent('update:started');
+    if ( opts.source === 'url' ) {
+      fields = pdp.app.getUrlValues();
+    } else {
+      fields = pdp.form.getFields();
+    }
 
-    // Clear out current params
+    this.reset({ empty: true });
 
-    this.reset();
+    // Iterate over all the filter field values and push them into `query.params`.
 
-    // Iterate over all the filter field values
+    function processField( field ) {
 
-    $fields.each(function(){
-
-      var $this = $( this ),
-          field = pdp.form.getField( $this );
-
-      // If the field has a value AND it's either a `select` element or it's checked
-      // (meaning it's a radio or checkbox)
-
-      if ( field.value && ( field.tagName === 'select' || $this.is(':checked') ) ) {
+      if ( field.name && field.value ) {
 
         // Initalize an empty array if need be.
 
@@ -77,25 +82,18 @@ var PDP = (function ( pdp ) {
 
       }
 
-    });
+    }
 
-    // Encode the URL.
-
-    url = encodeURI( this.getApiUrl() );
-
-    console.log( url );
-
-    pdp.observer.emitEvent('update:stopped');
-
-    return url;
+    _.forEach( fields, processField );
 
   };
 
-  // The `getHash` method builds and returns a URL hash from `query`'s `params`.
+  // The `generateUrlHash` method builds and returns a URL hash from `query`'s `params`.
 
-  query.getHash = function() {
+  query.generateUrlHash = function() {
 
-    var hashParams = [];
+    var hash,
+        hashParams = [];
 
     // Loop through params, stringify them and push them into the temp array.
 
@@ -109,13 +107,15 @@ var PDP = (function ( pdp ) {
 
     _.forEach( query.params, buildHashParam );
 
-    return hashParams.join('&');
+    hash = '!/' + hashParams.join('&');
+
+    return hash;
 
   };
 
-  // The `getApiUrl` method builds and returns a Qu URL from `query`'s `params`.
+  // The `generateApiUrl` method builds and returns a Qu URL from `query`'s `params`.
 
-  query.getApiUrl = function( format ) {
+  query.generateApiUrl = function( format ) {
 
     var url,
         downloadFormat = format || this.format,

@@ -16,9 +16,11 @@
 
 // Variables / Mixins
 
+@import "less/variables.less";
 @import "less/color.less";
 @import "less/fonts.less";
 @import "less/typo.less";
+@import "less/forms.less";
 @import "less/utils.less";
 @import "less/mixins.less";
 
@@ -26,8 +28,12 @@
 
 @import "less/modules/homepage.less";
 @import "less/modules/hmda-hero.less";
-@import "less/modules/forms.less";
 @import "less/modules/filter.less";
+@import "less/modules/chosen.less";
+
+// Bootstrap
+
+@import "vendor/bootstrap/less/tooltip.less";
 
 // General housekeeping
 
@@ -81,7 +87,7 @@ nav li {
   }
 
   footer {
-    .row();
+    //.row();
     .primary,
     .social {
       .column(12);

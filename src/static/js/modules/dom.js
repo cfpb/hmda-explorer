@@ -20,6 +20,30 @@ var PDP = (function ( pdp ) {
 
   });
 
+  // Hijack the submit button.
+
+  $('form#explore').on( 'submit', function( ev ){
+
+    var url = pdp.query.generateApiUrl();
+
+    ev.preventDefault();
+
+    window.location.replace( url );
+
+  });
+
+  // Share functionality
+
+  $('#share').on( 'click', function( ev ){
+
+    var hash = pdp.query.generateUrlHash();
+
+    ev.preventDefault();
+
+    window.location.hash = hash;
+
+  });
+
   // When the DOM is Ready
   // ----------------
 

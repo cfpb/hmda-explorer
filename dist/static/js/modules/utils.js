@@ -21,7 +21,7 @@ var PDP = (function( pdp ) {
         a = /\+/g,  // Regex for replacing addition symbol with a space
         r = /([^&;=]+)=?([^&;]*)/g,
         d = function (s) { return decodeURIComponent(s.replace(a, " ")); },
-        q = window.location.hash.substring(1);
+        q = window.location.hash.substring(1).replace(/^!\/?/, '');
 
     while (e = r.exec(q)) {
       hashParams[d(e[1])] = d(e[2]);

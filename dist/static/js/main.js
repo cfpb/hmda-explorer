@@ -1,3 +1,5 @@
+// This file is interpreted *after* all modules have loaded.
+
 // Scope
 // -----
 
@@ -7,8 +9,6 @@
 var PDP = (function ( pdp ) {
 
   'use strict';
-
-  // This file is interpreted *after* all modules have loaded.
 
   // Listen for specific events and act accordingly.
 
@@ -39,7 +39,15 @@ var PDP = (function ( pdp ) {
     // When a previously hidden field is shown: Update the field's options.
 
     'field:shown': [
+      pdp.form.enableField.bind( pdp.form ),
       pdp.form.updateField.bind( pdp.form )
+    ],
+
+    // When a field is hidden.
+
+    'field:hidden': [
+      pdp.form.resetField.bind( pdp.form ),
+      pdp.form.disableField.bind( pdp.form )
     ],
 
     // When an update is started: Start loading visualizations.
