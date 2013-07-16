@@ -33,9 +33,9 @@ var PDP = (function ( pdp ) {
     // there's no irritating jump when it slides open.
 
     $fields.hide().css( 'height', 0 );
-    $fields.show().animate( {height: height}, 200 );
+    $fields.show().animate( {height: height}, 150 );
 
-    $( '#' + id ).removeClass('closed');
+    $( '#' + id ).removeClass('closed').attr( 'title', 'Hide this filter section' );
 
     pdp.observer.emitEvent( 'filter:shown', id );
 
@@ -45,7 +45,7 @@ var PDP = (function ( pdp ) {
 
   form.hideFilter = function( id ) {
 
-    $( '#' + id ).addClass('closed').find('.fields').slideUp();
+    $( '#' + id ).addClass('closed').attr( 'title', 'Show this filter section' ).find('.fields').slideUp( 200 );
 
     pdp.observer.emitEvent( 'filter:hidden', id );
 
@@ -146,6 +146,13 @@ var PDP = (function ( pdp ) {
 
   form.updateFieldOptions = function( el, dependency ) {
 
+    // Abort if this isn't a select field
+
+    if ( $(el).find('select').length < 1 ) {
+      console.log(908987);
+      return false;
+    }
+
     // Broadcast that an update is starting.
 
     pdp.observer.emitEvent('update:started');
@@ -209,17 +216,39 @@ var PDP = (function ( pdp ) {
 
   form.disableField = function( el ) {
 
-    $( el ).addClass('hidden');
+    var $el = $( el ),
+        $select = $el.find('select'),
+        placeholder;
+
+    $el.addClass('disabled').find('select, input').attr('disabled', 'disabled');
+
+    // If it's a select element, swap out its placeholder text
+
+    if ( !_.isEmpty( $select ) ) {
+      placeholder = $select.data('pre-placeholder');
+      $select.attr('data-placeholder', placeholder).trigger('liszt:updated');
+    }
 
     return el;
 
   };
 
-  // The `enableField` method disables a `select` and its `chosen` container.
+  // The `enableField` method enables a `select` and its `chosen` container.
 
   form.enableField = function( el ) {
 
-    $( el ).removeClass('hidden');
+    var $el = $( el ),
+        $select = $el.find('select'),
+        placeholder;
+
+    $el.removeClass('disabled').find('select, input').removeAttr('disabled').trigger('liszt:updated');
+
+    // If it's a select element, swap out its placeholder text
+
+    if ( !_.isEmpty( $select ) ) {
+      placeholder = $select.data('post-placeholder');
+      $select.attr('data-placeholder', placeholder).trigger('liszt:updated');
+    }
 
     return el;
 

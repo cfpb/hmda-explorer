@@ -1620,20 +1620,25 @@ textarea {
   background-color: #e7e7e6;
 }
 .filter .title {
-  margin: 30px 0;
+  padding: 30px 0;
+}
+.filter .title:hover {
+  cursor: pointer;
 }
 .filter h3 {
   text-transform: uppercase;
 }
-.filter ul.fields {
+.filter .fields {
   padding: 0;
+}
+.filter.closed .fields {
   display: none;
 }
-.filter li.field {
+.filter .field {
   list-style-type: none;
   margin-bottom: 1em;
 }
-.filter li.field > label {
+.filter .field > label {
   display: inline-block;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1648,10 +1653,10 @@ textarea {
   font-style: normal;
   text-align: right;
 }
-.ie .filter li.field > label {
+.ie .filter .field > label {
   margin-right: -0.26em;
 }
-.lt-ie8 .filter li.field > label {
+.lt-ie8 .filter .field > label {
   display: inline;
   *zoom: 1;
   *behavior: url(boxsizing.htc);
@@ -1712,6 +1717,14 @@ textarea {
   display: inline;
   *zoom: 1;
   *behavior: url(boxsizing.htc);
+}
+.field.disabled {
+  color: #d0d0ce;
+  font-style: italic;
+}
+.field.disabled label,
+.field.disabled input {
+  font-style: italic !important;
 }
 @media only screen and (min-width: 768px) {
   .filter {
@@ -1870,6 +1883,13 @@ ul.chzn-choices {
   font-family: "Avenir Next", Arial, sans-serif;
   font-weight: 400;
   font-style: normal;
+}
+.chzn-container-active .chzn-choices,
+.chzn-container-multi .chzn-choices {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border-color: #d0d0ce;
 }
 .tooltip {
   position: absolute;

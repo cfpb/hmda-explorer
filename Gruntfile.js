@@ -225,7 +225,8 @@ module.exports = function(grunt) {
    * Create task aliases by registering new tasks
    */
   grunt.registerTask('test', ['jshint']);
-  grunt.registerTask('build', ['shell:dist', 'uglify', 'less', 'cssmin', 'build-cfpb', 'docco']);
+  grunt.registerTask('pre-commit', ['docco', 'build-cfpb']);
+  grunt.registerTask('build', ['shell:dist', 'uglify', 'less', 'cssmin']);
 
   /**
    * The 'default' task will run whenever `grunt` is run without specifying a task

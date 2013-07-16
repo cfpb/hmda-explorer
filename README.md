@@ -22,6 +22,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2013-07-16   v0.4.1   Dependent fields are properly enabled/disabled.
  * 2013-07-15   v0.4.0   Help tooltips. Form styling. Chosen JS implementation.
  * 2013-07-12   v0.3.0   Modularize all JavaScript. Add hash deparam feature. Ability to set DOM fields from params hash.
  * 2013-07-10   v0.2.0   Asynchronously populate field options. Field dependency management.
@@ -40,4 +41,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Tue Jul 16 2013 15:55:43.*
+*This file was generated on Tue Jul 16 2013 18:08:58.*
