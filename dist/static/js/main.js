@@ -40,7 +40,7 @@ var PDP = (function ( pdp ) {
 
     'field:shown': [
       pdp.form.enableField.bind( pdp.form ),
-      pdp.form.updateField.bind( pdp.form )
+      pdp.form.updateFieldOptions.bind( pdp.form )
     ],
 
     // When a field is hidden.

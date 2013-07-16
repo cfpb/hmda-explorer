@@ -849,7 +849,7 @@ table {
                   | $$                  
                   |__/                  
 
-* Ghost - v0.5.0 - 2013-07-15
+* Ghost - v0.5.2 - 2013-07-16
 * http://consumerfinance.gov
 * A Public Domain work of the Consumer Financial Protection Bureau */
 .col {
@@ -1448,14 +1448,6 @@ textarea {
   *zoom: 1;
   *behavior: url(boxsizing.htc);
 }
-.hero > .inner:before,
-.hero > .inner:after {
-  content: " ";
-  display: table;
-}
-.hero > .inner:after {
-  clear: both;
-}
 .hero h1 {
   font-family: "Avenir Next", Arial, sans-serif;
   font-weight: 700;
@@ -1604,14 +1596,6 @@ textarea {
   *zoom: 1;
   *behavior: url(boxsizing.htc);
 }
-#filters:before,
-#filters:after {
-  content: " ";
-  display: table;
-}
-#filters:after {
-  clear: both;
-}
 .filter {
   display: inline-block;
   -webkit-box-sizing: border-box;
@@ -1740,8 +1724,6 @@ textarea {
     margin-right: -0.25em;
     vertical-align: top;
     width: 83.33333333333334%;
-    position: relative;
-    left: 8.333333333333332%;
   }
   .ie .filter {
     margin-right: -0.26em;
@@ -2002,17 +1984,6 @@ nav li {
 .lt-ie8 .hmda footer {
   *zoom: 1;
   *behavior: url(boxsizing.htc);
-}
-.hmda header:before,
-.hmda footer:before,
-.hmda header:after,
-.hmda footer:after {
-  content: " ";
-  display: table;
-}
-.hmda header:after,
-.hmda footer:after {
-  clear: both;
 }
 .hmda header ul {
   width: 100%;

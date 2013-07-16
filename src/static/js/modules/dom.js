@@ -44,6 +44,28 @@ var PDP = (function ( pdp ) {
 
   });
 
+  // Open and close filters
+
+  $('.filter .title').on( 'click', function( ev ){
+
+    var id = $( this ).parents('.filter').attr('id');
+
+    ev.preventDefault();
+
+    if ( $( '#' + id ).hasClass('closed') ) {
+
+      pdp.form.showFilter( id );
+
+    } else {
+
+      pdp.form.hideFilter( id );
+
+    }
+
+    console.log(id);    
+
+  });
+
   // When the DOM is Ready
   // ----------------
 

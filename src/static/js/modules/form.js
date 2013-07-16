@@ -26,7 +26,16 @@ var PDP = (function ( pdp ) {
 
   form.showFilter = function( id ) {
 
-    $('.' + id).find('.fields').slideDown();
+    var $fields = $( '#' + id ).find('.fields'),
+        height = Math.max( $fields.show().height(), 150 );
+
+    // This is a hack to calculate the height of the DOM element ahead of time so
+    // there's no irritating jump when it slides open.
+
+    $fields.hide().css( 'height', 0 );
+    $fields.show().animate( {height: height}, 200 );
+
+    $( '#' + id ).removeClass('closed');
 
     pdp.observer.emitEvent( 'filter:shown', id );
 
@@ -36,7 +45,7 @@ var PDP = (function ( pdp ) {
 
   form.hideFilter = function( id ) {
 
-    $('.' + id).find('.fields').slideUp();
+    $( '#' + id ).addClass('closed').find('.fields').slideUp();
 
     pdp.observer.emitEvent( 'filter:hidden', id );
 
