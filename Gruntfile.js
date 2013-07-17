@@ -240,7 +240,7 @@ module.exports = function(grunt) {
    * Create task aliases by registering new tasks
    */
   grunt.registerTask('test', ['jshint', 'jasmine']);
-  grunt.registerTask('pre-commit', ['docco', 'build-cfpb']);
+  grunt.registerTask('docs', ['docco', 'build-cfpb']);
   grunt.registerTask('build', ['shell:dist', 'uglify', 'less', 'cssmin']);
 
   /**

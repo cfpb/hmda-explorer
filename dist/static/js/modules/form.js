@@ -197,6 +197,9 @@ var PDP = (function ( pdp ) {
       // Set selects.
       $('select[name=' + param + ']').val( field.values ).trigger('liszt:updated');
 
+      // Set textboxes.
+      $('input[type=text][name=' + param + ']').val( field.values[0] );
+
     }
 
     function emptyOptions( field, param ) {

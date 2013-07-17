@@ -1,3 +1,10 @@
+v0.5.0:
+  date: 2013-07-17
+  changes:
+    - Beef up testing suite.
+    - Fix text input caching bug.
+    - Change location of HTML files.
+
 v0.4.1:
   date: 2013-07-16
   changes:

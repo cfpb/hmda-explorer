@@ -22,6 +22,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2013-07-17   v0.5.0   Beef up testing suite. Fix text input caching bug. Change location of HTML files.
  * 2013-07-16   v0.4.1   Dependent fields are properly enabled/disabled.
  * 2013-07-15   v0.4.0   Help tooltips. Form styling. Chosen JS implementation.
  * 2013-07-12   v0.3.0   Modularize all JavaScript. Add hash deparam feature. Ability to set DOM fields from params hash.
@@ -41,4 +42,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Tue Jul 16 2013 18:09:00.*
+*This file was generated on Wed Jul 17 2013 12:52:38.*

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7 & !IEMobile]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7 & !IEMobile]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8 & !IEMobile]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8 | IEMobile]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -10,7 +10,6 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="static/css/main.css">
-
     <!--[if lt IE 9]>
       <script src="static/js/html5shiv.js"></script>
       <script src="static/js/html5shiv-printshiv.js"></script>
@@ -20,7 +19,7 @@
       docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2');
     </script>
   </head>
-  <body class="hmda explore">
+  <body class="hmda homepage">
 
       <header role="banner">
 
@@ -32,9 +31,9 @@
 
         <nav role="navigation">
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="#">About HMDA</a></li>
-                <li><a href="#" class="active">Explore Data</a></li>
+                <li><a href="explore.html">Explore Data</a></li>
                 <li><a href="#">Query Builder</a></li>
             </ul>
         </nav>
@@ -45,534 +44,78 @@
 
         <div class="inner">
 
-          <h1>Explore the Data</h1>
+          <h1>Home Mortgage Disclosure Act</h1>
+
+          <nav>
+            <ul>
+              <li>
+                <a href="#" class="visualizations">
+                  <div>
+                    <span class="inner">It's pronounced "hum-duh" and other useful things.</span>
+                  </div>
+                  <span class="title">Data Visualizations</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="data">
+                  <div>
+                    <span class="inner">Download annual data, filter the data or create summary tables.</span>
+                  </div>
+                  <span class="title">Get the Data</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="developers">
+                  <div>
+                    <span class="inner">API documentation, console or visit our project on GitHub.</span>
+                  </div>
+                  <span class="title">Developers</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
 
         </div>
 
       </div>
 
-      <div id="annual">
+      <section class="video">
+      </section>
 
-      </div>
+      <section class="map">
+      </section>
 
-      <div id="filters">
+      <section class="charts">
+        
+        <h2>Change in number of applications & loans by county, 2010 - 2012</h2>
 
-        <!-- /filters section -->
+        <img src="static/img/ph_charts.jpg" alt="Just a dummy chart" style="margin:0 auto">
 
-        <form id="explore" action="" method="get">
+        <a href="#" class="continue">See more in trends</a>
 
-          <div class="filter year" id="year">
+      </section>
 
-            <div class="intro">
+      <section class="browse">
 
-              <p>Want to focus your search? Filter the data to just what you're interested in, and then download the results.</p>
-              
-              <p>Want just the basic options? Use the "popular filters" option.</p>
+        <h2>Browse the HMDA Records Data Set</h2>
 
-            </div>
+        <div class="explore">
 
-            <ul class="fields">
+          The data mortgage lenders report can give us some insight into lending patterns across the country. Dive deeper into learning about the mortgage market. Filter, sort, and aggregate HMDA records, and create your own visualizations.
 
-              <!-- filter field -->
-              <li class="field">
-                <label for="as_of_year">Select year(s) of data:</label>
-                <div class="widget select">
-                  <select class="param" name="as_of_year" id="as_of_year" multiple data-placeholder="Select a year">
-                    <option value="2012">2012</option>
-                    <option value="2011">2011</option>
-                    <option value="2010">2010</option>
-                  </select>
-                </div>
-                <div class="help" title="Select one or more years you would like to see mortgage data from.">Help</div>
-              </li>
-              <!-- /filter field -->
+          <a href="#" class="continue">Explore the Data</a>
 
-            </ul>
-            
-          </div>
+        </div>
 
-          <div class="filter location closed" id="location">
+        <hr>
 
-            <div class="title">
+      </section>
 
-              <a href="#location"><h3>Location</h3></a>
+      <section class="download">
 
-              <div class="desc">State, county, MSA/MD, or Census tract information</div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sagittis ligula non sem ultricies, vitae tempus enim dictum. Cras mattis, mauris eu pulvinar ultrices, diam metus venenatis urna, sit amet varius augue ante sed dolor. Vestibulum tempus mattis mattis.
 
-            </div>
-
-            <ul class="fields">
-
-              <!-- filter field -->
-              <li class="field">
-                <label for="state_abbr">State:</label>
-                <div class="widget select">
-                  <select class="param" name="state_abbr" id="state_abbr" multiple data-dependent="county_name msamd census_tract_number" data-placeholder="Select a state">
-                    <option value=""></option>
-                    <option value="CA">CA</option>
-                    <option value="OR">OR</option>
-                    <option value="WA">WA</option>
-                  </select>
-                </div>
-                <div class="help" title="Select one or more states you would like to see mortgage data from.">Help</div>
-              </li>
-              <!-- /filter field -->
-
-              <!-- filter field -->
-              <li class="field">
-                <label for="county_name">County:</label>
-                <div class="widget select">
-                  <select class="param" name="county_name" id="county_name" multiple data-placeholder="Select a state above" data-pre-placeholder="Select a state above" data-post-placeholder="Select a county">
-                  </select>
-                </div>
-                <div class="help" title="Select a county.">Help</div>
-              </li>
-              <!-- /filter field -->
-
-              <!-- filter field -->
-              <li class="field disabled">
-                <label for="msamd">MSA:</label>
-                <div class="widget select">
-                  <select class="param" name="msamd" id="msamd" multiple data-placeholder="Select a state above" data-pre-placeholder="Select a state above" data-post-placeholder="Select an MSA">
-                    <option value=""></option>
-                    <option value="1234">1234</option>
-                    <option value="5678">5678</option>
-                    <option value="9012">9012</option>
-                  </select>
-                </div>
-                <div class="help" title="Select an MSA if you please.">Help</div>
-              </li>
-              <!-- /filter field -->
-
-              <!-- filter field -->
-              <li class="field disabled">
-                <label for="census_tract_number">Census tract:</label>
-                <div class="widget select">
-                  <select class="param" name="census_tract_number" id="census_tract_number" multiple data-placeholder="Select a state above" data-pre-placeholder="Select a state above" data-post-placeholder="Select a census">
-                  </select>
-                </div>
-                <div class="help" title="A census tract, or census area, or census district is a geographic area defined for the purpose of taking a census. Usually these coincide with the limits of cities and towns, and several tracts often exist within a county.">Help</div>
-              </li>
-              <!-- /filter field -->
-
-              <!--
-              <li class="field disabled">
-                <label for="agency_code">Regulatory agency:</label>
-                <div class="widget select">
-                  <select class="param" name="agency_code" id="agency_code" multiple data-placeholder="Select an agency code">
-                    <option value=""></option>
-                    <option value="1">Office of the Comprtoller of the Currency (OCC)</option>
-                    <option value="2">Federal Reserve System (FRS)</option>
-                    <option value="3">Federal Deposit Insurance Corporation(FDIC)</option>
-                    <option value="3">Office of Thrift Supervision (OTS)</option>
-                    <option value="3">National Credit Union Administration (NCUA)</option>
-                    <option value="3">Department of Housing and Urban Development (HUD)</option>
-                    <option value="3">Consumer Financial Protection Bureau (CFPB)</option>
-                  </select>
-                </div>
-                <div class="help" title="A code to identify the agency that supervises or regulates the HMDA-reporting institution. Some banks, for example, may have divisions that are overseen by different agencies.">Help</div>
-              </li>
-
-              <li class="field disabled">
-                <label for="respondent_id">Respondent ID</label>
-                <div class="widget text">
-                  <input class="param" type="text" name="respondent_id" id="respondent_id" value="" placeholder="Enter something...">
-                </div>
-                <div class="help" title="Applicant’s annual gross income (000s) that an institution relied upon in making the credit decision.">Help</div>
-              </li>
-              -->
-
-            </ul>
-            
-          </div>
-
-          <div class="filter borrower closed" id="borrower">
-
-            <div class="title">
-
-              <a href="#borrower"><h3>Borrower</h3></a>
-
-              <div class="desc">Demographics, joint applicants, income levels, and more</div>
-
-            </div>
-
-            <ul class="fields">
-
-              <!-- filter field -->
-              <li class="field">
-                <label for="applicant_income_000s">Applicant Income</label>
-                <div class="widget text">
-                  <input class="param" type="text" name="applicant_income_000s" value="" placeholder="Enter something...">
-                </div>
-                <div class="help" title="Applicant’s annual gross income (000s) that an institution relied upon in making the credit decision.">Help</div>
-              </li>
-              <!-- /filter field -->
-
-              <!-- filter field -->
-              <li class="field">
-                <label for="co_applicant">Co-Applicant</label>
-                <div class="widget radio">
-                  <label><input type="radio" class="param" name="co_applicant" value="1" />Yes</label>
-                  <label><input type="radio" class="param" name="co_applicant" value="0" />No</label>
-                </div>
-                <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt.">Help</div>
-              </li>
-              <!-- /filter field -->
-
-              <!-- filter field -->
-              <li class="field">
-                <label for="applicant_sex">Applicant Sex</label>
-                <div class="widget checkbox">
-                  <label><input type="checkbox" class="param" name="applicant_sex[]" value="1" />Male</label>
-                  <label><input type="checkbox" class="param" name="applicant_sex[]" value="2" />Female</label>
-                  <label><input type="checkbox" class="param" name="applicant_sex[]" value="3" />Information not provided by applicant in mail, Internet, or telephone application</label>
-                  <label><input type="checkbox" class="param" name="applicant_sex[]" value="4" />Not applicable because the applicant is not a natural person (a business, corporation or partnership, for example) or the applicant information is unavailable because the loan has been purchased by the institution</label>
-                </div>
-                <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt.">Help</div>
-              </li>
-              <!-- /filter field -->
-
-              <!-- filter field -->
-              <li class="field">
-                <label for="applicant_race_1">Applicant Race:</label>
-                <div class="widget select single">
-                  <select class="param" name="applicant_race_1" id="applicant_race_1" multiple data-placeholder="Select an Applicant Race">
-                    <option value=""></option>
-                    <option value="1">American Indian or Alaska Native</option>
-                    <option value="2">Asian</option>
-                    <option value="3">Black or African American</option>
-                    <option value="4">Native Hawaiian or Other Pacific Islander</option>
-                    <option value="5">White</option>
-                    <option value="6">Information not provided by applicant in mail, Internet, or telephone application</option>
-                    <option value="7">Not applicable</option>
-                  </select>
-                </div>
-                <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt.">Help</div>
-              </li>
-              <!-- /filter field -->
-
-              <!-- filter field -->
-              <li class="field">
-                <label for="applicant_ethnicity">Applicant Ethnicity:</label>
-                <div class="widget select">
-                  <select class="param" name="applicant_ethnicity" id="applicant_ethnicity" multiple data-placeholder="Select an Applicant Race">
-                    <option value=""></option>
-                    <option value="1">Hispanic or Latino</option>
-                    <option value="2">Not Hispanic or Latino</option>
-                    <option value="3">Information not provided by applicant in mail, Internet, or telephone application</option>
-                    <option value="4">Information not provided by applicant in mail, Internet, or telephone application</option>
-                    <option value="5">Not applicable</option>
-                    <option value="6">No co-applicant</option>
-                  </select>
-                </div>
-                <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt.">Help</div>
-              </li>
-              <!-- /filter field -->
-
-              <!-- filter field -->
-              <li class="field">
-                <label for="co_applicant_ethnicity">Co-Applicant Ethnicity:</label>
-                <div class="widget select">
-                  <select class="param" name="co_applicant_ethnicity" id="co_applicant_ethnicity" multiple data-placeholder="Select an Applicant Race">
-                    <option value=""></option>
-                    <option value="1">Hispanic or Latino</option>
-                    <option value="2">Not Hispanic or Latino</option>
-                    <option value="3">Information not provided by applicant in mail, Internet, or telephone application</option>
-                    <option value="4">Information not provided by applicant in mail, Internet, or telephone application</option>
-                    <option value="5">Not applicable</option>
-                    <option value="6">No co-applicant</option>
-                  </select>
-                </div>
-                <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt.">Help</div>
-              </li>
-              <!-- /filter field -->
-
-              <!-- filter field -->
-              <li class="field">
-                <label for="co_applicant_sex">Co-Applicant Sex</label>
-                <div class="widget checkbox">
-                  <label><input type="checkbox" class="param" name="co_applicant_sex[]" value="1" />Male</label>
-                  <label><input type="checkbox" class="param" name="co_applicant_sex[]" value="2" />Female</label>
-                  <label><input type="checkbox" class="param" name="co_applicant_sex[]" value="3" />Information not provided by applicant in mail, Internet, or telephone application</label>
-                  <label><input type="checkbox" class="param" name="co_applicant_sex[]" value="4" />Not applicable because the applicant is not a natural person (a business, corporation or partnership, for example) or the applicant information is unavailable because the loan has been purchased by the institution</label>
-                </div>
-                <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt.">Help</div>
-              </li>
-              <!-- /filter field -->
-
-              <!-- filter field -->
-              <li class="field">
-                <label for="co_applicant_race_1">Co-Applicant Race:</label>
-                <div class="widget select">
-                  <select class="param" name="co_applicant_race_1" id="co_applicant_race_1" multiple data-placeholder="Select an Applicant Race">
-                    <option value=""></option>
-                    <option value="1">American Indian or Alaska Native</option>
-                    <option value="2">Asian</option>
-                    <option value="3">Black or African American</option>
-                    <option value="4">Native Hawaiian or Other Pacific Islander</option>
-                    <option value="5">White</option>
-                    <option value="6">Information not provided by applicant in mail, Internet, or telephone application</option>
-                    <option value="7">Not applicable</option>
-                  </select>
-                </div>
-                <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt.">Help</div>
-              </li>
-              <!-- /filter field -->
-
-            </ul>
-            
-          </div>
-
-          <div class="filter lender closed" id="lender">
-
-            <div class="title">
-
-              <a href="#lender"><h3>Lender</h3></a>
-
-              <div class="desc">Bank name, regulatory agency, and more</div>
-
-            </div>
-
-            <ul class="fields">
-
-              <!-- filter field -->
-              <li class="field">
-                <label for="respondent_id">Respondent ID:</label>
-                <div class="widget select">
-                  <select class="param" name="respondent_id" id="respondent_id" multiple data-placeholder="Select a Respondent ID">
-                    <option value="1234567890">1234567890</option>
-                    <option value="1234567890">1234567890</option>
-                    <option value="1234567890">1234567890</option>
-                  </select>
-                </div>
-                <div class="help" title="A 10-digit number used to identify a financial institution that reports data to HMDA. It must be paired with an Agency to identify unique institutions, such as your neighborhood bank or credit union.">Help</div>
-              </li>
-              <!-- /filter field -->
-
-              <!-- filter field -->
-              <li class="field">
-                <label for="agency_code">Regulatory agency:</label>
-                <div class="widget select">
-                  <select class="param" name="agency_code" id="agency_code" multiple data-placeholder="Select an Agency Code">
-                    <option value=""></option>
-                    <option value="1">Office of the Comprtoller of the Currency (OCC)</option>
-                    <option value="2">Federal Reserve System (FRS)</option>
-                    <option value="3">Federal Deposit Insurance Corporation(FDIC)</option>
-                  </select>
-                </div>
-                <div class="help" title="A code to identify the agency that supervises or regulates the HMDA-reporting institution. Some banks, for example, may have divisions that are overseen by different agencies.">Help</div>
-              </li>
-              <!-- /filter field -->
-
-            </ul>
-            
-          </div>
-
-          <div class="filter property closed" id="property">
-
-            <div class="title">
-
-              <a href="#property"><h3>Property</h3></a>
-
-              <div class="desc">Type of building, size of home, and more</div>
-
-            </div>
-
-            <ul class="fields">
-              
-              <!-- filter field -->
-              <li class="field">
-                <label for="1">Property Type</label>
-                <div class="widget checkbox">
-                  <label><input type="checkbox" class="param" name="property_type[]" value="1" id="foo"/>One to four-family</label>
-                  <label><input type="checkbox" class="param" name="property_type[]" value="2" />Manufactured housing</label>
-                  <label><input type="checkbox" class="param" name="property_type[]" value="3" />Multifamily</label>
-                </div>
-                <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt.">Help</div>
-              </li>
-              <!-- /filter field -->
-
-              <!-- filter field -->
-              <li class="field">
-                <label for="1">Owner Occupancy</label>
-                <div class="widget checkbox">
-                  <label><input type="checkbox" class="param" name="owner_occupancy[]" value="1" />Owner-occupied as a principal dwelling</label>
-                  <label><input type="checkbox" class="param" name="owner_occupancy[]" value="2" />Not owner-occupied</label>
-                  <label><input type="checkbox" class="param" name="owner_occupancy[]" value="3" />Not applicable</label>
-                </div>
-                <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt.">Help</div>
-              </li>
-              <!-- /filter field -->
-
-            </ul>
-            
-          </div>
-
-          <div class="filter description closed" id="description">
-
-            <div class="title">
-
-              <a href="#loan"><h3>Loan Description</h3></a>
-
-              <div class="desc">Purpose of the loan, status of the loan, secondary purchaser, and more</div>
-
-            </div>
-
-            <ul class="fields">
-
-              <!-- filter field -->
-              <li class="field">
-                <label for="lien_status">Lien Status:</label>
-                <div class="widget select">
-                  <select class="param" name="lien_status" id="lien_status" multiple data-placeholder="Select a Lien Status">
-                    <option value=""></option>
-                    <option value="1">Secured by a first lien</option>
-                    <option value="2">Secured by a subordinate lien</option>
-                    <option value="3">Not secured by a lien</option>
-                    <option value="4">Not applicable (purchased loans)</option>
-                  </select>
-                </div>
-                <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt.">Help</div>
-              </li>
-              <!-- /filter field -->
-
-              <!-- filter field -->
-              <li class="field">
-                <label for="loan_amount_000s">How much is the loan for?</label>
-                <div class="widget range">
-                  <input type="text" class="param" name="loan_amount_000s" data-comparator=">" value="" placeholder="Min. amount">
-                  <input type="text" class="param" name="loan_amount_000s" data-comparator="<" value="" placeholder="Max. amount">
-                </div>
-                <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt.">Help</div>
-              </li>
-              <!-- /filter field -->
-
-              <!-- filter field -->
-              <li class="field">
-                <label for="loan_type">What type of loan is it?</label>
-                <div class="widget checkbox">
-                  <label><input type="checkbox" class="param" name="loan_type[]" value="1" />Conventional (any loan other than FHA, VA, FSA, or RHS loans)</label>
-                  <label><input type="checkbox" class="param" name="loan_type[]" value="2" />FHA-insured (Federal Housing Administration)</label>
-                  <label><input type="checkbox" class="param" name="loan_type[]" value="3" />VA-guaranteed (Veterans Administration)</label>
-                  <label><input type="checkbox" class="param" name="loan_type[]" value="4" />FSA/RHS (Farm Service Agency or Rural Housing Service)</label>
-                </div>
-                <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt.">Help</div>
-              </li>
-              <!-- /filter field -->
-
-              <!-- filter field -->
-              <li class="field">
-                <label for="loan_purpose">What is the loan being used for?</label>
-                <div class="widget checkbox">
-                  <label><input type="checkbox" class="param" name="loan_purpose[]" value="1" />Home purchase</label>
-                  <label><input type="checkbox" class="param" name="loan_purpose[]" value="2" />Home improvement</label>
-                  <label><input type="checkbox" class="param" name="loan_purpose[]" value="3" />Refinancing</label>
-                </div>
-                <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt.">Help</div>
-              </li>
-              <!-- /filter field -->
-
-              <!-- filter field -->
-              <li class="field">
-                <label for="hoepa_status">HOEPA Loan</label>
-                <div class="widget radio">
-                  <label><input type="radio" class="param" name="hoepa_status" value="1" />HOEPA loan</label>
-                  <label><input type="radio" class="param" name="hoepa_status" value="0" />Not a HOEPA loan</label>
-                </div>
-                <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt.">Help</div>
-              </li>
-              <!-- /filter field -->
-
-            </ul>
-            
-          </div>
-
-          <div class="filter action closed" id="action">
-
-            <div class="title">
-
-              <a href="#loan"><h3>Loan Action</h3></a>
-
-              <div class="desc">Purpose of the loan, status of the loan, secondary purchaser, and more</div>
-
-            </div>
-
-            <ul class="fields">
-
-              <!-- filter field -->
-              <li class="field">
-                <label for="action_type">What decision was made on the application?</label>
-                <div class="widget select">
-                  <select class="param" name="action_type" id="action_type" multiple data-placeholder="Select a Lien Status">
-                    <option value=""></option>
-                    <option value="1">Secured by a first lien</option>
-                    <option value="2">Secured by a subordinate lien</option>
-                    <option value="3">Not secured by a lien</option>
-                    <option value="4">Application withdrawn by applicant</option>
-                    <option value="5">File closed for incompleteness</option>
-                    <option value="6">Loan purchased by the institution</option>
-                    <option value="7">Preapproval request denied by financial institution</option>
-                    <option value="8">Preapproval request approved but not accepted (optional reporting)</option>
-                  </select>
-                </div>
-                <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt.">Help</div>
-              </li>
-              <!-- /filter field -->
-
-              <!-- filter field -->
-              <li class="field">
-                <label for="preapproval">Did the applicant request pre-approval?</label>
-                <div class="widget checkbox">
-                  <label><input type="checkbox" class="param" name="preapproval[]" value="1" />Preapproval was requested</label>
-                  <label><input type="checkbox" class="param" name="preapproval[]" value="2" />Preapproval was not requested</label>
-                  <label><input type="checkbox" class="param" name="preapproval[]" value="3" />Not applicable</label>
-                </div>
-                <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt.">Help</div>
-              </li>
-              <!-- /filter field -->
-
-              <!-- filter field -->
-              <li class="field">
-                <label for="action_type">What decision was made on the application?</label>
-                <div class="widget select">
-                  <select class="param" name="action_type" id="action_type" multiple data-placeholder="Select a Lien Status">
-                    <option value="0">Loan was not originated or was not sold in calendar year covered by register</option>
-                    <option value="1">Fannie Mae (FNMA)</option>
-                    <option value="2">Ginnie Mae (GNMA)</option>
-                    <option value="3">Freddie Mac (FHLMC)</option>
-                    <option value="4">Farmer Mac (FAMC)</option>
-                    <option value="5">Private securitization</option>
-                    <option value="6">Commercial bank, savings bank or savings association</option>
-                    <option value="7">Life insurance company, credit union, mortgage bank, or finance company</option>
-                    <option value="8">Affiliate institution</option>
-                    <option value="9">Other type of purchaser</option>
-                  </select>
-                </div>
-                <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt.">Help</div>
-              </li>
-              <!-- /filter field -->
-
-            </ul>
-            
-          </div>
-
-          <div class="filter download closed" id="share">
-
-            <a href="#" id="share">Share</a>
-            
-            <input type="submit" class="submit btn" value="Download" id="download">
-
-          </div>
-
-        </form>
-
-      </div>
-
-      <!-- /filters section -->
-
-      <div id="group">
-
-      </div>
+      </section>
 
       <footer>
         <nav>
@@ -592,6 +135,7 @@
           </ul>
         </nav>
       </footer>
+
     <script src="static/js/main.min.js"></script>
   </body>
 </html>

@@ -34,7 +34,7 @@ var PDP = (function ( pdp ) {
 
     var opts = options || {};
 
-    if ( opts.default ) {
+    if ( opts.defaults ) {
 
       this.params = {
         as_of_year: {
@@ -97,18 +97,32 @@ var PDP = (function ( pdp ) {
 
         }
 
-        _.forEach( field.values, function( val, name ){
+        // If the value is a string from a text box, we don't want to iterate over it
+        // because it will split up the characters.
 
-          query.params[ field.name ].values.push( val );
-          query.params[ field.name ].comparator = field.comparator;
+        if ( typeof field.values === 'string') {
 
-        });
+          query.params[ field.name ].values = [ field.values ];
+
+        } else {
+
+          _.forEach( field.values, function( val, name ){
+
+            query.params[ field.name ].values.push( val );
+
+          });
+
+        }
+
+        query.params[ field.name ].comparator = field.comparator;
 
       }
 
     }
 
     _.forEach( fields, processField );
+
+    console.log(pdp.query.params);
 
   };
 
