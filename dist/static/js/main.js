@@ -17,8 +17,7 @@ var PDP = (function ( pdp ) {
     // When the DOM is loaded: Initalize the app and update the `query.params` hash.
 
     'dom:loaded': [
-      pdp.app.init.bind( pdp.app ),
-      pdp.query.updateAll.bind( pdp.query )
+      pdp.app.init.bind( pdp.app )
     ],
 
     // When the app is ready: Start the app and stop any loading visualizations.
@@ -48,6 +47,12 @@ var PDP = (function ( pdp ) {
     'field:hidden': [
       pdp.form.resetField.bind( pdp.form ),
       pdp.form.disableField.bind( pdp.form )
+    ],
+
+    // When a field's options are updated.
+
+    'field:updated': [
+      pdp.form.setFields.bind( pdp.form )
     ],
 
     // When an update is started: Start loading visualizations.

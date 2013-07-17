@@ -119,10 +119,10 @@
               <!-- /filter field -->
 
               <!-- filter field -->
-              <li class="field disabled">
+              <li class="field">
                 <label for="county_name">County:</label>
                 <div class="widget select">
-                  <select class="param" name="county_name" id="county_name" multiple data-placeholder="Select a state above" data-pre-placeholder="Select a state above" data-post-placeholder="Select a county" disabled="disabled">
+                  <select class="param" name="county_name" id="county_name" multiple data-placeholder="Select a state above" data-pre-placeholder="Select a state above" data-post-placeholder="Select a county">
                   </select>
                 </div>
                 <div class="help" title="Select a county.">Help</div>
@@ -133,7 +133,7 @@
               <li class="field disabled">
                 <label for="msamd">MSA:</label>
                 <div class="widget select">
-                  <select class="param" name="msamd" id="msamd" multiple data-placeholder="Select a state above" data-pre-placeholder="Select a state above" data-post-placeholder="Select an MSA" disabled="disabled">
+                  <select class="param" name="msamd" id="msamd" multiple data-placeholder="Select a state above" data-pre-placeholder="Select a state above" data-post-placeholder="Select an MSA">
                     <option value=""></option>
                     <option value="1234">1234</option>
                     <option value="5678">5678</option>
@@ -148,7 +148,7 @@
               <li class="field disabled">
                 <label for="census_tract_number">Census tract:</label>
                 <div class="widget select">
-                  <select class="param" name="census_tract_number" id="census_tract_number" multiple data-placeholder="Select a state above" data-pre-placeholder="Select a state above" data-post-placeholder="Select a census" disabled="disabled">
+                  <select class="param" name="census_tract_number" id="census_tract_number" multiple data-placeholder="Select a state above" data-pre-placeholder="Select a state above" data-post-placeholder="Select a census">
                     <option value=""></option>
                     <option value="1234">1234</option>
                     <option value="5678">5678</option>
@@ -240,7 +240,7 @@
               <li class="field">
                 <label for="applicant_race_1">Applicant Race:</label>
                 <div class="widget select single">
-                  <select class="param" name="applicant_race_1" id="applicant_race_1" data-placeholder="Select an Applicant Race">
+                  <select class="param" name="applicant_race_1" id="applicant_race_1" multiple data-placeholder="Select an Applicant Race">
                     <option value=""></option>
                     <option value="1">American Indian or Alaska Native</option>
                     <option value="2">Asian</option>
@@ -259,7 +259,7 @@
               <li class="field">
                 <label for="applicant_ethnicity">Applicant Ethnicity:</label>
                 <div class="widget select">
-                  <select class="param" name="applicant_ethnicity" id="applicant_ethnicity" data-placeholder="Select an Applicant Race">
+                  <select class="param" name="applicant_ethnicity" id="applicant_ethnicity" multiple data-placeholder="Select an Applicant Race">
                     <option value=""></option>
                     <option value="1">Hispanic or Latino</option>
                     <option value="2">Not Hispanic or Latino</option>
@@ -277,7 +277,7 @@
               <li class="field">
                 <label for="co_applicant_ethnicity">Co-Applicant Ethnicity:</label>
                 <div class="widget select">
-                  <select class="param" name="co_applicant_ethnicity" id="co_applicant_ethnicity" data-placeholder="Select an Applicant Race">
+                  <select class="param" name="co_applicant_ethnicity" id="co_applicant_ethnicity" multiple data-placeholder="Select an Applicant Race">
                     <option value=""></option>
                     <option value="1">Hispanic or Latino</option>
                     <option value="2">Not Hispanic or Latino</option>
@@ -308,7 +308,7 @@
               <li class="field">
                 <label for="co_applicant_race_1">Co-Applicant Race:</label>
                 <div class="widget select">
-                  <select class="param" name="co_applicant_race_1" id="co_applicant_race_1" data-placeholder="Select an Applicant Race">
+                  <select class="param" name="co_applicant_race_1" id="co_applicant_race_1" multiple data-placeholder="Select an Applicant Race">
                     <option value=""></option>
                     <option value="1">American Indian or Alaska Native</option>
                     <option value="2">Asian</option>
@@ -562,9 +562,9 @@
 
           <div class="filter download closed" id="share">
 
-            <a href="#">Share</a>
+            <a href="#" id="share">Share</a>
             
-            <input type="submit" class="submit btn" value="Submit">
+            <input type="submit" class="submit btn" value="Download" id="download">
 
           </div>
 

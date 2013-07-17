@@ -112,7 +112,8 @@ var PDP = (function ( pdp ) {
         type = $el.attr('type'),
         name = $el.attr('name') || undefined,
         value = $el.val(),
-        field = {};
+        field = {},
+        comparator = '=';
 
     // If the element has no tag name or type, or it has no `value`, abort.
     // It's either not selected or broken.
@@ -138,7 +139,8 @@ var PDP = (function ( pdp ) {
       name: name,
       tagName: tagName,
       type: type,
-      value: value
+      values: value,
+      comparator: _.isEmpty( $el.data('comparator') ) ? '=' : $el.data('comparator')
     };
 
     return field;
@@ -157,7 +159,9 @@ var PDP = (function ( pdp ) {
       var $this = $( this ),
           field = pdp.form.getField( $this );
 
-      fields.push( field );
+      if ( field ) {
+        fields.push( field );
+      }
 
     });
 
@@ -173,9 +177,9 @@ var PDP = (function ( pdp ) {
 
     // Helper function to set all options of a field.
 
-    function setOptions( val, param ) {
+    function setOptions( field, param ) {
 
-      _.forEach( val, function( val ){
+      _.forEach( field.values, function( val ){
 
         // Set radios.
         $('input[name=' + param + '][value="' + val + '"]').prop('checked', true);
@@ -186,7 +190,10 @@ var PDP = (function ( pdp ) {
       });
 
       // Set selects.
-      $('select[name=' + param + ']').val( val ).trigger('liszt:updated');
+      $('select[name=' + param + ']').val( field.values ).trigger('liszt:updated');
+
+      //console.log('set: ' + param);
+      //console.log($('#' + param));
 
     }
 
@@ -201,7 +208,6 @@ var PDP = (function ( pdp ) {
     // Abort if this isn't a select field
 
     if ( $(el).find('select').length < 1 ) {
-      console.log(908987);
       return false;
     }
 
@@ -224,6 +230,7 @@ var PDP = (function ( pdp ) {
         // Broadcast that the update has ended.
 
         pdp.observer.emitEvent('update:stopped');
+        pdp.observer.emitEvent('field:updated');
 
     }.bind( this ));
 

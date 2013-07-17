@@ -20,6 +20,18 @@ var PDP = (function ( pdp ) {
 
   });
 
+  // Share functionality
+
+  $('a#share').on( 'click', function( ev ){
+
+    var hash = pdp.query.generateUrlHash();
+
+    ev.preventDefault();
+
+    window.location.hash = hash;
+
+  });
+
   // Hijack the submit button.
 
   $('form#explore').on( 'submit', function( ev ){
@@ -29,18 +41,6 @@ var PDP = (function ( pdp ) {
     ev.preventDefault();
 
     window.location.replace( url );
-
-  });
-
-  // Share functionality
-
-  $('#share').on( 'click', function( ev ){
-
-    var hash = pdp.query.generateUrlHash();
-
-    ev.preventDefault();
-
-    window.location.hash = hash;
 
   });
 

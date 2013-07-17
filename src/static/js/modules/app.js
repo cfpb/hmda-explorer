@@ -22,6 +22,8 @@ var PDP = (function ( pdp ) {
 
   app.init = function() {
 
+    var hashParams = pdp.utils.getHashParams();
+
     // Activate [chosen](http://harvesthq.github.io/chosen/) on select elements.
 
     app.$el.find('select').chosen({ width: '100%' });
@@ -29,23 +31,6 @@ var PDP = (function ( pdp ) {
     // Initialize Bootstrap tooltips
 
     app.$el.find('.help').tooltip({ placement: 'left' });
-
-    // Broadcast that the app is loaded and good to go.
-
-    pdp.observer.emitEvent('app:ready');
-
-    // Give our app a special class.
-
-    this.$el.addClass('ready');
-
-  };
-
-  // The `start` method is called when we're ready for the app to start chooglin'.
-
-  app.start = function() {
-
-    var hashParams = pdp.utils.getHashParams(),
-        $parents = $('select[data-dependent], input[data-dependent]');
 
     // If there are hash params in the URL, grab them and populate the DOM fields.
 
@@ -60,6 +45,22 @@ var PDP = (function ( pdp ) {
       pdp.query.reset();
 
     }
+
+    // Give our app a special class.
+
+    this.$el.addClass('ready');
+
+    // Broadcast that the app is loaded and good to go.
+
+    pdp.observer.emitEvent('app:ready');
+
+  };
+
+  // The `start` method is called when we're ready for the app to start chooglin'.
+
+  app.start = function() {
+
+    var $parents = $('select[data-dependent], input[data-dependent]');
 
     // Pull any `param` entries into the DOM.
 
@@ -76,6 +77,8 @@ var PDP = (function ( pdp ) {
     // Broadcast that the app has started.
 
     pdp.observer.emitEvent('app:started');
+
+    pdp.form.setFields();
 
   };
 
@@ -115,7 +118,8 @@ var PDP = (function ( pdp ) {
 
     param = {
       name: name,
-      value: params[ name ]
+      value: params[ name ].values,
+      comparator: params[ name ].comparator
     };
 
     return param;
@@ -133,7 +137,7 @@ var PDP = (function ( pdp ) {
 
       var _param = {},
           _values = [],
-          values = val.split(',');
+          values = val.values.split(',');
 
       _.forEach( values, function( value ){
         _values.push( value );
@@ -141,7 +145,8 @@ var PDP = (function ( pdp ) {
 
       _param = {
         name: name,
-        value: _values
+        values: _values,
+        comparator: val.comparator
       };
 
       _params.push( _param );

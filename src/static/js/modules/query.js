@@ -38,7 +38,9 @@ var PDP = (function ( pdp ) {
       this.params = {};
     } else {
       this.params = {
-        as_of_year: [2011]
+        as_of_year: {
+          values: [2011]
+        }
       };
     }
 
@@ -66,17 +68,25 @@ var PDP = (function ( pdp ) {
 
     function processField( field ) {
 
-      if ( field.name && field.value ) {
+      var newParam;
 
-        // Initalize an empty array if need be.
+      if ( field.name && field.values ) {
+
+        // Initalize an empty param object if need be.
 
         if ( typeof query.params[ field.name ] === 'undefined' ) {
-          query.params[ field.name ] = [];
+
+          query.params[ field.name ] = {
+            values: [],
+            comparator: '='
+          };
+
         }
 
-        _.forEach( field.value, function( val, name ){
+        _.forEach( field.values, function( val, name ){
 
-          query.params[ field.name ].push( val );
+          query.params[ field.name ].values.push( val );
+          query.params[ field.name ].comparator = field.comparator;
 
         });
 
@@ -101,7 +111,7 @@ var PDP = (function ( pdp ) {
 
       // If it's not a number, add quotes around the params.
 
-      hashParams.push( name + '=' + param.join(',') );
+      hashParams.push( name + param.comparator + param.values.join(',') );
 
     }
 
@@ -133,32 +143,32 @@ var PDP = (function ( pdp ) {
       // it's a radio button that only allows once value, add the stringified
       // param to the `params` array.
 
-      if ( param.length === 1 ) {
+      if ( param.values.length === 1 ) {
 
         // Wrap it in quotes if it's NaN.
 
         if ( isNaN( param[0] ) ) {
-          params.push( name + '="' + param[0] + '"' );
+          params.push( name + param.comparator + '"' + param.values[0] + '"' );
         } else {
-          params.push( name + '=' + param[0]);
+          params.push( name + param.comparator + param.values[0]);
         }
 
       // If there are multiple values for a single parameter, we iterate over them and
       // put an `OR` operator between them. We then then [group them](http://cfpb.github.io/qu/articles/queries.html#boolean_operators)
       // with parens and add the grouping to the `params` array.
 
-      } else if ( param.length > 1 ) {
+      } else if ( param.values.length > 1 ) {
 
         var _params = [];
 
-        _.forEach( param, function( val, key ){
+        _.forEach( param.values, function( val ){
 
           // Wrap it in quotes if it's NaN.
 
           if ( isNaN( val ) ) {
-            _params.push( name + '="' + val + '"' );
+            _params.push( name + param.comparator + '"' + val + '"' );
           } else {
-            _params.push( name + '=' + val);
+            _params.push( name + param.comparator + val);
           }
 
         });
