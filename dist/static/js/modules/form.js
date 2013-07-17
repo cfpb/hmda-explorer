@@ -34,7 +34,11 @@ var PDP = (function ( pdp ) {
     // there's no irritating jump when it slides open.
 
     $fields.hide().css( 'height', 0 );
-    $fields.show().animate( {height: height}, 150 );
+    $fields.show().animate( {height: height}, 150, 'swing', function(){
+      // We set height to auto after the animation so that the div can expand 
+      // if a lot of items are chosen.
+      $( this ).css('height', 'auto');
+    });
 
     $el.removeClass('closed').attr( 'title', 'Hide this filter section' );
 
@@ -171,9 +175,10 @@ var PDP = (function ( pdp ) {
 
   // The `setFields` method sets all fields' values/options from the `query.params` hash.
 
-  form.setFields = function() {
+  form.setFields = function( options ) {
 
-    var params = pdp.query.params;
+    var opts = options || {},
+        params = pdp.query.params;
 
     // Helper function to set all options of a field.
 
@@ -192,12 +197,19 @@ var PDP = (function ( pdp ) {
       // Set selects.
       $('select[name=' + param + ']').val( field.values ).trigger('liszt:updated');
 
-      //console.log('set: ' + param);
-      //console.log($('#' + param));
+    }
+
+    function emptyOptions( field, param ) {
+
+      // Clear radios.
+      $('input').prop('checked', false);
+
+      // Clear selects.
+      $('select').val('').trigger('liszt:updated');
 
     }
 
-    _.forEach( params, setOptions );
+    _.forEach( params, opts.empty ? emptyOptions : setOptions );
 
   };
 

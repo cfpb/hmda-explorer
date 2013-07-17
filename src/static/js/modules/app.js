@@ -78,8 +78,6 @@ var PDP = (function ( pdp ) {
 
     pdp.observer.emitEvent('app:started');
 
-    pdp.form.setFields();
-
   };
 
   // The `startLoading` method adds a class to the app's element so we can
@@ -156,6 +154,20 @@ var PDP = (function ( pdp ) {
     _.forEach( params, buildParam );
 
     return _params;
+
+  };
+
+  //
+
+  app.setPreset = function( options ) {
+
+    var $parents = $('select[data-dependent], input[data-dependent]');
+
+    pdp.form.setFields({empty: true});
+
+    pdp.query.reset( options || {} );
+
+    pdp.form.setFields();
 
   };
 

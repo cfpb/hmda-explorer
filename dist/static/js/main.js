@@ -27,6 +27,12 @@ var PDP = (function ( pdp ) {
       pdp.app.stopLoading.bind( pdp.app )
     ],
 
+    // After the app has started.
+
+    'app:started': [
+      
+    ],
+
     // When a filter is changed: Update the `query.params` hash and check form
     // field dependencies.
 

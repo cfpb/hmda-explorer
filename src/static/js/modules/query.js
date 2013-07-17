@@ -34,15 +34,29 @@ var PDP = (function ( pdp ) {
 
     var opts = options || {};
 
-    if ( opts.empty ) {
-      this.params = {};
-    } else {
+    if ( opts.default ) {
+
       this.params = {
         as_of_year: {
-          values: [2011]
+          values: [2012]
         }
       };
+
+    } else if ( opts.popular ) {
+
+      this.params = {
+        as_of_year: {
+          values: [2012, 2011]
+        }
+      };
+
+    } else {
+
+      this.params = {};
+
     }
+
+    return this;
 
   };
 
@@ -62,7 +76,7 @@ var PDP = (function ( pdp ) {
       fields = pdp.form.getFields();
     }
 
-    this.reset({ empty: true });
+    this.reset();
 
     // Iterate over all the filter field values and push them into `query.params`.
 

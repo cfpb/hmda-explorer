@@ -849,7 +849,7 @@ table {
                   | $$                  
                   |__/                  
 
-* Ghost - v0.5.2 - 2013-07-16
+* Ghost - v0.6.0 - 2013-07-17
 * http://consumerfinance.gov
 * A Public Domain work of the Consumer Financial Protection Bureau */
 .col {
@@ -1441,7 +1441,6 @@ textarea {
   padding: 0 15px;
   margin: 0 auto;
   position: relative;
-  overflow: hidden;
   clear: both;
 }
 .lt-ie8 .hero > .inner {
@@ -1589,7 +1588,6 @@ textarea {
   padding: 0 15px;
   margin: 0 auto;
   position: relative;
-  overflow: hidden;
   clear: both;
 }
 .lt-ie8 #filters {
@@ -1848,8 +1846,13 @@ ul.chzn-choices {
 .chzn-container-multi .chzn-choices {
   background: #ffffff;
 }
-.chzn-container-multi .chzn-choices .search-field input {
+.chzn-container-multi .chzn-choices .search-field {
+  width: 25px;
+}
+.chzn-container-multi .chzn-choices .search-field input,
+.chzn-container-multi .chzn-choices .search-field input.default {
   height: 100%;
+  width: 110px;
 }
 .chzn-container-multi .chzn-choices .search-choice {
   background: #e7e7e6;
@@ -1883,6 +1886,7 @@ ul.chzn-choices {
   font-family: "Avenir Next", Arial, sans-serif;
   font-weight: 400;
   font-style: normal;
+  width: 100%;
 }
 .chzn-container-active .chzn-choices,
 .chzn-container-multi .chzn-choices {
@@ -1997,7 +2001,6 @@ nav li {
   padding: 0 15px;
   margin: 0 auto;
   position: relative;
-  overflow: hidden;
   clear: both;
 }
 .lt-ie8 .hmda header,
