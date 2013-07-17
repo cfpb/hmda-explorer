@@ -8,14 +8,18 @@ ul.chzn-choices {
   background: @white;
 }
 
-.chzn-container-multi .chzn-choices .search-field {
-  width: 25px;
-}
-
 .chzn-container-multi .chzn-choices .search-field input,
 .chzn-container-multi .chzn-choices .search-field input.default {
   height: 100%;
   width: 110px;
+}
+
+.chzn-container.chzn-container-multi.chzn-container-active .chzn-choices .search-field {
+  width: 25px;
+}
+
+.chzn-container-multi .chzn-choices .search-field .default {
+  .avenir-next;
 }
 
 .chzn-container-multi .chzn-choices .search-choice {
@@ -43,10 +47,7 @@ ul.chzn-choices {
   background-position: 0 5px;
 }
 
-.chzn-container-multi .chzn-choices .search-field .default {
-  .avenir-next;
-  width: 100%;
-}
+
 
 .chzn-container-active .chzn-choices,
 .chzn-container-multi .chzn-choices {

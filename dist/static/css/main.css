@@ -1427,6 +1427,20 @@ textarea {
 @media only screen and (min-width: 768px) {
   
 }
+#filters {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  max-width: 960px;
+  padding: 0 15px;
+  margin: 0 auto;
+  position: relative;
+  clear: both;
+}
+.lt-ie8 #filters {
+  *zoom: 1;
+  *behavior: url(boxsizing.htc);
+}
 .hero {
   padding-top: 33px;
   text-align: center;
@@ -1579,20 +1593,6 @@ textarea {
   .explore .hero {
     min-height: 200px;
   }
-}
-#filters {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  max-width: 960px;
-  padding: 0 15px;
-  margin: 0 auto;
-  position: relative;
-  clear: both;
-}
-.lt-ie8 #filters {
-  *zoom: 1;
-  *behavior: url(boxsizing.htc);
 }
 .filter {
   display: inline-block;
@@ -1846,13 +1846,18 @@ ul.chzn-choices {
 .chzn-container-multi .chzn-choices {
   background: #ffffff;
 }
-.chzn-container-multi .chzn-choices .search-field {
-  width: 25px;
-}
 .chzn-container-multi .chzn-choices .search-field input,
 .chzn-container-multi .chzn-choices .search-field input.default {
   height: 100%;
   width: 110px;
+}
+.chzn-container.chzn-container-multi.chzn-container-active .chzn-choices .search-field {
+  width: 25px;
+}
+.chzn-container-multi .chzn-choices .search-field .default {
+  font-family: "Avenir Next", Arial, sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 .chzn-container-multi .chzn-choices .search-choice {
   background: #e7e7e6;
@@ -1881,12 +1886,6 @@ ul.chzn-choices {
 }
 .chzn-container-single .chzn-single div b {
   background-position: 0 5px;
-}
-.chzn-container-multi .chzn-choices .search-field .default {
-  font-family: "Avenir Next", Arial, sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  width: 100%;
 }
 .chzn-container-active .chzn-choices,
 .chzn-container-multi .chzn-choices {

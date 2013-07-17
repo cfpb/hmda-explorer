@@ -40,7 +40,7 @@ var PDP = (function ( pdp ) {
 
     ev.preventDefault();
 
-    window.location.replace( url );
+    window.location.href = url;
 
   });
 

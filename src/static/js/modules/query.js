@@ -161,7 +161,7 @@ var PDP = (function ( pdp ) {
 
         // Wrap it in quotes if it's NaN.
 
-        if ( isNaN( param[0] ) ) {
+        if ( isNaN( param.values[0] ) ) {
           params.push( name + param.comparator + '"' + param.values[0] + '"' );
         } else {
           params.push( name + param.comparator + param.values[0]);
