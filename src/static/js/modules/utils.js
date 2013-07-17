@@ -6,6 +6,8 @@
 
 var PDP = (function( pdp ) {
 
+  'use strict';
+
   // Utils
   // ----------------
   // An assortment of helper methods and polyfills.
@@ -20,7 +22,7 @@ var PDP = (function( pdp ) {
     var e,
         a = /\+/g,  // Regex for replacing addition symbol with a space
         r = /([^&;=<>]+)([=><]?)([^&;]*)/g,
-        d = function (s) { return decodeURIComponent(s.replace(a, " ")); },
+        d = function (s) { return decodeURIComponent(s.replace(a, ' ')); },
         q = window.location.hash.substring(1).replace(/^!\/?/, '');
 
     while (e = r.exec(q)) {
@@ -38,23 +40,20 @@ var PDP = (function( pdp ) {
 
   if (!Function.prototype.bind) {
     Function.prototype.bind = function (oThis) {
-      if (typeof this !== "function") {
+      if (typeof this !== 'function') {
         // closest thing possible to the ECMAScript 5 internal IsCallable function
-        throw new TypeError("Function.prototype.bind - what is trying to be bound is not callable");
+        throw new TypeError('Function.prototype.bind - what is trying to be bound is not callable');
       }
 
       var aArgs = Array.prototype.slice.call(arguments, 1), 
           fToBind = this, 
-          fNOP = function () {},
+          FNOP = function () {},
           fBound = function () {
-            return fToBind.apply(this instanceof fNOP && oThis
-                                   ? this
-                                   : oThis,
-                                 aArgs.concat(Array.prototype.slice.call(arguments)));
+            return fToBind.apply(this instanceof FNOP && oThis ? this : oThis, aArgs.concat(Array.prototype.slice.call(arguments)));
           };
 
-      fNOP.prototype = this.prototype;
-      fBound.prototype = new fNOP();
+      FNOP.prototype = this.prototype;
+      fBound.prototype = new FNOP();
 
       return fBound;
     };

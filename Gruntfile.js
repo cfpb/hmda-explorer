@@ -106,7 +106,7 @@ module.exports = function(grunt) {
           EventEmitter: true
         }
       },
-      files: ['Gruntfile.js', 'src/static/js/main.js']
+      files: ['Gruntfile.js', 'src/static/js/**/*.js']
     },
 
     /**
@@ -178,6 +178,21 @@ module.exports = function(grunt) {
     },
 
     /**
+     * Jasmine: https://github.com/gruntjs/grunt-contrib-jasmine
+     * 
+     * Run jasmine specs headlessly through PhantomJS.
+     */
+    jasmine: {
+      pdp: {
+        src: 'dist/static/js/main.min.js',
+        options: {
+          specs: 'test/specs/*.js',
+          helpers: 'test/specs/helpers/*.js'
+        }
+      }
+    },
+
+    /**
      * Docco: https://github.com/DavidSouther/grunt-docco
      * 
      * Grunt Docco plugin.
@@ -224,7 +239,7 @@ module.exports = function(grunt) {
   /**
    * Create task aliases by registering new tasks
    */
-  grunt.registerTask('test', ['jshint']);
+  grunt.registerTask('test', ['jshint', 'jasmine']);
   grunt.registerTask('pre-commit', ['docco', 'build-cfpb']);
   grunt.registerTask('build', ['shell:dist', 'uglify', 'less', 'cssmin']);
 

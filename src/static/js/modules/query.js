@@ -34,7 +34,7 @@ var PDP = (function ( pdp ) {
 
     var opts = options || {};
 
-    if ( opts.default ) {
+    if ( opts.defaults ) {
 
       this.params = {
         as_of_year: {

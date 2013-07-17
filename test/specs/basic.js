@@ -1,7 +1,6 @@
-define([
-  'jquery',
-  'backbone'
-  ], function( $, Backbone ) {
+(function(){
+
+  'use strict';
 
   describe('Basic functionality', function(){
 
@@ -9,12 +8,8 @@ define([
         expect(true).toBeTruthy();
     });
 
-    it('should let me test our AMD modules', function(){
+    it('should find jQuery', function(){
         expect($).toBeDefined();
-    });
-
-    it('should play nicely with Backbone', function(){
-      expect(Backbone).toBeDefined();
     });
 
   });
@@ -43,4 +38,4 @@ define([
 
   });
 
-});
+})();
