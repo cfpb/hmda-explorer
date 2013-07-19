@@ -22,6 +22,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2013-07-19   v0.5.2   Icons and sugar.
  * 2013-07-18   v0.5.1   Connect dependent dropdowns to concept data endpoints.
  * 2013-07-17   v0.5.0   Beef up testing suite. Fix text input caching bug. Change location of HTML files.
  * 2013-07-16   v0.4.1   Dependent fields are properly enabled/disabled.
@@ -43,4 +44,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Fri Jul 19 2013 00:16:47.*
+*This file was generated on Fri Jul 19 2013 18:02:17.*
