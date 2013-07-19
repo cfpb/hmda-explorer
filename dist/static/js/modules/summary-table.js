@@ -16,7 +16,6 @@ var PDP = (function ( pdp ) {
   table._inputs.varFields = [$('#variable1'), $('#variable2'), $('#variable3')];
   table._inputs.calculate = $('#calculate-by');
 
-  // temp arrays. stubs for api endpoints to come.
   table.years = ['2012', '2011'];
   table.fields = ['state_name', 'property_type_name', 'owner_occupancy_name'];
   table.calculateFields = ['records', 'sum', 'min', 'max'];
@@ -43,11 +42,13 @@ var PDP = (function ( pdp ) {
       }
     } 
   };
-
+ 
   table.init = function() {
     table._populateOptions();
   };
 
   pdp.summaryTable = table;
+
+  return pdp;
 
 }( PDP || {} ));

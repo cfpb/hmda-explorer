@@ -24,8 +24,7 @@ var PDP = (function ( pdp ) {
 
     'app:ready': [
       pdp.app.start.bind( pdp.app ),
-      pdp.app.stopLoading.bind( pdp.app ),
-      pdp.summaryTable.init.bind( pdp.summaryTable )
+      pdp.app.stopLoading.bind( pdp.app )
     ],
 
     // After the app has started.
