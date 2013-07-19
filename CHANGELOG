@@ -1,3 +1,8 @@
+v0.5.1:
+  date: 2013-07-18
+  changes:
+    - Connect dependent dropdowns to concept data endpoints.
+
 v0.5.0:
   date: 2013-07-17
   changes:

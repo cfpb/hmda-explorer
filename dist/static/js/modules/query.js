@@ -22,6 +22,7 @@ var PDP = (function ( pdp ) {
   // Set a default endpoint for AJAX requests.
 
   query.endpoint = 'static/js/dummy_data/';
+  //query.endpoint = 'http://qu.demo.cfpb.gov/data/hmda/concept/';
 
   // `query`'s `params` stores filter values.
 
@@ -121,8 +122,6 @@ var PDP = (function ( pdp ) {
     }
 
     _.forEach( fields, processField );
-
-    console.log(pdp.query.params);
 
   };
 

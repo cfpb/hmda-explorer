@@ -120,9 +120,10 @@ module.exports = function(grunt) {
       dist: {
         command: [
           'cp src/*.html dist/',
-          'cp -r src/static/fonts dist/static',
+          'cp -r src/static/font dist/static',
           'cp -r src/static/img dist/static',
           'cp -r src/static/js dist/static',
+          'cp -r src/static/vendor/font-awesome/font/* dist/static/font/',
           'cp src/static/vendor/html5shiv/dist/* dist/static/js/',
           'cp src/static/vendor/chosen/public/chosen-* dist/static/css'
         ].join('&&')

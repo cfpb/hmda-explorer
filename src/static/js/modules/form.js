@@ -79,10 +79,6 @@ var PDP = (function ( pdp ) {
 
     var $el = $( el ).find('select, input');
 
-    //$el.css('background', 'orange')
-
-    //console.log(el);
-
     // If it's a select element or text box
 
     if ( $el.prop('tagName').toLowerCase() === 'select' || $el.attr('type') === 'text' ) {
@@ -218,7 +214,7 @@ var PDP = (function ( pdp ) {
 
   // The `updateFieldOptions` method fetches and sets a field's options
 
-  form.updateFieldOptions = function( el, dependency ) {
+  form.updateFieldOptions = function( el, dependencies ) {
 
     // Abort if this isn't a select field
 
@@ -234,11 +230,50 @@ var PDP = (function ( pdp ) {
 
     this.resetField( el );
 
-    var id = $(el).find('select').attr('id');
+    // If there's a data-concept attribute, use it, otherwise use the id. This is because
+    // some fields have weird concept names (e.g. county_name is [fips](http://qu.demo.cfpb.gov/data/hmda/concept/fips.json))
+
+    var concept = $(el).find('select').data('concept') || $(el).find('select').attr('id'),
+        id = $(el).find('select').attr('id');
 
     // Fetch form field options and set fields when that request is fulfilled.
 
-    this.fetchFieldOptions( id ).done( function( options ) {
+    this.fetchFieldOptions( concept ).done( function( data ) {
+
+        // Grab the id of this element's dependency (e.g. state_abbr), @TODO rework this
+        // as it's kinda dumb and inefficient.
+
+        var options,
+            dependency = $( '[data-dependent~=' + id + ']' ).attr('id');
+
+        // Only return objects from the JSON that match the the id of the depdency
+
+        function filterDeps( obj ){
+
+          return _.contains( dependencies, obj[ dependency ] );
+
+        }
+
+        // Modify the object to fit the underscore template.
+
+        function mapDeps( obj ){
+
+          return {
+            label: obj[id],
+            value: obj._id
+          };
+
+        }
+
+        // Sort all the options into alphabetical order.
+
+        function sortDeps( obj ){
+
+          return obj.value;
+
+        }
+
+        options = _( data.table ).filter( filterDeps ).map( mapDeps ).sortBy( sortDeps ).value();
 
         this.setFieldOptions( el, options );
 
@@ -268,9 +303,9 @@ var PDP = (function ( pdp ) {
 
   // The `fetchFieldOptions` method returns a promise to a field's options.
 
-  form.fetchFieldOptions = function( id ) {
+  form.fetchFieldOptions = function( concept ) {
 
-    var promise = $.ajax( pdp.query.endpoint + id + '.json' );
+    var promise = $.ajax( pdp.query.endpoint + concept + '.json' );
 
     return promise;
 
@@ -341,8 +376,8 @@ var PDP = (function ( pdp ) {
 
     // Helper function to emit events
 
-    function emit( el, id, activity ) {
-      pdp.observer.emitEvent( 'field:' + activity, [el, id] );
+    function emit( activity, el, dependencies ) {
+      pdp.observer.emitEvent( 'field:' + activity, [el, dependencies] );
     }
 
     // If the form field does in fact have any dependents.
@@ -360,11 +395,14 @@ var PDP = (function ( pdp ) {
 
       if ( $el.val() ) {
         _.forEach( $dependents, function( $dependent ){
-          emit( $dependent, $el.attr('id'), 'shown' );
+          // `dependency` should be an array of the values the parent is supplying.
+          // For example with states, it might be: [CA, WA, OR]
+          var dependencies = form.getField( $el ).values;
+          emit( 'shown', $dependent, dependencies );
         });
       } else {
         _.forEach( $dependents, function( $dependent ){
-          emit( $dependent, $el.attr('id'), 'hidden' );
+          emit( 'hidden', $dependent, $el.attr('id') );
         });
       }
 
