@@ -39,7 +39,8 @@ var PDP = (function ( pdp ) {
 
       this.params = {
         as_of_year: {
-          values: [2012]
+          values: [2012],
+          comparator: '='
         }
       };
 
@@ -47,7 +48,8 @@ var PDP = (function ( pdp ) {
 
       this.params = {
         as_of_year: {
-          values: [2012, 2011]
+          values: [2012, 2011],
+          comparator: '='
         }
       };
 

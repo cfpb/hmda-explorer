@@ -42,7 +42,7 @@ var PDP = (function ( pdp ) {
 
       // Clear out any cached values.
 
-      pdp.query.reset();
+      pdp.query.reset({ defaults: true });
 
     }
 

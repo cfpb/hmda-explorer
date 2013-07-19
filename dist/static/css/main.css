@@ -2393,12 +2393,653 @@ a .icon-flip-vertical:before {
   font-weight: 700;
   font-style: normal;
 }
+/*!
+ *  CFPB Web Icons
+ *  CSS based on Font Awesome
+ *  the iconic font designed for Bootstrap
+ *  by Dave Gandy
+ *  ------------------------------------------------------------------------------
+ *  The full suite of pictographic icons, examples, and documentation can be
+ *  found at http://fontawesome.io.  Stay up to date on Twitter at
+ *  http://twitter.com/fontawesome.
+ *
+ *  Font Awesome License
+ *  ------------------------------------------------------------------------------
+ *  - Font Awesome CSS, LESS, and SASS files are licensed under MIT License -
+ *    http://opensource.org/licenses/mit-license.html
+ */
+/* FONT PATH
+ * -------------------------- */
 @font-face {
-  font-family: 'Conv_CFPB_minicons_v2';
-  src: url('../font/CFPB_minicons_v2.eot');
-  src: local('☺'), url('../font/CFPB_minicons_v2.woff') format('woff'), url('../font/CFPB_minicons_v2.ttf') format('truetype'), url('../font/CFPB_minicons_v2.svg') format('svg');
+  font-family: "CFPB Icons";
+  src: url("../font/CFPB_minicons_v2.eot");
+  src: url("../font/CFPB_minicons_v2.eot?#iefix") format("embedded-opentype"), url("../font/CFPB_minicons_v2.woff") format("woff"), url("../font/CFPB_minicons_v2.ttf") format("truetype"), url("../font/CFPB_minicons_v2.svg") format("svg");
   font-weight: normal;
   font-style: normal;
+}
+/* CFPB NUMBERS
+ * -------------------------- */
+.cfpb-number {
+  font-family: "CFPB Icons";
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: inherit;
+  -webkit-font-smoothing: antialiased;
+}
+/* CFPB ICON/FONT AWESOME CORE
+ * -------------------------- */
+[class^="icon-"],
+[class*=" icon-"] {
+  font-family: "CFPB Icons";
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: inherit;
+  -webkit-font-smoothing: antialiased;
+  *margin-right: .3em;
+}
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  text-decoration: inherit;
+  display: inline-block;
+  speak: none;
+}
+/* makes the font 33% larger relative to the icon container */
+.icon-large:before {
+  vertical-align: -10%;
+  font-size: 1.3333333333333333em;
+}
+/* makes sure icons active on rollover in links */
+a [class^="icon-"],
+a [class*=" icon-"] {
+  display: inline;
+}
+/* increased font size for icon-large */
+[class^="icon-"].icon-fixed-width,
+[class*=" icon-"].icon-fixed-width {
+  display: inline-block;
+  width: 1.1428571428571428em;
+  text-align: right;
+  padding-right: 0.2857142857142857em;
+}
+[class^="icon-"].icon-fixed-width.icon-large,
+[class*=" icon-"].icon-fixed-width.icon-large {
+  width: 1.4285714285714286em;
+}
+.icons-ul {
+  margin-left: 2.142857142857143em;
+  list-style-type: none;
+}
+.icons-ul > li {
+  position: relative;
+}
+.icons-ul .icon-li {
+  position: absolute;
+  left: -2.142857142857143em;
+  width: 2.142857142857143em;
+  text-align: center;
+  line-height: inherit;
+}
+[class^="icon-"].hide,
+[class*=" icon-"].hide {
+  display: none;
+}
+.icon-muted {
+  color: #eeeeee;
+}
+.icon-light {
+  color: #ffffff;
+}
+.icon-dark {
+  color: #333333;
+}
+.icon-border {
+  border: solid 1px #eeeeee;
+  padding: .2em .25em .15em;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+.icon-2x {
+  font-size: 2em;
+}
+.icon-2x.icon-border {
+  border-width: 2px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.icon-3x {
+  font-size: 3em;
+}
+.icon-3x.icon-border {
+  border-width: 3px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.icon-4x {
+  font-size: 4em;
+}
+.icon-4x.icon-border {
+  border-width: 4px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+.icon-5x {
+  font-size: 5em;
+}
+.icon-5x.icon-border {
+  border-width: 5px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+}
+.pull-right {
+  float: right;
+}
+.pull-left {
+  float: left;
+}
+[class^="icon-"].pull-left,
+[class*=" icon-"].pull-left {
+  margin-right: .3em;
+}
+[class^="icon-"].pull-right,
+[class*=" icon-"].pull-right {
+  margin-left: .3em;
+}
+/*
+* 
+* CFPB Icons make use of the Unicode Hidden Range
+* 
+* Sequencing
+* 0-9
+* 
+* Navigation
+* E000, E0001-7
+* 
+* Status
+* E0058-071
+* 
+* Social Media
+* E0122-133
+* 
+* Communications
+* E0184-195
+* 
+* Documents & Doc Actions
+* E0246-267
+* 
+* Financial Products & Objectives
+* E0318-357
+* 
+* General Web
+* E0408-447
+*/
+/* NAVIGATION ICONS
+ * -------------------------- */
+.icon-left:before {
+  content: "\e000";
+}
+.icon-left-alt:before {
+  content: "\e0001";
+}
+.icon-right:before {
+  content: "\e0002";
+}
+.icon-right-alt:before {
+  content: "\e0003";
+}
+.icon-up:before {
+  content: "\e0004";
+}
+.icon-up-alt:before {
+  content: "\e0005";
+}
+.icon-down:before {
+  content: "\e0006";
+}
+.icon-down-alt:before {
+  content: "\e0007";
+}
+/* STATUS ICONS
+ * -------------------------- */
+.icon-approved:before {
+  content: "\e0058";
+}
+.icon-approved-alt:before {
+  content: "\e0059";
+}
+.icon-error:before {
+  content: "\e0060";
+}
+.icon-error-alt:before {
+  content: "\e0061";
+}
+.icon-help:before {
+  content: "\e0062";
+}
+.icon-help-alt:before {
+  content: "\e0063";
+}
+.icon-delete:before {
+  content: "\e0064";
+}
+.icon-delete-alt:before {
+  content: "\e0065";
+}
+.icon-plus:before {
+  content: "\e0066";
+}
+.icon-plus-alt:before {
+  content: "\e0067";
+}
+.icon-minus:before {
+  content: "\e0068";
+}
+.icon-minus-alt:before {
+  content: "\e0069";
+}
+.icon-update:before {
+  content: "\e0070";
+}
+.icon-update-alt:before {
+  content: "\e0071";
+}
+/* SOCIAL ICONS
+ * -------------------------- */
+.icon-youtube:before {
+  content: "\e0122";
+}
+.icon-youtube-alt:before {
+  content: "\e0123";
+}
+.icon-linkedin:before {
+  content: "\e0124";
+}
+.icon-linkedin-alt:before {
+  content: "\e0125";
+}
+.icon-facebook:before {
+  content: "\e0126";
+}
+.icon-facebook-alt:before {
+  content: "\e0127";
+}
+.icon-flickr:before {
+  content: "\e0128";
+}
+.icon-flickr-alt:before {
+  content: "\e0129";
+}
+.icon-twitter:before {
+  content: "\e0130";
+}
+.icon-twitter-alt:before {
+  content: "\e0131";
+}
+.icon-github:before {
+  content: "\e0132";
+}
+.icon-github-alt:before {
+  content: "\e0133";
+}
+/* COMMUNICATION ICONS
+ * -------------------------- */
+.icon-web:before {
+  content: "\e0184";
+}
+.icon-web-alt:before {
+  content: "\e0185";
+}
+.icon-email:before {
+  content: "\e0186";
+}
+.icon-email-alt:before {
+  content: "\e0187";
+}
+.icon-mail:before {
+  content: "\e0188";
+}
+.icon-mail-alt:before {
+  content: "\e0189";
+}
+.icon-phone:before {
+  content: "\e0190";
+}
+.icon-phone-alt:before {
+  content: "\e0191";
+}
+.icon-technology:before {
+  content: "\e0192";
+}
+.icon-technology-alt:before {
+  content: "\e0193";
+}
+.icon-fax:before {
+  content: "\e0194";
+}
+.icon-fax-alt:before {
+  content: "\e0195";
+}
+/* DOCUMENT ICONS
+ * -------------------------- */
+.icon-document:before {
+  content: "\e0246";
+}
+.icon-document-alt:before {
+  content: "\e0247";
+}
+.icon-pdf:before {
+  content: "\e0248";
+}
+.icon-pdf-alt:before {
+  content: "\e0249";
+}
+.icon-upload:before {
+  content: "\e0250";
+}
+.icon-upload-alt:before {
+  content: "\e0251";
+}
+.icon-download:before {
+  content: "\e0252";
+}
+.icon-download-alt:before {
+  content: "\e0253";
+}
+.icon-copy:before {
+  content: "\e0254";
+}
+.icon-copy-alt:before {
+  content: "\e0255";
+}
+.icon-edit:before {
+  content: "\e0256";
+}
+.icon-edit-alt:before {
+  content: "\e0257";
+}
+.icon-attach:before {
+  content: "\e0258";
+}
+.icon-attach-alt:before {
+  content: "\e0259";
+}
+.icon-print:before {
+  content: "\e0260";
+}
+.icon-print-alt:before {
+  content: "\e0261";
+}
+.icon-save:before {
+  content: "\e0262";
+}
+.icon-save-alt:before {
+  content: "\e0263";
+}
+.icon-appendix:before {
+  content: "\e0264";
+}
+.icon-appendix-alt:before {
+  content: "\e0265";
+}
+.icon-supplement:before {
+  content: "\e0266";
+}
+.icon-supplement-alt:before {
+  content: "\e0267";
+}
+/* FINANCIAL PRODUCTS ICONS
+ * -------------------------- */
+.icon-bank-account:before {
+  content: "\e0318";
+}
+.icon-bank-account-alt:before {
+  content: "\e0319";
+}
+.icon-credit-card:before {
+  content: "\e0320";
+}
+.icon-credit-card-alt:before {
+  content: "\e0321";
+}
+.icon-loan:before {
+  content: "\e0322";
+}
+.icon-loan-alt:before {
+  content: "\e0323";
+}
+.icon-money-transfer:before {
+  content: "\e0324";
+}
+.icon-money-transfer-alt:before {
+  content: "\e0325";
+}
+.icon-mortgage:before {
+  content: "\e0326";
+}
+.icon-mortgage-alt:before {
+  content: "\e0327";
+}
+.icon-debt-collection:before {
+  content: "\e0328";
+}
+.icon-debt-collection-alt:before {
+  content: "\e0329";
+}
+.icon-credit-report:before {
+  content: "\e0330";
+}
+.icon-credit-report-alt:before {
+  content: "\e0331";
+}
+.icon-money:before {
+  content: "\e0332";
+}
+.icon-money-alt:before {
+  content: "\e0333";
+}
+.icon-quick-cash:before {
+  content: "\e0334";
+}
+.icon-quick-cash-alt:before {
+  content: "\e0335";
+}
+.icon-contract:before {
+  content: "\e0336";
+}
+.icon-contract-alt:before {
+  content: "\e0337";
+}
+.icon-complaint:before {
+  content: "\e0338";
+}
+.icon-complaint-alt:before {
+  content: "\e0339";
+}
+.icon-getting-credit-card:before {
+  content: "\e0340";
+}
+.icon-getting-credit-card-alt:before {
+  content: "\e0341";
+}
+.icon-buying-car:before {
+  content: "\e0342";
+}
+.icon-buying-car-alt:before {
+  content: "\e0343";
+}
+.icon-paying-college:before {
+  content: "\e0344";
+}
+.icon-paying-college-alt:before {
+  content: "\e0345";
+}
+.icon-owning-home:before {
+  content: "\e0346";
+}
+.icon-owning-home-alt:before {
+  content: "\e0347";
+}
+.icon-debt:before {
+  content: "\e0348";
+}
+.icon-debt-alt:before {
+  content: "\e0349";
+}
+.icon-building-credit:before {
+  content: "\e0350";
+}
+.icon-building-credit-alt:before {
+  content: "\e0351";
+}
+.icon-prepaid-cards:before {
+  content: "\e0352";
+}
+.icon-prepaid-cards-alt:before {
+  content: "\e0353";
+}
+.icon-payday-loan:before {
+  content: "\e0354";
+}
+.icon-payday-loan-alt:before {
+  content: "\e0355";
+}
+.icon-retirement:before {
+  content: "\e0356";
+}
+.icon-retirement-alt:before {
+  content: "\e0357";
+}
+/* WEB ICONS
+ * -------------------------- */
+.icon-user:before {
+  content: "\e0408";
+}
+.icon-user-alt:before {
+  content: "\e0409";
+}
+.icon-wifi:before {
+  content: "\e0410";
+}
+.icon-wifi-alt:before {
+  content: "\e0411";
+}
+.icon-search:before {
+  content: "\e0412";
+}
+.icon-search-alt:before {
+  content: "\e0413";
+}
+.icon-share:before {
+  content: "\e0414";
+}
+.icon-share-alt:before {
+  content: "\e0415";
+}
+.icon-link:before {
+  content: "\e0416";
+}
+.icon-link-alt:before {
+  content: "\e0417";
+}
+.icon-external-link:before {
+  content: "\e0418";
+}
+.icon-external-link-alt:before {
+  content: "\e0419";
+}
+.icon-audio-mute:before {
+  content: "\e0420";
+}
+.icon-audio-mute-alt:before {
+  content: "\e0424";
+}
+.icon-audio-mute:before {
+  content: "\e0420";
+}
+.icon-audio-mute-alt:before {
+  content: "\e0424";
+}
+.icon-audio-low:before {
+  content: "\e0421";
+}
+.icon-audio-low-alt:before {
+  content: "\e0425";
+}
+.icon-audio-medium:before {
+  content: "\e0422";
+}
+.icon-audio-medium-alt:before {
+  content: "\e0426";
+}
+.icon-audio-max:before {
+  content: "\e0423";
+}
+.icon-audio-max-alt:before {
+  content: "\e0427";
+}
+.icon-favorite:before {
+  content: "\e0428";
+}
+.icon-favorite-alt:before {
+  content: "\e0429";
+}
+.icon-unfavorite:before {
+  content: "\e0430";
+}
+.icon-unfavorite-alt:before {
+  content: "\e0431";
+}
+.icon-bookmark:before {
+  content: "\e0432";
+}
+.icon-bookmark-alt:before {
+  content: "\e0433";
+}
+.icon-unbookmark:before {
+  content: "\e0434";
+}
+.icon-unbookmark-alt:before {
+  content: "\e0435";
+}
+.icon-settings:before {
+  content: "\e0436";
+}
+.icon-settings-alt:before {
+  content: "\e0437";
+}
+.icon-menu:before {
+  content: "\e0438";
+}
+.icon-menu-alt:before {
+  content: "\e0439";
+}
+.icon-lock:before {
+  content: "\e0440";
+}
+.icon-lock-alt:before {
+  content: "\e0442";
+}
+.icon-unlock:before {
+  content: "\e0441";
+}
+.icon-unlock-alt:before {
+  content: "\e0443";
+}
+.icon-chart:before {
+  content: "\e0444";
+}
+.icon-chart-alt:before {
+  content: "\e0445";
+}
+.icon-play:before {
+  content: "\e0446";
+}
+.icon-play-alt:before {
+  content: "\e0447";
 }
 /*
 @font-face {
@@ -3225,6 +3866,15 @@ textarea {
 }
 .filter h3 {
   text-transform: uppercase;
+  color: #0072ce;
+  display: inline-block;
+  padding-left: 15px;
+}
+.filter h3 i {
+  padding-right: 10px;
+}
+.filter.closed i:before {
+  content: "\e0067";
 }
 .filter .fields {
   padding: 0;
@@ -3298,7 +3948,6 @@ textarea {
   width: 100%;
 }
 .filter .help {
-  display: inline-block;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -3307,6 +3956,9 @@ textarea {
   margin-right: -0.25em;
   vertical-align: top;
   width: 8.333333333333332%;
+  font-size: 1.3em;
+  display: inline-block;
+  color: #0072ce;
 }
 .ie .filter .help {
   margin-right: -0.26em;
@@ -3363,7 +4015,7 @@ textarea {
     *zoom: 1;
     *behavior: url(boxsizing.htc);
   }
-  .filter h3 {
+  .filter .title a {
     display: inline-block;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -3372,12 +4024,12 @@ textarea {
     border-width: 0 15px;
     margin-right: -0.25em;
     vertical-align: top;
-    width: 30%;
+    width: 40%;
   }
-  .ie .filter h3 {
+  .ie .filter .title a {
     margin-right: -0.26em;
   }
-  .lt-ie8 .filter h3 {
+  .lt-ie8 .filter .title a {
     display: inline;
     *zoom: 1;
     *behavior: url(boxsizing.htc);
@@ -3391,7 +4043,7 @@ textarea {
     border-width: 0 15px;
     margin-right: -0.25em;
     vertical-align: top;
-    width: 70%;
+    width: 60%;
   }
   .ie .filter .desc {
     margin-right: -0.26em;

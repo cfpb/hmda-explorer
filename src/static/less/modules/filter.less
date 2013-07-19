@@ -18,6 +18,22 @@
   
   h3 {
     text-transform: uppercase;
+    color: @pacific;
+    display: inline-block;
+    padding-left: 15px;
+
+    i {
+      padding-right: 10px;
+    }
+
+  }
+
+  // Show a plus icon when the filter is closed.
+
+  &.closed {
+    i:before {
+      content: "\e0067";
+    }
   }
 
   .desc {
@@ -79,6 +95,9 @@
 
   .help {
     .column( 1 );
+    font-size: 1.3em;
+    display: inline-block;
+    color: @pacific;
   }
 
 }
@@ -106,12 +125,12 @@
       .column( 8, 10 );
     }
     
-    h3 {
-      .column( 3, 10 );
+    .title a {
+      .column( 4, 10 );
     }
 
     .desc {
-      .column( 7, 10 );
+      .column( 6, 10 );
     }
 
     li.field {
