@@ -3516,172 +3516,6 @@ textarea {
 /**
  *  Clearfix
  **/
-.charts {
-  text-align: center;
-}
-.browse {
-  background: #ffffff url(../img/bg_grid.png) scroll repeat left top;
-  text-align: center;
-}
-.browse h2 {
-  padding-top: 200px;
-  background: transparent url(../img/hr_line-graph.png) scroll repeat-x center top;
-}
-.browse .explore {
-  max-width: 770px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 2px solid #d0d0ce;
-  text-align: left;
-}
-.browse hr {
-  padding-bottom: 200px;
-  clear: both;
-  border: 0;
-  background: transparent url(../img/hr_line-graph-rev.png) scroll repeat-x center top;
-}
-.download {
-  background: #ffffff;
-}
-@media only screen and (min-width: 768px) {
-  
-}
-#filters {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  max-width: 960px;
-  padding: 0 15px;
-  margin: 0 auto;
-  position: relative;
-  clear: both;
-  margin-top: 40px;
-}
-.lt-ie8 #filters {
-  *zoom: 1;
-  *behavior: url(boxsizing.htc);
-}
-.download-and-share {
-  margin-top: 50px;
-}
-.download-and-share .inner {
-  background-color: #f4f3f2;
-  padding: 15px;
-}
-.download-and-share .widget {
-  border-right: 0;
-}
-.download-and-share .widget input {
-  width: 100%;
-}
-.download-and-share .action {
-  margin-top: 20px;
-  text-align: right;
-}
-.download,
-.share {
-  display: inline-block;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  border: solid transparent;
-  border-width: 0 15px;
-  margin-right: -0.25em;
-  vertical-align: top;
-  width: 50%;
-  border: 0;
-}
-.ie .download,
-.ie .share {
-  margin-right: -0.26em;
-}
-.lt-ie8 .download,
-.lt-ie8 .share {
-  display: inline;
-  *zoom: 1;
-  *behavior: url(boxsizing.htc);
-}
-@media only screen and (min-width: 768px) {
-  .download-and-share label {
-    display: inline-block;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    border: solid transparent;
-    border-width: 0 15px;
-    margin-right: -0.25em;
-    vertical-align: top;
-    width: 40%;
-  }
-  .ie .download-and-share label {
-    margin-right: -0.26em;
-  }
-  .lt-ie8 .download-and-share label {
-    display: inline;
-    *zoom: 1;
-    *behavior: url(boxsizing.htc);
-  }
-  .download-and-share .widget {
-    display: inline-block;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    border: solid transparent;
-    border-width: 0 15px;
-    margin-right: -0.25em;
-    vertical-align: top;
-    width: 60%;
-    border-right: 0;
-  }
-  .ie .download-and-share .widget {
-    margin-right: -0.26em;
-  }
-  .lt-ie8 .download-and-share .widget {
-    display: inline;
-    *zoom: 1;
-    *behavior: url(boxsizing.htc);
-  }
-  .download {
-    display: inline-block;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    border: solid transparent;
-    border-width: 0 15px;
-    margin-right: -0.25em;
-    vertical-align: top;
-    width: 41.66666666666667%;
-    border-left: 0;
-  }
-  .ie .download {
-    margin-right: -0.26em;
-  }
-  .lt-ie8 .download {
-    display: inline;
-    *zoom: 1;
-    *behavior: url(boxsizing.htc);
-  }
-  .share {
-    display: inline-block;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    border: solid transparent;
-    border-width: 0 15px;
-    margin-right: -0.25em;
-    vertical-align: top;
-    width: 41.66666666666667%;
-    border-right: 0;
-  }
-  .ie .share {
-    margin-right: -0.26em;
-  }
-  .lt-ie8 .share {
-    display: inline;
-    *zoom: 1;
-    *behavior: url(boxsizing.htc);
-  }
-}
 .hero {
   padding-top: 33px;
   text-align: center;
@@ -4145,6 +3979,181 @@ ul.chzn-choices {
   -moz-box-shadow: none;
   box-shadow: none;
   border-color: #d0d0ce;
+}
+.charts {
+  text-align: center;
+}
+.browse {
+  background: #ffffff url(../img/bg_grid.png) scroll repeat left top;
+  text-align: center;
+}
+.browse h2 {
+  padding-top: 200px;
+  background: transparent url(../img/hr_line-graph.png) scroll repeat-x center top;
+}
+.browse .explore {
+  max-width: 770px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #d0d0ce;
+  text-align: left;
+}
+.browse hr {
+  padding-bottom: 200px;
+  clear: both;
+  border: 0;
+  background: transparent url(../img/hr_line-graph-rev.png) scroll repeat-x center top;
+}
+.download {
+  background: #ffffff;
+}
+@media only screen and (min-width: 768px) {
+  
+}
+#filters {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  max-width: 960px;
+  padding: 0 15px;
+  margin: 0 auto;
+  position: relative;
+  clear: both;
+  margin-top: 40px;
+}
+.lt-ie8 #filters {
+  *zoom: 1;
+  *behavior: url(boxsizing.htc);
+}
+.hero h1 {
+  background-image: url('');
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
+  .hero h1 {
+    background-image: url("");
+    background-size: 770px 17px;
+  }
+}
+.download-and-share {
+  margin-top: 50px;
+}
+.download-and-share .inner {
+  background-color: #f4f3f2;
+  padding: 15px;
+}
+.download-and-share .widget {
+  border-right: 0;
+}
+.download-and-share .widget input {
+  width: 100%;
+}
+.download-and-share .action {
+  margin-top: 20px;
+  text-align: right;
+}
+.download,
+.share {
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: solid transparent;
+  border-width: 0 15px;
+  margin-right: -0.25em;
+  vertical-align: top;
+  width: 50%;
+  border: 0;
+}
+.ie .download,
+.ie .share {
+  margin-right: -0.26em;
+}
+.lt-ie8 .download,
+.lt-ie8 .share {
+  display: inline;
+  *zoom: 1;
+  *behavior: url(boxsizing.htc);
+}
+@media only screen and (min-width: 768px) {
+  .download-and-share label {
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: solid transparent;
+    border-width: 0 15px;
+    margin-right: -0.25em;
+    vertical-align: top;
+    width: 40%;
+  }
+  .ie .download-and-share label {
+    margin-right: -0.26em;
+  }
+  .lt-ie8 .download-and-share label {
+    display: inline;
+    *zoom: 1;
+    *behavior: url(boxsizing.htc);
+  }
+  .download-and-share .widget {
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: solid transparent;
+    border-width: 0 15px;
+    margin-right: -0.25em;
+    vertical-align: top;
+    width: 60%;
+    border-right: 0;
+  }
+  .ie .download-and-share .widget {
+    margin-right: -0.26em;
+  }
+  .lt-ie8 .download-and-share .widget {
+    display: inline;
+    *zoom: 1;
+    *behavior: url(boxsizing.htc);
+  }
+  .download {
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: solid transparent;
+    border-width: 0 15px;
+    margin-right: -0.25em;
+    vertical-align: top;
+    width: 41.66666666666667%;
+    border-left: 0;
+  }
+  .ie .download {
+    margin-right: -0.26em;
+  }
+  .lt-ie8 .download {
+    display: inline;
+    *zoom: 1;
+    *behavior: url(boxsizing.htc);
+  }
+  .share {
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: solid transparent;
+    border-width: 0 15px;
+    margin-right: -0.25em;
+    vertical-align: top;
+    width: 41.66666666666667%;
+    border-right: 0;
+  }
+  .ie .share {
+    margin-right: -0.26em;
+  }
+  .lt-ie8 .share {
+    display: inline;
+    *zoom: 1;
+    *behavior: url(boxsizing.htc);
+  }
 }
 .tooltip {
   position: absolute;
