@@ -10,16 +10,19 @@ var PDP = (function ( pdp ) {
 
   var table = {};
 
+  // cache input fields
   table._inputs = {};
   table._inputs.all = $('*[data-summary-table-input]');
   table._inputs.year = $('#year');
   table._inputs.varFields = [$('#variable1'), $('#variable2'), $('#variable3')];
   table._inputs.calculate = $('#calculate-by');
 
-  table.years = ['2011', '2012'];
+  // stubs for field data until api endpoints are implemented
+  table._years = ['2011', '2012'];
   table.fields = ['state_name', 'property_type_name', 'owner_occupancy_name'];
-  table.calculateFields = ['records', 'sum', 'min', 'max'];
+  table.calculateFields = ['sum', 'min', 'max', 'record count'];
 
+  // returns a templated option tag
   table.optionTmpl = function(field, defaultOp) {
     var def = (defaultOp) ? 'selected' : '';
 
@@ -29,8 +32,12 @@ var PDP = (function ( pdp ) {
   // fetches field names and populates select options
   table._populateOptions = function() {
     table._populateVarFields();
-    table._populateYearList();
-    //table._populateCalculatedField();
+
+    // populate year field
+    table._populateSingleInput(table._inputs.year, table._years);
+
+    // populate calculated by field
+    table._populateSingleInput(table._inputs.calculate, table.calculateFields);
   };
 
   table._populateVarFields = function() {
@@ -40,24 +47,27 @@ var PDP = (function ( pdp ) {
         varDropDown;
     while (inputsLen--) {
       varDropDown = table._inputs.varFields[inputsLen];
+
       for (i=0; i<=fieldsLen; i++) {
         varDropDown.append(table.optionTmpl(table.fields[i]));
       }
     } 
   };
 
-  // table.years = desc list of years dataset is avail for
-  table._populateYearList = function() {
-    var yearsLen = table.years.length,
-        firstYear = true;
+  // populates year and calculate fields
+  table._populateSingleInput = function($input, fields) {
+    var fieldsLen = fields.length,
+        first = true;
 
-    while (yearsLen--) {
-      table._inputs.year.append(
-        table.optionTmpl(table.years[yearsLen], firstYear)
+    while (fieldsLen--) {
+      $input.append(
+        table.optionTmpl(fields[fieldsLen], first)
       );
 
-      firstYear = false;
+      first = false;
     }
+
+    return $input;
   };
 
   table._chosenInit = function() {
