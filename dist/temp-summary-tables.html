@@ -23,13 +23,19 @@
   </head>
   <body class="hmda explore">
     <form id="summary-table">
-      <select id="year" class="chzn-select" data-summary-table-input></select>
+      <select id="year" multiple class="chzn-select" data-summary-table-input></select>
 
-      <select id="variable1" class="chzn-single" data-summary-table-input></select>
+      <select id="variable1" class="chzn-single" data-summary-table-input>
+        <option placeholder>Select the first variable</option>
+      </select>
 
-      <select id="variable2" class="chzn-single" data-summary-table-input></select>
+      <select id="variable2" class="chzn-single" data-summary-table-input>
+        <option placeholder>Select the second variable</option>
+      </select>
 
-      <select id="variable3" class="chzn-single" data-summary-table-input></select>
+      <select id="variable3" class="chzn-single" data-summary-table-input>
+        <option placeholder>Select the third variable</option>
+      </select>
 
       <select id="calculate-by" class="chzn-single" data-summary-table-input></select>
     </form>
