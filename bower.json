@@ -10,6 +10,7 @@
     "lodash": "~1.3.1",
     "json3": "~3.2.5",
     "bootstrap": "~2.3.2",
-    "chosen": "https://github.com/contolini/chosen.git#v10.0.0"
+    "chosen": "https://github.com/contolini/chosen.git#v10.0.0",
+    "font-awesome": "~3.2.1"
   }
 }
