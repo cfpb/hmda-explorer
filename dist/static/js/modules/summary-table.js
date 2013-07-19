@@ -55,6 +55,9 @@ var PDP = (function ( pdp ) {
   };
 
   // populates year and calculate fields
+  // $input: jQobj of <select>
+  // fields: array of strings, each with a name of API field
+  // for the year field, ask for years in asc, will get flipped to desc
   table._populateSingleInput = function($input, fields) {
     var fieldsLen = fields.length,
         first = true;
