@@ -36,7 +36,7 @@ var PDP = (function ( pdp ) {
     $fields.hide().css( 'height', 0 );
     $fields.show().animate( {height: height}, 150, 'swing', function(){
       // We set height to auto after the animation so that the div can expand 
-      // if a lot of items are chosen.
+      // if a lot of items in a 'chosen' select widget are chosen.
       $( this ).css('height', 'auto');
     });
 
