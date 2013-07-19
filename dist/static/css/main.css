@@ -2228,7 +2228,7 @@ textarea {
 .filter h3 i {
   padding-right: 10px;
 }
-.filter.closed i:before {
+.filter.closed i.icon-minus-alt:before {
   content: "\e0067";
 }
 .filter .fields {
