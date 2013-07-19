@@ -51,17 +51,15 @@
 
       </div>
 
-      <div id="annual">
-
-      </div>
+      <!-- filters -->
 
       <div id="filters">
 
-        <!-- /filters section -->
-
-        <h2><a href="#popular">Popular Filters</a> | <a href="#all">All Filters</a></h2>
+        <h2><!--<a href="#popular">Popular Filters</a> | --><a href="#all">All Filters</a></h2>
 
         <form id="explore" action="" method="get">
+
+          <!-- filter section -->
 
           <div class="filter year" id="year">
 
@@ -92,6 +90,10 @@
             </ul>
             
           </div>
+
+          <!-- /filter section -->
+
+          <!-- filter section -->
 
           <div class="filter location closed" id="location">
 
@@ -184,10 +186,6 @@
                 <label for="msamd">MSA:</label>
                 <div class="widget select">
                   <select class="param" name="msamd" id="msamd" multiple data-placeholder="Select a state above" data-pre-placeholder="Select a state above" data-post-placeholder="Select an MSA">
-                    <option value=""></option>
-                    <option value="1234">1234</option>
-                    <option value="5678">5678</option>
-                    <option value="9012">9012</option>
                   </select>
                 </div>
                 <div class="help" title="Select an MSA if you please.">Help</div>
@@ -236,6 +234,10 @@
             
           </div>
 
+          <!-- /filter section -->
+
+          <!-- filter section -->
+
           <div class="filter borrower closed" id="borrower">
 
             <div class="title">
@@ -252,7 +254,7 @@
               <li class="field">
                 <label for="applicant_income_000s">Applicant Income</label>
                 <div class="widget text">
-                  <input class="param" type="text" name="applicant_income_000s" value="" placeholder="Enter something...">
+                  <input class="param" type="text" name="applicant_income_000s" value="" placeholder="Enter an income">
                 </div>
                 <div class="help" title="Applicant’s annual gross income (000s) that an institution relied upon in making the credit decision.">Help</div>
               </li>
@@ -373,6 +375,10 @@
             
           </div>
 
+          <!-- /filter section -->
+
+          <!-- filter section -->
+
           <div class="filter lender closed" id="lender">
 
             <div class="title">
@@ -418,6 +424,10 @@
             
           </div>
 
+          <!-- /filter section -->
+
+          <!-- filter section -->
+
           <div class="filter property closed" id="property">
 
             <div class="title">
@@ -457,6 +467,10 @@
             </ul>
             
           </div>
+
+          <!-- /filter section -->
+
+          <!-- filter section -->
 
           <div class="filter description closed" id="description">
 
@@ -537,6 +551,10 @@
             
           </div>
 
+          <!-- /filter section -->
+
+          <!-- filter section -->
+
           <div class="filter action closed" id="action">
 
             <div class="title">
@@ -606,13 +624,63 @@
             
           </div>
 
-          <div class="filter download closed" id="share">
+          <!-- /filter section -->
 
-            <a href="#" id="share">Share</a>
-            
-            <input type="submit" class="submit btn" value="Download" id="download">
+          <!-- download and share section -->
+
+          <div class="download-and-share">
+
+            <section class="download">
+
+              <h2>Download the data</h2>
+
+              <div class="inner">
+
+                <label for="format">File type:</label>
+                <div class="select widget">
+                  <select name="format" id="format">
+                    <option value="csv">CSV</option>
+                    <option value="html">HTML</option>
+                    <option value="json">JSON</option>
+                    <option value="jsonp">JSONP</option>
+                    <option value="xml">XML</option>
+                  </select>
+                </div>
+
+                <div class="action">
+
+                  <input type="submit" class="submit btn" value="Download" id="download">
+
+                </div>
+
+              </div>
+
+            </section>
+
+            <section class="share">
+
+              <h2>Share a link</h2>
+
+              <div class="inner">
+
+                <label for="share_url">Save your filters:</label>
+                <div class="text widget">
+                  <input type="text" id="share_url" name="share_url" value="" placeholder="Select filters above">
+                </div>
+
+                <div class="action">
+
+                  <input href="#" type="button" class="btn" value="Share" id="share">
+
+                </div>
+
+              </div>
+
+            </section>
 
           </div>
+
+          <!-- download and share section -->
 
         </form>
 

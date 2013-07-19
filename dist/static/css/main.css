@@ -2668,8 +2668,8 @@ input[type="submit"] {
 
   border: 0;
   cursor: pointer;
-  background: #f7f5f4;
-  color: #101820;
+  background: #0072ce;
+  color: #ffffff;
   font-family: "Avenir Next Medium", Arial, sans-serif;
   font-weight: 500;
   font-style: normal;
@@ -2678,17 +2678,9 @@ button:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
-  background: #f7f5f4;
-  color: #101820;
+  background: #0072ce;
+  color: #ffffff;
   text-decoration: none;
-}
-input[type="submit"] {
-  background: #43b02a;
-  color: #fff;
-}
-input[type="submit"]:hover {
-  background: #43b02a;
-  color: #fff;
 }
 label {
   -webkit-box-sizing: border-box;
@@ -2922,10 +2914,132 @@ textarea {
   margin: 0 auto;
   position: relative;
   clear: both;
+  margin-top: 40px;
 }
 .lt-ie8 #filters {
   *zoom: 1;
   *behavior: url(boxsizing.htc);
+}
+.download-and-share {
+  margin-top: 50px;
+}
+.download-and-share .inner {
+  background-color: #f4f3f2;
+  padding: 15px;
+}
+.download-and-share .widget {
+  border-right: 0;
+}
+.download-and-share .widget input {
+  width: 100%;
+}
+.download-and-share .action {
+  margin-top: 20px;
+  text-align: right;
+}
+.download,
+.share {
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: solid transparent;
+  border-width: 0 15px;
+  margin-right: -0.25em;
+  vertical-align: top;
+  width: 50%;
+  border: 0;
+}
+.ie .download,
+.ie .share {
+  margin-right: -0.26em;
+}
+.lt-ie8 .download,
+.lt-ie8 .share {
+  display: inline;
+  *zoom: 1;
+  *behavior: url(boxsizing.htc);
+}
+@media only screen and (min-width: 768px) {
+  .download-and-share label {
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: solid transparent;
+    border-width: 0 15px;
+    margin-right: -0.25em;
+    vertical-align: top;
+    width: 40%;
+  }
+  .ie .download-and-share label {
+    margin-right: -0.26em;
+  }
+  .lt-ie8 .download-and-share label {
+    display: inline;
+    *zoom: 1;
+    *behavior: url(boxsizing.htc);
+  }
+  .download-and-share .widget {
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: solid transparent;
+    border-width: 0 15px;
+    margin-right: -0.25em;
+    vertical-align: top;
+    width: 60%;
+    border-right: 0;
+  }
+  .ie .download-and-share .widget {
+    margin-right: -0.26em;
+  }
+  .lt-ie8 .download-and-share .widget {
+    display: inline;
+    *zoom: 1;
+    *behavior: url(boxsizing.htc);
+  }
+  .download {
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: solid transparent;
+    border-width: 0 15px;
+    margin-right: -0.25em;
+    vertical-align: top;
+    width: 41.66666666666667%;
+    border-left: 0;
+  }
+  .ie .download {
+    margin-right: -0.26em;
+  }
+  .lt-ie8 .download {
+    display: inline;
+    *zoom: 1;
+    *behavior: url(boxsizing.htc);
+  }
+  .share {
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: solid transparent;
+    border-width: 0 15px;
+    margin-right: -0.25em;
+    vertical-align: top;
+    width: 41.66666666666667%;
+    border-right: 0;
+  }
+  .ie .share {
+    margin-right: -0.26em;
+  }
+  .lt-ie8 .share {
+    display: inline;
+    *zoom: 1;
+    *behavior: url(boxsizing.htc);
+  }
 }
 .hero {
   padding-top: 33px;

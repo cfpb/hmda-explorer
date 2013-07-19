@@ -98,10 +98,10 @@ var PDP = (function ( pdp ) {
 
         }
 
-        // If the value is a string from a text box, we don't want to iterate over it
-        // because it will split up the characters.
+        // If the value is a string from a text box we don't want to iterate 
+        // over it because it will split up the characters.
 
-        if ( typeof field.values === 'string') {
+        if ( field.type === 'text' ) {
 
           query.params[ field.name ].values = [ field.values ];
 

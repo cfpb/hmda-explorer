@@ -1,26 +1,1015 @@
-[
-  {
-    "label": "MSA/MD 1",
-    "value": "option_1"
-  },
-  {
-    "label": "MSA/MD 2",
-    "value": "option_2"
-  },
-  {
-    "label": "MSA/MD 3",
-    "value": "option_3"
-  },
-  {
-    "label": "MSA/MD 4",
-    "value": "option_4"
-  },
-  {
-    "label": "MSA/MD 5",
-    "value": "option_5"
-  },
-  {
-    "label": "MSA/MD 6",
-    "value": "option_6"
-  }
-]
+{
+    "_links": [
+        {
+            "rel": "self",
+            "href": "/qu/data/hmda/concept/fips.json"
+        },
+        {
+            "href": "/data/hmda",
+            "rel": "up"
+        }
+    ],
+    "table": [
+        {
+            "_id": "01001",
+            "msamd": "Autauga County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01003",
+            "msamd": "Baldwin County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01005",
+            "msamd": "Barbour County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01007",
+            "msamd": "Bibb County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01009",
+            "msamd": "Blount County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01011",
+            "msamd": "Bullock County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01013",
+            "msamd": "Butler County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01015",
+            "msamd": "Calhoun County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01017",
+            "msamd": "Chambers County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01019",
+            "msamd": "Cherokee County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01021",
+            "msamd": "Chilton County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01023",
+            "msamd": "Choctaw County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01025",
+            "msamd": "Clarke County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01027",
+            "msamd": "Clay County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01029",
+            "msamd": "Cleburne County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01031",
+            "msamd": "Coffee County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01033",
+            "msamd": "Colbert County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01035",
+            "msamd": "Conecuh County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01037",
+            "msamd": "Coosa County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01039",
+            "msamd": "Covington County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01041",
+            "msamd": "Crenshaw County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01043",
+            "msamd": "Cullman County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01045",
+            "msamd": "Dale County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01047",
+            "msamd": "Dallas County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01049",
+            "msamd": "DeKalb County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01051",
+            "msamd": "Elmore County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01053",
+            "msamd": "Escambia County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01055",
+            "msamd": "Etowah County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01057",
+            "msamd": "Fayette County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01059",
+            "msamd": "Franklin County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01061",
+            "msamd": "Geneva County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01063",
+            "msamd": "Greene County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01065",
+            "msamd": "Hale County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01067",
+            "msamd": "Henry County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01069",
+            "msamd": "Houston County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01071",
+            "msamd": "Jackson County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01073",
+            "msamd": "Jefferson County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01075",
+            "msamd": "Lamar County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01077",
+            "msamd": "Lauderdale County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01079",
+            "msamd": "Lawrence County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01081",
+            "msamd": "Lee County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01083",
+            "msamd": "Limestone County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01085",
+            "msamd": "Lowndes County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01087",
+            "msamd": "Macon County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01089",
+            "msamd": "Madison County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01091",
+            "msamd": "Marengo County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01093",
+            "msamd": "Marion County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01095",
+            "msamd": "Marshall County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01097",
+            "msamd": "Mobile County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01099",
+            "msamd": "Monroe County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01101",
+            "msamd": "Montgomery County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01103",
+            "msamd": "Morgan County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01105",
+            "msamd": "Perry County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01107",
+            "msamd": "Pickens County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01109",
+            "msamd": "Pike County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01111",
+            "msamd": "Randolph County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01113",
+            "msamd": "Russell County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01115",
+            "msamd": "St. Clair County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01117",
+            "msamd": "Shelby County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01119",
+            "msamd": "Sumter County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01121",
+            "msamd": "Talladega County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01123",
+            "msamd": "Tallapoosa County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01125",
+            "msamd": "Tuscaloosa County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01127",
+            "msamd": "Walker County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01129",
+            "msamd": "Washington County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01131",
+            "msamd": "Wilcox County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "01133",
+            "msamd": "Winston County",
+            "state_abbr": "AL"
+        },
+        {
+            "_id": "02013",
+            "msamd": "Aleutians East Borough",
+            "state_abbr": "AK"
+        },
+        {
+            "_id": "02016",
+            "msamd": "Aleutians West Census Area",
+            "state_abbr": "AK"
+        },
+        {
+            "_id": "02020",
+            "msamd": "Anchorage Municipality",
+            "state_abbr": "AK"
+        },
+        {
+            "_id": "02050",
+            "msamd": "Bethel Census Area",
+            "state_abbr": "AK"
+        },
+        {
+            "_id": "02060",
+            "msamd": "Bristol Bay Borough",
+            "state_abbr": "AK"
+        },
+        {
+            "_id": "02068",
+            "msamd": "Denali Borough",
+            "state_abbr": "AK"
+        },
+        {
+            "_id": "02070",
+            "msamd": "Dillingham Census Area",
+            "state_abbr": "AK"
+        },
+        {
+            "_id": "02090",
+            "msamd": "Fairbanks North Star Borough",
+            "state_abbr": "AK"
+        },
+        {
+            "_id": "02100",
+            "msamd": "Haines Borough",
+            "state_abbr": "AK"
+        },
+        {
+            "_id": "02105",
+            "msamd": "Hoonah-Angoon Census Area",
+            "state_abbr": "AK"
+        },
+        {
+            "_id": "02110",
+            "msamd": "Juneau City and Borough",
+            "state_abbr": "AK"
+        },
+        {
+            "_id": "02122",
+            "msamd": "Kenai Peninsula Borough",
+            "state_abbr": "AK"
+        },
+        {
+            "_id": "02130",
+            "msamd": "Ketchikan Gateway Borough",
+            "state_abbr": "AK"
+        },
+        {
+            "_id": "02150",
+            "msamd": "Kodiak Island Borough",
+            "state_abbr": "AK"
+        },
+        {
+            "_id": "02164",
+            "msamd": "Lake and Peninsula Borough",
+            "state_abbr": "AK"
+        },
+        {
+            "_id": "02170",
+            "msamd": "Matanuska-Susitna Borough",
+            "state_abbr": "AK"
+        },
+        {
+            "_id": "02180",
+            "msamd": "Nome Census Area",
+            "state_abbr": "AK"
+        },
+        {
+            "_id": "02185",
+            "msamd": "North Slope Borough",
+            "state_abbr": "AK"
+        },
+        {
+            "_id": "02188",
+            "msamd": "Northwest Arctic Borough",
+            "state_abbr": "AK"
+        },
+        {
+            "_id": "02195",
+            "msamd": "Petersburg Census Area",
+            "state_abbr": "AK"
+        },
+        {
+            "_id": "02198",
+            "msamd": "Prince of Wales-Hyder Census Area",
+            "state_abbr": "AK"
+        },
+        {
+            "_id": "02220",
+            "msamd": "Sitka City and Borough",
+            "state_abbr": "AK"
+        },
+        {
+            "_id": "02230",
+            "msamd": "Skagway Municipality",
+            "state_abbr": "AK"
+        },
+        {
+            "_id": "02240",
+            "msamd": "Southeast Fairbanks Census Area",
+            "state_abbr": "AK"
+        },
+        {
+            "_id": "02261",
+            "msamd": "Valdez-Cordova Census Area",
+            "state_abbr": "AK"
+        },
+        {
+            "_id": "02270",
+            "msamd": "Wade Hampton Census Area",
+            "state_abbr": "AK"
+        },
+        {
+            "_id": "02275",
+            "msamd": "Wrangell City and Borough",
+            "state_abbr": "AK"
+        },
+        {
+            "_id": "02282",
+            "msamd": "Yakutat City and Borough",
+            "state_abbr": "AK"
+        },
+        {
+            "_id": "02290",
+            "msamd": "Yukon-Koyukuk Census Area",
+            "state_abbr": "AK"
+        },
+        {
+            "_id": "04001",
+            "msamd": "Apache County",
+            "state_abbr": "AZ"
+        },
+        {
+            "_id": "04003",
+            "msamd": "Cochise County",
+            "state_abbr": "AZ"
+        },
+        {
+            "_id": "04005",
+            "msamd": "Coconino County",
+            "state_abbr": "AZ"
+        },
+        {
+            "_id": "04007",
+            "msamd": "Gila County",
+            "state_abbr": "AZ"
+        },
+        {
+            "_id": "04009",
+            "msamd": "Graham County",
+            "state_abbr": "AZ"
+        },
+        {
+            "_id": "04011",
+            "msamd": "Greenlee County",
+            "state_abbr": "AZ"
+        },
+        {
+            "_id": "04012",
+            "msamd": "La Paz County",
+            "state_abbr": "AZ"
+        },
+        {
+            "_id": "04013",
+            "msamd": "Maricopa County",
+            "state_abbr": "AZ"
+        },
+        {
+            "_id": "04015",
+            "msamd": "Mohave County",
+            "state_abbr": "AZ"
+        },
+        {
+            "_id": "04017",
+            "msamd": "Navajo County",
+            "state_abbr": "AZ"
+        },
+        {
+            "_id": "04019",
+            "msamd": "Pima County",
+            "state_abbr": "AZ"
+        },
+        {
+            "_id": "04021",
+            "msamd": "Pinal County",
+            "state_abbr": "AZ"
+        },
+        {
+            "_id": "04023",
+            "msamd": "Santa Cruz County",
+            "state_abbr": "AZ"
+        },
+        {
+            "_id": "04025",
+            "msamd": "Yavapai County",
+            "state_abbr": "AZ"
+        },
+        {
+            "_id": "04027",
+            "msamd": "Yuma County",
+            "state_abbr": "AZ"
+        },
+        {
+            "_id": "05001",
+            "msamd": "Arkansas County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05003",
+            "msamd": "Ashley County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05005",
+            "msamd": "Baxter County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05007",
+            "msamd": "Benton County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05009",
+            "msamd": "Boone County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05011",
+            "msamd": "Bradley County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05013",
+            "msamd": "Calhoun County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05015",
+            "msamd": "Carroll County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05017",
+            "msamd": "Chicot County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05019",
+            "msamd": "Clark County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05021",
+            "msamd": "Clay County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05023",
+            "msamd": "Cleburne County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05025",
+            "msamd": "Cleveland County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05027",
+            "msamd": "Columbia County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05029",
+            "msamd": "Conway County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05031",
+            "msamd": "Craighead County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05033",
+            "msamd": "Crawford County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05035",
+            "msamd": "Crittenden County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05037",
+            "msamd": "Cross County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05039",
+            "msamd": "Dallas County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05041",
+            "msamd": "Desha County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05043",
+            "msamd": "Drew County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05045",
+            "msamd": "Faulkner County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05047",
+            "msamd": "Franklin County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05049",
+            "msamd": "Fulton County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05051",
+            "msamd": "Garland County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05053",
+            "msamd": "Grant County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05055",
+            "msamd": "Greene County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05057",
+            "msamd": "Hempstead County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05059",
+            "msamd": "Hot Spring County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05061",
+            "msamd": "Howard County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05063",
+            "msamd": "Independence County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05065",
+            "msamd": "Izard County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05067",
+            "msamd": "Jackson County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05069",
+            "msamd": "Jefferson County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05071",
+            "msamd": "Johnson County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05073",
+            "msamd": "Lafayette County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05075",
+            "msamd": "Lawrence County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05077",
+            "msamd": "Lee County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05079",
+            "msamd": "Lincoln County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05081",
+            "msamd": "Little River County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05083",
+            "msamd": "Logan County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05085",
+            "msamd": "Lonoke County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05087",
+            "msamd": "Madison County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05089",
+            "msamd": "Marion County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05091",
+            "msamd": "Miller County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05093",
+            "msamd": "Mississippi County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05095",
+            "msamd": "Monroe County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05097",
+            "msamd": "Montgomery County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05099",
+            "msamd": "Nevada County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05101",
+            "msamd": "Newton County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05103",
+            "msamd": "Ouachita County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05105",
+            "msamd": "Perry County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05107",
+            "msamd": "Phillips County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05109",
+            "msamd": "Pike County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05111",
+            "msamd": "Poinsett County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05113",
+            "msamd": "Polk County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05115",
+            "msamd": "Pope County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05117",
+            "msamd": "Prairie County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05119",
+            "msamd": "Pulaski County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05121",
+            "msamd": "Randolph County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05123",
+            "msamd": "St. Francis County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05125",
+            "msamd": "Saline County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05127",
+            "msamd": "Scott County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05129",
+            "msamd": "Searcy County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05131",
+            "msamd": "Sebastian County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05133",
+            "msamd": "Sevier County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05135",
+            "msamd": "Sharp County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05137",
+            "msamd": "Stone County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05139",
+            "msamd": "Union County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05141",
+            "msamd": "Van Buren County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05143",
+            "msamd": "Washington County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05145",
+            "msamd": "White County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05147",
+            "msamd": "Woodruff County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "05149",
+            "msamd": "Yell County",
+            "state_abbr": "AR"
+        },
+        {
+            "_id": "06001",
+            "msamd": "Alameda County",
+            "state_abbr": "CA"
+        },
+        {
+            "_id": "06003",
+            "msamd": "Alpine County",
+            "state_abbr": "CA"
+        },
+        {
+            "_id": "06005",
+            "msamd": "Amador County",
+            "state_abbr": "CA"
+        },
+        {
+            "_id": "06007",
+            "msamd": "Butte County",
+            "state_abbr": "CA"
+        },
+        {
+            "_id": "06009",
+            "msamd": "Calaveras County",
+            "state_abbr": "CA"
+        },
+        {
+            "_id": "06011",
+            "msamd": "Colusa County",
+            "state_abbr": "CA"
+        },
+        {
+            "_id": "06013",
+            "msamd": "Contra Costa County",
+            "state_abbr": "CA"
+        },
+        {
+            "_id": "06015",
+            "msamd": "Del Norte County",
+            "state_abbr": "CA"
+        },
+        {
+            "_id": "06017",
+            "msamd": "El Dorado County",
+            "state_abbr": "CA"
+        },
+        {
+            "_id": "06019",
+            "msamd": "Fresno County",
+            "state_abbr": "CA"
+        },
+        {
+            "_id": "06021",
+            "msamd": "Glenn County",
+            "state_abbr": "CA"
+        },
+        {
+            "_id": "06023",
+            "msamd": "Humboldt County",
+            "state_abbr": "CA"
+        },
+        {
+            "_id": "06025",
+            "msamd": "Imperial County",
+            "state_abbr": "CA"
+        },
+        {
+            "_id": "06027",
+            "msamd": "Inyo County",
+            "state_abbr": "CA"
+        },
+        {
+            "_id": "06029",
+            "county_n

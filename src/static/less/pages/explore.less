@@ -3,6 +3,7 @@
 #filters {
 
   .wrapper();
+  margin-top: 40px;
   //.transparent();
 
   &.ready {
@@ -15,3 +16,64 @@
 
 }
 
+// Download and share sections
+
+.download-and-share {
+
+  margin-top: 50px;
+
+  .inner {
+    background-color: #f4f3f2;
+    padding: 15px;
+  }
+
+  label {
+
+  }
+
+  .widget {
+    border-right: 0;
+    input {
+      width: 100%;
+    }
+  }
+
+  .action {
+    margin-top: 20px;
+    text-align: right;
+  }
+
+}
+
+.download,
+.share {
+  .column( 6 );
+  border: 0;
+}
+
+@media only screen and ( min-width: 768px ) {
+
+  .download-and-share {
+
+    label {
+      .column( 2, 5 );
+    }
+
+    .widget {
+      .column( 3, 5 );
+      border-right: 0;
+    }
+
+  }
+
+  .download {
+    .column( 5 );
+    border-left: 0;
+  }
+
+  .share {
+    .column( 5 );
+    border-right: 0;
+  }
+
+}
