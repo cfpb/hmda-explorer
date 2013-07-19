@@ -85,8 +85,6 @@ var PDP = (function ( pdp ) {
 
     function processField( field ) {
 
-      var newParam;
-
       if ( field.name && field.values ) {
 
         // Initalize an empty param object if need be.

@@ -310,7 +310,7 @@ var PDP = (function ( pdp ) {
 
   form.fetchFieldOptions = function( concept ) {
 
-    var promise = $.ajax( pdp.query.endpoint + concept + '.json' );
+    var promise = $.getJSON( pdp.query.endpoint + concept + '.json' );
 
     return promise;
 
