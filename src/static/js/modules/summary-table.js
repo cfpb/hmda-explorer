@@ -74,7 +74,10 @@ var PDP = (function ( pdp ) {
     $('.chzn-select').chosen({
       allow_single_deselect: true
     });
-    $('.chzn-single').chosen();
+
+    $('.chzn-single').chosen({
+      disable_search_threshold: 50
+    });
   };
  
   table.init = function() {
