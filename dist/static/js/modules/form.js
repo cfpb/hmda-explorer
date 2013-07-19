@@ -75,25 +75,29 @@ var PDP = (function ( pdp ) {
 
   // The 'hasValue' method checks if a field has any value selected.
 
-  form.hasValue = function( el ) {
+  form.hasValue = function( $el ) {
 
-    var $el = $( el ).find('select, input');
+    var $els = $el.find('select, input');
 
     // If it's a select element or text box
 
-    if ( $el.prop('tagName').toLowerCase() === 'select' || $el.attr('type') === 'text' ) {
+    if ( $els.prop('tagName').toLowerCase() === 'select' || $els.attr('type') === 'text' ) {
 
-      if ( $el.val() ) {
+      if ( $els.val() ) {
 
-        return $el.val().length > 0;
+        return $els.val().length > 0;
 
       }
 
     // If it's a checkbox or radio element
 
-    } else if ( $el.attr('type') === ( 'checkbox' || 'radio' ) ) {
+    } else if ( $els.attr('type') === ( 'checkbox' || 'radio' ) ) {
 
-      return $el.prop('checked');
+      var any = _.some($els,  function(e){
+        return $(e).prop('checked');
+      });
+
+      return any;
 
     }
 
@@ -154,7 +158,7 @@ var PDP = (function ( pdp ) {
     var fields = [],
         $fields = pdp.app.$el.find('.param');
 
-    $fields.each(function(){
+    $fields.each( function(){
 
       var $this = $( this ),
           field = pdp.form.getField( $this );
@@ -254,12 +258,13 @@ var PDP = (function ( pdp ) {
 
         }
 
-        // Modify the object to fit the underscore template.
+        // Modify the object to fit the underscore template. If there are multiple
+        // dependencies, append the state, otherwise no need to.
 
         function mapDeps( obj ){
 
           return {
-            label: obj[id],
+            label: dependencies.length > 1 ? obj[ id ] + ', ' + obj[ dependency ] : obj[ id ],
             value: obj._id
           };
 
@@ -269,7 +274,7 @@ var PDP = (function ( pdp ) {
 
         function sortDeps( obj ){
 
-          return obj.value;
+          return obj.label;
 
         }
 
@@ -407,6 +412,17 @@ var PDP = (function ( pdp ) {
       }
 
     }
+
+  };
+
+  // The `updateShareLink` method puts the current share link in the share text box.
+
+  form.updateShareLink = function() {
+
+    var hash = pdp.query.generateUrlHash(),
+        baseUrl = window.location.href.replace(/#.*/, '');
+
+    $('#share_url').val( baseUrl + '#' + hash );
 
   };
 

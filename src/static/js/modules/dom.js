@@ -12,23 +12,11 @@ var PDP = (function ( pdp ) {
   // ----------------
   // jQuery is used to attach event handlers to DOM elements.
 
-  // Whenever a `select` element is changed, emit an event.
+  // Whenever a `select` element is changed emit an event.
 
   $('.field select, .field input').on( 'change', function(){
 
-    pdp.observer.emitEvent('filter:changed', $( this ) );
-
-  });
-
-  // Share functionality
-
-  $('a#share').on( 'click', function( ev ){
-
-    var hash = pdp.query.generateUrlHash();
-
-    ev.preventDefault();
-
-    window.location.hash = hash;
+    pdp.observer.emitEvent('field:changed', $( this ) );
 
   });
 
@@ -61,7 +49,35 @@ var PDP = (function ( pdp ) {
 
       pdp.form.hideFilter( $el );
 
-    } 
+    }
+
+  });
+
+  // When the format is changed, updated `query.format` and the share URL.
+
+  $('#format').on( 'change', function(){
+
+    pdp.query.format = $( this ).val();
+
+    pdp.form.updateShareLink();
+
+  });
+
+  // When the share URL text box is focused, select all the text inside.
+  // `click` is used instead of `focus` due to a [Chrome bug](http://stackoverflow.com/questions/3150275/jquery-input-select-all-on-focus).
+
+  $('#share_url').on( 'click', function(){
+
+    $( this ).select();
+
+  });
+
+  // For now, open a new window with the shareable URL when the share
+  // button is clicked.
+
+  $('#share').on( 'click', function(){
+
+    window.open( $('#share_url').val() , '_blank' );
 
   });
 

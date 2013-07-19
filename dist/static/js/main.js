@@ -30,15 +30,16 @@ var PDP = (function ( pdp ) {
     // After the app has started.
 
     'app:started': [
-      
+      pdp.form.updateShareLink.bind( pdp.form )
     ],
 
-    // When a filter is changed: Update the `query.params` hash and check form
-    // field dependencies.
+    // When a field is changed: Update the `query.params` hash, check form
+    // field dependencies and update the share link.
 
-    'filter:changed': [
+    'field:changed': [
       pdp.query.updateAll.bind( pdp.query ),
-      pdp.form.checkDeps.bind( pdp.form )
+      pdp.form.checkDeps.bind( pdp.form ),
+      pdp.form.updateShareLink.bind( pdp.form )
     ],
 
     // When a previously hidden field is shown: Update the field's options.
