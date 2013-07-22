@@ -32,7 +32,8 @@ var PDP = (function ( pdp ) {
     // After the app has started.
 
     'app:started': [
-      pdp.form.updateShareLink.bind( pdp.form )
+      pdp.form.updateShareLink.bind( pdp.form ),
+      pdp.preview.update.bind( pdp.preview )
     ],
 
     // When a field is changed: Update the `query.params` hash, check form
@@ -42,6 +43,12 @@ var PDP = (function ( pdp ) {
       pdp.query.updateAll.bind( pdp.query ),
       pdp.form.checkDeps.bind( pdp.form ),
       pdp.form.updateShareLink.bind( pdp.form )
+    ],
+
+    // When the `query.params` hash is finished updating,
+    // update the preview table.
+    'params:updated': [
+      pdp.preview.update.bind( pdp.preview )
     ],
 
     // When a previously hidden field is shown: Update the field's options.

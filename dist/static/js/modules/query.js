@@ -22,7 +22,7 @@ var PDP = (function ( pdp ) {
   // Set a default endpoint for AJAX requests.
 
   query.endpoint = 'static/js/dummy_data/';
-  //query.endpoint = 'http://qu.demo.cfpb.gov/data/hmda/concept/';
+  //query.endpoint = 'http://qu.demo.cfpb.gov/data/hmda/';
 
   // `query`'s `params` stores filter values.
 
@@ -33,18 +33,18 @@ var PDP = (function ( pdp ) {
 
   query.reset = function( options ) {
 
-    var opts = options || {};
+    options = options || {};
 
-    if ( opts.defaults ) {
+    if ( options.defaults ) {
 
       this.params = {
         as_of_year: {
-          values: [2012],
+          values: [2011],
           comparator: '='
         }
       };
 
-    } else if ( opts.popular ) {
+    } else if ( options.popular ) {
 
       this.params = {
         as_of_year: {
@@ -83,7 +83,7 @@ var PDP = (function ( pdp ) {
 
     // Iterate over all the filter field values and push them into `query.params`.
 
-    function processField( field ) {
+    function _processField( field ) {
 
       if ( field.name && field.values ) {
 
@@ -121,7 +121,9 @@ var PDP = (function ( pdp ) {
 
     }
 
-    _.forEach( fields, processField );
+    _.forEach( fields, _processField );
+
+    pdp.observer.emitEvent( 'params:updated' );
 
   };
 
@@ -160,7 +162,7 @@ var PDP = (function ( pdp ) {
 
     // Set a base url to append params to
 
-    url = 'http://qu.demo.cfpb.gov/data/hmda/hmda_lar.' + downloadFormat;
+    url = this.endpoint + 'hmda_lar.' + downloadFormat;
 
     // Convert each param to a proper [`$where` clause](http://cfpb.github.io/qu/articles/queries.html#where_in_detail).
 

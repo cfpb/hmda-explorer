@@ -1,0 +1,43 @@
+// Each block of fields is a .filter (Location, Lender, Borrower, etc.)
+
+.preview {
+
+  .column( 12 );
+  background-color: #f4f3f2;
+
+  #preview {
+
+    overflow: scroll;
+    max-height: 400px;
+    margin: 15px 0;
+
+    table.tidy_table {
+      table-layout: fixed;
+    }
+
+    th,
+    td {
+      width: 150px;
+      height: 35px;
+      display: inline-block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+  }
+
+}
+
+// Viewport adjustments
+
+@media only screen and ( min-width: 768px ) {
+
+  .preview {
+
+    .column( 10 );
+
+    
+
+  }
+
+}

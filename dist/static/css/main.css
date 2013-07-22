@@ -836,6 +836,68 @@ table {
   }
 }
 /* @end */
+/*
+ *  Tidy Table
+ *  Generate a sortable HTML table from JSON
+ *
+ *  Copyright 2012-2013, Marc S. Brooks (http://mbrooks.info)
+ *  Licensed under the MIT license:
+ *  http://www.opensource.org/licenses/mit-license.php
+ *
+ *  Dependencies:
+ *    jquery.js
+ */
+table.tidy_table {
+  background-color: #FFFFFF;
+  border-collapse: collapse;
+  border: 1px solid #CCCCCC;
+  cursor: pointer;
+  white-space: nowrap;
+}
+table.tidy_table thead {
+  border: none;
+}
+table.tidy_table tr.check_on {
+  background-color: #F5F5F5;
+}
+table.tidy_table tr.check_off {
+  background-color: #FFFFFF;
+}
+table.tidy_table th {
+  background-color: #DDDDDD;
+}
+table.tidy_table th.sort_asc {
+  background: #eeeeee url(images/arrow_asc.gif ) no-repeat right center;
+}
+table.tidy_table th.sort_desc {
+  background: #eeeeee url(images/arrow_desc.gif ) no-repeat right center;
+}
+table.tidy_table th,
+table.tidy_table td {
+  padding: 6px 20px 6px 20px;
+}
+table.tidy_table td {
+  border-right: 1px solid #EEEEEE;
+  padding: 7px 20px 7px 20px;
+}
+table.tidy_table th:nth-child(1),
+table.tidy_table td:nth-child(1) {
+  width: 10px;
+}
+table.tidy_table td:nth-child(1) {
+  border-right: 1px solid #EEEEEE;
+}
+table.tidy_table input[type=checkbox],
+table.tidy_table input[type=checkbox] {
+  display: block;
+  margin: 0px auto 0px auto;
+}
+table.tidy_table td:nth-last-child(1) {
+  border-right: none;
+}
+table.tidy_table td {
+  border-top: 1px solid #CCCCCC;
+}
 /*                                      
             /$$$$$$          /$$        
            /$$__  $$        | $$        
@@ -2447,6 +2509,63 @@ textarea {
     *behavior: url(boxsizing.htc);
   }
 }
+.preview {
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: solid transparent;
+  border-width: 0 15px;
+  margin-right: -0.25em;
+  vertical-align: top;
+  width: 100%;
+  background-color: #f4f3f2;
+}
+.ie .preview {
+  margin-right: -0.26em;
+}
+.lt-ie8 .preview {
+  display: inline;
+  *zoom: 1;
+  *behavior: url(boxsizing.htc);
+}
+.preview #preview {
+  overflow: scroll;
+  max-height: 400px;
+  margin: 15px 0;
+}
+.preview #preview table.tidy_table {
+  table-layout: fixed;
+}
+.preview #preview th,
+.preview #preview td {
+  width: 150px;
+  height: 35px;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media only screen and (min-width: 768px) {
+  .preview {
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: solid transparent;
+    border-width: 0 15px;
+    margin-right: -0.25em;
+    vertical-align: top;
+    width: 83.33333333333334%;
+  }
+  .ie .preview {
+    margin-right: -0.26em;
+  }
+  .lt-ie8 .preview {
+    display: inline;
+    *zoom: 1;
+    *behavior: url(boxsizing.htc);
+  }
+}
 ul.chzn-choices {
   width: 100%;
 }
@@ -2546,6 +2665,9 @@ ul.chzn-choices {
   *zoom: 1;
   *behavior: url(boxsizing.htc);
 }
+#filters h2 {
+  margin-top: 50px;
+}
 .hero h1 {
   background-image: url('');
 }
@@ -2554,9 +2676,6 @@ ul.chzn-choices {
     background-image: url("");
     background-size: 770px 17px;
   }
-}
-.download-and-share {
-  margin-top: 50px;
 }
 .download-and-share .inner {
   background-color: #f4f3f2;
