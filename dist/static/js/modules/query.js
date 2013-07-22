@@ -83,7 +83,7 @@ var PDP = (function ( pdp ) {
 
     // Iterate over all the filter field values and push them into `query.params`.
 
-    function processField( field ) {
+    function _processField( field ) {
 
       if ( field.name && field.values ) {
 
@@ -121,7 +121,9 @@ var PDP = (function ( pdp ) {
 
     }
 
-    _.forEach( fields, processField );
+    _.forEach( fields, _processField );
+
+    pdp.observer.emitEvent( 'params:updated' );
 
   };
 

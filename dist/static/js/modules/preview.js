@@ -50,15 +50,13 @@ var PDP = (function ( pdp ) {
 
         _( obj ).forEach( function( entry ){
 
-          _row.push( entry );
+          _row.push( entry || '' );
 
         });
 
         _rows.push( _row );
 
       });
-
-      console.log(_rows);
 
       $('#preview').TidyTable({
         //enableCheckbox: true
@@ -70,6 +68,8 @@ var PDP = (function ( pdp ) {
     });
 
     this._updating = false;
+
+    console.log('done updating preview table');
 
   };
 

@@ -2519,6 +2519,7 @@ textarea {
   margin-right: -0.25em;
   vertical-align: top;
   width: 100%;
+  background-color: #f4f3f2;
 }
 .ie .preview {
   margin-right: -0.26em;
@@ -2530,14 +2531,19 @@ textarea {
 }
 .preview #preview {
   overflow: scroll;
-  height: 400px;
+  max-height: 400px;
+  margin: 15px 0;
 }
-.preview #preview table.tidy-table {
-  white-space: normal !important;
+.preview #preview table.tidy_table {
+  table-layout: fixed;
 }
 .preview #preview th,
 .preview #preview td {
-  width: 100px;
+  width: 150px;
+  height: 35px;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 @media only screen and (min-width: 768px) {
   .preview {
@@ -2659,6 +2665,9 @@ ul.chzn-choices {
   *zoom: 1;
   *behavior: url(boxsizing.htc);
 }
+#filters h2 {
+  margin-top: 50px;
+}
 .hero h1 {
   background-image: url('');
 }
@@ -2667,9 +2676,6 @@ ul.chzn-choices {
     background-image: url("");
     background-size: 770px 17px;
   }
-}
-.download-and-share {
-  margin-top: 50px;
 }
 .download-and-share .inner {
   background-color: #f4f3f2;
