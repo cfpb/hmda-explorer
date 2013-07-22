@@ -1,0 +1,37 @@
+// Each block of fields is a .filter (Location, Lender, Borrower, etc.)
+
+.preview {
+
+  .column( 12 );
+
+  #preview {
+
+    overflow: scroll;
+    height: 400px;
+
+    table.tidy-table {
+      white-space: normal !important;
+    }
+
+    th,
+    td {
+      width: 100px;
+    }
+
+  }
+
+}
+
+// Viewport adjustments
+
+@media only screen and ( min-width: 768px ) {
+
+  .preview {
+
+    .column( 10 );
+
+    
+
+  }
+
+}
