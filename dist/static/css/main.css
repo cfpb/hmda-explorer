@@ -2676,6 +2676,82 @@ ul.chzn-choices {
     *behavior: url(boxsizing.htc);
   }
 }
+#summary-table {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  max-width: 960px;
+  padding: 0 15px;
+  margin: 0 auto;
+  position: relative;
+  clear: both;
+}
+.lt-ie8 #summary-table {
+  *zoom: 1;
+  *behavior: url(boxsizing.htc);
+}
+#summary-table > div {
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: solid transparent;
+  border-width: 0 15px;
+  margin-right: -0.25em;
+  vertical-align: top;
+  width: 100%;
+}
+.ie #summary-table > div {
+  margin-right: -0.26em;
+}
+.lt-ie8 #summary-table > div {
+  display: inline;
+  *zoom: 1;
+  *behavior: url(boxsizing.htc);
+}
+@media only screen and (min-width: 768px) {
+  #summary-table .intro {
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: solid transparent;
+    border-width: 0 15px;
+    margin-right: -0.25em;
+    vertical-align: top;
+    width: 100%;
+  }
+  .ie #summary-table .intro {
+    margin-right: -0.26em;
+  }
+  .lt-ie8 #summary-table .intro {
+    display: inline;
+    *zoom: 1;
+    *behavior: url(boxsizing.htc);
+  }
+  #summary-table .variable,
+  #summary-table .calculate {
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: solid transparent;
+    border-width: 0 15px;
+    margin-right: -0.25em;
+    vertical-align: top;
+    width: 25%;
+  }
+  .ie #summary-table .variable,
+  .ie #summary-table .calculate {
+    margin-right: -0.26em;
+  }
+  .lt-ie8 #summary-table .variable,
+  .lt-ie8 #summary-table .calculate {
+    display: inline;
+    *zoom: 1;
+    *behavior: url(boxsizing.htc);
+  }
+}
 .tooltip {
   position: absolute;
   z-index: 1030;
