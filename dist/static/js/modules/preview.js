@@ -16,7 +16,62 @@ var PDP = (function ( pdp ) {
 
   // Cache a reference to the preview table's jQuery object.
 
-  preview.$el = $('#preview-table');
+  preview.$el = $('table#preview');
+
+  preview._updating = false;
+
+  // The `_fetchPreviewJSON` method returns a promise of JSON
+
+  preview._fetchPreviewJSON = function() {
+
+    var url = pdp.query.generateApiUrl('json'),
+        promise = $.getJSON( url );
+
+    return promise;
+
+  };
+
+  // The `update` method updates the preview table.
+  // @TODO Improve and abstract this method, rough right now for prototyping.
+
+  preview.update = function() {
+
+    var _rows = [];
+
+    this._updating = true;
+
+    this._fetchPreviewJSON().done( function( data ) {
+
+      //console.log(data.results);
+
+      _( data.results ).forEach( function( obj ){
+
+        var _row = [];
+
+        _( obj ).forEach( function( entry ){
+
+          _row.push( entry || '' );
+
+        });
+
+        _rows.push( _row );
+
+      });
+
+      $('#preview').TidyTable({
+        //enableCheckbox: true
+      }, {
+        columnTitles: _.keys( data.results[0] ),
+        columnValues: _rows
+      });
+
+    });
+
+    this._updating = false;
+
+    console.log('done updating preview table');
+
+  };
 
   // Export the public API.
 

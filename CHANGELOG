@@ -1,3 +1,9 @@
+v0.6.0:
+  date: 2013-07-22
+  changes:
+    - Initial preview table implementation.
+    - Initial summary table implementation.
+
 v0.5.2:
   date: 2013-07-19
   changes:

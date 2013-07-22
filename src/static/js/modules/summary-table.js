@@ -74,12 +74,12 @@ var PDP = (function ( pdp ) {
   };
 
   table._chosenInit = function() {
-    $('.chzn-select').chosen({
+    $('select.chzn-select').chosen({
       allow_single_deselect: true,
       width: '100%'
     });
 
-    $('.chzn-single').chosen({
+    $('select.chzn-single').chosen({
       disable_search_threshold: 50,
       width: '100%'
     });
