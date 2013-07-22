@@ -3,19 +3,25 @@
 .preview {
 
   .column( 12 );
+  background-color: #f4f3f2;
 
   #preview {
 
     overflow: scroll;
-    height: 400px;
+    max-height: 400px;
+    margin: 15px 0;
 
-    table.tidy-table {
-      white-space: normal !important;
+    table.tidy_table {
+      table-layout: fixed;
     }
 
     th,
     td {
-      width: 100px;
+      width: 150px;
+      height: 35px;
+      display: inline-block;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
   }
