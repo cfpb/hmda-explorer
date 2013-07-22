@@ -2394,25 +2394,6 @@ textarea {
   font-style: italic !important;
 }
 @media only screen and (min-width: 768px) {
-  .filter {
-    display: inline-block;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    border: solid transparent;
-    border-width: 0 15px;
-    margin-right: -0.25em;
-    vertical-align: top;
-    width: 83.33333333333334%;
-  }
-  .ie .filter {
-    margin-right: -0.26em;
-  }
-  .lt-ie8 .filter {
-    display: inline;
-    *zoom: 1;
-    *behavior: url(boxsizing.htc);
-  }
   .filter .intro {
     display: inline-block;
     -webkit-box-sizing: border-box;
@@ -2422,7 +2403,7 @@ textarea {
     border-width: 0 15px;
     margin-right: -0.25em;
     vertical-align: top;
-    width: 80%;
+    width: 66.66666666666666%;
   }
   .ie .filter .intro {
     margin-right: -0.26em;
@@ -2441,7 +2422,7 @@ textarea {
     border-width: 0 15px;
     margin-right: -0.25em;
     vertical-align: top;
-    width: 40%;
+    width: 33.33333333333333%;
   }
   .ie .filter .title a {
     margin-right: -0.26em;
@@ -2460,7 +2441,7 @@ textarea {
     border-width: 0 15px;
     margin-right: -0.25em;
     vertical-align: top;
-    width: 60%;
+    width: 66.66666666666666%;
   }
   .ie .filter .desc {
     margin-right: -0.26em;
@@ -2479,7 +2460,7 @@ textarea {
     border-width: 0 15px;
     margin-right: -0.25em;
     vertical-align: top;
-    width: 30%;
+    width: 25%;
   }
   .ie .filter li.field > label {
     margin-right: -0.26em;
@@ -2498,7 +2479,7 @@ textarea {
     border-width: 0 15px;
     margin-right: -0.25em;
     vertical-align: top;
-    width: 40%;
+    width: 50%;
   }
   .ie .filter .widget {
     margin-right: -0.26em;
@@ -2546,25 +2527,7 @@ textarea {
   text-overflow: ellipsis;
 }
 @media only screen and (min-width: 768px) {
-  .preview {
-    display: inline-block;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    border: solid transparent;
-    border-width: 0 15px;
-    margin-right: -0.25em;
-    vertical-align: top;
-    width: 83.33333333333334%;
-  }
-  .ie .preview {
-    margin-right: -0.26em;
-  }
-  .lt-ie8 .preview {
-    display: inline;
-    *zoom: 1;
-    *behavior: url(boxsizing.htc);
-  }
+  
 }
 ul.chzn-choices {
   width: 100%;
@@ -2701,7 +2664,7 @@ ul.chzn-choices {
   border-width: 0 15px;
   margin-right: -0.25em;
   vertical-align: top;
-  width: 50%;
+  width: 100%;
   border: 0;
 }
 .ie .download,
@@ -2724,7 +2687,8 @@ ul.chzn-choices {
     border-width: 0 15px;
     margin-right: -0.25em;
     vertical-align: top;
-    width: 40%;
+    width: 33.33333333333333%;
+    text-align: right;
   }
   .ie .download-and-share label {
     margin-right: -0.26em;
@@ -2743,7 +2707,7 @@ ul.chzn-choices {
     border-width: 0 15px;
     margin-right: -0.25em;
     vertical-align: top;
-    width: 60%;
+    width: 66.66666666666666%;
     border-right: 0;
   }
   .ie .download-and-share .widget {
@@ -2763,7 +2727,7 @@ ul.chzn-choices {
     border-width: 0 15px;
     margin-right: -0.25em;
     vertical-align: top;
-    width: 41.66666666666667%;
+    width: 50%;
     border-left: 0;
   }
   .ie .download {
@@ -2783,7 +2747,7 @@ ul.chzn-choices {
     border-width: 0 15px;
     margin-right: -0.25em;
     vertical-align: top;
-    width: 41.66666666666667%;
+    width: 50%;
     border-right: 0;
   }
   .ie .share {
