@@ -22,7 +22,7 @@
 
       PDP.query.reset({ defaults: true });
 
-      expect( PDP.query.params['as_of_year'].values[0] ).toBe( 2012 );
+      expect( PDP.query.params['as_of_year'].values[0] ).toBe( 2011 );
 
     });
 
@@ -67,7 +67,9 @@
 
       var params = PDP.query.updateAll({ source: 'url' }),
           generatedUrl = PDP.query.generateApiUrl(),
-          expectedUrl = 'http://qu.demo.cfpb.gov/data/hmda/hmda_lar.json?$where=as_of_year=2011 AND state_abbr="OR"';
+          expectedUrl = window.location.href.indexOf('8000') !== -1
+                      ? 'http://qu.demo.cfpb.gov/data/hmda/hmda_lar.json?$where=as_of_year=2011 AND state_abbr="OR"'
+                      : 'static/js/dummy_data/hmda_lar.json?$where=as_of_year=2011 AND state_abbr="OR"';
 
       expect( generatedUrl ).toBe( expectedUrl );
 

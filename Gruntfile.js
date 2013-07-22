@@ -151,6 +151,7 @@ module.exports = function(grunt) {
             'src/static/vendor/eventEmitter/EventEmitter.js',
             'src/static/vendor/chosen/public/chosen.jquery.js',
             'src/static/vendor/bootstrap/js/bootstrap-tooltip.js',
+            'src/static/vendor/tidy-table/jquery.tidy.table.js',
             'src/static/js/modules/*.js',
             'src/static/js/main.js'
           ]
