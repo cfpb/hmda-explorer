@@ -144,9 +144,8 @@ var PDP = (function ( pdp ) {
       // If it's the section hash, save it and abort.
 
       if ( name === 'section' ) {
-
         app.currentSection = values;
-
+        return;
       }
 
       _.forEach( values, function( value ){
