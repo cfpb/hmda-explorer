@@ -2654,6 +2654,12 @@ ul.chzn-choices {
     background-size: 770px 17px;
   }
 }
+#filter-toggle {
+  font-weight: 600;
+}
+#filter-toggle a.active {
+  color: #101820;
+}
 .download-and-share .inner {
   background-color: #f4f3f2;
   padding: 15px;

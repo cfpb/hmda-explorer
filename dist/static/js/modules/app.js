@@ -170,28 +170,34 @@ var PDP = (function ( pdp ) {
   };
 
   // The `changeSection` toggles between the popular and all filters sections.
-  // @isPopular = boolean specifying whether or not the popular section is desired.
+  // @section = id of the section to show.
 
   app.changeSection = function( section ) {
 
-    console.log(section);
+    section = section || this.currentSection;
 
     $('.app-section').addClass('hidden');
+    $('#filter-toggle a').removeClass('active');
     $('#' + section).removeClass('hidden');
+    $('#filter-toggle a[href=#' + section + ']').addClass('active');
 
     // Update all the DOM fields.
 
     pdp.form.setFields();
 
+    // Show relevant filters.
+
+    pdp.form.checkFilters();
+
   };
 
-  //
+  // I was fairly intoxicated when I wrote this, not too sure what it does.
 
   app.setPreset = function( options ) {
 
     var $parents = $('select[data-dependent], input[data-dependent]');
 
-    pdp.form.setFields({empty: true});
+    pdp.form.setFields({ empty: true });
 
     pdp.query.reset( options || {} );
 
