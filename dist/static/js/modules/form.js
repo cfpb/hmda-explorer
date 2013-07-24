@@ -153,7 +153,7 @@ var PDP = (function ( pdp ) {
 
   // The 'getFields' method returns an array of *all* fields' attributes and values.
 
-  form.getFields = function( $el ) {
+  form.getFields = function() {
 
     var fields = [],
         $fields = pdp.app.$el.find('.param');
@@ -173,12 +173,39 @@ var PDP = (function ( pdp ) {
 
   };
 
+  // The `setField` method sets a field's values/options.
+  // @name = param key of the field (e.g. as_of_year)
+
+  form.setField = function( name ) {
+
+    var params = pdp.query.params,
+        field = params[ name ];
+
+    _.forEach( field.values, function( val ){
+
+      // Set radios.
+      $('input[name=' + name + '][value="' + val + '"]').prop('checked', true);
+
+      // Set checkboxes.
+      $('input[name=' + name + '\\[\\]][value="' + val + '"]').prop('checked', true);
+
+    });
+
+    // Set selects.
+    $('select[name=' + name + ']').val( field.values ).trigger('liszt:updated');
+
+    // Set textboxes.
+    $('input[type=text][name=' + name + ']').val( field.values[0] );
+
+
+  };
+
   // The `setFields` method sets all fields' values/options from the `query.params` hash.
 
   form.setFields = function( options ) {
 
     var opts = options || {},
-        params = pdp.query.params;
+        params = _.keys( pdp.query.params );
 
     // Helper function to set all options of a field.
 
@@ -212,7 +239,7 @@ var PDP = (function ( pdp ) {
 
     }
 
-    _.forEach( params, opts.empty ? emptyOptions : setOptions );
+    _.forEach( params, opts.empty ? emptyOptions : this.setField );
 
   };
 
