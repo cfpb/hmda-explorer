@@ -1,6 +1,6 @@
 # CFPB's Public Data Platform
 
-An interactive front-end for [Qu](https://github.com/cfpb/qu). View the [nightly demo](https://fake.ghe.domain/pages/data-platform/public-data-platform/).
+An interactive front-end for [Qu](https://github.com/cfpb/qu). View the [nightly demo](https://fake.ghe.domain/pages/data-platform/public-data-platform/explore.html).
 
 ## Documentation
 
