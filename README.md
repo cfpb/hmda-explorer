@@ -22,6 +22,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2013-07-24   v0.7.1   Section parameter is properly stored in sharing URL hash.
  * 2013-07-23   v0.7.0   Popular filters section w/ synchronizing toggle.
  * 2013-07-22   v0.6.0   Initial preview table implementation. Initial summary table implementation.
  * 2013-07-19   v0.5.2   Icons and sugar.
@@ -46,4 +47,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Tue Jul 23 2013 23:36:42.*
+*This file was generated on Wed Jul 24 2013 14:51:05.*
