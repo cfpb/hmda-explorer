@@ -181,6 +181,10 @@ var PDP = (function ( pdp ) {
     $('#' + section).removeClass('hidden');
     $('#filter-toggle a[href=#' + section + ']').addClass('active');
 
+    // Update the current section
+
+    this.currentSection = section;
+
     // Update all the DOM fields.
 
     pdp.form.setFields();

@@ -146,7 +146,7 @@ var PDP = (function ( pdp ) {
 
     _.forEach( query.params, buildHashParam );
 
-    hash = '!/' + hashParams.join('&');
+    hash = '!/' + hashParams.join('&') + '&section=' + pdp.app.currentSection;
 
     return hash;
 
