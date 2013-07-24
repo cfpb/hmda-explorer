@@ -45,6 +45,12 @@ var PDP = (function ( pdp ) {
       pdp.form.updateShareLink.bind( pdp.form )
     ],
 
+    // When a popular field is changed: SetFields to synchronize things.
+
+    'navigation:clicked': [
+      pdp.app.changeSection.bind( pdp.app )
+    ],
+
     // When the `query.params` hash is finished updating,
     // update the preview table.
     'params:updated': [

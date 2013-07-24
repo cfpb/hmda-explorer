@@ -18,6 +18,10 @@ var PDP = (function ( pdp ) {
 
   app.$el = $('#filters');
 
+  // The current section the user is viewing.
+
+  app.currentSection = 'popular';
+
   // The `init` method is called when the DOM is loaded so we can do some preparation.
 
   app.init = function() {
@@ -137,6 +141,14 @@ var PDP = (function ( pdp ) {
           _values = [],
           values = val.values.split(',');
 
+      // If it's the section hash, save it and abort.
+
+      if ( name === 'section' ) {
+
+        app.currentSection = values;
+
+      }
+
       _.forEach( values, function( value ){
         _values.push( value );
       });
@@ -154,6 +166,22 @@ var PDP = (function ( pdp ) {
     _.forEach( params, buildParam );
 
     return _params;
+
+  };
+
+  // The `changeSection` toggles between the popular and all filters sections.
+  // @isPopular = boolean specifying whether or not the popular section is desired.
+
+  app.changeSection = function( section ) {
+
+    console.log(section);
+
+    $('.app-section').addClass('hidden');
+    $('#' + section).removeClass('hidden');
+
+    // Update all the DOM fields.
+
+    pdp.form.setFields();
 
   };
 

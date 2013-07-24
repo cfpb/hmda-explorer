@@ -22,6 +22,10 @@ ul.chzn-choices {
   .avenir-next;
 }
 
+.chzn-container-active.chzn-with-drop .chzn-single {
+  background: @white;
+}
+
 .chzn-container-multi .chzn-choices .search-choice {
   background: @light_field50;
   .border-radius( 0 );
@@ -47,7 +51,18 @@ ul.chzn-choices {
   background-position: 0 5px;
 }
 
+.chzn-container .chzn-results .group-option {
+  padding-left: 6px;
+}
 
+.chzn-container .chzn-results .group-result {
+  display: list-item;
+  text-indent: -9999px;
+  border-top: 1px solid #ccc;
+  height: 0;
+  margin: 3px 0 0;
+  padding: 0 0 3px;
+}
 
 .chzn-container-active .chzn-choices,
 .chzn-container-multi .chzn-choices {
