@@ -53,9 +53,10 @@
       window.location.hash = originalHash;
 
       var params = PDP.query.updateAll({ source: 'url' }),
-          generatedHash = '#' + PDP.query.generateUrlHash();
+          generatedHash = '#' + PDP.query.generateUrlHash(),
+          expectedHash = '#!/as_of_year=2011&state_abbr=OR&section=popular';
 
-      expect( originalHash ).toBe( generatedHash );
+      expect( generatedHash ).toBe( expectedHash );
 
     });
 
