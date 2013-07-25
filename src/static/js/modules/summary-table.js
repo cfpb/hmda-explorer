@@ -10,6 +10,8 @@ var PDP = (function ( pdp ) {
 
   var table = {};
 
+  table.$el = $('#summary-table');
+
   // cache input fields
   table._inputs = {};
   table._inputs.all = $('*[data-summary-table-input]');
@@ -74,10 +76,10 @@ var PDP = (function ( pdp ) {
   };
 
   table._chosenInit = function() {
-    $('select.chzn-select').chosen({
+    this.$el.find('select').chosen({
       allow_single_deselect: true,
       width: '100%'
-    });
+    }).trigger('liszt:updated');
 
     $('select.chzn-single').chosen({
       disable_search_threshold: 50,
