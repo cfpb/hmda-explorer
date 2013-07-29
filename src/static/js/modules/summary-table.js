@@ -29,32 +29,45 @@ var PDP = (function ( pdp ) {
     return '<option value="' + field + '"' + def + '>' + field + '</option>';
   };
 
-  // fetches field names and populates select options
-  table._populateOptions = function() {
-    table._populateVarFields();
-
-    // populate year field
-    table._populateSingleInput(table._inputs.year, table._years);
-
-    // populate calculated by field
-    table._populateSingleInput(table._inputs.calculate, table.calculateFields);
+  table.radioTmpl = function(field, checkedVal) {
+    var checked = (checkedVal) ? 'checked="checked"' : '';
+    return '<input type="radio" value="' + field + '"' + checked + '>' + field + '</input>';
   };
 
-  table._populateVarFields = function() {
-    var inputsLen = table._inputs.varFields.length,
-        fieldsLen = table.fields.length - 1,
+  // fetches field names and populates select options
+  table._populateOptions = function() {
+    table._populateFields(table._inputs.varFields, table.fields, table.optionTmpl);
+
+    // populate year field
+    table._populateSingleInput(table._inputs.year, table._years, table.optionTmpl);
+
+    // populate calculated by field
+    table._populateFields([table._inputs.calculate], table.calculateFields, table.radioTmpl);
+  };
+
+  // populates variable and calculate by fields
+  // inputs param: array or jQObjs or single jQObj
+  // fields param: array of field values
+  // tmpl: function that returns string of html
+  table._populateFields = function(inputs, fields, tmpl) {
+    var inputsLen = inputs.length,
+        fieldsLen = fields.length - 1,
         i,
-        varDropDown;
+        domField,
+        first = true;
+
     while (inputsLen--) {
-      varDropDown = table._inputs.varFields[inputsLen];
+      domField = inputs[inputsLen];
 
       for (i=0; i<=fieldsLen; i++) {
-        varDropDown.append(table.optionTmpl(table.fields[i]));
+        domField.append(tmpl(fields[i]), first);
+
+        first = false;
       }
     } 
   };
 
-  // populates year and calculate fields
+  // populates year field
   // $input: jQobj of <select>
   // fields: array of strings, each with a name of API field
   // for the year field, ask for years in asc, will get flipped to desc

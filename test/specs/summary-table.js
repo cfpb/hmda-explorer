@@ -36,10 +36,10 @@
           .append('<select id="veggies1"></select>')
           .append('<select id="veggies2"></select>');
 
-        PDP.summaryTable.fields = ['carrots', 'broccoli'];
-        PDP.summaryTable._inputs.varFields = [$('#veggies1'), $('#veggies2')];
+        var fields = ['carrots', 'broccoli'],
+          domobjs = [$('#veggies1'), $('#veggies2')];
 
-        PDP.summaryTable._populateVarFields();
+        PDP.summaryTable._populateFields(fields, domobjs, PDP.summaryTable.optionTmpl);
 
         expect( $('#veggies1').children().length ).toEqual(2);
         expect( $('#veggies2').children().length ).toEqual(2);
