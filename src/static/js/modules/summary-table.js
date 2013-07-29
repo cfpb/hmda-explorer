@@ -36,20 +36,20 @@ var PDP = (function ( pdp ) {
 
   // fetches field names and populates select options
   table._populateOptions = function() {
-    table._populateOptionFields(table._inputs.varFields, table.fields, table.optionTmpl);
+    table._populateFields(table._inputs.varFields, table.fields, table.optionTmpl);
 
     // populate year field
     table._populateSingleInput(table._inputs.year, table._years, table.optionTmpl);
 
     // populate calculated by field
-    table._populateSingleInput(table._inputs.calculate, table.calculateFields, table.radioTmpl);
+    table._populateFields([table._inputs.calculate], table.calculateFields, table.radioTmpl);
   };
 
   // populates variable and calculate by fields
   // inputs param: array or jQObjs or single jQObj
   // fields param: array of field values
   // tmpl: function that returns string of html
-  table._populateOptionFields = function(inputs, fields, tmpl) {
+  table._populateFields = function(inputs, fields, tmpl) {
     var inputsLen = inputs.length,
         fieldsLen = fields.length - 1,
         i,
