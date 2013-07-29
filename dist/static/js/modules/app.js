@@ -18,6 +18,10 @@ var PDP = (function ( pdp ) {
 
   app.$el = $('#filters');
 
+  // The current section the user is viewing.
+
+  app.currentSection = 'popular';
+
   // The `init` method is called when the DOM is loaded so we can do some preparation.
 
   app.init = function() {
@@ -137,6 +141,13 @@ var PDP = (function ( pdp ) {
           _values = [],
           values = val.values.split(',');
 
+      // If it's the section hash, save it and abort.
+
+      if ( name === 'section' ) {
+        app.currentSection = values;
+        return;
+      }
+
       _.forEach( values, function( value ){
         _values.push( value );
       });
@@ -157,13 +168,39 @@ var PDP = (function ( pdp ) {
 
   };
 
-  //
+  // The `changeSection` toggles between the popular and all filters sections.
+  // @section = id of the section to show.
+
+  app.changeSection = function( section ) {
+
+    section = section || this.currentSection;
+
+    $('.app-section').addClass('hidden');
+    $('#filter-toggle a').removeClass('active');
+    $('#' + section).removeClass('hidden');
+    $('#filter-toggle a[href=#' + section + ']').addClass('active');
+
+    // Update the current section
+
+    this.currentSection = section;
+
+    // Update all the DOM fields.
+
+    pdp.form.setFields();
+
+    // Show relevant filters.
+
+    pdp.form.checkFilters();
+
+  };
+
+  // I was fairly intoxicated when I wrote this, not too sure what it does.
 
   app.setPreset = function( options ) {
 
     var $parents = $('select[data-dependent], input[data-dependent]');
 
-    pdp.form.setFields({empty: true});
+    pdp.form.setFields({ empty: true });
 
     pdp.query.reset( options || {} );
 

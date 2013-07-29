@@ -25,6 +25,7 @@ var PDP = (function ( pdp ) {
     'app:ready': [
       pdp.app.start.bind( pdp.app ),
       pdp.app.stopLoading.bind( pdp.app ),
+      pdp.app.changeSection.bind( pdp.app ),
       // kind of a hack to run init. summarytable shouldn't always init anyway.
       pdp.summaryTable.init.bind( pdp.summaryTable )
     ],
@@ -42,6 +43,14 @@ var PDP = (function ( pdp ) {
     'field:changed': [
       pdp.query.updateAll.bind( pdp.query ),
       pdp.form.checkDeps.bind( pdp.form ),
+      pdp.form.updateShareLink.bind( pdp.form )
+    ],
+
+    // When the popular/all nav is clicked: change to the appropriate section
+    // and update the share link to reflect the new section.
+
+    'navigation:clicked': [
+      pdp.app.changeSection.bind( pdp.app ),
       pdp.form.updateShareLink.bind( pdp.form )
     ],
 

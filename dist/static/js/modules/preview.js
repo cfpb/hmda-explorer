@@ -69,8 +69,6 @@ var PDP = (function ( pdp ) {
 
     this._updating = false;
 
-    console.log('done updating preview table');
-
   };
 
   // Export the public API.

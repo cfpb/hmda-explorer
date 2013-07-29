@@ -1,3 +1,13 @@
+v0.7.1:
+  date: 2013-07-24
+  changes:
+    - Section parameter is properly stored in sharing URL hash.
+
+v0.7.0:
+  date: 2013-07-23
+  changes:
+    - Popular filters section w/ synchronizing toggle.
+
 v0.6.0:
   date: 2013-07-22
   changes:

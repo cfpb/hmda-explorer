@@ -12,11 +12,31 @@ var PDP = (function ( pdp ) {
   // ----------------
   // jQuery is used to attach event handlers to DOM elements.
 
-  // Whenever a `select` element is changed emit an event.
+  // Toggle the popular/all filters sections  
+
+  $('#filter-toggle a').on( 'click', function( ev ){
+
+    ev.preventDefault();
+
+    var targetSection = $( this ).attr('href').replace('#', '');
+
+    pdp.observer.emitEvent( 'navigation:clicked', [ targetSection ] );
+
+  });
+
+  // Whenever a field element is changed emit an event.
 
   $('.field select, .field input').on( 'change', function(){
 
     pdp.observer.emitEvent('field:changed', $( this ) );
+
+  });
+
+  // Whenever a popular field element is changed emit an event.
+
+  $('.field.popular select, .field.popular input').on( 'change', function(){
+
+    pdp.observer.emitEvent('popular:changed', [ $( this ).attr('name').replace(/\[\]/, '') ] );
 
   });
 
