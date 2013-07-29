@@ -152,6 +152,10 @@ module.exports = function(grunt) {
             'src/static/vendor/chosen/public/chosen.jquery.js',
             'src/static/vendor/bootstrap/js/bootstrap-tooltip.js',
             'src/static/vendor/tidy-table/jquery.tidy.table.js',
+            'src/static/vendor/jquery-ui/ui/jquery.ui.core.js',
+            'src/static/vendor/jquery-ui/ui/jquery.ui.widget.js',
+            'src/static/vendor/jquery-ui/ui/jquery.ui.mouse.js',
+            'src/static/vendor/jquery-ui/ui/jquery.ui.slider.js',
             'src/static/js/modules/*.js',
             'src/static/js/main.js'
           ]
