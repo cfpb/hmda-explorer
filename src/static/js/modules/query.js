@@ -21,8 +21,8 @@ var PDP = (function ( pdp ) {
 
   // Set a default endpoint for AJAX requests.
 
-  query.endpoint = 'static/js/dummy_data/';
-  //query.endpoint = 'http://qu.demo.cfpb.gov/data/hmda/';
+  //query.endpoint = 'static/js/dummy_data/';
+  query.endpoint = 'http://qu.demo.cfpb.gov/data/hmda/';
 
   // `query`'s `params` stores filter values.
 
@@ -109,7 +109,13 @@ var PDP = (function ( pdp ) {
 
           _.forEach( field.values, function( val, name ){
 
-            query.params[ field.name ].values.push( val );
+            var values = query.params[ field.name ].values;
+
+            // Only push the value if it's not already in there.
+
+            if ( !_.contains( values, val ) ) {
+              values.push( val );
+            }
 
           });
 
@@ -215,6 +221,12 @@ var PDP = (function ( pdp ) {
     // Join all the params with `AND` operators and append it to the base url.
 
     url += '?$where=' + params.join(' AND ');
+
+    // If it's JSONP, let jQuery add a random callback name.
+
+    if ( downloadFormat === 'jsonp' ) {
+      url += '&$callback=?';
+    }
 
     return url;
 
