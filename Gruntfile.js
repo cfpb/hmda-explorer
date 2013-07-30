@@ -88,7 +88,6 @@ module.exports = function(grunt) {
         noarg: true,
         quotmark: true,
         sub: true,
-        undef: true,
         boss: true,
         strict: true,
         evil: true,
@@ -124,6 +123,7 @@ module.exports = function(grunt) {
           'cp -r src/static/img dist/static',
           'cp -r src/static/js dist/static',
           'cp src/static/vendor/html5shiv/dist/* dist/static/js/',
+          'cp src/static/vendor/zeroclipboard/* dist/static/js/zeroclipboard/',
           'cp src/static/vendor/chosen/public/chosen-* dist/static/css'
         ].join('&&')
       }
@@ -156,6 +156,7 @@ module.exports = function(grunt) {
             'src/static/vendor/jquery-ui/ui/jquery.ui.widget.js',
             'src/static/vendor/jquery-ui/ui/jquery.ui.mouse.js',
             'src/static/vendor/jquery-ui/ui/jquery.ui.slider.js',
+            'src/static/vendor/zeroclipboard/ZeroClipboard.js',
             'src/static/js/modules/*.js',
             'src/static/js/main.js'
           ]

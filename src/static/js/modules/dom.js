@@ -88,12 +88,13 @@ var PDP = (function ( pdp ) {
 
   // For now, open a new window with the shareable URL when the share
   // button is clicked.
-
+  /*
   $('#share').on( 'click', function(){
 
     window.open( $('#share_url').val() , '_blank' );
 
   });
+  */
 
   // When the DOM is Ready
   // ----------------
