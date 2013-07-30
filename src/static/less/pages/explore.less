@@ -6,11 +6,16 @@
     
     &> .inner {
       .wrapper();
+      text-align: center;
     }
 
     h1 {
-      font-size: 30px;
-      margin: 5px 0;
+      font-size: 34px;
+      margin: 5px 0 0;
+      padding-left: 55px;
+      display: inline;
+      background: transparent url() scroll no-repeat center left;
+      .at2x( '../img/icon_explore-data.png', 42px, 42px );
     }
 
     nav {
@@ -18,6 +23,16 @@
       text-transform: uppercase;
       a {
         color: @black;
+        .avenir-next;
+        &.active {
+          .avenir-next-bold;
+        }
+      }
+      ul {
+        .mobile-nav();
+      }
+      li {
+        display: block;
       }
     }
 
@@ -100,22 +115,35 @@
 
     h1 {
       float: left;
+      display: block;
     }
 
     .hero {
       
       background-color: #FAB051;
-      margin-top: 20px;
-      padding-top: 5px;
+      margin-top: 18px;
+      padding: 5px 0 0;
       border-bottom: 5px solid gray;
 
+      &> .inner {
+        text-align: left;
+      }
+
       nav {
+        margin-left: 13px;
         float: left;
         ul {
-          margin: 20px 0 0;
+          .horiz();
+          margin: 19px 0 0;
+          height: 37px;
+          a {
+            .avenir-next-bold;
+            background-color: transparent;
+          }
         }
         li {
-          margin: 0 0 0 20px;
+          margin: 0 0 0 25px;
+          display: inline-block;
         }
       }
 
@@ -125,6 +153,7 @@
         text-decoration: none;
         padding-bottom: 9px;
         border-bottom: 5px solid @black;
+        background-color: transparent !important;
       }
 
     }
