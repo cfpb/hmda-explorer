@@ -47,15 +47,6 @@ var PDP = (function ( pdp ) {
         }
       };
 
-    } else if ( options.popular ) {
-
-      this.params = {
-        as_of_year: {
-          values: [2012, 2011],
-          comparator: '='
-        }
-      };
-
     } else {
 
       this.params = {};
