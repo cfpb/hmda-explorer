@@ -22,6 +22,19 @@ var PDP = (function ( pdp ) {
 
   form.$fields = form.$el.find('.field');
 
+  // Initialize ZeroClipboard on the share button.
+
+  form.clip = new ZeroClipboard( $('#share'), {
+    moviePath: 'static/js/zeroclipboard/ZeroClipboard.swf'
+  });
+
+  form.clip.on( 'complete', function(client, args) {
+    $('#share_url').tooltip('show');
+    setTimeout( function(){
+      $('#share_url').tooltip('hide');
+    }, 3000);
+  });
+
   // The `showFilter` method shows all the fields of a given filter section.
 
   form.showFilter = function( el ) {
