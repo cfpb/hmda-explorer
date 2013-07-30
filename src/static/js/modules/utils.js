@@ -62,7 +62,12 @@ var PDP = (function( pdp ) {
       var promise = $.getJSON(url);
 
       promise.done(function(data) {
-        localStorage.setItem(url, JSON.stringify(data));
+        try {
+          localStorage.setItem( url, JSON.stringify(data) );
+        } catch( e ) {
+          window.localStorage.clear();
+          console.log('%c localStorage cleared!', 'color: red');
+        }
       });
 
       console.log('%c' + url + ' fetched via AJAX', 'color: orange');
