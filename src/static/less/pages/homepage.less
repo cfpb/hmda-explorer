@@ -1,3 +1,50 @@
+.homepage {
+
+  .hero {
+    
+    padding-top: 33px;
+    text-align: center;
+    background-color: #FAB051;
+    background-size: cover;
+
+    &> .inner {
+      .wrapper();
+    }
+
+    h1 {
+      .avenir-next-bold;
+      font-size: 30px;
+      line-height: 1.3em;
+      padding-bottom: 0 0 30px;
+      width: 100%;
+      padding-top: 40px;
+      background: transparent url() scroll no-repeat top center;
+      .at2x( '../img/hr_hero-top.png', 770px, 17px );
+
+    }
+
+    nav {
+      font-family: @body-font;
+      div {
+        display: none;
+      }
+    }
+
+    .title {
+      .avenir-next-bold;
+      text-transform: uppercase;
+    }
+
+    // Nav underneath the main title
+
+    ul {
+      .mobile-nav();
+    }
+
+  }
+
+}
+
 .video {
   
 }
@@ -51,6 +98,62 @@
 
 @media only screen and ( min-width: 768px ) {
 
-  
+  .homepage {
+
+    .hero {
+      min-height: 300px;
+      h1 {
+        font-size: 49.5px;
+      }
+      nav {
+        width: 82%;
+        margin: 0 auto;
+        margin-top: 25px;
+        .clearfix();
+        li {
+          width: 33%;
+          float: left;
+          .clearfix();
+        }
+        a {
+          background-color: transparent;
+          text-transform: none;
+          width: 160px;
+          &.data {
+            margin: 0 auto;
+            .inner {
+              padding-left: 9%;
+              padding-right: 9%;
+            }
+          }
+          &.developers {
+            .clearfix();
+            float: right;
+          }
+          &:hover {
+            background-color: transparent;
+          }
+        }
+        div {
+          display: block;
+          margin-bottom: 10px;
+          width: 160px;
+          height: 160px;
+          -webkit-border-radius: 80px;
+          -moz-border-radius: 80px;
+          border-radius: 80px;
+          background: #fbcd96;
+        }
+        .inner {
+          display: block;
+          padding: 30% 13% 0;
+          text-align: center;
+          font-size: .75em;
+        }
+
+      }
+    }
+
+  }
 
 }

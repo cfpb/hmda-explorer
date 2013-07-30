@@ -20,7 +20,7 @@ var PDP = (function ( pdp ) {
 
   // The current section the user is viewing.
 
-  app.currentSection = 'popular';
+  app.currentSection = 'filters';
 
   // The `init` method is called when the DOM is loaded so we can do some preparation.
 
@@ -64,7 +64,9 @@ var PDP = (function ( pdp ) {
 
   app.start = function() {
 
-    var $parents = $('select[data-dependent], input[data-dependent]');
+    var parents = _.map( $('select[data-dependent], input[data-dependent]'), function( el ){
+      return $( el ).attr('id');
+    });
 
     // Pull any `param` entries into the DOM.
 
@@ -72,7 +74,7 @@ var PDP = (function ( pdp ) {
 
     // Check if any fields that were preloaded have dependents we need to show.
 
-    pdp.form.checkDeps( $parents );
+    pdp.form.checkDeps( parents );
 
     // Check if any filter sections are hiding fields with values.
 
@@ -176,9 +178,9 @@ var PDP = (function ( pdp ) {
     section = section || this.currentSection;
 
     $('.app-section').addClass('hidden');
-    $('#filter-toggle a').removeClass('active');
+    $('#section-toggle a').removeClass('active');
     $('#' + section).removeClass('hidden');
-    $('#filter-toggle a[href=#' + section + ']').addClass('active');
+    $('#section-toggle a[href=#' + section + ']').addClass('active');
 
     // Update the current section
 
