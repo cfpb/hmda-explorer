@@ -36,14 +36,15 @@ var PDP = (function( pdp ) {
 
   };
 
-  // Cache data in the localStorage from https://gist.github.com/rpflorence/1345787
+  // Cache data in the localStorage, adapted from https://gist.github.com/rpflorence/1345787
 
   pdp.utils.getJSON = function( url ) {
 
     var supportsLocalStorage = 'localStorage' in window;
 
-    // both functions return a promise, so no matter which function
+    // Both functions return a promise, so no matter which function
     // gets called inside getCache, you get the same API.
+
     function getJSON( url ) {
 
       var promise = $.getJSON(url);
@@ -52,12 +53,13 @@ var PDP = (function( pdp ) {
         localStorage.setItem(url, JSON.stringify(data));
       });
 
-      //console.log('%c' + url + ' fetched via AJAX', 'color: orange');
+      console.log('%c' + url + ' fetched via AJAX', 'color: orange');
 
       return promise;
     }
 
     function getStorage( url ) {
+
       var storageDfd = new $.Deferred(),
           storedData = localStorage.getItem(url);
 
@@ -69,9 +71,10 @@ var PDP = (function( pdp ) {
         storageDfd.resolveWith(null, [JSON.parse(storedData)]);
       });
 
-      //console.log('%c' + url + ' fetched via localStorange', 'color: blue');
+      console.log('%c' + url + ' fetched via localStorange', 'color: blue');
 
       return storageDfd.promise();
+
     }
 
     return supportsLocalStorage ? getStorage( url ) : getJSON( url );

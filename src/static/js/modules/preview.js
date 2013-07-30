@@ -24,7 +24,7 @@ var PDP = (function ( pdp ) {
 
   preview._fetchPreviewJSON = function() {
 
-    var url = pdp.query.generateApiUrl('jsonp'),
+    var url = pdp.query.generateApiUrl(),
         promise = pdp.utils.getJSON( url );
 
     return promise;

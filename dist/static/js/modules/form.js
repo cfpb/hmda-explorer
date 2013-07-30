@@ -337,7 +337,7 @@ var PDP = (function ( pdp ) {
 
   form.fetchFieldOptions = function( concept ) {
 
-    var promise = pdp.utils.getJSON( pdp.query.endpoint + 'concept/' + concept + '.jsonp?$callback=?' );
+    var promise = pdp.utils.getJSON( pdp.query.endpoint + 'concept/' + concept + '.' + pdp.query.format );
 
     return promise;
 

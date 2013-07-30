@@ -2099,159 +2099,6 @@ textarea {
 /**
  *  Clearfix
  **/
-.hero {
-  padding-top: 33px;
-  text-align: center;
-  background-color: #FAB051;
-  background-size: cover;
-}
-.hero > .inner {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  max-width: 960px;
-  padding: 0 15px;
-  margin: 0 auto;
-  position: relative;
-  clear: both;
-}
-.lt-ie8 .hero > .inner {
-  *zoom: 1;
-  *behavior: url(boxsizing.htc);
-}
-.hero h1 {
-  font-family: "Avenir Next", Arial, sans-serif;
-  font-weight: 700;
-  font-style: normal;
-  font-size: 30px;
-  line-height: 1.3em;
-  padding-bottom: 0 0 30px;
-  width: 100%;
-  padding-top: 40px;
-  background: transparent url() scroll no-repeat top center;
-  background-image: url('../img/hr_hero-top.png');
-}
-@media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
-  .hero h1 {
-    background-image: url("../img/hr_hero-top_2x.png");
-    background-size: 770px 17px;
-  }
-}
-.hero nav {
-  font-family: Georgia, "Times New Roman", serif;
-}
-.hero nav div {
-  display: none;
-}
-.hero .title {
-  font-family: "Avenir Next", Arial, sans-serif;
-  font-weight: 700;
-  font-style: normal;
-  text-transform: uppercase;
-}
-.hero ul {
-  width: 100%;
-  margin: 5px auto 0;
-  font-size: 1.1em;
-  text-align: center;
-}
-.hero ul li {
-  display: block;
-  margin-bottom: 5px;
-}
-.hero ul a {
-  background-color: #FAB051;
-  padding: 3px 0;
-  display: block;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: #101820;
-}
-.hero ul a:hover,
-.hero ul a:active {
-  background-color: #ff9e1b;
-}
-@media only screen and (min-width: 768px) {
-  .hero {
-    min-height: 300px;
-  }
-  .hero h1 {
-    font-size: 49.5px;
-  }
-  .hero nav {
-    width: 82%;
-    margin: 0 auto;
-    margin-top: 25px;
-    *zoom: 1;
-  }
-  .hero nav:before,
-  .hero nav:after {
-    content: " ";
-    display: table;
-  }
-  .hero nav:after {
-    clear: both;
-  }
-  .hero nav li {
-    width: 33%;
-    float: left;
-    *zoom: 1;
-  }
-  .hero nav li:before,
-  .hero nav li:after {
-    content: " ";
-    display: table;
-  }
-  .hero nav li:after {
-    clear: both;
-  }
-  .hero nav a {
-    background-color: transparent;
-    text-transform: none;
-    width: 160px;
-  }
-  .hero nav a.data {
-    margin: 0 auto;
-  }
-  .hero nav a.data .inner {
-    padding-left: 9%;
-    padding-right: 9%;
-  }
-  .hero nav a.developers {
-    *zoom: 1;
-    float: right;
-  }
-  .hero nav a.developers:before,
-  .hero nav a.developers:after {
-    content: " ";
-    display: table;
-  }
-  .hero nav a.developers:after {
-    clear: both;
-  }
-  .hero nav a:hover {
-    background-color: transparent;
-  }
-  .hero nav div {
-    display: block;
-    margin-bottom: 10px;
-    width: 160px;
-    height: 160px;
-    -webkit-border-radius: 80px;
-    -moz-border-radius: 80px;
-    border-radius: 80px;
-    background: #fbcd96;
-  }
-  .hero nav .inner {
-    display: block;
-    padding: 30% 13% 0;
-    text-align: center;
-    font-size: .75em;
-  }
-  .explore .hero {
-    min-height: 200px;
-  }
-}
 .filter {
   display: inline-block;
   -webkit-box-sizing: border-box;
@@ -2597,6 +2444,78 @@ ul.chzn-choices {
   box-shadow: none;
   border-color: #d0d0ce;
 }
+.homepage .hero {
+  padding-top: 33px;
+  text-align: center;
+  background-color: #FAB051;
+  background-size: cover;
+}
+.homepage .hero > .inner {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  max-width: 960px;
+  padding: 0 15px;
+  margin: 0 auto;
+  position: relative;
+  clear: both;
+}
+.lt-ie8 .homepage .hero > .inner {
+  *zoom: 1;
+  *behavior: url(boxsizing.htc);
+}
+.homepage .hero h1 {
+  font-family: "Avenir Next", Arial, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 30px;
+  line-height: 1.3em;
+  padding-bottom: 0 0 30px;
+  width: 100%;
+  padding-top: 40px;
+  background: transparent url() scroll no-repeat top center;
+  background-image: url('../img/hr_hero-top.png');
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
+  .homepage .hero h1 {
+    background-image: url("../img/hr_hero-top_2x.png");
+    background-size: 770px 17px;
+  }
+}
+.homepage .hero nav {
+  font-family: Georgia, "Times New Roman", serif;
+}
+.homepage .hero nav div {
+  display: none;
+}
+.homepage .hero .title {
+  font-family: "Avenir Next", Arial, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  text-transform: uppercase;
+}
+.homepage .hero ul {
+  width: 100%;
+  margin: 5px auto 0;
+  font-size: 1.1em;
+  text-align: center;
+}
+.homepage .hero ul li {
+  display: block;
+  margin-bottom: 5px;
+}
+.homepage .hero ul a {
+  background-color: #FAB051;
+  padding: 3px 0;
+  display: block;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #101820;
+}
+.homepage .hero ul a:hover,
+.homepage .hero ul a:active {
+  background-color: #ff9e1b;
+}
 .charts {
   text-align: center;
 }
@@ -2625,7 +2544,120 @@ ul.chzn-choices {
   background: #ffffff;
 }
 @media only screen and (min-width: 768px) {
-  
+  .homepage .hero {
+    min-height: 300px;
+  }
+  .homepage .hero h1 {
+    font-size: 49.5px;
+  }
+  .homepage .hero nav {
+    width: 82%;
+    margin: 0 auto;
+    margin-top: 25px;
+    *zoom: 1;
+  }
+  .homepage .hero nav:before,
+  .homepage .hero nav:after {
+    content: " ";
+    display: table;
+  }
+  .homepage .hero nav:after {
+    clear: both;
+  }
+  .homepage .hero nav li {
+    width: 33%;
+    float: left;
+    *zoom: 1;
+  }
+  .homepage .hero nav li:before,
+  .homepage .hero nav li:after {
+    content: " ";
+    display: table;
+  }
+  .homepage .hero nav li:after {
+    clear: both;
+  }
+  .homepage .hero nav a {
+    background-color: transparent;
+    text-transform: none;
+    width: 160px;
+  }
+  .homepage .hero nav a.data {
+    margin: 0 auto;
+  }
+  .homepage .hero nav a.data .inner {
+    padding-left: 9%;
+    padding-right: 9%;
+  }
+  .homepage .hero nav a.developers {
+    *zoom: 1;
+    float: right;
+  }
+  .homepage .hero nav a.developers:before,
+  .homepage .hero nav a.developers:after {
+    content: " ";
+    display: table;
+  }
+  .homepage .hero nav a.developers:after {
+    clear: both;
+  }
+  .homepage .hero nav a:hover {
+    background-color: transparent;
+  }
+  .homepage .hero nav div {
+    display: block;
+    margin-bottom: 10px;
+    width: 160px;
+    height: 160px;
+    -webkit-border-radius: 80px;
+    -moz-border-radius: 80px;
+    border-radius: 80px;
+    background: #fbcd96;
+  }
+  .homepage .hero nav .inner {
+    display: block;
+    padding: 30% 13% 0;
+    text-align: center;
+    font-size: .75em;
+  }
+}
+.explore .hero {
+  *zoom: 1;
+}
+.explore .hero > .inner {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  max-width: 960px;
+  padding: 0 15px;
+  margin: 0 auto;
+  position: relative;
+  clear: both;
+}
+.lt-ie8 .explore .hero > .inner {
+  *zoom: 1;
+  *behavior: url(boxsizing.htc);
+}
+.explore .hero h1 {
+  font-size: 30px;
+  margin: 5px 0;
+}
+.explore .hero nav {
+  font-family: "Avenir Next", Arial, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  text-transform: uppercase;
+}
+.explore .hero nav a {
+  color: #101820;
+}
+.explore .hero:before,
+.explore .hero:after {
+  content: " ";
+  display: table;
+}
+.explore .hero:after {
+  clear: both;
 }
 #filters {
   -webkit-box-sizing: border-box;
@@ -2644,21 +2676,6 @@ ul.chzn-choices {
 }
 #filters h2 {
   margin-top: 50px;
-}
-.hero h1 {
-  background-image: url('');
-}
-@media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
-  .hero h1 {
-    background-image: url("");
-    background-size: 770px 17px;
-  }
-}
-#filter-toggle {
-  font-weight: 600;
-}
-#filter-toggle a.active {
-  color: #101820;
 }
 .download-and-share .inner {
   background-color: #f4f3f2;
@@ -2698,6 +2715,31 @@ ul.chzn-choices {
   *behavior: url(boxsizing.htc);
 }
 @media only screen and (min-width: 768px) {
+  .explore h1 {
+    float: left;
+  }
+  .explore .hero {
+    background-color: #FAB051;
+    margin-top: 20px;
+    padding-top: 5px;
+    border-bottom: 5px solid gray;
+  }
+  .explore .hero nav {
+    float: left;
+  }
+  .explore .hero nav ul {
+    margin: 20px 0 0;
+  }
+  .explore .hero nav li {
+    margin: 0 0 0 20px;
+  }
+  .explore .hero a:hover,
+  .explore .hero a:active,
+  .explore .hero a.active {
+    text-decoration: none;
+    padding-bottom: 9px;
+    border-bottom: 5px solid #101820;
+  }
   .download-and-share label {
     display: inline-block;
     -webkit-box-sizing: border-box;
