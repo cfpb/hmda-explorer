@@ -15,14 +15,17 @@ var PDP = (function ( pdp ) {
 
   var query = {};
 
+  // If debug is set to true, dummy data will be used.
+
+  query.debug = true;
+
   // Set a default format for the data download.
 
-  query.format = 'json';
+  query.format = query.debug ? 'json?' : 'jsonp?$callback=?';
 
   // Set a default endpoint for AJAX requests.
 
-  //query.endpoint = 'static/js/dummy_data/';
-  query.endpoint = 'http://qu.demo.cfpb.gov/data/hmda/';
+  query.endpoint = query.debug ? 'static/js/dummy_data/' : 'http://qu.demo.cfpb.gov/data/hmda/';
 
   // `query`'s `params` stores filter values.
 
@@ -218,15 +221,10 @@ var PDP = (function ( pdp ) {
 
     _.forEach( query.params, buildClause );
 
-    // Join all the params with `AND` operators and append it to the base url.
+    // Join all the params with `AND` operators and append it to the base url,
+    // replacing spaces with plus signs.
 
-    url += '?$where=' + params.join(' AND ');
-
-    // If it's JSONP, let jQuery add a random callback name.
-
-    if ( downloadFormat === 'jsonp' ) {
-      url += '&$callback=?';
-    }
+    url += '&$where=' + encodeURI( params.join(' AND ') ).replace( /%20/g, '+' );
 
     return url;
 

@@ -14,7 +14,7 @@ var PDP = (function ( pdp ) {
 
   // Toggle the popular/all filters sections  
 
-  $('#filter-toggle a').on( 'click', function( ev ){
+  $('#section-toggle a').on( 'click', function( ev ){
 
     ev.preventDefault();
 
@@ -32,14 +32,6 @@ var PDP = (function ( pdp ) {
 
   });
 
-  // Whenever a popular field element is changed emit an event.
-
-  $('.field.popular select, .field.popular input').on( 'change', function(){
-
-    pdp.observer.emitEvent('popular:changed', [ $( this ).attr('name').replace(/\[\]/, '') ] );
-
-  });
-
   // Hijack the submit button.
 
   $('form#explore').on( 'submit', function( ev ){
@@ -48,7 +40,9 @@ var PDP = (function ( pdp ) {
 
     ev.preventDefault();
 
-    window.location.href = url;
+    //window.location.href = url;
+
+    window.open( url , '_blank' );
 
   });
 
