@@ -173,10 +173,25 @@ var PDP = (function ( pdp ) {
 
     url = this.endpoint + 'hmda_lar.' + downloadFormat;
 
-    // Convert each param to a proper [`$where` clause](http://cfpb.github.io/qu/articles/queries.html#where_in_detail).
+    // fetch, compile queries
 
-    function buildClause( param, name ) {
+    url += this.buildApiQuery();
 
+    return url;
+
+  };
+
+  // Convert each param to a proper [`$where` clause](http://cfpb.github.io/qu/articles/queries.html#where_in_detail).
+
+  query.buildApiQuery = function() {
+    var params = [],
+        url,
+        paramVals,
+        param,
+        name,
+        _params = [];
+
+    _.forEach( this.params, function( param, name ) {
       // If there's only value for the param, meaning they only selected one item or
       // it's a radio button that only allows once value, add the stringified
       // param to the `params` array.
@@ -197,36 +212,36 @@ var PDP = (function ( pdp ) {
 
       } else if ( param.values.length > 1 ) {
 
-        var _params = [];
+        paramVals.push( this._gatherParamValues( param, name ) );
 
-        _.forEach( param.values, function( val ){
-
-          // Wrap it in quotes if it's NaN.
-
-          if ( isNaN( val ) ) {
-            _params.push( name + param.comparator + '"' + val + '"' );
-          } else {
-            _params.push( name + param.comparator + val);
-          }
-
-        });
-
-        _params = '(' + _params.join(' OR ') + ')';
+        _params = '(' + paramVals.join(' OR ') + ')';
 
         params.push( _params );
 
       }
-
-    }
-
-    _.forEach( query.params, buildClause );
+    });
 
     // Join all the params with `AND` operators and append it to the base url,
     // replacing spaces with plus signs.
 
-    url += '&$where=' + encodeURI( params.join(' AND ') ).replace( /%20/g, '+' );
+    url = '&$where=' + encodeURI( params.join(' AND ') ).replace( /%20/g, '+' );
 
     return url;
+
+  };
+
+  query._gatherParamValues = function( param , name ){
+    var _params = [];
+
+    // Wrap it in quotes if it's NaN.
+
+    if ( isNaN( param.values ) ) {
+      _params.push( name + param.comparator + '"' + param.values + '"' );
+    } else {
+      _params.push( name + param.comparator + param.values);
+    }
+
+    return _params;
 
   };
 

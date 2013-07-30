@@ -45,7 +45,7 @@
         var fields = ['carrots', 'broccoli'],
           domobjs = [$('#veggies1'), $('#veggies2')];
 
-        PDP.summaryTable._populateFields(fields, domobjs, PDP.summaryTable.optionTmpl);
+        PDP.summaryTable._populateFields(domobjs, fields, PDP.summaryTable.optionTmpl);
 
         expect( $('#veggies1').children().length ).toEqual(2);
         expect( $('#veggies2').children().length ).toEqual(2);
