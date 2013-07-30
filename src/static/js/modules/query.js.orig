@@ -17,7 +17,7 @@ var PDP = (function ( pdp ) {
 
   // If debug is set to true, dummy data will be used.
 
-  query.debug = true;
+  query.debug = false;
 
   // Set a default format for the data download.
 
@@ -171,7 +171,7 @@ var PDP = (function ( pdp ) {
 
     // Set a base url to append params to
 
-    url = this.endpoint + 'hmda_lar.' + downloadFormat;
+    url = this.endpoint + 'slice/hmda_lar.' + downloadFormat;
 
     // fetch, compile queries
 
@@ -187,10 +187,27 @@ var PDP = (function ( pdp ) {
     var url = '',
       key;
 
+<<<<<<< HEAD
+    _.forEach( this.params, function( param, name ) {
+
+      // If there's only value for the param, meaning they only selected one item or
+      // it's a radio button that only allows once value, add the stringified
+      // param to the `params` array.
+
+      if ( param.values.length === 1 ) {
+
+        // Wrap it in quotes if it's NaN.
+
+        if ( isNaN( param.values[0] ) ) {
+          params.push( name + param.comparator + '"' + param.values[0] + '"' );
+        } else {
+          params.push( name + param.comparator + param.values[0]);
+=======
     if (params.hasOwnProperty('clauses')) {
       for ( key in params.clauses ) {
         if (params.clauses.hasOwnProperty( key )) {
           url += this._buildClause[key]( params.clauses[key] );
+>>>>>>> c5fcea1e995cfc8522fb2b90a2919dd3fbcf0b6b
         }
       }
     } else {
