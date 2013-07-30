@@ -163,11 +163,11 @@ var PDP = (function ( pdp ) {
 
   // The `generateApiUrl` method builds and returns a Qu URL from `query`'s `params`.
 
-  query.generateApiUrl = function( format ) {
+  query.generateApiUrl = function( format, params ) {
 
     var url,
-        downloadFormat = format || this.format,
-        params = [];
+        apiCallParams = params || this.params,
+        downloadFormat = format || this.format;
 
     // Set a base url to append params to
 
@@ -175,7 +175,7 @@ var PDP = (function ( pdp ) {
 
     // fetch, compile queries
 
-    url += this.buildApiQuery();
+    url += this.buildApiQuery( apiCallParams );
 
     return url;
 
@@ -183,51 +183,53 @@ var PDP = (function ( pdp ) {
 
   // Convert each param to a proper [`$where` clause](http://cfpb.github.io/qu/articles/queries.html#where_in_detail).
 
-  query.buildApiQuery = function() {
-    var params = [],
-        url,
-        paramVals,
-        param,
-        name,
-        _params = [];
+  query.buildApiQuery = function( params ) {
+    var url, key;
 
-    _.forEach( this.params, function( param, name ) {
-      // If there's only value for the param, meaning they only selected one item or
-      // it's a radio button that only allows once value, add the stringified
-      // param to the `params` array.
-
-      if ( param.values.length === 1 ) {
-
-        // Wrap it in quotes if it's NaN.
-
-        if ( isNaN( param.values[0] ) ) {
-          params.push( name + param.comparator + '"' + param.values[0] + '"' );
-        } else {
-          params.push( name + param.comparator + param.values[0]);
+    if (params.hasOwnProperty('clauses')) {
+      for ( key in params.clauses ) {
+        if (params.clauses.hasOwnProperty( key )) {
+          url.concat(this.buildClause( key, params.clauses[key]  ));
         }
-
-      // If there are multiple values for a single parameter, we iterate over them and
-      // put an `OR` operator between them. We then then [group them](http://cfpb.github.io/qu/articles/queries.html#boolean_operators)
-      // with parens and add the grouping to the `params` array.
-
-      } else if ( param.values.length > 1 ) {
-
-        paramVals.push( this._gatherParamValues( param, name ) );
-
-        _params = '(' + paramVals.join(' OR ') + ')';
-
-        params.push( _params );
-
       }
-    });
-
-    // Join all the params with `AND` operators and append it to the base url,
-    // replacing spaces with plus signs.
-
-    url = '&$where=' + encodeURI( params.join(' AND ') ).replace( /%20/g, '+' );
+    } else {
+      url = this._buildClause('where', params);      
+    }
 
     return url;
+  };
 
+  query._buildClause = function( clause, params ) {
+    var param, paramName, paramVal, paramVals = [], _params, queryVals = [];
+
+      _.forEach( params, function( param, paramName ) {
+        // If there's only value for the param, meaning they only selected one item or
+        // it's a radio button that only allows once value, add the stringified
+        // param to the `queryVals` array.
+
+        if ( param.values.length === 1 ) {
+          // Wrap it in quotes if it's NaN.
+          if ( isNaN( param.values[0] ) ) {
+            paramVal = '"' + param.values[0] + '"';
+          } else {
+            paramVal = param.values[0];
+          }
+
+          queryVals.push( paramName + param.comparator + paramVal );
+
+        // If there are multiple values for a single parameter, we iterate over them and
+        // put an `OR` operator between them. We then then [group them](http://cfpb.github.io/qu/articles/queries.html#boolean_operators)
+        // with parens and add the grouping to the `params` array.
+        } else if ( param.values.length > 1 ) {
+          paramVals.push( this._gatherParamValues( param, name ) );
+          _params = '(' + paramVals.join(' OR ') + ')';
+          queryVals.push( _params );
+        }
+      });
+
+      // Join all the params with `AND` operators and append it to the base url,
+      // replacing spaces with plus signs.
+      return '&$' + clause + '=' + encodeURI( queryVals.join(' AND ') ).replace( /%20/g, '+' );
   };
 
   query._gatherParamValues = function( param , name ){

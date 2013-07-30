@@ -100,9 +100,25 @@ var PDP = (function ( pdp ) {
     });
   };
 
+  table.updateTable = function() {
+    var queryObj = {};
+    queryObj.clauses = [];
+
+    queryObj.clauses.where = pdp.query.params;
+    queryObj.clauses.select = ['applicant_sex_name', 'state_name'];
+    queryObj.clauses.group = ['applicant_sex_name', 'state_name'];
+
+    console.log( pdp.query.buildApiQuery(queryObj) );
+  };
+
   table.init = function() {
     table._populateOptions();
     table._chosenInit();
+
+    // event listener for form changes
+    this._inputs.all.on('change', function() {
+      this.updateTable();
+    }.bind(this));
   };
 
   pdp.summaryTable = table;
