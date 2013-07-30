@@ -68,11 +68,10 @@
 
       var params = PDP.query.updateAll({ source: 'url' }),
           generatedUrl = PDP.query.generateApiUrl(),
-          expectedUrl = window.location.href.indexOf('8000') !== -1
-                      ? 'http://qu.demo.cfpb.gov/data/hmda/hmda_lar.json?$where=as_of_year=2011 AND state_abbr="OR"'
-                      : 'static/js/dummy_data/hmda_lar.json?$where=as_of_year=2011 AND state_abbr="OR"';
+          productionUrl = 'http://qu.demo.cfpb.gov/data/hmda/hmda_lar.json?$where=as_of_year=2011 AND state_abbr="OR"',
+          demoUrl = 'static/js/dummy_data/hmda_lar.json?$where=as_of_year=2011 AND state_abbr="OR"';
 
-      expect( generatedUrl ).toBe( expectedUrl );
+      expect( generatedUrl ).toBe( productionUrl || demoUrl );
 
     });
 

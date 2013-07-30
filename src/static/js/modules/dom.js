@@ -28,7 +28,7 @@ var PDP = (function ( pdp ) {
 
   $('.field select, .field input').on( 'change', function(){
 
-    pdp.observer.emitEvent('field:changed', $( this ) );
+    pdp.observer.emitEvent('field:changed', [ $( this ).attr('id') ] );
 
   });
 
