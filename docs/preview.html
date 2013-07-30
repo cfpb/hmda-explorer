@@ -7,8 +7,8 @@
 
   <span class="nx">preview</span><span class="p">.</span><span class="nx">_updating</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span></pre></div>             </td>           </tr>                               <tr id="section-5">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-5">&#182;</a>               </div>               <p>The <code>_fetchPreviewJSON</code> method returns a promise of JSON</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">preview</span><span class="p">.</span><span class="nx">_fetchPreviewJSON</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 
-    <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">generateApiUrl</span><span class="p">(</span><span class="s1">&#39;json&#39;</span><span class="p">),</span>
-        <span class="nx">promise</span> <span class="o">=</span> <span class="nx">$</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">(</span> <span class="nx">url</span> <span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">generateApiUrl</span><span class="p">(),</span>
+        <span class="nx">promise</span> <span class="o">=</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">(</span> <span class="nx">url</span> <span class="p">);</span>
 
     <span class="k">return</span> <span class="nx">promise</span><span class="p">;</span>
 
@@ -37,6 +37,10 @@
         <span class="nx">columnTitles</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span> <span class="nx">data</span><span class="p">.</span><span class="nx">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">),</span>
         <span class="nx">columnValues</span><span class="o">:</span> <span class="nx">_rows</span>
       <span class="p">});</span>
+
+    <span class="p">}).</span><span class="nx">fail</span><span class="p">(</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">textStatus</span> <span class="p">)</span> <span class="p">{</span>
+
+      <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span> <span class="s1">&#39;Error updating preview table: &#39;</span> <span class="o">+</span> <span class="nx">textStatus</span> <span class="p">);</span>
 
     <span class="p">});</span>
 
