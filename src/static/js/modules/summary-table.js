@@ -108,7 +108,7 @@ var PDP = (function ( pdp ) {
     queryObj.clauses.select = ['applicant_sex_name', 'state_name'];
     queryObj.clauses.group = ['applicant_sex_name', 'state_name'];
 
-    console.log( pdp.query.buildApiQuery(queryObj) );
+    console.log( pdp.query.buildApiQuery( queryObj ) );
   };
 
   table.init = function() {
