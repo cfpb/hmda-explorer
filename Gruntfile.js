@@ -88,7 +88,6 @@ module.exports = function(grunt) {
         noarg: true,
         quotmark: true,
         sub: true,
-        undef: true,
         boss: true,
         strict: true,
         evil: true,
@@ -124,6 +123,7 @@ module.exports = function(grunt) {
           'cp -r src/static/img dist/static',
           'cp -r src/static/js dist/static',
           'cp src/static/vendor/html5shiv/dist/* dist/static/js/',
+          'cp src/static/vendor/zeroclipboard/* dist/static/js/zeroclipboard/',
           'cp src/static/vendor/chosen/public/chosen-* dist/static/css'
         ].join('&&')
       }
@@ -156,6 +156,7 @@ module.exports = function(grunt) {
             'src/static/vendor/jquery-ui/ui/jquery.ui.widget.js',
             'src/static/vendor/jquery-ui/ui/jquery.ui.mouse.js',
             'src/static/vendor/jquery-ui/ui/jquery.ui.slider.js',
+            'src/static/vendor/zeroclipboard/ZeroClipboard.js',
             'src/static/js/modules/*.js',
             'src/static/js/main.js'
           ]
@@ -224,6 +225,18 @@ module.exports = function(grunt) {
     },
 
     /**
+     * Remove logging: https://github.com/ehynds/grunt-remove-logging
+     * 
+     * This task removes all console logging statements from your source code.
+     */
+    removelogging: {
+      dist: {
+        src: 'dist/static/js/main.min.js',
+        dest: 'dist/static/js/main.min.js'
+      }
+    },
+
+    /**
      * Watch: https://github.com/gruntjs/grunt-contrib-watch
      * 
      * Run predefined tasks whenever watched file patterns are added, changed or deleted.
@@ -253,12 +266,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-open');
   grunt.loadNpmTasks('grunt-cfpb-internal');
   grunt.loadNpmTasks('grunt-docco');
+  grunt.loadNpmTasks('grunt-remove-logging');
 
   /**
    * Create task aliases by registering new tasks
    */
   grunt.registerTask('test', ['jshint', 'jasmine']);
-  grunt.registerTask('docs', ['docco', 'build-cfpb']);
+  grunt.registerTask('docs', ['removelogging', 'docco', 'build-cfpb']);
   grunt.registerTask('build', ['shell:dist', 'uglify', 'less', 'cssmin']);
 
   /**

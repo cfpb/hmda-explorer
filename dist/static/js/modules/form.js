@@ -22,6 +22,19 @@ var PDP = (function ( pdp ) {
 
   form.$fields = form.$el.find('.field');
 
+  // Initialize ZeroClipboard on the share button.
+
+  form.clip = new ZeroClipboard( $('#share'), {
+    moviePath: 'static/js/zeroclipboard/ZeroClipboard.swf'
+  });
+
+  form.clip.on( 'complete', function(client, args) {
+    $('#share_url').tooltip('show');
+    setTimeout( function(){
+      $('#share_url').tooltip('hide');
+    }, 3000);
+  });
+
   // The `showFilter` method shows all the fields of a given filter section.
 
   form.showFilter = function( el ) {
@@ -337,7 +350,7 @@ var PDP = (function ( pdp ) {
 
   form.fetchFieldOptions = function( concept ) {
 
-    var promise = $.getJSON( pdp.query.endpoint + concept + '.json' );
+    var promise = pdp.utils.getJSON( pdp.query.endpoint + 'concept/' + concept + '.' + pdp.query.format );
 
     return promise;
 
@@ -396,15 +409,13 @@ var PDP = (function ( pdp ) {
   };
 
   // Check if any filter fields need to be shown or hidden.
+  // @names = array of param keys (e.g. as_of_year)
 
-  form.checkDeps = function( el ) {
+  form.checkDeps = function( names ) {
 
-    // The form field element is passed from the observer.
-    // Grab the data-dependent attribute on the form field.
+    // Ensure names is an array.
 
-    var $el = $( el ),
-        dependents = $el.attr('data-dependent'),
-        $dependents;
+    names = names instanceof Array ? names : [ names ];
 
     // Helper function to emit events
 
@@ -412,33 +423,44 @@ var PDP = (function ( pdp ) {
       pdp.observer.emitEvent( 'field:' + activity, [el, dependencies] );
     }
 
-    // If the form field does in fact have any dependents.
+    _.forEach( names, function( name ){
 
-    if ( dependents ) {
+      // The form field element is passed from the observer.
+      // Grab the data-dependent attribute on the form field.
 
-      // Split and join the dependents with hashes if there are multiple 
-      // so we can reference the appropriate fields by id later.
+      var $el = $( '#' + name ),
+          dependents = $el.attr('data-dependent'),
+          $dependents;
 
-      dependents = dependents.split(' ').join(', #');
-      $dependents = $( '#' + dependents ).parents('.field');
+      // If the form field does in fact have any dependents.
 
-      // If it has a value, show all of its dependent fields. For each
-      // dependent field, broadcast that is has been shown.
+      if ( dependents ) {
 
-      if ( $el.val() ) {
-        _.forEach( $dependents, function( $dependent ){
-          // `dependency` should be an array of the values the parent is supplying.
-          // For example with states, it might be: [CA, WA, OR]
-          var dependencies = form.getField( $el ).values;
-          emit( 'shown', $dependent, dependencies );
-        });
-      } else {
-        _.forEach( $dependents, function( $dependent ){
-          emit( 'hidden', $dependent, $el.attr('id') );
-        });
+        // Split and join the dependents with hashes if there are multiple 
+        // so we can reference the appropriate fields by id later.
+
+        dependents = dependents.split(' ').join(', #');
+        $dependents = $( '#' + dependents ).parents('.field');
+
+        // If it has a value, show all of its dependent fields. For each
+        // dependent field, broadcast that is has been shown.
+
+        if ( $el.val() ) {
+          _.forEach( $dependents, function( $dependent ){
+            // `dependency` should be an array of the values the parent is supplying.
+            // For example with states, it might be: [CA, WA, OR]
+            var dependencies = form.getField( $el ).values;
+            emit( 'shown', $dependent, dependencies );
+          });
+        } else {
+          _.forEach( $dependents, function( $dependent ){
+            emit( 'hidden', $dependent, $el.attr('id') );
+          });
+        }
+
       }
 
-    }
+    });
 
   };
 

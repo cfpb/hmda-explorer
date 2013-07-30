@@ -1,3 +1,32 @@
+// Header on explore page
+
+.explore {
+
+  .hero {
+    
+    &> .inner {
+      .wrapper();
+    }
+
+    h1 {
+      font-size: 30px;
+      margin: 5px 0;
+    }
+
+    nav {
+      .avenir-next-bold;
+      text-transform: uppercase;
+      a {
+        color: @black;
+      }
+    }
+
+    .clearfix();
+
+  }
+
+}
+
 // Wrapper on explore page
 
 #filters {
@@ -25,19 +54,7 @@
 .hero {
 
   h1 {
-    .at2x( '', 770px, 17px );
-  }
 
-}
-
-// Popular/all filter toggle
-
-#filter-toggle {
-
-  font-weight: 600;
-
-  a.active {
-    color: @black;
   }
 
 }
@@ -78,6 +95,41 @@
 }
 
 @media only screen and ( min-width: 768px ) {
+
+  .explore {
+
+    h1 {
+      float: left;
+    }
+
+    .hero {
+      
+      background-color: #FAB051;
+      margin-top: 20px;
+      padding-top: 5px;
+      border-bottom: 5px solid gray;
+
+      nav {
+        float: left;
+        ul {
+          margin: 20px 0 0;
+        }
+        li {
+          margin: 0 0 0 20px;
+        }
+      }
+
+      a:hover,
+      a:active,
+      a.active {
+        text-decoration: none;
+        padding-bottom: 9px;
+        border-bottom: 5px solid @black;
+      }
+
+    }
+
+  }
 
   .download-and-share {
 

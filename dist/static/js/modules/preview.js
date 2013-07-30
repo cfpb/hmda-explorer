@@ -24,8 +24,8 @@ var PDP = (function ( pdp ) {
 
   preview._fetchPreviewJSON = function() {
 
-    var url = pdp.query.generateApiUrl('json'),
-        promise = $.getJSON( url );
+    var url = pdp.query.generateApiUrl(),
+        promise = pdp.utils.getJSON( url );
 
     return promise;
 
@@ -64,6 +64,10 @@ var PDP = (function ( pdp ) {
         columnTitles: _.keys( data.results[0] ),
         columnValues: _rows
       });
+
+    }).fail( function( data, textStatus ) {
+
+      console.error( 'Error updating preview table: ' + textStatus );
 
     });
 
