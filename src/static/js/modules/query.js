@@ -17,7 +17,7 @@ var PDP = (function ( pdp ) {
 
   // If debug is set to true, dummy data will be used.
 
-  query.debug = true;
+  query.debug = false;
 
   // Set a default format for the data download.
 
@@ -171,7 +171,7 @@ var PDP = (function ( pdp ) {
 
     // Set a base url to append params to
 
-    url = this.endpoint + 'hmda_lar.' + downloadFormat;
+    url = this.endpoint + 'slice/hmda_lar.' + downloadFormat;
 
     // fetch, compile queries
 
@@ -192,6 +192,7 @@ var PDP = (function ( pdp ) {
         _params = [];
 
     _.forEach( this.params, function( param, name ) {
+
       // If there's only value for the param, meaning they only selected one item or
       // it's a radio button that only allows once value, add the stringified
       // param to the `params` array.

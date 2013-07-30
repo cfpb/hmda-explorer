@@ -2633,14 +2633,25 @@ ul.chzn-choices {
   margin: 0 auto;
   position: relative;
   clear: both;
+  text-align: center;
 }
 .lt-ie8 .explore .hero > .inner {
   *zoom: 1;
   *behavior: url(boxsizing.htc);
 }
 .explore .hero h1 {
-  font-size: 30px;
-  margin: 5px 0;
+  font-size: 34px;
+  margin: 5px 0 0;
+  padding-left: 55px;
+  display: inline;
+  background: transparent url() scroll no-repeat center left;
+  background-image: url('../img/icon_explore-data.png');
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
+  .explore .hero h1 {
+    background-image: url("../img/icon_explore-data_2x.png");
+    background-size: 42px 42px;
+  }
 }
 .explore .hero nav {
   font-family: "Avenir Next", Arial, sans-serif;
@@ -2650,6 +2661,39 @@ ul.chzn-choices {
 }
 .explore .hero nav a {
   color: #101820;
+  font-family: "Avenir Next", Arial, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.explore .hero nav a.active {
+  font-family: "Avenir Next", Arial, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.explore .hero nav ul {
+  width: 100%;
+  margin: 5px auto 0;
+  font-size: 1.1em;
+  text-align: center;
+}
+.explore .hero nav ul li {
+  display: block;
+  margin-bottom: 5px;
+}
+.explore .hero nav ul a {
+  background-color: #FAB051;
+  padding: 3px 0;
+  display: block;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #101820;
+}
+.explore .hero nav ul a:hover,
+.explore .hero nav ul a:active {
+  background-color: #ff9e1b;
+}
+.explore .hero nav li {
+  display: block;
 }
 .explore .hero:before,
 .explore .hero:after {
@@ -2717,21 +2761,49 @@ ul.chzn-choices {
 @media only screen and (min-width: 768px) {
   .explore h1 {
     float: left;
+    display: block;
   }
   .explore .hero {
     background-color: #FAB051;
-    margin-top: 20px;
-    padding-top: 5px;
+    margin-top: 18px;
+    padding: 5px 0 0;
     border-bottom: 5px solid gray;
   }
+  .explore .hero > .inner {
+    text-align: left;
+  }
   .explore .hero nav {
+    margin-left: 13px;
     float: left;
   }
   .explore .hero nav ul {
-    margin: 20px 0 0;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-align: justify;
+    margin: 19px 0 0;
+    height: 37px;
+  }
+  .explore .hero nav ul:after {
+    content: "";
+    width: 100%;
+    display: inline-block;
+  }
+  .explore .hero nav ul li {
+    display: inline-block;
+  }
+  .explore .hero nav ul li a {
+    display: inline-block;
+  }
+  .explore .hero nav ul a {
+    font-family: "Avenir Next", Arial, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    background-color: transparent;
   }
   .explore .hero nav li {
-    margin: 0 0 0 20px;
+    margin: 0 0 0 25px;
+    display: inline-block;
   }
   .explore .hero a:hover,
   .explore .hero a:active,
@@ -2739,6 +2811,7 @@ ul.chzn-choices {
     text-decoration: none;
     padding-bottom: 9px;
     border-bottom: 5px solid #101820;
+    background-color: transparent !important;
   }
   .download-and-share label {
     display: inline-block;
@@ -3095,6 +3168,12 @@ nav li {
     text-transform: capitalize;
     font-family: "Avenir Next", Arial, sans-serif;
     font-weight: 400;
+    font-style: normal;
+  }
+  .hmda header ul a:hover {
+    background-color: transparent;
+    font-family: "Avenir Next", Arial, sans-serif;
+    font-weight: 700;
     font-style: normal;
   }
   .hmda header:before,
