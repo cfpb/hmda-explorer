@@ -224,6 +224,18 @@ module.exports = function(grunt) {
     },
 
     /**
+     * Remove logging: https://github.com/ehynds/grunt-remove-logging
+     * 
+     * This task removes all console logging statements from your source code.
+     */
+    removelogging: {
+      dist: {
+        src: 'dist/static/js/main.min.js',
+        dest: 'dist/static/js/main.min.js'
+      }
+    },
+
+    /**
      * Watch: https://github.com/gruntjs/grunt-contrib-watch
      * 
      * Run predefined tasks whenever watched file patterns are added, changed or deleted.
@@ -253,12 +265,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-open');
   grunt.loadNpmTasks('grunt-cfpb-internal');
   grunt.loadNpmTasks('grunt-docco');
+  grunt.loadNpmTasks('grunt-remove-logging');
 
   /**
    * Create task aliases by registering new tasks
    */
   grunt.registerTask('test', ['jshint', 'jasmine']);
-  grunt.registerTask('docs', ['docco', 'build-cfpb']);
+  grunt.registerTask('docs', ['removelogging', 'docco', 'build-cfpb']);
   grunt.registerTask('build', ['shell:dist', 'uglify', 'less', 'cssmin']);
 
   /**

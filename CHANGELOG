@@ -1,3 +1,9 @@
+v0.7.2:
+  date: 2013-07-29
+  changes:
+    - Memoize AJAX requests.
+    - Add section toggle to explore page header.
+
 v0.7.1:
   date: 2013-07-24
   changes:

@@ -36,6 +36,63 @@ var PDP = (function( pdp ) {
 
   };
 
+  // localStorage polyfill from https://gist.github.com/juliocesar/926500.
+
+  if ( !('localStorage' in window) ) {
+    window.localStorage = {
+      _data       : {},
+      setItem     : function(id, val) { return this._data[id] = String(val); },
+      getItem     : function(id) { return this._data.hasOwnProperty(id) ? this._data[id] : undefined; },
+      removeItem  : function(id) { return delete this._data[id]; },
+      clear       : function() { return this._data = {}; }
+    };
+  }
+
+  // Cache data in the localStorage, adapted from https://gist.github.com/rpflorence/1345787
+
+  pdp.utils.getJSON = function( url ) {
+
+    var supportsLocalStorage = 'localStorage' in window;
+
+    // Both functions return a promise, so no matter which function
+    // gets called inside getCache, you get the same API.
+
+    function getJSON( url ) {
+
+      var promise = $.getJSON(url);
+
+      promise.done(function(data) {
+        localStorage.setItem(url, JSON.stringify(data));
+      });
+
+      console.log('%c' + url + ' fetched via AJAX', 'color: orange');
+
+      return promise;
+    }
+
+    function getStorage( url ) {
+
+      var storageDfd = new $.Deferred(),
+          storedData = localStorage.getItem(url);
+
+      if (!storedData) {
+        return getJSON(url);
+      }
+
+      setTimeout(function() {
+        storageDfd.resolveWith(null, [JSON.parse(storedData)]);
+      });
+
+      console.log('%c' + url + ' fetched via localStorange', 'color: blue');
+
+      return storageDfd.promise();
+
+    }
+
+    return supportsLocalStorage ? getStorage( url ) : getJSON( url );
+
+  };
+
   // A `bind()` polyfill
 
   if (!Function.prototype.bind) {
