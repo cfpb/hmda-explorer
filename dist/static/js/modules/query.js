@@ -184,67 +184,83 @@ var PDP = (function ( pdp ) {
   // Convert each param to a proper [`$where` clause](http://cfpb.github.io/qu/articles/queries.html#where_in_detail).
 
   query.buildApiQuery = function( params ) {
-    var url, key;
+    var url = '',
+      key;
 
     if (params.hasOwnProperty('clauses')) {
       for ( key in params.clauses ) {
         if (params.clauses.hasOwnProperty( key )) {
-          url.concat(this.buildClause( key, params.clauses[key]  ));
+          url += this._buildClause[key]( params.clauses[key] );
         }
       }
     } else {
-      url = this._buildClause('where', params);      
+      url = this._buildClause.where( params );      
     }
 
     return url;
   };
 
-  query._buildClause = function( clause, params ) {
-    var param, paramName, paramVal, paramVals = [], _params, queryVals = [];
+  query._buildClause = {
+    where: function( params ) {
+      var param, paramName, paramVal, paramVals = [], _params, queryVals = [];
 
       _.forEach( params, function( param, paramName ) {
         // If there's only value for the param, meaning they only selected one item or
         // it's a radio button that only allows once value, add the stringified
         // param to the `queryVals` array.
+          if ( param.values.length === 1 ) {
+            queryVals.push( this._gatherParamValues( param, paramName));
 
-        if ( param.values.length === 1 ) {
-          // Wrap it in quotes if it's NaN.
-          if ( isNaN( param.values[0] ) ) {
-            paramVal = '"' + param.values[0] + '"';
-          } else {
-            paramVal = param.values[0];
+          // If there are multiple values for a single parameter, we iterate over them and
+          // put an `OR` operator between them. We then then [group them](http://cfpb.github.io/qu/articles/queries.html#boolean_operators)
+          // with parens and add the grouping to the `params` array.
+          } else if ( param.values.length > 1 ) {
+            paramVals.push( this._gatherParamValues( param ) );
+            _params = '(' + paramVals.join(' OR ') + ')';
+            queryVals.push( _params );
           }
-
-          queryVals.push( paramName + param.comparator + paramVal );
-
-        // If there are multiple values for a single parameter, we iterate over them and
-        // put an `OR` operator between them. We then then [group them](http://cfpb.github.io/qu/articles/queries.html#boolean_operators)
-        // with parens and add the grouping to the `params` array.
-        } else if ( param.values.length > 1 ) {
-          paramVals.push( this._gatherParamValues( param, name ) );
-          _params = '(' + paramVals.join(' OR ') + ')';
-          queryVals.push( _params );
-        }
-      });
+      }.bind( this ));
 
       // Join all the params with `AND` operators and append it to the base url,
       // replacing spaces with plus signs.
-      return '&$' + clause + '=' + encodeURI( queryVals.join(' AND ') ).replace( /%20/g, '+' );
-  };
+      return '&$where=' + encodeURI( queryVals.join(' AND ') ).replace( /%20/g, '+' );
+    },
 
-  query._gatherParamValues = function( param , name ){
-    var _params = [];
+    select: function( param ) {
+      return '&$select=' + this._listVals( param );
+    },
 
-    // Wrap it in quotes if it's NaN.
+    group: function( param ) {
+      return '&$group=' + this._listVals( param );
+    },
 
-    if ( isNaN( param.values ) ) {
-      _params.push( name + param.comparator + '"' + param.values + '"' );
-    } else {
-      _params.push( name + param.comparator + param.values);
+    _listVals: function( param ) {
+      var i = param.length,
+        str = '';
+
+      while( i-- ) {
+        str += param[i];
+        if ( i > 0 ) {
+          str += ',';
+        }
+      }
+
+      return str;
+    },
+  
+    _gatherParamValues: function( param , paramName ){
+      var paramVal;
+
+      // Wrap it in quotes if it's NaN.
+
+      if ( isNaN( param.values[0] ) ) {
+        paramVal = '"' + param.values[0] + '"';
+      } else {
+        paramVal = param.values[0];
+      }
+
+      return paramName + param.comparator + paramVal ;
     }
-
-    return _params;
-
   };
 
   // The `fetch` method requests and returns JSON from Qu matching the
