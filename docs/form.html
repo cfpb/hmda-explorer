@@ -9,6 +9,7 @@
 
   <span class="nx">form</span><span class="p">.</span><span class="nx">clip</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span> <span class="s1">&#39;complete&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">client</span><span class="p">,</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#share_url&#39;</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">(</span><span class="s1">&#39;show&#39;</span><span class="p">);</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#share_url&#39;</span><span class="p">).</span><span class="nx">select</span><span class="p">();</span>
     <span class="nx">setTimeout</span><span class="p">(</span> <span class="kd">function</span><span class="p">(){</span>
       <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#share_url&#39;</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">(</span><span class="s1">&#39;hide&#39;</span><span class="p">);</span>
     <span class="p">},</span> <span class="mi">3000</span><span class="p">);</span>
