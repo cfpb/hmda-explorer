@@ -26,7 +26,6 @@ var PDP = (function ( pdp ) {
       pdp.app.start.bind( pdp.app ),
       pdp.app.stopLoading.bind( pdp.app ),
       pdp.app.changeSection.bind( pdp.app ),
-      // kind of a hack to run init. summarytable shouldn't always init anyway.
       pdp.summaryTable.init.bind( pdp.summaryTable )
     ],
 
