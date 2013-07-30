@@ -65,6 +65,13 @@ var PDP = (function( pdp ) {
         try {
           localStorage.setItem( url, JSON.stringify(data) );
         } catch( e ) {
+          // @TODO: Only clear out PDP relevant storage.
+          window.localStorage.clear();
+          console.log('%c localStorage cleared!', 'color: red');
+        }
+        // This is a safety to prevent the polyfill object from growing too huge.
+        // @TODO: Make this less lame.
+        if ( window.localStorage.length > 50 ) {
           window.localStorage.clear();
           console.log('%c localStorage cleared!', 'color: red');
         }
