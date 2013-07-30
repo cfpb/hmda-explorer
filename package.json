@@ -1,7 +1,7 @@
 {
   "name": "public-data-platform-static",
   "description": "CFPB's Public Data Platform",
-  "version": "0.7.1",
+  "version": "0.7.3",
   "homepage": "http://consumerfinance.gov",
   "author": {
     "name": "Consumer Financial Protection Bureau",
@@ -44,7 +44,8 @@
     "grunt-cfpb-internal": "git://fake.ghe.domain/front/grunt-cfpb-internal.git",
     "grunt-contrib-cssmin": "~0.6.1",
     "grunt-docco": "~0.2.0",
-    "grunt-open": "~0.2.1"
+    "grunt-open": "~0.2.1",
+    "grunt-remove-logging": "~0.1.1"
   },
   "keywords": []
 }

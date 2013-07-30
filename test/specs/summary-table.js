@@ -2,7 +2,13 @@
   'use strict';
 
   describe('Summary table', function() {
-    
+
+    it('should exist', function(){
+
+      expect( PDP.summaryTable ).not.toBeUndefined();
+
+    });
+
     describe('_.populateSingleInput', function() {
 
       it("should populate a single field", function() {
@@ -46,7 +52,7 @@
       });
 
       it("should keep field values in the correct order", function() {
-        expect( $('#veggies1').children().first().text() ).toEqual('carrots');  
+        expect( $('#veggies1').children().first().text() ).toEqual('carrots');
         expect( $('#veggies2').children().first().text() ).toEqual('carrots');
 
         $('#veggies1, #veggies2').remove();

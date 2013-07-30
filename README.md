@@ -1,6 +1,6 @@
 # CFPB's Public Data Platform
 
-An interactive front-end for [Qu](https://github.com/cfpb/qu). View the [nightly demo](https://fake.ghe.domain/pages/data-platform/public-data-platform/explore.html).
+An interactive front-end for [Qu](https://github.com/cfpb/qu). View the [stable](https://fake.ghe.domain/pages/data-platform/public-data-platform/explore.html) or [nightly](https://fake.ghe.domain/pages/contolini/public-data-platform/explore.html) demo.
 
 ## Documentation
 
@@ -22,6 +22,8 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2013-07-30   [v0.7.3](../../tree/v0.7.3)   Use ZeroClipboard to save share URL to clipboard.
+ * 2013-07-29   [v0.7.2](../../tree/v0.7.2)   Memoize AJAX requests. Add section toggle to explore page header.
  * 2013-07-24   [v0.7.1](../../tree/v0.7.1)   Section parameter is properly stored in sharing URL hash.
  * 2013-07-23   [v0.7.0](../../tree/v0.7.0)   Popular filters section w/ synchronizing toggle.
  * 2013-07-22   [v0.6.0](../../tree/v0.6.0)   Initial preview table implementation. Initial summary table implementation.
@@ -47,4 +49,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Wed Jul 24 2013 14:51:05.*
+*This file was generated on Tue Jul 30 2013 03:49:52.*

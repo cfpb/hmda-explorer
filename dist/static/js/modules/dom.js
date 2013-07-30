@@ -14,7 +14,7 @@ var PDP = (function ( pdp ) {
 
   // Toggle the popular/all filters sections  
 
-  $('#filter-toggle a').on( 'click', function( ev ){
+  $('#section-toggle a').on( 'click', function( ev ){
 
     ev.preventDefault();
 
@@ -28,15 +28,7 @@ var PDP = (function ( pdp ) {
 
   $('.field select, .field input').on( 'change', function(){
 
-    pdp.observer.emitEvent('field:changed', $( this ) );
-
-  });
-
-  // Whenever a popular field element is changed emit an event.
-
-  $('.field.popular select, .field.popular input').on( 'change', function(){
-
-    pdp.observer.emitEvent('popular:changed', [ $( this ).attr('name').replace(/\[\]/, '') ] );
+    pdp.observer.emitEvent('field:changed', [ $( this ).attr('id') ] );
 
   });
 
@@ -48,7 +40,9 @@ var PDP = (function ( pdp ) {
 
     ev.preventDefault();
 
-    window.location.href = url;
+    //window.location.href = url;
+
+    window.open( url , '_blank' );
 
   });
 
@@ -94,12 +88,13 @@ var PDP = (function ( pdp ) {
 
   // For now, open a new window with the shareable URL when the share
   // button is clicked.
-
+  /*
   $('#share').on( 'click', function(){
 
     window.open( $('#share_url').val() , '_blank' );
 
   });
+  */
 
   // When the DOM is Ready
   // ----------------
