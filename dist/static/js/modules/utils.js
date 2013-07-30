@@ -52,18 +52,19 @@ var PDP = (function( pdp ) {
 
   pdp.utils.getJSON = function( url ) {
 
-    var supportsLocalStorage = 'localStorage' in window;
+    var supportsLocalStorage = 'localStorage' in window,
+        slug = 'cfpb:' + url.substring( url.indexOf('?') + 1 );
 
     // Both functions return a promise, so no matter which function
     // gets called inside getCache, you get the same API.
 
     function getJSON( url ) {
 
-      var promise = $.getJSON(url);
+      var promise = $.getJSON( url );
 
       promise.done(function(data) {
         try {
-          localStorage.setItem( url, JSON.stringify(data) );
+          localStorage.setItem( slug, JSON.stringify(data) );
         } catch( e ) {
           // @TODO: Only clear out PDP relevant storage.
           window.localStorage.clear();
@@ -85,14 +86,14 @@ var PDP = (function( pdp ) {
     function getStorage( url ) {
 
       var storageDfd = new $.Deferred(),
-          storedData = localStorage.getItem(url);
+          storedData = localStorage.getItem( slug );
 
       if (!storedData) {
-        return getJSON(url);
+        return getJSON( url );
       }
 
       setTimeout(function() {
-        storageDfd.resolveWith(null, [JSON.parse(storedData)]);
+        storageDfd.resolveWith( null, [JSON.parse(storedData)] );
       });
 
       console.log('%c' + url + ' fetched via localStorange', 'color: blue');

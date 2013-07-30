@@ -162,7 +162,7 @@ var PDP = (function ( pdp ) {
 
     // Set a base url to append params to
 
-    url = this.endpoint + 'hmda_lar.' + downloadFormat;
+    url = this.endpoint + 'slice/hmda_lar.' + downloadFormat;
 
     // fetch, compile queries
 
