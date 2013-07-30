@@ -54,7 +54,7 @@
 
       var params = PDP.query.updateAll({ source: 'url' }),
           generatedHash = '#' + PDP.query.generateUrlHash(),
-          expectedHash = '#!/as_of_year=2011&state_abbr=OR&section=popular';
+          expectedHash = '#!/as_of_year=2011&state_abbr=OR&section=filters';
 
       expect( generatedHash ).toBe( expectedHash );
 
@@ -69,9 +69,9 @@
       var params = PDP.query.updateAll({ source: 'url' }),
           generatedUrl = PDP.query.generateApiUrl(),
           productionUrl = 'http://qu.demo.cfpb.gov/data/hmda/hmda_lar.json?$where=as_of_year=2011 AND state_abbr="OR"',
-          demoUrl = 'static/js/dummy_data/hmda_lar.json?$where=as_of_year=2011 AND state_abbr="OR"';
+          demoUrl = 'static/js/dummy_data/hmda_lar.json?&$where=as_of_year=2011+AND+state_abbr=%22OR%22';
 
-      expect( generatedUrl ).toBe( productionUrl || demoUrl );
+      expect( generatedUrl ).toBe( demoUrl );
 
     });
 
