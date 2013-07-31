@@ -15,7 +15,7 @@ var PDP = (function ( pdp ) {
   // cache input fields
   table._inputs = {};
   table._inputs.all = $('*[data-summary-table-input]');
-  table._inputs.year = $('#year');
+  table._inputs.year = table.$el.find('#year');
   table._inputs.varFields = [$('#variable1'), $('#variable2'), $('#variable3')];
   table._inputs.calculate = $('#calculate-by');
 
@@ -90,13 +90,9 @@ var PDP = (function ( pdp ) {
 
   table._chosenInit = function() {
     this.$el.find('select').chosen({
-      allow_single_deselect: true,
-      width: '100%'
-    }).trigger('liszt:updated');
-
-    $('select.chzn-single').chosen({
-      disable_search_threshold: 50,
-      width: '100%'
+      width: '100%',
+      disable_search_threshold: 10,
+      allow_single_deselect: true
     });
   };
 
