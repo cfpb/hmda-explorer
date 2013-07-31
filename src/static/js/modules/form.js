@@ -85,6 +85,16 @@ var PDP = (function ( pdp ) {
 
     });
 
+    // Check if the co-applicant section needs to be shown.
+
+    $('.field.co_applicant').each(function(){
+
+      if ( pdp.form.hasValue( $(this) ) ) {
+        pdp.form.toggleCoApplicants( 'show' );
+      }
+
+    });
+
   };
 
   // The 'hasValue' method checks if a field has any value selected.
@@ -473,6 +483,7 @@ var PDP = (function ( pdp ) {
       $('.co_applicant').addClass('hidden');
     } else {
       $('.co_applicant').removeClass('hidden');
+      $('.include_co_applicant input[value=1]').prop( 'checked', true );
     }
 
   };
