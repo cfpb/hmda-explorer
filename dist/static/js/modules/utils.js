@@ -78,7 +78,7 @@ var PDP = (function( pdp ) {
         }
       });
 
-      console.log('%c' + url + ' fetched via AJAX', 'color: orange');
+      console.log( url + '%c fetched via AJAX', 'color: orange' );
 
       return promise;
     }
@@ -96,7 +96,7 @@ var PDP = (function( pdp ) {
         storageDfd.resolveWith( null, [JSON.parse(storedData)] );
       });
 
-      console.log('%c' + url + ' fetched via localStorange', 'color: blue');
+      console.log( url + '%c fetched via localStorange', 'color: blue' );
 
       return storageDfd.promise();
 
