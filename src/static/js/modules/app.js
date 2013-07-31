@@ -30,7 +30,7 @@ var PDP = (function ( pdp ) {
 
     // Activate [chosen](http://harvesthq.github.io/chosen/) on select elements.
 
-    app.$el.find('select').chosen({ width: '100%', disable_search_threshold: 10 });
+    app.$el.find('select').chosen({ width: '100%', disable_search_threshold: 10, allow_single_deselect: true });
 
     // Initialize Bootstrap tooltips
 

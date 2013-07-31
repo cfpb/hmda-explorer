@@ -13,6 +13,7 @@
     <!--[if lt IE 9]>
       <script src="static/js/html5shiv.js"></script>
       <script src="static/js/html5shiv-printshiv.js"></script>
+      <script src="static/js/respond.min.js"></script>
     <![endif]-->
     <script>
       var docElement = document.documentElement;
@@ -25,7 +26,7 @@
 
         <div class="logo">
 
-          <img src="http://placehold.it/180x60&text=CFPB logo"/>
+          <img src="static/img/logo_2x.png" width="211" height="52" alt="Consumer Financial Protection Bureau" />
 
         </div>
 
@@ -262,33 +263,12 @@
 
                 <!-- filter field -->
                 <li class="field">
-                  <label for="applicant_income_000s">Applicant Income</label>
-                  <div class="widget text">
-                    <input class="param" type="text" name="applicant_income_000s" value="" placeholder="Enter an income">
-                  </div>
-                  <div class="help" title="Applicant’s annual gross income (000s) that an institution relied upon in making the credit decision."><i class="icon-help-alt"></i></div>
-                </li>
-                <!-- /filter field -->
-
-                <!-- filter field -->
-                <li class="field">
-                  <label for="co_applicant">Co-Applicant</label>
-                  <div class="widget radio">
-                    <label><input type="radio" class="param" name="co_applicant" value="1" />Yes</label>
-                    <label><input type="radio" class="param" name="co_applicant" value="0" />No</label>
-                  </div>
-                  <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt."><i class="icon-help-alt"></i></div>
-                </li>
-                <!-- /filter field -->
-
-                <!-- filter field -->
-                <li class="field">
-                  <label for="applicant_sex">Applicant Sex</label>
+                  <label for="applicant_sex">Applicant Sex: <div class="help" title="Applicant sex help"><i class="icon-help-alt"></i></div></label>
                   <div class="widget checkbox">
                     <label><input type="checkbox" class="param" name="applicant_sex[]" value="1" />Male</label>
                     <label><input type="checkbox" class="param" name="applicant_sex[]" value="2" />Female</label>
-                    <label><input type="checkbox" class="param" name="applicant_sex[]" value="3" />Information not provided by applicant in mail, Internet, or telephone application</label>
-                    <label><input type="checkbox" class="param" name="applicant_sex[]" value="4" />Not applicable because the applicant is not a natural person (a business, corporation or partnership, for example) or the applicant information is unavailable because the loan has been purchased by the institution</label>
+                    <label><input type="checkbox" class="param" name="applicant_sex[]" value="3" />Not provided</label>
+                    <label><input type="checkbox" class="param" name="applicant_sex[]" value="4" />Not applicable</label>
                   </div>
                   <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt."><i class="icon-help-alt"></i></div>
                 </li>
@@ -322,9 +302,8 @@
                       <option value="1">Hispanic or Latino</option>
                       <option value="2">Not Hispanic or Latino</option>
                       <option value="3">Information not provided by applicant in mail, Internet, or telephone application</option>
-                      <option value="4">Information not provided by applicant in mail, Internet, or telephone application</option>
-                      <option value="5">Not applicable</option>
-                      <option value="6">No co-applicant</option>
+                      <option value="4">Not applicable</option>
+                      <option value="5">No co-applicant</option>
                     </select>
                   </div>
                   <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt."><i class="icon-help-alt"></i></div>
@@ -333,6 +312,40 @@
 
                 <!-- filter field -->
                 <li class="field">
+                  <label for="applicant_income_000s">Applicant Income:</label>
+                  <div class="widget text">
+                    <input class="param" type="text" name="applicant_income_000s" value="" placeholder="Enter an income">
+                  </div>
+                  <div class="help" title="Applicant’s annual gross income (000s) that an institution relied upon in making the credit decision."><i class="icon-help-alt"></i></div>
+                </li>
+                <!-- /filter field -->
+
+                <!-- filter field -->
+                <li class="field">
+                  <label for="include_co_applicant">Include co-applicant?</label>
+                  <div class="widget radio include_co_applicant">
+                    <label><input type="radio" name="include_co_applicant" value="1" />Yes</label>
+                    <label><input type="radio" name="include_co_applicant" value="0" checked />No</label>
+                  </div>
+                  <div class="help" title="Do you want to include the details of a co-applicant?"><i class="icon-help-alt"></i></div>
+                </li>
+                <!-- /filter field -->
+
+                <!-- filter field -->
+                <li class="field co_applicant hidden">
+                  <label for="co_applicant_sex">Co-Applicant Sex</label>
+                  <div class="widget checkbox">
+                    <label><input type="checkbox" class="param" name="co_applicant_sex[]" value="1" />Male</label>
+                    <label><input type="checkbox" class="param" name="co_applicant_sex[]" value="2" />Female</label>
+                    <label><input type="checkbox" class="param" name="co_applicant_sex[]" value="3" />Not provided</label>
+                    <label><input type="checkbox" class="param" name="co_applicant_sex[]" value="4" />Not applicable</label>
+                  </div>
+                  <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt."><i class="icon-help-alt"></i></div>
+                </li>
+                <!-- /filter field -->
+
+                <!-- filter field -->
+                <li class="field co_applicant hidden">
                   <label for="co_applicant_ethnicity">Co-Applicant Ethnicity:</label>
                   <div class="widget select">
                     <select class="param" name="co_applicant_ethnicity" id="co_applicant_ethnicity" multiple data-placeholder="Select a Co-Applicant Ethnicity">
@@ -340,9 +353,8 @@
                       <option value="1">Hispanic or Latino</option>
                       <option value="2">Not Hispanic or Latino</option>
                       <option value="3">Information not provided by applicant in mail, Internet, or telephone application</option>
-                      <option value="4">Information not provided by applicant in mail, Internet, or telephone application</option>
-                      <option value="5">Not applicable</option>
-                      <option value="6">No co-applicant</option>
+                      <option value="4">Not applicable</option>
+                      <option value="5">No co-applicant</option>
                     </select>
                   </div>
                   <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt."><i class="icon-help-alt"></i></div>
@@ -350,20 +362,7 @@
                 <!-- /filter field -->
 
                 <!-- filter field -->
-                <li class="field">
-                  <label for="co_applicant_sex">Co-Applicant Sex</label>
-                  <div class="widget checkbox">
-                    <label><input type="checkbox" class="param" name="co_applicant_sex[]" value="1" />Male</label>
-                    <label><input type="checkbox" class="param" name="co_applicant_sex[]" value="2" />Female</label>
-                    <label><input type="checkbox" class="param" name="co_applicant_sex[]" value="3" />Information not provided by applicant in mail, Internet, or telephone application</label>
-                    <label><input type="checkbox" class="param" name="co_applicant_sex[]" value="4" />Not applicable because the applicant is not a natural person (a business, corporation or partnership, for example) or the applicant information is unavailable because the loan has been purchased by the institution</label>
-                  </div>
-                  <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt."><i class="icon-help-alt"></i></div>
-                </li>
-                <!-- /filter field -->
-
-                <!-- filter field -->
-                <li class="field">
+                <li class="field co_applicant hidden">
                   <label for="co_applicant_race_1">Co-Applicant Race:</label>
                   <div class="widget select">
                     <select class="param" name="co_applicant_race_1" id="co_applicant_race_1" multiple data-placeholder="Select an Applicant Race">
@@ -456,7 +455,7 @@
                   <div class="widget checkbox">
                     <label><input type="checkbox" class="param" name="property_type[]" value="1" id="foo"/>One to four-family</label>
                     <label><input type="checkbox" class="param" name="property_type[]" value="2" />Manufactured housing</label>
-                    <label><input type="checkbox" class="param" name="property_type[]" value="3" />Multifamily</label>
+                    <label><input type="checkbox" class="param" name="property_type[]" value="3" />Multifamily dwelling</label>
                   </div>
                   <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt."><i class="icon-help-alt"></i></div>
                 </li>
@@ -466,8 +465,8 @@
                 <li class="field popular">
                   <label for="1">Owner Occupancy</label>
                   <div class="widget checkbox">
-                    <label><input type="checkbox" class="param" name="owner_occupancy[]" value="1" />Owner-occupied as a principal dwelling</label>
-                    <label><input type="checkbox" class="param" name="owner_occupancy[]" value="2" />Not owner-occupied</label>
+                    <label><input type="checkbox" class="param" name="owner_occupancy[]" value="1" />Owner-occupied (as a principal dwelling)</label>
+                    <label><input type="checkbox" class="param" name="owner_occupancy[]" value="2" />Not owner-occupied/not principal dwelling</label>
                     <label><input type="checkbox" class="param" name="owner_occupancy[]" value="3" />Not applicable</label>
                   </div>
                   <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt."><i class="icon-help-alt"></i></div>
@@ -744,7 +743,7 @@
           <div class="summary">
 
             <form id="summary-table">
-    
+      
               <div class="intro">
 
                 <select id="year" multiple class="chzn-select" data-summary-table-input></select>

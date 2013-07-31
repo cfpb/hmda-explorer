@@ -60,10 +60,9 @@
 
       var params = PDP.query.updateAll({ source: 'url' }),
           generatedUrl = PDP.query.generateApiUrl(),
-          productionUrl = 'http://qu.demo.cfpb.gov/data/hmda/slice/hmda_lar.json?$where=as_of_year=2011 AND state_abbr="OR"',
-          demoUrl = 'static/js/dummy_data/slice/hmda_lar.json?&$where=as_of_year=2011+AND+state_abbr=%22OR%22';
+          expectedUrl = PDP.query.debug ? 'static/js/dummy_data/slice/hmda_lar.json?&$where=as_of_year=2011+AND+state_abbr=%22OR%22' : 'http://qu.demo.cfpb.gov/data/hmda/slice/hmda_lar.jsonp?$callback=?&$where=as_of_year=2011+AND+state_abbr=%22OR%22';
 
-      expect( generatedUrl ).toBe( demoUrl );
+      expect( generatedUrl ).toBe( expectedUrl );
 
     });
 
@@ -75,10 +74,9 @@
 
       var params = PDP.query.updateAll({ source: 'url' }),
           generatedUrl = PDP.query.generateApiUrl(),
-          productionUrl = 'http://qu.demo.cfpb.gov/data/hmda/slice/hmda_lar.json?$where=(as_of_year=2012%20OR%20as_of_year=2011)',
-          demoUrl = 'static/js/dummy_data/slice/hmda_lar.json?&$where=(as_of_year=2012+OR+as_of_year=2011)';
+          expectedUrl = PDP.query.debug ? 'static/js/dummy_data/slice/hmda_lar.json?&$where=(as_of_year=2012+OR+as_of_year=2011)' : 'http://qu.demo.cfpb.gov/data/hmda/slice/hmda_lar.jsonp?$callback=?&$where=(as_of_year=2012+OR+as_of_year=2011)';
 
-      expect( generatedUrl ).toBe( demoUrl );
+      expect( generatedUrl ).toBe( expectedUrl );
 
     });
 

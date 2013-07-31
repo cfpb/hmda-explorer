@@ -78,7 +78,7 @@ var PDP = (function( pdp ) {
         }
       });
 
-      console.log('%c' + url + ' fetched via AJAX', 'color: orange');
+      console.log( url + ' %c fetched via AJAX', 'color: orange' );
 
       return promise;
     }
@@ -96,7 +96,7 @@ var PDP = (function( pdp ) {
         storageDfd.resolveWith( null, [JSON.parse(storedData)] );
       });
 
-      console.log('%c' + url + ' fetched via localStorange', 'color: blue');
+      console.log( url + ' %c fetched via localStorange', 'color: blue' );
 
       return storageDfd.promise();
 
@@ -115,8 +115,8 @@ var PDP = (function( pdp ) {
         throw new TypeError('Function.prototype.bind - what is trying to be bound is not callable');
       }
 
-      var aArgs = Array.prototype.slice.call(arguments, 1), 
-          fToBind = this, 
+      var aArgs = Array.prototype.slice.call(arguments, 1),
+          fToBind = this,
           FNOP = function () {},
           fBound = function () {
             return fToBind.apply(this instanceof FNOP && oThis ? this : oThis, aArgs.concat(Array.prototype.slice.call(arguments)));
