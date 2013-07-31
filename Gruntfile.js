@@ -123,6 +123,7 @@ module.exports = function(grunt) {
           'cp -r src/static/img dist/static',
           'cp -r src/static/js dist/static',
           'cp src/static/vendor/html5shiv/dist/* dist/static/js/',
+          'cp src/static/vendor/respond/respond.min.js dist/static/js/',
           'cp src/static/vendor/zeroclipboard/* dist/static/js/zeroclipboard/',
           'cp src/static/vendor/chosen/public/chosen-* dist/static/css'
         ].join('&&')

@@ -30,11 +30,11 @@ var PDP = (function ( pdp ) {
 
     // Activate [chosen](http://harvesthq.github.io/chosen/) on select elements.
 
-    app.$el.find('select').chosen({ width: '100%', disable_search_threshold: 10 });
+    app.$el.find('select').chosen({ width: '100%', disable_search_threshold: 10, allow_single_deselect: true });
 
     // Initialize Bootstrap tooltips
 
-    app.$el.find('.help').tooltip({ placement: 'left' });
+    app.$el.find('.help').tooltip({ placement: 'right' });
     app.$el.find('#share_url').tooltip({ title: 'Copied to clipboard!', trigger: 'manual' });
 
     // If there are hash params in the URL, grab them and populate the DOM fields.

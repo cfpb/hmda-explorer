@@ -21,7 +21,7 @@ var PDP = (function ( pdp ) {
 
   // Set a default format for the data download.
 
-  query.format = query.debug ? 'json?' : 'jsonp?$callback=?';
+  query.format = query.debug ? 'json' : 'jsonp?$callback=';
 
   // Set a default endpoint for AJAX requests.
 
@@ -162,7 +162,7 @@ var PDP = (function ( pdp ) {
 
     // Set a base url to append params to
 
-    url = this.endpoint + 'slice/hmda_lar.' + downloadFormat;
+    url = this.endpoint + 'slice/hmda_lar.' + downloadFormat + '?';
 
     // fetch, compile queries
 
