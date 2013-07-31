@@ -31,14 +31,15 @@
     <span class="p">};</span>
   <span class="p">}</span></pre></div>             </td>           </tr>                               <tr id="section-6">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-6">&#182;</a>               </div>               <p>Cache data in the localStorage, adapted from https://gist.github.com/rpflorence/1345787</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">pdp</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">getJSON</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">url</span> <span class="p">)</span> <span class="p">{</span>
 
-    <span class="kd">var</span> <span class="nx">supportsLocalStorage</span> <span class="o">=</span> <span class="s1">&#39;localStorage&#39;</span> <span class="k">in</span> <span class="nb">window</span><span class="p">;</span></pre></div>             </td>           </tr>                               <tr id="section-7">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-7">&#182;</a>               </div>               <p>Both functions return a promise, so no matter which function
+    <span class="kd">var</span> <span class="nx">supportsLocalStorage</span> <span class="o">=</span> <span class="s1">&#39;localStorage&#39;</span> <span class="k">in</span> <span class="nb">window</span><span class="p">,</span>
+        <span class="nx">slug</span> <span class="o">=</span> <span class="s1">&#39;cfpb:&#39;</span> <span class="o">+</span> <span class="nx">url</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span> <span class="nx">url</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;?&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-7">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-7">&#182;</a>               </div>               <p>Both functions return a promise, so no matter which function
 gets called inside getCache, you get the same API.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="kd">function</span> <span class="nx">getJSON</span><span class="p">(</span> <span class="nx">url</span> <span class="p">)</span> <span class="p">{</span>
 
-      <span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="nx">$</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+      <span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="nx">$</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">(</span> <span class="nx">url</span> <span class="p">);</span>
 
       <span class="nx">promise</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">try</span> <span class="p">{</span>
-          <span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span> <span class="nx">url</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">);</span>
+          <span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span> <span class="nx">slug</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">);</span>
         <span class="p">}</span> <span class="k">catch</span><span class="p">(</span> <span class="nx">e</span> <span class="p">)</span> <span class="p">{</span></pre></div>             </td>           </tr>                               <tr id="section-8">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-8">&#182;</a>               </div>               <p>@TODO: Only clear out PDP relevant storage.</p>             </td>             <td class="code">               <div class="highlight"><pre>          <span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
           <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;%c localStorage cleared!&#39;</span><span class="p">,</span> <span class="s1">&#39;color: red&#39;</span><span class="p">);</span>
         <span class="p">}</span></pre></div>             </td>           </tr>                               <tr id="section-9">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-9">&#182;</a>               </div>               <p>This is a safety to prevent the polyfill object from growing too huge.
@@ -48,7 +49,7 @@ gets called inside getCache, you get the same API.</p>             </td>        
         <span class="p">}</span>
       <span class="p">});</span>
 
-      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;%c&#39;</span> <span class="o">+</span> <span class="nx">url</span> <span class="o">+</span> <span class="s1">&#39; fetched via AJAX&#39;</span><span class="p">,</span> <span class="s1">&#39;color: orange&#39;</span><span class="p">);</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">url</span> <span class="o">+</span> <span class="s1">&#39;%c fetched via AJAX&#39;</span><span class="p">,</span> <span class="s1">&#39;color: orange&#39;</span> <span class="p">);</span>
 
       <span class="k">return</span> <span class="nx">promise</span><span class="p">;</span>
     <span class="p">}</span>
@@ -56,17 +57,17 @@ gets called inside getCache, you get the same API.</p>             </td>        
     <span class="kd">function</span> <span class="nx">getStorage</span><span class="p">(</span> <span class="nx">url</span> <span class="p">)</span> <span class="p">{</span>
 
       <span class="kd">var</span> <span class="nx">storageDfd</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">$</span><span class="p">.</span><span class="nx">Deferred</span><span class="p">(),</span>
-          <span class="nx">storedData</span> <span class="o">=</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+          <span class="nx">storedData</span> <span class="o">=</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span> <span class="nx">slug</span> <span class="p">);</span>
 
       <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">storedData</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="nx">getJSON</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nx">getJSON</span><span class="p">(</span> <span class="nx">url</span> <span class="p">);</span>
       <span class="p">}</span>
 
       <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">storageDfd</span><span class="p">.</span><span class="nx">resolveWith</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="p">[</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">storedData</span><span class="p">)]);</span>
+        <span class="nx">storageDfd</span><span class="p">.</span><span class="nx">resolveWith</span><span class="p">(</span> <span class="kc">null</span><span class="p">,</span> <span class="p">[</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">storedData</span><span class="p">)]</span> <span class="p">);</span>
       <span class="p">});</span>
 
-      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;%c&#39;</span> <span class="o">+</span> <span class="nx">url</span> <span class="o">+</span> <span class="s1">&#39; fetched via localStorange&#39;</span><span class="p">,</span> <span class="s1">&#39;color: blue&#39;</span><span class="p">);</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">url</span> <span class="o">+</span> <span class="s1">&#39;%c fetched via localStorange&#39;</span><span class="p">,</span> <span class="s1">&#39;color: blue&#39;</span> <span class="p">);</span>
 
       <span class="k">return</span> <span class="nx">storageDfd</span><span class="p">.</span><span class="nx">promise</span><span class="p">();</span>
 
