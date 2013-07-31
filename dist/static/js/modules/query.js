@@ -160,12 +160,6 @@ var PDP = (function ( pdp ) {
         apiCallParams = params || this.params,
         downloadFormat = format || this.format;
 
-    // make sure that the downloadFormat is appended with a ?
-
-    if ( downloadFormat.substr( -1, 1 ) !== '?' ) {
-      downloadFormat = downloadFormat + '?';
-    }
-
     // Set a base url to append params to
 
     url = this.endpoint + 'slice/hmda_lar.' + downloadFormat + '?';
