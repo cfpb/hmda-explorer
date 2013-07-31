@@ -465,6 +465,18 @@ var PDP = (function ( pdp ) {
 
   };
 
+  // Toggle Co-Applicant section
+
+  form.toggleCoApplicants = function( action ) {
+
+    if ( action === 'hide' ) {
+      $('.co_applicant').addClass('hidden');
+    } else {
+      $('.co_applicant').removeClass('hidden');
+    }
+
+  };
+
   // The `updateShareLink` method puts the current share link in the share text box.
 
   form.updateShareLink = function() {

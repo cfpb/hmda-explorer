@@ -34,7 +34,7 @@ var PDP = (function ( pdp ) {
 
     // Initialize Bootstrap tooltips
 
-    app.$el.find('.help').tooltip({ placement: 'right' });
+    app.$el.find('.help').tooltip({ placement: 'left' });
     app.$el.find('#share_url').tooltip({ title: 'Copied to clipboard!', trigger: 'manual' });
 
     // If there are hash params in the URL, grab them and populate the DOM fields.
