@@ -166,28 +166,53 @@ var PDP = (function ( pdp ) {
 
     // fetch, compile queries
 
-    url += this.buildApiQuery( apiCallParams );
+    url += this._buildApiQuery( apiCallParams );
 
     return url;
 
   };
 
-  query.buildApiQuery = function( params ) {
-    var url = '',
-      key;
+  // builds the query string to append to api url
+  // arg: params, object. if you only need a 'where' clause, passing in
+  // query.params will do just fine
+  // if you need to use the 'select' and 'group' clauses, pass an object
+  // that has a property 'clauses' with an array of objects that correspond to 
+  // each clause. example:
+  // params = {
+  //   clauses: {
+  //     select: ['var_one', 'var_two'],
+  //     group: ['var_one', 'var_two']
+  //   }
+  // } 
 
-    if (params.hasOwnProperty('clauses')) {
+  query._buildApiQuery = function( params ) {
+
+    var url = '', key;
+
+    if ( params.hasOwnProperty('clauses') ) {
+
       for ( key in params.clauses ) {
-        if (params.clauses.hasOwnProperty( key )) {
+
+        if ( params.clauses.hasOwnProperty( key ) ) {
+
           url += this._buildClause[key]( params.clauses[key] );
+
         }
+
       }
+
     } else {
+
       url = this._buildClause.where( params );
+
     }
 
     return url;
+
   };
+
+  // methods correspond to each type of clause that the API takes
+  // builds part of api call query string pertaining to clause
 
   query._buildClause = {
 
@@ -198,7 +223,7 @@ var PDP = (function ( pdp ) {
 
       _.forEach( params, function( param, paramName ) {
 
-        var paramVals = this._gatherParamValues( param, paramName );
+        var paramVals = this._formatComparisonValues( param, paramName );
 
         queryVals.push( paramVals );
 
@@ -209,6 +234,8 @@ var PDP = (function ( pdp ) {
       return '&$where=' + encodeURI( queryVals.join(' AND ') ).replace( /%20/g, '+' );
     },
 
+    // select and group clauses are formatted the same way sans name
+
     select: function( param ) {
       return '&$select=' + this._listVals( param );
     },
@@ -217,21 +244,36 @@ var PDP = (function ( pdp ) {
       return '&$group=' + this._listVals( param );
     },
 
+    // formats single value clauses
+    // returns string of comma-delimited values
+
     _listVals: function( param ) {
+
       var i = param.length,
+
         str = '';
 
+
       while( i-- ) {
+
         str += param[i];
+
+        // if this is not the last value, add comma
+
         if ( i > 0 ) {
+
           str += ',';
+
         }
+
       }
 
       return str;
     },
 
-    _gatherParamValues: function( param, paramName ){
+    // formats api call values that have a comparison operator
+
+    _formatComparisonValues: function( param, paramName ){
       var paramVal,
           paramVals = [];
 
