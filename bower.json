@@ -13,6 +13,7 @@
     "chosen": "https://github.com/contolini/chosen.git#v10.0.0",
     "font-awesome": "~3.2.1",
     "zeroclipboard": "~1.2.0-beta.3",
-    "jquery-ui": "~1.10.3"
+    "jquery-ui": "~1.10.3",
+    "respond": "~1.2.0"
   }
 }
