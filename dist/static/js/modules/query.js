@@ -181,8 +181,6 @@ var PDP = (function ( pdp ) {
 
   };
 
-  // Convert each param to a proper [`$where` clause](http://cfpb.github.io/qu/articles/queries.html#where_in_detail).
-
   query.buildApiQuery = function( params ) {
     var url = '',
       key;
@@ -201,6 +199,9 @@ var PDP = (function ( pdp ) {
   };
 
   query._buildClause = {
+
+  // Convert each param to a proper [`$where` clause](http://cfpb.github.io/qu/articles/queries.html#where_in_detail).
+
     where: function( params ) {
       var param, paramName, paramVal, paramVals = [], _params, queryVals = [];
 
