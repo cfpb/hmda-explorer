@@ -49,7 +49,7 @@ gets called inside getCache, you get the same API.</p>             </td>        
         <span class="p">}</span>
       <span class="p">});</span>
 
-      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">url</span> <span class="o">+</span> <span class="s1">&#39;%c fetched via AJAX&#39;</span><span class="p">,</span> <span class="s1">&#39;color: orange&#39;</span> <span class="p">);</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">url</span> <span class="o">+</span> <span class="s1">&#39; %c fetched via AJAX&#39;</span><span class="p">,</span> <span class="s1">&#39;color: orange&#39;</span> <span class="p">);</span>
 
       <span class="k">return</span> <span class="nx">promise</span><span class="p">;</span>
     <span class="p">}</span>
@@ -67,7 +67,7 @@ gets called inside getCache, you get the same API.</p>             </td>        
         <span class="nx">storageDfd</span><span class="p">.</span><span class="nx">resolveWith</span><span class="p">(</span> <span class="kc">null</span><span class="p">,</span> <span class="p">[</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">storedData</span><span class="p">)]</span> <span class="p">);</span>
       <span class="p">});</span>
 
-      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">url</span> <span class="o">+</span> <span class="s1">&#39;%c fetched via localStorange&#39;</span><span class="p">,</span> <span class="s1">&#39;color: blue&#39;</span> <span class="p">);</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">url</span> <span class="o">+</span> <span class="s1">&#39; %c fetched via localStorange&#39;</span><span class="p">,</span> <span class="s1">&#39;color: blue&#39;</span> <span class="p">);</span>
 
       <span class="k">return</span> <span class="nx">storageDfd</span><span class="p">.</span><span class="nx">promise</span><span class="p">();</span>
 
@@ -80,8 +80,8 @@ gets called inside getCache, you get the same API.</p>             </td>        
       <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="k">this</span> <span class="o">!==</span> <span class="s1">&#39;function&#39;</span><span class="p">)</span> <span class="p">{</span></pre></div>             </td>           </tr>                               <tr id="section-11">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-11">&#182;</a>               </div>               <p>closest thing possible to the ECMAScript 5 internal IsCallable function</p>             </td>             <td class="code">               <div class="highlight"><pre>        <span class="k">throw</span> <span class="k">new</span> <span class="nx">TypeError</span><span class="p">(</span><span class="s1">&#39;Function.prototype.bind - what is trying to be bound is not callable&#39;</span><span class="p">);</span>
       <span class="p">}</span>
 
-      <span class="kd">var</span> <span class="nx">aArgs</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">arguments</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> 
-          <span class="nx">fToBind</span> <span class="o">=</span> <span class="k">this</span><span class="p">,</span> 
+      <span class="kd">var</span> <span class="nx">aArgs</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">arguments</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+          <span class="nx">fToBind</span> <span class="o">=</span> <span class="k">this</span><span class="p">,</span>
           <span class="nx">FNOP</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{},</span>
           <span class="nx">fBound</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
             <span class="k">return</span> <span class="nx">fToBind</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span> <span class="k">instanceof</span> <span class="nx">FNOP</span> <span class="o">&amp;&amp;</span> <span class="nx">oThis</span> <span class="o">?</span> <span class="k">this</span> <span class="o">:</span> <span class="nx">oThis</span><span class="p">,</span> <span class="nx">aArgs</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">arguments</span><span class="p">)));</span>
