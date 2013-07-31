@@ -16,9 +16,20 @@ var PDP = (function ( pdp ) {
 
   // Cache a reference to the preview table's jQuery object.
 
-  preview.$el = $('table#preview');
+  preview.$el = $('#preview');
+
+  // Whether or not the preview is currently updating.
 
   preview._updating = false;
+
+  // Object for handling NLW stuff.
+
+  preview.nlw = {
+
+    $el: $('#nlw'),
+    count: '1000+'
+
+  };
 
   // The `_fetchPreviewJSON` method returns a promise of JSON
 
@@ -31,47 +42,60 @@ var PDP = (function ( pdp ) {
 
   };
 
-  // The `update` method updates the preview table.
-  // @TODO Improve and abstract this method, rough right now for prototyping.
+  // The `update` method updates the preview section.
 
   preview.update = function() {
-
-    var _rows = [];
 
     this._updating = true;
 
     this._fetchPreviewJSON().done( function( data ) {
 
-      //console.log(data.results);
+      preview.nlw.count = data.total;
 
-      _( data.results ).forEach( function( obj ){
-
-        var _row = [];
-
-        _( obj ).forEach( function( entry ){
-
-          _row.push( entry || '' );
-
-        });
-
-        _rows.push( _row );
-
-      });
-
-      $('#preview').TidyTable({
-        //enableCheckbox: true
-      }, {
-        columnTitles: _.keys( data.results[0] ),
-        columnValues: _rows
-      });
+      preview.updateTable( data.results );
+      preview.updateNLW();
 
     }).fail( function( data, textStatus ) {
-
       console.error( 'Error updating preview table: ' + textStatus );
-
     });
 
     this._updating = false;
+
+  };
+
+  // The `updateNLW` method updates the natural language sentence above the preview table.
+
+  preview.updateNLW = function( count ) {
+
+    var years = _.clone( pdp.query.params.as_of_year.values ).sort() || '2007 - 2012',
+        countFormatted = preview.nlw.count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+    preview.nlw.$el.find('.count').html( countFormatted );
+    preview.nlw.$el.find('.years').html( years.join(', ') );
+
+  };
+
+  // The `updateTable` method updates the preview table.
+  // @data = JS object of all the data to populate the HTML table with.
+
+  preview.updateTable = function( data ) {
+
+      var _rows = [];
+
+      _( data ).forEach( function( obj ){
+        var _row = [];
+        _( obj ).forEach( function( entry ){
+          _row.push( entry || '' );
+        });
+        _rows.push( _row );
+      });
+
+      preview.$el.TidyTable({
+        //enableCheckbox: true
+      }, {
+        columnTitles: _.keys( data[0] ),
+        columnValues: _rows
+      });
 
   };
 
