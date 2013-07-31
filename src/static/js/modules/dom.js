@@ -32,13 +32,28 @@ var PDP = (function ( pdp ) {
 
   });
 
+  // Co-applicant toggle.
+
+  $('.include_co_applicant input').on( 'change', function(){
+
+    if ( +$('.include_co_applicant input:checked').val() ) {
+      pdp.form.toggleCoApplicants( 'show' );
+    } else {
+      pdp.form.toggleCoApplicants( 'hide' );
+    }
+
+  });
+
   // Hijack the submit button.
 
   $('form#explore').on( 'submit', function( ev ){
 
-    var url = pdp.query.generateApiUrl();
+    var format = $('#format').val(),
+        url = pdp.query.generateApiUrl( format );
 
     ev.preventDefault();
+
+    //console.log(url);
 
     //window.location.href = url;
 
@@ -73,7 +88,7 @@ var PDP = (function ( pdp ) {
 
     pdp.query.format = $( this ).val();
 
-    pdp.form.updateShareLink();
+    //pdp.form.updateShareLink();
 
   });
 
