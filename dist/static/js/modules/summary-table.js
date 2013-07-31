@@ -24,6 +24,9 @@ var PDP = (function ( pdp ) {
   table.fields = ['state_name', 'property_type_name', 'owner_occupancy_name'];
   table.calculateFields = ['sum', 'min', 'max', 'record count'];
 
+  table.queryParams = {};
+  table.queryParams.clauses = {};
+
   // returns a templated option tag
   table.optionTmpl = function(field, defaultOp) {
     var def = (defaultOp) ? 'selected' : '';
@@ -96,15 +99,31 @@ var PDP = (function ( pdp ) {
     });
   };
 
-  table.updateTable = function() {
-    var queryObj = {};
-    queryObj.clauses = [];
+  table.updateTable = function(e) {
 
-    queryObj.clauses.where = pdp.query.params;
-    queryObj.clauses.select = ['applicant_sex_name', 'state_name'];
-    queryObj.clauses.group = ['applicant_sex_name', 'state_name'];
+    if ( e.target.dataset.summaryTableInput === 'select' ) {
+      this.updateQuery( 
+        'select',
+        e.target.selectedOptions[0].value,
+        e.target.id.substr( -1, 1 )
+      );
+    } else {
+      this.updateQuery( 'group', e.target.value );
+    }
 
-    console.log( pdp.query._buildApiQuery( queryObj ) );
+    console.log( pdp.query._buildApiQuery( this.queryParams ) );
+
+  };
+
+  table.updateQuery = function( clause, value, position ) {
+
+    if ( typeof this.queryParams[clause] === 'undefined' ) {
+      this.queryParams.clauses[clause] = [];
+    }
+
+    this.queryParams.clauses[clause][position] = value;
+    this.queryParams.clauses.where = pdp.query.params;
+
   };
 
   table.init = function() {
@@ -112,8 +131,8 @@ var PDP = (function ( pdp ) {
     table._chosenInit();
 
     // event listener for form changes
-    this._inputs.all.on('change', function() {
-      this.updateTable();
+    this._inputs.all.on('change', function(e) {
+      this.updateTable(e);
     }.bind(this));
   };
 

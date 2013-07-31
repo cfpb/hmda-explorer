@@ -258,14 +258,16 @@ var PDP = (function ( pdp ) {
 
       while( i-- ) {
 
-        str += param[i];
+        if ( param[i] !== '' ) {
+          str += param[i];
 
-        // if this is not the last value, add comma
+          // if this is not the last value, add comma
 
-        if ( i > 0 ) {
+          if ( i > 0 ) {
 
-          str += ',';
+            str += ',';
 
+          }
         }
 
       }
