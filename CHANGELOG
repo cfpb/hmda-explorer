@@ -1,3 +1,9 @@
+v0.7.6:
+  date: 2013-07-31
+  changes:
+    - Add Co-Applicant toggle.
+    - Add CFPB logo.
+
 v0.7.5:
   date: 2013-07-30
   changes:
