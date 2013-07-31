@@ -171,7 +171,7 @@ var PDP = (function ( pdp ) {
 
   };
 
-  // The `changeSection` toggles between the popular and all filters sections.
+  // The `changeSection` toggles between the filters and summary tables sections.
   // @section = id of the section to show.
 
   app.changeSection = function( section ) {

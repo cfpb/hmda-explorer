@@ -47,15 +47,6 @@ var PDP = (function ( pdp ) {
         }
       };
 
-    } else if ( options.popular ) {
-
-      this.params = {
-        as_of_year: {
-          values: [2012, 2011],
-          comparator: '='
-        }
-      };
-
     } else {
 
       this.params = {};
@@ -171,7 +162,7 @@ var PDP = (function ( pdp ) {
 
     // Set a base url to append params to
 
-    url = this.endpoint + 'hmda_lar.' + downloadFormat;
+    url = this.endpoint + 'slice/hmda_lar.' + downloadFormat;
 
     // fetch, compile queries
 
@@ -192,7 +183,7 @@ var PDP = (function ( pdp ) {
         }
       }
     } else {
-      url = this._buildClause.where( params );      
+      url = this._buildClause.where( params );
     }
 
     return url;
@@ -203,23 +194,14 @@ var PDP = (function ( pdp ) {
   // Convert each param to a proper [`$where` clause](http://cfpb.github.io/qu/articles/queries.html#where_in_detail).
 
     where: function( params ) {
-      var param, paramName, paramVal, paramVals = [], _params, queryVals = [];
+      var param, paramName, _params, queryVals = [];
 
       _.forEach( params, function( param, paramName ) {
-        // If there's only value for the param, meaning they only selected one item or
-        // it's a radio button that only allows once value, add the stringified
-        // param to the `queryVals` array.
-          if ( param.values.length === 1 ) {
-            queryVals.push( this._gatherParamValues( param, paramName));
 
-          // If there are multiple values for a single parameter, we iterate over them and
-          // put an `OR` operator between them. We then then [group them](http://cfpb.github.io/qu/articles/queries.html#boolean_operators)
-          // with parens and add the grouping to the `params` array.
-          } else if ( param.values.length > 1 ) {
-            paramVals.push( this._gatherParamValues( param ) );
-            _params = '(' + paramVals.join(' OR ') + ')';
-            queryVals.push( _params );
-          }
+        var paramVals = this._gatherParamValues( param, paramName );
+
+        queryVals.push( paramVals );
+
       }.bind( this ));
 
       // Join all the params with `AND` operators and append it to the base url,
@@ -248,20 +230,43 @@ var PDP = (function ( pdp ) {
 
       return str;
     },
-  
-    _gatherParamValues: function( param , paramName ){
-      var paramVal;
 
-      // Wrap it in quotes if it's NaN.
+    _gatherParamValues: function( param, paramName ){
+      var paramVal,
+          paramVals = [];
 
-      if ( isNaN( param.values[0] ) ) {
-        paramVal = '"' + param.values[0] + '"';
+      // If there's only value for the param, meaning they only selected one item or
+      // it's a radio button that only allows once value, add the stringified
+      // param to the `queryVals` array.
+      if ( param.values.length === 1 ) {
+
+        if ( isNaN( param.values[0] ) ) {
+          paramVal = paramName + param.comparator + '"' + param.values[0] + '"';
+        } else {
+          paramVal = paramName + param.comparator + param.values[0];
+        }
+
+        return paramVal;
+
+      // If there are multiple values for a single parameter, we iterate over them and
+      // put an `OR` operator between them. We then then [group them](http://cfpb.github.io/qu/articles/queries.html#boolean_operators)
+      // with parens and add the grouping to the `params` array.
       } else {
-        paramVal = param.values[0];
+
+        _.forEach( param.values, function( val, key ){
+          if ( isNaN( val ) ) {
+            paramVals.push( paramName + param.comparator + '"' + val + '"' );
+          } else {
+            paramVals.push( paramName + param.comparator + val );
+          }
+        });
+
+        return '(' + paramVals.join(' OR ') + ')';
+
       }
 
-      return paramName + param.comparator + paramVal ;
     }
+
   };
 
   // The `fetch` method requests and returns JSON from Qu matching the

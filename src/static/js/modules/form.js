@@ -30,6 +30,7 @@ var PDP = (function ( pdp ) {
 
   form.clip.on( 'complete', function(client, args) {
     $('#share_url').tooltip('show');
+    $('#share_url').select();
     setTimeout( function(){
       $('#share_url').tooltip('hide');
     }, 3000);
