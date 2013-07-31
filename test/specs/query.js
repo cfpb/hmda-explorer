@@ -52,7 +52,7 @@
 
     });
 
-    it('should be able to generate an API URL', function(){
+    it('should be able to generate an API URL with a where clause', function(){
 
       var originalHash = '#!/as_of_year=2011&state_abbr=OR';
 
@@ -77,6 +77,47 @@
           expectedUrl = PDP.query.debug ? 'static/js/dummy_data/slice/hmda_lar.json?&$where=(as_of_year=2012+OR+as_of_year=2011)' : 'http://qu.demo.cfpb.gov/data/hmda/slice/hmda_lar.jsonp?$callback=?&$where=(as_of_year=2012+OR+as_of_year=2011)';
 
       expect( generatedUrl ).toBe( expectedUrl );
+
+    });
+
+    it('should be able to generate an API URL with select and group clauses', function(){
+      var configObj, generatedUrl, productionUrl, demoUrl;
+
+      configObj = {
+        clauses: {
+          'select': ['state_name', 'applicant_sex_name'],
+          'group': ['state_name', 'applicant_sex_name']
+        }
+      };
+      generatedUrl = PDP.query.generateApiUrl( 'json', configObj );
+      productionUrl = 'http://qu.demo.cfpb.gov/data/hmda/slice/hmda_lar.json?&$select=applicant_sex_name,state_name&$group=applicant_sex_name,state_name';
+      demoUrl = 'static/js/dummy_data/slice/hmda_lar.json?&$select=applicant_sex_name,state_name&$group=applicant_sex_name,state_name';
+
+  expect( generatedUrl ).toBe( demoUrl );
+
+    });
+
+    it('should be able to generate an API URL with select, where and group clauses', function(){
+      var originalHash, params, configObj, generatedUrl, productionUrl, demoUrl;
+          
+      originalHash = '#!/as_of_year=2012,2011';
+
+      window.location.hash = originalHash;
+
+      params = PDP.query.updateAll({ source: 'url' }),
+
+      configObj = {
+        clauses: {
+          'select': ['state_name', 'applicant_sex_name'],
+          'group': ['state_name', 'applicant_sex_name'],
+          'where': PDP.query.params
+        }
+      };
+      generatedUrl = PDP.query.generateApiUrl( 'json', configObj );
+      productionUrl = 'http://qu.demo.cfpb.gov/data/hmda/slice/hmda_lar.json?&$select=applicant_sex_name,state_name&$group=applicant_sex_name,state_name&$where=(as_of_year=2012%20OR%20as_of_year=2011)';
+      demoUrl = 'static/js/dummy_data/slice/hmda_lar.json?&$select=applicant_sex_name,state_name&$group=applicant_sex_name,state_name&$where=(as_of_year=2012+OR+as_of_year=2011)';
+
+      expect( generatedUrl ).toBe( demoUrl );
 
     });
 
