@@ -219,6 +219,7 @@ var PDP = (function ( pdp ) {
   // Convert each param to a proper [`$where` clause](http://cfpb.github.io/qu/articles/queries.html#where_in_detail).
 
     where: function( params ) {
+
       var param, paramName, _params, queryVals = [];
 
       _.forEach( params, function( param, paramName ) {
@@ -232,6 +233,7 @@ var PDP = (function ( pdp ) {
       // Join all the params with `AND` operators and append it to the base url,
       // replacing spaces with plus signs.
       return '&$where=' + encodeURI( queryVals.join(' AND ') ).replace( /%20/g, '+' );
+
     },
 
     // select and group clauses are formatted the same way sans name
@@ -283,9 +285,13 @@ var PDP = (function ( pdp ) {
       if ( param.values.length === 1 ) {
 
         if ( isNaN( param.values[0] ) ) {
+
           paramVal = paramName + param.comparator + '"' + param.values[0] + '"';
+
         } else {
+
           paramVal = paramName + param.comparator + param.values[0];
+
         }
 
         return paramVal;
@@ -296,11 +302,17 @@ var PDP = (function ( pdp ) {
       } else {
 
         _.forEach( param.values, function( val, key ){
+
           if ( isNaN( val ) ) {
+
             paramVals.push( paramName + param.comparator + '"' + val + '"' );
+
           } else {
+
             paramVals.push( paramName + param.comparator + val );
+
           }
+
         });
 
         return '(' + paramVals.join(' OR ') + ')';
