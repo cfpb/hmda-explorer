@@ -32,6 +32,18 @@ var PDP = (function ( pdp ) {
 
   });
 
+  // Co-applicant toggle.
+
+  $('.include_co_applicant input').on( 'change', function(){
+
+    if ( +$('.include_co_applicant input:checked').val() ) {
+      pdp.form.toggleCoApplicants( 'show' );
+    } else {
+      pdp.form.toggleCoApplicants( 'hide' );
+    }
+
+  });
+
   // Hijack the submit button.
 
   $('form#explore').on( 'submit', function( ev ){
