@@ -15,7 +15,6 @@ var PDP = (function ( pdp ) {
   // cache input fields
   table._inputs = {};
   table._inputs.all = $('*[data-summary-table-input]');
-  table._inputs.year = table.$el.find('#year');
   table._inputs.varFields = [$('#variable0'), $('#variable1'), $('#variable2')];
   table._inputs.calculate = $('#calculate-by');
 
@@ -43,9 +42,6 @@ var PDP = (function ( pdp ) {
   table._populateOptions = function() {
     table._populateFields(table._inputs.varFields, table.fields, table.optionTmpl);
 
-    // populate year field
-    table._populateSingleInput(table._inputs.year, table._years, table.optionTmpl);
-
     // populate calculated by field
     table._populateFields([table._inputs.calculate], table.calculateFields, table.radioTmpl);
   };
@@ -70,25 +66,6 @@ var PDP = (function ( pdp ) {
         first = false;
       }
     } 
-  };
-
-  // populates year field
-  // $input: jQobj of <select>
-  // fields: array of strings, each with a name of API field
-  // for the year field, ask for years in asc, will get flipped to desc
-  table._populateSingleInput = function($input, fields) {
-    var fieldsLen = fields.length,
-        first = true;
-
-    while (fieldsLen--) {
-      $input.append(
-        table.optionTmpl(fields[fieldsLen], first)
-      );
-
-      first = false;
-    }
-
-    return $input;
   };
 
   table._chosenInit = function() {
