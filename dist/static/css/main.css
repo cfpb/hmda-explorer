@@ -2360,6 +2360,7 @@ textarea {
   vertical-align: top;
   width: 100%;
   background-color: #f4f3f2;
+  padding: 20px 0;
 }
 .ie .preview {
   margin-right: -0.26em;
@@ -2372,7 +2373,7 @@ textarea {
 .preview #preview {
   overflow: scroll;
   max-height: 400px;
-  margin: 15px 0;
+  margin-top: 10px;
 }
 .preview #preview table.tidy_table {
   table-layout: fixed;
@@ -2384,6 +2385,16 @@ textarea {
   display: inline-block;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.preview h3 {
+  color: #0072ce;
+  display: inline-block;
+}
+.preview h3 i {
+  padding-left: 3px;
+}
+.preview.closed i.icon-minus-alt:before {
+  content: "\e0067";
 }
 @media only screen and (min-width: 768px) {
   
@@ -3187,9 +3198,7 @@ nav li {
   }
   .hmda header ul a:hover {
     background-color: transparent;
-    font-family: "Avenir Next", Arial, sans-serif;
-    font-weight: 700;
-    font-style: normal;
+    color: #0072ce;
   }
   .hmda header:before,
   .hmda header:after {

@@ -81,6 +81,9 @@ var PDP = (function ( pdp ) {
 
     pdp.form.checkFilters();
 
+    // Hide the preview table.
+    $('#preview').hide();
+
     // Broadcast that the app has started.
 
     pdp.observer.emitEvent('app:started');

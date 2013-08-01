@@ -4,12 +4,13 @@
 
   .column( 12 );
   background-color: #f4f3f2;
+  padding: 20px 0;
 
   #preview {
 
     overflow: scroll;
     max-height: 400px;
-    margin: 15px 0;
+    margin-top: 10px;
 
     table.tidy_table {
       table-layout: fixed;
@@ -24,6 +25,22 @@
       text-overflow: ellipsis;
     }
 
+  }
+
+  h3 {
+    color: @pacific;
+    display: inline-block;
+
+    i {
+      padding-left: 3px;
+    }
+
+  }
+
+  &.closed {
+    i.icon-minus-alt:before {
+      content: "\e0067";
+    }
   }
 
 }
