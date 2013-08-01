@@ -9,32 +9,6 @@
 
     });
 
-    describe('_.populateSingleInput', function() {
-
-      it("should populate a single field", function() {
-        $('body').append('<select id="magic"></select>');
-
-        var fields = ['magic', 'rainbows'],
-            $input =  $('#magic'); 
-
-        PDP.summaryTable._populateSingleInput( $input, fields );
-
-        expect( $input.children().length ).toEqual(2);
-      }); 
-
-      it("should keep the options in the correct order", function() {
-        expect( $('#magic').children().first().text() ).toEqual('rainbows');
-      });
-
-      it("should only generate one selected <option>", function() {
-        expect( $('#magic option[selected]').length ).toEqual(1);
-
-        // tear down
-        $('#magic').remove();
-      });
-
-    });
-
     describe('_.populateFields', function() {
     
       it("should populate multiple fields", function() {
