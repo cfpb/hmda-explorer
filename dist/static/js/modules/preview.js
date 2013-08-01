@@ -31,6 +31,29 @@ var PDP = (function ( pdp ) {
 
   };
 
+  // The `startLoading` method adds a class to the preview section's element so we can
+  // visualize the loading of content.
+
+  preview.startLoading = function() {
+
+    this.$el.addClass('loading');
+    this.nlw.$el.addClass('loading');
+    this.nlw.$el.find('.calculating').show();
+    this.nlw.$el.find('.count').hide();
+
+  };
+
+  // The `stopLoading` method removes the preview section's loading class.
+
+  preview.stopLoading = function() {
+
+    this.$el.removeClass('loading');
+    this.nlw.$el.removeClass('loading');
+    this.nlw.$el.find('.calculating').hide();
+    this.nlw.$el.find('.count').show();
+
+  };
+
   // The `_fetchPreviewJSON` method returns a promise of JSON
 
   preview._fetchPreviewJSON = function() {
@@ -46,7 +69,7 @@ var PDP = (function ( pdp ) {
 
   preview.update = function() {
 
-    this._updating = true;
+    preview.startLoading();
 
     this._fetchPreviewJSON().done( function( data ) {
 
@@ -55,11 +78,14 @@ var PDP = (function ( pdp ) {
       preview.updateTable( data.results );
       preview.updateNLW();
 
-    }).fail( function( data, textStatus ) {
-      console.error( 'Error updating preview table: ' + textStatus );
-    });
+      preview.stopLoading();
 
-    this._updating = false;
+    }).fail( function( data, textStatus ) {
+
+      console.error( 'Error updating preview table: ' + textStatus );
+      preview.stopLoading();
+
+    });
 
   };
 

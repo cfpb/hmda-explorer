@@ -1,3 +1,8 @@
+v0.8.0:
+  date: 2013-07-31
+  changes:
+    - Initial NLW implementation.
+
 v0.7.6:
   date: 2013-07-31
   changes:
