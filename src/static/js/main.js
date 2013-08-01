@@ -33,7 +33,8 @@ var PDP = (function ( pdp ) {
 
     'app:started': [
       pdp.form.updateShareLink.bind( pdp.form ),
-      pdp.preview.update.bind( pdp.preview )
+      pdp.preview.update.bind( pdp.preview ),
+      pdp.form.updateFieldOptions.bind( pdp.form )
     ],
 
     // When a field is changed: Update the `query.params` hash, check form

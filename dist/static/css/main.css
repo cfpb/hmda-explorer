@@ -2090,6 +2090,18 @@ textarea {
 .no-js .fields {
   display: block;
 }
+.spin_16 {
+  height: 16px;
+  width: 16px;
+  text-indent: -999999px;
+  background-image: url('../img/icon_spinner.gif');
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
+  .spin_16 {
+    background-image: url("../img/icon_spinner_2x.gif");
+    background-size: 16px 16px;
+  }
+}
 /**
  *  Mixin to justify a horizontal list, useful for navs
  **/
@@ -2757,6 +2769,9 @@ ul.chzn-choices {
   display: inline;
   *zoom: 1;
   *behavior: url(boxsizing.htc);
+}
+.calculating {
+  display: inline-block;
 }
 @media only screen and (min-width: 768px) {
   .explore h1 {

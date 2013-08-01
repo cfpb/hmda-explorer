@@ -75,7 +75,7 @@ for the year field, ask for years in asc, will get flipped to desc</p>          
     <span class="nx">queryObj</span><span class="p">.</span><span class="nx">clauses</span><span class="p">.</span><span class="nx">select</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;applicant_sex_name&#39;</span><span class="p">,</span> <span class="s1">&#39;state_name&#39;</span><span class="p">];</span>
     <span class="nx">queryObj</span><span class="p">.</span><span class="nx">clauses</span><span class="p">.</span><span class="nx">group</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;applicant_sex_name&#39;</span><span class="p">,</span> <span class="s1">&#39;state_name&#39;</span><span class="p">];</span>
 
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">buildApiQuery</span><span class="p">(</span> <span class="nx">queryObj</span> <span class="p">)</span> <span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">_buildApiQuery</span><span class="p">(</span> <span class="nx">queryObj</span> <span class="p">)</span> <span class="p">);</span>
   <span class="p">};</span>
 
   <span class="nx">table</span><span class="p">.</span><span class="nx">init</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
