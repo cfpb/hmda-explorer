@@ -22,6 +22,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2013-07-31   [v0.8.0](../../tree/v0.8.0)   Initial NLW implementation.
  * 2013-07-31   [v0.7.6](../../tree/v0.7.6)   Add Co-Applicant toggle. Add CFPB logo.
  * 2013-07-30   [v0.7.5](../../tree/v0.7.5)   Improve test coverage of new API.
  * 2013-07-30   [v0.7.4](../../tree/v0.7.4)   Refactor API URL building method to better accommodate summary table $select/$group clauses.
@@ -52,4 +53,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Wed Jul 31 2013 14:51:09.*
+*This file was generated on Wed Jul 31 2013 20:10:44.*

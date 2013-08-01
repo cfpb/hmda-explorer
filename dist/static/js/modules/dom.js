@@ -53,10 +53,6 @@ var PDP = (function ( pdp ) {
 
     ev.preventDefault();
 
-    //console.log(url);
-
-    //window.location.href = url;
-
     window.open( url , '_blank' );
 
   });
@@ -87,8 +83,6 @@ var PDP = (function ( pdp ) {
   $('#format').on( 'change', function(){
 
     pdp.query.format = $( this ).val();
-
-    //pdp.form.updateShareLink();
 
   });
 
