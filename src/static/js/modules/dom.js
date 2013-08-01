@@ -78,6 +78,30 @@ var PDP = (function ( pdp ) {
 
   });
 
+  // Open and close preview section
+
+  $('.preview .title').on( 'click', function( ev ){
+
+    var id = $( this ).find('a').attr('href'),
+        $el = $( id ),
+        $container = $el.parent('.preview');
+
+    ev.preventDefault();
+
+    if ( $container.hasClass('closed') ) {
+
+      $el.slideDown( 250 );
+      $container.removeClass('closed');
+
+    } else {
+
+      $el.slideUp( 150 );
+      $container.addClass('closed');
+
+    }
+
+  });
+
   // When the format is changed, updated `query.format` and the share URL.
 
   $('#format').on( 'change', function(){
