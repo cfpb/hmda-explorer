@@ -3187,9 +3187,7 @@ nav li {
   }
   .hmda header ul a:hover {
     background-color: transparent;
-    font-family: "Avenir Next", Arial, sans-serif;
-    font-weight: 700;
-    font-style: normal;
+    color: #0072ce;
   }
   .hmda header:before,
   .hmda header:after {
