@@ -25,14 +25,11 @@
     <form id="summary-table">
       
       <div class="intro">
-
-        <select id="year" multiple class="chzn-select" data-summary-table-input></select>
-
       </div>
 
       <div class="variable">
 
-        <select id="variable1" class="chzn-single" data-summary-table-input>
+        <select id="variable0" class="chzn-single" data-summary-table-input="both">
           <option placeholder>Select the first variable</option>
         </select>
 
@@ -40,7 +37,7 @@
 
       <div class="variable">
 
-        <select id="variable2" class="chzn-single" data-summary-table-input>
+        <select id="variable1" class="chzn-single" data-summary-table-input="both">
           <option placeholder>Select the second variable</option>
         </select>
 
@@ -48,14 +45,26 @@
 
       <div class="variable">
 
-        <select id="variable3" class="chzn-single" data-summary-table-input>
+        <select id="variable2" class="chzn-single" data-summary-table-input="both">
           <option placeholder>Select the third variable</option>
         </select>
 
       </div>
 
-      <fieldset class="calculate" id="calculate-by" data-summary-table-input>
-      </fieldset>
+      <select class="calculate chzn-single" id="calculate-by" data-summary-table-input="select">
+        <option value="records" selected>Number of records</option>
+        <option placeholder>-----</option>
+        <option placeholder>Applicant Income</option>
+        <option value="income-min">- Min</option>
+        <option value="income-max">- Max</option>
+        <option value="income-avg">- Average</option>
+        <option placeholder>-----</option>
+        <option placeholder>Loan Amount</option>
+        <option value="loan-min">- Min</option>
+        <option value="loan-max">- Max</option>
+        <option value="loan-avg">- Average</option>
+        <option value="loan-sum">- Sum Total</option>
+      </select>
       
     </form>
   <script src="static/js/main.min.js"></script>
