@@ -258,7 +258,7 @@ var PDP = (function ( pdp ) {
 
       while( i-- ) {
 
-        if ( param[i] !== '' ) {
+        if ( typeof param[i] !== 'undefined' ) {
           str += param[i];
 
           // if this is not the last value, add comma
