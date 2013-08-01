@@ -14,6 +14,10 @@ var PDP = (function( pdp ) {
 
   pdp.utils = {};
 
+  pdp.utils.showError = function( errorText ) {
+    $('#error').text( errorText ).delay( 20000 ).fadeOut();
+  };
+
   // Return the hash parameters from the current URL. [source](http://stackoverflow.com/questions/4197591/parsing-url-hash-fragment-identifier-with-javascript/4198132#4198132)
 
   pdp.utils.getHashParams = function() {
