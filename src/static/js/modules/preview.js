@@ -93,7 +93,7 @@ var PDP = (function ( pdp ) {
 
   preview.updateNLW = function( count ) {
 
-    var years = _.clone( pdp.query.params.as_of_year.values ).sort() || '2007 - 2012',
+    var years = typeof pdp.query.params.as_of_year !== 'undefined' ? _.clone( pdp.query.params.as_of_year.values ).sort() : [2011],
         countFormatted = preview.nlw.count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
     preview.nlw.$el.find('.count').html( countFormatted );

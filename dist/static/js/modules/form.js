@@ -377,6 +377,27 @@ var PDP = (function ( pdp ) {
 
   };
 
+  // The `resetFields` method clears all values from all fields and tells
+  // `chosen` to update selects accordingly.
+
+  form.resetFields = function() {
+
+    var $fields = pdp.app.$el.find('.param');
+
+    $fields.each( function() {
+
+        var param = $( this ).attr('name').replace(/\[\]/g, '\\[\\]');
+
+        // Clear radios and checkboxes
+        $('input[type=radio][name=' + param + ']').prop('checked', false);
+        $('input[type=checkbox][name=' + param + ']').prop('checked', false);
+        $('input[type=text][name=' + param + ']').val('');
+        $('select[name=' + param + ']').val('').trigger('liszt:updated');
+
+    });
+
+  };
+
   // The `disableField` method disables a `select` and its `chosen` container.
 
   form.disableField = function( el ) {
