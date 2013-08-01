@@ -35,11 +35,11 @@ table.tidy_table th {
 }
 
 table.tidy_table th.sort_asc {
-	background: #EEEEEE url( images/arrow_asc.gif ) no-repeat right center;
+	background: #EEEEEE url( ../img/arrow_asc.gif ) no-repeat right center;
 }
 
 table.tidy_table th.sort_desc {
-	background: #EEEEEE url( images/arrow_desc.gif ) no-repeat right center;
+	background: #EEEEEE url( ../img/arrow_desc.gif ) no-repeat right center;
 }
 
 table.tidy_table th,

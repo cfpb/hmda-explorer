@@ -867,10 +867,10 @@ table.tidy_table th {
   background-color: #DDDDDD;
 }
 table.tidy_table th.sort_asc {
-  background: #eeeeee url(images/arrow_asc.gif ) no-repeat right center;
+  background: #eeeeee url(../img/arrow_asc.gif ) no-repeat right center;
 }
 table.tidy_table th.sort_desc {
-  background: #eeeeee url(images/arrow_desc.gif ) no-repeat right center;
+  background: #eeeeee url(../img/arrow_desc.gif ) no-repeat right center;
 }
 table.tidy_table th,
 table.tidy_table td {
@@ -2360,7 +2360,7 @@ textarea {
   vertical-align: top;
   width: 100%;
   background-color: #f4f3f2;
-  padding: 20px 0;
+  padding: 10px 0 20px;
 }
 .ie .preview {
   margin-right: -0.26em;
