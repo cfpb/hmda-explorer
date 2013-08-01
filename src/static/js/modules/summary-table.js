@@ -21,7 +21,17 @@ var PDP = (function ( pdp ) {
   // stubs for field data until api endpoints are implemented
   table._years = ['2011', '2012'];
   table.fields = ['state_name', 'property_type_name', 'owner_occupancy_name'];
-  table.calculateFields = ['sum', 'min', 'max', 'record count'];
+
+  // map for select clause statements and calculate by field values
+  table.metrics = {
+    'income-min': 'MIN(applicant_income_000s)',
+    'income-max': 'MAX(applicant_income_000s)',
+    'income-avg': 'AVG(applicant_income_000s)',
+    'loan-min': 'MIN(loan_amount_000s)',
+    'loan-max': 'MAX(loan_amount_000s)',
+    'loan-avg': 'AVG(loan_amount_000s)',
+    'loan-sum': 'SUM(loan_amount_000s)'
+  };
 
   table.queryParams = {};
   table.queryParams.clauses = {};
@@ -33,17 +43,9 @@ var PDP = (function ( pdp ) {
     return '<option value="' + field + '"' + def + '>' + field + '</option>';
   };
 
-  table.radioTmpl = function(field, checkedVal) {
-    var checked = (checkedVal) ? 'checked="checked"' : '';
-    return '<input type="radio" value="' + field + '"' + checked + '>' + field + '</input>';
-  };
-
   // fetches field names and populates select options
   table._populateOptions = function() {
     table._populateFields(table._inputs.varFields, table.fields, table.optionTmpl);
-
-    // populate calculated by field
-    table._populateFields([table._inputs.calculate], table.calculateFields, table.radioTmpl);
   };
 
   // populates variable and calculate by fields
@@ -76,23 +78,34 @@ var PDP = (function ( pdp ) {
     });
   };
 
+  // event handler, called when a form field changes
   table.updateTable = function(e) {
+    var value = e.target.selectedOptions[0].value,
+        position = e.target.id.substr( -1, 1 );
 
-    if ( e.target.dataset.summaryTableInput === 'select' ) {
-      this.updateQuery( 
-        'select',
-        e.target.selectedOptions[0].value,
-        e.target.id.substr( -1, 1 )
-      );
-    } else {
-      this.updateQuery( 'group', e.target.value );
+    if ( e.target.id === 'calculate-by' ) {
+      value = this.metrics[e.target.selectedOptions[0].value];
+      position = 3;
     }
+  
+    this.updateQuery( 
+      e.target.dataset.summaryTableInput,
+      value,
+      position
+    );
 
     console.log( pdp.query._buildApiQuery( this.queryParams ) );
 
   };
 
+  // updates object that reflects selected form options
   table.updateQuery = function( clause, value, position ) {
+
+    if ( clause === 'both') {
+      this.updateQuery( 'select', value, position );
+      this.updateQuery( 'group', value, position );
+      return;
+    }
 
     if ( typeof this.queryParams.clauses[clause] === 'undefined' ) {
       this.queryParams.clauses[clause] = [];
