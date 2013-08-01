@@ -16,7 +16,7 @@ var PDP = (function ( pdp ) {
   table._inputs = {};
   table._inputs.all = $('*[data-summary-table-input]');
   table._inputs.year = table.$el.find('#year');
-  table._inputs.varFields = [$('#variable1'), $('#variable2'), $('#variable3')];
+  table._inputs.varFields = [$('#variable0'), $('#variable1'), $('#variable2')];
   table._inputs.calculate = $('#calculate-by');
 
   // stubs for field data until api endpoints are implemented
@@ -117,7 +117,7 @@ var PDP = (function ( pdp ) {
 
   table.updateQuery = function( clause, value, position ) {
 
-    if ( typeof this.queryParams[clause] === 'undefined' ) {
+    if ( typeof this.queryParams.clauses[clause] === 'undefined' ) {
       this.queryParams.clauses[clause] = [];
     }
 
