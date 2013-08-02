@@ -49,23 +49,43 @@
 
     <span class="p">}</span>
 
-  <span class="p">});</span></pre></div>             </td>           </tr>                               <tr id="section-9">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-9">&#182;</a>               </div>               <p>When the format is changed, updated <code>query.format</code> and the share URL.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#format&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span> <span class="s1">&#39;change&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+  <span class="p">});</span></pre></div>             </td>           </tr>                               <tr id="section-9">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-9">&#182;</a>               </div>               <p>Open and close preview section</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.preview .title&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span> <span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">ev</span> <span class="p">){</span>
+
+    <span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span> <span class="k">this</span> <span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">),</span>
+        <span class="nx">$el</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span> <span class="nx">id</span> <span class="p">),</span>
+        <span class="nx">$container</span> <span class="o">=</span> <span class="nx">$el</span><span class="p">.</span><span class="nx">parent</span><span class="p">(</span><span class="s1">&#39;.preview&#39;</span><span class="p">);</span>
+
+    <span class="nx">ev</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+
+    <span class="k">if</span> <span class="p">(</span> <span class="nx">$container</span><span class="p">.</span><span class="nx">hasClass</span><span class="p">(</span><span class="s1">&#39;closed&#39;</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+
+      <span class="nx">$el</span><span class="p">.</span><span class="nx">slideDown</span><span class="p">(</span> <span class="mi">250</span> <span class="p">);</span>
+      <span class="nx">$container</span><span class="p">.</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;closed&#39;</span><span class="p">);</span>
+
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+
+      <span class="nx">$el</span><span class="p">.</span><span class="nx">slideUp</span><span class="p">(</span> <span class="mi">150</span> <span class="p">);</span>
+      <span class="nx">$container</span><span class="p">.</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;closed&#39;</span><span class="p">);</span>
+
+    <span class="p">}</span>
+
+  <span class="p">});</span></pre></div>             </td>           </tr>                               <tr id="section-10">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-10">&#182;</a>               </div>               <p>When the format is changed, updated <code>query.format</code> and the share URL.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#format&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span> <span class="s1">&#39;change&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
 
     <span class="nx">pdp</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">format</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span> <span class="k">this</span> <span class="p">).</span><span class="nx">val</span><span class="p">();</span>
 
-  <span class="p">});</span></pre></div>             </td>           </tr>                               <tr id="section-10">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-10">&#182;</a>               </div>               <p>When the share URL text box is focused, select all the text inside.
+  <span class="p">});</span></pre></div>             </td>           </tr>                               <tr id="section-11">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-11">&#182;</a>               </div>               <p>When the share URL text box is focused, select all the text inside.
 <code>click</code> is used instead of <code>focus</code> due to a <a href="http://stackoverflow.com/questions/3150275/jquery-input-select-all-on-focus">Chrome bug</a>.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#share_url&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span> <span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
 
     <span class="nx">$</span><span class="p">(</span> <span class="k">this</span> <span class="p">).</span><span class="nx">select</span><span class="p">();</span>
 
-  <span class="p">});</span></pre></div>             </td>           </tr>                               <tr id="section-11">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-11">&#182;</a>               </div>               <p>For now, open a new window with the shareable URL when the share
+  <span class="p">});</span></pre></div>             </td>           </tr>                               <tr id="section-12">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-12">&#182;</a>               </div>               <p>For now, open a new window with the shareable URL when the share
 button is clicked.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="cm">/*</span>
 <span class="cm">  $(&#39;#share&#39;).on( &#39;click&#39;, function(){</span>
 
 <span class="cm">    window.open( $(&#39;#share_url&#39;).val() , &#39;_blank&#39; );</span>
 
 <span class="cm">  });</span>
-<span class="cm">  */</span></pre></div>             </td>           </tr>                               <tr id="section-12">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-12">&#182;</a>               </div>               <h2>When the DOM is Ready</h2>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<span class="cm">  */</span></pre></div>             </td>           </tr>                               <tr id="section-13">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-13">&#182;</a>               </div>               <h2>When the DOM is Ready</h2>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 
     <span class="nx">pdp</span><span class="p">.</span><span class="nx">observer</span><span class="p">.</span><span class="nx">emitEvent</span><span class="p">(</span><span class="s1">&#39;dom:loaded&#39;</span><span class="p">);</span>
 
