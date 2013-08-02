@@ -209,7 +209,7 @@ var PDP = (function ( pdp ) {
       if (e.target.id !== 'calculate-by') {
         var position = e.target.id.substr( -1, 1 );
 
-        $('#variable' + ++position).removeAttr('disabled').trigger('liszt:updated');
+        $('#variable'.concat(++position)).removeAttr('disabled').trigger('liszt:updated');
 
         if (position > 0) {
           $('#reset-' + e.target.id).show();
@@ -230,7 +230,7 @@ var PDP = (function ( pdp ) {
         .end()
         .trigger('liszt:updated');
 
-      $('#variable' + ++position).attr('disabled', 'disabled').trigger('liszt:updated');
+      $('#variable'.concat(++position)).attr('disabled', 'disabled').trigger('liszt:updated');
 
     }.bind( this ));
   };

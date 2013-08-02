@@ -92,6 +92,7 @@ module.exports = function(grunt) {
         evil: true,
         eqnull: true,
         browser: true,
+        plusplus: false,
         globals: {
           jQuery: true,
           $: true,
