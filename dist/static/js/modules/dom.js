@@ -120,6 +120,19 @@ var PDP = (function ( pdp ) {
 
   });
 
+  // Clear fields and scroll to the top of the filters page.
+
+  $('a.reset').on( 'click', function( ev ){
+
+    ev.preventDefault();
+
+    pdp.form.resetFields();
+    pdp.query.updateAll();
+
+    $('html, body').animate({ scrollTop: $( '#filters' ).position().top }, 200);
+
+  });
+
   // When the share URL text box is focused, select all the text inside.
   // `click` is used instead of `focus` due to a [Chrome bug](http://stackoverflow.com/questions/3150275/jquery-input-select-all-on-focus).
 
