@@ -22,6 +22,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2013-07-31   [v0.8.1](../../tree/v0.8.1)   Fix preview table bug that returned wrong number of columns.
  * 2013-07-31   [v0.8.0](../../tree/v0.8.0)   Initial NLW implementation.
  * 2013-07-31   [v0.7.6](../../tree/v0.7.6)   Add Co-Applicant toggle. Add CFPB logo.
  * 2013-07-30   [v0.7.5](../../tree/v0.7.5)   Improve test coverage of new API.
@@ -53,4 +54,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Wed Jul 31 2013 20:10:44.*
+*This file was generated on Fri Aug 02 2013 12:16:17.*
