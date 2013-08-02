@@ -110,6 +110,14 @@ var PDP = (function ( pdp ) {
 
   });
 
+  // When a link points to the download section, jump the user there.
+
+  $('a[href=#download]').on( 'click', function(){
+
+    $('html, body').animate({ scrollTop: $(document).height() }, 1000);
+
+  });
+
   // When the share URL text box is focused, select all the text inside.
   // `click` is used instead of `focus` due to a [Chrome bug](http://stackoverflow.com/questions/3150275/jquery-input-select-all-on-focus).
 
