@@ -18,6 +18,27 @@ var PDP = (function( pdp ) {
     $('#error').text( errorText ).delay( 20000 ).fadeOut();
   };
 
+  pdp.utils.varToTitle = function( varName ) {
+    var nameParts = varName.split('_'),
+        varTitle;
+
+    nameParts = nameParts.reverse();
+
+    // a varName can have both 'name' and an int on the end
+    if ( isNaN(nameParts[0]) === false ) {
+      nameParts.splice(0, 1); 
+    }
+
+    if ( nameParts[0] === 'name' ) {
+      nameParts.splice(0, 1);
+    }
+
+    varTitle = nameParts.reverse().join(' ');
+    varTitle = varTitle.charAt(0).toUpperCase() + varTitle.slice(1);
+
+    return varTitle;
+  };
+
   // Return the hash parameters from the current URL. [source](http://stackoverflow.com/questions/4197591/parsing-url-hash-fragment-identifier-with-javascript/4198132#4198132)
 
   pdp.utils.getHashParams = function() {
