@@ -867,10 +867,10 @@ table.tidy_table th {
   background-color: #DDDDDD;
 }
 table.tidy_table th.sort_asc {
-  background: #eeeeee url(images/arrow_asc.gif ) no-repeat right center;
+  background: #eeeeee url(../img/arrow_asc.gif ) no-repeat right center;
 }
 table.tidy_table th.sort_desc {
-  background: #eeeeee url(images/arrow_desc.gif ) no-repeat right center;
+  background: #eeeeee url(../img/arrow_desc.gif ) no-repeat right center;
 }
 table.tidy_table th,
 table.tidy_table td {
@@ -2131,7 +2131,7 @@ textarea {
   *zoom: 1;
   *behavior: url(boxsizing.htc);
 }
-.filter:nth-child( odd ) {
+.filter:nth-child( even ) {
   background-color: #e7e7e6;
 }
 .filter .title {
@@ -2219,6 +2219,9 @@ textarea {
   position: relative;
   top: -1px;
   *overflow: hidden;
+}
+.filter .next-steps {
+  padding: 30px 0;
 }
 .filter select {
   width: 100%;
@@ -2360,7 +2363,7 @@ textarea {
   vertical-align: top;
   width: 100%;
   background-color: #f4f3f2;
-  padding: 20px 0;
+  padding: 10px 0 20px;
 }
 .ie .preview {
   margin-right: -0.26em;

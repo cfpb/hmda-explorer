@@ -58,7 +58,7 @@ var PDP = (function ( pdp ) {
 
   preview._fetchPreviewJSON = function() {
 
-    var url = pdp.query.generateApiUrl(),
+    var url = pdp.query.generateApiUrl() + '&$limit=50',
         promise = pdp.utils.getJSON( url );
 
     return promise;
@@ -93,11 +93,32 @@ var PDP = (function ( pdp ) {
 
   preview.updateNLW = function( count ) {
 
-    var years = typeof pdp.query.params.as_of_year !== 'undefined' ? _.clone( pdp.query.params.as_of_year.values ).sort() : [2011],
-        countFormatted = preview.nlw.count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    // If there are year(s) selected use 'em, otherwise use all years.
+
+    var years = typeof pdp.query.params.as_of_year !== 'undefined' ? _.clone( pdp.query.params.as_of_year.values ).sort() : [2007, 2008, 2009, 2010, 2011, 2012],
+        countFormatted = preview.nlw.count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','),
+        areConsecutive;
+
+    if ( years.length > 1 ) {
+
+      // Are the selected years consecutive?
+
+      areConsecutive = _.every( years, function( val, i, arr ){
+        if ( i > 0 ) {
+          return val == +arr[ i - 1 ] + 1;
+        }
+        return true;
+      });
+
+      // If they're consecutive, display the first and last with a dash in the middle.
+      // Otherwise, join with commas for a list.
+
+      years = areConsecutive ? years[0] + ' - ' + _.last( years ) : years.join(', ');
+
+    }
 
     preview.nlw.$el.find('.count').html( countFormatted );
-    preview.nlw.$el.find('.years').html( years.join(', ') );
+    preview.nlw.$el.find('.years').html( years );
 
   };
 
@@ -106,20 +127,67 @@ var PDP = (function ( pdp ) {
 
   preview.updateTable = function( data ) {
 
-      var _rows = [];
+      // We don't want to show every dimension from the API in the preview table so we 
+      // specify which ones to show here.
 
-      _( data ).forEach( function( obj ){
-        var _row = [];
-        _( obj ).forEach( function( entry ){
-          _row.push( entry || '' );
+      var _keys = [
+                'action_taken_name',
+                'agency_name',
+                'applicant_ethnicity_name',
+                'applicant_race_name_1',
+                'applicant_sex_name',
+                'as_of_year',
+                'census_tract_number',
+                'co_applicant_ethnicity_name',
+                'co_applicant_race_name_1',
+                'co_applicant_sex_name',
+                'county_name',
+                'denial_reason_name_1',
+                'edit_status_name',
+                'hoepa_status_name',
+                'lien_status_name',
+                'loan_purpose_name',
+                'loan_type_name',
+                'msamd_name',
+                'owner_occupancy_name',
+                'preapproval_name',
+                'property_type_name',
+                'purchaser_type_name',
+                'respondent_id',
+                'sequence_number',
+                'state_name'
+                ],
+          _rows = [],
+          _rowCollection = {};
+
+
+      _( _keys ).forEach( function( key ){
+        _rowCollection[ key ] = '<em>N/A</em>';
+      });
+
+      _( data ).forEach( function( row ){
+
+        var _row = [],
+            _rowObj = _.clone( _rowCollection );
+
+        _( row ).forEach( function( entry, key ){
+          if ( _.include( _keys, key ) ) {
+            _rowObj[ key ] = entry;
+          }
         });
+
+        _( _rowObj ).forEach( function( entry ){
+          _row.push( entry );
+        });
+
         _rows.push( _row );
+
       });
 
       preview.$el.TidyTable({
         //enableCheckbox: true
       }, {
-        columnTitles: _.keys( data[0] ),
+        columnTitles: _keys,
         columnValues: _rows
       });
 
