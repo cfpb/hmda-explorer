@@ -2131,7 +2131,7 @@ textarea {
   *zoom: 1;
   *behavior: url(boxsizing.htc);
 }
-.filter:nth-child( odd ) {
+.filter:nth-child( even ) {
   background-color: #e7e7e6;
 }
 .filter .title {
@@ -2219,6 +2219,9 @@ textarea {
   position: relative;
   top: -1px;
   *overflow: hidden;
+}
+.filter .next-steps {
+  padding: 30px 0;
 }
 .filter select {
   width: 100%;

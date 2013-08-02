@@ -1,5 +1,5 @@
 v0.8.1:
-  date: 2013-07-31
+  date: 2013-8-01
   changes:
     - Fix preview table bug that returned wrong number of columns.
 

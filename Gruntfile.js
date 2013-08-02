@@ -80,7 +80,6 @@ module.exports = function(grunt) {
       options: {
         camelcase: false,
         curly: true,
-        eqeqeq: true,
         forin: true,
         immed: true,
         latedef: true,

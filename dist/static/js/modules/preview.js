@@ -96,10 +96,29 @@ var PDP = (function ( pdp ) {
     // If there are year(s) selected use 'em, otherwise use all years.
 
     var years = typeof pdp.query.params.as_of_year !== 'undefined' ? _.clone( pdp.query.params.as_of_year.values ).sort() : [2007, 2008, 2009, 2010, 2011, 2012],
-        countFormatted = preview.nlw.count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        countFormatted = preview.nlw.count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','),
+        areConsecutive;
+
+    if ( years.length > 1 ) {
+
+      // Are the selected years consecutive?
+
+      areConsecutive = _.every( years, function( val, i, arr ){
+        if ( i > 0 ) {
+          return val == +arr[ i - 1 ] + 1;
+        }
+        return true;
+      });
+
+      // If they're consecutive, display the first and last with a dash in the middle.
+      // Otherwise, join with commas for a list.
+
+      years = areConsecutive ? years[0] + ' - ' + _.last( years ) : years.join(', ');
+
+    }
 
     preview.nlw.$el.find('.count').html( countFormatted );
-    preview.nlw.$el.find('.years').html( years.join(', ') );
+    preview.nlw.$el.find('.years').html( years );
 
   };
 
@@ -107,6 +126,9 @@ var PDP = (function ( pdp ) {
   // @data = JS object of all the data to populate the HTML table with.
 
   preview.updateTable = function( data ) {
+
+      // We don't want to show every dimension from the API in the preview table so we 
+      // specify which ones to show here.
 
       var _keys = [
                 'action_taken_name',
@@ -154,13 +176,12 @@ var PDP = (function ( pdp ) {
           }
         });
 
-
-
         _( _rowObj ).forEach( function( entry ){
           _row.push( entry );
         });
 
         _rows.push( _row );
+
       });
 
       preview.$el.TidyTable({
