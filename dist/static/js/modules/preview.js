@@ -158,29 +158,29 @@ var PDP = (function ( pdp ) {
                 'state_name'
                 ],
           _rows = [],
-          _rowCollection = {};
+          _rowConstructor = {};
 
 
       _( _keys ).forEach( function( key ){
-        _rowCollection[ key ] = '<em>N/A</em>';
+        _rowConstructor[ key ] = '<em>N/A</em>';
       });
 
       _( data ).forEach( function( row ){
 
-        var _row = [],
-            _rowObj = _.clone( _rowCollection );
+        var _row = _.clone( _rowConstructor ),
+            _flattenedRow = [];
 
         _( row ).forEach( function( entry, key ){
           if ( _.include( _keys, key ) ) {
-            _rowObj[ key ] = entry;
+            _row[ key ] = entry;
           }
         });
 
-        _( _rowObj ).forEach( function( entry ){
-          _row.push( entry );
+        _( _row ).forEach( function( entry ){
+          _flattenedRow.push( entry );
         });
 
-        _rows.push( _row );
+        _rows.push( _flattenedRow );
 
       });
 

@@ -110,11 +110,13 @@ var PDP = (function ( pdp ) {
 
   });
 
-  // When a link points to the download section, jump the user there.
+  // When a link pointing to the download section is clicked, jump the user there.
 
-  $('a[href=#download]').on( 'click', function(){
+  $('a[href=#download]').on( 'click', function( ev ){
 
-    $('html, body').animate({ scrollTop: $(document).height() }, 1000);
+    ev.preventDefault();
+
+    $('html, body').animate({ scrollTop: $( document ).height() }, 100);
 
   });
 
