@@ -17,7 +17,7 @@ var PDP = (function ( pdp ) {
 
   // If debug is set to true, dummy data will be used.
 
-  query.debug = true;
+  query.debug = false;
 
   // Set a default format for the data download.
 
