@@ -26,8 +26,8 @@
       });
 
       it("should keep field values in the correct order", function() {
-        expect( $('#veggies1').children().first().text() ).toEqual('carrots');
-        expect( $('#veggies2').children().first().text() ).toEqual('carrots');
+        expect( $('#veggies1').children().first().text() ).toEqual('Carrots');
+        expect( $('#veggies2').children().first().text() ).toEqual('Carrots');
 
         $('#veggies1, #veggies2').remove();
       });
@@ -37,12 +37,12 @@
 
       it("should return a properly formed <option> string", function() {
         expect( PDP.summaryTable.optionTmpl('butternut') )
-          .toEqual('<option value="butternut">butternut</option>');
+          .toEqual('<option value="butternut">Butternut</option>');
       });
 
       it("should respect the selected param", function() {
         expect( PDP.summaryTable.optionTmpl('butternut', true) )
-          .toEqual('<option value="butternut"selected>butternut</option>');
+          .toEqual('<option value="butternut"selected>Butternut</option>');
       });
     });
   

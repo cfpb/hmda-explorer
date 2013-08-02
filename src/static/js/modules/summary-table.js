@@ -23,6 +23,7 @@ var PDP = (function ( pdp ) {
   // avert your eyes
   // we could call the api every time
   // or we can just do this
+  // this is a subset of all available dimensions anyway
   table.fields = ['action_taken_name','agency_name', 'applicant_ethnicity_name','applicant_race_name_1','census_tract_number','co_applicant_ethnicity_name','co_applicant_race_name_1','co_applicant_sex_name','county_name','denial_reason_name_1','hoepa_status_name','lien_status_name','loan_purpose_name','loan_type_name','msamd_name','owner_occupancy_name','preapproval_name','property_type_name','purchaser_type_name', 'respondent_id', 'state_name'];
 
   // map for select clause statements and calculate by field values
@@ -43,7 +44,7 @@ var PDP = (function ( pdp ) {
   table.optionTmpl = function(field, defaultOp) {
     var def = (defaultOp) ? 'selected' : '';
 
-    return '<option value="' + field + '"' + def + '>' + field + '</option>';
+    return '<option value="' + field + '"' + def + '>' + pdp.utils.varToTitle( field ) + '</option>';
   };
 
   // fetches field names and populates select options
@@ -85,15 +86,21 @@ var PDP = (function ( pdp ) {
   table.updateTable = function(e) {
     var value = e.target.selectedOptions[0].value,
         position = e.target.id.substr( -1, 1 ),
+        clause = e.target.dataset.summaryTableInput,
         responseJSON;
 
+    if ( e.target.selectedOptions[0].hasAttribute('placeholder') ) {
+      this.resetColumn( clause, position );
+      return;
+    }
+
     if ( e.target.id === 'calculate-by' ) {
-      value = this.metrics[e.target.selectedOptions[0].value];
+      value = this.metrics[value];
       position = 3;
     }
 
     this.updateQuery( 
-      e.target.dataset.summaryTableInput,
+      clause,
       value,
       position
     );
@@ -138,6 +145,18 @@ var PDP = (function ( pdp ) {
   
   };
 
+  table.resetColumn = function( clause, position ) {
+    if ( clause === 'both' ) {
+      this.queryParams.clauses['select'].splice( position, 1 );
+      this.resetColumn( 'group', position );
+      return;
+    }
+
+    this.queryParams.clauses[clause].splice( position, 1 );
+
+    this.resetTable();
+  };
+
   // updates object that reflects selected form options
   table.updateQuery = function( clause, value, position ) {
 
@@ -168,7 +187,9 @@ var PDP = (function ( pdp ) {
         len = columns.length - 1;
 
     for (i=0; i<=len; i++) {
-      $headerRow.append('<td id="' + columns[i] + '">' + columns[i] + '</td>');
+      if (typeof columns[i] !== 'undefined') {
+        $headerRow.append('<td id="' + columns[i] + '">' + pdp.utils.varToTitle( columns[i] ) + '</td>');
+      }
     }
 
     $table.prepend($headerRow);
@@ -179,10 +200,39 @@ var PDP = (function ( pdp ) {
     table._chosenInit();
     table.createTable();
 
+    $('#variable1, #variable2').attr('disabled', 'disabled').trigger('liszt:updated');
+
     // event listener for form changes
     this._inputs.all.on('change', function(e) {
       this.updateTable(e);
+
+      if (e.target.id !== 'calculate-by') {
+        var position = e.target.id.substr( -1, 1 );
+
+        $('#variable' + ++position).removeAttr('disabled').trigger('liszt:updated');
+
+        if (position > 0) {
+          $('#reset-' + e.target.id).show();
+        }
+      }
+
     }.bind(this));
+
+    $('.reset-field').on('click', function(e) {
+      var position = e.target.id.substr( -1, 1 ),
+          clause = e.target.dataset.summaryTableInput;
+
+      this.resetColumn( clause, position );
+      $(e.target).hide();
+      $('#variable' + position)
+        .find('option:first-child')
+        .prop('selected', true)
+        .end()
+        .trigger('liszt:updated');
+
+      $('#variable' + ++position).attr('disabled', 'disabled').trigger('liszt:updated');
+
+    }.bind( this ));
   };
 
   pdp.summaryTable = table;
