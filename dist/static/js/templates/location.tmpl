@@ -1,0 +1,48 @@
+<!-- filter field -->
+<li class="field popular">
+  <label for="state_abbr-<%= num %>">State:</label>
+  <div class="widget select">
+    <select class="param" name="state_abbr-<%= num %>" id="state_abbr-<%= num %>" data-dependent="county_name-<%= num %> census_tract_number-<%= num %>" data-placeholder="Select a state">
+      <option value="AL">Alabama</option>
+      <option value="AK">Alaska</option>
+      <option value="AZ">Arizona</option>
+      <option value="AR">Arkansas</option>
+      <option value="CA">California</option>
+    </select>
+  </div>
+  <div class="help" title="Select one or more states you would like to see mortgage data from."><i class="icon-help-alt"></i></div>
+</li>
+<!-- /filter field -->
+
+<!-- filter field -->
+<li class="field disabled">
+  <label for="msamd-<%= num %>">MSA:</label>
+  <div class="widget select">
+    <select class="param" name="msamd-<%= num %>" id="msamd-<%= num %>" multiple data-placeholder="Select a state above" data-pre-placeholder="Select a state above" data-post-placeholder="Select an MSA">
+    </select>
+  </div>
+  <div class="help" title="Select an MSA if you please."><i class="icon-help-alt"></i></div>
+</li>
+<!-- /filter field -->
+
+<!-- filter field -->
+<li class="field">
+  <label for="county_name-<%= num %>">County:</label>
+  <div class="widget select">
+    <select class="param" name="county_name-<%= num %>" id="county_name-<%= num %>" multiple data-concept="fips" data-placeholder="Select a state above" data-pre-placeholder="Select a state above" data-post-placeholder="Select a county">
+    </select>
+  </div>
+  <div class="help" title="Select a county."><i class="icon-help-alt"></i></div>
+</li>
+<!-- /filter field -->
+
+<!-- filter field -->
+<li class="field disabled">
+  <label for="census_tract_number-<%= num %>">Census tract:</label>
+  <div class="widget select">
+    <select class="param" name="census_tract_number-<%= num %>" id="census_tract_number-<%= num %>" multiple data-concept="census_tract_number" data-placeholder="Select a state above" data-pre-placeholder="Select a state above" data-post-placeholder="Select a census">
+    </select>
+  </div>
+  <div class="help" title="A census tract, or census area, or census district is a geographic area defined for the purpose of taking a census. Usually these coincide with the limits of cities and towns, and several tracts often exist within a county."><i class="icon-help-alt"></i></div>
+</li>
+<!-- /filter field -->

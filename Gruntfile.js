@@ -105,7 +105,7 @@ module.exports = function(grunt) {
           EventEmitter: true
         }
       },
-      files: ['Gruntfile.js', 'src/static/js/**/*.js']
+      files: ['Gruntfile.js', 'src/static/js/**/*.js', '!src/static/js/templates/template.js']
     },
 
     /**
@@ -127,6 +127,28 @@ module.exports = function(grunt) {
           'cp src/static/vendor/zeroclipboard/* dist/static/js/zeroclipboard/',
           'cp src/static/vendor/chosen/public/chosen-* dist/static/css'
         ].join('&&')
+      }
+    },
+
+    /**
+     * JST: https://github.com/gruntjs/grunt-contrib-jst
+     * 
+     * Precompile Underscore templates to JST file.
+     */
+    jst: {
+      compile: {
+        options: {
+          namespace: 'PDP.templates',
+          processName: function (filename) {
+            return filename.split('/').pop().split('.')[0];
+          },
+          templateSettings: {
+            pretty: true
+          }
+        },
+        files: {
+          'src/static/js/templates/template.js': ['src/static/js/templates/location.html', 'src/static/js/templates/option.html']
+        }
       }
     },
 
@@ -158,6 +180,7 @@ module.exports = function(grunt) {
             'src/static/vendor/jquery-ui/ui/jquery.ui.mouse.js',
             'src/static/vendor/jquery-ui/ui/jquery.ui.slider.js',
             'src/static/vendor/zeroclipboard/ZeroClipboard.js',
+            'src/static/js/templates/template.js',
             'src/static/js/modules/*.js',
             'src/static/js/main.js'
           ]
@@ -268,13 +291,14 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-cfpb-internal');
   grunt.loadNpmTasks('grunt-docco');
   grunt.loadNpmTasks('grunt-remove-logging');
+  grunt.loadNpmTasks('grunt-contrib-jst');
 
   /**
    * Create task aliases by registering new tasks
    */
   grunt.registerTask('test', ['jshint', 'jasmine']);
   grunt.registerTask('docs', ['removelogging', 'docco', 'build-cfpb']);
-  grunt.registerTask('build', ['shell:dist', 'uglify', 'less', 'cssmin']);
+  grunt.registerTask('build', ['shell:dist', 'jst', 'uglify', 'less', 'cssmin']);
 
   /**
    * The 'default' task will run whenever `grunt` is run without specifying a task

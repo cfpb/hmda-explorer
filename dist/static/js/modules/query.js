@@ -224,7 +224,14 @@ var PDP = (function ( pdp ) {
 
       _.forEach( params, function( param, paramName ) {
 
-        var paramVals = this._formatComparisonValues( param, paramName );
+        var paramVals;
+
+        // Strip `-xxx` from the end of the param where xxx is any word character (excl. underscores).
+        // This is done mainly for the loan_amount_000s min/max fields.
+
+        paramName = paramName.replace( /\-[\w^_]+$/, '' );
+
+        paramVals = this._formatComparisonValues( param, paramName );
 
         queryVals.push( paramVals );
 
