@@ -167,7 +167,7 @@ var PDP = (function ( pdp ) {
       name: name,
       tagName: tagName,
       type: type,
-      values: value,
+      values: value instanceof Array ? value : [ value ],
       comparator: _.isEmpty( $el.data('comparator') ) ? '=' : $el.data('comparator')
     };
 
@@ -219,8 +219,11 @@ var PDP = (function ( pdp ) {
     $('select[name=' + name + ']').val( field.values ).trigger('liszt:updated');
 
     // Set textboxes.
-    $('input[type=text][name=' + name + ']').val( field.values[0] );
-
+    if ( params[name].comparator !== '=' ) {
+      $('input[type=text][name=' + name + '][data-comparator="' + params[name].comparator + '"]').val( field.values[0] );
+    } else {
+      $('input[type=text][name=' + name + ']').val( field.values[0] );
+    }
 
   };
 
@@ -230,28 +233,6 @@ var PDP = (function ( pdp ) {
 
     var opts = options || {},
         params = _.keys( pdp.query.params );
-
-    // Helper function to set all options of a field.
-
-    function setOptions( field, param ) {
-
-      _.forEach( field.values, function( val ){
-
-        // Set radios.
-        $('input[name=' + param + '][value="' + val + '"]').prop('checked', true);
-
-        // Set checkboxes.
-        $('input[name=' + param + '\\[\\]][value="' + val + '"]').prop('checked', true);
-
-      });
-
-      // Set selects.
-      $('select[name=' + param + ']').val( field.values ).trigger('liszt:updated');
-
-      // Set textboxes.
-      $('input[type=text][name=' + param + ']').val( field.values[0] );
-
-    }
 
     function emptyOptions( field, param ) {
 
@@ -289,19 +270,20 @@ var PDP = (function ( pdp ) {
     // some fields have weird concept names (e.g. county_name is [fips](http://qu.demo.cfpb.gov/data/hmda/concept/fips.json))
 
     var concept = $(el).find('select').data('concept') || $(el).find('select').attr('id'),
-        id = $(el).find('select').attr('id');
+        id = $(el).find('select').attr('id'),
+        conceptFetch = this.fetchFieldOptions( concept );
 
     // Fetch form field options and set fields when that request is fulfilled.
 
-    this.fetchFieldOptions( concept ).done( function( data ) {
+    conceptFetch.done( function( data ) {
 
         // Grab the id of this element's dependency (e.g. state_abbr), @TODO rework this
         // as it's kinda dumb and inefficient.
 
         var options,
-            dependency = $( '[data-dependent~=' + id + ']' ).attr('id');
+            dependency = $( '[data-dependent~=' + id + ']' ).attr('id').replace( /\-[\w^_]+$/, '' );
 
-        // Only return objects from the JSON that match the the id of the depdency
+        // Only return objects from the JSON that match the the id of the depdency.
 
         function filterDeps( obj ){
 
@@ -315,7 +297,7 @@ var PDP = (function ( pdp ) {
         function mapDeps( obj ){
 
           return {
-            label: dependencies.length > 1 ? obj[ id ] + ', ' + obj[ dependency ] : obj[ id ],
+            label: obj[ id.replace( /\-[\w^_]+$/, '' ) ],
             value: obj._id
           };
 
@@ -347,7 +329,7 @@ var PDP = (function ( pdp ) {
   form.setFieldOptions = function( el, options ) {
 
     var dropdown = $( el ).find('select'),
-        template = _.template('<option value="<%= value %>"><%= label %></option>');
+        template = PDP.templates.option;
 
     _.forEach( options, function( option ) {
       dropdown.append( template( option ) );

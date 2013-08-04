@@ -53,7 +53,7 @@ var PDP = (function ( pdp ) {
 
     ev.preventDefault();
 
-    window.open( url , '_blank' );
+    pdp.app.redirect( url );
 
   });
 

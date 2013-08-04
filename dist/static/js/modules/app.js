@@ -82,6 +82,7 @@ var PDP = (function ( pdp ) {
     pdp.form.checkFilters();
 
     // Hide the preview table.
+
     $('#preview').hide();
 
     // Broadcast that the app has started.
@@ -111,7 +112,9 @@ var PDP = (function ( pdp ) {
   // It is used to send the user to the Qu URL with their results.
 
   app.redirect = function( url ) {
-    console.log('The user has been redirected!');
+
+    window.location.href = url;
+
   };
 
   // The 'getUrlValue' method returns an object containing a hash params name and value

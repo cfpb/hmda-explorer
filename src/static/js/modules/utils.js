@@ -26,7 +26,7 @@ var PDP = (function( pdp ) {
 
     // a varName can have both 'name' and an int on the end
     if ( isNaN(nameParts[0]) === false ) {
-      nameParts.splice(0, 1); 
+      nameParts.splice(0, 1);
     }
 
     if ( nameParts[0] === 'name' ) {
@@ -62,6 +62,7 @@ var PDP = (function( pdp ) {
   };
 
   // localStorage polyfill from https://gist.github.com/juliocesar/926500.
+  // Basically just creates an object in memory.
 
   if ( !('localStorage' in window) ) {
     window.localStorage = {
