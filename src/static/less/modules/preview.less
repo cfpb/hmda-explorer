@@ -9,11 +9,18 @@
   #preview {
 
     overflow: scroll;
-    max-height: 400px;
+    //height: 400px;
     margin-top: 10px;
 
     table.tidy_table {
       table-layout: fixed;
+      position: relative;
+    }
+
+    tbody {
+      display: block;
+      height: 400px;
+      overflow: scroll;
     }
 
     th,

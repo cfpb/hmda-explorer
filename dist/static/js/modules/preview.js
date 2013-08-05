@@ -130,33 +130,34 @@ var PDP = (function ( pdp ) {
       // We don't want to show every dimension from the API in the preview table so we 
       // specify which ones to show here.
 
-      var _keys = [
-                'action_taken_name',
-                'agency_name',
-                'applicant_ethnicity_name',
-                'applicant_race_name_1',
-                'applicant_sex_name',
-                'as_of_year',
-                'census_tract_number',
-                'co_applicant_ethnicity_name',
-                'co_applicant_race_name_1',
-                'co_applicant_sex_name',
-                'county_name',
-                'denial_reason_name_1',
-                'edit_status_name',
-                'hoepa_status_name',
-                'lien_status_name',
-                'loan_purpose_name',
-                'loan_type_name',
-                'msamd_name',
-                'owner_occupancy_name',
-                'preapproval_name',
-                'property_type_name',
-                'purchaser_type_name',
-                'respondent_id',
-                'sequence_number',
-                'state_name'
-                ],
+      var _fields = {
+                    action_taken_name: 'Action taken',
+                    agency_name: 'Agency name',
+                    applicant_ethnicity_name: 'Applicant ethnicity',
+                    applicant_race_name_1: 'Applicant race',
+                    applicant_sex_name: 'Applicant sex',
+                    census_tract_number: 'Census tract',
+                    co_applicant_ethnicity_name: 'Co-applicant ethnicity',
+                    co_applicant_race_name_1: 'Co-applicant race',
+                    co_applicant_sex_name: 'Co-applicant sex',
+                    county_name: 'County',
+                    denial_reason_name_1: 'Denial reason',
+                    edit_status_name: 'Status',
+                    hoepa_status_name: 'HOEPA status',
+                    lien_status_name: 'Lien status',
+                    loan_purpose_name: 'Loan purpose',
+                    loan_type_name: 'Loan type',
+                    msamd_name: 'MSA',
+                    owner_occupancy_name: 'Owner occupancy',
+                    preapproval_name: 'Preapproval',
+                    property_type_name: 'Property type',
+                    purchaser_type_name: 'Purchaser type',
+                    respondent_id: 'Respondent ID',
+                    sequence_number: 'Sequence number',
+                    state_name: 'State',
+                    as_of_year: 'Year'
+                  },
+          _keys = _.keys( _fields ),
           _rows = [],
           _rowConstructor = {};
 
@@ -187,7 +188,7 @@ var PDP = (function ( pdp ) {
       preview.$el.TidyTable({
         //enableCheckbox: true
       }, {
-        columnTitles: _keys,
+        columnTitles: _.toArray( _fields ),
         columnValues: _rows
       });
 

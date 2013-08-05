@@ -2580,11 +2580,16 @@ textarea {
 }
 .preview #preview {
   overflow: scroll;
-  max-height: 400px;
   margin-top: 10px;
 }
 .preview #preview table.tidy_table {
   table-layout: fixed;
+  position: relative;
+}
+.preview #preview tbody {
+  display: block;
+  height: 400px;
+  overflow: scroll;
 }
 .preview #preview th,
 .preview #preview td {
