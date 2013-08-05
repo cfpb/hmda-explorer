@@ -119,167 +119,65 @@
 
               </div>
 
-              <ul class="fields location-set">
+              <div id="location-sets">
 
-                <!-- filter field -->
-                <li class="field popular">
-                  <label for="state_abbr-1">State:</label>
-                  <div class="widget select">
-                    <select class="param" name="state_abbr-1" id="state_abbr-1" data-dependent="county_name-1 census_tract_number-1" data-placeholder="Select a state">
-                      <option value=""></option>
-                      <option value="AL">Alabama</option>
-                      <option value="AK">Alaska</option>
-                      <option value="AZ">Arizona</option>
-                      <option value="AR">Arkansas</option>
-                      <option value="CA">California</option>
-                    </select>
-                  </div>
-                  <div class="help" title="Select one or more states you would like to see mortgage data from."><i class="icon-help-alt"></i></div>
-                </li>
-                <!-- /filter field -->
+                <ul class="fields location-set">
 
-                <!-- filter field -->
-                <li class="field">
-                  <label for="msamd-1">MSA:</label>
-                  <div class="widget select">
-                    <select class="param" name="msamd-1" id="msamd-1" multiple data-placeholder="Select a state above" data-pre-placeholder="Select a state above" data-post-placeholder="Select an MSA">
-                    </select>
-                  </div>
-                  <div class="help" title="Select an MSA if you please."><i class="icon-help-alt"></i></div>
-                </li>
-                <!-- /filter field -->
+                  <!-- filter field -->
+                  <li class="field popular">
+                    <label for="state_abbr-1">State:</label>
+                    <div class="widget select">
+                      <select class="param" name="state_abbr-1" id="state_abbr-1" data-dependent="county_name-1 census_tract_number-1" data-placeholder="Select a state">
+                        <option value=""></option>
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="CA">California</option>
+                      </select>
+                    </div>
+                    <div class="help" title="Select one or more states you would like to see mortgage data from."><i class="icon-help-alt"></i></div>
+                  </li>
+                  <!-- /filter field -->
 
-                <!-- filter field -->
-                <li class="field">
-                  <label for="county_name-1">County:</label>
-                  <div class="widget select">
-                    <select class="param" name="county_name-1" id="county_name-1" multiple data-concept="fips" data-placeholder="Select a state above" data-pre-placeholder="Select a state above" data-post-placeholder="Select a county">
-                    </select>
-                  </div>
-                  <div class="help" title="Select a county."><i class="icon-help-alt"></i></div>
-                </li>
-                <!-- /filter field -->
+                  <!-- filter field -->
+                  <li class="field">
+                    <label for="msamd-1">MSA:</label>
+                    <div class="widget select">
+                      <select class="param" name="msamd-1" id="msamd-1" multiple data-placeholder="Select a state above" data-pre-placeholder="Select a state above" data-post-placeholder="Select an MSA">
+                      </select>
+                    </div>
+                    <div class="help" title="Select an MSA if you please."><i class="icon-help-alt"></i></div>
+                  </li>
+                  <!-- /filter field -->
 
-                <!-- filter field -->
-                <li class="field disabled">
-                  <label for="census_tract_number-1">Census tract:</label>
-                  <div class="widget select">
-                    <select class="param" name="census_tract_number-1" id="census_tract_number-1" multiple data-concept="census_tract_number" data-placeholder="Select a state above" data-pre-placeholder="Select a state above" data-post-placeholder="Select a census">
-                    </select>
-                  </div>
-                  <div class="help" title="A census tract, or census area, or census district is a geographic area defined for the purpose of taking a census. Usually these coincide with the limits of cities and towns, and several tracts often exist within a county."><i class="icon-help-alt"></i></div>
-                </li>
-                <!-- /filter field -->
+                  <!-- filter field -->
+                  <li class="field">
+                    <label for="county_name-1">County:</label>
+                    <div class="widget select">
+                      <select class="param" name="county_name-1" id="county_name-1" multiple data-concept="fips" data-placeholder="Select a state above" data-pre-placeholder="Select a state above" data-post-placeholder="Select a county">
+                      </select>
+                    </div>
+                    <div class="help" title="Select a county."><i class="icon-help-alt"></i></div>
+                  </li>
+                  <!-- /filter field -->
 
-              </ul>
+                  <!-- filter field -->
+                  <li class="field disabled">
+                    <label for="census_tract_number-1">Census tract:</label>
+                    <div class="widget select">
+                      <select class="param" name="census_tract_number-1" id="census_tract_number-1" multiple data-concept="census_tract_number" data-placeholder="Select a state above" data-pre-placeholder="Select a state above" data-post-placeholder="Select a census">
+                      </select>
+                    </div>
+                    <div class="help" title="A census tract, or census area, or census district is a geographic area defined for the purpose of taking a census. Usually these coincide with the limits of cities and towns, and several tracts often exist within a county."><i class="icon-help-alt"></i></div>
+                  </li>
+                  <!-- /filter field -->
 
-              <ul class="fields location-set">
+                </ul>
 
-                <!-- filter field -->
-                <li class="field popular">
-                  <label for="state_abbr-2">State:</label>
-                  <div class="widget select">
-                    <select class="param" name="state_abbr-2" id="state_abbr-2" data-dependent="county_name-2 census_tract_number-2" data-placeholder="Select a state">
-                      <option value=""></option>
-                      <option value="AL">Alabama</option>
-                      <option value="AK">Alaska</option>
-                      <option value="AZ">Arizona</option>
-                      <option value="AR">Arkansas</option>
-                      <option value="CA">California</option>
-                    </select>
-                  </div>
-                  <div class="help" title="Select one or more states you would like to see mortgage data from."><i class="icon-help-alt"></i></div>
-                </li>
-                <!-- /filter field -->
+              </div>
 
-                <!-- filter field -->
-                <li class="field disabled">
-                  <label for="msamd-2">MSA:</label>
-                  <div class="widget select">
-                    <select class="param" name="msamd-2" id="msamd-2" multiple data-placeholder="Select a state above" data-pre-placeholder="Select a state above" data-post-placeholder="Select an MSA">
-                    </select>
-                  </div>
-                  <div class="help" title="Select an MSA if you please."><i class="icon-help-alt"></i></div>
-                </li>
-                <!-- /filter field -->
-
-                <!-- filter field -->
-                <li class="field">
-                  <label for="county_name-2">County:</label>
-                  <div class="widget select">
-                    <select class="param" name="county_name-2" id="county_name-2" multiple data-concept="fips" data-placeholder="Select a state above" data-pre-placeholder="Select a state above" data-post-placeholder="Select a county">
-                    </select>
-                  </div>
-                  <div class="help" title="Select a county."><i class="icon-help-alt"></i></div>
-                </li>
-                <!-- /filter field -->
-
-                <!-- filter field -->
-                <li class="field disabled">
-                  <label for="census_tract_number-2">Census tract:</label>
-                  <div class="widget select">
-                    <select class="param" name="census_tract_number-2" id="census_tract_number-2" multiple data-concept="census_tract_number" data-placeholder="Select a state above" data-pre-placeholder="Select a state above" data-post-placeholder="Select a census">
-                    </select>
-                  </div>
-                  <div class="help" title="A census tract, or census area, or census district is a geographic area defined for the purpose of taking a census. Usually these coincide with the limits of cities and towns, and several tracts often exist within a county."><i class="icon-help-alt"></i></div>
-                </li>
-                <!-- /filter field -->
-
-              </ul>
-
-              <ul class="fields location-set">
-
-                <!-- filter field -->
-                <li class="field popular">
-                  <label for="state_abbr-3">State:</label>
-                  <div class="widget select">
-                    <select class="param" name="state_abbr-3" id="state_abbr-3" data-dependent="county_name-3 census_tract_number-3" data-placeholder="Select a state">
-                      <option value=""></option>
-                      <option value="AL">Alabama</option>
-                      <option value="AK">Alaska</option>
-                      <option value="AZ">Arizona</option>
-                      <option value="AR">Arkansas</option>
-                      <option value="CA">California</option>
-                    </select>
-                  </div>
-                  <div class="help" title="Select one or more states you would like to see mortgage data from."><i class="icon-help-alt"></i></div>
-                </li>
-                <!-- /filter field -->
-
-                <!-- filter field -->
-                <li class="field disabled">
-                  <label for="msamd-3">MSA:</label>
-                  <div class="widget select">
-                    <select class="param" name="msamd-3" id="msamd-3" multiple data-placeholder="Select a state above" data-pre-placeholder="Select a state above" data-post-placeholder="Select an MSA">
-                    </select>
-                  </div>
-                  <div class="help" title="Select an MSA if you please."><i class="icon-help-alt"></i></div>
-                </li>
-                <!-- /filter field -->
-
-                <!-- filter field -->
-                <li class="field">
-                  <label for="county_name-3">County:</label>
-                  <div class="widget select">
-                    <select class="param" name="county_name-3" id="county_name-3" multiple data-concept="fips" data-placeholder="Select a state above" data-pre-placeholder="Select a state above" data-post-placeholder="Select a county">
-                    </select>
-                  </div>
-                  <div class="help" title="Select a county."><i class="icon-help-alt"></i></div>
-                </li>
-                <!-- /filter field -->
-
-                <!-- filter field -->
-                <li class="field disabled">
-                  <label for="census_tract_number-3">Census tract:</label>
-                  <div class="widget select">
-                    <select class="param" name="census_tract_number-3" id="census_tract_number-3" multiple data-concept="census_tract_number" data-placeholder="Select a state above" data-pre-placeholder="Select a state above" data-post-placeholder="Select a census">
-                    </select>
-                  </div>
-                  <div class="help" title="A census tract, or census area, or census district is a geographic area defined for the purpose of taking a census. Usually these coincide with the limits of cities and towns, and several tracts often exist within a county."><i class="icon-help-alt"></i></div>
-                </li>
-                <!-- /filter field -->
-
-              </ul>
+              <a href="#" id="add-state">+ Add another state or MSA/MD</a>
               
             </div>
 

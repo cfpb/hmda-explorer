@@ -2444,6 +2444,9 @@ ul.chzn-choices {
   box-shadow: none;
   border-color: #d0d0ce;
 }
+.chzn-container-single .chzn-single abbr {
+  top: 9px;
+}
 .homepage .hero {
   padding-top: 33px;
   text-align: center;

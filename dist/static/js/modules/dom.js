@@ -32,6 +32,16 @@ var PDP = (function ( pdp ) {
 
   });
 
+  // Add a new location section whenever the `#add-state` link is clicked.
+
+  $('a#add-state').on( 'click', function( ev ){
+
+    ev.preventDefault();
+
+    pdp.form.addState();
+
+  });
+
   // Co-applicant toggle.
 
   $('.include_co_applicant input').on( 'change', function(){
