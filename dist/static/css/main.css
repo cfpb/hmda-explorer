@@ -2043,7 +2043,7 @@ textarea {
 /* Helper classes
    ========================================================================== */
 .hidden {
-  display: none;
+  display: none !important;
 }
 .visible {
   display: block;
@@ -2111,7 +2111,7 @@ textarea {
   }
 }
 .no-js #share {
-  display: none;
+  display: none !important;
 }
 .no-js .fields {
   display: block;
@@ -2309,14 +2309,12 @@ textarea {
   *behavior: url(boxsizing.htc);
 }
 .field.disabled {
-  /*color: @light_field;
+  color: #d0d0ce;
   font-style: italic;
-  label,
-  input {
-    font-style: italic !important;
-  }*/
-
-  display: none !important;
+}
+.field.disabled label,
+.field.disabled input {
+  font-style: italic !important;
 }
 @media only screen and (min-width: 768px) {
   .filter .intro {

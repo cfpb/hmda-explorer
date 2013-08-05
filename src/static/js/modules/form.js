@@ -312,9 +312,6 @@ var PDP = (function ( pdp ) {
 
         // Grab the id of this element's dependency (e.g. state_abbr), @TODO rework this
         // as it's kinda dumb and inefficient.
-        
-        console.log(concept);
-        console.log(id);
 
         var options,
             dependency = $( '[data-dependent~=' + id + ']' ).attr('id').replace( /\-[\w^_]+$/, '' );
@@ -432,8 +429,6 @@ var PDP = (function ( pdp ) {
       $select.attr('data-placeholder', placeholder).trigger('liszt:updated');
     }
 
-    form.hideField( el );
-
     return el;
 
   };
@@ -442,7 +437,7 @@ var PDP = (function ( pdp ) {
 
   form.hideField = function( el ) {
 
-    //$( el ).hide();
+    $( el ).addClass('hidden');
 
     return el;
 
@@ -455,8 +450,6 @@ var PDP = (function ( pdp ) {
     var $el = $( el ),
         $select = $el.find('select'),
         placeholder;
-
-    form.showField( el );
 
     $el.removeClass('disabled').find('select, input').removeAttr('disabled').trigger('liszt:updated');
 
@@ -475,7 +468,7 @@ var PDP = (function ( pdp ) {
 
   form.showField = function( el ) {
 
-    //$( el ).show();
+    $( el ).removeClass('hidden');
 
     return el;
 
