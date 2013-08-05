@@ -220,14 +220,53 @@ var PDP = (function ( pdp ) {
 
     where: function( params ) {
 
-      var param, paramName, _params, queryVals = [];
+      var _params = {},
+          queryVals = [];
+
+      // In order to compensate for enumerated location fields (state_abbr-1, county_name-1, etc.)
+      // we have to go through and consolidate all enumerated params into
+      // unified objects.
 
       _.forEach( params, function( param, paramName ) {
 
+        var consolidatedName;
+
+        if ( paramName.match(/\-\d+$/) ) {
+
+          consolidatedName = paramName.replace(/\-\d+$/, '');
+
+          // Initalize an empty param object if need be.
+
+          if ( typeof _params[ consolidatedName ] === 'undefined' ) {
+
+            _params[ consolidatedName ] = {
+              values: [],
+              comparator: '='
+            };
+
+          }
+
+          _.forEach( param.values, function( value ){
+            _params[ consolidatedName ].values.push( value );
+          });
+
+        } else {
+
+          _params[ paramName ] = param;
+
+        }
+
+      });
+
+      console.log(_params);
+
+      // We can now get back to business and generate that WERECLAWS
+
+      _.forEach( _params, function( param, paramName ) {
+
         var paramVals;
 
-        // Strip `-xxx` from the end of the param where xxx is any word character (excl. underscores).
-        // This is done mainly for the loan_amount_000s min/max fields.
+        // Strip `-min/max` from the end of the param. This is mainly done for the loan_amount_000s fields.
 
         paramName = paramName.replace( /\-(min|max)$/, '' );
 
