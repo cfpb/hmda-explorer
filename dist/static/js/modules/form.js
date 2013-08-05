@@ -28,12 +28,16 @@ var PDP = (function ( pdp ) {
     moviePath: 'static/js/zeroclipboard/ZeroClipboard.swf'
   });
 
+  // When the share URL has been saved to clipboard, show a tooltip for a few seconds.
+
   form.clip.on( 'complete', function(client, args) {
+
     $('#share_url').tooltip('show');
     $('#share_url').select();
     setTimeout( function(){
       $('#share_url').tooltip('hide');
     }, 3000);
+
   });
 
   // The `showFilter` method shows all the fields of a given filter section.
