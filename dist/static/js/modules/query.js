@@ -258,8 +258,6 @@ var PDP = (function ( pdp ) {
 
       });
 
-      console.log(_params);
-
       // We can now get back to business and generate that WERECLAWS
 
       _.forEach( _params, function( param, paramName ) {

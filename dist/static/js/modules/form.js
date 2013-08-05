@@ -309,8 +309,6 @@ var PDP = (function ( pdp ) {
 
     conceptFetch.done( function( data ) {
 
-      console.log(data);
-
         // Grab the id of this element's dependency (e.g. state_abbr), @TODO rework this
         // as it's kinda dumb and inefficient.
 
