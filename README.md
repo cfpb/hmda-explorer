@@ -22,6 +22,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2013-08-04   [v0.9.1](../../tree/v0.9.1)   Improve serialization of location params.
  * 2013-08-02   [v0.9.0](../../tree/v0.9.0)   New location section functionality. Moved templates into JST using grunt-contrib-jst task.
  * 2013-08-01   [v0.8.1](../../tree/v0.8.1)   Fix preview table bug that returned wrong number of columns.
  * 2013-07-31   [v0.8.0](../../tree/v0.8.0)   Initial NLW implementation.
@@ -55,4 +56,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Sat Aug 03 2013 20:38:02.*
+*This file was generated on Mon Aug 05 2013 06:00:32.*

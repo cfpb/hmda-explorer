@@ -80,6 +80,22 @@
 
     });
 
+    it('should be able to generate where clause when there are multiple locations', function(){
+
+      var originalHash = '#!/as_of_year=2011&state_abbr-1=AZ&county_name-1=04011,04013&state_abbr-2=CA&county_name-2=06009,06069&section=filters';
+
+      window.location.hash = originalHash;
+
+      var params = PDP.query.updateAll({ source: 'url' }),
+          generatedUrl = PDP.query.generateApiUrl(),
+          expectedUrl = PDP.query.debug
+                      ? 'static/js/dummy_data/slice/hmda_lar.json?&$where=as_of_year=2011+AND+(state_abbr=%22AZ%22+OR+state_abbr=%22CA%22)+AND+(county_name=04011+OR+county_name=04013+OR+county_name=06009+OR+county_name=06069)'
+                      : 'http://qu.demo.cfpb.gov/data/hmda/slice/hmda_lar.jsonp?$callback=?&$where=as_of_year=2011+AND+(state_abbr=%22AZ%22+OR+state_abbr=%22CA%22)+AND+(county_name=04011+OR+county_name=04013+OR+county_name=06009+OR+county_name=06069)';
+
+      expect( generatedUrl ).toBe( expectedUrl );
+
+    });
+
     it('should be able to generate an API URL with select and group clauses', function(){
       var configObj, generatedUrl, expectedUrl;
 

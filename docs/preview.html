@@ -69,33 +69,34 @@ Otherwise, join with commas for a list.</p>             </td>             <td cl
 
   <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-15">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-15">&#182;</a>               </div>               <p>The <code>updateTable</code> method updates the preview table.
 @data = JS object of all the data to populate the HTML table with.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">preview</span><span class="p">.</span><span class="nx">updateTable</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">data</span> <span class="p">)</span> <span class="p">{</span></pre></div>             </td>           </tr>                               <tr id="section-16">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-16">&#182;</a>               </div>               <p>We don't want to show every dimension from the API in the preview table so we 
-specify which ones to show here.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="kd">var</span> <span class="nx">_keys</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="s1">&#39;action_taken_name&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;agency_name&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;applicant_ethnicity_name&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;applicant_race_name_1&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;applicant_sex_name&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;as_of_year&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;census_tract_number&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;co_applicant_ethnicity_name&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;co_applicant_race_name_1&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;co_applicant_sex_name&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;county_name&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;denial_reason_name_1&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;edit_status_name&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;hoepa_status_name&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;lien_status_name&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;loan_purpose_name&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;loan_type_name&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;msamd_name&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;owner_occupancy_name&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;preapproval_name&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;property_type_name&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;purchaser_type_name&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;respondent_id&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;sequence_number&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;state_name&#39;</span>
-                <span class="p">],</span>
+specify which ones to show here.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="kd">var</span> <span class="nx">_fields</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="nx">action_taken_name</span><span class="o">:</span> <span class="s1">&#39;Action taken&#39;</span><span class="p">,</span>
+                    <span class="nx">agency_name</span><span class="o">:</span> <span class="s1">&#39;Agency name&#39;</span><span class="p">,</span>
+                    <span class="nx">applicant_ethnicity_name</span><span class="o">:</span> <span class="s1">&#39;Applicant ethnicity&#39;</span><span class="p">,</span>
+                    <span class="nx">applicant_race_name_1</span><span class="o">:</span> <span class="s1">&#39;Applicant race&#39;</span><span class="p">,</span>
+                    <span class="nx">applicant_sex_name</span><span class="o">:</span> <span class="s1">&#39;Applicant sex&#39;</span><span class="p">,</span>
+                    <span class="nx">census_tract_number</span><span class="o">:</span> <span class="s1">&#39;Census tract&#39;</span><span class="p">,</span>
+                    <span class="nx">co_applicant_ethnicity_name</span><span class="o">:</span> <span class="s1">&#39;Co-applicant ethnicity&#39;</span><span class="p">,</span>
+                    <span class="nx">co_applicant_race_name_1</span><span class="o">:</span> <span class="s1">&#39;Co-applicant race&#39;</span><span class="p">,</span>
+                    <span class="nx">co_applicant_sex_name</span><span class="o">:</span> <span class="s1">&#39;Co-applicant sex&#39;</span><span class="p">,</span>
+                    <span class="nx">county_name</span><span class="o">:</span> <span class="s1">&#39;County&#39;</span><span class="p">,</span>
+                    <span class="nx">denial_reason_name_1</span><span class="o">:</span> <span class="s1">&#39;Denial reason&#39;</span><span class="p">,</span>
+                    <span class="nx">edit_status_name</span><span class="o">:</span> <span class="s1">&#39;Status&#39;</span><span class="p">,</span>
+                    <span class="nx">hoepa_status_name</span><span class="o">:</span> <span class="s1">&#39;HOEPA status&#39;</span><span class="p">,</span>
+                    <span class="nx">lien_status_name</span><span class="o">:</span> <span class="s1">&#39;Lien status&#39;</span><span class="p">,</span>
+                    <span class="nx">loan_purpose_name</span><span class="o">:</span> <span class="s1">&#39;Loan purpose&#39;</span><span class="p">,</span>
+                    <span class="nx">loan_type_name</span><span class="o">:</span> <span class="s1">&#39;Loan type&#39;</span><span class="p">,</span>
+                    <span class="nx">msamd_name</span><span class="o">:</span> <span class="s1">&#39;MSA&#39;</span><span class="p">,</span>
+                    <span class="nx">owner_occupancy_name</span><span class="o">:</span> <span class="s1">&#39;Owner occupancy&#39;</span><span class="p">,</span>
+                    <span class="nx">preapproval_name</span><span class="o">:</span> <span class="s1">&#39;Preapproval&#39;</span><span class="p">,</span>
+                    <span class="nx">property_type_name</span><span class="o">:</span> <span class="s1">&#39;Property type&#39;</span><span class="p">,</span>
+                    <span class="nx">purchaser_type_name</span><span class="o">:</span> <span class="s1">&#39;Purchaser type&#39;</span><span class="p">,</span>
+                    <span class="nx">respondent_id</span><span class="o">:</span> <span class="s1">&#39;Respondent ID&#39;</span><span class="p">,</span>
+                    <span class="nx">sequence_number</span><span class="o">:</span> <span class="s1">&#39;Sequence number&#39;</span><span class="p">,</span>
+                    <span class="nx">state_name</span><span class="o">:</span> <span class="s1">&#39;State&#39;</span><span class="p">,</span>
+                    <span class="nx">as_of_year</span><span class="o">:</span> <span class="s1">&#39;Year&#39;</span>
+                  <span class="p">},</span>
+          <span class="nx">_keys</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span> <span class="nx">_fields</span> <span class="p">),</span>
           <span class="nx">_rows</span> <span class="o">=</span> <span class="p">[],</span>
           <span class="nx">_rowConstructor</span> <span class="o">=</span> <span class="p">{};</span>
 
@@ -124,7 +125,7 @@ specify which ones to show here.</p>             </td>             <td class="co
       <span class="p">});</span>
 
       <span class="nx">preview</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">TidyTable</span><span class="p">({</span></pre></div>             </td>           </tr>                               <tr id="section-17">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-17">&#182;</a>               </div>               <p>enableCheckbox: true</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="p">},</span> <span class="p">{</span>
-        <span class="nx">columnTitles</span><span class="o">:</span> <span class="nx">_keys</span><span class="p">,</span>
+        <span class="nx">columnTitles</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">toArray</span><span class="p">(</span> <span class="nx">_fields</span> <span class="p">),</span>
         <span class="nx">columnValues</span><span class="o">:</span> <span class="nx">_rows</span>
       <span class="p">});</span>
 
