@@ -26,7 +26,7 @@ var PDP = (function ( pdp ) {
 
   // Whenever a field element is changed emit an event.
 
-  $('.field select, .field input').on( 'change', function(){
+  $('.filter').on( 'change', '.field select, .field input', function(){
 
     pdp.observer.emitEvent('field:changed', [ $( this ).attr('id') ] );
 
@@ -36,9 +36,13 @@ var PDP = (function ( pdp ) {
 
   $('a#add-state').on( 'click', function( ev ){
 
+    var numLocations = $('#location-sets .location-set').last().data('location-num');
+
     ev.preventDefault();
 
-    pdp.form.addState();
+    console.log(numLocations);
+
+    pdp.form.addState( ++numLocations );
 
   });
 
@@ -137,7 +141,14 @@ var PDP = (function ( pdp ) {
     ev.preventDefault();
 
     pdp.form.resetFields();
-    pdp.query.updateAll();
+    pdp.query.reset( { empty: true } );
+    pdp.form.updateShareLink();
+
+    var parents = _.map( $('select[data-dependent], input[data-dependent]'), function( el ){
+      return $( el ).attr('id');
+    });
+
+    pdp.form.checkDeps( parents );
 
     $('html, body').animate({ scrollTop: $( '#filters' ).position().top }, 200);
 

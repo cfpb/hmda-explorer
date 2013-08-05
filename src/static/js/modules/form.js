@@ -20,7 +20,9 @@ var PDP = (function ( pdp ) {
 
   // Cache a reference to all the filter fields.
 
-  form.$fields = form.$el.find('.field');
+  form.init = function() {
+    this.$fields = form.$el.find('.field');
+  };
 
   // Initialize ZeroClipboard on the share button.
 
@@ -46,7 +48,7 @@ var PDP = (function ( pdp ) {
 
     var $el = $( el ),
         $fields = $el.find('.fields'),
-        height = Math.max( $fields.show().height(), 150 );
+        height = Math.max( $fields.show().height(), 10 );
 
     // This is a hack to calculate the height of the DOM element ahead of time so
     // there's no irritating jump when it slides open.
@@ -98,6 +100,32 @@ var PDP = (function ( pdp ) {
       }
 
     });
+
+  };
+
+  // The `checkLocations` method checks if any state/msa sections need to be added.
+
+  form.checkLocations = function() {
+
+    var currentLocations = 0,
+        totalLocations = 1,
+        currentNum = [];
+
+    // Iterate over the param keys and see if any are states or msa's greater than 1.
+
+    _.forEach( _.keys( pdp.query.params ), function( param ){
+      currentNum = param.match(/(state_abbr|msamd)\-(\d+)$/);
+      if ( currentNum && currentNum.length > 0 ) {
+        totalLocations = Math.max( currentNum[2], totalLocations );
+      }
+    });
+
+    // Add the appropriate number of state/msa sections, counting up to the total quantity.
+
+    while ( currentLocations < totalLocations ) {
+      currentLocations++;
+      form.addState( currentLocations );
+    }
 
   };
 
@@ -401,6 +429,18 @@ var PDP = (function ( pdp ) {
       $select.attr('data-placeholder', placeholder).trigger('liszt:updated');
     }
 
+    form.hideField( el );
+
+    return el;
+
+  };
+
+  // The `hideField` shows a field.
+
+  form.hideField = function( el ) {
+
+    //$( el ).hide();
+
     return el;
 
   };
@@ -413,6 +453,8 @@ var PDP = (function ( pdp ) {
         $select = $el.find('select'),
         placeholder;
 
+    form.showField( el );
+
     $el.removeClass('disabled').find('select, input').removeAttr('disabled').trigger('liszt:updated');
 
     // If it's a select element, swap out its placeholder text
@@ -421,6 +463,16 @@ var PDP = (function ( pdp ) {
       placeholder = $select.data('post-placeholder');
       $select.attr('data-placeholder', placeholder).trigger('liszt:updated');
     }
+
+    return el;
+
+  };
+
+  // The `showField` shows a field.
+
+  form.showField = function( el ) {
+
+    //$( el ).show();
 
     return el;
 
@@ -484,12 +536,11 @@ var PDP = (function ( pdp ) {
 
   // Add a new state/MSA location section thingy.
 
-  form.addState = function() {
+  form.addState = function( num ) {
 
-    var num = 2,
-        template = PDP.templates.location;
+    var template = PDP.templates.location;
 
-    $('#location-sets').append( template( {num: num} ) );
+    $('#location-sets').append( template( { num: num } ) );
 
     $( '.location-set-' + num ).find('select').chosen({ width: '100%', disable_search_threshold: 10, allow_single_deselect: true });
 
