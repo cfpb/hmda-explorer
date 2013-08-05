@@ -4,7 +4,7 @@
   <li class="field state_abbr">
     <label for="state_abbr-<%= num %>">State:</label>
     <div class="widget select">
-      <select class="param" name="state_abbr-<%= num %>" id="state_abbr-<%= num %>" data-dependent="county_name-<%= num %> census_tract_number-<%= num %>" data-placeholder="Select a state">
+      <select class="param" name="state_abbr-<%= num %>" id="state_abbr-<%= num %>" data-dependent="county_code-<%= num %> census_tract_number-<%= num %>" data-placeholder="Select a state">
         <option value=""></option>
         <option value="AL">Alabama</option>
         <option value="AK">Alaska</option>
@@ -66,7 +66,8 @@
   <li class="field msamd">
     <label for="msamd-<%= num %>">MSA:</label>
     <div class="widget select">
-      <select class="param" name="msamd-<%= num %>" id="msamd-<%= num %>" multiple data-placeholder="Select an MSA">
+      <select class="param" name="msamd-<%= num %>" id="msamd-<%= num %>" data-placeholder="Select an MSA">
+        <option value=""></option>
         <option value="10180">Abilene, TX</option>
         <option value="10380">Aguadilla-Isabela, PR</option>
         <option value="10420">Akron, OH</option>
@@ -461,10 +462,10 @@
   <!-- /filter field -->
 
   <!-- filter field -->
-  <li class="field county_name disabled">
-    <label for="county_name-<%= num %>">County:</label>
+  <li class="field county_code disabled">
+    <label for="county_code-<%= num %>">County:</label>
     <div class="widget select">
-      <select class="param" name="county_name-<%= num %>" id="county_name-<%= num %>" multiple data-concept="fips" data-placeholder="Select a state above" data-pre-placeholder="Select a state above" data-post-placeholder="Select a county" disabled>
+      <select class="param" name="county_code-<%= num %>" id="county_code-<%= num %>" multiple data-concept="fips" data-concept-property="county_name" data-placeholder="Select a state above" data-pre-placeholder="Select a state above" data-post-placeholder="Select a county" disabled>
       </select>
     </div>
   </li>

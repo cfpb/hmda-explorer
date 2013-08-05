@@ -2388,7 +2388,7 @@ textarea {
     padding-bottom: .25em;
   }
   .filter.location li.field.state_abbr,
-  .filter.location li.field.county_name,
+  .filter.location li.field.county_code,
   .filter.location li.field.census_tract_number {
     display: inline-block;
     -webkit-box-sizing: border-box;
@@ -2401,19 +2401,19 @@ textarea {
     width: 33.33333333333333%;
   }
   .ie .filter.location li.field.state_abbr,
-  .ie .filter.location li.field.county_name,
+  .ie .filter.location li.field.county_code,
   .ie .filter.location li.field.census_tract_number {
     margin-right: -0.26em;
   }
   .lt-ie8 .filter.location li.field.state_abbr,
-  .lt-ie8 .filter.location li.field.county_name,
+  .lt-ie8 .filter.location li.field.county_code,
   .lt-ie8 .filter.location li.field.census_tract_number {
     display: inline;
     *zoom: 1;
     *behavior: url(boxsizing.htc);
   }
   .filter.location li.field.state_abbr > label,
-  .filter.location li.field.county_name > label,
+  .filter.location li.field.county_code > label,
   .filter.location li.field.census_tract_number > label {
     display: inline-block;
     -webkit-box-sizing: border-box;
@@ -2427,19 +2427,19 @@ textarea {
     text-align: left;
   }
   .ie .filter.location li.field.state_abbr > label,
-  .ie .filter.location li.field.county_name > label,
+  .ie .filter.location li.field.county_code > label,
   .ie .filter.location li.field.census_tract_number > label {
     margin-right: -0.26em;
   }
   .lt-ie8 .filter.location li.field.state_abbr > label,
-  .lt-ie8 .filter.location li.field.county_name > label,
+  .lt-ie8 .filter.location li.field.county_code > label,
   .lt-ie8 .filter.location li.field.census_tract_number > label {
     display: inline;
     *zoom: 1;
     *behavior: url(boxsizing.htc);
   }
   .filter.location li.field.state_abbr .widget,
-  .filter.location li.field.county_name .widget,
+  .filter.location li.field.county_code .widget,
   .filter.location li.field.census_tract_number .widget {
     display: inline-block;
     -webkit-box-sizing: border-box;
@@ -2452,18 +2452,18 @@ textarea {
     width: 100%;
   }
   .ie .filter.location li.field.state_abbr .widget,
-  .ie .filter.location li.field.county_name .widget,
+  .ie .filter.location li.field.county_code .widget,
   .ie .filter.location li.field.census_tract_number .widget {
     margin-right: -0.26em;
   }
   .lt-ie8 .filter.location li.field.state_abbr .widget,
-  .lt-ie8 .filter.location li.field.county_name .widget,
+  .lt-ie8 .filter.location li.field.county_code .widget,
   .lt-ie8 .filter.location li.field.census_tract_number .widget {
     display: inline;
     *zoom: 1;
     *behavior: url(boxsizing.htc);
   }
-  .filter.location li.field.county_name,
+  .filter.location li.field.county_code,
   .filter.location li.field.census_tract_number {
     display: inline-block;
     -webkit-box-sizing: border-box;
@@ -2477,17 +2477,17 @@ textarea {
     width: 99.99999999999999%;
     padding-right: 66.66666666666666%;
   }
-  .ie .filter.location li.field.county_name,
+  .ie .filter.location li.field.county_code,
   .ie .filter.location li.field.census_tract_number {
     margin-right: -0.26em;
   }
-  .lt-ie8 .filter.location li.field.county_name,
+  .lt-ie8 .filter.location li.field.county_code,
   .lt-ie8 .filter.location li.field.census_tract_number {
     display: inline;
     *zoom: 1;
     *behavior: url(boxsizing.htc);
   }
-  .lt-ie8 .filter.location li.field.county_name,
+  .lt-ie8 .filter.location li.field.county_code,
   .lt-ie8 .filter.location li.field.census_tract_number {
     padding-right: 0;
   }
