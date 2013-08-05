@@ -2084,6 +2084,32 @@ textarea {
 /*
  * Opaqueness
  */
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadein {
+  /* Firefox */
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .no-js #share {
   display: none;
 }
@@ -2154,8 +2180,19 @@ textarea {
 }
 .filter .fields {
   padding: 0;
+  animation: fadein .5s;
+  -moz-animation: fadein .5s;
+  /* Firefox */
+
+  -webkit-animation: fadein .5s;
+  /* Safari and Chrome */
+
+  -o-animation: fadein .5s;
+  /* Opera */
+
 }
-.filter.closed .fields {
+.filter.closed .fields,
+.filter.closed .control {
   display: none;
 }
 .filter .field {
@@ -2220,6 +2257,30 @@ textarea {
   top: -1px;
   *overflow: hidden;
 }
+.filter .location-set {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20px;
+}
+.filter .location-set:last-child {
+  border: 0;
+}
+.filter .control {
+  margin: 0 0 2em 2em;
+  display: block;
+  font-family: "Avenir Next Demi", Arial, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  animation: fadein .8s;
+  -moz-animation: fadein .8s;
+  /* Firefox */
+
+  -webkit-animation: fadein .8s;
+  /* Safari and Chrome */
+
+  -o-animation: fadein .8s;
+  /* Opera */
+
+}
 .filter .next-steps {
   padding: 30px 0;
 }
@@ -2248,12 +2309,14 @@ textarea {
   *behavior: url(boxsizing.htc);
 }
 .field.disabled {
-  color: #d0d0ce;
+  /*color: @light_field;
   font-style: italic;
-}
-.field.disabled label,
-.field.disabled input {
-  font-style: italic !important;
+  label,
+  input {
+    font-style: italic !important;
+  }*/
+
+  display: none !important;
 }
 @media only screen and (min-width: 768px) {
   .filter .intro {
@@ -2314,6 +2377,174 @@ textarea {
     margin-right: -0.26em;
   }
   .lt-ie8 .filter .widget {
+    display: inline;
+    *zoom: 1;
+    *behavior: url(boxsizing.htc);
+  }
+  .filter.location li.field {
+    margin-bottom: .25em;
+  }
+  .filter.location li.field > label {
+    padding-bottom: .25em;
+  }
+  .filter.location li.field.state_abbr,
+  .filter.location li.field.county_name,
+  .filter.location li.field.census_tract_number {
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: solid transparent;
+    border-width: 0 15px;
+    margin-right: -0.25em;
+    vertical-align: top;
+    width: 33.33333333333333%;
+  }
+  .ie .filter.location li.field.state_abbr,
+  .ie .filter.location li.field.county_name,
+  .ie .filter.location li.field.census_tract_number {
+    margin-right: -0.26em;
+  }
+  .lt-ie8 .filter.location li.field.state_abbr,
+  .lt-ie8 .filter.location li.field.county_name,
+  .lt-ie8 .filter.location li.field.census_tract_number {
+    display: inline;
+    *zoom: 1;
+    *behavior: url(boxsizing.htc);
+  }
+  .filter.location li.field.state_abbr > label,
+  .filter.location li.field.county_name > label,
+  .filter.location li.field.census_tract_number > label {
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: solid transparent;
+    border-width: 0 15px;
+    margin-right: -0.25em;
+    vertical-align: top;
+    width: 100%;
+    text-align: left;
+  }
+  .ie .filter.location li.field.state_abbr > label,
+  .ie .filter.location li.field.county_name > label,
+  .ie .filter.location li.field.census_tract_number > label {
+    margin-right: -0.26em;
+  }
+  .lt-ie8 .filter.location li.field.state_abbr > label,
+  .lt-ie8 .filter.location li.field.county_name > label,
+  .lt-ie8 .filter.location li.field.census_tract_number > label {
+    display: inline;
+    *zoom: 1;
+    *behavior: url(boxsizing.htc);
+  }
+  .filter.location li.field.state_abbr .widget,
+  .filter.location li.field.county_name .widget,
+  .filter.location li.field.census_tract_number .widget {
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: solid transparent;
+    border-width: 0 15px;
+    margin-right: -0.25em;
+    vertical-align: top;
+    width: 100%;
+  }
+  .ie .filter.location li.field.state_abbr .widget,
+  .ie .filter.location li.field.county_name .widget,
+  .ie .filter.location li.field.census_tract_number .widget {
+    margin-right: -0.26em;
+  }
+  .lt-ie8 .filter.location li.field.state_abbr .widget,
+  .lt-ie8 .filter.location li.field.county_name .widget,
+  .lt-ie8 .filter.location li.field.census_tract_number .widget {
+    display: inline;
+    *zoom: 1;
+    *behavior: url(boxsizing.htc);
+  }
+  .filter.location li.field.county_name,
+  .filter.location li.field.census_tract_number {
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: solid transparent;
+    border-width: 0 15px;
+    margin-right: -0.25em;
+    vertical-align: top;
+    width: 33.33333333333333%;
+    width: 99.99999999999999%;
+    padding-right: 66.66666666666666%;
+  }
+  .ie .filter.location li.field.county_name,
+  .ie .filter.location li.field.census_tract_number {
+    margin-right: -0.26em;
+  }
+  .lt-ie8 .filter.location li.field.county_name,
+  .lt-ie8 .filter.location li.field.census_tract_number {
+    display: inline;
+    *zoom: 1;
+    *behavior: url(boxsizing.htc);
+  }
+  .lt-ie8 .filter.location li.field.county_name,
+  .lt-ie8 .filter.location li.field.census_tract_number {
+    padding-right: 0;
+  }
+  .filter.location li.field.msamd {
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: solid transparent;
+    border-width: 0 15px;
+    margin-right: -0.25em;
+    vertical-align: top;
+    width: 50%;
+  }
+  .ie .filter.location li.field.msamd {
+    margin-right: -0.26em;
+  }
+  .lt-ie8 .filter.location li.field.msamd {
+    display: inline;
+    *zoom: 1;
+    *behavior: url(boxsizing.htc);
+  }
+  .filter.location li.field.msamd > label {
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: solid transparent;
+    border-width: 0 15px;
+    margin-right: -0.25em;
+    vertical-align: top;
+    width: 100%;
+    text-align: left;
+  }
+  .ie .filter.location li.field.msamd > label {
+    margin-right: -0.26em;
+  }
+  .lt-ie8 .filter.location li.field.msamd > label {
+    display: inline;
+    *zoom: 1;
+    *behavior: url(boxsizing.htc);
+  }
+  .filter.location li.field.msamd .widget {
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: solid transparent;
+    border-width: 0 15px;
+    margin-right: -0.25em;
+    vertical-align: top;
+    width: 100%;
+  }
+  .ie .filter.location li.field.msamd .widget {
+    margin-right: -0.26em;
+  }
+  .lt-ie8 .filter.location li.field.msamd .widget {
     display: inline;
     *zoom: 1;
     *behavior: url(boxsizing.htc);

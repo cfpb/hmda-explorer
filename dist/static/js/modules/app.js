@@ -65,15 +65,25 @@ var PDP = (function ( pdp ) {
 
   app.start = function() {
 
-    var parents = _.map( $('select[data-dependent], input[data-dependent]'), function( el ){
-      return $( el ).attr('id');
-    });
+    var parents;
+
+    // Check if any state/msa sections need to be added.
+
+    pdp.form.checkLocations();
+
+    // Initialize the form.
+
+    pdp.form.init();
 
     // Pull any `param` entries into the DOM.
 
     pdp.form.setFields();
 
     // Check if any fields that were preloaded have dependents we need to show.
+
+    parents = _.map( $('select[data-dependent], input[data-dependent]'), function( el ){
+      return $( el ).attr('id');
+    });
 
     pdp.form.checkDeps( parents );
 

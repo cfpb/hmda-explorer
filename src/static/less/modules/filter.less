@@ -44,12 +44,17 @@
 
   .fields {
     padding: 0;
+    animation: fadein .5s;
+    -moz-animation: fadein .5s; /* Firefox */
+    -webkit-animation: fadein .5s; /* Safari and Chrome */
+    -o-animation: fadein .5s; /* Opera */
   }
 
   // Closed fields should be hidden
 
   &.closed {
-    .fields {
+    .fields,
+    .control {
       display: none;
     }
   }
@@ -89,6 +94,26 @@
     }
   }
 
+  .location-set {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+    &:last-child {
+      border: 0;
+    }
+  }
+
+  // Some controls
+
+  .control {
+    margin: 0 0 2em 2em;
+    display: block;
+    .avenir-next-demi;
+    animation: fadein .8s;
+    -moz-animation: fadein .8s; /* Firefox */
+    -webkit-animation: fadein .8s; /* Safari and Chrome */
+    -o-animation: fadein .8s; /* Opera */
+  }
+
   .next-steps {
     padding: 30px 0;
   }
@@ -109,12 +134,13 @@
 // Disabled fields
 
 .field.disabled {
-  color: @light_field;
+  /*color: @light_field;
   font-style: italic;
   label,
   input {
     font-style: italic !important;
-  }
+  }*/
+  display: none !important;
 }
 
 // Viewport adjustments
@@ -142,6 +168,49 @@
 
     .widget {
       .column( 7 );
+    }
+
+    // The location section has totally different formatting
+
+    &.location {
+
+      li.field {
+        margin-bottom: .25em;
+        &> label {
+          padding-bottom: .25em;
+        }
+      }
+
+      li.field.state_abbr,
+      li.field.county_name,
+      li.field.census_tract_number {
+        .column( 4 );
+        &> label {
+          .column( 4, 4 );
+          text-align: left;
+        }
+        .widget {
+          .column( 4, 4 );
+        }
+      }
+
+      li.field.county_name,
+      li.field.census_tract_number {
+        .column( 4 );
+        .suffix( 8 );
+      }
+
+      li.field.msamd {
+        .column( 6 );
+        &> label {
+          .column( 6, 6 );
+          text-align: left;
+        }
+        .widget {
+          .column( 6, 6 );
+        }
+      }
+
     }
 
   }

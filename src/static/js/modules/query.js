@@ -229,7 +229,7 @@ var PDP = (function ( pdp ) {
         // Strip `-xxx` from the end of the param where xxx is any word character (excl. underscores).
         // This is done mainly for the loan_amount_000s min/max fields.
 
-        paramName = paramName.replace( /\-[\w^_]+$/, '' );
+        paramName = paramName.replace( /\-(min|max)$/, '' );
 
         paramVals = this._formatComparisonValues( param, paramName );
 
