@@ -309,6 +309,8 @@ var PDP = (function ( pdp ) {
 
     conceptFetch.done( function( data ) {
 
+      console.log(data);
+
         // Grab the id of this element's dependency (e.g. state_abbr), @TODO rework this
         // as it's kinda dumb and inefficient.
 
@@ -343,7 +345,7 @@ var PDP = (function ( pdp ) {
 
         }
 
-        options = _( data.table ).filter( filterDeps ).map( mapDeps ).sortBy( sortDeps ).value();
+        options = _( data.table.data ).filter( filterDeps ).map( mapDeps ).sortBy( sortDeps ).value();
 
         this.setFieldOptions( el, options );
 
