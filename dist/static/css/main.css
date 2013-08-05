@@ -2318,6 +2318,13 @@ textarea {
     *zoom: 1;
     *behavior: url(boxsizing.htc);
   }
+  .widget.inline label {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  .widget.inline input[type=checkbox] {
+    width: 20px;
+  }
 }
 .preview {
   display: inline-block;
