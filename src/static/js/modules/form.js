@@ -303,6 +303,7 @@ var PDP = (function ( pdp ) {
 
     var concept = $(el).find('select').data('concept') || $(el).find('select').attr('id'),
         id = $(el).find('select').attr('id'),
+        conceptProperty = $(el).find('select').data('concept-property') || $(el).find('select').attr('id'),
         conceptFetch = this.fetchFieldOptions( concept );
 
     // Fetch form field options and set fields when that request is fulfilled.
@@ -311,6 +312,9 @@ var PDP = (function ( pdp ) {
 
         // Grab the id of this element's dependency (e.g. state_abbr), @TODO rework this
         // as it's kinda dumb and inefficient.
+        
+        console.log(concept);
+        console.log(id);
 
         var options,
             dependency = $( '[data-dependent~=' + id + ']' ).attr('id').replace( /\-[\w^_]+$/, '' );
@@ -323,13 +327,12 @@ var PDP = (function ( pdp ) {
 
         }
 
-        // Modify the object to fit the underscore template. If there are multiple
-        // dependencies, append the state, otherwise no need to.
+        // Modify the object to fit the underscore template.
 
         function mapDeps( obj ){
 
           return {
-            label: obj[ id.replace( /\-[\w^_]+$/, '' ) ],
+            label: obj[ conceptProperty.replace( /\-[\w^_]+$/, '' ) ],
             value: obj._id
           };
 
