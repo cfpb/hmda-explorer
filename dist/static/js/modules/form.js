@@ -482,7 +482,20 @@ var PDP = (function ( pdp ) {
 
   };
 
-  // Toggle Co-Applicant section
+  // Add a new state/MSA location section thingy.
+
+  form.addState = function() {
+
+    var num = 2,
+        template = PDP.templates.location;
+
+    $('#location-sets').append( template( {num: num} ) );
+
+    $( '.location-set-' + num ).find('select').chosen({ width: '100%', disable_search_threshold: 10, allow_single_deselect: true });
+
+  };
+
+  // Toggle co-applicant section.
 
   form.toggleCoApplicants = function( action ) {
 
