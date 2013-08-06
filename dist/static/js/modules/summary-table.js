@@ -10,7 +10,7 @@ var PDP = (function ( pdp ) {
 
   var table = {};
 
-  table.$el = $('#summary-table');
+  table.$el = $('#summary-table-form');
 
   // cache input fields
   table._inputs = {};
@@ -110,7 +110,7 @@ var PDP = (function ( pdp ) {
     // console.log( pdp.query._buildApiQuery( this.queryParams ) );
     responseJSON = pdp.utils.getJSON( pdp.query.generateApiUrl( 'jsonp?$callback=', this.queryParams ) );
 
-    responseJSON.fail( pdp.utils.showError( this.genericError ) );
+    responseJSON.fail( this._throwFetchError );
 
     responseJSON.done( this.populateTable.bind(this) );
 
@@ -128,7 +128,7 @@ var PDP = (function ( pdp ) {
         len = responseData.results.length;
 
     if ( !_.isEmpty(responseData.errors) ) {
-      pdp.utils.showError( this.genericError );
+      this._throwFetchError();
       return;
     }
 
@@ -143,6 +143,10 @@ var PDP = (function ( pdp ) {
       $table.append($tr);
     }
   
+  };
+
+  table._throwFetchError = function() {
+      pdp.utils.showError( this.genericError );
   };
 
   table.resetColumn = function( clause, position ) {
@@ -176,12 +180,12 @@ var PDP = (function ( pdp ) {
   };
 
   table.createTable = function() {
-    $('body').append('<table id="summary-table"></table>');
+    $('#summary-table-container').append('<table id="summary-table"></table>');
   };  
 
   table.updateTableHeaders = function() {
     var $table = $('table#summary-table'),
-        $headerRow = $('<tr></tr>'),
+        $headerRow = $('<tr class="header"></tr>'),
         columns = this.queryParams.clauses.select,
         i,
         len = columns.length - 1;
@@ -212,18 +216,19 @@ var PDP = (function ( pdp ) {
         $('#variable'.concat(++position)).removeAttr('disabled').trigger('liszt:updated');
 
         if (position > 0) {
-          $('#reset-' + e.target.id).show();
+          $('#reset-' + e.target.id).removeClass('hidden');
         }
       }
 
     }.bind(this));
 
     $('.reset-field').on('click', function(e) {
+      e.preventDefault();
       var position = e.target.id.substr( -1, 1 ),
           clause = e.target.dataset.summaryTableInput;
 
       this.resetColumn( clause, position );
-      $(e.target).hide();
+      $(e.target).addClass('hidden');
       $('#variable' + position)
         .find('option:first-child')
         .prop('selected', true)

@@ -5,7 +5,7 @@
 
   <span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="p">{};</span>
 
-  <span class="nx">table</span><span class="p">.</span><span class="nx">$el</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#summary-table&#39;</span><span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-3">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-3">&#182;</a>               </div>               <p>cache input fields</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">table</span><span class="p">.</span><span class="nx">_inputs</span> <span class="o">=</span> <span class="p">{};</span>
+  <span class="nx">table</span><span class="p">.</span><span class="nx">$el</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#summary-table-form&#39;</span><span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-3">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-3">&#182;</a>               </div>               <p>cache input fields</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">table</span><span class="p">.</span><span class="nx">_inputs</span> <span class="o">=</span> <span class="p">{};</span>
   <span class="nx">table</span><span class="p">.</span><span class="nx">_inputs</span><span class="p">.</span><span class="nx">all</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;*[data-summary-table-input]&#39;</span><span class="p">);</span>
   <span class="nx">table</span><span class="p">.</span><span class="nx">_inputs</span><span class="p">.</span><span class="nx">varFields</span> <span class="o">=</span> <span class="p">[</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#variable0&#39;</span><span class="p">),</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#variable1&#39;</span><span class="p">),</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#variable2&#39;</span><span class="p">)];</span>
   <span class="nx">table</span><span class="p">.</span><span class="nx">_inputs</span><span class="p">.</span><span class="nx">calculate</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#calculate-by&#39;</span><span class="p">);</span>
@@ -81,7 +81,7 @@ tmpl: function that returns string of html</p>             </td>             <td
 
     <span class="k">this</span><span class="p">.</span><span class="nx">resetTable</span><span class="p">();</span></pre></div>             </td>           </tr>                               <tr id="section-10">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-10">&#182;</a>               </div>               <p>console.log( pdp.query._buildApiQuery( this.queryParams ) );</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">responseJSON</span> <span class="o">=</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">(</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">generateApiUrl</span><span class="p">(</span> <span class="s1">&#39;jsonp?$callback=&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">queryParams</span> <span class="p">)</span> <span class="p">);</span>
 
-    <span class="nx">responseJSON</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">showError</span><span class="p">(</span> <span class="k">this</span><span class="p">.</span><span class="nx">genericError</span> <span class="p">)</span> <span class="p">);</span>
+    <span class="nx">responseJSON</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span> <span class="k">this</span><span class="p">.</span><span class="nx">_throwFetchError</span> <span class="p">);</span>
 
     <span class="nx">responseJSON</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span> <span class="k">this</span><span class="p">.</span><span class="nx">populateTable</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">)</span> <span class="p">);</span>
 
@@ -99,7 +99,7 @@ tmpl: function that returns string of html</p>             </td>             <td
         <span class="nx">len</span> <span class="o">=</span> <span class="nx">responseData</span><span class="p">.</span><span class="nx">results</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
 
     <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nx">_</span><span class="p">.</span><span class="nx">isEmpty</span><span class="p">(</span><span class="nx">responseData</span><span class="p">.</span><span class="nx">errors</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
-      <span class="nx">pdp</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">showError</span><span class="p">(</span> <span class="k">this</span><span class="p">.</span><span class="nx">genericError</span> <span class="p">);</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">_throwFetchError</span><span class="p">();</span>
       <span class="k">return</span><span class="p">;</span>
     <span class="p">}</span>
 
@@ -114,6 +114,10 @@ tmpl: function that returns string of html</p>             </td>             <td
       <span class="nx">$table</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">$tr</span><span class="p">);</span>
     <span class="p">}</span>
   
+  <span class="p">};</span>
+
+  <span class="nx">table</span><span class="p">.</span><span class="nx">_throwFetchError</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">pdp</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">showError</span><span class="p">(</span> <span class="k">this</span><span class="p">.</span><span class="nx">genericError</span> <span class="p">);</span>
   <span class="p">};</span>
 
   <span class="nx">table</span><span class="p">.</span><span class="nx">resetColumn</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">clause</span><span class="p">,</span> <span class="nx">position</span> <span class="p">)</span> <span class="p">{</span>
@@ -144,12 +148,12 @@ tmpl: function that returns string of html</p>             </td>             <td
   <span class="p">};</span>
 
   <span class="nx">table</span><span class="p">.</span><span class="nx">createTable</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;&lt;table id=&quot;summary-table&quot;&gt;&lt;/table&gt;&#39;</span><span class="p">);</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#summary-table-container&#39;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;&lt;table id=&quot;summary-table&quot;&gt;&lt;/table&gt;&#39;</span><span class="p">);</span>
   <span class="p">};</span>  
 
   <span class="nx">table</span><span class="p">.</span><span class="nx">updateTableHeaders</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">$table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;table#summary-table&#39;</span><span class="p">),</span>
-        <span class="nx">$headerRow</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;tr&gt;&lt;/tr&gt;&#39;</span><span class="p">),</span>
+        <span class="nx">$headerRow</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;tr class=&quot;header&quot;&gt;&lt;/tr&gt;&#39;</span><span class="p">),</span>
         <span class="nx">columns</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">queryParams</span><span class="p">.</span><span class="nx">clauses</span><span class="p">.</span><span class="nx">select</span><span class="p">,</span>
         <span class="nx">i</span><span class="p">,</span>
         <span class="nx">len</span> <span class="o">=</span> <span class="nx">columns</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
@@ -177,18 +181,19 @@ tmpl: function that returns string of html</p>             </td>             <td
         <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#variable&#39;</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="o">++</span><span class="nx">position</span><span class="p">)).</span><span class="nx">removeAttr</span><span class="p">(</span><span class="s1">&#39;disabled&#39;</span><span class="p">).</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">&#39;liszt:updated&#39;</span><span class="p">);</span>
 
         <span class="k">if</span> <span class="p">(</span><span class="nx">position</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-          <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#reset-&#39;</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">id</span><span class="p">).</span><span class="nx">show</span><span class="p">();</span>
+          <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#reset-&#39;</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">id</span><span class="p">).</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;hidden&#39;</span><span class="p">);</span>
         <span class="p">}</span>
       <span class="p">}</span>
 
     <span class="p">}.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
 
     <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.reset-field&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
       <span class="kd">var</span> <span class="nx">position</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">id</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span> <span class="p">),</span>
           <span class="nx">clause</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">summaryTableInput</span><span class="p">;</span>
 
       <span class="k">this</span><span class="p">.</span><span class="nx">resetColumn</span><span class="p">(</span> <span class="nx">clause</span><span class="p">,</span> <span class="nx">position</span> <span class="p">);</span>
-      <span class="nx">$</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
+      <span class="nx">$</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;hidden&#39;</span><span class="p">);</span>
       <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#variable&#39;</span> <span class="o">+</span> <span class="nx">position</span><span class="p">)</span>
         <span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;option:first-child&#39;</span><span class="p">)</span>
         <span class="p">.</span><span class="nx">prop</span><span class="p">(</span><span class="s1">&#39;selected&#39;</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
