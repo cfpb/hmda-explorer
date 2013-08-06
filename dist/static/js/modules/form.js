@@ -530,6 +530,30 @@ var PDP = (function ( pdp ) {
 
   };
 
+  // Check if any filter fields are mutally exclusive and need to be shown or hidden.
+  // @names = array of param keys (e.g. as_of_year)
+
+  form.checkMutuallyExclusive = function( names ) {
+
+    // Ensure names is an array.
+
+    names = names instanceof Array ? names : [ names ];
+
+    _.forEach( names, function( name ){
+
+      var $el = $( '#' + name ),
+          $partner = $( '.field.' + $el.data('toggle') );
+
+      if ( $partner.length > 0 && $el.val().length > 0 ) {
+        form.disableField( $partner );
+      } else {
+        form.enableField( $partner );
+      }
+
+    });
+
+  };
+
   // Add a new state/MSA location section thingy.
 
   form.addState = function( num ) {
