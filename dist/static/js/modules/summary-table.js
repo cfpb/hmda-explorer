@@ -10,7 +10,7 @@ var PDP = (function ( pdp ) {
 
   var table = {};
 
-  table.$el = $('#summary-table');
+  table.$el = $('#summary-table-form');
 
   // cache input fields
   table._inputs = {};
@@ -110,7 +110,7 @@ var PDP = (function ( pdp ) {
     // console.log( pdp.query._buildApiQuery( this.queryParams ) );
     responseJSON = pdp.utils.getJSON( pdp.query.generateApiUrl( 'jsonp?$callback=', this.queryParams ) );
 
-    responseJSON.fail( pdp.utils.showError( this.genericError ) );
+    responseJSON.fail( this._throwFetchError );
 
     responseJSON.done( this.populateTable.bind(this) );
 
@@ -128,7 +128,7 @@ var PDP = (function ( pdp ) {
         len = responseData.results.length;
 
     if ( !_.isEmpty(responseData.errors) ) {
-      pdp.utils.showError( this.genericError );
+      this._throwFetchError();
       return;
     }
 
@@ -143,6 +143,10 @@ var PDP = (function ( pdp ) {
       $table.append($tr);
     }
   
+  };
+
+  table._throwFetchError = function() {
+      pdp.utils.showError( this.genericError );
   };
 
   table.resetColumn = function( clause, position ) {
@@ -176,7 +180,7 @@ var PDP = (function ( pdp ) {
   };
 
   table.createTable = function() {
-    $('body').append('<table id="summary-table"></table>');
+    $('#summary-table-container').append('<table id="summary-table"></table>');
   };  
 
   table.updateTableHeaders = function() {
