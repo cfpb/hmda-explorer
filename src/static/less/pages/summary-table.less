@@ -8,6 +8,7 @@
     .column( 12 );
   }
 
+
 }
 
 // Adjustments for larger screens
@@ -22,9 +23,25 @@
     
     .variable,
     .calculate {
-      .column( 3 );
+      .column( 2 );
+      display: table-cell;
+      vertical-align: bottom;
+    }
+
+    .drop-downs {
+      display: table-row;
     }
 
   }
 
 }
+
+#group .intro {
+  border: 1px solid @light_field;
+  border-left: 0;
+  border-right: 0;
+  background-color: @light_field50;
+  margin: 10px 0;
+  padding: 30px 20px;
+}
+

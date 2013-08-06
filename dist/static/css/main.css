@@ -2148,6 +2148,7 @@ textarea {
   vertical-align: top;
   width: 100%;
   background-color: #f4f3f2;
+  border-bottom: 1px solid #d0d0ce;
 }
 .ie .filter {
   margin-right: -0.26em;
@@ -2940,7 +2941,8 @@ ul.chzn-choices {
 .explore .hero:after {
   clear: both;
 }
-#filters {
+#filters,
+#group {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -2951,11 +2953,13 @@ ul.chzn-choices {
   clear: both;
   margin-top: 40px;
 }
-.lt-ie8 #filters {
+.lt-ie8 #filters,
+.lt-ie8 #group {
   *zoom: 1;
   *behavior: url(boxsizing.htc);
 }
-#filters h2 {
+#filters h2,
+#group h2 {
   margin-top: 50px;
 }
 .download-and-share .inner {
@@ -3197,7 +3201,9 @@ ul.chzn-choices {
     border-width: 0 15px;
     margin-right: -0.25em;
     vertical-align: top;
-    width: 25%;
+    width: 16.666666666666664%;
+    display: table-cell;
+    vertical-align: bottom;
   }
   .ie #summary-table-form .variable,
   .ie #summary-table-form .calculate {
@@ -3209,6 +3215,17 @@ ul.chzn-choices {
     *zoom: 1;
     *behavior: url(boxsizing.htc);
   }
+  #summary-table-form .drop-downs {
+    display: table-row;
+  }
+}
+#group .intro {
+  border: 1px solid #d0d0ce;
+  border-left: 0;
+  border-right: 0;
+  background-color: #e7e7e6;
+  margin: 10px 0;
+  padding: 30px 20px;
 }
 .tooltip {
   position: absolute;
