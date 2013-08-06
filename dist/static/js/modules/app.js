@@ -87,7 +87,6 @@ var PDP = (function ( pdp ) {
 
     pdp.form.checkDeps( parents );
 
-
     // Check if any fields that were preloaded have mutually exclusive fields that need to be disabled.
 
     parents = _.map( $('select[data-toggle], input[data-toggle]'), function( el ){
