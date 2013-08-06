@@ -43,6 +43,7 @@ var PDP = (function ( pdp ) {
     'field:changed': [
       pdp.query.updateAll.bind( pdp.query ),
       pdp.form.checkDeps.bind( pdp.form ),
+      pdp.form.checkMutuallyExclusive.bind( pdp.form ),
       pdp.form.updateShareLink.bind( pdp.form )
     ],
 

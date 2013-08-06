@@ -40,8 +40,6 @@ var PDP = (function ( pdp ) {
 
     ev.preventDefault();
 
-    console.log(numLocations);
-
     pdp.form.addState( ++numLocations );
 
   });
