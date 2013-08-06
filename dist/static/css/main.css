@@ -2182,14 +2182,8 @@ textarea {
   padding: 0;
   animation: fadein .5s;
   -moz-animation: fadein .5s;
-  /* Firefox */
-
   -webkit-animation: fadein .5s;
-  /* Safari and Chrome */
-
   -o-animation: fadein .5s;
-  /* Opera */
-
 }
 .filter.closed .fields,
 .filter.closed .control {
@@ -2231,7 +2225,7 @@ textarea {
   border-width: 0 15px;
   margin-right: -0.25em;
   vertical-align: top;
-  width: 66.66666666666666%;
+  width: 75%;
 }
 .ie .filter .widget {
   margin-right: -0.26em;
@@ -2288,25 +2282,9 @@ textarea {
   width: 100%;
 }
 .filter .help {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  border: solid transparent;
-  border-width: 0 15px;
-  margin-right: -0.25em;
-  vertical-align: top;
-  width: 8.333333333333332%;
   font-size: 1.3em;
   display: inline-block;
   color: #0072ce;
-}
-.ie .filter .help {
-  margin-right: -0.26em;
-}
-.lt-ie8 .filter .help {
-  display: inline;
-  *zoom: 1;
-  *behavior: url(boxsizing.htc);
 }
 .field.disabled {
   color: #d0d0ce;
@@ -2350,7 +2328,7 @@ textarea {
     border-width: 0 15px;
     margin-right: -0.25em;
     vertical-align: top;
-    width: 33.33333333333333%;
+    width: 25%;
   }
   .ie .filter li.field > label {
     margin-right: -0.26em;
@@ -2369,7 +2347,7 @@ textarea {
     border-width: 0 15px;
     margin-right: -0.25em;
     vertical-align: top;
-    width: 58.333333333333336%;
+    width: 50%;
   }
   .ie .filter .widget {
     margin-right: -0.26em;
@@ -2549,7 +2527,7 @@ textarea {
   }
   .widget.inline label {
     display: inline-block;
-    margin-right: 20px;
+    margin-right: 19px;
   }
   .widget.inline input[type=checkbox] {
     width: 20px;

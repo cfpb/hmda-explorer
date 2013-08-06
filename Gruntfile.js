@@ -209,17 +209,6 @@ module.exports = function(grunt) {
     },
 
     /**
-     * Open: https://github.com/onehealth/grunt-open
-     * 
-     * Open urls and files from a grunt task
-     */
-    open: {
-      all: {
-        path: 'http://localhost:<%= connect.demo.options.port%>'
-      }
-    },
-
-    /**
      * Jasmine: https://github.com/gruntjs/grunt-contrib-jasmine
      * 
      * Run jasmine specs headlessly through PhantomJS.
@@ -287,7 +276,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-notify');
   grunt.loadNpmTasks('grunt-contrib-connect');
-  grunt.loadNpmTasks('grunt-open');
   grunt.loadNpmTasks('grunt-cfpb-internal');
   grunt.loadNpmTasks('grunt-docco');
   grunt.loadNpmTasks('grunt-remove-logging');
@@ -303,6 +291,6 @@ module.exports = function(grunt) {
   /**
    * The 'default' task will run whenever `grunt` is run without specifying a task
    */
-  grunt.registerTask('default', ['open', 'connect:demo', 'watch']);
+  grunt.registerTask('default', ['connect:demo', 'watch']);
 
 };
