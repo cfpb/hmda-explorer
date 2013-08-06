@@ -3134,7 +3134,7 @@ ul.chzn-choices {
     *behavior: url(boxsizing.htc);
   }
 }
-#summary-table {
+#summary-table-form {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -3144,11 +3144,11 @@ ul.chzn-choices {
   position: relative;
   clear: both;
 }
-.lt-ie8 #summary-table {
+.lt-ie8 #summary-table-form {
   *zoom: 1;
   *behavior: url(boxsizing.htc);
 }
-#summary-table > div {
+#summary-table-form > div {
   display: inline-block;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -3159,16 +3159,16 @@ ul.chzn-choices {
   vertical-align: top;
   width: 100%;
 }
-.ie #summary-table > div {
+.ie #summary-table-form > div {
   margin-right: -0.26em;
 }
-.lt-ie8 #summary-table > div {
+.lt-ie8 #summary-table-form > div {
   display: inline;
   *zoom: 1;
   *behavior: url(boxsizing.htc);
 }
 @media only screen and (min-width: 768px) {
-  #summary-table .intro {
+  #summary-table-form .intro {
     display: inline-block;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -3179,16 +3179,16 @@ ul.chzn-choices {
     vertical-align: top;
     width: 100%;
   }
-  .ie #summary-table .intro {
+  .ie #summary-table-form .intro {
     margin-right: -0.26em;
   }
-  .lt-ie8 #summary-table .intro {
+  .lt-ie8 #summary-table-form .intro {
     display: inline;
     *zoom: 1;
     *behavior: url(boxsizing.htc);
   }
-  #summary-table .variable,
-  #summary-table .calculate {
+  #summary-table-form .variable,
+  #summary-table-form .calculate {
     display: inline-block;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -3199,12 +3199,12 @@ ul.chzn-choices {
     vertical-align: top;
     width: 25%;
   }
-  .ie #summary-table .variable,
-  .ie #summary-table .calculate {
+  .ie #summary-table-form .variable,
+  .ie #summary-table-form .calculate {
     margin-right: -0.26em;
   }
-  .lt-ie8 #summary-table .variable,
-  .lt-ie8 #summary-table .calculate {
+  .lt-ie8 #summary-table-form .variable,
+  .lt-ie8 #summary-table-form .calculate {
     display: inline;
     *zoom: 1;
     *behavior: url(boxsizing.htc);
