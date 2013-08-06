@@ -185,7 +185,7 @@ var PDP = (function ( pdp ) {
 
   table.updateTableHeaders = function() {
     var $table = $('table#summary-table'),
-        $headerRow = $('<tr></tr>'),
+        $headerRow = $('<tr class="header"></tr>'),
         columns = this.queryParams.clauses.select,
         i,
         len = columns.length - 1;
@@ -216,18 +216,19 @@ var PDP = (function ( pdp ) {
         $('#variable'.concat(++position)).removeAttr('disabled').trigger('liszt:updated');
 
         if (position > 0) {
-          $('#reset-' + e.target.id).show();
+          $('#reset-' + e.target.id).removeClass('hidden');
         }
       }
 
     }.bind(this));
 
     $('.reset-field').on('click', function(e) {
+      e.preventDefault();
       var position = e.target.id.substr( -1, 1 ),
           clause = e.target.dataset.summaryTableInput;
 
       this.resetColumn( clause, position );
-      $(e.target).hide();
+      $(e.target).addClass('hidden');
       $('#variable' + position)
         .find('option:first-child')
         .prop('selected', true)
