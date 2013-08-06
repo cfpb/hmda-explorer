@@ -1,6 +1,6 @@
 // Mobile first!
 
-#summary-table {
+#summary-table-form {
   
   .wrapper();
 
@@ -8,23 +8,136 @@
     .column( 12 );
   }
 
+  label {
+    font-family: Georgia, "Times New Roman", serif;
+  }
+
+  li:hover,
+  li:focus,
+  .result-selected {
+    background-color: @pacific20;
+    color: @black;
+  }
+
+  .variable.with-reset-link {
+    position: relative;
+  }
+
+  .icon {
+    margin-right: 5px;
+  }
+
+  .calculate {
+    li {
+      color: @dark_field;
+    }
+
+    .placeholder {
+      border-top: 1px solid @light_field;
+      margin-top: 10px;
+      padding-top: 10px;
+      text-transform: uppercase;
+    }
+
+    .indent {
+      padding-left: 15px;
+    }
+
+    li.placeholder:hover,
+    li.placeholder:focus {
+      background-color: #fff;
+      color: @dark_field;
+      cursor: default;
+    }
+
+  }
+
+  .chzn-container .chzn-drop,
+  .chzn-container-active .chzn-single {
+    border-color: #0072ce;
+  }
+
+  .reset-field {
+    position: absolute;
+    right: 0;
+    margin-top: 4px;
+    font-size: .8em;
+    font-family: 'Avenir Next Demi';
+  }
+
+}
+
+#summary-table-container {
+  .wrapper();
+  .column( 12 );
+  font-family: "Avenir Next", Arial, sans-serif;
+  margin-top: 30px;
+
+  #summary-table {
+    width: 100%;
+
+    tr.header td {
+      background-color: #FDEBD3;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    td {
+      font-size: .8em;
+      padding: 5px 10px;
+      border: 1px solid @light_field;
+      width: 25%;
+    }
+
+  }
 }
 
 // Adjustments for larger screens
 
 @media only screen and ( min-width: 768px ) {
 
-  #summary-table {
+  #summary-table-form {
 
     .intro {
       .column( 12 );
     }
-    
+
     .variable,
     .calculate {
-      .column( 3 );
+      .column( 2 );
+      display: table-cell;
+      vertical-align: bottom;
+
+      label.stretchy {
+        position: absolute;
+        margin-top: -30px;
+      }
+
+    }
+
+    .drop-downs {
+      display: table-row;
+      position: relative;
     }
 
   }
 
+  .instructions {
+    .wrapper();
+    .column( 12 );
+  }
+
+}
+
+#group .intro {
+  border: 1px solid @light_field;
+  border-left: 0;
+  border-right: 0;
+  background-color: @light_field50;
+  margin: 10px 0;
+  padding: 30px 20px;
+}
+
+.instructions {
+  margin: 15px 0;
 }
