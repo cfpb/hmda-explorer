@@ -22,6 +22,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2013-08-06   [v0.10.0](../../tree/v0.10.0)   Summary tables brought into the explore page.
  * 2013-08-05   [v0.9.2](../../tree/v0.9.2)   Add state/msa mutual exclusiveness.
  * 2013-08-04   [v0.9.1](../../tree/v0.9.1)   Improve serialization of location params.
  * 2013-08-02   [v0.9.0](../../tree/v0.9.0)   New location section functionality. Moved templates into JST using grunt-contrib-jst task.
@@ -57,4 +58,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Tue Aug 06 2013 00:08:06.*
+*This file was generated on Tue Aug 06 2013 18:21:50.*

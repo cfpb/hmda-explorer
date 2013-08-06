@@ -2148,6 +2148,7 @@ textarea {
   vertical-align: top;
   width: 100%;
   background-color: #f4f3f2;
+  border-bottom: 1px solid #d0d0ce;
 }
 .ie .filter {
   margin-right: -0.26em;
@@ -2918,7 +2919,8 @@ ul.chzn-choices {
 .explore .hero:after {
   clear: both;
 }
-#filters {
+#filters,
+#group {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -2929,11 +2931,13 @@ ul.chzn-choices {
   clear: both;
   margin-top: 40px;
 }
-.lt-ie8 #filters {
+.lt-ie8 #filters,
+.lt-ie8 #group {
   *zoom: 1;
   *behavior: url(boxsizing.htc);
 }
-#filters h2 {
+#filters h2,
+#group h2 {
   margin-top: 50px;
 }
 .download-and-share .inner {
@@ -3112,7 +3116,7 @@ ul.chzn-choices {
     *behavior: url(boxsizing.htc);
   }
 }
-#summary-table {
+#summary-table-form {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -3122,11 +3126,11 @@ ul.chzn-choices {
   position: relative;
   clear: both;
 }
-.lt-ie8 #summary-table {
+.lt-ie8 #summary-table-form {
   *zoom: 1;
   *behavior: url(boxsizing.htc);
 }
-#summary-table > div {
+#summary-table-form > div {
   display: inline-block;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -3137,16 +3141,104 @@ ul.chzn-choices {
   vertical-align: top;
   width: 100%;
 }
-.ie #summary-table > div {
+.ie #summary-table-form > div {
   margin-right: -0.26em;
 }
-.lt-ie8 #summary-table > div {
+.lt-ie8 #summary-table-form > div {
   display: inline;
   *zoom: 1;
   *behavior: url(boxsizing.htc);
 }
+#summary-table-form label {
+  font-family: Georgia, "Times New Roman", serif;
+}
+#summary-table-form li:hover,
+#summary-table-form li:focus,
+#summary-table-form .result-selected {
+  background-color: #cde3f1;
+  color: #101820;
+}
+#summary-table-form .variable.with-reset-link {
+  position: relative;
+}
+#summary-table-form .icon {
+  margin-right: 5px;
+}
+#summary-table-form .calculate li {
+  color: #75787b;
+}
+#summary-table-form .calculate .placeholder {
+  border-top: 1px solid #d0d0ce;
+  margin-top: 10px;
+  padding-top: 10px;
+  text-transform: uppercase;
+}
+#summary-table-form .calculate .indent {
+  padding-left: 15px;
+}
+#summary-table-form .calculate li.placeholder:hover,
+#summary-table-form .calculate li.placeholder:focus {
+  background-color: #fff;
+  color: #75787b;
+  cursor: default;
+}
+#summary-table-form .chzn-container .chzn-drop,
+#summary-table-form .chzn-container-active .chzn-single {
+  border-color: #0072ce;
+}
+#summary-table-form .reset-field {
+  position: absolute;
+  right: 0;
+  margin-top: 4px;
+  font-size: .8em;
+  font-family: 'Avenir Next Demi';
+}
+#summary-table-container {
+  max-width: 960px;
+  padding: 0 15px;
+  margin: 0 auto;
+  position: relative;
+  clear: both;
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: solid transparent;
+  border-width: 0 15px;
+  margin-right: -0.25em;
+  vertical-align: top;
+  width: 100%;
+  font-family: "Avenir Next", Arial, sans-serif;
+  margin-top: 30px;
+}
+.lt-ie8 #summary-table-container {
+  *zoom: 1;
+  *behavior: url(boxsizing.htc);
+}
+.ie #summary-table-container {
+  margin-right: -0.26em;
+}
+.lt-ie8 #summary-table-container {
+  display: inline;
+  *zoom: 1;
+  *behavior: url(boxsizing.htc);
+}
+#summary-table-container #summary-table {
+  width: 100%;
+}
+#summary-table-container #summary-table tr.header td {
+  background-color: #FDEBD3;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+#summary-table-container #summary-table td {
+  font-size: .8em;
+  padding: 5px 10px;
+  border: 1px solid #d0d0ce;
+  width: 25%;
+}
 @media only screen and (min-width: 768px) {
-  #summary-table .intro {
+  #summary-table-form .intro {
     display: inline-block;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -3157,16 +3249,16 @@ ul.chzn-choices {
     vertical-align: top;
     width: 100%;
   }
-  .ie #summary-table .intro {
+  .ie #summary-table-form .intro {
     margin-right: -0.26em;
   }
-  .lt-ie8 #summary-table .intro {
+  .lt-ie8 #summary-table-form .intro {
     display: inline;
     *zoom: 1;
     *behavior: url(boxsizing.htc);
   }
-  #summary-table .variable,
-  #summary-table .calculate {
+  #summary-table-form .variable,
+  #summary-table-form .calculate {
     display: inline-block;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -3175,18 +3267,68 @@ ul.chzn-choices {
     border-width: 0 15px;
     margin-right: -0.25em;
     vertical-align: top;
-    width: 25%;
+    width: 16.666666666666664%;
+    display: table-cell;
+    vertical-align: bottom;
   }
-  .ie #summary-table .variable,
-  .ie #summary-table .calculate {
+  .ie #summary-table-form .variable,
+  .ie #summary-table-form .calculate {
     margin-right: -0.26em;
   }
-  .lt-ie8 #summary-table .variable,
-  .lt-ie8 #summary-table .calculate {
+  .lt-ie8 #summary-table-form .variable,
+  .lt-ie8 #summary-table-form .calculate {
     display: inline;
     *zoom: 1;
     *behavior: url(boxsizing.htc);
   }
+  #summary-table-form .variable label.stretchy,
+  #summary-table-form .calculate label.stretchy {
+    position: absolute;
+    margin-top: -30px;
+  }
+  #summary-table-form .drop-downs {
+    display: table-row;
+    position: relative;
+  }
+  .instructions {
+    max-width: 960px;
+    padding: 0 15px;
+    margin: 0 auto;
+    position: relative;
+    clear: both;
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: solid transparent;
+    border-width: 0 15px;
+    margin-right: -0.25em;
+    vertical-align: top;
+    width: 100%;
+  }
+  .lt-ie8 .instructions {
+    *zoom: 1;
+    *behavior: url(boxsizing.htc);
+  }
+  .ie .instructions {
+    margin-right: -0.26em;
+  }
+  .lt-ie8 .instructions {
+    display: inline;
+    *zoom: 1;
+    *behavior: url(boxsizing.htc);
+  }
+}
+#group .intro {
+  border: 1px solid #d0d0ce;
+  border-left: 0;
+  border-right: 0;
+  background-color: #e7e7e6;
+  margin: 10px 0;
+  padding: 30px 20px;
+}
+.instructions {
+  margin: 15px 0;
 }
 .tooltip {
   position: absolute;
