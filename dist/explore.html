@@ -645,25 +645,31 @@
         <h2>Create a summary table</h2>
 
         <div class="intro">
-        <a href="#">Revise your filters</a>
+        <p class="summary" id="summary-nlw">
+          <img src="static/img/icon_bar_chart.png" class="left" alt=""/>
+          
+        </p>
+        <a href="explore.html#!/section=filters">Revise your filters</a>
+        </div>
+
+        <div class="instructions">
+          Create a summary table for insight into the dataset. First, select up to three variables by which to group your data, and then function by which to calculate it.
         </div>
 
         <form id="summary-table-form">
-
-          <div class="instructions">
-            Create a summary table for insight into the dataset. First, select up to three variables by which to group your data, and then function by which to calculate it.
-          </div>
           
           <div class="drop-downs">
             <div class="variable">
-              <label for="variable0">Pick up to THREE variables to group your data by</label>
+              <label for="variable0" class="stretchy">
+                <img src="static/img/icon_number_one.png" alt="" class="icon" />Pick up to THREE variables to group your data by
+              </label>
               <select id="variable0" class="chzn-single" data-summary-table-input="both">
                 <option placeholder>Select the first variable</option>
               </select>
 
             </div>
 
-            <div class="variable">
+            <div class="variable with-reset-link">
 
               <select id="variable1" class="chzn-single" data-summary-table-input="both">
                 <option placeholder>Select the second variable</option>
@@ -672,7 +678,7 @@
 
             </div>
 
-            <div class="variable">
+            <div class="variable with-reset-link">
 
               <select id="variable2" class="chzn-single" data-summary-table-input="both">
                 <option placeholder>Select the third variable</option>
@@ -682,20 +688,18 @@
             </div>
 
             <div class="calculate">
-              <label for="caluculate-by">Calculate by</label>
+              <label for="caluculate-by"><img src="static/img/icon_number_two.png" alt="" class="icon"/>Calculate by</label>
               <select class="chzn-single" id="calculate-by" data-summary-table-input="select">
                 <option value="records" selected>Number of records</option>
-                <option placeholder>-----</option>
-                <option placeholder>Applicant Income</option>
-                <option value="income-min">- Min</option>
-                <option value="income-max">- Max</option>
-                <option value="income-avg">- Average</option>
-                <option placeholder>-----</option>
-                <option placeholder>Loan Amount</option>
-                <option value="loan-min">- Min</option>
-                <option value="loan-max">- Max</option>
-                <option value="loan-avg">- Average</option>
-                <option value="loan-sum">- Sum Total</option>
+                <option placeholder class="placeholder">Applicant Income</option>
+                <option value="income-min" class="indent">Min</option>
+                <option value="income-max" class="indent">Max</option>
+                <option value="income-avg" class="indent">Average</option>
+                <option placeholder class="placeholder">Loan Amount</option>
+                <option value="loan-min" class="indent">Min</option>
+                <option value="loan-max" class="indent">Max</option>
+                <option value="loan-avg" class="indent">Average</option>
+                <option value="loan-sum" class="indent">Sum Total</option>
               </select>
             </div>
 
