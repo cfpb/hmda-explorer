@@ -37,7 +37,10 @@ var PDP = (function ( pdp ) {
     'loan-sum': 'SUM(loan_amount_000s)'
   };
 
+  // holds onto user-selected options. consists of clauses object + pdp.query.params
   table.queryParams = {};
+
+  // clauses = { select|group: ['var_name_0', 'var_name_1', 'var_name_2', 'calculate-by'] }
   table.queryParams.clauses = {};
 
   // returns a templated option tag
@@ -74,6 +77,7 @@ var PDP = (function ( pdp ) {
     } 
   };
 
+  // inits chosen library to make pretty form fields
   table._chosenInit = function() {
     this.$el.find('select').chosen({
       width: '100%',
@@ -89,11 +93,16 @@ var PDP = (function ( pdp ) {
         clause = e.target.dataset.summaryTableInput,
         responseJSON;
 
+    // if they've selected a placeholder, reset the column
+    // a placeholder has no value
     if ( e.target.selectedOptions[0].hasAttribute('placeholder') ) {
       this.resetColumn( clause, position );
       return;
     }
 
+    // if the event occurred on the calculate by field, 
+    // get the query string from the metrics map and
+    // make sure it gets set to the third queryParams.clauses array 
     if ( e.target.id === 'calculate-by' ) {
       value = this.metrics[value];
       position = 3;
@@ -105,6 +114,7 @@ var PDP = (function ( pdp ) {
       position
     );
 
+    // reset it before the data comes back and builds
     this.resetTable();
 
     // console.log( pdp.query._buildApiQuery( this.queryParams ) );
@@ -116,12 +126,15 @@ var PDP = (function ( pdp ) {
 
   };
 
+  // removes table contents
+  // resets table headers to current choices
   table.resetTable = function() {
     var $table = $('table#summary-table');
     $table.empty();
     this.updateTableHeaders();
   };
 
+  // builds out table body from API JSON response data
   table.populateTable = function( responseData ) {
     var total, result, column, i, $tr,
         $table = $('table#summary-table'),
@@ -149,6 +162,9 @@ var PDP = (function ( pdp ) {
       pdp.utils.showError( this.genericError );
   };
 
+  // remove the var name from the queryParams.clauses arrays
+  // recursive if the data attribute data-summary-table-input
+  // is set to "both" to update both select and group arrays
   table.resetColumn = function( clause, position ) {
     if ( clause === 'both' ) {
       this.queryParams.clauses['select'].splice( position, 1 );
@@ -162,6 +178,8 @@ var PDP = (function ( pdp ) {
   };
 
   // updates object that reflects selected form options
+  // recursive if the data attribute data-summary-table-input
+  // is set to "both" to update both select and group arrays
   table.updateQuery = function( clause, value, position ) {
 
     if ( clause === 'both') {
@@ -170,15 +188,19 @@ var PDP = (function ( pdp ) {
       return;
     }
 
+    // if its the first time this clause is being used, create new array
     if ( typeof this.queryParams.clauses[clause] === 'undefined' ) {
       this.queryParams.clauses[clause] = [];
     }
 
     this.queryParams.clauses[clause][position] = value;
+
+    // re-copies the filters
     this.queryParams.clauses.where = pdp.query.params;
 
   };
 
+  // create structure of table
   table.createTable = function() {
     $('#summary-table-container').append('<table id="summary-table"></table>');
   };  
@@ -204,6 +226,9 @@ var PDP = (function ( pdp ) {
     table._chosenInit();
     table.createTable();
 
+    // fields should be disabled until a first variable is selected
+    // we don't want users selecting subsequent vars when earlier
+    // ones are undefined
     $('#variable1, #variable2').attr('disabled', 'disabled').trigger('liszt:updated');
 
     // event listener for form changes
