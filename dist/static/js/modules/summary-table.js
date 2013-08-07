@@ -166,9 +166,32 @@ var PDP = (function ( pdp ) {
     this.updateTableHeaders();
   };
 
+  // the API returns the calculate by values before the other variables
+  // this detects, removes and replaces those values on the end of the obj
+  // so that the table forms correctly
+  // ideally, we should ask clinton if the api can build the response differently
+  table._prepResponseData = function( data ) {
+    var column, calculateVal, calculateKey;
+    for (column in data) {
+      if (data.hasOwnProperty(column)) {
+        if (column.indexOf('000') !== -1) {
+          calculateVal = data[column];
+          calculateKey = column;
+          delete(data[column]);
+        }
+      }
+    }
+
+    if ( typeof calculateKey !== 'undefined' ) {
+      data[calculateKey] = calculateVal;
+    }
+
+    return data;
+  };
+
   // builds out table body from API JSON response data
   table.populateTable = function( responseData ) {
-    var total, result, column, i, $tr,
+    var total, result, column, i, j, $tr, populateCell,
         $table = $('table#summary-table'),
         len = responseData.results.length;
 
@@ -179,14 +202,14 @@ var PDP = (function ( pdp ) {
       return;
     }
 
+    populateCell = function(column) {
+      this.append('<td>' + column + '</td>');
+    };
+
     for (i=0; i<=len; i++) {
       $tr = $('<tr></tr>');
-      for (column in responseData.results[i]) {
-        if (responseData.results[i].hasOwnProperty(column)) {
-          $tr.append('<td>' + responseData.results[i][column] + '</td>');
-        }
-      }
-
+      responseData.results[i] = this._prepResponseData( responseData.results[i] );
+      _.each( responseData.results[i], populateCell.bind( $tr ) );
       $table.append($tr);
     }
   
