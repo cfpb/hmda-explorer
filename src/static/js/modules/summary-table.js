@@ -124,6 +124,17 @@ var PDP = (function ( pdp ) {
 
     responseJSON.done( this.populateTable.bind(this) );
 
+    // in the meantime, spin!
+    this._showSpinner();
+
+  };
+
+  table._showSpinner = function() {
+    $('<div class="spinning"></div>').insertAfter('table#summary-table');
+  };
+
+  table._removeSpinner = function() {
+    $('.spinning').remove();
   };
 
   // removes table contents
@@ -139,6 +150,8 @@ var PDP = (function ( pdp ) {
     var total, result, column, i, $tr,
         $table = $('table#summary-table'),
         len = responseData.results.length;
+
+    this._removeSpinner();
 
     if ( !_.isEmpty(responseData.errors) ) {
       this._throwFetchError();
@@ -203,6 +216,9 @@ var PDP = (function ( pdp ) {
   // create structure of table
   table.createTable = function() {
     $('#summary-table-container').append('<table id="summary-table"></table>');
+    this.$table = $('table#summary-table');
+
+    return this.$table;
   };  
 
   table.updateTableHeaders = function() {

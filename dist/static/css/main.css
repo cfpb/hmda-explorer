@@ -3330,6 +3330,10 @@ ul.chzn-choices {
 .instructions {
   margin: 15px 0;
 }
+.spinning {
+  min-height: 300px;
+  background: #e7e7e6 url(../img/icon_spinner.gif) center center no-repeat;
+}
 .tooltip {
   position: absolute;
   z-index: 1030;
