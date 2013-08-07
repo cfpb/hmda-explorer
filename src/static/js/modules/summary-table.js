@@ -28,13 +28,34 @@ var PDP = (function ( pdp ) {
 
   // map for select clause statements and calculate by field values
   table.metrics = {
-    'income-min': 'MIN(applicant_income_000s)',
-    'income-max': 'MAX(applicant_income_000s)',
-    'income-avg': 'AVG(applicant_income_000s)',
-    'loan-min': 'MIN(loan_amount_000s)',
-    'loan-max': 'MAX(loan_amount_000s)',
-    'loan-avg': 'AVG(loan_amount_000s)',
-    'loan-sum': 'SUM(loan_amount_000s)'
+    'income-min': {
+      'api': 'MIN(applicant_income_000s)',
+      'human': 'Applicant Income Minimum'
+    },
+    'income-max': {
+      'api': 'MAX(applicant_income_000s)',
+      'human': 'Applicant Income Maximum'
+    },
+    'income-avg': {
+      'api': 'AVG(applicant_income_000s)',
+      'human': 'Applicant Income Average'
+    },
+    'loan-min': {
+      'api': 'MIN(loan_amount_000s)',
+      'human': 'Loan Amount Minimum'
+    },
+    'loan-max': {
+      'api': 'MAX(loan_amount_000s)',
+      'human': 'Loan Amount Maximum'
+    },
+    'loan-avg': {
+      'api': 'AVG(loan_amount_000s)',
+      'human': 'Loan Amount Average'
+    },
+    'loan-sum': {
+      'api': 'SUM(loan_amount_000s)',
+      'human': 'Loan Amount Sum'
+    }
   };
 
   // holds onto user-selected options. consists of clauses object + pdp.query.params
@@ -104,7 +125,7 @@ var PDP = (function ( pdp ) {
     // get the query string from the metrics map and
     // make sure it gets set to the third queryParams.clauses array 
     if ( e.target.id === 'calculate-by' ) {
-      value = this.metrics[value];
+      value = this.metrics[value].api;
       position = 3;
     }
 
@@ -224,12 +245,20 @@ var PDP = (function ( pdp ) {
   table.updateTableHeaders = function() {
     var $table = $('table#summary-table'),
         $headerRow = $('<tr class="header"></tr>'),
-        columns = this.queryParams.clauses.select,
-        i,
+        columns = this.queryParams.clauses.select.slice(0),
+        i, val,
         len = columns.length - 1;
 
     for (i=0; i<=len; i++) {
       if (typeof columns[i] !== 'undefined') {
+        // 3 = array index of calculate by
+        if ( i === 3 ) {
+          for (val in this.metrics) {
+            if (this.metrics[val].api === columns[i]) {
+              columns[i] = this.metrics[val].human;
+            }
+          }
+        }
         $headerRow.append('<td id="' + columns[i] + '">' + pdp.utils.varToTitle( columns[i] ) + '</td>');
       }
     }
