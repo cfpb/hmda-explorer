@@ -151,7 +151,7 @@ var PDP = (function ( pdp ) {
   };
 
   table._showSpinner = function() {
-    $('<div class="spinning"></div>').insertAfter('table#summary-table');
+    $('body').append('<div class="spinning"></div>');
   };
 
   table._removeSpinner = function() {
