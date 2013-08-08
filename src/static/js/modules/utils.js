@@ -12,15 +12,17 @@ var PDP = (function( pdp ) {
   // ----------------
   // An assortment of helper methods and polyfills.
 
-  pdp.utils = {};
+  var utils = {};
 
-  pdp.utils.showError = function( errorText ) {
+  // Error visualization
+
+  utils.showError = function( errorText ) {
     $('#error').text( errorText ).delay( 20000 ).fadeOut();
   };
 
   // takes a variable name and returns a nice title
   // ex. state_name becomes State
-  pdp.utils.varToTitle = function( varName ) {
+  utils.varToTitle = function( varName ) {
     var nameParts = varName.split('_'),
         varTitle;
 
@@ -43,7 +45,7 @@ var PDP = (function( pdp ) {
 
   // Return the hash parameters from the current URL. [source](http://stackoverflow.com/questions/4197591/parsing-url-hash-fragment-identifier-with-javascript/4198132#4198132)
 
-  pdp.utils.getHashParams = function() {
+  utils.getHashParams = function() {
 
     var hashParams = {};
     var e,
@@ -78,7 +80,7 @@ var PDP = (function( pdp ) {
 
   // Cache data in the localStorage, adapted from https://gist.github.com/rpflorence/1345787
 
-  pdp.utils.getJSON = function( url ) {
+  utils.getJSON = function( url ) {
 
     var supportsLocalStorage = 'localStorage' in window,
         slug = 'cfpb:' + url.substring( url.indexOf('?') + 1 );
@@ -88,9 +90,9 @@ var PDP = (function( pdp ) {
 
     function getJSON( url ) {
 
-      var promise = $.getJSON( url );
+      var deferred = $.getJSON( url );
 
-      promise.done(function(data) {
+      deferred.done(function(data) {
         try {
           localStorage.setItem( slug, JSON.stringify(data) );
         } catch( e ) {
@@ -108,7 +110,7 @@ var PDP = (function( pdp ) {
 
       console.log( url + ' %c fetched via AJAX', 'color: orange' );
 
-      return promise;
+      return deferred;
     }
 
     function getStorage( url ) {
@@ -156,6 +158,8 @@ var PDP = (function( pdp ) {
       return fBound;
     };
   }
+
+  pdp.utils = utils;
 
   return pdp;
 
