@@ -18,6 +18,8 @@ var PDP = (function( pdp ) {
     $('#error').text( errorText ).delay( 20000 ).fadeOut();
   };
 
+  // takes a variable name and returns a nice title
+  // ex. state_name becomes State
   pdp.utils.varToTitle = function( varName ) {
     var nameParts = varName.split('_'),
         varTitle;
