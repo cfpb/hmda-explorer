@@ -111,8 +111,7 @@ var PDP = (function ( pdp ) {
   table.updateTable = function(e) {
     var value = e.target.selectedOptions[0].value,
         position = e.target.id.substr( -1, 1 ),
-        clause = e.target.dataset.summaryTableInput,
-        responseJSON;
+        clause = e.target.dataset.summaryTableInput;
 
     // if they've selected a placeholder, reset the column
     // a placeholder has no value
@@ -138,6 +137,11 @@ var PDP = (function ( pdp ) {
     // reset it before the data comes back and builds
     this.resetTable();
 
+    this._requestData();
+  };
+
+  table._requestData = function() {
+    var responseJSON;
     // console.log( pdp.query._buildApiQuery( this.queryParams ) );
     responseJSON = pdp.utils.getJSON( pdp.query.generateApiUrl( 'jsonp?$callback=', this.queryParams ) );
 
@@ -147,7 +151,6 @@ var PDP = (function ( pdp ) {
 
     // in the meantime, spin!
     this._showSpinner();
-
   };
 
   table._showSpinner = function() {
@@ -166,34 +169,29 @@ var PDP = (function ( pdp ) {
     this.updateTableHeaders();
   };
 
-  // the API returns the calculate by values before the other variables
-  // this detects, removes and replaces those values on the end of the obj
-  // so that the table forms correctly
-  // ideally, we should ask clinton if the api can build the response differently
-  table._prepResponseData = function( data ) {
-    var column, calculateVal, calculateKey;
-    for (column in data) {
-      if (data.hasOwnProperty(column)) {
-        if (column.indexOf('000') !== -1) {
-          calculateVal = data[column];
-          calculateKey = column;
-          delete(data[column]);
-        }
+  table.queryToVal = function( qstr ) {
+    var val, i;
+
+    // split on parenthesis
+    val = qstr.split(/\(|\)/);
+
+    i = val.length;
+    while (i--) {
+      if ( val[i] === '' ) {
+        val.splice(i, 1);
       }
     }
 
-    if ( typeof calculateKey !== 'undefined' ) {
-      data[calculateKey] = calculateVal;
-    }
+    val = val.join('_').toLowerCase();
 
-    return data;
+    return val;
   };
 
   // builds out table body from API JSON response data
   table.populateTable = function( responseData ) {
-    var total, result, column, i, j, $tr, populateCell,
+    var total, result, column, i, $tr, cellValue,
         $table = $('table#summary-table'),
-        len = responseData.results.length;
+        len = responseData.results.length - 1;
 
     this._removeSpinner();
 
@@ -202,14 +200,22 @@ var PDP = (function ( pdp ) {
       return;
     }
 
-    populateCell = function(column) {
-      this.append('<td>' + column + '</td>');
-    };
-
     for (i=0; i<=len; i++) {
       $tr = $('<tr></tr>');
-      responseData.results[i] = this._prepResponseData( responseData.results[i] );
-      _.each( responseData.results[i], populateCell.bind( $tr ) );
+
+      for ( column in this.queryParams.clauses.select ) {
+          if ( typeof this.queryParams.clauses.select[column] !== 'undefined' ) {
+            cellValue = responseData.results[i][this.queryParams.clauses.select[column]];
+
+            if ( typeof cellValue === 'undefined' ) {
+              cellValue = responseData.results[i][this.queryToVal( this.queryParams.clauses.select[column] )];
+            }
+          } else {
+            cellValue = '';
+          }
+          $tr.append('<td>' + cellValue + '</td>'); 
+      }
+
       $table.append($tr);
     }
   
@@ -224,14 +230,15 @@ var PDP = (function ( pdp ) {
   // is set to "both" to update both select and group arrays
   table.resetColumn = function( clause, position ) {
     if ( clause === 'both' ) {
-      this.queryParams.clauses['select'].splice( position, 1 );
+      delete( this.queryParams.clauses['select'][position] );
       this.resetColumn( 'group', position );
       return;
     }
 
-    this.queryParams.clauses[clause].splice( position, 1 );
+    delete( this.queryParams.clauses[clause][position] );
 
     this.resetTable();
+    this._requestData();
   };
 
   // updates object that reflects selected form options
@@ -270,7 +277,7 @@ var PDP = (function ( pdp ) {
         $headerRow = $('<tr class="header"></tr>'),
         columns = this.queryParams.clauses.select.slice(0),
         i, val,
-        len = columns.length - 1;
+        len = columns.length;
 
     for (i=0; i<=len; i++) {
       if (typeof columns[i] !== 'undefined') {
