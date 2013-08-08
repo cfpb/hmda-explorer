@@ -116,6 +116,13 @@ module.exports = function(grunt) {
      * zipping the example directory.
      */
     shell: {
+      go: {
+        command: [
+          'bower install',
+          'grunt build',
+          'grunt'
+        ].join('&&')
+      },
       dist: {
         command: [
           'cp src/*.html dist/',
@@ -286,6 +293,7 @@ module.exports = function(grunt) {
    */
   grunt.registerTask('test', ['jshint', 'jasmine']);
   grunt.registerTask('docs', ['removelogging', 'docco', 'build-cfpb']);
+  grunt.registerTask('go', ['shell:go']);
   grunt.registerTask('build', ['shell:dist', 'jst', 'uglify', 'less', 'cssmin']);
 
   /**

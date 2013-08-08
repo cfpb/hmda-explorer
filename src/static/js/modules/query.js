@@ -44,6 +44,18 @@ var PDP = (function ( pdp ) {
         as_of_year: {
           values: [2011],
           comparator: '='
+        },
+        property_type: {
+          values: [1,2],
+          comparator: '='
+        },
+        owner_occupancy: {
+          values: [1],
+          comparator: '='
+        },
+        lien_status: {
+          values: [1],
+          comparator: '='
         }
       };
 
