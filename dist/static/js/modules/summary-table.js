@@ -117,7 +117,6 @@ var PDP = (function ( pdp ) {
     // a placeholder has no value
     if ( e.target.selectedOptions[0].hasAttribute('placeholder') ) {
       this.resetColumn( clause, position );
-      return;
     }
 
     // if the event occurred on the calculate by field, 
@@ -191,7 +190,8 @@ var PDP = (function ( pdp ) {
   table.populateTable = function( responseData ) {
     var total, result, column, i, $tr, cellValue,
         $table = $('table#summary-table'),
-        len = responseData.results.length - 1;
+        len = responseData.results.length - 1,
+        clauses, clauseLen = this.queryParams.clauses.select.length;
 
     this._removeSpinner();
 
@@ -203,17 +203,15 @@ var PDP = (function ( pdp ) {
     for (i=0; i<=len; i++) {
       $tr = $('<tr></tr>');
 
-      for ( column in this.queryParams.clauses.select ) {
-          if ( typeof this.queryParams.clauses.select[column] !== 'undefined' ) {
-            cellValue = responseData.results[i][this.queryParams.clauses.select[column]];
+      for ( column=0; column<clauseLen; column++ ) {
+        if ( typeof this.queryParams.clauses.select[column] !== 'undefined' ) {
+          cellValue = responseData.results[i][this.queryParams.clauses.select[column]];
 
-            if ( typeof cellValue === 'undefined' ) {
-              cellValue = responseData.results[i][this.queryToVal( this.queryParams.clauses.select[column] )];
-            }
-          } else {
-            cellValue = '';
+          if ( typeof cellValue === 'undefined' ) {
+            cellValue = responseData.results[i][this.queryToVal( this.queryParams.clauses.select[column] )];
           }
           $tr.append('<td>' + cellValue + '</td>'); 
+        }
       }
 
       $table.append($tr);
@@ -230,7 +228,7 @@ var PDP = (function ( pdp ) {
   // is set to "both" to update both select and group arrays
   table.resetColumn = function( clause, position ) {
     if ( clause === 'both' ) {
-      delete( this.queryParams.clauses['select'][position] );
+      this.queryParams.clauses['select'].splice( position, 1 );
       this.resetColumn( 'group', position );
       return;
     }
