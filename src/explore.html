@@ -577,7 +577,7 @@
 
           <div class="preview closed">
 
-              <p id="nlw">There are <em class="calculating">recalculating...</em><strong class="count">many</strong> HMDA records from <strong class="years">2007 - 2012</strong> with the above selected filters.</p>
+              <p class="nlw">There are <em class="calculating">recalculating...</em><strong class="count">many</strong> HMDA records from <strong class="years">2007 - 2012</strong> with the above selected filters.</p>
 
               <div class="title">
 
@@ -659,11 +659,9 @@
         <h2>Create a summary table</h2>
 
         <div class="intro">
-        <p class="summary" id="summary-nlw">
-          <img src="static/img/icon_bar_chart.png" class="left" alt=""/>
-          
-        </p>
-        <a href="explore.html#!/section=filters">Revise your filters</a>
+        <p class="nlw"><img src="static/img/icon_bar_chart.png" class="left" alt=""/>There are <em class="calculating">recalculating...</em><strong class="count">many</strong> HMDA records from <strong class="years">2007 - 2012</strong> with the previously selected filters.</p>
+
+        Not quite right? <a class="filter-link" href="explore.html#!/section=filters">Revise your filters <img src="static/img/arrow_blue_right.png" alt="" /></a>
         </div>
 
         <div class="instructions">
@@ -704,7 +702,7 @@
             <div class="calculate">
               <label for="caluculate-by"><img src="static/img/icon_number_two.png" alt="" class="icon"/>Calculate by</label>
               <select class="chzn-single" id="calculate-by" data-summary-table-input="select">
-                <option value="records" selected>Number of records</option>
+                <option placeholder>Select a variable</option>
                 <option placeholder class="placeholder">Applicant Income</option>
                 <option value="income-min" class="indent">Min</option>
                 <option value="income-max" class="indent">Max</option>
