@@ -37,11 +37,13 @@ var PDP = (function ( pdp ) {
     app.$el.find('.help').tooltip({ placement: 'left' });
     app.$el.find('#share_url').tooltip({ title: 'Copied to clipboard!', trigger: 'manual' });
 
-    // If there are hash params in the URL, grab them and populate the DOM fields.
+    // If there are hash params in the URL OR the only hashParam is to designate which section,
+    // grab them and populate the DOM fields.
 
-    if ( !_.isEmpty( hashParams ) ) {
+    if ( !_.isEmpty( hashParams ) && !( _.keys( hashParams ).length === 1 && hashParams.section !== undefined ) ) {
 
       pdp.query.updateAll({source: 'url'});
+      pdp.form.hideIntroExplanation();
 
     } else {
 

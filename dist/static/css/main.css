@@ -2128,6 +2128,15 @@ textarea {
     background-size: 16px 16px;
   }
 }
+.spinning {
+  background: rgba(255, 255, 255, 0.3) url(../img/icon_spinner_2x.gif) center center no-repeat;
+  width: 100%;
+  height: 150%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
 /**
  *  Mixin to justify a horizontal list, useful for navs
  **/
@@ -2195,46 +2204,19 @@ textarea {
   margin-bottom: 1em;
 }
 .filter .field > label {
-  display: inline-block;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  border: solid transparent;
-  border-width: 0 15px;
-  margin-right: -0.25em;
-  vertical-align: top;
   width: 25%;
+  margin: 0 15px;
+  display: inline-block;
+  vertical-align: top;
   font-family: "Avenir Next Demi", Arial, sans-serif;
   font-weight: 600;
   font-style: normal;
   text-align: right;
 }
-.ie .filter .field > label {
-  margin-right: -0.26em;
-}
-.lt-ie8 .filter .field > label {
-  display: inline;
-  *zoom: 1;
-  *behavior: url(boxsizing.htc);
-}
 .filter .widget {
+  width: 55%;
+  margin: 0 15px;
   display: inline-block;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  border: solid transparent;
-  border-width: 0 15px;
-  margin-right: -0.25em;
-  vertical-align: top;
-  width: 75%;
-}
-.ie .filter .widget {
-  margin-right: -0.26em;
-}
-.lt-ie8 .filter .widget {
-  display: inline;
-  *zoom: 1;
-  *behavior: url(boxsizing.htc);
 }
 .filter .widget label {
   display: block;
@@ -2259,22 +2241,28 @@ textarea {
 .filter .location-set:last-child {
   border: 0;
 }
+.filter li.location-separator {
+  font-family: "Avenir Next Demi", Arial, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-style: italic;
+  display: block;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.filter .loan_amount_000s input {
+  width: 70px;
+}
 .filter .control {
-  margin: 0 0 2em 2em;
+  margin: 0 0 30px 53px;
   display: block;
   font-family: "Avenir Next Demi", Arial, sans-serif;
   font-weight: 600;
   font-style: normal;
   animation: fadein .8s;
   -moz-animation: fadein .8s;
-  /* Firefox */
-
   -webkit-animation: fadein .8s;
-  /* Safari and Chrome */
-
   -o-animation: fadein .8s;
-  /* Opera */
-
 }
 .filter .next-steps {
   padding: 30px 0;
@@ -2283,9 +2271,11 @@ textarea {
   width: 100%;
 }
 .filter .help {
+  position: absolute;
   font-size: 1.3em;
   display: inline-block;
   color: #0072ce;
+  vertical-align: top;
 }
 .field.disabled {
   color: #d0d0ce;
@@ -2305,7 +2295,7 @@ textarea {
     border-width: 0 15px;
     margin-right: -0.25em;
     vertical-align: top;
-    width: 66.66666666666666%;
+    width: 83.33333333333334%;
   }
   .ie .filter .intro {
     margin-right: -0.26em;
@@ -2320,43 +2310,11 @@ textarea {
     font-size: 1.2em;
     margin-left: 20px;
   }
-  .filter li.field > label {
-    display: inline-block;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    border: solid transparent;
-    border-width: 0 15px;
-    margin-right: -0.25em;
-    vertical-align: top;
-    width: 25%;
-  }
-  .ie .filter li.field > label {
-    margin-right: -0.26em;
-  }
-  .lt-ie8 .filter li.field > label {
-    display: inline;
-    *zoom: 1;
-    *behavior: url(boxsizing.htc);
-  }
   .filter .widget {
-    display: inline-block;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    border: solid transparent;
-    border-width: 0 15px;
-    margin-right: -0.25em;
-    vertical-align: top;
-    width: 50%;
+    width: 35%;
   }
-  .ie .filter .widget {
-    margin-right: -0.26em;
-  }
-  .lt-ie8 .filter .widget {
-    display: inline;
-    *zoom: 1;
-    *behavior: url(boxsizing.htc);
+  .filter .field.applicant_sex .widget {
+    width: 47%;
   }
   .filter.location li.field {
     margin-bottom: .25em;
@@ -2364,174 +2322,61 @@ textarea {
   .filter.location li.field > label {
     padding-bottom: .25em;
   }
+  .filter.location li.location-separator {
+    display: inline-block;
+    margin: 0 20px;
+  }
   .filter.location li.field.state_abbr,
   .filter.location li.field.county_code,
   .filter.location li.field.census_tract_number {
+    width: 25%;
     display: inline-block;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    border: solid transparent;
-    border-width: 0 15px;
-    margin-right: -0.25em;
-    vertical-align: top;
-    width: 33.33333333333333%;
-  }
-  .ie .filter.location li.field.state_abbr,
-  .ie .filter.location li.field.county_code,
-  .ie .filter.location li.field.census_tract_number {
-    margin-right: -0.26em;
-  }
-  .lt-ie8 .filter.location li.field.state_abbr,
-  .lt-ie8 .filter.location li.field.county_code,
-  .lt-ie8 .filter.location li.field.census_tract_number {
-    display: inline;
-    *zoom: 1;
-    *behavior: url(boxsizing.htc);
   }
   .filter.location li.field.state_abbr > label,
   .filter.location li.field.county_code > label,
   .filter.location li.field.census_tract_number > label {
-    display: inline-block;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    border: solid transparent;
-    border-width: 0 15px;
-    margin-right: -0.25em;
-    vertical-align: top;
     width: 100%;
+    margin: 0;
     text-align: left;
-  }
-  .ie .filter.location li.field.state_abbr > label,
-  .ie .filter.location li.field.county_code > label,
-  .ie .filter.location li.field.census_tract_number > label {
-    margin-right: -0.26em;
-  }
-  .lt-ie8 .filter.location li.field.state_abbr > label,
-  .lt-ie8 .filter.location li.field.county_code > label,
-  .lt-ie8 .filter.location li.field.census_tract_number > label {
-    display: inline;
-    *zoom: 1;
-    *behavior: url(boxsizing.htc);
   }
   .filter.location li.field.state_abbr .widget,
   .filter.location li.field.county_code .widget,
   .filter.location li.field.census_tract_number .widget {
-    display: inline-block;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    border: solid transparent;
-    border-width: 0 15px;
-    margin-right: -0.25em;
-    vertical-align: top;
     width: 100%;
-  }
-  .ie .filter.location li.field.state_abbr .widget,
-  .ie .filter.location li.field.county_code .widget,
-  .ie .filter.location li.field.census_tract_number .widget {
-    margin-right: -0.26em;
-  }
-  .lt-ie8 .filter.location li.field.state_abbr .widget,
-  .lt-ie8 .filter.location li.field.county_code .widget,
-  .lt-ie8 .filter.location li.field.census_tract_number .widget {
-    display: inline;
-    *zoom: 1;
-    *behavior: url(boxsizing.htc);
+    margin: 0;
   }
   .filter.location li.field.county_code,
   .filter.location li.field.census_tract_number {
-    display: inline-block;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    border: solid transparent;
-    border-width: 0 15px;
-    margin-right: -0.25em;
-    vertical-align: top;
-    width: 33.33333333333333%;
-    width: 99.99999999999999%;
-    padding-right: 66.66666666666666%;
-  }
-  .ie .filter.location li.field.county_code,
-  .ie .filter.location li.field.census_tract_number {
-    margin-right: -0.26em;
-  }
-  .lt-ie8 .filter.location li.field.county_code,
-  .lt-ie8 .filter.location li.field.census_tract_number {
-    display: inline;
-    *zoom: 1;
-    *behavior: url(boxsizing.htc);
-  }
-  .lt-ie8 .filter.location li.field.county_code,
-  .lt-ie8 .filter.location li.field.census_tract_number {
-    padding-right: 0;
+    display: block;
   }
   .filter.location li.field.msamd {
+    width: 40%;
     display: inline-block;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    border: solid transparent;
-    border-width: 0 15px;
-    margin-right: -0.25em;
-    vertical-align: top;
-    width: 50%;
-  }
-  .ie .filter.location li.field.msamd {
-    margin-right: -0.26em;
-  }
-  .lt-ie8 .filter.location li.field.msamd {
-    display: inline;
-    *zoom: 1;
-    *behavior: url(boxsizing.htc);
   }
   .filter.location li.field.msamd > label {
-    display: inline-block;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    border: solid transparent;
-    border-width: 0 15px;
-    margin-right: -0.25em;
-    vertical-align: top;
     width: 100%;
+    margin: 0;
     text-align: left;
   }
-  .ie .filter.location li.field.msamd > label {
-    margin-right: -0.26em;
-  }
-  .lt-ie8 .filter.location li.field.msamd > label {
-    display: inline;
-    *zoom: 1;
-    *behavior: url(boxsizing.htc);
-  }
   .filter.location li.field.msamd .widget {
-    display: inline-block;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    border: solid transparent;
-    border-width: 0 15px;
-    margin-right: -0.25em;
-    vertical-align: top;
-    width: 100%;
+    width: 80%;
+    margin: 0 10px 0 0;
   }
-  .ie .filter.location li.field.msamd .widget {
-    margin-right: -0.26em;
-  }
-  .lt-ie8 .filter.location li.field.msamd .widget {
-    display: inline;
-    *zoom: 1;
-    *behavior: url(boxsizing.htc);
+  .filter .help {
+    position: static;
   }
   .widget.inline label {
     display: inline-block;
     margin-right: 19px;
   }
+  .widget.inline label:last-child {
+    margin-right: 0;
+  }
   .widget.inline input[type=checkbox] {
     width: 20px;
+  }
+  .location-set {
+    margin-left: 53px;
   }
 }
 .preview {
@@ -2557,6 +2402,7 @@ textarea {
 }
 .preview #preview {
   overflow: scroll;
+  position: relative;
   margin-top: 10px;
 }
 .preview #preview table.tidy_table {
@@ -2576,6 +2422,19 @@ textarea {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.preview #preview .spinning {
+  display: none;
+  height: 100%;
+}
+.preview #preview.loading {
+  overflow: hidden;
+}
+.preview #preview.loading .spinning {
+  display: block;
+}
+.preview #preview.loading .tidy_table {
+  opacity: .5;
+}
 .preview h3 {
   color: #0072ce;
   display: inline-block;
@@ -2585,6 +2444,9 @@ textarea {
 }
 .preview.closed i.icon-minus-alt:before {
   content: "\e0067";
+}
+.nlw {
+  position: relative;
 }
 @media only screen and (min-width: 768px) {
   
@@ -3336,15 +3198,6 @@ ul.chzn-choices {
 }
 .instructions {
   margin: 15px 0;
-}
-.spinning {
-  background: rgba(117, 120, 123, 0.3) url(../img/icon_spinner.gif) center center no-repeat;
-  width: 100%;
-  height: 150%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 100;
 }
 .tooltip {
   position: absolute;
