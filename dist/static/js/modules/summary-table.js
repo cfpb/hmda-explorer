@@ -228,7 +228,7 @@ var PDP = (function ( pdp ) {
   // is set to "both" to update both select and group arrays
   table.resetColumn = function( clause, position ) {
     if ( clause === 'both' ) {
-      this.queryParams.clauses['select'].splice( position, 1 );
+      delete( this.queryParams.clauses['select'][position] );
       this.resetColumn( 'group', position );
       return;
     }
