@@ -54,12 +54,18 @@ var PDP = (function ( pdp ) {
 
   };
 
+  preview.lastRequestTime = new Date().getTime();
+
   // The `_fetchPreviewJSON` method returns a promise of JSON
 
   preview._fetchPreviewJSON = function() {
 
     var url = pdp.query.generateApiUrl() + '&$limit=500',
         promise = pdp.utils.getJSON( url );
+
+    preview.lastRequestTime = new Date().getTime();
+
+    promise.timestamp = preview.lastRequestTime;
 
     return promise;
 
@@ -69,9 +75,17 @@ var PDP = (function ( pdp ) {
 
   preview.update = function() {
 
+    var promise = this._fetchPreviewJSON();
+
+    console.log(preview.lastRequestTime);
+
     preview.startLoading();
 
-    this._fetchPreviewJSON().done( function( data ) {
+    promise.done( function( data ) {
+
+      if ( promise.timestamp < preview.lastRequestTime ) {
+        return;
+      }
 
       preview.nlw.count = data.total;
 
