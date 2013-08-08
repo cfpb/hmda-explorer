@@ -142,6 +142,8 @@ var PDP = (function ( pdp ) {
   };
 
   // hide variables already selected from subsequent drop downs
+  // or
+  // show variables that are unselected due to column reset
   table._updateFields = function(value, position) {
     if ( position < 2 ) {
       for (position; position<=2; position++) {
@@ -182,6 +184,9 @@ var PDP = (function ( pdp ) {
     this.updateTableHeaders();
   };
 
+  // takes query for calculate by field and
+  // returns the value representation
+  // ex. AVG(applicant_income_000s) to avg_applicant_income_000s
   table.queryToVal = function( qstr ) {
     var val, i;
 
@@ -288,6 +293,7 @@ var PDP = (function ( pdp ) {
     return this.$table;
   };  
 
+  // generates <tr> of column headers
   table.updateTableHeaders = function() {
     var $table = $('table#summary-table'),
         $headerRow = $('<tr class="header"></tr>'),
@@ -298,7 +304,10 @@ var PDP = (function ( pdp ) {
     for (i=0; i<=len; i++) {
       if (typeof columns[i] !== 'undefined') {
         // 3 = array index of calculate by
+        // calculate by = 3d vs. 2d since it has value id, 
+        // query representation and human representation
         if ( i === 3 ) {
+          // walk the calculate by or metrics map for the correct title
           for (val in this.metrics) {
             if (this.metrics[val].api === columns[i]) {
               columns[i] = this.metrics[val].human;
@@ -320,7 +329,7 @@ var PDP = (function ( pdp ) {
     // fields should be disabled until a first variable is selected
     // we don't want users selecting subsequent vars when earlier
     // ones are undefined
-    $('#variable1, #variable2').attr('disabled', 'disabled').trigger('liszt:updated');
+    $('#variable1, #variable2, #calculate-by').attr('disabled', 'disabled').trigger('liszt:updated');
 
     // event listener for form changes
     this._inputs.all.on('change', function(e) {
@@ -329,8 +338,10 @@ var PDP = (function ( pdp ) {
       if (e.target.id !== 'calculate-by') {
         var position = e.target.id.substr( -1, 1 );
 
-        $('#variable'.concat(++position)).removeAttr('disabled').trigger('liszt:updated');
+        // enable subsequent variable field and calculate-by field
+        $('#calculate-by, #variable'.concat(++position)).removeAttr('disabled').trigger('liszt:updated');
 
+        // if this is variable 1 or 2, they're eligible to be removed, show link
         if (position > 0) {
           $('#reset-' + e.target.id).removeClass('hidden');
         }
