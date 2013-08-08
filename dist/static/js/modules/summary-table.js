@@ -24,7 +24,7 @@ var PDP = (function ( pdp ) {
   // we could call the api every time
   // or we can just do this
   // this is a subset of all available dimensions anyway
-  table.fields = ['action_taken_name','agency_name', 'applicant_ethnicity_name','applicant_race_name_1','census_tract_number','co_applicant_ethnicity_name','co_applicant_race_name_1','co_applicant_sex_name','county_name','denial_reason_name_1','hoepa_status_name','lien_status_name','loan_purpose_name','loan_type_name','msamd_name','owner_occupancy_name','preapproval_name','property_type_name','purchaser_type_name', 'respondent_id', 'state_name'];
+  table.fields = ['action_taken_name','agency_name', 'applicant_ethnicity_name', 'applicant_sex_name', 'applicant_race_name_1','census_tract_number','co_applicant_ethnicity_name','co_applicant_race_name_1','co_applicant_sex_name','county_name','denial_reason_name_1','hoepa_status_name','lien_status_name','loan_purpose_name','loan_type_name','msamd_name','owner_occupancy_name','preapproval_name','property_type_name','purchaser_type_name', 'respondent_id', 'state_name'];
 
   // map for select clause statements and calculate by field values
   table.metrics = {
@@ -137,6 +137,20 @@ var PDP = (function ( pdp ) {
     this.resetTable();
 
     this._requestData();
+
+    this._updateFields( value, position );
+  };
+
+  // hide variables already selected from subsequent drop downs
+  table._updateFields = function(value, position) {
+    if ( position < 2 ) {
+      for (position; position<=2; position++) {
+        $('#variable' + position)
+          .find('option[value=' + value + ']')
+          .toggleClass('hidden')
+          .trigger('liszt:updated');
+      }
+    }
   };
 
   table._requestData = function() {
@@ -227,16 +241,20 @@ var PDP = (function ( pdp ) {
   // recursive if the data attribute data-summary-table-input
   // is set to "both" to update both select and group arrays
   table.resetColumn = function( clause, position ) {
+    var removedValue;
     if ( clause === 'both' ) {
       delete( this.queryParams.clauses['select'][position] );
       this.resetColumn( 'group', position );
       return;
     }
 
+    removedValue = this.queryParams.clauses[clause][position];
+
     delete( this.queryParams.clauses[clause][position] );
 
     this.resetTable();
-    this._requestData();
+    this._updateFields( removedValue, position );
+    this._requestData( clause, position );
   };
 
   // updates object that reflects selected form options
