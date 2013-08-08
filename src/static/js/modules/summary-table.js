@@ -113,10 +113,10 @@ var PDP = (function ( pdp ) {
         position = e.target.id.substr( -1, 1 ),
         clause = e.target.dataset.summaryTableInput;
 
-    // if they've selected a placeholder, reset the column
+    // if they've selected a placeholder, ignore it
     // a placeholder has no value
     if ( e.target.selectedOptions[0].hasAttribute('placeholder') ) {
-      this.resetColumn( clause, position );
+      return;
     }
 
     // if the event occurred on the calculate by field, 
