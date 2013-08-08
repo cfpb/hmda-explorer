@@ -26,7 +26,7 @@ var PDP = (function ( pdp ) {
 
   preview.nlw = {
 
-    $el: $('#nlw'),
+    $el: $('.nlw'),
     count: '1000+'
 
   };
