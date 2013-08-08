@@ -343,9 +343,15 @@ var PDP = (function ( pdp ) {
 
         }
 
-        options = _( data.table.data ).filter( filterDeps ).map( mapDeps ).sortBy( sortDeps ).value();
+        // If any data was returned.
 
-        this.setFieldOptions( el, options );
+        if ( data.table.data ) {
+
+          options = _( data.table.data ).filter( filterDeps ).map( mapDeps ).sortBy( sortDeps ).value();
+
+          this.setFieldOptions( el, options );
+
+        }
 
         // Broadcast that the update has ended.
 
