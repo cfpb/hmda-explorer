@@ -14,7 +14,7 @@ var PDP = (function ( pdp ) {
 
   // Toggle the popular/all filters sections  
 
-  $('#section-toggle a').on( 'click', function( ev ){
+  $('.section-toggle a').on( 'click', function( ev ){
 
     ev.preventDefault();
 
