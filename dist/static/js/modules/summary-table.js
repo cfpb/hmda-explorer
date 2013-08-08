@@ -11,6 +11,7 @@ var PDP = (function ( pdp ) {
   var table = {};
 
   table.$el = $('#summary-table-form');
+  table.$page = $('#summary');
 
   // cache input fields
   table._inputs = {};
@@ -153,11 +154,11 @@ var PDP = (function ( pdp ) {
   };
 
   table._showSpinner = function() {
-    $('body').append('<div class="spinning"></div>');
+    this.$page.addClass('loading');
   };
 
   table._removeSpinner = function() {
-    $('.spinning').remove();
+    this.$page.removeClass('loading');
   };
 
   // removes table contents
@@ -210,13 +211,13 @@ var PDP = (function ( pdp ) {
           if ( typeof cellValue === 'undefined' ) {
             cellValue = responseData.results[i][this.queryToVal( this.queryParams.clauses.select[column] )];
           }
-          $tr.append('<td>' + cellValue + '</td>'); 
+          $tr.append('<td>' + cellValue + '</td>');
         }
       }
 
       $table.append($tr);
     }
-  
+
   };
 
   table._throwFetchError = function() {

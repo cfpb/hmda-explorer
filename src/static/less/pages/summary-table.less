@@ -1,5 +1,43 @@
 // Mobile first!
 
+#summary {
+  position: relative;
+  .intro {
+    border: 1px solid @light_field;
+    border-left: 0;
+    border-right: 0;
+    background-color: @light_field50;
+    margin: 10px 0;
+    padding: 30px 20px;
+    font-family: "Avenir Next", Arial, sans-serif;
+
+    .filter-link {
+      img {
+        margin-left: 5px;
+      }
+    }
+
+    .nlw {
+      img {
+        margin-right: 10px;
+      }
+    }
+  }
+  .spinning {
+    display: none;
+  }
+  &.loading {
+    .spinning {
+      display: block;
+    }
+  }
+}
+
+.instructions {
+  margin: 15px 0;
+}
+
+
 #summary-table-form {
   
   .wrapper();
@@ -127,30 +165,4 @@
     .column( 12 );
   }
 
-}
-
-#group .intro {
-  border: 1px solid @light_field;
-  border-left: 0;
-  border-right: 0;
-  background-color: @light_field50;
-  margin: 10px 0;
-  padding: 30px 20px;
-  font-family: "Avenir Next", Arial, sans-serif;
-
-  .filter-link {
-    img {
-      margin-left: 5px;
-    }
-  }
-
-  .nlw {
-    img {
-      margin-right: 10px;
-    }
-  }
-}
-
-.instructions {
-  margin: 15px 0;
 }
