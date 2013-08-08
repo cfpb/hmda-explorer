@@ -77,8 +77,6 @@ var PDP = (function ( pdp ) {
 
     var promise = this._fetchPreviewJSON();
 
-    console.log(preview.lastRequestTime);
-
     preview.startLoading();
 
     promise.done( function( data ) {
