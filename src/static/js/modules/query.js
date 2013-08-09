@@ -27,6 +27,10 @@ var PDP = (function ( pdp ) {
 
   query.endpoint = query.debug ? 'static/js/dummy_data/' : 'http://qu.demo.cfpb.gov/data/hmda/';
 
+  // Whether or not they want codes in their downloaded file.
+
+  query.codes = false;
+
   // `query`'s `params` stores filter values.
 
   query.params = {};
@@ -166,15 +170,25 @@ var PDP = (function ( pdp ) {
 
   // The `generateApiUrl` method builds and returns a Qu URL from `query`'s `params`.
 
-  query.generateApiUrl = function( format, params ) {
+  query.generateApiUrl = function( format, codes, params ) {
 
     var url,
         apiCallParams = params || this.params,
+        showCodes = codes || this.codes,
         downloadFormat = format || this.format;
 
     // Set a base url to append params to
 
     url = this.endpoint + 'slice/hmda_lar.' + downloadFormat + '?';
+
+    if ( !showCodes ) {
+      apiCallParams = {
+        clauses: {
+          where: apiCallParams,
+          select: ['action_taken_name','agency_abbr','agency_name','applicant_ethnicity_name','applicant_race_name_1','applicant_race_name_2','applicant_race_name_3','applicant_race_name_4','applicant_race_name_5','applicant_sex_name','application_date_indicator','as_of_year','census_tract_number','co_applicant_ethnicity_name','co_applicant_race_name_1','co_applicant_race_name_2','co_applicant_race_name_3','co_applicant_race_name_4','co_applicant_race_name_5','co_applicant_sex_name','county_name','denial_reason_name_1','denial_reason_name_2','denial_reason_name_3','edit_status_name','hoepa_status_name','lien_status_name','loan_purpose_name','loan_type_name','msamd_name','owner_occupancy_name','preapproval_name','property_type_name','purchaser_type_name','respondent_id','sequence_number','state_abbr','state_name','applicant_income_000s','co_applicant_income_000s','hud_median_family_income','loan_amount_000s','number_of_1_to_4_family_units','number_of_owner_occupied_units','minority_population','population','rate_spread','tract_to_msamd_income']
+        }
+      };
+    }
 
     // fetch, compile queries
 

@@ -56,12 +56,13 @@ var PDP = (function ( pdp ) {
 
   });
 
-  // Hijack the submit button.
+  // Hijack the form submission.
 
   $('form#explore').on( 'submit', function( ev ){
 
     var format = $('#format').val(),
-        url = pdp.query.generateApiUrl( format );
+        showCodes = !!parseInt( $('input[type=radio][name=codes]:checked').val(), 10 ),
+        url = pdp.query.generateApiUrl( format, showCodes );
 
     ev.preventDefault();
 
