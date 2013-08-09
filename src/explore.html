@@ -33,9 +33,9 @@
         <nav role="navigation">
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="#">About HMDA</a></li>
-                <li><a href="explore.html" class="active">Explore Data</a></li>
-                <li><a href="#">Query Builder</a></li>
+                <li><a href="#">Learn more</a></li>
+                <li><a href="explore.html" class="active">Explore data</a></li>
+                <li><a href="#">API tools</a></li>
             </ul>
         </nav>
 
@@ -47,10 +47,10 @@
 
           <h1>Explore the data</h1>
 
-          <nav id="section-toggle">
+          <nav>
             <ul>
-              <li><a href="#filters">Custom Datasets</a></li>
-              <li><a href="#group">Summary Tables</a></li>
+              <li><a href="#filters" class="section-toggle">Custom Datasets</a></li>
+              <li><a href="#summary" class="section-toggle">Summary Tables</a></li>
             </ul>
           </nav>
 
@@ -76,9 +76,9 @@
 
               <div class="intro">
 
-                <p>Some intro text goes here and talks about really neat stuff. Proin tincidunt ornare metus in iaculis. Etiam vestibulum sapien at ante pellentesque, et tristique odio dapibus.</p>
+                <p>Filter the data to just what you're interested in, and then download the results.</p>
 
-                <p>Proin ultrices venenatis dolor ac fringilla. Aenean blandit placerat ante, sit amet luctus tortor luctus nec. Sed adipiscing rhoncus odio sit amet dignissim.</p>
+                <p class="explanation">Most people search for loan originations for first-lien, owner-occupied, 1-4 family and manufactured housing in 2012. For your convenience, we have pre-filtered the results to only include those items. <a href="#download">Download now</a> or add more filters below. (Or <a href="#" class="reset">clear fields</a>.)</p>
 
               </div>
 
@@ -142,7 +142,7 @@
               <ul class="fields">
 
                 <!-- filter field -->
-                <li class="field">
+                <li class="field applicant_sex">
                   <label for="applicant_sex">Applicant Sex:</label>
                   <div class="widget checkbox inline">
                     <label><input type="checkbox" class="param" name="applicant_sex[]" value="1" />Male</label>
@@ -191,10 +191,10 @@
                 <!-- /filter field -->
 
                 <!-- filter field -->
-                <li class="field">
+                <li class="field applicant_income_000s">
                   <label for="applicant_income_000s">Applicant Income:</label>
                   <div class="widget text">
-                    <input class="param" type="text" name="applicant_income_000s" value="" placeholder="Enter an income">
+                    <span>$</span><input class="param" type="text" name="applicant_income_000s" value="" placeholder=""><span class="thousands">,000</span>
                   </div>
                   <div class="help" title="Applicant’s annual gross income (000s) that an institution relied upon in making the credit decision."><i class="icon-help-alt"></i></div>
                 </li>
@@ -212,7 +212,7 @@
                 <!-- /filter field -->
 
                 <!-- filter field -->
-                <li class="field co_applicant hidden">
+                <li class="field co_applicant co_applicant_sex hidden">
                   <label for="co_applicant_sex">Co-Applicant Sex</label>
                   <div class="widget checkbox inline">
                     <label><input type="checkbox" class="param" name="co_applicant_sex[]" value="1" />Male</label>
@@ -345,7 +345,7 @@
                 
                 <!-- filter field -->
                 <li class="field popular">
-                  <label for="1">Property Type</label>
+                  <label for="1">Property Type:</label>
                   <div class="widget checkbox">
                     <label><input type="checkbox" class="param" name="property_type[]" value="1" id="foo"/>One to four-family</label>
                     <label><input type="checkbox" class="param" name="property_type[]" value="2" />Manufactured housing</label>
@@ -357,7 +357,7 @@
 
                 <!-- filter field -->
                 <li class="field popular">
-                  <label for="1">Owner Occupancy</label>
+                  <label for="1">Owner Occupancy:</label>
                   <div class="widget checkbox">
                     <label><input type="checkbox" class="param" name="owner_occupancy[]" value="1" />Owner-occupied (as a principal dwelling)</label>
                     <label><input type="checkbox" class="param" name="owner_occupancy[]" value="2" />Not owner-occupied/not principal dwelling</label>
@@ -390,25 +390,22 @@
                 <!-- filter field -->
                 <li class="field popular">
                   <label for="lien_status">Lien Status:</label>
-                  <div class="widget select">
-                    <select class="param" name="lien_status" id="lien_status" multiple data-placeholder="Select a Lien Status">
-                      <option value=""></option>
-                      <option value="1">Secured by a first lien</option>
-                      <option value="2">Secured by a subordinate lien</option>
-                      <option value="3">Not secured by a lien</option>
-                      <option value="4">Not applicable (purchased loans)</option>
-                    </select>
+                  <div class="widget checkbox">
+                    <label><input type="checkbox" class="param" name="lien_status[]" value="1" />Secured by a first lien</label>
+                    <label><input type="checkbox" class="param" name="lien_status[]" value="2" />Secured by a subordinate lien</label>
+                    <label><input type="checkbox" class="param" name="lien_status[]" value="3" />Not secured by a lien</label>
+                    <label><input type="checkbox" class="param" name="lien_status[]" value="4" />Not applicable (purchased loans)</label>
                   </div>
                   <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt."><i class="icon-help-alt"></i></div>
                 </li>
                 <!-- /filter field -->
 
                 <!-- filter field -->
-                <li class="field">
+                <li class="field loan_amount_000s">
                   <label for="loan_amount_000s">How much is the loan for?</label>
                   <div class="widget range">
-                    <input type="text" class="param" name="loan_amount_000s-min" data-comparator=">" value="" placeholder="Min. amount">
-                    <input type="text" class="param" name="loan_amount_000s-max" data-comparator="<" value="" placeholder="Max. amount">
+                    <span>$</span><input type="text" class="param" name="loan_amount_000s-min" data-comparator=">" value="" placeholder="Min."><span class="thousands">,000 to</span>
+                    <span>$</span><input type="text" class="param" name="loan_amount_000s-max" data-comparator="<" value="" placeholder="Max."><span class="thousands">,000</span>
                   </div>
                   <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt."><i class="icon-help-alt"></i></div>
                 </li>
@@ -418,10 +415,10 @@
                 <li class="field">
                   <label for="loan_type">What type of loan is it?</label>
                   <div class="widget checkbox">
-                    <label><input type="checkbox" class="param" name="loan_type[]" value="1" />Conventional (any loan other than FHA, VA, FSA, or RHS loans)</label>
-                    <label><input type="checkbox" class="param" name="loan_type[]" value="2" />FHA-insured (Federal Housing Administration)</label>
-                    <label><input type="checkbox" class="param" name="loan_type[]" value="3" />VA-guaranteed (Veterans Administration)</label>
-                    <label><input type="checkbox" class="param" name="loan_type[]" value="4" />FSA/RHS (Farm Service Agency or Rural Housing Service)</label>
+                    <label><input type="checkbox" class="param" name="loan_type[]" value="1" />Conventional</label>
+                    <label><input type="checkbox" class="param" name="loan_type[]" value="2" />Federal Housing Administration insured</label>
+                    <label><input type="checkbox" class="param" name="loan_type[]" value="3" />Veterans Administration guaranteed</label>
+                    <label><input type="checkbox" class="param" name="loan_type[]" value="4" />Farm Service Agency or Rural Housing Service</label>
                   </div>
                   <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt."><i class="icon-help-alt"></i></div>
                 </li>
@@ -441,7 +438,7 @@
 
                 <!-- filter field -->
                 <li class="field">
-                  <label for="hoepa_status">HOEPA Loan</label>
+                  <label for="hoepa_status">HOEPA Loan:</label>
                   <div class="widget radio">
                     <label><input type="radio" class="param" name="hoepa_status" value="1" />HOEPA loan</label>
                     <label><input type="radio" class="param" name="hoepa_status" value="0" />Not a HOEPA loan</label>
@@ -577,7 +574,7 @@
 
           <div class="preview closed">
 
-              <p class="nlw">There are <em class="calculating">recalculating...</em><strong class="count">many</strong> HMDA records from <strong class="years">2007 - 2012</strong> with the above selected filters.</p>
+              <p class="nlw">There are <em class="calculating"><img src="static/img/icon_spinner.gif" alt="Loading icon"></em><strong class="count">many</strong> HMDA records from <strong class="years">2007 - 2012</strong> with the above selected filters.</p>
 
               <div class="title">
 
@@ -585,7 +582,10 @@
 
               </div>
 
-              <div id="preview"></div>
+              <div id="preview">
+
+                <div class="spinning"></div>
+              </div>
             
           </div>
             
@@ -611,6 +611,12 @@
                   </select>
                 </div>
 
+                <label for="codes">HMDA codes:</label>
+                <div class="radio widget">
+                  <label><input type="radio" name="codes" value="0" checked />Use plain names</label>
+                  <label><input type="radio" name="codes" value="1" />Use codes</label>
+                </div>
+
                 <div class="action">
 
                   <input type="submit" class="submit btn" value="Download" id="download">
@@ -626,6 +632,8 @@
               <h2>Share a link</h2>
 
               <div class="inner">
+
+                <p>Share and save your data query with a link.</p>
 
                 <label for="share_url">Save your filters:</label>
                 <div class="text widget">
@@ -654,14 +662,14 @@
 
       <!-- group section -->
 
-      <div id="group" class="app-section">
+      <div id="summary" class="app-section">
 
         <h2>Create a summary table</h2>
 
         <div class="intro">
         <p class="nlw"><img src="static/img/icon_bar_chart.png" class="left" alt=""/>There are <em class="calculating">recalculating...</em><strong class="count">many</strong> HMDA records from <strong class="years">2007 - 2012</strong> with the previously selected filters.</p>
 
-        Not quite right? <a class="filter-link" href="explore.html#!/section=filters">Revise your filters <img src="static/img/arrow_blue_right.png" alt="" /></a>
+        Not quite right? <a class="filter-link section-toggle" href="#filters">Revise your filters <img src="static/img/arrow_blue_right.png" alt="" /></a>
         </div>
 
         <div class="instructions">
@@ -722,6 +730,8 @@
         <div id="error"></div>
 
         <div id="summary-table-container"></div>
+
+        <div class="spinning"></div>
       </div>
 
       <!-- /group section -->
@@ -735,15 +745,26 @@
             <li><a href="#">Open government</a></li>
           </ul>
           <ul class="social">
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">Facebook</a></li>
-            <li><a href="#">Twitter</a></li>
-            <li><a href="#">YouTube</a></li>
-            <li><a href="#">Flickr</a></li>
-            <li><a href="#">LinkedIn</a></li>
+            <li><a href="http://github.com/cfpb">GitHub</a></li>
+            <li><a href="http://facebook.com/cfpb">Facebook</a></li>
+            <li><a href="http://twitter.com/cfpb">Twitter</a></li>
+            <li><a href="http://youtube.com/cfpb">YouTube</a></li>
+            <li><a href="http://flickr.com/cfpbphotos">Flickr</a></li>
+            <li><a href="http://linkedin.com/company/consumer-financial-protection-bureau">LinkedIn</a></li>
+          </ul>
+          <ul class="tertiary">
+            <li><a href="http://www.consumerfinance.gov/privacy-policy/">Privacy policy and legal notices</a></li>
+            <li><a href="http://www.consumerfinance.gov/accessibility/">Accessibility</a></li>
+            <li><a href="http://www.consumerfinance.gov/plain-writing/">Plain writing</a></li>
+            <li><a href="http://www.consumerfinance.gov/no-fear-act/">No FEAR Act</a></li>
+            <li><a href="http://www.consumerfinance.gov/foia/">FOIA</a></li>
+            <li><a href="http://usa.gov/">USA.gov</a></li>
+            <li><a href="http://www.federalreserve.gov/oig/default.htm">Office of Inspector General</a></li>
+            <li><a href="http://www.consumerfinance.gov/ombudsman/">Ombudsman</a></li>
           </ul>
         </nav>
       </footer>
     <script src="static/js/main.min.js"></script>
+    <script src="static/js/explore.min.js"></script>
   </body>
 </html>

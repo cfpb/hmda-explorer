@@ -9,8 +9,9 @@
   #preview {
 
     overflow: scroll;
-    //height: 400px;
+    position: relative;
     margin-top: 10px;
+    min-height: 100px;
 
     table.tidy_table {
       table-layout: fixed;
@@ -32,6 +33,21 @@
       text-overflow: ellipsis;
     }
 
+    .spinning {
+      display: none;
+      height: 100%;
+    }
+
+    &.loading {
+      overflow: hidden;
+      .spinning {
+        display: block;
+      }
+      .tidy_table {
+        opacity: .5;
+      }
+    }
+
   }
 
   h3 {
@@ -50,6 +66,12 @@
     }
   }
 
+}
+
+// Natural language widget
+
+.nlw {
+  position: relative;
 }
 
 // Viewport adjustments

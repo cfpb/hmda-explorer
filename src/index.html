@@ -10,6 +10,10 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="static/css/main.css">
+    <link href='//api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.css' rel='stylesheet' />
+    <!--[if lte IE 8]>
+      <link href='//api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.ie.css' rel='stylesheet' />
+    <![endif]-->
     <!--[if lt IE 9]>
       <script src="static/js/html5shiv.js"></script>
       <script src="static/js/html5shiv-printshiv.js"></script>
@@ -26,16 +30,16 @@
 
         <div class="logo">
 
-          <img src="http://placehold.it/180x60&text=CFPB logo"/>
+          <img src="static/img/logo_2x.png" width="211" height="52" alt="Consumer Financial Protection Bureau" />
 
         </div>
 
         <nav role="navigation">
             <ul>
                 <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="#">About HMDA</a></li>
-                <li><a href="explore.html">Explore Data</a></li>
-                <li><a href="#">Query Builder</a></li>
+                <li><a href="#">Learn more</a></li>
+                <li><a href="explore.html">Explore data</a></li>
+                <li><a href="#">API tools</a></li>
             </ul>
         </nav>
 
@@ -84,15 +88,12 @@
       </section>
 
       <section class="map">
+        <div id="map"></div>
       </section>
 
       <section class="charts">
         
         <h2>Change in number of applications & loans by county, 2010 - 2012</h2>
-
-        <img src="static/img/ph_charts.jpg" alt="Just a dummy chart" style="margin:0 auto">
-
-        <a href="#" class="continue">See more in trends</a>
 
       </section>
 
@@ -127,16 +128,32 @@
             <li><a href="#">Open government</a></li>
           </ul>
           <ul class="social">
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">Facebook</a></li>
-            <li><a href="#">Twitter</a></li>
-            <li><a href="#">YouTube</a></li>
-            <li><a href="#">Flickr</a></li>
-            <li><a href="#">LinkedIn</a></li>
+            <li><a href="http://github.com/cfpb">GitHub</a></li>
+            <li><a href="http://facebook.com/cfpb">Facebook</a></li>
+            <li><a href="http://twitter.com/cfpb">Twitter</a></li>
+            <li><a href="http://youtube.com/cfpb">YouTube</a></li>
+            <li><a href="http://flickr.com/cfpbphotos">Flickr</a></li>
+            <li><a href="http://linkedin.com/company/consumer-financial-protection-bureau">LinkedIn</a></li>
+          </ul>
+          <ul class="tertiary">
+            <li><a href="http://www.consumerfinance.gov/privacy-policy/">Privacy policy and legal notices</a></li>
+            <li><a href="http://www.consumerfinance.gov/accessibility/">Accessibility</a></li>
+            <li><a href="http://www.consumerfinance.gov/plain-writing/">Plain writing</a></li>
+            <li><a href="http://www.consumerfinance.gov/no-fear-act/">No FEAR Act</a></li>
+            <li><a href="http://www.consumerfinance.gov/foia/">FOIA</a></li>
+            <li><a href="http://usa.gov/">USA.gov</a></li>
+            <li><a href="http://www.federalreserve.gov/oig/default.htm">Office of Inspector General</a></li>
+            <li><a href="http://www.consumerfinance.gov/ombudsman/">Ombudsman</a></li>
           </ul>
         </nav>
       </footer>
-
+    <script src="//api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.js"></script>
     <script src="static/js/main.min.js"></script>
+    <script>
+      ;(function() {
+        var map = L.mapbox.map('map', 'crux.hmda');
+        map.scrollWheelZoom.disable();
+      })();
+    </script>
   </body>
 </html>

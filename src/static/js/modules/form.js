@@ -42,6 +42,14 @@ var PDP = (function ( pdp ) {
 
   });
 
+  // Hide the intro explanation, useful if they enter the app with hash params present.
+
+  form.hideIntroExplanation = function() {
+
+    $('.intro .explanation').hide();
+
+  };
+
   // The `showFilter` method shows all the fields of a given filter section.
 
   form.showFilter = function( el ) {
@@ -343,14 +351,36 @@ var PDP = (function ( pdp ) {
 
         }
 
-        options = _( data.table.data ).filter( filterDeps ).map( mapDeps ).sortBy( sortDeps ).value();
+        // FIPS is weird, gotta trim the first three digits of the county ids.
 
-        this.setFieldOptions( el, options );
+        function cleanCounties( obj ) {
 
-        // Broadcast that the update has ended.
+          if ( concept === 'fips' ) {
+            return {
+              label: obj.label,
+              value: obj.value.toString().substr(3,100)
+            };
+          }
+
+          return obj;
+
+        }
+
+        // If any data was returned.
+
+        if ( typeof data.table !== 'undefined' ) {
+
+          options = _( data.table.data ).filter( filterDeps ).map( mapDeps ).map( cleanCounties ).sortBy( sortDeps ).value();
+
+          this.setFieldOptions( el, options );
+
+          // Broadcast that the update has ended.
+
+          pdp.observer.emitEvent('field:updated');
+
+        }
 
         pdp.observer.emitEvent('update:stopped');
-        pdp.observer.emitEvent('field:updated');
 
     }.bind( this ));
 
