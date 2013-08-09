@@ -76,7 +76,7 @@
 
               <div class="intro">
 
-                <p>Filter the data to just what you're interested in, and then download the results.</p>
+                <p>Filter the data to just what you're interested in, and then download the results or create a summary table.</p>
 
                 <p class="explanation">Most people search for loan originations for first-lien, owner-occupied, 1-4 family and manufactured housing in 2012. For your convenience, we have pre-filtered the results to only include those items. <a href="#download">Download now</a> or add more filters below. (Or <a href="#" class="reset">clear fields</a>.)</p>
 
@@ -193,8 +193,9 @@
                 <!-- filter field -->
                 <li class="field applicant_income_000s">
                   <label for="applicant_income_000s">Applicant Income:</label>
-                  <div class="widget text">
-                    <span>$</span><input class="param" type="text" name="applicant_income_000s" value="" placeholder=""><span class="thousands">,000</span>
+                  <div class="widget range">
+                    <span>$</span><input type="text" class="param" name="applicant_income_000s-min" data-comparator=">" value="" placeholder="Min."><span class="thousands">,000 to</span>
+                    <span>$</span><input type="text" class="param" name="applicant_income_000s-max" data-comparator="<" value="" placeholder="Max."><span class="thousands">,000</span>
                   </div>
                   <div class="help" title="Applicant’s annual gross income (000s) that an institution relied upon in making the credit decision."><i class="icon-help-alt"></i></div>
                 </li>

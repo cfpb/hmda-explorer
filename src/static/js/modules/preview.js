@@ -60,7 +60,7 @@ var PDP = (function ( pdp ) {
 
   preview._fetchPreviewJSON = function() {
 
-    var url = pdp.query.generateApiUrl() + '&$limit=500',
+    var url = pdp.query.generateApiUrl( null, true ) + '&$limit=500',
         promise = pdp.utils.getJSON( url );
 
     preview.lastRequestTime = new Date().getTime();
