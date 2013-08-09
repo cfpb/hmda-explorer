@@ -79,6 +79,8 @@ var PDP = (function ( pdp ) {
 
     preview.startLoading();
 
+    preview.updateNLW( 0 );
+
     promise.done( function( data ) {
 
       if ( promise.timestamp < preview.lastRequestTime ) {

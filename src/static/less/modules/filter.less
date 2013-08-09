@@ -68,17 +68,16 @@
     margin-bottom: 1em;
 
     &> label {
-      width: 25%;
+      width: 100%;
       margin: 0 15px;
       display: inline-block;
       vertical-align: top;
       .avenir-next-demi;
-      text-align: right;
     }
   }
 
   .widget {
-    width: 55%;
+    width: 85%;
     margin: 0 15px;
     display: inline-block;
     label {
@@ -116,7 +115,8 @@
     margin-bottom: 15px;
   }
 
-  .loan_amount_000s {
+  .loan_amount_000s,
+  .applicant_income_000s {
     input {
       width: 70px;
     }
@@ -181,6 +181,13 @@
 
     .widget {
       width: 35%;
+    }
+
+    .field {
+      &> label {
+        width: 25%;
+        text-align: right;
+      }
     }
 
     .field.applicant_sex {
@@ -249,6 +256,7 @@
   }
 
   .widget {
+    width: 55%;
     &.inline {
       label {
         display: inline-block;

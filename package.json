@@ -1,7 +1,7 @@
 {
   "name": "public-data-platform-static",
   "description": "CFPB's Public Data Platform",
-  "version": "0.10.1",
+  "version": "0.10.2",
   "homepage": "http://consumerfinance.gov",
   "author": {
     "name": "Consumer Financial Protection Bureau",

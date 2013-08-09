@@ -22,6 +22,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2013-08-08   [v0.10.2](../../tree/v0.10.2)   Itty-bitty hashchange router implemented.
  * 2013-08-07   [v0.10.1](../../tree/v0.10.1)   Summary table improvements galore.
  * 2013-08-06   [v0.10.0](../../tree/v0.10.0)   Summary tables brought into the explore page.
  * 2013-08-05   [v0.9.2](../../tree/v0.9.2)   Add state/msa mutual exclusiveness.
@@ -59,4 +60,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Thu Aug 08 2013 16:47:05.*
+*This file was generated on Thu Aug 08 2013 23:56:13.*

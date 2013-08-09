@@ -353,18 +353,19 @@ var PDP = (function ( pdp ) {
 
         // If any data was returned.
 
-        if ( data.table.data ) {
+        if ( typeof data.table !== 'undefined' ) {
 
           options = _( data.table.data ).filter( filterDeps ).map( mapDeps ).sortBy( sortDeps ).value();
 
           this.setFieldOptions( el, options );
 
+          // Broadcast that the update has ended.
+          
+          pdp.observer.emitEvent('field:updated');
+
         }
 
-        // Broadcast that the update has ended.
-
         pdp.observer.emitEvent('update:stopped');
-        pdp.observer.emitEvent('field:updated');
 
     }.bind( this ));
 
