@@ -2128,6 +2128,15 @@ textarea {
     background-size: 16px 16px;
   }
 }
+.spinning {
+  background: rgba(255, 255, 255, 0.6) url(../img/icon_spinner_2x.gif) center center no-repeat;
+  width: 100%;
+  height: 150%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
 /**
  *  Mixin to justify a horizontal list, useful for navs
  **/
@@ -2195,46 +2204,18 @@ textarea {
   margin-bottom: 1em;
 }
 .filter .field > label {
+  width: 100%;
+  margin: 0 15px;
   display: inline-block;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  border: solid transparent;
-  border-width: 0 15px;
-  margin-right: -0.25em;
   vertical-align: top;
-  width: 25%;
   font-family: "Avenir Next Demi", Arial, sans-serif;
   font-weight: 600;
   font-style: normal;
-  text-align: right;
-}
-.ie .filter .field > label {
-  margin-right: -0.26em;
-}
-.lt-ie8 .filter .field > label {
-  display: inline;
-  *zoom: 1;
-  *behavior: url(boxsizing.htc);
 }
 .filter .widget {
+  width: 85%;
+  margin: 0 15px;
   display: inline-block;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  border: solid transparent;
-  border-width: 0 15px;
-  margin-right: -0.25em;
-  vertical-align: top;
-  width: 75%;
-}
-.ie .filter .widget {
-  margin-right: -0.26em;
-}
-.lt-ie8 .filter .widget {
-  display: inline;
-  *zoom: 1;
-  *behavior: url(boxsizing.htc);
 }
 .filter .widget label {
   display: block;
@@ -2259,22 +2240,29 @@ textarea {
 .filter .location-set:last-child {
   border: 0;
 }
+.filter li.location-separator {
+  font-family: "Avenir Next Demi", Arial, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-style: italic;
+  display: block;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.filter .loan_amount_000s input,
+.filter .applicant_income_000s input {
+  width: 70px;
+}
 .filter .control {
-  margin: 0 0 2em 2em;
+  margin: 0 0 30px 53px;
   display: block;
   font-family: "Avenir Next Demi", Arial, sans-serif;
   font-weight: 600;
   font-style: normal;
   animation: fadein .8s;
   -moz-animation: fadein .8s;
-  /* Firefox */
-
   -webkit-animation: fadein .8s;
-  /* Safari and Chrome */
-
   -o-animation: fadein .8s;
-  /* Opera */
-
 }
 .filter .next-steps {
   padding: 30px 0;
@@ -2283,9 +2271,11 @@ textarea {
   width: 100%;
 }
 .filter .help {
+  position: absolute;
   font-size: 1.3em;
   display: inline-block;
   color: #0072ce;
+  vertical-align: top;
 }
 .field.disabled {
   color: #d0d0ce;
@@ -2305,7 +2295,7 @@ textarea {
     border-width: 0 15px;
     margin-right: -0.25em;
     vertical-align: top;
-    width: 66.66666666666666%;
+    width: 83.33333333333334%;
   }
   .ie .filter .intro {
     margin-right: -0.26em;
@@ -2320,43 +2310,16 @@ textarea {
     font-size: 1.2em;
     margin-left: 20px;
   }
-  .filter li.field > label {
-    display: inline-block;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    border: solid transparent;
-    border-width: 0 15px;
-    margin-right: -0.25em;
-    vertical-align: top;
-    width: 25%;
-  }
-  .ie .filter li.field > label {
-    margin-right: -0.26em;
-  }
-  .lt-ie8 .filter li.field > label {
-    display: inline;
-    *zoom: 1;
-    *behavior: url(boxsizing.htc);
-  }
   .filter .widget {
-    display: inline-block;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    border: solid transparent;
-    border-width: 0 15px;
-    margin-right: -0.25em;
-    vertical-align: top;
-    width: 50%;
+    width: 35%;
   }
-  .ie .filter .widget {
-    margin-right: -0.26em;
+  .filter .field > label {
+    width: 25%;
+    text-align: right;
   }
-  .lt-ie8 .filter .widget {
-    display: inline;
-    *zoom: 1;
-    *behavior: url(boxsizing.htc);
+  .filter .field.applicant_sex .widget,
+  .filter .field.co_applicant_sex .widget {
+    width: 47%;
   }
   .filter.location li.field {
     margin-bottom: .25em;
@@ -2364,174 +2327,64 @@ textarea {
   .filter.location li.field > label {
     padding-bottom: .25em;
   }
+  .filter.location li.location-separator {
+    display: inline-block;
+    margin: 0 20px;
+  }
   .filter.location li.field.state_abbr,
   .filter.location li.field.county_code,
   .filter.location li.field.census_tract_number {
+    width: 25%;
     display: inline-block;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    border: solid transparent;
-    border-width: 0 15px;
-    margin-right: -0.25em;
-    vertical-align: top;
-    width: 33.33333333333333%;
-  }
-  .ie .filter.location li.field.state_abbr,
-  .ie .filter.location li.field.county_code,
-  .ie .filter.location li.field.census_tract_number {
-    margin-right: -0.26em;
-  }
-  .lt-ie8 .filter.location li.field.state_abbr,
-  .lt-ie8 .filter.location li.field.county_code,
-  .lt-ie8 .filter.location li.field.census_tract_number {
-    display: inline;
-    *zoom: 1;
-    *behavior: url(boxsizing.htc);
   }
   .filter.location li.field.state_abbr > label,
   .filter.location li.field.county_code > label,
   .filter.location li.field.census_tract_number > label {
-    display: inline-block;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    border: solid transparent;
-    border-width: 0 15px;
-    margin-right: -0.25em;
-    vertical-align: top;
     width: 100%;
+    margin: 0;
     text-align: left;
-  }
-  .ie .filter.location li.field.state_abbr > label,
-  .ie .filter.location li.field.county_code > label,
-  .ie .filter.location li.field.census_tract_number > label {
-    margin-right: -0.26em;
-  }
-  .lt-ie8 .filter.location li.field.state_abbr > label,
-  .lt-ie8 .filter.location li.field.county_code > label,
-  .lt-ie8 .filter.location li.field.census_tract_number > label {
-    display: inline;
-    *zoom: 1;
-    *behavior: url(boxsizing.htc);
   }
   .filter.location li.field.state_abbr .widget,
   .filter.location li.field.county_code .widget,
   .filter.location li.field.census_tract_number .widget {
-    display: inline-block;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    border: solid transparent;
-    border-width: 0 15px;
-    margin-right: -0.25em;
-    vertical-align: top;
     width: 100%;
-  }
-  .ie .filter.location li.field.state_abbr .widget,
-  .ie .filter.location li.field.county_code .widget,
-  .ie .filter.location li.field.census_tract_number .widget {
-    margin-right: -0.26em;
-  }
-  .lt-ie8 .filter.location li.field.state_abbr .widget,
-  .lt-ie8 .filter.location li.field.county_code .widget,
-  .lt-ie8 .filter.location li.field.census_tract_number .widget {
-    display: inline;
-    *zoom: 1;
-    *behavior: url(boxsizing.htc);
+    margin: 0;
   }
   .filter.location li.field.county_code,
   .filter.location li.field.census_tract_number {
-    display: inline-block;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    border: solid transparent;
-    border-width: 0 15px;
-    margin-right: -0.25em;
-    vertical-align: top;
-    width: 33.33333333333333%;
-    width: 99.99999999999999%;
-    padding-right: 66.66666666666666%;
-  }
-  .ie .filter.location li.field.county_code,
-  .ie .filter.location li.field.census_tract_number {
-    margin-right: -0.26em;
-  }
-  .lt-ie8 .filter.location li.field.county_code,
-  .lt-ie8 .filter.location li.field.census_tract_number {
-    display: inline;
-    *zoom: 1;
-    *behavior: url(boxsizing.htc);
-  }
-  .lt-ie8 .filter.location li.field.county_code,
-  .lt-ie8 .filter.location li.field.census_tract_number {
-    padding-right: 0;
+    display: block;
   }
   .filter.location li.field.msamd {
+    width: 40%;
     display: inline-block;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    border: solid transparent;
-    border-width: 0 15px;
-    margin-right: -0.25em;
-    vertical-align: top;
-    width: 50%;
-  }
-  .ie .filter.location li.field.msamd {
-    margin-right: -0.26em;
-  }
-  .lt-ie8 .filter.location li.field.msamd {
-    display: inline;
-    *zoom: 1;
-    *behavior: url(boxsizing.htc);
   }
   .filter.location li.field.msamd > label {
-    display: inline-block;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    border: solid transparent;
-    border-width: 0 15px;
-    margin-right: -0.25em;
-    vertical-align: top;
     width: 100%;
+    margin: 0;
     text-align: left;
   }
-  .ie .filter.location li.field.msamd > label {
-    margin-right: -0.26em;
-  }
-  .lt-ie8 .filter.location li.field.msamd > label {
-    display: inline;
-    *zoom: 1;
-    *behavior: url(boxsizing.htc);
-  }
   .filter.location li.field.msamd .widget {
-    display: inline-block;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    border: solid transparent;
-    border-width: 0 15px;
-    margin-right: -0.25em;
-    vertical-align: top;
-    width: 100%;
+    width: 80%;
+    margin: 0 10px 0 0;
   }
-  .ie .filter.location li.field.msamd .widget {
-    margin-right: -0.26em;
+  .filter .help {
+    position: static;
   }
-  .lt-ie8 .filter.location li.field.msamd .widget {
-    display: inline;
-    *zoom: 1;
-    *behavior: url(boxsizing.htc);
+  .widget {
+    width: 55%;
   }
   .widget.inline label {
     display: inline-block;
     margin-right: 19px;
   }
+  .widget.inline label:last-child {
+    margin-right: 0;
+  }
   .widget.inline input[type=checkbox] {
     width: 20px;
+  }
+  .location-set {
+    margin-left: 53px;
   }
 }
 .preview {
@@ -2557,7 +2410,9 @@ textarea {
 }
 .preview #preview {
   overflow: scroll;
+  position: relative;
   margin-top: 10px;
+  min-height: 100px;
 }
 .preview #preview table.tidy_table {
   table-layout: fixed;
@@ -2576,6 +2431,19 @@ textarea {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.preview #preview .spinning {
+  display: none;
+  height: 100%;
+}
+.preview #preview.loading {
+  overflow: hidden;
+}
+.preview #preview.loading .spinning {
+  display: block;
+}
+.preview #preview.loading .tidy_table {
+  opacity: .5;
+}
 .preview h3 {
   color: #0072ce;
   display: inline-block;
@@ -2585,6 +2453,9 @@ textarea {
 }
 .preview.closed i.icon-minus-alt:before {
   content: "\e0067";
+}
+.nlw {
+  position: relative;
 }
 @media only screen and (min-width: 768px) {
   
@@ -2731,6 +2602,35 @@ ul.chzn-choices {
 .homepage .hero ul a:hover,
 .homepage .hero ul a:active {
   background-color: #ff9e1b;
+}
+.map #map {
+  width: 100%;
+  height: 500px;
+}
+.map .map-legends {
+  width: 140px;
+}
+.map .legend-title {
+  font-weight: bold;
+  font-size: 1.1em;
+  padding-bottom: 10px;
+}
+.map .legend-labels {
+  margin: 0;
+  padding: 0;
+}
+.map .legend-labels li {
+  list-style-type: none;
+  height: 20px;
+}
+.map .legend-labels li span {
+  height: 20px;
+  width: 30px;
+  margin-right: 7px;
+  display: inline-block;
+}
+.map .legend-source {
+  margin-top: 10px;
 }
 .charts {
   text-align: center;
@@ -2920,7 +2820,7 @@ ul.chzn-choices {
   clear: both;
 }
 #filters,
-#group {
+#summary {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -2932,12 +2832,12 @@ ul.chzn-choices {
   margin-top: 40px;
 }
 .lt-ie8 #filters,
-.lt-ie8 #group {
+.lt-ie8 #summary {
   *zoom: 1;
   *behavior: url(boxsizing.htc);
 }
 #filters h2,
-#group h2 {
+#summary h2 {
   margin-top: 50px;
 }
 .download-and-share .inner {
@@ -2987,7 +2887,6 @@ ul.chzn-choices {
   }
   .explore .hero {
     background-color: #FAB051;
-    margin-top: 18px;
     padding: 5px 0 0;
     border-bottom: 5px solid gray;
   }
@@ -3002,14 +2901,8 @@ ul.chzn-choices {
     margin: 0;
     padding: 0;
     list-style-type: none;
-    text-align: justify;
     margin: 19px 0 0;
     height: 37px;
-  }
-  .explore .hero nav ul:after {
-    content: "";
-    width: 100%;
-    display: inline-block;
   }
   .explore .hero nav ul li {
     display: inline-block;
@@ -3075,6 +2968,30 @@ ul.chzn-choices {
     *zoom: 1;
     *behavior: url(boxsizing.htc);
   }
+  .download-and-share .widget label {
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: solid transparent;
+    border-width: 0 15px;
+    margin-right: -0.25em;
+    vertical-align: top;
+    width: 50%;
+    text-align: left;
+    border: 0;
+  }
+  .ie .download-and-share .widget label {
+    margin-right: -0.26em;
+  }
+  .lt-ie8 .download-and-share .widget label {
+    display: inline;
+    *zoom: 1;
+    *behavior: url(boxsizing.htc);
+  }
+  .download-and-share .widget input[type=radio] {
+    width: 20px;
+  }
   .download {
     display: inline-block;
     -webkit-box-sizing: border-box;
@@ -3115,6 +3032,33 @@ ul.chzn-choices {
     *zoom: 1;
     *behavior: url(boxsizing.htc);
   }
+}
+#summary {
+  position: relative;
+}
+#summary .intro {
+  border: 1px solid #d0d0ce;
+  border-left: 0;
+  border-right: 0;
+  background-color: #e7e7e6;
+  margin: 10px 0;
+  padding: 30px 20px;
+  font-family: "Avenir Next", Arial, sans-serif;
+}
+#summary .intro .filter-link img {
+  margin-left: 5px;
+}
+#summary .intro .nlw img {
+  margin-right: 10px;
+}
+#summary .spinning {
+  display: none;
+}
+#summary.loading .spinning {
+  display: block;
+}
+.instructions {
+  margin: 15px 0;
 }
 #summary-table-form {
   -webkit-box-sizing: border-box;
@@ -3319,33 +3263,6 @@ ul.chzn-choices {
     *behavior: url(boxsizing.htc);
   }
 }
-#group .intro {
-  border: 1px solid #d0d0ce;
-  border-left: 0;
-  border-right: 0;
-  background-color: #e7e7e6;
-  margin: 10px 0;
-  padding: 30px 20px;
-  font-family: "Avenir Next", Arial, sans-serif;
-}
-#group .intro .filter-link img {
-  margin-left: 5px;
-}
-#group .intro .nlw img {
-  margin-right: 10px;
-}
-.instructions {
-  margin: 15px 0;
-}
-.spinning {
-  background: rgba(117, 120, 123, 0.3) url(../img/icon_spinner.gif) center center no-repeat;
-  width: 100%;
-  height: 150%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 100;
-}
 .tooltip {
   position: absolute;
   z-index: 1030;
@@ -3444,7 +3361,7 @@ nav li {
   font-style: normal;
 }
 .hmda header,
-.hmda footer {
+.hmda footer > nav {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -3455,9 +3372,12 @@ nav li {
   clear: both;
 }
 .lt-ie8 .hmda header,
-.lt-ie8 .hmda footer {
+.lt-ie8 .hmda footer > nav {
   *zoom: 1;
   *behavior: url(boxsizing.htc);
+}
+.hmda header nav {
+  margin-bottom: 18px;
 }
 .hmda header ul {
   width: 100%;
@@ -3486,27 +3406,28 @@ nav li {
   font-weight: 700;
   font-style: normal;
 }
-.hmda footer .primary,
-.hmda footer .social {
-  display: inline-block;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  border: solid transparent;
-  border-width: 0 15px;
-  margin-right: -0.25em;
-  vertical-align: top;
-  width: 100%;
+.hmda footer {
+  margin-top: 50px;
+  background-color: #3e474c;
 }
-.ie .hmda footer .primary,
-.ie .hmda footer .social {
-  margin-right: -0.26em;
+.hmda footer a:link,
+.hmda footer a:visited {
+  color: #ffffff;
 }
-.lt-ie8 .hmda footer .primary,
-.lt-ie8 .hmda footer .social {
-  display: inline;
-  *zoom: 1;
-  *behavior: url(boxsizing.htc);
+.hmda footer .primary li:after {
+  content: "|";
+  padding-left: 5px;
+}
+.hmda footer .primary li:last-child:after {
+  content: " ";
+}
+.hmda footer .tertiary {
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
+}
+.hmda footer .tertiary li {
+  display: block;
 }
 @media only screen and (min-width: 768px) {
   .hmda header {
@@ -3526,18 +3447,16 @@ nav li {
     margin: 0;
     padding: 0;
     list-style-type: none;
-    text-align: justify;
-  }
-  .hmda header ul:after {
-    content: "";
-    width: 100%;
-    display: inline-block;
+    text-align: right;
   }
   .hmda header ul li {
     display: inline-block;
   }
   .hmda header ul li a {
     display: inline-block;
+  }
+  .hmda header ul li {
+    margin-left: 20px;
   }
   .hmda header ul a {
     background-color: transparent;
@@ -3558,7 +3477,8 @@ nav li {
   .hmda header:after {
     clear: both;
   }
-  .hmda footer .primary {
+  .hmda footer .primary,
+  .hmda footer .tertiary {
     display: inline-block;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -3569,10 +3489,12 @@ nav li {
     vertical-align: top;
     width: 66.66666666666666%;
   }
-  .ie .hmda footer .primary {
+  .ie .hmda footer .primary,
+  .ie .hmda footer .tertiary {
     margin-right: -0.26em;
   }
-  .lt-ie8 .hmda footer .primary {
+  .lt-ie8 .hmda footer .primary,
+  .lt-ie8 .hmda footer .tertiary {
     display: inline;
     *zoom: 1;
     *behavior: url(boxsizing.htc);

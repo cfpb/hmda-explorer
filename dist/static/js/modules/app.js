@@ -14,6 +14,12 @@ var PDP = (function ( pdp ) {
 
   var app = {};
 
+  // Our itty-bitty router.
+
+  window.onhashchange = function(){
+    app.changeSection( app.getUrlValue('section') );
+  };
+
   // Cache a reference to the app's jQuery object.
 
   app.$el = $('#filters');
@@ -37,11 +43,13 @@ var PDP = (function ( pdp ) {
     app.$el.find('.help').tooltip({ placement: 'left' });
     app.$el.find('#share_url').tooltip({ title: 'Copied to clipboard!', trigger: 'manual' });
 
-    // If there are hash params in the URL, grab them and populate the DOM fields.
+    // If there are hash params in the URL OR the only hashParam is to designate which section,
+    // grab them and populate the DOM fields.
 
     if ( !_.isEmpty( hashParams ) ) {
 
       pdp.query.updateAll({source: 'url'});
+      pdp.form.hideIntroExplanation();
 
     } else {
 
@@ -103,6 +111,10 @@ var PDP = (function ( pdp ) {
 
     $('#preview').hide();
 
+    // Change sections if necessary.
+
+    app.changeSection( app.currentSection, false );
+
     // Broadcast that the app has started.
 
     pdp.observer.emitEvent('app:started');
@@ -142,6 +154,10 @@ var PDP = (function ( pdp ) {
 
     var param,
         params = pdp.utils.getHashParams();
+
+    if ( name === 'section' ) {
+      return typeof params.section !== 'undefined' ? params.section.values : 'filters';
+    }
 
     // Build and return the param's deets.
 
@@ -198,14 +214,19 @@ var PDP = (function ( pdp ) {
   // The `changeSection` toggles between the filters and summary tables sections.
   // @section = id of the section to show.
 
-  app.changeSection = function( section ) {
+  app.changeSection = function( section, changeUrl ) {
 
     section = section || this.currentSection;
+    changeUrl = typeof changeUrl === 'undefined' ? true : changeUrl;
+
+    if ( !$('#' + section).length ) {
+      return;
+    }
 
     $('.app-section').addClass('hidden');
-    $('#section-toggle a').removeClass('active');
+    $('nav a.section-toggle ').removeClass('active');
     $('#' + section).removeClass('hidden');
-    $('#section-toggle a[href=#' + section + ']').addClass('active');
+    $('nav a[href=#' + section + '].section-toggle').addClass('active');
 
     // Update the current section
 
@@ -218,6 +239,14 @@ var PDP = (function ( pdp ) {
     // Show relevant filters.
 
     pdp.form.checkFilters();
+
+    if ( changeUrl ) {
+
+      // Update URL hash
+
+      window.location.hash = PDP.query.generateUrlHash();
+
+    }
 
   };
 

@@ -1,3 +1,13 @@
+v0.10.2:
+  date: 2013-08-08
+  changes:
+    - Itty-bitty hashchange router implemented.
+
+v0.10.1:
+  date: 2013-08-07
+  changes:
+    - Summary table improvements galore.
+
 v0.10.0:
   date: 2013-08-06
   changes:
