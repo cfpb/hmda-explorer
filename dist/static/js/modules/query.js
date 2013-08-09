@@ -35,8 +35,8 @@ var PDP = (function ( pdp ) {
 
   query.params = {};
 
-  // The `reset` method resets the `params` object to some defaults.
-  // If empty: true is passed, `params` will be cleared completely.
+  // The `reset` method empties the `params` object.
+  // If defaults: true is passed, some defaults will be set.
 
   query.reset = function( options ) {
 
@@ -58,6 +58,10 @@ var PDP = (function ( pdp ) {
           comparator: '='
         },
         lien_status: {
+          values: [1],
+          comparator: '='
+        },
+        action_taken: {
           values: [1],
           comparator: '='
         }
