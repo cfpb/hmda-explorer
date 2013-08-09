@@ -177,8 +177,12 @@ var PDP = (function ( pdp ) {
     addCommas = function( numStr ) {
       var len = numStr.length,
           i;
+
+      // numbers smaller than $xxx,xxx shouldn't have ended up here
       if ( len > 3 ) {
 
+        // this is all so that we can cleanly work from the back of the 
+        // number forward, inserting commas every three digits
         if (len % 3 !== 0) {
           i = len - (len % 3);
         } else {
@@ -206,14 +210,18 @@ var PDP = (function ( pdp ) {
 
             amount = respData.results[record][column].toString();
             dotIndex = amount.indexOf('.');
+
+            // dot-separated values take a little extra wrangling
             if (dotIndex !== -1) {
               amtParts = amount.split('.');
+              // get rid of granularity we don't care about
               amtParts[1] = amtParts[1].substr(0, 3);
               amount = amtParts.join('');
             }
 
             amount = addCommas(amount);
 
+            // if this is $xxx,xxx represented as xxx
             if ( amount.length <= 3 ) {
               amount += ',000';
             }
