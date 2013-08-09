@@ -2204,17 +2204,16 @@ textarea {
   margin-bottom: 1em;
 }
 .filter .field > label {
-  width: 25%;
+  width: 100%;
   margin: 0 15px;
   display: inline-block;
   vertical-align: top;
   font-family: "Avenir Next Demi", Arial, sans-serif;
   font-weight: 600;
   font-style: normal;
-  text-align: right;
 }
 .filter .widget {
-  width: 55%;
+  width: 85%;
   margin: 0 15px;
   display: inline-block;
 }
@@ -2250,7 +2249,8 @@ textarea {
   text-align: center;
   margin-bottom: 15px;
 }
-.filter .loan_amount_000s input {
+.filter .loan_amount_000s input,
+.filter .applicant_income_000s input {
   width: 70px;
 }
 .filter .control {
@@ -2313,6 +2313,10 @@ textarea {
   .filter .widget {
     width: 35%;
   }
+  .filter .field > label {
+    width: 25%;
+    text-align: right;
+  }
   .filter .field.applicant_sex .widget {
     width: 47%;
   }
@@ -2365,6 +2369,9 @@ textarea {
   .filter .help {
     position: static;
   }
+  .widget {
+    width: 55%;
+  }
   .widget.inline label {
     display: inline-block;
     margin-right: 19px;
@@ -2404,6 +2411,7 @@ textarea {
   overflow: scroll;
   position: relative;
   margin-top: 10px;
+  min-height: 100px;
 }
 .preview #preview table.tidy_table {
   table-layout: fixed;

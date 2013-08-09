@@ -47,10 +47,10 @@
 
           <h1>Explore the data</h1>
 
-          <nav class="section-toggle">
+          <nav>
             <ul>
-              <li><a href="#filters">Custom Datasets</a></li>
-              <li><a href="#summary-table">Summary Tables</a></li>
+              <li><a href="#filters" class="section-toggle">Custom Datasets</a></li>
+              <li><a href="#summary" class="section-toggle">Summary Tables</a></li>
             </ul>
           </nav>
 
@@ -78,7 +78,7 @@
 
                 <p>Filter the data to just what you're interested in, and then download the results.</p>
 
-                <p class="explanation">Most people search for loan originations for first-lien, owner-occupied, 1-4-family and manufactured housing in 2012. For your convenience, we have pre-filtered the results to only include those items. <a href="#download">Download now</a> or add more filters below. (Or <a href="#" class="reset">clear fields</a>.)</p>
+                <p class="explanation">Most people search for loan originations for first-lien, owner-occupied, 1-4 family and manufactured housing in 2012. For your convenience, we have pre-filtered the results to only include those items. <a href="#download">Download now</a> or add more filters below. (Or <a href="#" class="reset">clear fields</a>.)</p>
 
               </div>
 
@@ -194,7 +194,7 @@
                 <li class="field applicant_income_000s">
                   <label for="applicant_income_000s">Applicant Income:</label>
                   <div class="widget text">
-                    <input class="param" type="text" name="applicant_income_000s" value="" placeholder="Enter an income"><span class="thousands">,000</span>
+                    <span>$</span><input class="param" type="text" name="applicant_income_000s" value="" placeholder=""><span class="thousands">,000</span>
                   </div>
                   <div class="help" title="Applicant’s annual gross income (000s) that an institution relied upon in making the credit decision."><i class="icon-help-alt"></i></div>
                 </li>
@@ -661,7 +661,7 @@
         <div class="intro">
         <p class="nlw"><img src="static/img/icon_bar_chart.png" class="left" alt=""/>There are <em class="calculating">recalculating...</em><strong class="count">many</strong> HMDA records from <strong class="years">2007 - 2012</strong> with the previously selected filters.</p>
 
-        Not quite right? <a class="filter-link" href="explore.html#!/section=filters">Revise your filters <img src="static/img/arrow_blue_right.png" alt="" /></a>
+        Not quite right? <a class="filter-link section-toggle" href="#filters">Revise your filters <img src="static/img/arrow_blue_right.png" alt="" /></a>
         </div>
 
         <div class="instructions">
