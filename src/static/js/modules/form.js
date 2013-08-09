@@ -351,16 +351,31 @@ var PDP = (function ( pdp ) {
 
         }
 
+        // FIPS is weird, gotta trim the first three digits of the county ids.
+
+        function cleanCounties( obj ) {
+
+          if ( concept === 'fips' ) {
+            return {
+              label: obj.label,
+              value: obj.value.toString().substr(3,100)
+            };
+          }
+
+          return obj;
+
+        }
+
         // If any data was returned.
 
         if ( typeof data.table !== 'undefined' ) {
 
-          options = _( data.table.data ).filter( filterDeps ).map( mapDeps ).sortBy( sortDeps ).value();
+          options = _( data.table.data ).filter( filterDeps ).map( mapDeps ).map( cleanCounties ).sortBy( sortDeps ).value();
 
           this.setFieldOptions( el, options );
 
           // Broadcast that the update has ended.
-          
+
           pdp.observer.emitEvent('field:updated');
 
         }

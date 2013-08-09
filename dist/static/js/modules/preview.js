@@ -94,7 +94,9 @@ var PDP = (function ( pdp ) {
 
       preview.stopLoading();
 
-    }).fail( function( data, textStatus ) {
+    });
+
+    promise.fail( function( data, textStatus ) {
 
       console.error( 'Error updating preview table: ' + textStatus );
       preview.stopLoading();
