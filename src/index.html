@@ -10,6 +10,10 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="static/css/main.css">
+    <link href='//api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.css' rel='stylesheet' />
+    <!--[if lte IE 8]>
+      <link href='//api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.ie.css' rel='stylesheet' />
+    <![endif]-->
     <!--[if lt IE 9]>
       <script src="static/js/html5shiv.js"></script>
       <script src="static/js/html5shiv-printshiv.js"></script>
@@ -84,15 +88,12 @@
       </section>
 
       <section class="map">
+        <div id="map"></div>
       </section>
 
       <section class="charts">
         
         <h2>Change in number of applications & loans by county, 2010 - 2012</h2>
-
-        <img src="static/img/ph_charts.jpg" alt="Just a dummy chart" style="margin:0 auto">
-
-        <a href="#" class="continue">See more in trends</a>
 
       </section>
 
@@ -146,7 +147,13 @@
           </ul>
         </nav>
       </footer>
-
+    <script src="//api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.js"></script>
     <script src="static/js/main.min.js"></script>
+    <script>
+      ;(function() {
+        var map = L.mapbox.map('map', 'crux.hmda');
+        map.scrollWheelZoom.disable();
+      })();
+    </script>
   </body>
 </html>

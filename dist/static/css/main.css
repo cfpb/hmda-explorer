@@ -2603,6 +2603,35 @@ ul.chzn-choices {
 .homepage .hero ul a:active {
   background-color: #ff9e1b;
 }
+.map #map {
+  width: 100%;
+  height: 500px;
+}
+.map .map-legends {
+  width: 140px;
+}
+.map .legend-title {
+  font-weight: bold;
+  font-size: 1.1em;
+  padding-bottom: 10px;
+}
+.map .legend-labels {
+  margin: 0;
+  padding: 0;
+}
+.map .legend-labels li {
+  list-style-type: none;
+  height: 20px;
+}
+.map .legend-labels li span {
+  height: 20px;
+  width: 30px;
+  margin-right: 7px;
+  display: inline-block;
+}
+.map .legend-source {
+  margin-top: 10px;
+}
 .charts {
   text-align: center;
 }

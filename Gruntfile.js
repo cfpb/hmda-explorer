@@ -172,15 +172,42 @@ module.exports = function(grunt) {
         mangle: false,
         beautify: true
       },
-      main: {
+      all: {
         files: {
-          'dist/static/js/main.min.js': [
+          'dist/static/js/all.min.js': [
             'src/static/vendor/json3/lib/json3.js',
             'src/static/vendor/jquery/jquery.js',
             'src/static/vendor/lodash/lodash.js',
             'src/static/vendor/eventEmitter/EventEmitter.js',
             'src/static/vendor/chosen/public/chosen.jquery.js',
             'src/static/vendor/bootstrap/js/bootstrap-tooltip.js',
+            'src/static/vendor/tidy-table/jquery.tidy.table.js',
+            'src/static/vendor/jquery-ui/ui/jquery.ui.core.js',
+            'src/static/vendor/jquery-ui/ui/jquery.ui.widget.js',
+            'src/static/vendor/jquery-ui/ui/jquery.ui.mouse.js',
+            'src/static/vendor/jquery-ui/ui/jquery.ui.slider.js',
+            'src/static/vendor/zeroclipboard/ZeroClipboard.js',
+            'src/static/js/templates/template.js',
+            'src/static/js/modules/*.js',
+            'src/static/js/main.js'
+          ]
+        }
+      },
+      main: {
+        files: {
+          'dist/static/js/main.min.js': [
+            'src/static/vendor/json3/lib/json3.js',
+            'src/static/vendor/jquery/jquery.js',
+            'src/static/vendor/lodash/lodash.js',
+            'src/static/vendor/bootstrap/js/bootstrap-tooltip.js'
+          ]
+        }
+      },
+      explore: {
+        files: {
+          'dist/static/js/explore.min.js': [
+            'src/static/vendor/eventEmitter/EventEmitter.js',
+            'src/static/vendor/chosen/public/chosen.jquery.js',
             'src/static/vendor/tidy-table/jquery.tidy.table.js',
             'src/static/vendor/jquery-ui/ui/jquery.ui.core.js',
             'src/static/vendor/jquery-ui/ui/jquery.ui.widget.js',
@@ -222,7 +249,7 @@ module.exports = function(grunt) {
      */
     jasmine: {
       pdp: {
-        src: 'dist/static/js/main.min.js',
+        src: 'dist/static/js/all.min.js',
         options: {
           specs: 'test/specs/*.js',
           helpers: 'test/specs/helpers/*.js'
