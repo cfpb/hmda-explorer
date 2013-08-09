@@ -254,6 +254,13 @@ module.exports = function(grunt) {
           specs: 'test/specs/*.js',
           helpers: 'test/specs/helpers/*.js'
         }
+      },
+
+      summaryTable: {
+        src: 'dist/static/js/all.min.js',
+        options: {
+          specs: 'test/specs/summary-table.js'
+        }
       }
     },
 
@@ -322,6 +329,7 @@ module.exports = function(grunt) {
   grunt.registerTask('docs', ['removelogging', 'docco', 'build-cfpb']);
   grunt.registerTask('go', ['shell:go']);
   grunt.registerTask('build', ['shell:dist', 'jst', 'uglify', 'less', 'cssmin']);
+  grunt.registerTask('st', ['jasmine:summaryTable']);
 
   /**
    * The 'default' task will run whenever `grunt` is run without specifying a task
