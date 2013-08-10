@@ -159,7 +159,7 @@ var PDP = (function ( pdp ) {
   table._requestData = function() {
     var responseJSON;
     // console.log( pdp.query._buildApiQuery( this.queryParams ) );
-    responseJSON = pdp.utils.getJSON( pdp.query.generateApiUrl( 'jsonp?$callback=', this.queryParams ) );
+    responseJSON = pdp.utils.getJSON( pdp.query.generateApiUrl( 'jsonp?$callback=', true, this.queryParams ) );
 
     responseJSON.fail( this._throwFetchError );
 
