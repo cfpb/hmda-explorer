@@ -29,31 +29,31 @@ var PDP = (function ( pdp ) {
 
   // map for select clause statements and calculate by field values
   table.metrics = {
-    'income-min': {
+    'min_applicant_income_000s': {
       'api': 'MIN(applicant_income_000s)',
       'human': 'Applicant Income Minimum'
     },
-    'income-max': {
+    'max_applicant_income_000s': {
       'api': 'MAX(applicant_income_000s)',
       'human': 'Applicant Income Maximum'
     },
-    'income-avg': {
+    'avg_applicant_income_000s': {
       'api': 'AVG(applicant_income_000s)',
       'human': 'Applicant Income Average'
     },
-    'loan-min': {
+    'min_loan_amount_000s': {
       'api': 'MIN(loan_amount_000s)',
       'human': 'Loan Amount Minimum'
     },
-    'loan-max': {
+    'max_loan_amount_000s': {
       'api': 'MAX(loan_amount_000s)',
       'human': 'Loan Amount Maximum'
     },
-    'loan-avg': {
+    'avg_loan_amount_000s': {
       'api': 'AVG(loan_amount_000s)',
       'human': 'Loan Amount Average'
     },
-    'loan-sum': {
+    'sum_loan_amount_000s': {
       'api': 'SUM(loan_amount_000s)',
       'human': 'Loan Amount Sum'
     }
@@ -163,10 +163,78 @@ var PDP = (function ( pdp ) {
 
     responseJSON.fail( this._throwFetchError );
 
-    responseJSON.done( this.populateTable.bind(this) );
+    responseJSON.done( this._handleApiResponse.bind(this) );
 
     // in the meantime, spin!
     this._showSpinner();
+  };
+
+  // "23.52323423" to "$23,523"
+  table._mungeDollarAmts = function( respData ) {
+    var record, column, variable, amount, addCommas, dotIndex, amtParts;
+    
+    // splits 4+ numbers, inserts a comma
+    addCommas = function( numStr ) {
+      var len = numStr.length,
+          i;
+      if ( len > 3 ) {
+
+        if (len % 3 !== 0) {
+          i = len - (len % 3);
+        } else {
+          i = len;
+        }
+
+        while (i > 0) {
+          if (i < len) {
+            numStr = numStr.splice( -i, 0, ',' );
+          }
+          i = i-3;
+        }
+      }
+      return numStr;
+    };
+
+    // for row in results
+    for ( record in respData.results ) {
+      if ( respData.results.hasOwnProperty( record ) ) {
+        // for variable in row
+        for ( column in respData.results[record] ) {
+
+          // if this is a calculate by field value
+          if ( this.metrics.hasOwnProperty( column ) ) {
+
+            amount = respData.results[record][column].toString();
+            dotIndex = amount.indexOf('.');
+            if (dotIndex !== -1) {
+              amtParts = amount.split('.');
+              amtParts[1] = amtParts[1].substr(0, 3);
+              amount = amtParts.join('');
+            }
+
+            amount = addCommas(amount);
+
+            if ( amount.length <= 3 ) {
+              amount += ',000';
+            }
+        
+            respData.results[record][column] = '$' + amount;
+          }
+        }
+      }
+    }
+
+    return respData;
+  };
+
+  table._handleApiResponse = function( response ) {
+    this.populateTable(this._prepData(response));
+  };
+
+  table._prepData = function( respData ) {
+    respData = this._mungeDollarAmts( respData );
+
+    return respData;
   };
 
   table._showSpinner = function() {
@@ -225,8 +293,12 @@ var PDP = (function ( pdp ) {
 
       for ( column=0; column<clauseLen; column++ ) {
         if ( typeof this.queryParams.clauses.select[column] !== 'undefined' ) {
+          // reads like
+          // cellValue = response data object -> iteration we're on -> object key that matches the 
+          // select clause array item for the inner interation we're on
           cellValue = responseData.results[i][this.queryParams.clauses.select[column]];
 
+          // the column value won't match on calculate fields w/o some manipulation
           if ( typeof cellValue === 'undefined' ) {
             cellValue = responseData.results[i][this.queryToVal( this.queryParams.clauses.select[column] )];
           }
@@ -299,7 +371,7 @@ var PDP = (function ( pdp ) {
     var $table = $('table#summary-table'),
         $headerRow = $('<tr class="header"></tr>'),
         columns = this.queryParams.clauses.select.slice(0),
-        i, val,
+        i, val, fieldVal,
         len = columns.length;
 
     for (i=0; i<=len; i++) {
@@ -309,13 +381,12 @@ var PDP = (function ( pdp ) {
         // query representation and human representation
         if ( i === 3 ) {
           // walk the calculate by or metrics map for the correct title
-          for (val in this.metrics) {
-            if (this.metrics[val].api === columns[i]) {
-              columns[i] = this.metrics[val].human;
-            }
+          fieldVal = this.queryToVal( columns[i] );
+          if ( this.metrics.hasOwnProperty( fieldVal ) ) {
+            columns[i] = this.metrics[fieldVal].human;
           }
         }
-        $headerRow.append('<td id="' + columns[i] + '">' + pdp.utils.varToTitle( columns[i] ) + '</td>');
+        $headerRow.append('<td id="' + fieldVal + '">' + pdp.utils.varToTitle( columns[i] ) + '</td>');
       }
     }
 
