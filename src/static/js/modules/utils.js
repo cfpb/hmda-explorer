@@ -98,17 +98,17 @@ var PDP = (function( pdp ) {
         } catch( e ) {
           // @TODO: Only clear out PDP relevant storage.
           window.localStorage.clear();
-          console.log('%c localStorage cleared!', 'color: red');
+          //console.log('%c localStorage cleared!', 'color: red');
         }
         // This is a safety to prevent the polyfill object from growing too huge.
         // @TODO: Make this less lame.
         if ( window.localStorage.length > 50 ) {
           window.localStorage.clear();
-          console.log('%c localStorage cleared!', 'color: red');
+          //console.log('%c localStorage cleared!', 'color: red');
         }
       });
 
-      console.log( url + ' %c fetched via AJAX', 'color: orange' );
+      //console.log( url + ' %c fetched via AJAX', 'color: orange' );
 
       return deferred;
     }
@@ -126,7 +126,7 @@ var PDP = (function( pdp ) {
         storageDfd.resolveWith( null, [JSON.parse(storedData)] );
       });
 
-      console.log( url + ' %c fetched via localStorange', 'color: blue' );
+      //console.log( url + ' %c fetched via localStorange', 'color: blue' );
 
       return storageDfd.promise();
 
