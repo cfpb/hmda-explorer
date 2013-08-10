@@ -126,7 +126,7 @@ module.exports = function(grunt) {
       dist: {
         command: [
           'cp src/*.html dist/',
-          'cp -r src/static/font dist/static',
+          'cp -r src/static/fonts dist/static',
           'cp -r src/static/img dist/static',
           'cp -r src/static/js dist/static',
           'cp src/static/vendor/html5shiv/dist/* dist/static/js/',
@@ -249,17 +249,13 @@ module.exports = function(grunt) {
      */
     jasmine: {
       pdp: {
-        src: 'dist/static/js/all.min.js',
+        src: [
+          'dist/static/js/all.min.js',
+          'test/specs/helpers/debug.js'
+        ],
         options: {
           specs: 'test/specs/*.js',
           helpers: 'test/specs/helpers/*.js'
-        }
-      },
-
-      summaryTable: {
-        src: 'dist/static/js/all.min.js',
-        options: {
-          specs: 'test/specs/summary-table.js'
         }
       }
     },
