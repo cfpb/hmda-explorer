@@ -2102,7 +2102,7 @@ textarea {
 .spinning {
   background: rgba(255, 255, 255, 0.6) url(../img/icon_spinner_2x.gif) center center no-repeat;
   width: 100%;
-  height: 150%;
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
@@ -2860,12 +2860,13 @@ ul.chzn-choices {
     background-color: #FAB051;
     padding: 5px 0 0;
     border-bottom: 5px solid gray;
+    position: relative;
   }
   .explore .hero > .inner {
     text-align: left;
   }
   .explore .hero nav {
-    margin-left: 13px;
+    margin: 0 0 0 13px;
     float: left;
   }
   .explore .hero nav ul {
