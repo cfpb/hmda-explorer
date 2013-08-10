@@ -158,6 +158,10 @@ var PDP = (function ( pdp ) {
 
     function buildHashParam( param, name ) {
 
+      if ( !param.values[0] ) {
+        return;
+      }
+
       // If it's not a number, add quotes around the params.
 
       hashParams.push( name + param.comparator + param.values.join(',') );

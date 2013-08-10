@@ -102,7 +102,7 @@ var PDP = (function( pdp ) {
         }
         // This is a safety to prevent the polyfill object from growing too huge.
         // @TODO: Make this less lame.
-        if ( window.localStorage.length > 50 ) {
+        if ( window.localStorage.length > 100 ) {
           window.localStorage.clear();
           //console.log('%c localStorage cleared!', 'color: red');
         }
