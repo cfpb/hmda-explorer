@@ -2157,7 +2157,7 @@ textarea {
   padding-right: 10px;
 }
 .filter.closed i.icon-minus-alt:before {
-  content: "\e0111";
+  content: "\e0109";
 }
 .filter .fields {
   padding: 0;
@@ -2247,6 +2247,13 @@ textarea {
   display: inline-block;
   color: #0072ce;
   vertical-align: top;
+  height: 24px;
+  width: 24px;
+}
+.filter .help i {
+  height: 24px;
+  width: 24px;
+  display: block;
 }
 .field.disabled {
   color: #d0d0ce;
@@ -2423,7 +2430,7 @@ textarea {
   padding-left: 3px;
 }
 .preview.closed i.icon-minus-alt:before {
-  content: "\e0067";
+  content: "\e0109";
 }
 .nlw {
   position: relative;

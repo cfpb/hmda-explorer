@@ -96,7 +96,7 @@ var PDP = (function ( pdp ) {
 
         first = false;
       }
-    } 
+    }
   };
 
   // inits chosen library to make pretty form fields
