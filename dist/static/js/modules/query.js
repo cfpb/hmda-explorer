@@ -25,7 +25,7 @@ var PDP = (function ( pdp ) {
 
   // Set a default endpoint for AJAX requests.
 
-  query.endpoint = query.debug ? 'static/js/dummy_data/' : 'http://qu.demo.cfpb.gov/data/hmda/';
+  query.endpoint = query.debug ? 'static/js/dummy_data/' : 'https://qu.demo.cfpb.gov/data/hmda/';
 
   // Whether or not they want codes in their downloaded file.
 
