@@ -2550,9 +2550,6 @@ ul.chzn-choices {
 .homepage .hero nav {
   font-family: Georgia, "Times New Roman", serif;
 }
-.homepage .hero nav div {
-  display: none;
-}
 .homepage .hero .title {
   font-family: "Avenir Next", Arial, sans-serif;
   font-weight: 700;
@@ -2580,6 +2577,9 @@ ul.chzn-choices {
 .homepage .hero ul a:hover,
 .homepage .hero ul a:active {
   background-color: #ff9e1b;
+}
+.homepage .circle-nav {
+  display: none;
 }
 .map #map {
   width: 100%;
@@ -2698,19 +2698,63 @@ ul.chzn-choices {
   .homepage .hero nav a:hover {
     background-color: transparent;
   }
-  .homepage .hero nav div {
+  .homepage .hero nav a.facts-and-figures .inner span {
+    padding: 50px 13% 45px;
+  }
+  .homepage .hero nav a.data .inner span {
+    padding: 45px 0;
+  }
+  .homepage .circle-nav {
     display: block;
     margin-bottom: 10px;
-    width: 160px;
-    height: 160px;
-    -webkit-border-radius: 80px;
-    -moz-border-radius: 80px;
-    border-radius: 80px;
+    width: 150px;
+    height: 150px;
+    -webkit-border-radius: 75px;
+    -moz-border-radius: 75px;
+    border-radius: 75px;
     background: #fbcd96;
+    overflow: hidden;
+    position: relative;
   }
-  .homepage .hero nav .inner {
+  .homepage .circle-nav .inner {
+    position: absolute;
+    top: 32px;
+    transition: top 0.1s ease-in;
+  }
+  .homepage .circle-nav .inner img {
+    width: 81px;
+    height: 93px;
+    margin-left: -3px;
+    -webkit-transition: all 0.4s ease-in-out 0.2s;
+    -moz-transition: all 0.4s ease-in-out 0.2s;
+    -o-transition: all 0.4s ease-in-out 0.2s;
+    -ms-transition: all 0.4s ease-in-out 0.2s;
+    transition: all 0.4s ease-in-out 0.2s;
+    -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+    opacity: 1;
+  }
+  .homepage .circle-nav:hover .inner {
+    top: -85px;
+  }
+  .homepage .circle-nav:hover img {
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -o-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+    -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    opacity: 0;
+    -webkit-transition-delay: 0s;
+    -moz-transition-delay: 0s;
+    -o-transition-delay: 0s;
+    -ms-transition-delay: 0s;
+    transition-delay: 0s;
+  }
+  .homepage .circle-nav span {
     display: block;
-    padding: 30% 13% 0;
+    padding: 45px 13%;
     text-align: center;
     font-size: .75em;
   }

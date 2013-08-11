@@ -20,14 +20,10 @@
       padding-top: 40px;
       background: transparent url() scroll no-repeat top center;
       .at2x( '../img/hr_hero-top.png', 770px, 17px );
-
     }
 
     nav {
       font-family: @body-font;
-      div {
-        display: none;
-      }
     }
 
     .title {
@@ -41,6 +37,10 @@
       .mobile-nav();
     }
 
+  }
+
+  .circle-nav {
+    display: none;
   }
 
 }
@@ -169,24 +169,56 @@
           &:hover {
             background-color: transparent;
           }
+          &.facts-and-figures {
+            .inner span {
+              padding: 50px 13% 45px;
+            }
+          }
+          &.data {
+            .inner span {
+              padding: 45px 0;
+            }
+          }
         }
-        div {
-          display: block;
-          margin-bottom: 10px;
-          width: 160px;
-          height: 160px;
-          -webkit-border-radius: 80px;
-          -moz-border-radius: 80px;
-          border-radius: 80px;
-          background: #fbcd96;
-        }
-        .inner {
-          display: block;
-          padding: 30% 13% 0;
-          text-align: center;
-          font-size: .75em;
-        }
+      }
+    }
 
+    .circle-nav {
+      display: block;
+      margin-bottom: 10px;
+      width: 150px;
+      height: 150px;
+      -webkit-border-radius: 75px;
+      -moz-border-radius: 75px;
+      border-radius: 75px;
+      background: #fbcd96;
+      overflow: hidden;
+      position: relative;
+      .inner {
+        position: absolute;
+        top: 32px;
+        transition: top .1s ease-in;
+        img {
+          width: 81px;
+          height: 93px;
+          margin-left: -3px;
+          .zoom-out();
+        }
+        
+      }
+      &:hover {
+        .inner {
+          top: -85px;
+        }
+        img {
+          .zoom-in();
+        }
+      }
+      span {
+        display: block;
+        padding: 45px 13%;
+        text-align: center;
+        font-size: .75em;
       }
     }
 
