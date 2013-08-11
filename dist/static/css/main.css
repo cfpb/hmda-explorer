@@ -3649,6 +3649,13 @@ nav li {
 .hmda footer .tertiary li {
   display: block;
 }
+.hmda footer .social {
+  font-size: 40px;
+  margin: 0;
+}
+.hmda footer .social i {
+  margin-left: 5px;
+}
 @media only screen and (min-width: 768px) {
   .hmda header {
     *zoom: 1;
@@ -3729,6 +3736,7 @@ nav li {
     margin-right: -0.25em;
     vertical-align: top;
     width: 33.33333333333333%;
+    text-align: right;
   }
   .ie .hmda footer .social {
     margin-right: -0.26em;
