@@ -264,6 +264,12 @@ var PDP = (function ( pdp ) {
       return false;
     }
 
+    if ( $( el ).find('.spinning').length < 1 ) {
+      $( el ).append( PDP.templates.spinner );
+    }
+
+    $( el ).find('.spinning').show();
+
     // Broadcast that an update is starting.
     pdp.observer.emitEvent('update:started');
 
@@ -326,6 +332,8 @@ var PDP = (function ( pdp ) {
         }
 
         pdp.observer.emitEvent('update:stopped');
+
+        $( el ).find('.spinning').hide();
 
     }.bind( this ));
 

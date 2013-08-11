@@ -2096,13 +2096,22 @@ textarea {
   }
 }
 .spinning {
-  background: rgba(255, 255, 255, 0.6) url(../img/icon_spinner_2x.gif) center center no-repeat;
+  background-image: url('../img/icon_spinner.gif');
+  background-color: rgba(255, 255, 255, 0.6);
+  background-position: center center;
+  background-repeat: no-repeat;
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
   left: 0;
   z-index: 100;
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
+  .spinning {
+    background-image: url("../img/icon_spinner_2x.gif");
+    background-size: 16px 16px;
+  }
 }
 /**
  *  Mixin to justify a horizontal list, useful for navs
@@ -2199,6 +2208,11 @@ textarea {
   position: relative;
   top: -1px;
   *overflow: hidden;
+}
+.filter.location .spinning {
+  height: 30px;
+  top: auto;
+  bottom: 0;
 }
 .filter .location-set {
   border-bottom: 1px solid #ccc;
@@ -2297,6 +2311,7 @@ textarea {
   }
   .filter.location li.field {
     margin-bottom: .25em;
+    position: relative;
   }
   .filter.location li.field > label {
     padding-bottom: .25em;
@@ -2680,107 +2695,107 @@ section.video h2:hover {
 section.video h2 strong {
   background: transparent url(../img/icon_play-over.png) scroll no-repeat -9999999px -9999999px;
 }
-section.facts-and-figures h2 {
+#facts-and-figures h2 {
   background-image: url('../img/icon_dataviz.png');
 }
 @media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
-  section.facts-and-figures h2 {
+  #facts-and-figures h2 {
     background-image: url("../img/icon_dataviz_2x.png");
     background-size: 81px 93px;
   }
 }
-section.facts-and-figures #map {
+#facts-and-figures #map {
   width: 100%;
   height: 400px;
 }
-section.facts-and-figures .map-legends {
+#facts-and-figures .map-legends {
   width: 140px;
 }
-section.facts-and-figures .legend-title {
+#facts-and-figures .legend-title {
   font-weight: bold;
   font-size: 1.1em;
   padding-bottom: 10px;
 }
-section.facts-and-figures .legend-labels {
+#facts-and-figures .legend-labels {
   margin: 0;
   padding: 0;
 }
-section.facts-and-figures .legend-labels li {
+#facts-and-figures .legend-labels li {
   list-style-type: none;
   height: 20px;
 }
-section.facts-and-figures .legend-labels li span {
+#facts-and-figures .legend-labels li span {
   height: 20px;
   width: 30px;
   margin-right: 7px;
   display: inline-block;
 }
-section.facts-and-figures .legend-source {
+#facts-and-figures .legend-source {
   margin-top: 10px;
 }
-section.facts-and-figures .charts {
+#facts-and-figures .charts {
   text-align: center;
 }
-section.data {
+#get-the-data {
   background: #ffffff url(../img/bg_grid-tile.png) scroll repeat left top;
   border-top: 3px solid #ebe8e5;
   border-bottom: 3px solid #ebe8e5;
   padding-bottom: 50px;
 }
-section.data h2 {
+#get-the-data h2 {
   background-image: url('../img/icon_getdata.png');
   width: 450px;
 }
 @media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
-  section.data h2 {
+  #get-the-data h2 {
     background-image: url("../img/icon_getdata_2x.png");
     background-size: 79px 92px;
   }
 }
-section.data h3 {
+#get-the-data h3 {
   font-family: "Avenir Next Demi", Arial, sans-serif;
   font-weight: 600;
   font-style: normal;
 }
-section.data .inner {
+#get-the-data .inner {
   margin: 0 auto;
 }
-section.data .filters,
-section.data .summary {
+#get-the-data .filters,
+#get-the-data .summary {
   vertical-align: top;
   position: relative;
   background-color: #e7e7e6;
   padding: 20px 20px 40px 20px;
 }
-section.data .filters .action-arrow,
-section.data .summary .action-arrow {
+#get-the-data .filters .action-arrow,
+#get-the-data .summary .action-arrow {
   position: absolute;
   bottom: 20px;
 }
-section.developers h2 {
+#developers h2 {
   background-image: url('../img/icon_devs.png');
   padding-left: 110px;
 }
 @media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
-  section.developers h2 {
+  #developers h2 {
     background-image: url("../img/icon_devs_2x.png");
     background-size: 92px 97px;
   }
 }
-section.developers .inner {
+#developers .inner {
   margin: 0 auto;
 }
-section.developers .api {
+#developers .api {
   background-color: #e7e7e6;
   padding: 20px;
 }
-section.developers .links {
+#developers .links {
   float: right;
 }
-section.developers .links ul {
+#developers .links ul {
   list-style-type: none;
 }
-section.developers .links li {
+#developers .links li {
   margin-bottom: 10px;
 }
 @media only screen and (min-width: 768px) {
@@ -2823,10 +2838,10 @@ section.developers .links li {
     text-transform: none;
     width: 160px;
   }
-  .homepage .hero nav a.data {
+  .homepage .hero nav a.get-the-data {
     margin: 0 auto;
   }
-  .homepage .hero nav a.data .inner {
+  .homepage .hero nav a.get-the-data .inner {
     padding-left: 9%;
     padding-right: 9%;
   }
@@ -2852,7 +2867,7 @@ section.developers .links li {
   .homepage .hero nav a.facts-and-figures .inner span {
     padding: 65px 13% 50px;
   }
-  .homepage .hero nav a.data .inner span {
+  .homepage .hero nav a.get-the-data .inner span {
     padding: 60px 0 40px;
   }
   .homepage .circle-nav {
@@ -2934,19 +2949,19 @@ section.developers .links li {
     width: 49.5%;
     display: inline-block;
   }
-  .homepage section.data .inner {
+  .homepage #get-the-data .inner {
     width: 82%;
   }
-  .homepage section.data .filters {
+  .homepage #get-the-data .filters {
     margin-right: 3%;
   }
-  .homepage section.data .filters,
-  .homepage section.data .summary {
+  .homepage #get-the-data .filters,
+  .homepage #get-the-data .summary {
     width: 48%;
     min-height: 255px;
     display: inline-block;
   }
-  .homepage section.developers .inner {
+  .homepage #developers .inner {
     width: 82%;
   }
 }
