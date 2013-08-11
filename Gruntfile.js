@@ -80,8 +80,8 @@ module.exports = function(grunt) {
           removeComments: true
         },
         files: {
-          'dist/index.html': 'dist/index.html',
-          'dist/explore.html': 'dist/explore.html'
+          'dist/index.html': 'src/index.html',
+          'dist/explore.html': 'src/explore.html'
         }
       }
     },
@@ -142,7 +142,6 @@ module.exports = function(grunt) {
       },
       dist: {
         command: [
-          'cp src/*.html dist/',
           'cp -r src/static/fonts dist/static',
           'cp -r src/static/img dist/static',
           'cp -r src/static/js dist/static',
@@ -342,7 +341,7 @@ module.exports = function(grunt) {
   grunt.registerTask('test', ['jshint', 'jasmine']);
   grunt.registerTask('docs', ['removelogging', 'docco', 'build-cfpb']);
   grunt.registerTask('go', ['shell:go']);
-  grunt.registerTask('build', ['shell:dist', 'jst', 'uglify', 'less', 'cssmin']);
+  grunt.registerTask('build', ['htmlmin', 'shell:dist', 'jst', 'uglify', 'less', 'cssmin']);
   grunt.registerTask('st', ['jasmine:summaryTable']);
 
   /**
