@@ -1,3 +1,9 @@
+v0.10.3:
+  date: 2013-08-10
+  changes:
+    - Loading visualizations for dependent fields.
+    - Homepage clean up.
+
 v0.10.2:
   date: 2013-08-08
   changes:

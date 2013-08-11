@@ -27,11 +27,10 @@ visualize the loading of content.</p>             </td>             <td class="c
 
   <span class="nx">preview</span><span class="p">.</span><span class="nx">lastRequestTime</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getTime</span><span class="p">();</span></pre></div>             </td>           </tr>                               <tr id="section-9">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-9">&#182;</a>               </div>               <p>The <code>_fetchPreviewJSON</code> method returns a promise of JSON</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">preview</span><span class="p">.</span><span class="nx">_fetchPreviewJSON</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 
-    <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">generateApiUrl</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;&amp;$limit=500&#39;</span><span class="p">,</span>
+    <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">generateApiUrl</span><span class="p">(</span> <span class="kc">null</span><span class="p">,</span> <span class="kc">true</span> <span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&amp;$limit=500&#39;</span><span class="p">,</span>
         <span class="nx">promise</span> <span class="o">=</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">(</span> <span class="nx">url</span> <span class="p">);</span>
 
     <span class="nx">preview</span><span class="p">.</span><span class="nx">lastRequestTime</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getTime</span><span class="p">();</span>
-
     <span class="nx">promise</span><span class="p">.</span><span class="nx">timestamp</span> <span class="o">=</span> <span class="nx">preview</span><span class="p">.</span><span class="nx">lastRequestTime</span><span class="p">;</span>
 
     <span class="k">return</span> <span class="nx">promise</span><span class="p">;</span>
@@ -41,7 +40,6 @@ visualize the loading of content.</p>             </td>             <td class="c
     <span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_fetchPreviewJSON</span><span class="p">();</span>
 
     <span class="nx">preview</span><span class="p">.</span><span class="nx">startLoading</span><span class="p">();</span>
-
     <span class="nx">preview</span><span class="p">.</span><span class="nx">updateNLW</span><span class="p">(</span> <span class="mi">0</span> <span class="p">);</span>
 
     <span class="nx">promise</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">data</span> <span class="p">)</span> <span class="p">{</span>
@@ -51,13 +49,13 @@ visualize the loading of content.</p>             </td>             <td class="c
       <span class="p">}</span>
 
       <span class="nx">preview</span><span class="p">.</span><span class="nx">nlw</span><span class="p">.</span><span class="nx">count</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">total</span><span class="p">;</span>
-
       <span class="nx">preview</span><span class="p">.</span><span class="nx">updateTable</span><span class="p">(</span> <span class="nx">data</span><span class="p">.</span><span class="nx">results</span> <span class="p">);</span>
       <span class="nx">preview</span><span class="p">.</span><span class="nx">updateNLW</span><span class="p">();</span>
-
       <span class="nx">preview</span><span class="p">.</span><span class="nx">stopLoading</span><span class="p">();</span>
 
-    <span class="p">}).</span><span class="nx">fail</span><span class="p">(</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">textStatus</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="p">});</span>
+
+    <span class="nx">promise</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">textStatus</span> <span class="p">)</span> <span class="p">{</span>
 
       <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span> <span class="s1">&#39;Error updating preview table: &#39;</span> <span class="o">+</span> <span class="nx">textStatus</span> <span class="p">);</span>
       <span class="nx">preview</span><span class="p">.</span><span class="nx">stopLoading</span><span class="p">();</span>
@@ -113,7 +111,6 @@ specify which ones to show here.</p>             </td>             <td class="co
           <span class="nx">_keys</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span> <span class="nx">_fields</span> <span class="p">),</span>
           <span class="nx">_rows</span> <span class="o">=</span> <span class="p">[],</span>
           <span class="nx">_rowConstructor</span> <span class="o">=</span> <span class="p">{};</span>
-
 
       <span class="nx">_</span><span class="p">(</span> <span class="nx">_keys</span> <span class="p">).</span><span class="nx">forEach</span><span class="p">(</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">key</span> <span class="p">){</span>
         <span class="nx">_rowConstructor</span><span class="p">[</span> <span class="nx">key</span> <span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&lt;em&gt;N/A&lt;/em&gt;&#39;</span><span class="p">;</span>
