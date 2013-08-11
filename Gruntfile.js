@@ -70,6 +70,23 @@ module.exports = function(grunt) {
     },
 
     /**
+     * HTMLmin: https://github.com/gruntjs/grunt-contrib-htmlmin
+     * 
+     * Minify HTML.
+     */
+    htmlmin: {
+      dist: {
+        options: {
+          removeComments: true
+        },
+        files: {
+          'dist/index.html': 'dist/index.html',
+          'dist/explore.html': 'dist/explore.html'
+        }
+      }
+    },
+
+    /**
      * JSHint: https://github.com/gruntjs/grunt-contrib-jshint
      * 
      * Validate files with JSHint.
@@ -317,6 +334,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-docco');
   grunt.loadNpmTasks('grunt-remove-logging');
   grunt.loadNpmTasks('grunt-contrib-jst');
+  grunt.loadNpmTasks('grunt-contrib-htmlmin');
 
   /**
    * Create task aliases by registering new tasks

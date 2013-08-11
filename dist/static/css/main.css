@@ -2642,7 +2642,7 @@ ul.chzn-choices {
     min-height: 300px;
   }
   .homepage .hero h1 {
-    font-size: 49.5px;
+    font-size: 47px;
   }
   .homepage .hero nav {
     width: 82%;
@@ -2699,10 +2699,10 @@ ul.chzn-choices {
     background-color: transparent;
   }
   .homepage .hero nav a.facts-and-figures .inner span {
-    padding: 50px 13% 45px;
+    padding: 50px 13%;
   }
   .homepage .hero nav a.data .inner span {
-    padding: 45px 0;
+    padding: 45px 0 40px;
   }
   .homepage .circle-nav {
     display: block;
@@ -2754,9 +2754,18 @@ ul.chzn-choices {
   }
   .homepage .circle-nav span {
     display: block;
-    padding: 45px 13%;
+    padding: 45px 13% 40px;
     text-align: center;
     font-size: .75em;
+    background-image: url('../img/icon_arrow_down.png');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+  }
+}
+@media only screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
+  .homepage .circle-nav span {
+    background-image: url("../img/icon_arrow_down_2x.png");
+    background-size: 32px 20px;
   }
 }
 .explore .hero {
