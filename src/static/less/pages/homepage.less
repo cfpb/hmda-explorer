@@ -2,7 +2,7 @@
 
   .hero {
     
-    padding-top: 33px;
+    padding-top: 10px;
     text-align: center;
     background-color: #FAB051;
     background-size: cover;
@@ -16,8 +16,8 @@
       font-size: 30px;
       line-height: 1.3em;
       padding-bottom: 0 0 30px;
+      padding-top: 32px;
       width: 100%;
-      padding-top: 40px;
       background: transparent url() scroll no-repeat top center;
       .at2x( '../img/hr_hero-top.png', 770px, 17px );
     }
@@ -46,6 +46,68 @@
 }
 
 .video {
+
+  background-color: #E7E7E6;
+
+  .background {
+    .wrapper();
+  }
+
+  .inner {
+    padding: 23px 0 10px;
+    width: 82%;
+    margin: 0 auto;
+  }
+
+  .launch {
+    p {
+      .avenir-next;
+      margin-top: .5em;
+    }
+    a:hover {
+      text-decoration: none;
+    }
+  }
+
+  .blurb {
+    p {
+      font-size: .95em;
+      line-height: 1.4em;
+      margin-top: 0;
+    }
+    a {
+      .avenir-next-demi;
+      font-size: 1.1em;
+      i {
+        font-size: 2em;
+        line-height: .45em;
+      }
+    }
+  }
+
+  h2 {
+    font-style: italic;
+    font-family: @body-font;
+    font-weight: normal;
+    .at2x( '../img/icon_play.png', 63px, 63px );
+    background-repeat: no-repeat;
+    background-position: top right;
+    -webkit-transition: background-image .4s ease-in-out;
+    -moz-transition: background-image .4s ease-in-out;
+    -o-transition: background-image .4s ease-in-out;
+    -ms-transition: background-image .4s ease-in-out;
+    transition: background-image .4s ease-in-out;
+    max-width: 220px;
+    &:hover {
+      .at2x( '../img/icon_play-over.png', 63px, 63px );
+    }
+    strong {
+      font-style: normal;
+      display: block;
+      .avenir-next-bold;
+      font-size: 1.4em;
+    }
+  }
   
 }
 
@@ -53,7 +115,7 @@
 
   #map {
     width: 100%;
-    height: 500px;
+    height: 400px;
   }
 
   .map-legends {
@@ -137,7 +199,8 @@
   .homepage {
 
     .hero {
-      min-height: 300px;
+      min-height: 403px;
+      padding-top: 45px;
       h1 {
         font-size: 47px;
       }
@@ -165,6 +228,10 @@
           &.developers {
             .clearfix();
             float: right;
+            width: 150px;
+            .circle-nav {
+              float: right;
+            }
           }
           &:hover {
             background-color: transparent;
@@ -188,16 +255,30 @@
       margin-bottom: 10px;
       width: 150px;
       height: 150px;
-      -webkit-border-radius: 75px;
-      -moz-border-radius: 75px;
-      border-radius: 75px;
-      background: #fbcd96;
       overflow: hidden;
       position: relative;
+      background-color: #fbcd96;
+      .mask {
+        border: 35px solid #FAB051;
+        position: absolute;
+        top: -35px;
+        left: -35px;
+        -webkit-border-radius: 250px;
+        -moz-border-radius: 250px;
+        border-radius: 250px;
+        display: block;
+        width: 220px;
+        height: 220px;
+        z-index: 1;
+      }
       .inner {
         position: absolute;
         top: 32px;
-        transition: top .1s ease-in;
+        -webkit-transition: top .2s ease-in;
+        -moz-transition: top .2s ease-in;
+        -o-transition: top .2s ease-in;
+        -ms-transition: top .2s ease-in;
+        transition: top .2s ease-in;
         img {
           width: 81px;
           height: 93px;
@@ -223,6 +304,16 @@
         background-repeat: no-repeat;
         background-position: center bottom;
       }
+    }
+
+    .video {
+
+      .launch,
+      .blurb {
+        width: 49.5%;
+        display: inline-block;
+      }
+      
     }
 
   }

@@ -1649,19 +1649,15 @@ table.tidy_table td {
          url('../fonts/4862b373-2643-46b1-b0b5-88537c52d15c.svg#4862b373-2643-46b1-b0b5-88537c52d15c') format('svg');
     font-weight: 600;
     font-style: italic;
-}
-
+}*/
 @font-face {
-    font-family: 'Avenir Next Bold';
-    src: url('../fonts/dccb10af-07a2-404c-bfc7-7750e2716bc1.eot');
-    src: url('../fonts/dccb10af-07a2-404c-bfc7-7750e2716bc1.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/b8e906a1-f5e8-4bf1-8e80-82c646ca4d5f.woff') format('woff'),
-         url('../fonts/890bd988-5306-43ff-bd4b-922bc5ebdeb4.ttf') format('truetype'),
-         url('../fonts/ed104d8c-7f39-4e8b-90a9-4076be06b857.svg#ed104d8c-7f39-4e8b-90a9-4076be06b857') format('svg');
-    font-weight: 700;
-    font-style: normal;
+  font-family: 'Avenir Next Bold';
+  src: url('../fonts/dccb10af-07a2-404c-bfc7-7750e2716bc1.eot');
+  src: url('../fonts/dccb10af-07a2-404c-bfc7-7750e2716bc1.eot?#iefix') format('embedded-opentype'), url('../fonts/b8e906a1-f5e8-4bf1-8e80-82c646ca4d5f.woff') format('woff'), url('../fonts/890bd988-5306-43ff-bd4b-922bc5ebdeb4.ttf') format('truetype'), url('../fonts/ed104d8c-7f39-4e8b-90a9-4076be06b857.svg#ed104d8c-7f39-4e8b-90a9-4076be06b857') format('svg');
+  font-weight: 700;
+  font-style: normal;
 }
-
+/*
 @font-face {
     font-family: 'Avenir Next Bold Italic';
     src: url('../fonts/ac2d4349-4327-448f-9887-083a6a227a52.eot');
@@ -2510,7 +2506,7 @@ ul.chzn-choices {
   top: 9px;
 }
 .homepage .hero {
-  padding-top: 33px;
+  padding-top: 10px;
   text-align: center;
   background-color: #FAB051;
   background-size: cover;
@@ -2536,8 +2532,8 @@ ul.chzn-choices {
   font-size: 30px;
   line-height: 1.3em;
   padding-bottom: 0 0 30px;
+  padding-top: 32px;
   width: 100%;
-  padding-top: 40px;
   background: transparent url() scroll no-repeat top center;
   background-image: url('../img/hr_hero-top.png');
 }
@@ -2581,9 +2577,91 @@ ul.chzn-choices {
 .homepage .circle-nav {
   display: none;
 }
+.video {
+  background-color: #E7E7E6;
+}
+.video .background {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  max-width: 960px;
+  padding: 0 15px;
+  margin: 0 auto;
+  position: relative;
+  clear: both;
+}
+.lt-ie8 .video .background {
+  *zoom: 1;
+  *behavior: url(boxsizing.htc);
+}
+.video .inner {
+  padding: 23px 0 10px;
+  width: 82%;
+  margin: 0 auto;
+}
+.video .launch p {
+  font-family: "Avenir Next", Arial, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin-top: .5em;
+}
+.video .launch a:hover {
+  text-decoration: none;
+}
+.video .blurb p {
+  font-size: .95em;
+  line-height: 1.4em;
+  margin-top: 0;
+}
+.video .blurb a {
+  font-family: "Avenir Next Demi", Arial, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1.1em;
+}
+.video .blurb a i {
+  font-size: 2em;
+  line-height: .45em;
+}
+.video h2 {
+  font-style: italic;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: normal;
+  background-image: url('../img/icon_play.png');
+  background-repeat: no-repeat;
+  background-position: top right;
+  -webkit-transition: background-image 0.4s ease-in-out;
+  -moz-transition: background-image 0.4s ease-in-out;
+  -o-transition: background-image 0.4s ease-in-out;
+  -ms-transition: background-image 0.4s ease-in-out;
+  transition: background-image 0.4s ease-in-out;
+  max-width: 220px;
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
+  .video h2 {
+    background-image: url("../img/icon_play_2x.png");
+    background-size: 63px 63px;
+  }
+}
+.video h2:hover {
+  background-image: url('../img/icon_play-over.png');
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
+  .video h2:hover {
+    background-image: url("../img/icon_play-over_2x.png");
+    background-size: 63px 63px;
+  }
+}
+.video h2 strong {
+  display: block;
+  font-family: "Avenir Next", Arial, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.4em;
+}
 .map #map {
   width: 100%;
-  height: 500px;
+  height: 400px;
 }
 .map .map-legends {
   width: 140px;
@@ -2639,7 +2717,8 @@ ul.chzn-choices {
 }
 @media only screen and (min-width: 768px) {
   .homepage .hero {
-    min-height: 300px;
+    min-height: 403px;
+    padding-top: 45px;
   }
   .homepage .hero h1 {
     font-size: 47px;
@@ -2686,6 +2765,7 @@ ul.chzn-choices {
   .homepage .hero nav a.developers {
     *zoom: 1;
     float: right;
+    width: 150px;
   }
   .homepage .hero nav a.developers:before,
   .homepage .hero nav a.developers:after {
@@ -2694,6 +2774,9 @@ ul.chzn-choices {
   }
   .homepage .hero nav a.developers:after {
     clear: both;
+  }
+  .homepage .hero nav a.developers .circle-nav {
+    float: right;
   }
   .homepage .hero nav a:hover {
     background-color: transparent;
@@ -2709,17 +2792,31 @@ ul.chzn-choices {
     margin-bottom: 10px;
     width: 150px;
     height: 150px;
-    -webkit-border-radius: 75px;
-    -moz-border-radius: 75px;
-    border-radius: 75px;
-    background: #fbcd96;
     overflow: hidden;
     position: relative;
+    background-color: #fbcd96;
+  }
+  .homepage .circle-nav .mask {
+    border: 35px solid #FAB051;
+    position: absolute;
+    top: -35px;
+    left: -35px;
+    -webkit-border-radius: 250px;
+    -moz-border-radius: 250px;
+    border-radius: 250px;
+    display: block;
+    width: 220px;
+    height: 220px;
+    z-index: 1;
   }
   .homepage .circle-nav .inner {
     position: absolute;
     top: 32px;
-    transition: top 0.1s ease-in;
+    -webkit-transition: top 0.2s ease-in;
+    -moz-transition: top 0.2s ease-in;
+    -o-transition: top 0.2s ease-in;
+    -ms-transition: top 0.2s ease-in;
+    transition: top 0.2s ease-in;
   }
   .homepage .circle-nav .inner img {
     width: 81px;
@@ -2760,6 +2857,11 @@ ul.chzn-choices {
     background-image: url('../img/icon_arrow_down.png');
     background-repeat: no-repeat;
     background-position: center bottom;
+  }
+  .homepage .video .launch,
+  .homepage .video .blurb {
+    width: 49.5%;
+    display: inline-block;
   }
 }
 @media only screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
