@@ -68,3 +68,13 @@ __p += '<option value="' +
 }
 return __p
 };
+
+this["PDP"]["templates"]["spinner"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<div class="spinning"></div>';
+
+}
+return __p
+};

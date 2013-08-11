@@ -171,7 +171,7 @@ module.exports = function(grunt) {
           }
         },
         files: {
-          'src/static/js/templates/template.js': ['src/static/js/templates/location.html', 'src/static/js/templates/option.html']
+          'src/static/js/templates/template.js': ['src/static/js/templates/*.html']
         }
       }
     },
