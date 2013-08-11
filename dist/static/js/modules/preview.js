@@ -3,7 +3,6 @@
 
 // To avoid global scope pollution, declare all variables and functions inside an
 // [immediately-invoked function expression](http://benalman.com/news/2010/11/immediately-invoked-function-expression/) using an augmented [module pattern](http://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript).
-
 var PDP = (function ( pdp ) {
 
   'use strict';
@@ -11,19 +10,15 @@ var PDP = (function ( pdp ) {
   // The Preview
   // -----------
   // The preview is a table of records the user can inspect before downloading the data slice.
-
   var preview = {};
 
   // Cache a reference to the preview table's jQuery object.
-
   preview.$el = $('#preview');
 
   // Whether or not the preview is currently updating.
-
   preview._updating = false;
 
   // Object for handling NLW stuff.
-
   preview.nlw = {
 
     $el: $('.nlw'),
@@ -33,7 +28,6 @@ var PDP = (function ( pdp ) {
 
   // The `startLoading` method adds a class to the preview section's element so we can
   // visualize the loading of content.
-
   preview.startLoading = function() {
 
     this.$el.addClass('loading');
@@ -44,7 +38,6 @@ var PDP = (function ( pdp ) {
   };
 
   // The `stopLoading` method removes the preview section's loading class.
-
   preview.stopLoading = function() {
 
     this.$el.removeClass('loading');
@@ -57,14 +50,12 @@ var PDP = (function ( pdp ) {
   preview.lastRequestTime = new Date().getTime();
 
   // The `_fetchPreviewJSON` method returns a promise of JSON
-
   preview._fetchPreviewJSON = function() {
 
     var url = pdp.query.generateApiUrl( null, true ) + '&$limit=500',
         promise = pdp.utils.getJSON( url );
 
     preview.lastRequestTime = new Date().getTime();
-
     promise.timestamp = preview.lastRequestTime;
 
     return promise;
@@ -72,13 +63,11 @@ var PDP = (function ( pdp ) {
   };
 
   // The `update` method updates the preview section.
-
   preview.update = function() {
 
     var promise = this._fetchPreviewJSON();
 
     preview.startLoading();
-
     preview.updateNLW( 0 );
 
     promise.done( function( data ) {
@@ -88,10 +77,8 @@ var PDP = (function ( pdp ) {
       }
 
       preview.nlw.count = data.total;
-
       preview.updateTable( data.results );
       preview.updateNLW();
-
       preview.stopLoading();
 
     });
@@ -106,11 +93,9 @@ var PDP = (function ( pdp ) {
   };
 
   // The `updateNLW` method updates the natural language sentence above the preview table.
-
   preview.updateNLW = function( count ) {
 
     // If there are year(s) selected use 'em, otherwise use all years.
-
     var years = typeof pdp.query.params.as_of_year !== 'undefined' ? _.clone( pdp.query.params.as_of_year.values ).sort() : [2007, 2008, 2009, 2010, 2011, 2012],
         countFormatted = preview.nlw.count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','),
         areConsecutive;
@@ -118,7 +103,6 @@ var PDP = (function ( pdp ) {
     if ( years.length > 1 ) {
 
       // Are the selected years consecutive?
-
       areConsecutive = _.every( years, function( val, i, arr ){
         if ( i > 0 ) {
           return val == +arr[ i - 1 ] + 1;
@@ -128,7 +112,6 @@ var PDP = (function ( pdp ) {
 
       // If they're consecutive, display the first and last with a dash in the middle.
       // Otherwise, join with commas for a list.
-
       years = areConsecutive ? years[0] + ' - ' + _.last( years ) : years.join(', ');
 
     }
@@ -140,12 +123,10 @@ var PDP = (function ( pdp ) {
 
   // The `updateTable` method updates the preview table.
   // @data = JS object of all the data to populate the HTML table with.
-
   preview.updateTable = function( data ) {
 
       // We don't want to show every dimension from the API in the preview table so we 
       // specify which ones to show here.
-
       var _fields = {
             action_taken_name: 'Action taken',
             agency_name: 'Agency name',
@@ -176,7 +157,6 @@ var PDP = (function ( pdp ) {
           _keys = _.keys( _fields ),
           _rows = [],
           _rowConstructor = {};
-
 
       _( _keys ).forEach( function( key ){
         _rowConstructor[ key ] = '<em>N/A</em>';
@@ -211,7 +191,6 @@ var PDP = (function ( pdp ) {
   };
 
   // Export the public API.
-
   pdp.preview = preview;
 
   return pdp;

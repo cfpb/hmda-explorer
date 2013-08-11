@@ -11,7 +11,8 @@
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="static/css/main.css">
     <link href="//api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.css" rel="stylesheet">
-    <!--[if lte IE 8]><link href='//api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.ie.css' rel='stylesheet' /><![endif]-->
+    <!--[if lte IE 8]><link href='//api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.ie.css' rel='stylesheet' />
+      <link rel="stylesheet" href="static/css/icons-ie7.css"><![endif]-->
     <!--[if lt IE 9]><script src="static/js/html5shiv.js"></script>
       <script src="static/js/html5shiv-printshiv.js"></script>
       <script src="static/js/respond.min.js"></script><![endif]-->
@@ -52,7 +53,7 @@
               <li>
                 <a href="#" class="facts-and-figures">
                   <div class="circle-nav">
-                    <div class="mask"></div> 
+                    <div class="mask"></div>
                     <div class="inner">
                       <img src="static/img/icon_dataviz_2x.png" alt="Data Visualizations">
                       <span>See HMDA trends near you</span>
@@ -114,7 +115,7 @@
 
               <p>In 2012, there were 19 million HMDA records and 8000 mortgage lenders. It's a view of the mortgage market, an important part of the American economy.</p>
 
-              <a href="#">Learn more about HMDA <i class="icon-right"></i></a>
+              <a href="#" class="action-arrow">Learn more about HMDA <i class="icon-right"></i></a>
 
             </div>
 
@@ -124,35 +125,63 @@
 
       </section>
 
-      <section class="map">
+      <section class="facts-and-figures">
+
+        <h2>Learn more <strong>Facts & figures</strong></h2>
+
         <div id="map"></div>
-      </section>
 
-      <section class="charts">
-        
-        <h2>Change in number of applications & loans by county, 2010 - 2012</h2>
+        <div class="charts">
 
-      </section>
-
-      <section class="browse">
-
-        <h2>Browse the HMDA Records Data Set</h2>
-
-        <div class="explore">
-
-          The data mortgage lenders report can give us some insight into lending patterns across the country. Dive deeper into learning about the mortgage market. Filter, sort, and aggregate HMDA records, and create your own visualizations.
-
-          <a href="#" class="continue">Explore the Data</a>
+          <img src="static/img/dummy_charts.jpg" alt="Some fake charts">
 
         </div>
 
-        <hr>
+      </section>
+
+      <section class="data">
+
+        <div class="background">
+        
+          <h2>Get the data <strong>Find what you want</strong></h2>
+
+          <div class="inner">
+            <div class="filters">
+              <h3>Filters</h3>
+              <p>Interested in learning about specific mortgage trends in a location, or among a community, or within a certain kind of loans? Filter down your search to find just the dataset you need. You can also download bulk HMDA data by year (it's a large file!)</p>
+              <a href="explore.html" class="action-arrow">Filter data <i class="icon-right"></i></a>
+            </div>
+            <div class="summary">
+              <h3>Summary tables</h3>
+              <p>Need more analytical tools? Use your specific search filter (or an annual dataset) to create a summary table that shows cross-sections of your data.</p>
+              <a href="explore.html#!/section=summary" class="action-arrow">Tabulate data <i class="icon-right"></i></a>
+            </div>
+          </div>
+
+        </div>
 
       </section>
 
-      <section class="download">
+      <section class="developers">
 
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sagittis ligula non sem ultricies, vitae tempus enim dictum. Cras mattis, mauris eu pulvinar ultrices, diam metus venenatis urna, sit amet varius augue ante sed dolor. Vestibulum tempus mattis mattis.
+        <div class="background">
+
+          <h2>Develop your own tools <strong>Make stuff</strong></h2>
+
+          <div class="inner">
+            <div class="api">
+              <div class="links">
+                <ul>
+                  <li><a href="#" class="action-arrow">API documentation <i class="icon-right"></i></a></li>
+                  <li><a href="#" class="action-arrow">API console <i class="icon-right"></i></a></li>
+                  <li><a href="#" class="action-arrow">Qu on GitHub <i class="icon-right"></i></a></li>
+                </ul>
+              </div>
+              <p>Under the hood, this site runs on Qu, our new public API for serving CFPB's public data sets. Qu is open source software; we encourage you to contribute to the project on GitHub, or use it to bring CFPB's data into your own applications and visualizations!</p>
+            </div>
+          </div>
+
+        </div>
 
       </section>
 

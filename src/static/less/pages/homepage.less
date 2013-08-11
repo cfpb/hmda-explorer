@@ -32,30 +32,65 @@
     }
 
     // Nav underneath the main title
-
     ul {
       .mobile-nav();
     }
 
   }
 
+  // Hide the circle nav on mobiles
   .circle-nav {
     display: none;
   }
 
+  h2 {
+    font-style: italic;
+    font-family: @body-font;
+    font-weight: normal;
+    background-repeat: no-repeat;
+    padding-left: 100px;
+    min-height: 100px;
+    padding-top: 15px;
+    margin: 40px auto 30px;
+    width: 380px;
+    max-width: 100%;
+    strong {
+      font-style: normal;
+      display: block;
+      .avenir-next-bold;
+      font-size: 1.4em;
+    }
+  }
+
+  a.action-arrow {
+    .avenir-next-demi;
+    font-size: 1.1em;
+    i {
+      font-size: 2em;
+      line-height: .45em;
+    }
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
 }
 
-.video {
-
-  background-color: #E7E7E6;
-
+section {
   .background {
     .wrapper();
   }
+  p {
+    line-height: 1.5em;
+  }
+}
+
+section.video {
+
+  background-color: #E7E7E6;
 
   .inner {
     padding: 23px 0 10px;
-    width: 82%;
     margin: 0 auto;
   }
 
@@ -75,20 +110,9 @@
       line-height: 1.4em;
       margin-top: 0;
     }
-    a {
-      .avenir-next-demi;
-      font-size: 1.1em;
-      i {
-        font-size: 2em;
-        line-height: .45em;
-      }
-    }
   }
 
   h2 {
-    font-style: italic;
-    font-family: @body-font;
-    font-weight: normal;
     .at2x( '../img/icon_play.png', 63px, 63px );
     background-repeat: no-repeat;
     background-position: top right;
@@ -98,20 +122,26 @@
     -ms-transition: background-image .4s ease-in-out;
     transition: background-image .4s ease-in-out;
     max-width: 220px;
+    min-height: 0;
+    margin: 0;
+    width: auto;
+    padding: 0;
     &:hover {
       .at2x( '../img/icon_play-over.png', 63px, 63px );
     }
     strong {
-      font-style: normal;
-      display: block;
-      .avenir-next-bold;
-      font-size: 1.4em;
+      // Preloading the play hover image
+      background: transparent url(../img/icon_play-over.png) scroll no-repeat -9999999px -9999999px;
     }
   }
   
 }
 
-.map {
+section.facts-and-figures {
+
+  h2 {
+    .at2x( '../img/icon_dataviz.png', 81px, 93px );
+  }
 
   #map {
     width: 100%;
@@ -148,48 +178,62 @@
   .legend-source {
     margin-top: 10px;
   }
+
+  .charts {
+    text-align: center;
+  }
   
 }
 
-.charts {
-
-  //.row();
-  text-align: center;
-  
-}
-
-// Browse section with grid background and chart divider
-
-.browse {
-
-  //.row();
-  background: @white url(../img/bg_grid.png) scroll repeat left top;
-  text-align: center;
-
+section.data {
+  background: @white url(../img/bg_grid-tile.png) scroll repeat left top;
+  border-top: 3px solid @light_neutral50;
+  border-bottom: 3px solid @light_neutral50;
+  padding-bottom: 50px;
   h2 {
-    padding-top: 200px;
-    background: transparent url(../img/hr_line-graph.png) scroll repeat-x center top;
+    .at2x( '../img/icon_getdata.png', 79px, 92px );
+    width: 450px;
   }
-
-  .explore {
-    max-width: 770px;
+  h3 {
+    .avenir-next-demi;
+  }
+  .inner {
     margin: 0 auto;
-    padding: 20px;
-    border: 2px solid @light_field;
-    text-align: left;
   }
-
-  hr {
-    padding-bottom: 200px;
-    clear: both;
-    border: 0;
-    background: transparent url(../img/hr_line-graph-rev.png) scroll repeat-x center top;
+  .filters,
+  .summary {
+    vertical-align: top;
+    position: relative;
+    background-color: @light_field50;
+    padding: 20px 20px 40px 20px;
+    .action-arrow {
+      position: absolute;
+      bottom: 20px;
+    }
   }
-
 }
 
-.download {
-  background: @white
+section.developers {
+  h2 {
+    .at2x( '../img/icon_devs.png', 92px, 97px );
+    padding-left: 110px;
+  }
+  .inner {
+    margin: 0 auto;
+  }
+  .api {
+    background-color: @light_field50;
+    padding: 20px;
+  }
+  .links {
+    float: right;
+    ul {
+      list-style-type: none;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+  }
 }
 
 // Viewport adjustments
@@ -238,12 +282,12 @@
           }
           &.facts-and-figures {
             .inner span {
-              padding: 50px 13%;
+              padding: 65px 13% 50px;
             }
           }
           &.data {
             .inner span {
-              padding: 45px 0 40px;
+              padding: 60px 0 40px;
             }
           }
         }
@@ -258,6 +302,8 @@
       overflow: hidden;
       position: relative;
       background-color: #fbcd96;
+      // A separate element is required because Safari doesn't properly clip text
+      // http://goo.gl/ijoC9K
       .mask {
         border: 35px solid #FAB051;
         position: absolute;
@@ -274,11 +320,11 @@
       .inner {
         position: absolute;
         top: 32px;
-        -webkit-transition: top .2s ease-in;
-        -moz-transition: top .2s ease-in;
-        -o-transition: top .2s ease-in;
-        -ms-transition: top .2s ease-in;
-        transition: top .2s ease-in;
+        -webkit-transition: top .2s ease-in-out;
+        -moz-transition: top .2s ease-in-out;
+        -o-transition: top .2s ease-in-out;
+        -ms-transition: top .2s ease-in-out;
+        transition: top .2s ease-in-out;
         img {
           width: 81px;
           height: 93px;
@@ -289,7 +335,7 @@
       }
       &:hover {
         .inner {
-          top: -85px;
+          top: -100px;
         }
         img {
           .zoom-in();
@@ -297,7 +343,7 @@
       }
       span {
         display: block;
-        padding: 45px 13% 40px;
+        padding: 60px 13% 40px;
         text-align: center;
         font-size: .75em;
         .at2x( '../img/icon_arrow_down.png', 32px, 20px );
@@ -306,14 +352,36 @@
       }
     }
 
-    .video {
-
+    section.video {
+      .inner {
+        width: 82%;
+      }
       .launch,
       .blurb {
         width: 49.5%;
         display: inline-block;
+      } 
+    }
+
+    section.data {
+      .inner {
+        width: 82%;
       }
-      
+      .filters {
+        margin-right: 3%;
+      }
+      .filters,
+      .summary {
+        width: 48%;
+        min-height: 255px;
+        display: inline-block;
+      }
+    }
+
+    section.developers {
+      .inner {
+        width: 82%;
+      }
     }
 
   }

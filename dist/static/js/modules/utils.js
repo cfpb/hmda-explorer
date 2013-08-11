@@ -3,7 +3,6 @@
 
 // To avoid global scope pollution, declare all variables and functions inside an
 // [immediately-invoked function expression](http://benalman.com/news/2010/11/immediately-invoked-function-expression/) using an augmented [module pattern](http://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript).
-
 var PDP = (function( pdp ) {
 
   'use strict';
@@ -11,11 +10,9 @@ var PDP = (function( pdp ) {
   // Utils
   // ----------------
   // An assortment of helper methods and polyfills.
-
   var utils = {};
 
   // Error visualization
-
   utils.showError = function( errorText ) {
     $('#error').text( errorText ).delay( 20000 ).fadeOut();
   };
@@ -44,7 +41,6 @@ var PDP = (function( pdp ) {
   };
 
   // Return the hash parameters from the current URL. [source](http://stackoverflow.com/questions/4197591/parsing-url-hash-fragment-identifier-with-javascript/4198132#4198132)
-
   utils.getHashParams = function() {
 
     var hashParams = {};
@@ -67,7 +63,6 @@ var PDP = (function( pdp ) {
 
   // localStorage polyfill from https://gist.github.com/juliocesar/926500.
   // Basically just creates an object in memory.
-
   if ( !('localStorage' in window) ) {
     window.localStorage = {
       _data       : {},
@@ -79,7 +74,6 @@ var PDP = (function( pdp ) {
   }
 
   // Cache data in the localStorage, adapted from https://gist.github.com/rpflorence/1345787
-
   utils.getJSON = function( url ) {
 
     var supportsLocalStorage = 'localStorage' in window,
@@ -87,7 +81,6 @@ var PDP = (function( pdp ) {
 
     // Both functions return a promise, so no matter which function
     // gets called inside getCache, you get the same API.
-
     function getJSON( url ) {
 
       var deferred = $.getJSON( url );
@@ -137,7 +130,6 @@ var PDP = (function( pdp ) {
   };
 
   // A `bind()` polyfill
-
   if (!Function.prototype.bind) {
     Function.prototype.bind = function (oThis) {
       if (typeof this !== 'function') {
