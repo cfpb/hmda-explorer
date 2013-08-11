@@ -190,6 +190,35 @@ textarea {
     }
 }
 
+// Zooming animation
+
+.zoom-out() {
+  -webkit-transition: all 0.4s ease-in-out 0.2s;
+  -moz-transition: all 0.4s ease-in-out 0.2s;
+  -o-transition: all 0.4s ease-in-out 0.2s;
+  -ms-transition: all 0.4s ease-in-out 0.2s;
+  transition: all 0.4s ease-in-out 0.2s;
+  -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: alpha(opacity=100);
+  opacity: 1;
+}
+
+.zoom-in() {
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -o-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  opacity: 0;
+  -webkit-transition-delay: 0s;
+  -moz-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  -ms-transition-delay: 0s;
+  transition-delay: 0s;
+}
+
 // JavaScript
 
 .no-js {
