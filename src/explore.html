@@ -10,6 +10,9 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="static/css/main.css">
+    <!--[if lte IE 8]>
+      <link rel="stylesheet" href="static/css/icons-ie7.css">
+    <![endif]-->
     <!--[if lt IE 9]>
       <script src="static/js/html5shiv.js"></script>
       <script src="static/js/html5shiv-printshiv.js"></script>
@@ -78,7 +81,7 @@
 
                 <p>Filter the data to just what you're interested in, and then download the results or create a summary table.</p>
 
-                <p class="explanation">Most people search for loan originations for first-lien, owner-occupied, 1-4 family and manufactured housing in 2012. For your convenience, we have pre-filtered the results to only include those items. <a href="#download">Download now</a> or add more filters below. (Or <a href="#" class="reset">clear fields</a>.)</p>
+                <p class="explanation">Most people search for loan originations for first-lien, owner-occupied, 1-4 family and manufactured housing in 2012. For your convenience, we have pre-filtered the results to only include those items. <strong><a href="#download">Download now</a> or add more filters below.</strong> (Or <a href="#" class="reset">clear fields</a>.)</p>
 
               </div>
 
@@ -150,7 +153,7 @@
                     <label><input type="checkbox" class="param" name="applicant_sex[]" value="3" />Not provided</label>
                     <label><input type="checkbox" class="param" name="applicant_sex[]" value="4" />Not applicable</label>
                   </div>
-                  <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt."><i class="icon-help-alt"></i></div>
+                  <div class="help" title="Not provided: Information not provided by applicant in mail, Internet, or telephone application. Not applicable: Not applicable because the applicant is not a natural person (a business, corporation or partnership, for example) or the applicant information is unavailable because the loan has been purchased by the institution."><i class="icon-help-alt"></i></div>
                 </li>
                 <!-- /filter field -->
 
@@ -197,12 +200,12 @@
                     <span>$</span><input type="text" class="param" name="applicant_income_000s-min" data-comparator=">" value="" placeholder="Min."><span class="thousands">,000 to</span>
                     <span>$</span><input type="text" class="param" name="applicant_income_000s-max" data-comparator="<" value="" placeholder="Max."><span class="thousands">,000</span>
                   </div>
-                  <div class="help" title="Applicant’s annual gross income (000s) that an institution relied upon in making the credit decision."><i class="icon-help-alt"></i></div>
+                  <div class="help" title="Applicant’s annual gross income (in thousands) that an institution relied upon in making the credit decision."><i class="icon-help-alt"></i></div>
                 </li>
                 <!-- /filter field -->
 
                 <!-- filter field -->
-                <li class="field">
+                <li class="field optional-toggle" data-optional="co_applicant">
                   <label for="include_co_applicant">Include co-applicant?</label>
                   <div class="widget radio include_co_applicant">
                     <label><input type="radio" name="include_co_applicant" value="1" />Yes</label>
@@ -213,7 +216,7 @@
                 <!-- /filter field -->
 
                 <!-- filter field -->
-                <li class="field co_applicant co_applicant_sex hidden">
+                <li class="field optional co_applicant co_applicant_sex hidden" data-optional="co_applicant">
                   <label for="co_applicant_sex">Co-Applicant Sex</label>
                   <div class="widget checkbox inline">
                     <label><input type="checkbox" class="param" name="co_applicant_sex[]" value="1" />Male</label>
@@ -221,12 +224,12 @@
                     <label><input type="checkbox" class="param" name="co_applicant_sex[]" value="3" />Not provided</label>
                     <label><input type="checkbox" class="param" name="co_applicant_sex[]" value="4" />Not applicable</label>
                   </div>
-                  <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt."><i class="icon-help-alt"></i></div>
+                  <div class="help" title="Not provided: Information not provided by applicant in mail, Internet, or telephone application. Not applicable: Not applicable because the applicant is not a natural person (a business, corporation or partnership, for example) or the applicant information is unavailable because the loan has been purchased by the institution."></i></div>
                 </li>
                 <!-- /filter field -->
 
                 <!-- filter field -->
-                <li class="field co_applicant hidden">
+                <li class="field optional co_applicant hidden" data-optional="co_applicant">
                   <label for="co_applicant_ethnicity">Co-Applicant Ethnicity:</label>
                   <div class="widget select">
                     <select class="param" name="co_applicant_ethnicity" id="co_applicant_ethnicity" multiple data-placeholder="Select a Co-Applicant Ethnicity">
@@ -243,7 +246,7 @@
                 <!-- /filter field -->
 
                 <!-- filter field -->
-                <li class="field co_applicant hidden">
+                <li class="field optional co_applicant hidden" data-optional="co_applicant">
                   <label for="co_applicant_race_1">Co-Applicant Race:</label>
                   <div class="widget select">
                     <select class="param" name="co_applicant_race_1" id="co_applicant_race_1" multiple data-placeholder="Select an Applicant Race">
@@ -438,11 +441,22 @@
                 <!-- /filter field -->
 
                 <!-- filter field -->
-                <li class="field">
-                  <label for="hoepa_status">HOEPA Loan:</label>
-                  <div class="widget radio">
-                    <label><input type="radio" class="param" name="hoepa_status" value="1" />HOEPA loan</label>
-                    <label><input type="radio" class="param" name="hoepa_status" value="0" />Not a HOEPA loan</label>
+                <li class="field optional-toggle" data-optional="hoepa_loan">
+                  <label for="include_hoepa_loan">Show optional HMDA reporting categories?</label>
+                  <div class="widget radio inline include_hoepa_loan">
+                    <label><input type="radio" name="include_hoepa_loan" value="1" />Yes</label>
+                    <label><input type="radio" name="include_hoepa_loan" value="0" checked />No</label>
+                  </div>
+                  <div class="help" title="Selecting these categories as filters may significantly limit your results"><i class="icon-help-alt"></i></div>
+                </li>
+                <!-- /filter field -->
+
+                <!-- filter field -->
+                <li class="field optional hoepa_loan hidden">
+                  <label for="hoepa_status">Is the loan a HOEPA loan?</label>
+                  <div class="widget checkbox inline">
+                    <label><input type="checkbox" class="param" name="hoepa_status[]" value="1" />Yes</label>
+                    <label><input type="checkbox" class="param" name="hoepa_status[]" value="0" />No</label>
                   </div>
                   <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt."><i class="icon-help-alt"></i></div>
                 </li>
@@ -492,17 +506,27 @@
                 <!-- filter field -->
                 <li class="field">
                   <label for="preapproval">Did the applicant request pre-approval?</label>
-                  <div class="widget checkbox">
-                    <label><input type="checkbox" class="param" name="preapproval[]" value="1" />Preapproval was requested</label>
-                    <label><input type="checkbox" class="param" name="preapproval[]" value="2" />Preapproval was not requested</label>
-                    <label><input type="checkbox" class="param" name="preapproval[]" value="3" />Not applicable</label>
+                  <div class="widget checkbox inline">
+                    <label><input type="checkbox" class="param" name="preapproval[]" value="1" />Yes</label>
+                    <label><input type="checkbox" class="param" name="preapproval[]" value="2" />No</label>
                   </div>
                   <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt."><i class="icon-help-alt"></i></div>
                 </li>
                 <!-- /filter field -->
 
                 <!-- filter field -->
-                <li class="field">
+                <li class="field optional-toggle" data-optional="hmda_reporting">
+                  <label for="include_hmda_reporting">Show optional HMDA reporting categories?</label>
+                  <div class="widget radio inline include_hmda_reporting">
+                    <label><input type="radio" name="include_hmda_reporting" value="1" />Yes</label>
+                    <label><input type="radio" name="include_hmda_reporting" value="0" checked />No</label>
+                  </div>
+                  <div class="help" title="Selecting these categories as filters may significantly limit your results"><i class="icon-help-alt"></i></div>
+                </li>
+                <!-- /filter field -->
+
+                <!-- filter field -->
+                <li class="field optional hmda_reporting hidden" data-optional="hmda_reporting">
                   <label for="purchaser_type">Purchaser Type:</label>
                   <div class="widget select">
                     <select class="param" name="purchaser_type" id="purchaser_type" multiple data-placeholder="Select a purchaser type">
@@ -523,7 +547,7 @@
                 <!-- /filter field -->
 
                 <!-- filter field -->
-                <li class="field">
+                <li class="field optional hmda_reporting hidden" data-optional="hmda_reporting">
                   <label for="denial_reason_1">Denial Reason:</label>
                   <div class="widget select">
                     <select class="param" name="denial_reason_1" id="denial_reason_1" data-placeholder="Select a purchaser type">
@@ -555,9 +579,9 @@
 
               <div class="next-steps">
 
-                <!--<a href="#download">Download now</a> |--> <a href="#" class="reset">Clear fields</a>
+                <a href="#" class="reset action-arrow">Clear fields</a>
 
-                <!--<div class="desc">Want more insight? <a href="#">Create a summary table</a></div>-->
+                <span class="insight">Want more insight? <a href="#summary" class="section-toggle action-arrow">Create a summary table <i class="icon-right"></i></a></span>
 
               </div>
 
@@ -668,7 +692,7 @@
         <h2>Create a summary table</h2>
 
         <div class="intro">
-        <p class="nlw"><img src="static/img/icon_bar_chart.png" class="left" alt=""/>There are <em class="calculating">recalculating...</em><strong class="count">many</strong> HMDA records from <strong class="years">2007 - 2012</strong> with the previously selected filters.</p>
+        <p class="nlw"><img src="static/img/icon_bar_chart.png" class="left" alt=""/>There are <em class="calculating"><img src="static/img/icon_spinner.gif" alt="Loading icon"></em><strong class="count">many</strong> HMDA records from <strong class="years">2007 - 2012</strong> with the previously selected filters.</p>
 
         Not quite right? <a class="filter-link section-toggle" href="#filters">Revise your filters <img src="static/img/arrow_blue_right.png" alt="" /></a>
         </div>

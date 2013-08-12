@@ -220,6 +220,13 @@ module.exports = function(grunt) {
           ]
         }
       },
+      home: {
+        files: {
+          'dist/static/js/home.min.js': [
+            'src/static/js/pages/home.js',
+          ]
+        }
+      },
       explore: {
         files: {
           'dist/static/js/explore.min.js': [

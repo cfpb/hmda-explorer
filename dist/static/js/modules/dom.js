@@ -24,7 +24,7 @@ var PDP = (function ( pdp ) {
   });
 
   // Whenever a field element is changed emit an event.
-  $('.filter').on( 'change', '.field select, .field input', function(){
+  $('.filter').on( 'change', '.field select, .field:not(".optional-toggle") input', function(){
     pdp.observer.emitEvent('field:changed', [ $( this ).attr('id') ] );
   });
 
@@ -40,12 +40,14 @@ var PDP = (function ( pdp ) {
   });
 
   // Co-applicant toggle.
-  $('.include_co_applicant input').on( 'change', function(){
+  $('.optional-toggle input').on( 'change', function(){
 
-    if ( +$('.include_co_applicant input:checked').val() ) {
-      pdp.form.toggleCoApplicants( 'show' );
+    var section = $( this ).parents('.optional-toggle').data('optional');
+
+    if ( +$( this ).val() ) {
+      pdp.form.toggleOptional( section, 'show' );
     } else {
-      pdp.form.toggleCoApplicants( 'hide' );
+      pdp.form.toggleOptional( section, 'hide' );
     }
 
   });
