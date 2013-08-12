@@ -259,7 +259,6 @@ section.video {
           }
           &.developers {
             .clearfix();
-            float: right;
             width: 150px;
             .circle-nav {
               float: right;
@@ -270,13 +269,23 @@ section.video {
           }
           &.facts-and-figures {
             .inner span {
-              padding: 65px 13% 50px;
+              padding: 65px 10% 50px;
             }
           }
           &.get-the-data {
             .inner span {
               padding: 60px 0 40px;
             }
+          }
+        }
+      }
+    }
+
+    a.get-the-data {
+      .circle-nav {
+        .inner {
+          img {
+            .zoom-out();
           }
         }
       }
@@ -308,18 +317,17 @@ section.video {
       .inner {
         position: absolute;
         top: 32px;
-        -webkit-transition: top .2s ease-in-out;
-        -moz-transition: top .2s ease-in-out;
-        -o-transition: top .2s ease-in-out;
-        -ms-transition: top .2s ease-in-out;
-        transition: top .2s ease-in-out;
+        -webkit-transition: top .15s ease-in-out;
+        -moz-transition: top .15s ease-in-out;
+        -o-transition: top .15s ease-in-out;
+        -ms-transition: top .15s ease-in-out;
+        transition: top .15s ease-in-out;
         img {
           width: 81px;
           height: 93px;
           margin-left: -3px;
-          .zoom-out();
+          //.zoom-out();
         }
-        
       }
       &:hover {
         .inner {
@@ -331,7 +339,7 @@ section.video {
       }
       span {
         display: block;
-        padding: 60px 13% 40px;
+        padding: 60px 10% 40px;
         text-align: center;
         font-size: .75em;
         .at2x( '../img/icon_arrow_down.png', 32px, 20px );
