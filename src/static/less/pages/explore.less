@@ -77,7 +77,7 @@
 
 // Download and share sections
 
-.download-and-share {
+.download-share {
 
   //margin-top: 50px;
 
@@ -168,7 +168,34 @@
 
   }
 
-  .download-and-share {
+  .download-share {
+
+    .widget {
+      border-right: 0;
+      label {
+        text-align: left;
+        border: 0;
+      }
+      input[type=radio] {
+        width: 20px;
+      }
+    }
+
+    .download {
+      border-left: 0;
+    }
+
+    .share {
+      border-right: 0;
+    }
+
+  }
+
+  .download-share.no-summary {
+
+    section {
+      .column( 6 );
+    }
 
     label {
       .column( 2, 6 );
@@ -190,14 +217,20 @@
 
   }
 
-  .download {
-    .column( 6 );
-    border-left: 0;
-  }
+  .download-share.summary {
 
-  .share {
-    .column( 6 );
-    border-right: 0;
+    section {
+      .column( 4 );
+    }
+
+    .download {
+      border-left: 0;
+    }
+
+    .share {
+      border-right: 0;
+    }
+
   }
 
 }
