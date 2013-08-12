@@ -618,7 +618,7 @@
 
           <!-- download and share section -->
 
-          <div class="download-and-share">
+          <div class="download-share no-summary">
 
             <section id="download" class="download">
 
@@ -749,6 +749,101 @@
             </div>
 
           </div>
+
+          <!-- download and share section 
+
+          <div class="download-share summary">
+
+            <section id="download" class="download">
+
+              <h2>Download the data</h2>
+
+              <div class="inner">
+
+                <label for="format">File type:</label>
+                <div class="select widget">
+                  <select name="format" id="format">
+                    <option value="csv">CSV</option>
+                    <option value="json">JSON</option>
+                    <option value="jsonp">JSONP</option>
+                    <option value="xml">XML</option>
+                  </select>
+                </div>
+
+                <label for="codes">HMDA codes:</label>
+                <div class="radio widget">
+                  <label><input type="radio" name="codes" value="0" checked />Use plain names</label>
+                  <label><input type="radio" name="codes" value="1" />Use codes</label>
+                </div>
+
+                <div class="action">
+
+                  <input type="submit" class="submit btn" value="Download" id="download">
+
+                </div>
+
+              </div>
+
+            </section>
+
+            <section id="download-summary" class="download-summary">
+
+              <h2>Download table</h2>
+
+              <div class="inner">
+
+                <label for="format">Summary table file type:</label>
+                <div class="select widget">
+                  <select name="format" id="format">
+                    <option value="csv">CSV</option>
+                    <option value="json">JSON</option>
+                    <option value="jsonp">JSONP</option>
+                    <option value="xml">XML</option>
+                  </select>
+                </div>
+
+                <label for="codes">HMDA codes:</label>
+                <div class="radio widget">
+                  <label><input type="radio" name="codes" value="0" checked />Use plain names</label>
+                  <label><input type="radio" name="codes" value="1" />Use codes</label>
+                </div>
+
+                <div class="action">
+
+                  <input type="submit" class="submit btn" value="Download" id="download">
+
+                </div>
+
+              </div>
+
+            </section>
+
+            <section class="share">
+
+              <h2>Share a link</h2>
+
+              <div class="inner">
+
+                <p>Share and save your data query with a link.</p>
+
+                <label for="share_url">Save your filters:</label>
+                <div class="text widget">
+                  <input type="text" id="share_url" name="share_url" value="" placeholder="Select filters above">
+                </div>
+
+                <div class="action">
+
+                  <input href="#" type="button" class="btn" value="Share" id="share" data-clipboard-target="share_url">
+
+                </div>
+
+              </div>
+
+            </section>
+
+          </div>
+
+          <!-- download and share section -->
             
         </form>
 

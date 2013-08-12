@@ -7,7 +7,7 @@ $(function(){
   map.scrollWheelZoom.disable();
 
   // Circle nav on the homepage
-  $('.homepage hero a').on( 'click', function( ev ){
+  $('.homepage .hero a').on( 'click', function( ev ){
 
     var target = $( this ).attr('href');
     ev.preventDefault();
