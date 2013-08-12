@@ -1,6 +1,6 @@
 # CFPB's Public Data Platform
 
-An interactive front-end for [Qu](https://github.com/cfpb/qu). View the [stable](https://fake.ghe.domain/pages/data-platform/public-data-platform/) or [nightly](https://fake.ghe.domain/pages/contolini/public-data-platform) demo.
+An interactive front-end for HMDA data served from [Qu](https://github.com/cfpb/qu). View the [stable](https://fake.ghe.domain/pages/data-platform/public-data-platform/) or [nightly](https://fake.ghe.domain/pages/contolini/public-data-platform) demo.
 
 ## Documentation
 
