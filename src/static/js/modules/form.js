@@ -85,10 +85,10 @@ var PDP = (function ( pdp ) {
     });
 
     // Check if the co-applicant section needs to be shown.
-    $('.field.co_applicant').each(function(){
+    $('.field.optional').each(function(){
 
-      if ( pdp.form.hasValue( $(this) ) ) {
-        pdp.form.toggleCoApplicants( 'show' );
+      if ( pdp.form.hasValue( $( this ) ) ) {
+        pdp.form.toggleOptional( $( this ).data('optional'), 'show' );
       }
 
     });
@@ -522,14 +522,16 @@ var PDP = (function ( pdp ) {
 
   };
 
-  // Toggle co-applicant section.
-  form.toggleCoApplicants = function( action ) {
+  // Toggle optional sections.
+  // @name = name of field (e.g. co_applicant)
+  // @action = show/hide
+  form.toggleOptional = function( name, action ) {
 
     if ( action === 'hide' ) {
-      $('.co_applicant').addClass('hidden');
+      $( '.' + name ).addClass('hidden');
     } else {
-      $('.co_applicant').removeClass('hidden');
-      $('.include_co_applicant input[value=1]').prop( 'checked', true );
+      $( '.' + name ).removeClass('hidden');
+      $( '.include_' + name +  ' input[value=1]' ).prop( 'checked', true );
     }
 
   };

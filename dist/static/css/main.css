@@ -2164,6 +2164,9 @@ textarea {
 .filter.closed i.icon-minus-alt:before {
   content: "\e0109";
 }
+.filter.footer .insight {
+  float: right;
+}
 .filter .fields {
   padding: 0;
   animation: fadein .5s;
@@ -2368,9 +2371,6 @@ textarea {
   }
   .widget.inline label:last-child {
     margin-right: 0;
-  }
-  .widget.inline input[type=checkbox] {
-    width: 20px;
   }
   .location-set {
     margin-left: 53px;
@@ -2610,19 +2610,6 @@ ul.chzn-choices {
   font-weight: 700;
   font-style: normal;
   font-size: 1.4em;
-}
-.homepage a.action-arrow {
-  font-family: "Avenir Next Demi", Arial, sans-serif;
-  font-weight: 600;
-  font-style: normal;
-  font-size: 1.1em;
-}
-.homepage a.action-arrow i {
-  font-size: 2em;
-  line-height: .45em;
-}
-.homepage a.action-arrow:hover {
-  text-decoration: none;
 }
 section .background {
   -webkit-box-sizing: border-box;
@@ -3670,6 +3657,19 @@ nav li {
 }
 .hmda footer .social i {
   margin-left: 5px;
+}
+a.action-arrow {
+  font-family: "Avenir Next Demi", Arial, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1.1em;
+}
+a.action-arrow i {
+  font-size: 2em;
+  line-height: .45em;
+}
+a.action-arrow:hover {
+  text-decoration: none;
 }
 @media only screen and (min-width: 768px) {
   .hmda header {
