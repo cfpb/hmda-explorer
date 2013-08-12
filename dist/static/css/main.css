@@ -2832,6 +2832,7 @@ section.video h2 strong {
   }
   .homepage .hero nav a.developers {
     *zoom: 1;
+    float: right;
     width: 150px;
   }
   .homepage .hero nav a.developers:before,
