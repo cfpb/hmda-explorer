@@ -160,9 +160,18 @@ var PDP = (function ( pdp ) {
     // console.log( pdp.query._buildApiQuery( this.queryParams ) );
     responseJSON = pdp.utils.getJSON( pdp.query.generateApiUrl( 'jsonp?$callback=', true, this.queryParams ) );
 
-    responseJSON.fail( this._throwFetchError );
+    // var check = setInterval(function(){
+    //   console.log(responseJSON.state());
+    //   console.log(responseJSON.status);
+    //   console.log(responseJSON.statusText);
+    // }, 1000);
 
-    responseJSON.done( this._handleApiResponse.bind(this) );
+    responseJSON.done(function( response ){
+      table._handleApiResponse( response );
+      // clearInterval(check);
+    });
+
+    responseJSON.fail( this._throwFetchError );
 
     // in the meantime, spin!
     this._showSpinner();
