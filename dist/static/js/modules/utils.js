@@ -103,13 +103,16 @@ var PDP = (function( pdp ) {
 
       //console.log( url + ' %c fetched via AJAX', 'color: orange' );
 
+      window.deferred = deferred;
+
       return deferred;
     }
 
     function getStorage( url ) {
 
       var storageDfd = new $.Deferred(),
-          storedData = localStorage.getItem( slug );
+          storedData = localStorage.getItem( slug ),
+          promise;
 
       if (!storedData) {
         return getJSON( url );
@@ -120,8 +123,12 @@ var PDP = (function( pdp ) {
       });
 
       //console.log( url + ' %c fetched via localStorange', 'color: blue' );
+      
+      promise = storageDfd.promise();
+      promise.status = 200;
+      promise.statusText = 'success';
 
-      return storageDfd.promise();
+      return promise;
 
     }
 

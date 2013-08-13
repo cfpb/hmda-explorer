@@ -47,7 +47,8 @@ var PDP = (function ( pdp ) {
 
   };
 
-  preview.lastRequestTime = new Date().getTime();
+  // This is used to ensure only the latest AJAX requested is acted upon.
+  preview._lastRequestTime = new Date().getTime();
 
   // The `_fetchPreviewJSON` method returns a promise of JSON
   preview._fetchPreviewJSON = function() {
@@ -55,8 +56,8 @@ var PDP = (function ( pdp ) {
     var url = pdp.query.generateApiUrl( null, true ) + '&$limit=500',
         promise = pdp.utils.getJSON( url );
 
-    preview.lastRequestTime = new Date().getTime();
-    promise.timestamp = preview.lastRequestTime;
+    preview._lastRequestTime = new Date().getTime();
+    promise._timestamp = preview._lastRequestTime;
 
     return promise;
 
@@ -65,14 +66,15 @@ var PDP = (function ( pdp ) {
   // The `update` method updates the preview section.
   preview.update = function() {
 
-    var promise = this._fetchPreviewJSON();
+    var promise = this._fetchPreviewJSON(),
+        check;
 
     preview.startLoading();
     preview.updateNLW( 0 );
 
     promise.done( function( data ) {
 
-      if ( promise.timestamp < preview.lastRequestTime ) {
+      if ( promise._timestamp < preview._lastRequestTime ) {
         return;
       }
 
@@ -82,6 +84,10 @@ var PDP = (function ( pdp ) {
       preview.stopLoading();
 
     });
+
+    // var check = setInterval(function(){
+    //   promise.state();
+    // }, 1000);
 
     promise.fail( function( data, textStatus ) {
 
