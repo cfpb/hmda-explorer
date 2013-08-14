@@ -304,9 +304,21 @@ module.exports = function(grunt) {
      * This task removes all console logging statements from your source code.
      */
     removelogging: {
-      dist: {
+      all: {
+        src: 'dist/static/js/all.min.js',
+        dest: 'dist/static/js/all.min.js'
+      },
+      main: {
         src: 'dist/static/js/main.min.js',
         dest: 'dist/static/js/main.min.js'
+      },
+      home: {
+        src: 'dist/static/js/home.min.js',
+        dest: 'dist/static/js/home.min.js'
+      },
+      explore: {
+        src: 'dist/static/js/explore.min.js',
+        dest: 'dist/static/js/explore.min.js'
       }
     },
 
