@@ -22,6 +22,9 @@ var PDP = (function ( pdp ) {
   // Set a default endpoint for AJAX requests.
   query.endpoint = query.debug ? 'static/js/dummy_data/' : 'https://qu.demo.cfpb.gov/data/hmda/';
 
+  // Seconds to wait on a response from the API before giving up.
+  query.secondsToWait = 30;
+
   // Whether or not they want codes in their downloaded file.
   query.codes = false;
 
@@ -216,10 +219,13 @@ var PDP = (function ( pdp ) {
       var _params = {},
           queryVals = [];
 
-      // In order to compensate for enumerated location fields (state_abbr-1, county_name-1, etc.)
-      // we have to go through and consolidate all enumerated params into
-      // unified objects.
+      // In order to compensate for enumerated location fields (state_code-1, county_name-1, etc.)
+      // we have to go through and consolidate all enumerated params into unified objects.
       _.forEach( params, function( param, paramName ) {
+
+        if ( !param.values || !param.values[0] ) {
+          return;
+        }
 
         var consolidatedName;
 
@@ -301,7 +307,8 @@ var PDP = (function ( pdp ) {
       // it's a radio button that only allows once value, add the stringified
       // param to the `queryVals` array.
       if ( param.values.length === 1 ) {
-        if ( isNaN( param.values[0] ) ) {
+
+        if ( isNaN( param.values[0] ) || paramName === 'msamd' ) {
           paramVal = paramName + param.comparator + '"' + param.values[0] + '"';
         } else {
           paramVal = paramName + param.comparator + param.values[0];
@@ -316,7 +323,7 @@ var PDP = (function ( pdp ) {
 
         _.forEach( param.values, function( val, key ){
 
-          if ( isNaN( val ) ) {
+          if ( isNaN( val ) || paramName === 'msamd' ) {
             paramVals.push( paramName + param.comparator + '"' + val + '"' );
           } else {
             paramVals.push( paramName + param.comparator + val );

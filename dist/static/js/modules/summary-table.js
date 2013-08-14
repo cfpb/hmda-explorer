@@ -109,9 +109,13 @@ var PDP = (function ( pdp ) {
 
   // event handler, called when a form field changes
   table.updateTable = function(e) {
-    var value = e.target.selectedOptions[0].value,
+    var value,
         position = e.target.id.substr( -1, 1 ),
         clause = e.target.dataset.summaryTableInput;
+
+    if ( e.target.hasOwnProperty('selectedOptions') ) {
+      value = e.target.selectedOptions[0].value;
+    }
 
     // if they've selected a placeholder, ignore it
     // a placeholder has no value
@@ -156,22 +160,33 @@ var PDP = (function ( pdp ) {
   };
 
   table._requestData = function() {
-    var responseJSON;
-    // console.log( pdp.query._buildApiQuery( this.queryParams ) );
-    responseJSON = pdp.utils.getJSON( pdp.query.generateApiUrl( 'jsonp?$callback=', true, this.queryParams ) );
+    var responseJSON, check;
 
-    // var check = setInterval(function(){
-    //   console.log(responseJSON.state());
-    //   console.log(responseJSON.status);
-    //   console.log(responseJSON.statusText);
-    // }, 1000);
+    function _abort( data, textStatus ) {
+      $('body').append('<h3 class="ajax-error">The API timed out after ' + pdp.query.secondsToWait + ' seconds. :(</h3>');
+        table._removeSpinner();
+      $('.ajax-error').fadeOut( 5000 );
+    }
+
+    responseJSON = pdp.utils.getJSON( pdp.query.generateApiUrl( 'jsonp?$callback=', true, this.queryParams ) );
 
     responseJSON.done(function( response ){
       table._handleApiResponse( response );
       // clearInterval(check);
     });
 
-    responseJSON.fail( this._throwFetchError );
+    //responseJSON.fail( this._throwFetchError );
+    responseJSON.fail( this._abort );
+
+    $('.ajax-error').remove();
+    check = setTimeout(function(){
+      if ( responseJSON.state() !== 'resolved' ) {
+        console.log('Promise state: ' + responseJSON.state());
+        console.log('Status: ' + responseJSON.status);
+        console.log('Status text: ' + responseJSON.statusText);
+        _abort( null, 'time out' );
+      }
+    }, pdp.query.secondsToWait * 1000 );
 
     // in the meantime, spin!
     this._showSpinner();

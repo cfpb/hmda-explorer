@@ -2323,20 +2323,20 @@ textarea {
     display: inline-block;
     margin: 0 20px;
   }
-  .filter.location li.field.state_abbr,
+  .filter.location li.field.state_code,
   .filter.location li.field.county_code,
   .filter.location li.field.census_tract_number {
     width: 25%;
     display: inline-block;
   }
-  .filter.location li.field.state_abbr > label,
+  .filter.location li.field.state_code > label,
   .filter.location li.field.county_code > label,
   .filter.location li.field.census_tract_number > label {
     width: 100%;
     margin: 0;
     text-align: left;
   }
-  .filter.location li.field.state_abbr .widget,
+  .filter.location li.field.state_code .widget,
   .filter.location li.field.county_code .widget,
   .filter.location li.field.census_tract_number .widget {
     width: 100%;
@@ -2433,6 +2433,10 @@ textarea {
 .preview #preview.loading .tidy_table {
   opacity: .5;
 }
+.preview .title.disabled h3 {
+  opacity: .5;
+  font-style: italic;
+}
 .preview h3 {
   color: #0072ce;
   display: inline-block;
@@ -2448,6 +2452,14 @@ textarea {
 }
 @media only screen and (min-width: 768px) {
   
+}
+.ajax-error {
+  background-color: #f99;
+  padding: 2px 10px;
+  display: block;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
 }
 ul.chzn-choices {
   width: 100%;
@@ -3071,6 +3083,26 @@ section.video h2 strong {
 #summary h2 {
   margin-top: 50px;
 }
+.download-share section {
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: solid transparent;
+  border-width: 0 15px;
+  margin-right: -0.25em;
+  vertical-align: top;
+  width: 100%;
+  border: 0;
+}
+.ie .download-share section {
+  margin-right: -0.26em;
+}
+.lt-ie8 .download-share section {
+  display: inline;
+  *zoom: 1;
+  *behavior: url(boxsizing.htc);
+}
 .download-share .inner {
   background-color: #f4f3f2;
   padding: 15px;
@@ -3084,29 +3116,6 @@ section.video h2 strong {
 .download-share .action {
   margin-top: 20px;
   text-align: right;
-}
-.download,
-.share {
-  display: inline-block;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  border: solid transparent;
-  border-width: 0 15px;
-  margin-right: -0.25em;
-  vertical-align: top;
-  width: 100%;
-  border: 0;
-}
-.ie .download,
-.ie .share {
-  margin-right: -0.26em;
-}
-.lt-ie8 .download,
-.lt-ie8 .share {
-  display: inline;
-  *zoom: 1;
-  *behavior: url(boxsizing.htc);
 }
 .calculating {
   display: inline-block;
@@ -3170,10 +3179,10 @@ section.video h2 strong {
   .download-share .widget input[type=radio] {
     width: 20px;
   }
-  .download-share .download {
+  .download-share #download {
     border-left: 0;
   }
-  .download-share .share {
+  .download-share #share {
     border-right: 0;
   }
   .download-share.no-summary section {
@@ -3278,11 +3287,8 @@ section.video h2 strong {
     *zoom: 1;
     *behavior: url(boxsizing.htc);
   }
-  .download-share.summary .download {
-    border-left: 0;
-  }
-  .download-share.summary .share {
-    border-right: 0;
+  .download-share.summary .widget {
+    width: 100%;
   }
 }
 #summary {
@@ -3311,39 +3317,6 @@ section.video h2 strong {
 }
 .instructions {
   margin: 15px 0;
-}
-#summary-table-form {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  max-width: 960px;
-  padding: 0 15px;
-  margin: 0 auto;
-  position: relative;
-  clear: both;
-}
-.lt-ie8 #summary-table-form {
-  *zoom: 1;
-  *behavior: url(boxsizing.htc);
-}
-#summary-table-form > div {
-  display: inline-block;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  border: solid transparent;
-  border-width: 0 15px;
-  margin-right: -0.25em;
-  vertical-align: top;
-  width: 100%;
-}
-.ie #summary-table-form > div {
-  margin-right: -0.26em;
-}
-.lt-ie8 #summary-table-form > div {
-  display: inline;
-  *zoom: 1;
-  *behavior: url(boxsizing.htc);
 }
 #summary-table-form label {
   font-family: Georgia, "Times New Roman", serif;
@@ -3390,34 +3363,8 @@ section.video h2 strong {
   font-family: 'Avenir Next Demi', Arial, sans-serif;
 }
 #summary-table-container {
-  max-width: 960px;
-  padding: 0 15px;
-  margin: 0 auto;
-  position: relative;
-  clear: both;
-  display: inline-block;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  border: solid transparent;
-  border-width: 0 15px;
-  margin-right: -0.25em;
-  vertical-align: top;
-  width: 100%;
   font-family: "Avenir Next", Arial, sans-serif;
   margin-top: 30px;
-}
-.lt-ie8 #summary-table-container {
-  *zoom: 1;
-  *behavior: url(boxsizing.htc);
-}
-.ie #summary-table-container {
-  margin-right: -0.26em;
-}
-.lt-ie8 #summary-table-container {
-  display: inline;
-  *zoom: 1;
-  *behavior: url(boxsizing.htc);
 }
 #summary-table-container #summary-table {
   width: 100%;

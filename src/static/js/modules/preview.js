@@ -22,7 +22,7 @@ var PDP = (function ( pdp ) {
   preview.nlw = {
 
     $el: $('.nlw'),
-    count: '1000+'
+    count: 'many'
 
   };
 
@@ -47,6 +47,42 @@ var PDP = (function ( pdp ) {
 
   };
 
+  // Show the preview table.
+  preview.showTable = function() {
+
+    this.$el.slideDown( 250 );
+    this.enableTable();
+    $('.preview').removeClass('closed');
+
+  };
+
+  // Hide the preview table.
+  preview.hideTable = function() {
+
+    this.$el.slideUp( 250 );
+    $('.preview').addClass('closed');
+
+  };
+
+  // Enable the preview table.
+  preview.enableTable = function() {
+
+    $('.preview .title').removeClass('disabled');
+    $('.ajax-error').remove();
+
+  };
+
+  // Disable the preview table.
+  preview.disableTable = function() {
+
+    var $title = $('.preview .title');
+
+    $title.addClass('disabled');
+    $('body').append('<h3 class="ajax-error">The API timed out after ' + pdp.query.secondsToWait + ' seconds. :(</h3>');
+    $('.ajax-error').fadeOut( 5000 );
+
+  };
+
   // This is used to ensure only the latest AJAX requested is acted upon.
   preview._lastRequestTime = new Date().getTime();
 
@@ -67,14 +103,27 @@ var PDP = (function ( pdp ) {
   preview.update = function() {
 
     var promise = this._fetchPreviewJSON(),
-        check;
+        check,
+        aborted;
+
+    // Has the request been aborted?
+    aborted = false;
+
+    function _abort( data, textStatus ) {
+
+      aborted = true;
+      preview.stopLoading();
+      preview.disableTable();
+
+    }
 
     preview.startLoading();
+    preview.enableTable();
     preview.updateNLW( 0 );
 
     promise.done( function( data ) {
 
-      if ( promise._timestamp < preview._lastRequestTime ) {
+      if ( promise._timestamp < preview._lastRequestTime || aborted ) {
         return;
       }
 
@@ -85,16 +134,16 @@ var PDP = (function ( pdp ) {
 
     });
 
-    // var check = setInterval(function(){
-    //   promise.state();
-    // }, 1000);
+    promise.fail( _abort );
 
-    promise.fail( function( data, textStatus ) {
-
-      console.error( 'Error updating preview table: ' + textStatus );
-      preview.stopLoading();
-
-    });
+    check = setTimeout(function(){
+      if ( promise.state() !== 'resolved' && promise._timestamp == preview._lastRequestTime ) {
+        console.log('Promise state: ' + promise.state());
+        console.log('Status: ' + promise.status);
+        console.log('Status text: ' + promise.statusText);
+        _abort( null, 'time out' );
+      }
+    }, pdp.query.secondsToWait * 1000 );
 
   };
 

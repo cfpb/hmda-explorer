@@ -1,3 +1,9 @@
+v0.11.0:
+  date: 2013-08-13
+  changes:
+    - Give up on an AJAX request after X seconds have passed.
+    - Ability to download summary tables.
+
 v0.10.3:
   date: 2013-08-10
   changes:

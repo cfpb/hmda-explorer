@@ -80,6 +80,11 @@
 .download-share {
 
   //margin-top: 50px;
+  
+  section {
+    .column( 12 );
+    border: 0;
+  }
 
   .inner {
     background-color: #f4f3f2;
@@ -102,12 +107,6 @@
     text-align: right;
   }
 
-}
-
-.download,
-.share {
-  .column( 12 );
-  border: 0;
 }
 
 // Calculations
@@ -181,11 +180,11 @@
       }
     }
 
-    .download {
+    #download {
       border-left: 0;
     }
 
-    .share {
+    #share {
       border-right: 0;
     }
 
@@ -223,12 +222,8 @@
       .column( 4 );
     }
 
-    .download {
-      border-left: 0;
-    }
-
-    .share {
-      border-right: 0;
+    .widget {
+      width: 100%;
     }
 
   }
