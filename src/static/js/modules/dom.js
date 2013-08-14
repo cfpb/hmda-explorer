@@ -52,7 +52,7 @@ var PDP = (function ( pdp ) {
 
   });
 
-  // Hijack the form submission.
+  // Hijack the explore page form submission.
   $('form#explore').on( 'submit', function( ev ){
 
     var format = $('#format').val(),
@@ -60,6 +60,21 @@ var PDP = (function ( pdp ) {
         url = pdp.query.generateApiUrl( format, showCodes );
 
     ev.preventDefault();
+    pdp.app.redirect( url );
+
+  });
+
+  // Hijack the summary table submission.
+  $('#download-summary-button').on( 'click', function( ev ){
+
+    ev.preventDefault();
+
+    var format = $('#summary-table-format').val(),
+        showCodes = !!parseInt( $('input[type=radio][name=codes_summary]:checked').val(), 10 ),
+        url = pdp.query.generateApiUrl( format, showCodes, pdp.summaryTable.queryParams );
+
+    
+    console.log('alskdfjk');
     pdp.app.redirect( url );
 
   });
@@ -83,18 +98,18 @@ var PDP = (function ( pdp ) {
   // Open and close preview section
   $('.preview .title').on( 'click', function( ev ){
 
-    var id = $( this ).find('a').attr('href'),
-        $el = $( id ),
-        $container = $el.parent('.preview');
+    var $container = $('.preview');
 
     ev.preventDefault();
 
-    if ( $container.hasClass('closed') ) {
-      $el.slideDown( 250 );
-      $container.removeClass('closed');
-    } else {
-      $el.slideUp( 150 );
-      $container.addClass('closed');
+    if ( !$( this ).hasClass('disabled') ) {
+
+      if ( $container.hasClass('closed') ) {
+        pdp.preview.showTable();
+      } else {
+        pdp.preview.hideTable();
+      }
+
     }
 
   });
@@ -133,7 +148,7 @@ var PDP = (function ( pdp ) {
 
   // When the share URL text box is focused, select all the text inside.
   // `click` is used instead of `focus` due to a [Chrome bug](http://stackoverflow.com/questions/3150275/jquery-input-select-all-on-focus).
-  $('#share_url').on( 'click', function(){
+  $('.share_url').on( 'click', function(){
     $( this ).select();
   });
 

@@ -622,7 +622,7 @@
 
             <section id="download" class="download">
 
-              <h2>Download the data</h2>
+              <h2>Download the raw data</h2>
 
               <div class="inner">
 
@@ -644,7 +644,7 @@
 
                 <div class="action">
 
-                  <input type="submit" class="submit btn" value="Download" id="download">
+                  <input type="submit" class="submit btn" value="Download">
 
                 </div>
 
@@ -652,7 +652,7 @@
 
             </section>
 
-            <section class="share">
+            <section id="share" class="share">
 
               <h2>Share a link</h2>
 
@@ -660,14 +660,14 @@
 
                 <p>Share and save your data query with a link.</p>
 
-                <label for="share_url">Save your filters:</label>
+                <label for="share_url-2">Save your filters:</label>
                 <div class="text widget">
-                  <input type="text" id="share_url" name="share_url" value="" placeholder="Select filters above">
+                  <input type="text" id="share_url" class="share_url" name="share_url-2" value="" placeholder="Select filters above">
                 </div>
 
                 <div class="action">
 
-                  <input href="#" type="button" class="btn" value="Share" id="share" data-clipboard-target="share_url">
+                  <input href="#" type="button" class="btn share" value="Share" data-clipboard-target="share_url">
 
                 </div>
 
@@ -750,13 +750,19 @@
 
           </div>
 
-          <!-- download and share section 
+          <div id="error"></div>
+
+          <div id="summary-table-container"></div>
+
+          <div class="spinning"></div>
+
+          <!-- download and share section -->
 
           <div class="download-share summary">
 
             <section id="download" class="download">
 
-              <h2>Download the data</h2>
+              <h2>Download raw data</h2>
 
               <div class="inner">
 
@@ -778,7 +784,7 @@
 
                 <div class="action">
 
-                  <input type="submit" class="submit btn" value="Download" id="download">
+                  <input type="submit" class="submit btn" value="Download">
 
                 </div>
 
@@ -788,13 +794,13 @@
 
             <section id="download-summary" class="download-summary">
 
-              <h2>Download table</h2>
+              <h2>Download the table</h2>
 
               <div class="inner">
 
-                <label for="format">Summary table file type:</label>
+                <label for="summary-table-format">Summary table file type:</label>
                 <div class="select widget">
-                  <select name="format" id="format">
+                  <select name="summary-table-format" id="summary-table-format">
                     <option value="csv">CSV</option>
                     <option value="json">JSON</option>
                     <option value="jsonp">JSONP</option>
@@ -804,13 +810,13 @@
 
                 <label for="codes">HMDA codes:</label>
                 <div class="radio widget">
-                  <label><input type="radio" name="codes" value="0" checked />Use plain names</label>
-                  <label><input type="radio" name="codes" value="1" />Use codes</label>
+                  <label><input type="radio" name="codes_summary" value="0" checked />Use plain names</label>
+                  <label><input type="radio" name="codes_summary" value="1" />Use codes</label>
                 </div>
 
                 <div class="action">
 
-                  <input type="submit" class="submit btn" value="Download" id="download">
+                  <input type="submit" class="submit btn" value="Download" id="download-summary-button">
 
                 </div>
 
@@ -818,7 +824,7 @@
 
             </section>
 
-            <section class="share">
+            <section id="share" class="share">
 
               <h2>Share a link</h2>
 
@@ -826,14 +832,14 @@
 
                 <p>Share and save your data query with a link.</p>
 
-                <label for="share_url">Save your filters:</label>
+                <label for="share_url-1">Save your filters:</label>
                 <div class="text widget">
-                  <input type="text" id="share_url" name="share_url" value="" placeholder="Select filters above">
+                  <input type="text" class="share_url" id="share_url" name="share_url-1" value="" placeholder="Select filters above">
                 </div>
 
                 <div class="action">
 
-                  <input href="#" type="button" class="btn" value="Share" id="share" data-clipboard-target="share_url">
+                  <input href="#" type="button" class="btn share" value="Share" data-clipboard-target="share_url">
 
                 </div>
 
@@ -847,11 +853,6 @@
             
         </form>
 
-        <div id="error"></div>
-
-        <div id="summary-table-container"></div>
-
-        <div class="spinning"></div>
       </div>
 
       <!-- /group section -->

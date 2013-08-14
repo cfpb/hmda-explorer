@@ -103,8 +103,6 @@ var PDP = (function( pdp ) {
 
       //console.log( url + ' %c fetched via AJAX', 'color: orange' );
 
-      window.deferred = deferred;
-
       return deferred;
     }
 

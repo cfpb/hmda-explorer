@@ -21,17 +21,17 @@ var PDP = (function ( pdp ) {
   };
 
   // Initialize ZeroClipboard on the share button.
-  form.clip = new ZeroClipboard( $('#share'), {
+  form.clip = new ZeroClipboard( $('.share.btn'), {
     moviePath: 'static/js/zeroclipboard/ZeroClipboard.swf'
   });
 
   // When the share URL has been saved to clipboard, show a tooltip for a few seconds.
   form.clip.on( 'complete', function(client, args) {
 
-    $('#share_url').tooltip('show');
-    $('#share_url').select();
+    $('.share_url').tooltip('show');
+    $('.share_url').select();
     setTimeout( function(){
-      $('#share_url').tooltip('hide');
+      $('.share_url').tooltip('hide');
     }, 3000);
 
   });
@@ -104,7 +104,7 @@ var PDP = (function ( pdp ) {
 
     // Iterate over the param keys and see if any are states or msa's greater than 1.
     _.forEach( _.keys( pdp.query.params ), function( param ){
-      currentNum = param.match(/(state_abbr|msamd)\-(\d+)$/);
+      currentNum = param.match(/(state_code|msamd)\-(\d+)$/);
       if ( currentNum && currentNum.length > 0 ) {
         totalLocations = Math.max( currentNum[2], totalLocations );
       }
@@ -286,7 +286,7 @@ var PDP = (function ( pdp ) {
     // Fetch form field options and set fields when that request is fulfilled.
     conceptFetch.done( function( data ) {
 
-        // Grab the id of this element's dependency (e.g. state_abbr), @TODO rework this
+        // Grab the id of this element's dependency (e.g. state_code), @TODO rework this
         // as it's kinda dumb and inefficient.
         var options,
             dependency = $( '[data-dependent~=' + id + ']' ).attr('id').replace( /\-[\w^_]+$/, '' );
@@ -356,7 +356,9 @@ var PDP = (function ( pdp ) {
   // The `fetchFieldOptions` method returns a promise to a field's options.
   form.fetchFieldOptions = function( concept ) {
 
-    var promise = pdp.utils.getJSON( pdp.query.endpoint + 'concept/' + concept + '.' + pdp.query.format + '?' );
+    // Temporarily setting this to use dummy data
+    //var promise = pdp.utils.getJSON( pdp.query.endpoint + 'concept/' + concept + '.' + pdp.query.format + '?' );
+    var promise = pdp.utils.getJSON( 'static/js/dummy_data/concept/' + concept + '.' + 'json' );
 
     return promise;
 
@@ -517,7 +519,7 @@ var PDP = (function ( pdp ) {
 
     var template = PDP.templates.location;
 
-    $('#location-sets').append( template( { num: num } ) );
+    $('#location-sets').append( template( { num: num } ) ).find('.help').tooltip({ placement: 'left' });
     $( '.location-set-' + num ).find('select').chosen({ width: '100%', disable_search_threshold: 10, allow_single_deselect: true });
 
   };
@@ -542,7 +544,7 @@ var PDP = (function ( pdp ) {
     var hash = pdp.query.generateUrlHash(),
         baseUrl = window.location.href.replace(/#.*/, '');
 
-    $('#share_url').val( baseUrl + '#' + hash );
+    $('.share_url').val( baseUrl + '#' + hash );
 
   };
 

@@ -50,6 +50,15 @@
 
   }
 
+  .title {
+    &.disabled {
+      h3 {
+        opacity: .5;
+        font-style: italic;
+      }
+    }
+  }
+
   h3 {
     color: @pacific;
     display: inline-block;
@@ -84,4 +93,15 @@
 
   }
 
+}
+
+// Some temporary error handling
+
+.ajax-error {
+  background-color: #f99;
+  padding: 2px 10px;
+  display: block;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
 }
