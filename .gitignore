@@ -8,6 +8,11 @@
 ehthumbs.db
 Thumbs.db
 
+# Grunt Generated Files #
+#########################
+_SpecRunner.html
+.grunt/
+
 # Node packages #
 #################
 node_modules/
