@@ -220,11 +220,11 @@ var PDP = (function ( pdp ) {
             
             num = respData.results[record][column];
 
-            if (num == null || num == '' || isNaN(num)){  
-              respData.results[record][column] = num;
+            if (num == null || num === '' || isNaN(num)){  
+              respData.results[record][column] = 'Data not available';
             }
             else {
-             respData.results[record][column] = '$' + Math.round( num*1000 ).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+             respData.results[record][column] = '$' + Math.round( num*1000 ).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
             }
           }
         }
