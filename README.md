@@ -9,11 +9,11 @@ See some [front-end notes](https://fake.ghe.domain/data-platform/data-platform-d
 ## Contributing
 
 
-### xCode
+#### xCode
 
 Use self-service to update xCode to the latest version
 
-### 1. Homebrew:
+#### 1. Homebrew:
 
 https://fake.ghe.domain/pages/cfpb/handbook/your-laptop.html
 
