@@ -2674,6 +2674,10 @@ section.video .launch p {
 section.video .launch a:hover {
   text-decoration: none;
 }
+section.video .launch a.transcript,
+section.video .launch a.transcript:hover {
+  text-decoration: underline;
+}
 section.video .blurb p {
   font-size: .95em;
   line-height: 1.4em;
