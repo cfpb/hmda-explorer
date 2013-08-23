@@ -8,6 +8,11 @@
 ehthumbs.db
 Thumbs.db
 
+# Grunt Generated Files #
+#########################
+_SpecRunner.html
+.grunt/
+
 # Node packages #
 #################
 node_modules/
@@ -20,3 +25,5 @@ src/static/vendor
 ############################
 # Not all scripts are in the Bower registry, add them here.
 !src/static/vendor/tidy-table/*
+# Highcharts 3.0.4 is not in bower, only 3.0.1 is. 3.0.1 is not compatible with jQuery 1.10
+!src/static/vendor/highcharts/*
