@@ -81,8 +81,7 @@ module.exports = function(grunt) {
         },
         files: {
           'dist/index.html': 'src/index.html',
-          'dist/explore.html': 'src/explore.html',
-          'dist/charts.html': 'src/charts.html'
+          'dist/explore.html': 'src/explore.html'
         }
       }
     },
