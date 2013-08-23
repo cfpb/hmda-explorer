@@ -9,8 +9,6 @@ See some [front-end notes](https://fake.ghe.domain/data-platform/data-platform-d
 ## Contributing
 
 
-## Requirements
-
 ### xCode
 
 Use self-service to update xCode to the latest version
@@ -25,12 +23,10 @@ If homebrew is already installed, update homebrew to the latest version:
 $ brew update
 ```
 
-#### 2. Brew Applications Node.js and Phantom.js
+#### 2. Brew-installed applications: Node.js and Phantom.js
 ```
 $ brew install node
-
 - or - 
-
 $ brew upgrade node
 
 $ brew install phantomjs
@@ -50,7 +46,6 @@ Bower is a JavaScript library manager. Grunt is a task runner.
 
 ```
 $ npm install -g bower
-
 $ npm install -g grunt
 ```
 
@@ -58,11 +53,10 @@ $ npm install -g grunt
 
 ```
 $ cd ~/git
-
 $ git clone git@fake.ghe.domain:danmurphy/public-data-charts.git
 ```
 
-CD to the project you plan to work on
+Change directory to the project:
 ```
 $ cd ~\git\public-data-charts
 ```
@@ -81,14 +75,14 @@ Bower uses .bowerrc and bower.json for configuration
 
 Bower downloads its packages into ~/git/public-data-charts/src/static/vendor/. This folder is ignored by git, according to the .gitignore file. This will download the files in bower.json, e.g. jQuery, Highcharts, etc.
 
-rename:
-
+Now, rename:
+```
 src/static/vendor/cfpb-icon-font
-
+```
 to:
-
+```
 src/static/vendor/cfpb-font-icons
-
+```
 See issue 93 for more info: https://fake.ghe.domain/data-platform/public-data-platform/issues/93
 
 #### 7. Install Grunt requirements
@@ -97,9 +91,9 @@ See issue 93 for more info: https://fake.ghe.domain/data-platform/public-data-pl
 $ npm install
 ```
 
-This installs everything in package.json, all the grunt dependencies are listed here
+This installs everything in package.json, all the grunt dependencies are listed in this file.
 
-#### 8. Configure Phantom.JS to run Tests
+#### 8. Configure Phantom.JS to run the tests
 
 Need instructions....
 
@@ -110,19 +104,15 @@ Run a few grunt commands to test things out:
 
 ```
 $ grunt uglify
-
 (This is the JS concatenation)
 
 $ grunt less
-
 (CSS processing)
 
 $ grunt html
-
 (HTML processing)
 
 $ grunt
-
 (default grunt job: runs uglify, less, html and starts the server [connect])
 ```
 
@@ -130,6 +120,7 @@ Now open your browser to:
 
 http://localhost:8000
 
+## Notes
 
 Only edit files in `src`. When anything is changed, Grunt will lint, test, compile and build everything. [grunt-cfpb-internal](https://fake.ghe.domain/contolini/grunt-cfpb-internal) generates this README. Bump versions in CHANGELOG when appropriate.
 
