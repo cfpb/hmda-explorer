@@ -243,6 +243,19 @@ module.exports = function(grunt) {
             'src/static/js/main.js'
           ]
         }
+      },
+      charts: {
+        files: {
+          'dist/static/js/charts.min.js': [
+            'src/static/vendor/chosen/public/chosen.jquery.js',
+            'src/static/vendor/highcharts/highcharts.js',
+            'src/static/js/charts/main.js',
+            'src/static/js/charts/chart1_options.js',
+            'src/static/js/charts/chart1.js',
+            'src/static/js/charts/chart2_options.js',
+            'src/static/js/charts/chart2.js'
+          ]
+        }
       }
     },
 
