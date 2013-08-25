@@ -287,12 +287,13 @@ module.exports = function(grunt) {
     jasmine: {
       pdp: {
         src: [
-          'dist/static/js/all.min.js',
+          'dist/static/js/**/*.js',
           'test/specs/helpers/debug.js'
         ],
         options: {
           specs: 'test/specs/*.js',
-          helpers: 'test/specs/helpers/*.js'
+          helpers: 'test/specs/helpers/*.js',
+          host:'http://localhost:8000'
         }
       }
     },

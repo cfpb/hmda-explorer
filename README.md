@@ -95,8 +95,7 @@ This installs everything in package.json, all the grunt dependencies are listed 
 
 #### 8. Configure Phantom.JS to run the tests
 
-Need instructions....
-
+```$ npm install phantomjs```
 
 #### 9. Start Grunt
 
