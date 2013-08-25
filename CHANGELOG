@@ -1,3 +1,10 @@
+v0.11.1
+  date: 2013-08-24
+  changes:
+    - Add initial logic for HighCharts
+    - Update developer links and copy
+    - Fix output formatting for Summary Tables (min,max)
+
 v0.11.0:
   date: 2013-08-13
   changes:
