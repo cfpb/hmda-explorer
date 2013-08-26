@@ -279,7 +279,8 @@ module.exports = function(grunt) {
         ],
         options: {
           specs: 'test/specs/*.js',
-          helpers: 'test/specs/helpers/*.js'
+          helpers: 'test/specs/helpers/*.js',
+          timeout: 30000
         }
       }
     },
