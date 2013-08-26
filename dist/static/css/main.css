@@ -542,7 +542,7 @@ a [class*=" icon-"] {
   content: "\e0101";
 }
 .icon-error:before {
-  content: "\e0103";
+  content: "\e0102";
 }
 .icon-error-alt:before {
   content: "\e0103";
