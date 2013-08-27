@@ -89,7 +89,7 @@ var PDP = (function ( pdp ) {
   // The `_fetchPreviewJSON` method returns a promise of JSON
   preview._fetchPreviewJSON = function() {
 
-    var url = pdp.query.generateApiUrl( null, true ) + '&$limit=500',
+    var url = pdp.query.generateApiUrl( null, true ) + '&$limit=100',
         promise = pdp.utils.getJSON( url );
 
     preview._lastRequestTime = new Date().getTime();
