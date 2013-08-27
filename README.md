@@ -23,6 +23,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2013-08-27   [v0.11.2](../../tree/v0.11.2)   Debounce explore page interactions (#90).
  * 2013-08-26   [v0.11.1](../../tree/v0.11.1)   Improve tests and documentation. Add charts to homepage.
  * 2013-08-13   [v0.11.0](../../tree/v0.11.0)   Give up on an AJAX request after X seconds have passed. Ability to download summary tables.
  * 2013-08-10   [v0.10.3](../../tree/v0.10.3)   Loading visualizations for dependent fields. Homepage clean up.
@@ -64,4 +65,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Tue Aug 27 2013 10:08:39.*
+*This file was generated on Tue Aug 27 2013 12:13:38.*
