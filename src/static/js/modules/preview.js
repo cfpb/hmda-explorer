@@ -89,7 +89,7 @@ var PDP = (function ( pdp ) {
   // The `_fetchPreviewJSON` method returns a promise of JSON
   preview._fetchPreviewJSON = function() {
 
-    var url = pdp.query.generateApiUrl( null, true ) + '&$limit=500',
+    var url = pdp.query.generateApiUrl( null, true ) + '&$limit=100',
         promise = pdp.utils.getJSON( url );
 
     preview._lastRequestTime = new Date().getTime();
@@ -138,9 +138,6 @@ var PDP = (function ( pdp ) {
 
     check = setTimeout(function(){
       if ( promise.state() !== 'resolved' && promise._timestamp == preview._lastRequestTime ) {
-        console.log('Promise state: ' + promise.state());
-        console.log('Status: ' + promise.status);
-        console.log('Status text: ' + promise.statusText);
         _abort( null, 'time out' );
       }
     }, pdp.query.secondsToWait * 1000 );
