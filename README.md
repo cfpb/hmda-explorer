@@ -120,6 +120,14 @@ Now open your browser to:
 http://localhost:8000
 
 ## Notes
+=======
+1. [Install Node and Grunt](https://fake.ghe.domain/contolini/grunt-init-cfpb#prerequisites)
+1. `git clone git@fake.ghe.domain:data-platform/public-data-platform.git`
+1. `cd public-data-platform`
+1. `npm install`
+1. `bower install`
+1. `grunt`
+1. Open `localhost:8000` in a browser.
 
 Only edit files in `src`. When anything is changed, Grunt will lint, test, compile and build everything. [grunt-cfpb-internal](https://fake.ghe.domain/contolini/grunt-cfpb-internal) generates this README. Bump versions in CHANGELOG when appropriate.
 
@@ -127,6 +135,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2013-08-26   [v0.11.1](../../tree/v0.11.1)   Improve tests and documentation. Add charts to homepage.
  * 2013-08-13   [v0.11.0](../../tree/v0.11.0)   Give up on an AJAX request after X seconds have passed. Ability to download summary tables.
  * 2013-08-10   [v0.10.3](../../tree/v0.10.3)   Loading visualizations for dependent fields. Homepage clean up.
  * 2013-08-08   [v0.10.2](../../tree/v0.10.2)   Itty-bitty hashchange router implemented.
@@ -167,4 +176,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Wed Aug 14 2013 02:51:01.*
+*This file was generated on Mon Aug 26 2013 15:26:17.*

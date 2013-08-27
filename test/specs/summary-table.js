@@ -92,6 +92,11 @@
         expect( PDP.summaryTable._mungeDollarAmts( data )).
           toEqual( { 'results': [{ 'min_loan_amount_000s': '$23,456' , 
                                    'max_loan_amount_000s': '$45,232' }] } )
+      
+      it("should properly format five digit amounts", function() {
+        var data = { 'results':  [{ 'min_loan_amount_000s': 23456 }]  };
+        expect( PDP.summaryTable._mungeDollarAmts( data ) )
+          .toEqual( { 'results': [ { 'min_loan_amount_000s': '$23,456,000' } ] });
       });
  
       it("should properly format three digit amounts", function() {
