@@ -138,9 +138,6 @@ var PDP = (function ( pdp ) {
 
     check = setTimeout(function(){
       if ( promise.state() !== 'resolved' && promise._timestamp == preview._lastRequestTime ) {
-        console.log('Promise state: ' + promise.state());
-        console.log('Status: ' + promise.status);
-        console.log('Status text: ' + promise.statusText);
         _abort( null, 'time out' );
       }
     }, pdp.query.secondsToWait * 1000 );
