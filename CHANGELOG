@@ -1,9 +1,17 @@
+<<<<<<< HEAD
 v0.11.1
   date: 2013-08-24
   changes:
     - Add initial logic for HighCharts
     - Update developer links and copy
     - Fix output formatting for Summary Tables (min,max)
+=======
+v0.11.1:
+  date: 2013-08-26
+  changes:
+    - Improve tests and documentation.
+    - Add charts to homepage.
+>>>>>>> 8004061d08b92c8e45b6966f680c2d287bd928bc
 
 v0.11.0:
   date: 2013-08-13

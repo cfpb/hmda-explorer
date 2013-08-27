@@ -122,7 +122,7 @@ module.exports = function(grunt) {
           EventEmitter: true
         }
       },
-      files: ['Gruntfile.js', 'src/static/js/**/*.js', '!src/static/js/templates/template.js']
+      files: ['Gruntfile.js', 'src/static/js/**/*.js', '!src/static/js/templates/template.js', '!src/static/js/charts/*.js']
     },
 
     /**
@@ -216,7 +216,8 @@ module.exports = function(grunt) {
             'src/static/vendor/json3/lib/json3.js',
             'src/static/vendor/jquery/jquery.js',
             'src/static/vendor/lodash/lodash.js',
-            'src/static/vendor/bootstrap/js/bootstrap-tooltip.js'
+            'src/static/vendor/bootstrap/js/bootstrap-tooltip.js',
+            'src/static/vendor/chosen/public/chosen.jquery.js'
           ]
         }
       },
@@ -231,7 +232,6 @@ module.exports = function(grunt) {
         files: {
           'dist/static/js/explore.min.js': [
             'src/static/vendor/eventEmitter/EventEmitter.js',
-            'src/static/vendor/chosen/public/chosen.jquery.js',
             'src/static/vendor/tidy-table/jquery.tidy.table.js',
             'src/static/vendor/jquery-ui/ui/jquery.ui.core.js',
             'src/static/vendor/jquery-ui/ui/jquery.ui.widget.js',
@@ -247,8 +247,7 @@ module.exports = function(grunt) {
       charts: {
         files: {
           'dist/static/js/charts.min.js': [
-            'src/static/vendor/chosen/public/chosen.jquery.js',
-            'src/static/vendor/highcharts/highcharts.js',
+            'src/static/vendor/highcharts.com/js/highcharts.src.js',
             'src/static/js/charts/main.js',
             'src/static/js/charts/chart1_options.js',
             'src/static/js/charts/chart1.js',
@@ -293,7 +292,8 @@ module.exports = function(grunt) {
         options: {
           specs: 'test/specs/*.js',
           helpers: 'test/specs/helpers/*.js',
-          host:'http://localhost:8000'
+          host:'http://localhost:8000',
+          timeout: 30000
         }
       }
     },

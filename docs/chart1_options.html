@@ -1,0 +1,395 @@
+<!DOCTYPE html>  <html> <head>   <title>chart1_options.js</title>   <meta http-equiv="content-type" content="text/html; charset=UTF-8">   <link rel="stylesheet" media="all" href="docco.css" /> </head> <body>   <div id="container">     <div id="background"></div>            <div id="jump_to">         Jump To &hellip;         <div id="jump_wrapper">           <div id="jump_page">                                           <a class="source" href="chart1.html">                 chart1.js               </a>                                           <a class="source" href="chart1_options.html">                 chart1_options.js               </a>                                           <a class="source" href="chart2.html">                 chart2.js               </a>                                           <a class="source" href="chart2_options.html">                 chart2_options.js               </a>                                           <a class="source" href="main.html">                 main.js               </a>                                           <a class="source" href="main.html">                 main.js               </a>                                           <a class="source" href="app.html">                 app.js               </a>                                           <a class="source" href="dom.html">                 dom.js               </a>                                           <a class="source" href="form.html">                 form.js               </a>                                           <a class="source" href="observer.html">                 observer.js               </a>                                           <a class="source" href="preview.html">                 preview.js               </a>                                           <a class="source" href="query.html">                 query.js               </a>                                           <a class="source" href="summary-table.html">                 summary-table.js               </a>                                           <a class="source" href="utils.html">                 utils.js               </a>                                           <a class="source" href="home.html">                 home.js               </a>                                           <a class="source" href="template.html">                 template.js               </a>                        </div>         </div>       </div>          <table cellpadding="0" cellspacing="0">       <thead>         <tr>           <th class="docs">             <h1>               chart1_options.js             </h1>           </th>           <th class="code">           </th>         </tr>       </thead>       <tbody>                               <tr id="section-1">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-1">&#182;</a>               </div>                            </td>             <td class="code">               <div class="highlight"><pre><span class="kd">var</span> <span class="nx">chart1_options</span> <span class="o">=</span>
+<span class="p">{</span>
+    <span class="nx">chart</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">renderTo</span><span class="o">:</span> <span class="s1">&#39;hmda_chart_1&#39;</span><span class="p">,</span>
+        <span class="nx">alignTicks</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="nx">height</span><span class="o">:</span> <span class="mi">400</span><span class="p">,</span>
+        <span class="nx">plotBackgroundColor</span><span class="o">:</span> <span class="s1">&#39;#FFFFFF&#39;</span><span class="p">,</span>
+        <span class="nx">plotBorderWidth</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nx">plotShadow</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">spacingTop</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span> <span class="cm">/* Zero spacing messes up IE */</span>
+        <span class="nx">spacingRight</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="nx">spacingBottom</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="nx">spacingLeft</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="nx">marginTop</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="nx">marginBottom</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;column&#39;</span>
+    <span class="p">},</span>
+    <span class="nx">exporting</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">enabled</span><span class="o">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nx">title</span><span class="o">:</span> <span class="p">{</span>
+        
+        <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;U.S. Total&#39;</span><span class="p">,</span>
+        <span class="nx">align</span><span class="o">:</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span>
+        <span class="nx">verticalAlign</span><span class="o">:</span> <span class="s1">&#39;top&#39;</span><span class="p">,</span>
+        <span class="nx">floating</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        </pre></div>             </td>           </tr>                               <tr id="section-2">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-2">&#182;</a>               </div>               <p>x: 0,
+y: -30</p>             </td>             <td class="code">               <div class="highlight"><pre>        <span class="nx">style</span><span class="o">:</span> <span class="p">{</span> 
+            <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;#000000&#39;</span><span class="p">,</span> 
+            <span class="nx">fontSize</span><span class="o">:</span> <span class="s1">&#39;18pt&#39;</span><span class="p">,</span> 
+            <span class="nx">fontFamily</span><span class="o">:</span> <span class="s1">&#39;&quot;Avenir Next LT W01 Demi&quot;, &quot;Avenir Next Demi&quot;, &quot;Avenir Next&quot;, &quot;Arial&quot;&#39;</span><span class="p">,</span>
+            <span class="nx">fontWeight</span><span class="o">:</span> <span class="s1">&#39;600&#39;</span>
+        <span class="p">}</span>
+        
+    <span class="p">},</span>
+    
+    <span class="nx">subtitle</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Home Mortgage Applications and Originations, 2010-2012&#39;</span><span class="p">,</span>
+        <span class="nx">align</span><span class="o">:</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span>
+        <span class="nx">verticalAlign</span><span class="o">:</span> <span class="s1">&#39;top&#39;</span><span class="p">,</span>
+        <span class="nx">floating</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        </pre></div>             </td>           </tr>                               <tr id="section-3">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-3">&#182;</a>               </div>               <p>x: 0,</p>             </td>             <td class="code">               <div class="highlight"><pre>        <span class="nx">y</span><span class="o">:</span> <span class="mi">40</span><span class="p">,</span> <span class="c1">//y: -30</span>
+        <span class="nx">style</span><span class="o">:</span> <span class="p">{</span> 
+            <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;#333333&#39;</span><span class="p">,</span> 
+            <span class="nx">fontSize</span><span class="o">:</span> <span class="s1">&#39;12pt&#39;</span><span class="p">,</span> 
+            <span class="nx">fontFamily</span><span class="o">:</span> <span class="s1">&#39;&quot;Avenir Next LT W01 Regular&quot;, &quot;Avenir Next&quot;, &quot;Arial&quot;&#39;</span><span class="p">,</span>
+            <span class="nx">fontWeight</span><span class="o">:</span> <span class="s1">&#39;400&#39;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    
+    <span class="nx">credits</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Data are for first-lien, owner-occupied, 1-4 family and manufactured homes.&#39;</span><span class="p">,</span>
+        <span class="nx">enabled</span><span class="o">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="nx">colors</span><span class="o">:</span> <span class="p">[</span>
+        <span class="s1">&#39;#43af2a&#39;</span><span class="p">,</span><span class="s1">&#39;#acdc91&#39;</span><span class="p">,</span><span class="s1">&#39;#0071ce&#39;</span><span class="p">,</span><span class="s1">&#39;#7fb8e6&#39;</span><span class="p">,</span><span class="s1">&#39;#d14123&#39;</span><span class="p">,</span><span class="s1">&#39;#e89f91&#39;</span>
+    <span class="p">],</span>
+    
+    <span class="nx">legend</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">align</span><span class="o">:</span> <span class="s1">&#39;right&#39;</span><span class="p">,</span>
+        <span class="nx">backgroundColor</span><span class="o">:</span> <span class="s1">&#39;#FFFFFF&#39;</span><span class="p">,</span>
+        <span class="nx">borderWidth</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nx">borderRadius</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nx">borderColor</span><span class="o">:</span> <span class="s1">&#39;#FFFFFF&#39;</span><span class="p">,</span>
+        <span class="nx">floating</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">itemStyle</span><span class="o">:</span> <span class="p">{</span> 
+            <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;#212121&#39;</span><span class="p">,</span> 
+            <span class="nx">fontSize</span><span class="o">:</span> <span class="s1">&#39;12pt&#39;</span><span class="p">,</span> 
+            <span class="nx">lineHeight</span><span class="o">:</span> <span class="s1">&#39;12pt&#39;</span><span class="p">,</span>
+            <span class="nx">fontFamily</span><span class="o">:</span> <span class="s1">&#39;&quot;Avenir Next LT W01 Medium Cn&quot;, &quot;Avenir Next Light&quot;, &quot;Avenir Next&quot;, &quot;Arial Condensed&quot;, &quot;Arial&quot;&#39;</span><span class="p">,</span>
+            <span class="nx">fontWeight</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+            <span class="nx">paddingBottom</span><span class="o">:</span> <span class="s1">&#39;8pt&#39;</span>
+            
+        <span class="p">},</span>
+        <span class="nx">layout</span><span class="o">:</span> <span class="s1">&#39;vertical&#39;</span><span class="p">,</span>
+        <span class="nx">margin</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="nx">padding</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="nx">shadow</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">symbolPadding</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="nx">symbolWidth</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+        <span class="nx">verticalAlign</span><span class="o">:</span> <span class="s1">&#39;middle&#39;</span><span class="p">,</span>
+        <span class="nx">x</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nx">y</span><span class="o">:</span> <span class="mi">0</span>
+    <span class="p">},</span>
+    
+    
+    <span class="nx">tooltip</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">backgroundColor</span><span class="o">:</span> <span class="s1">&#39;rgba(0, 0, 0, 0.65)&#39;</span><span class="p">,</span>
+        <span class="nx">borderColor</span><span class="o">:</span> <span class="s1">&#39;#999999&#39;</span><span class="p">,</span>
+        <span class="nx">borderRadius</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nx">borderWidth</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nx">shadow</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">style</span><span class="o">:</span> <span class="p">{</span> 
+            <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;#ffffff&#39;</span><span class="p">,</span> 
+            <span class="nx">fontSize</span><span class="o">:</span> <span class="s1">&#39;10pt&#39;</span><span class="p">,</span> 
+            <span class="nx">fontFamily</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+            <span class="nx">fontWeight</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+            <span class="nx">padding</span><span class="o">:</span> <span class="mi">8</span><span class="p">,</span>
+            <span class="nx">lineHeight</span><span class="o">:</span> <span class="s1">&#39;12pt&#39;</span>
+        <span class="p">},</span>
+        
+        <span class="nx">formatter</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span></pre></div>             </td>           </tr>                               <tr id="section-4">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-4">&#182;</a>               </div>               <p>var format = '<span style="font-size: 12pt;>Series Name:' + this.series.name  + '<br> Point Name: ' + this.point.name  + 'this.x: ' + this.x  + '$' + addCommas(this.y) + '</span>';</p>             </td>             <td class="code">               <div class="highlight"><pre>            
+            <span class="kd">var</span> <span class="nx">tooltip_suffix</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+                <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">point</span><span class="p">.</span><span class="nx">name</span> <span class="o">!=</span> <span class="s1">&#39;None&#39;</span><span class="p">)</span> <span class="p">{</span>
+                    
+                    <span class="nx">tooltip_suffix</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">point</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="kd">var</span> <span class="nx">format</span> <span class="o">=</span> <span class="s1">&#39;&lt;span style=&quot;font-size: 12pt;&gt;&#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">series</span><span class="p">.</span><span class="nx">name</span>  <span class="o">+</span> <span class="s1">&#39; in &#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="s1">&#39;:&lt;br&gt;&lt;span style=&quot;font-weight: 700;&gt;&#39;</span> <span class="o">+</span> <span class="nx">addCommas</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">y</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&lt;/span&gt;&lt;/span&gt;&#39;</span><span class="p">;</span>
+            <span class="k">return</span> <span class="nx">format</span><span class="p">;</span>
+        <span class="p">}</span>
+        
+    <span class="p">},</span>
+                
+    <span class="nx">plotOptions</span><span class="o">:</span> <span class="p">{</span>
+        <span class="cm">/* Settings for all series */</span>
+        <span class="nx">series</span><span class="o">:</span> <span class="p">{</span>
+            <span class="cm">/* Global settings for all series types */</span>
+            <span class="nx">allowPointSelect</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nx">animation</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nx">borderWidth</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="nx">cursor</span><span class="o">:</span> <span class="s1">&#39;pointer&#39;</span><span class="p">,</span>
+            <span class="nx">marker</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">radius</span><span class="o">:</span> <span class="mi">10</span>
+            <span class="p">},</span>
+            <span class="nx">showInLegend</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nx">shadow</span><span class="o">:</span> <span class="kc">false</span>
+        <span class="p">},</span>
+        <span class="nx">pie</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">dataLabels</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">enabled</span><span class="o">:</span> <span class="kc">false</span>
+            <span class="p">},</span>
+            <span class="cm">/* Turn off the legend clicking */</span>
+            <span class="nx">point</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">events</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="nx">legendItemClick</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+                        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span> <span class="c1">// &lt;== returning false will cancel the default action</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="nx">size</span><span class="o">:</span> <span class="s1">&#39;90%&#39;</span> <span class="cm">/* Used in IE 7/8 (VML) so pie graph is not clipped */</span>
+        <span class="p">},</span>
+        <span class="nx">column</span><span class="o">:</span> <span class="p">{</span>
+        
+            <span class="nx">dataLabels</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">enabled</span><span class="o">:</span> <span class="kc">false</span>
+            <span class="p">},</span>
+        
+            <span class="nx">grouping</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nx">groupPadding</span><span class="o">:</span> <span class="mf">0.10</span><span class="p">,</span>
+            <span class="nx">pointPadding</span><span class="o">:</span> <span class="mf">0.00</span><span class="p">,</span> <span class="cm">/* determined by height of the div */</span>
+            
+            <span class="nx">stacking</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nx">events</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">legendItemClick</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+                    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nx">bar</span><span class="o">:</span> <span class="p">{</span>
+        
+            <span class="nx">dataLabels</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">enabled</span><span class="o">:</span> <span class="kc">false</span>
+            <span class="p">},</span>
+        
+            <span class="nx">groupPadding</span><span class="o">:</span> <span class="mf">0.10</span><span class="p">,</span>
+            <span class="nx">pointPadding</span><span class="o">:</span> <span class="mf">0.00</span><span class="p">,</span>
+            
+            <span class="nx">stacking</span><span class="o">:</span> <span class="kc">null</span>
+        <span class="p">},</span>
+        <span class="nx">line</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">lineWidth</span><span class="o">:</span> <span class="mi">8</span><span class="p">,</span>
+            <span class="nx">marker</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">enabled</span><span class="o">:</span> <span class="kc">false</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nx">area</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">lineWidth</span><span class="o">:</span> <span class="mi">8</span><span class="p">,</span>
+            <span class="nx">stacking</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nx">marker</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">enabled</span><span class="o">:</span> <span class="kc">false</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nx">allowPointSelect</span><span class="o">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    
+    <span class="nx">xAxis</span><span class="o">:</span> <span class="p">{</span>
+        
+        <span class="nx">categories</span><span class="o">:</span> <span class="p">[</span>
+        
+            <span class="s1">&#39;2010&#39;</span><span class="p">,</span>
+        
+            <span class="s1">&#39;2011&#39;</span><span class="p">,</span>
+        
+            <span class="s1">&#39;2012&#39;</span>
+        
+        <span class="p">],</span>
+        
+        <span class="nx">gridLineWidth</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+        
+        <span class="nx">labels</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">style</span><span class="o">:</span> <span class="p">{</span> 
+                <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;#212121&#39;</span><span class="p">,</span> 
+                <span class="nx">fontSize</span><span class="o">:</span> <span class="s1">&#39;10pt&#39;</span><span class="p">,</span> 
+                <span class="nx">fontFamily</span><span class="o">:</span> <span class="s1">&#39;&quot;Avenir Next LT W01 Regular&quot;, &quot;Avenir Next&quot;, &quot;Arial&quot;&#39;</span><span class="p">,</span>
+                <span class="nx">fontWeight</span><span class="o">:</span> <span class="s1">&#39;400&#39;</span>
+            <span class="p">},</span>
+            
+            
+            <span class="nx">enabled</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nx">y</span><span class="o">:</span> <span class="mi">20</span></pre></div>             </td>           </tr>                               <tr id="section-5">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-5">&#182;</a>               </div>               <p>overflow: 'justify'</p>             </td>             <td class="code">               <div class="highlight"><pre>        <span class="p">},</span>
+        
+        <span class="nx">lineWidth</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nx">title</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">text</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nx">margin</span><span class="o">:</span> <span class="mi">12</span><span class="p">,</span>
+            <span class="nx">style</span><span class="o">:</span> <span class="p">{</span> 
+                <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;#101820&#39;</span><span class="p">,</span> 
+                <span class="nx">fontSize</span><span class="o">:</span> <span class="s1">&#39;12pt&#39;</span><span class="p">,</span> 
+                <span class="nx">fontFamily</span><span class="o">:</span> <span class="s1">&#39;&quot;Avenir Next LT W01 Regular&quot;, &quot;Avenir Next&quot;, &quot;Arial&quot;&#39;</span><span class="p">,</span>
+                <span class="nx">fontWeight</span><span class="o">:</span> <span class="s1">&#39;400&#39;</span>
+            <span class="p">},</span>
+            <span class="nx">x</span><span class="o">:</span> <span class="o">-</span><span class="mi">5</span> 
+        <span class="p">},</span>
+        <span class="nx">tickLength</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nx">startOnTick</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="nx">endOnTick</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="nx">minPadding</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nx">maxPadding</span><span class="o">:</span> <span class="mi">0</span>
+    <span class="p">},</span>
+    <span class="nx">yAxis</span><span class="o">:</span>  <span class="p">[</span>  <span class="p">{</span>
+        
+        
+        
+        
+        <span class="nx">title</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Number of applications and originations&#39;</span><span class="p">,</span>
+            <span class="nx">margin</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+            <span class="nx">style</span><span class="o">:</span> <span class="p">{</span> 
+                <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;#101820&#39;</span><span class="p">,</span> 
+                <span class="nx">fontSize</span><span class="o">:</span> <span class="s1">&#39;12pt&#39;</span><span class="p">,</span> 
+                <span class="nx">fontFamily</span><span class="o">:</span> <span class="s1">&#39;&quot;Avenir Next LT W01 Regular&quot;, &quot;Avenir Next&quot;, &quot;Arial&quot;&#39;</span><span class="p">,</span>
+                <span class="nx">fontWeight</span><span class="o">:</span> <span class="s1">&#39;400&#39;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        
+        <span class="nx">labels</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">style</span><span class="o">:</span> <span class="p">{</span> 
+                <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;#212121&#39;</span><span class="p">,</span> 
+                <span class="nx">fontSize</span><span class="o">:</span> <span class="s1">&#39;10pt&#39;</span><span class="p">,</span> 
+                <span class="nx">fontFamily</span><span class="o">:</span> <span class="s1">&#39;&quot;Avenir Next LT W01 Regular&quot;, &quot;Avenir Next&quot;, &quot;Arial&quot;&#39;</span><span class="p">,</span>
+                <span class="nx">fontWeight</span><span class="o">:</span> <span class="s1">&#39;400&#39;</span>
+            <span class="p">},</span>
+            
+                
+                                       
+                
+            <span class="nx">format</span><span class="o">:</span> <span class="s1">&#39;{value:,.0f}&#39;</span><span class="p">,</span>
+                
+            
+            <span class="nx">enabled</span><span class="o">:</span> <span class="kc">true</span></pre></div>             </td>           </tr>                               <tr id="section-6">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-6">&#182;</a>               </div>               <p>formatter: function() { return this.value; },
+overflow: 'justify'</p>             </td>             <td class="code">               <div class="highlight"><pre>        <span class="p">},</span>
+        <span class="nx">gridLineWidth</span><span class="o">:</span> <span class="mi">1</span>
+    <span class="p">},</span>
+    
+    <span class="p">{</span>
+        <span class="nx">opposite</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+         <span class="cm">/* secondary_axis_max */</span>
+        
+        
+        
+        <span class="nx">title</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">text</span><span class="o">:</span> <span class="kc">null</span>
+        <span class="p">},</span>
+        
+        <span class="nx">labels</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">style</span><span class="o">:</span> <span class="p">{</span> 
+                <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;#212121&#39;</span><span class="p">,</span> 
+                <span class="nx">fontSize</span><span class="o">:</span> <span class="s1">&#39;10pt&#39;</span><span class="p">,</span> 
+                <span class="nx">fontFamily</span><span class="o">:</span> <span class="s1">&#39;&quot;Avenir Next LT W01 Regular&quot;, &quot;Avenir Next&quot;, &quot;Arial&quot;&#39;</span><span class="p">,</span>
+                <span class="nx">fontWeight</span><span class="o">:</span> <span class="s1">&#39;400&#39;</span>
+            <span class="p">},</span>
+            
+                
+                                       
+                
+                <span class="nx">format</span><span class="o">:</span> <span class="s1">&#39; {value:,.0f} &#39;</span><span class="p">,</span>
+                
+            
+            <span class="nx">enabled</span><span class="o">:</span> <span class="kc">true</span></pre></div>             </td>           </tr>                               <tr id="section-7">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-7">&#182;</a>               </div>               <p>formatter: function() { return this.value; },
+overflow: 'justify'</p>             </td>             <td class="code">               <div class="highlight"><pre>        <span class="p">},</span>
+        <span class="nx">gridLineWidth</span><span class="o">:</span> <span class="mi">0</span>
+    <span class="p">}</span>
+    <span class="p">],</span>
+     
+    
+    <span class="nx">series</span><span class="o">:</span> <span class="p">[</span>
+    
+        
+        <span class="p">{</span>
+        <span class="nx">yAxis</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Home purchase applications&#39;</span><span class="p">,</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;column&#39;</span><span class="p">,</span>
+        
+            <span class="nx">data</span><span class="o">:</span> <span class="p">[</span>
+                 
+                    <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="mi">1498717</span> <span class="p">},</span>
+                 
+                    <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="mi">1399080</span> <span class="p">},</span>
+                 
+                    <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="mi">1526319</span> <span class="p">}</span>
+                
+            <span class="p">]</span>
+        
+        <span class="p">},</span>
+    
+        
+        <span class="p">{</span>
+        <span class="nx">yAxis</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Home purchase originations&#39;</span><span class="p">,</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;column&#39;</span><span class="p">,</span>
+        
+            <span class="nx">data</span><span class="o">:</span> <span class="p">[</span>
+                 
+                    <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="mi">803307</span> <span class="p">},</span>
+                 
+                    <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="mi">750463</span> <span class="p">},</span>
+                 
+                    <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="mi">834181</span> <span class="p">}</span>
+                
+            <span class="p">]</span>
+        
+        <span class="p">},</span>
+    
+        
+        <span class="p">{</span>
+        <span class="nx">yAxis</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Home improvement applications&#39;</span><span class="p">,</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;column&#39;</span><span class="p">,</span>
+        
+            <span class="nx">data</span><span class="o">:</span> <span class="p">[</span>
+                 
+                    <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="mi">106065</span> <span class="p">},</span>
+                 
+                    <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="mi">106314</span> <span class="p">},</span>
+                 
+                    <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="mi">119091</span> <span class="p">}</span>
+                
+            <span class="p">]</span>
+        
+        <span class="p">},</span>
+    
+        
+        <span class="p">{</span>
+        <span class="nx">yAxis</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Home improvement originations&#39;</span><span class="p">,</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;column&#39;</span><span class="p">,</span>
+        
+            <span class="nx">data</span><span class="o">:</span> <span class="p">[</span>
+                 
+                    <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="mi">61688</span> <span class="p">},</span>
+                 
+                    <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="mi">61818</span> <span class="p">},</span>
+                 
+                    <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="mi">74849</span> <span class="p">}</span>
+                
+            <span class="p">]</span>
+        
+        <span class="p">},</span>
+    
+        
+        <span class="p">{</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Refinancing applications&#39;</span><span class="p">,</span>
+        
+            <span class="nx">data</span><span class="o">:</span> <span class="p">[</span>
+                 
+                    <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="mi">3121622</span> <span class="p">},</span>
+                 
+                    <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="mi">2747268</span> <span class="p">},</span>
+                 
+                    <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="mi">3742878</span> <span class="p">}</span>
+                
+            <span class="p">]</span>
+        
+        <span class="p">},</span>
+    
+        
+        <span class="p">{</span>
+            <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Refinancing originations&#39;</span><span class="p">,</span>
+            <span class="nx">data</span><span class="o">:</span> <span class="p">[</span><span class="mi">1827216</span><span class="p">,</span><span class="mi">1597456</span><span class="p">,</span><span class="mi">2358467</span><span class="p">]</span>
+        <span class="p">}</span>
+    
+    <span class="p">]</span>
+<span class="p">};</span>
+
+</pre></div>             </td>           </tr>                </tbody>     </table>   </div> </body> </html> 
