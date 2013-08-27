@@ -24,9 +24,9 @@ var PDP = (function ( pdp ) {
   });
 
   // Whenever a field element is changed emit an event.
-  $('.filter').on( 'change', '.field select, .field:not(".optional-toggle") input', function(){
+  $('.filter').on( 'change', '.field select, .field:not(".optional-toggle") input', _.debounce( function(){
     pdp.observer.emitEvent('field:changed', [ $( this ).attr('id') ] );
-  });
+  }, 300 ));
 
   // Add a new location section whenever the `#add-state` link is clicked.
   $('a#add-state').on( 'click', function( ev ){
