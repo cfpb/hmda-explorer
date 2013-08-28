@@ -146,6 +146,9 @@ var PDP = (function ( pdp ) {
 
   });
 
+  // Prevent non-numeric characters from being typed into specified fields.
+  $('.require-numeric').on( 'keydown', pdp.utils.requireNumeric );
+
   // When the share URL text box is focused, select all the text inside.
   // `click` is used instead of `focus` due to a [Chrome bug](http://stackoverflow.com/questions/3150275/jquery-input-select-all-on-focus).
   $('.share_url').on( 'click', function(){

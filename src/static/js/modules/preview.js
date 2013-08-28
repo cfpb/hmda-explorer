@@ -37,6 +37,7 @@ var PDP = (function ( pdp ) {
     this.nlw.$el.addClass('loading');
     this.nlw.$el.find('.calculating').show();
     this.nlw.$el.find('.count').hide();
+    preview.$downloadSize.addClass('hidden');
 
   };
 
@@ -191,8 +192,8 @@ var PDP = (function ( pdp ) {
 
     preview.$downloadSize.removeClass('hidden');
 
-    // A CSV with 100 records is roughly 6k so we're doing a really rough estimate here
-    // to get the item's filesize
+    // A CSV with 100 records is approximately 6k so we're doing a really rough estimate 
+    // here to get the item's filesize.
     filesize = pdp.utils.getPrettyFilesize( count / 100 * 6000 );
 
     preview.$downloadSize.find('.bytes').html( filesize );
