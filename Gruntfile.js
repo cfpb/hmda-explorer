@@ -205,7 +205,15 @@ module.exports = function(grunt) {
             'src/static/vendor/jquery-ui/ui/jquery.ui.slider.js',
             'src/static/vendor/zeroclipboard/ZeroClipboard.js',
             'src/static/js/templates/template.js',
-            'src/static/js/modules/*.js',
+            'src/static/js/templates/template.js',
+            'src/static/js/modules/observer.js',
+            'src/static/js/modules/utils.js',
+            'src/static/js/modules/dom.js',
+            'src/static/js/modules/query.js',
+            'src/static/js/modules/preview.js',
+            'src/static/js/modules/summary-table.js',
+            'src/static/js/modules/form.js',
+            'src/static/js/modules/app.js',
             'src/static/js/main.js'
           ]
         }
@@ -239,7 +247,14 @@ module.exports = function(grunt) {
             'src/static/vendor/jquery-ui/ui/jquery.ui.slider.js',
             'src/static/vendor/zeroclipboard/ZeroClipboard.js',
             'src/static/js/templates/template.js',
-            'src/static/js/modules/*.js',
+            'src/static/js/modules/observer.js',
+            'src/static/js/modules/utils.js',
+            'src/static/js/modules/dom.js',
+            'src/static/js/modules/query.js',
+            'src/static/js/modules/preview.js',
+            'src/static/js/modules/summary-table.js',
+            'src/static/js/modules/form.js',
+            'src/static/js/modules/app.js',
             'src/static/js/main.js'
           ]
         }

@@ -152,6 +152,20 @@ var PDP = (function( pdp ) {
 
   };
 
+  // Pass an event and its default action will be prevented if a non-numeric key
+  // was pressed. Numbers, commas, tab, delete, backspace and arrow keys are 
+  // allowed to be pressed.
+  utils.requireNumeric = function(e) {
+
+      var key = e.which,
+          allowedKeys = [ 37, 38, 39, 40, 46, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 188, 8, 9 ];
+
+      if ( allowedKeys.indexOf( key ) === -1 ) {
+          e.preventDefault();
+      }
+
+  };
+
   // A `bind()` polyfill
   if (!Function.prototype.bind) {
     Function.prototype.bind = function (oThis) {
