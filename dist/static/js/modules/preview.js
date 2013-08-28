@@ -185,11 +185,11 @@ var PDP = (function ( pdp ) {
         filesize;
 
     if ( isNaN( count ) || !count ) {
-      preview.$downloadSize.hide();
+      preview.$downloadSize.addClass('hidden');
       return;
     }
 
-    preview.$downloadSize.show();
+    preview.$downloadSize.removeClass('hidden');
 
     // A CSV with 100 records is roughly 6k so we're doing a really rough estimate here
     // to get the item's filesize
