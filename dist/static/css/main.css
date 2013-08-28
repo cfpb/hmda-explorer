@@ -1,4 +1,4 @@
-/*! normalize.css v2.1.2 | MIT License | git.io/normalize */
+/*! normalize.css v2.1.3 | MIT License | git.io/normalize */
 /* ==========================================================================
    HTML5 display definitions
    ========================================================================== */
@@ -36,9 +36,11 @@ audio:not([controls]) {
   height: 0;
 }
 /**
- * Address styling not present in IE 8/9.
+ * Address `[hidden]` styling not present in IE 8/9.
+ * Hide the `template` element in IE, Safari, and Firefox < 22.
  */
-[hidden] {
+[hidden],
+template {
   display: none;
 }
 /* ==========================================================================
@@ -69,6 +71,12 @@ body {
 /* ==========================================================================
    Links
    ========================================================================== */
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+a {
+  background: transparent;
+}
 /**
  * Address `outline` inconsistency between Chrome and other browsers.
  */
@@ -281,8 +289,8 @@ html input[disabled] {
   cursor: default;
 }
 /**
- * 1. Address box sizing set to `content-box` in IE 8/9.
- * 2. Remove excess padding in IE 8/9.
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
  */
 input[type="checkbox"],
 input[type="radio"] {
@@ -1530,7 +1538,7 @@ table.tidy_table td {
                   | $$                  
                   |__/                  
 
-* Ghost - v0.5.2 - 2013-07-15
+* Ghost - v0.6.0 - 2013-07-17
 * http://consumerfinance.gov
 * A Public Domain work of the Consumer Financial Protection Bureau */
 .col {
@@ -2572,20 +2580,11 @@ ul.chzn-choices {
   padding: 0 15px;
   margin: 0 auto;
   position: relative;
-  overflow: hidden;
   clear: both;
 }
 .lt-ie8 .homepage .hero > .inner {
   *zoom: 1;
   *behavior: url(boxsizing.htc);
-}
-.homepage .hero > .inner:before,
-.homepage .hero > .inner:after {
-  content: " ";
-  display: table;
-}
-.homepage .hero > .inner:after {
-  clear: both;
 }
 .homepage .hero h1 {
   font-family: "Avenir Next", Arial, sans-serif;
@@ -2666,20 +2665,11 @@ section .background {
   padding: 0 15px;
   margin: 0 auto;
   position: relative;
-  overflow: hidden;
   clear: both;
 }
 .lt-ie8 section .background {
   *zoom: 1;
   *behavior: url(boxsizing.htc);
-}
-section .background:before,
-section .background:after {
-  content: " ";
-  display: table;
-}
-section .background:after {
-  clear: both;
 }
 section p {
   line-height: 1.5em;
@@ -3073,21 +3063,12 @@ section.video h2 strong {
   padding: 0 15px;
   margin: 0 auto;
   position: relative;
-  overflow: hidden;
   clear: both;
   text-align: center;
 }
 .lt-ie8 .explore .hero > .inner {
   *zoom: 1;
   *behavior: url(boxsizing.htc);
-}
-.explore .hero > .inner:before,
-.explore .hero > .inner:after {
-  content: " ";
-  display: table;
-}
-.explore .hero > .inner:after {
-  clear: both;
 }
 .explore .hero h1 {
   font-size: 34px;
@@ -3162,7 +3143,6 @@ section.video h2 strong {
   padding: 0 15px;
   margin: 0 auto;
   position: relative;
-  overflow: hidden;
   clear: both;
   margin-top: 40px;
 }
@@ -3170,17 +3150,6 @@ section.video h2 strong {
 .lt-ie8 #summary {
   *zoom: 1;
   *behavior: url(boxsizing.htc);
-}
-#filters:before,
-#summary:before,
-#filters:after,
-#summary:after {
-  content: " ";
-  display: table;
-}
-#filters:after,
-#summary:after {
-  clear: both;
 }
 #filters h2,
 #summary h2 {
@@ -3547,7 +3516,6 @@ section.video h2 strong {
     padding: 0 15px;
     margin: 0 auto;
     position: relative;
-    overflow: hidden;
     clear: both;
     display: inline-block;
     -webkit-box-sizing: border-box;
@@ -3562,14 +3530,6 @@ section.video h2 strong {
   .lt-ie8 .instructions {
     *zoom: 1;
     *behavior: url(boxsizing.htc);
-  }
-  .instructions:before,
-  .instructions:after {
-    content: " ";
-    display: table;
-  }
-  .instructions:after {
-    clear: both;
   }
   .ie .instructions {
     margin-right: -0.26em;
@@ -3686,24 +3646,12 @@ nav li {
   padding: 0 15px;
   margin: 0 auto;
   position: relative;
-  overflow: hidden;
   clear: both;
 }
 .lt-ie8 .hmda header,
 .lt-ie8 .hmda footer > nav {
   *zoom: 1;
   *behavior: url(boxsizing.htc);
-}
-.hmda header:before,
-.hmda footer > nav:before,
-.hmda header:after,
-.hmda footer > nav:after {
-  content: " ";
-  display: table;
-}
-.hmda header:after,
-.hmda footer > nav:after {
-  clear: both;
 }
 .hmda header nav {
   margin-bottom: 18px;
