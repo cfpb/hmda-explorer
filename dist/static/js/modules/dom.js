@@ -24,9 +24,9 @@ var PDP = (function ( pdp ) {
   });
 
   // Whenever a field element is changed emit an event.
-  $('.filter').on( 'change', '.field select, .field:not(".optional-toggle") input', function(){
+  $('.filter').on( 'change', '.field select, .field:not(".optional-toggle") input', _.debounce( function(){
     pdp.observer.emitEvent('field:changed', [ $( this ).attr('id') ] );
-  });
+  }, 300 ));
 
   // Add a new location section whenever the `#add-state` link is clicked.
   $('a#add-state').on( 'click', function( ev ){
@@ -145,6 +145,9 @@ var PDP = (function ( pdp ) {
     $('html, body').animate({ scrollTop: $( '#filters' ).position().top }, 200);
 
   });
+
+  // Prevent non-numeric characters from being typed into specified fields.
+  $('.require-numeric').on( 'keydown', pdp.utils.requireNumeric );
 
   // When the share URL text box is focused, select all the text inside.
   // `click` is used instead of `focus` due to a [Chrome bug](http://stackoverflow.com/questions/3150275/jquery-input-select-all-on-focus).

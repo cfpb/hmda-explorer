@@ -3,6 +3,12 @@
 
 // To avoid global scope pollution, declare all variables and functions inside an
 // [immediately-invoked function expression](http://benalman.com/news/2010/11/immediately-invoked-function-expression/) using an augmented [module pattern](http://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript).
+//
+// @TODO: 
+// - refactor to use tidy tables. I didn't realize it was in use when I wrote this
+// - move table.queryParams.clauses properties from arrays to objects. this will create a nicer branch in logic dealing with
+//   the calculate by values vs. the three variables
+// [8/19/13 TS]
 var PDP = (function ( pdp ) {
 
   'use strict';
@@ -224,7 +230,7 @@ var PDP = (function ( pdp ) {
               respData.results[record][column] = 'Data not available';
             }
             else if (num < 0) {
-                respData.results[record][column] = 'Data format error! A non-positive numerical value found in original data: ' + num
+                respData.results[record][column] = 'Data format error! A non-positive numerical value found in original data: ' + num;
             }
             else {
              respData.results[record][column] = '$' + Math.round( num*1000 ).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');

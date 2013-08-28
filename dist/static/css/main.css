@@ -2450,6 +2450,9 @@ textarea {
 .nlw {
   position: relative;
 }
+.download-size {
+  font-style: italic;
+}
 @media only screen and (min-width: 768px) {
   
 }
@@ -2471,9 +2474,6 @@ ul.chzn-choices {
 .chzn-container-multi .chzn-choices .search-field input.default {
   height: 100%;
   width: 110px;
-}
-.chzn-container.chzn-container-multi.chzn-container-active .chzn-choices .search-field {
-  width: 25px;
 }
 .chzn-container-multi .chzn-choices .search-field .default {
   font-family: "Avenir Next", Arial, sans-serif;

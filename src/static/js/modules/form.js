@@ -153,7 +153,7 @@ var PDP = (function ( pdp ) {
     var tagName = $el.prop('tagName').toLowerCase(),
         type = $el.attr('type'),
         name = $el.attr('name') || undefined,
-        value = $el.val(),
+        value = $el.val() && $el.val().indexOf(',') !== -1 ? $el.val().replace( ',', '' ) : $el.val(),
         field = {},
         comparator = '=';
 
@@ -309,12 +309,12 @@ var PDP = (function ( pdp ) {
           return obj.label;
         }
 
-        // FIPS is weird, gotta trim the first three digits of the county ids.
+        // FIPS is weird, gotta trim the first two digits of the county ids.
         function cleanCounties( obj ) {
           if ( concept === 'fips' ) {
             return {
               label: obj.label,
-              value: obj.value.toString().substr(3,100)
+              value: obj.value.toString().substr(2,100)
             };
           }
           return obj;
