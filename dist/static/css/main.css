@@ -2483,9 +2483,6 @@ ul.chzn-choices {
   height: 100%;
   width: 110px;
 }
-.chzn-container.chzn-container-multi.chzn-container-active .chzn-choices .search-field {
-  width: 25px;
-}
 .chzn-container-multi .chzn-choices .search-field .default {
   font-family: "Avenir Next", Arial, sans-serif;
   font-weight: 400;
