@@ -504,7 +504,7 @@ var PDP = (function ( pdp ) {
       var $el = $( '#' + name ),
           $partner = $( '.field.' + $el.data('toggle') );
 
-      if ( $partner.length > 0 && $el.val().length > 0 ) {
+      if ( $partner.length > 0 && $el.val() && $el.val().length > 0 ) {
         form.disableField( $partner );
       } else {
         form.enableField( $partner );
