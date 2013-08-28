@@ -23,7 +23,7 @@ var PDP = (function ( pdp ) {
   query.endpoint = query.debug ? 'static/js/dummy_data/' : 'https://qu.demo.cfpb.gov/data/hmda/';
 
   // Seconds to wait on a response from the API before giving up.
-  query.secondsToWait = 30;
+  query.secondsToWait = 600;
 
   // Whether or not they want codes in their downloaded file.
   query.codes = false;
