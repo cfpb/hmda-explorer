@@ -3,6 +3,12 @@
 
 // To avoid global scope pollution, declare all variables and functions inside an
 // [immediately-invoked function expression](http://benalman.com/news/2010/11/immediately-invoked-function-expression/) using an augmented [module pattern](http://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript).
+//
+// @TODO: 
+// - refactor to use tidy tables. I didn't realize it was in use when I wrote this
+// - move table.queryParams.clauses properties from arrays to objects. this will create a nicer branch in logic dealing with
+//   the calculate by values vs. the three variables
+// [8/19/13 TS]
 var PDP = (function ( pdp ) {
 
   'use strict';
@@ -192,35 +198,22 @@ var PDP = (function ( pdp ) {
     this._showSpinner();
   };
 
-  // "23.52323423" to "$23,523"
+  
+  /**
+   * This function performs output formatting. It will convert numbers
+   * store in 1000s to a US dollar format.; i.e.,"23.52323423" to "$23,523".
+   * The methond includes multipling the original number by 1000, rounding to 
+   * the nearest whole dollar, and then adding comma separators and '$'.
+   *
+   * The implementation should be something like :
+   *    ```amount = Math.round( the_number * 1000 ).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");```
+   *    All non numerical values of ``the_number``` should be emitted as blanks; e.g., null and ""
+   *    are represented as nothing on the screen.
+   *  
+   * */
   table._mungeDollarAmts = function( respData ) {
-    var record, column, variable, amount, addCommas, dotIndex, amtParts;
-    
-    // splits 4+ numbers, inserts a comma
-    addCommas = function( numStr ) {
-      var len = numStr.length,
-          i;
-
-      // numbers smaller than $xxx,xxx shouldn't have ended up here
-      if ( len > 3 ) {
-
-        // this is all so that we can cleanly work from the back of the 
-        // number forward, inserting commas every three digits
-        if (len % 3 !== 0) {
-          i = len - (len % 3);
-        } else {
-          i = len;
-        }
-
-        while (i > 0) {
-          if (i < len) {
-            numStr = numStr.splice( -i, 0, ',' );
-          }
-          i = i-3;
-        }
-      }
-      return numStr;
-    };
+    var record, column, variable, amount, addCommas, dotIndex, amtParts, num;
+     
 
     // for row in results
     for ( record in respData.results ) {
@@ -230,26 +223,15 @@ var PDP = (function ( pdp ) {
 
           // if this is a calculate by field value
           if ( this.metrics.hasOwnProperty( column ) ) {
+            
+            num = respData.results[record][column];
 
-            amount = respData.results[record][column].toString();
-            dotIndex = amount.indexOf('.');
-
-            // dot-separated values take a little extra wrangling
-            if (dotIndex !== -1) {
-              amtParts = amount.split('.');
-              // get rid of granularity we don't care about
-              amtParts[1] = amtParts[1].substr(0, 3);
-              amount = amtParts.join('');
+            if (num == null || num === '' || isNaN(num)){  
+              respData.results[record][column] = 'Data not available';
             }
-
-            amount = addCommas(amount);
-
-            // if this is $xxx,xxx represented as xxx
-            if ( amount.length <= 3 ) {
-              amount += ',000';
+            else {
+             respData.results[record][column] = '$' + Math.round( num*1000 ).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
             }
-        
-            respData.results[record][column] = '$' + amount;
           }
         }
       }
@@ -258,9 +240,11 @@ var PDP = (function ( pdp ) {
     return respData;
   };
 
+
   table._handleApiResponse = function( response ) {
     this.populateTable(this._prepData(response));
   };
+
 
   table._prepData = function( respData ) {
     respData = this._mungeDollarAmts( respData );

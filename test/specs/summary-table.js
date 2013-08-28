@@ -50,7 +50,7 @@
       it("should properly format five digit amounts", function() {
         var data = { 'results':  [{ 'min_loan_amount_000s': 23456 }]  };
         expect( PDP.summaryTable._mungeDollarAmts( data ) )
-          .toEqual( { 'results': [ { 'min_loan_amount_000s': '$23,456' } ] });
+          .toEqual( { 'results': [ { 'min_loan_amount_000s': '$23,456,000' } ] });
       });
  
       it("should properly format 3 digit amounts", function() {
@@ -62,7 +62,7 @@
       it("should properly format nine digit amounts", function() {
         var data = { 'results':  [{ 'min_loan_amount_000s': 345678901 }]  };
         expect( PDP.summaryTable._mungeDollarAmts( data ) )
-          .toEqual( { 'results': [ { 'min_loan_amount_000s': '$345,678,901' } ] });
+          .toEqual( { 'results': [ { 'min_loan_amount_000s': '$345,678,901,000' } ] });
       });
 
       it("should properly format crazy dot-separated amounts", function() {

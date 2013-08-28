@@ -76,6 +76,7 @@ section {
 section.video {
 
   background-color: #E7E7E6;
+  min-height: 155px;
 
   .inner {
     padding: 23px 0 10px;
@@ -227,6 +228,42 @@ section.video {
     li {
       margin-bottom: 10px;
     }
+  }
+}
+
+// Fullscreen YouTube video overlay
+
+#youtube {
+  background-color: #E7E7E6;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  animation: fadein .5s;
+  -moz-animation: fadein .5s;
+  -webkit-animation: fadein .5s;
+  -o-animation: fadein .5s;
+  &.closing {
+    animation: fadeout .5s;
+    -moz-animation: fadeout .5s;
+    -webkit-animation: fadeout .5s;
+    -o-animation: fadeout .5s;
+  }
+  iframe {
+    margin: 30px;
+    animation: fadein .5s;
+    -moz-animation: fadein .5s;
+    -webkit-animation: fadein .5s;
+    -o-animation: fadein .5s;
+  }
+  .exit {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    font-size: 40px;
+    line-height: 0;
+    cursor: pointer;
   }
 }
 

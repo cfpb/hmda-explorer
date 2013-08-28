@@ -15,6 +15,9 @@ var PDP = (function ( pdp ) {
   // Cache a reference to the preview table's jQuery object.
   preview.$el = $('#preview');
 
+  // Cache a reference to the download size messaging section.
+  preview.$downloadSize = $('.download-size');
+
   // Whether or not the preview is currently updating.
   preview._updating = false;
 
@@ -34,6 +37,7 @@ var PDP = (function ( pdp ) {
     this.nlw.$el.addClass('loading');
     this.nlw.$el.find('.calculating').show();
     this.nlw.$el.find('.count').hide();
+    preview.$downloadSize.addClass('hidden');
 
   };
 
@@ -89,7 +93,7 @@ var PDP = (function ( pdp ) {
   // The `_fetchPreviewJSON` method returns a promise of JSON
   preview._fetchPreviewJSON = function() {
 
-    var url = pdp.query.generateApiUrl( null, true ) + '&$limit=500',
+    var url = pdp.query.generateApiUrl( null, true ) + '&$limit=100',
         promise = pdp.utils.getJSON( url );
 
     preview._lastRequestTime = new Date().getTime();
@@ -119,7 +123,7 @@ var PDP = (function ( pdp ) {
 
     preview.startLoading();
     preview.enableTable();
-    preview.updateNLW( 0 );
+    preview.updateNLW();
 
     promise.done( function( data ) {
 
@@ -129,7 +133,8 @@ var PDP = (function ( pdp ) {
 
       preview.nlw.count = data.total;
       preview.updateTable( data.results );
-      preview.updateNLW();
+      preview.updateNLW( 0 );
+      preview.updateDownloadSize();
       preview.stopLoading();
 
     });
@@ -138,9 +143,6 @@ var PDP = (function ( pdp ) {
 
     check = setTimeout(function(){
       if ( promise.state() !== 'resolved' && promise._timestamp == preview._lastRequestTime ) {
-        console.log('Promise state: ' + promise.state());
-        console.log('Status: ' + promise.status);
-        console.log('Status text: ' + promise.statusText);
         _abort( null, 'time out' );
       }
     }, pdp.query.secondsToWait * 1000 );
@@ -173,6 +175,28 @@ var PDP = (function ( pdp ) {
 
     preview.nlw.$el.find('.count').html( countFormatted );
     preview.nlw.$el.find('.years').html( years );
+
+  };
+
+  // The `updateDownloadSize` method estimates how large the downloaded file will be and 
+  // updates the text under the download button.
+  preview.updateDownloadSize = function() {
+
+    var count = preview.nlw.count,
+        filesize;
+
+    if ( isNaN( count ) || !count ) {
+      preview.$downloadSize.addClass('hidden');
+      return;
+    }
+
+    preview.$downloadSize.removeClass('hidden');
+
+    // A CSV with 100 records is approximately 6k so we're doing a really rough estimate 
+    // here to get the item's filesize.
+    filesize = pdp.utils.getPrettyFilesize( count / 100 * 6000 );
+
+    preview.$downloadSize.find('.bytes').html( filesize );
 
   };
 

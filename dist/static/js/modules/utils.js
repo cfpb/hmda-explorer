@@ -40,7 +40,25 @@ var PDP = (function( pdp ) {
     return varTitle;
   };
 
-  // Return the hash parameters from the current URL. [source](http://stackoverflow.com/questions/4197591/parsing-url-hash-fragment-identifier-with-javascript/4198132#4198132)
+  // When given a number of bytes, this'll return a string with proper units.
+  utils.getPrettyFilesize = function( bytes ) {
+    if (bytes>=1073741824) {
+      bytes = ( bytes/1073741824 ).toFixed( 2 ) + ' GB';
+    } else if ( bytes>=1048576 ) {
+      bytes = ( bytes/1048576 ).toFixed( 1 ) + ' MB';
+    } else if ( bytes >= 1024 ) {
+      bytes = ( bytes/1024 ).toFixed( 0 ) + ' KB';
+    } else if ( bytes > 1 ) {
+      bytes = bytes + ' bytes';
+    } else if ( bytes == 1 ) {
+      bytes = bytes + ' byte';
+    } else {
+      bytes = '0 byte';
+    }
+    return bytes;
+  };
+
+  // Return the hash parameters from the current URL. [source](http://goo.gl/mebsOI)
   utils.getHashParams = function() {
 
     var hashParams = {};
@@ -73,21 +91,19 @@ var PDP = (function( pdp ) {
     };
   }
 
-  // Cache data in the localStorage, adapted from https://gist.github.com/rpflorence/1345787
+  // Cache AJAX requests in localStorage.
   utils.getJSON = function( url ) {
 
     var supportsLocalStorage = 'localStorage' in window,
-        slug = 'cfpb:' + url.substring( url.indexOf('?') + 1 );
+        storageKey = 'cfpb:' + url.substring( url.indexOf('?') + 1 );
 
-    // Both functions return a promise, so no matter which function
-    // gets called inside getCache, you get the same API.
     function getJSON( url ) {
 
       var deferred = $.getJSON( url );
 
       deferred.done(function(data) {
         try {
-          localStorage.setItem( slug, JSON.stringify(data) );
+          localStorage.setItem( storageKey, JSON.stringify(data) );
         } catch( e ) {
           // @TODO: Only clear out PDP relevant storage.
           window.localStorage.clear();
@@ -109,15 +125,15 @@ var PDP = (function( pdp ) {
     function getStorage( url ) {
 
       var storageDfd = new $.Deferred(),
-          storedData = localStorage.getItem( slug ),
+          storedData = localStorage.getItem( storageKey ),
           promise;
 
       if (!storedData) {
         return getJSON( url );
       }
 
-      setTimeout(function() {
-        storageDfd.resolveWith( null, [JSON.parse(storedData)] );
+      setTimeout( function() {
+        storageDfd.resolveWith( null, [ JSON.parse(storedData) ] );
       });
 
       //console.log( url + ' %c fetched via localStorange', 'color: blue' );
@@ -130,7 +146,28 @@ var PDP = (function( pdp ) {
 
     }
 
+    // Both functions return a promise, so no matter which function
+    // gets called, the API is the same.
     return supportsLocalStorage ? getStorage( url ) : getJSON( url );
+
+  };
+
+  // Pass a keypress event and its default action will be prevented if a 
+  // non-numeric key was pressed. Numbers, commas, tab, delete, backspace,
+  // meta and arrow keys are allowed to be pressed.
+  utils.requireNumeric = function( e ) {
+
+      var key = e.which,
+          allowedKeys = [ 8, 9, 16, 17, 18, 37, 38, 39, 40, 46, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 91, 93, 188, 224 ];
+
+      if ( allowedKeys.indexOf( key ) === -1 ) {
+          e.preventDefault();
+          $( this ).tooltip( { title: 'Numbers only, please!', trigger: 'manual' } );
+          $( this ).tooltip( 'show' );
+          setTimeout( function(){
+            $( this ).tooltip( 'destroy' );
+          }.bind( this ), 3000);
+      }
 
   };
 
