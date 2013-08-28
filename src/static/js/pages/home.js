@@ -30,6 +30,10 @@ $(function(){
 
       pos: $('section.video').position().top + ( $('section.video').height() / 2 ),
 
+      init: function() {
+        this.$embed.remove();
+      },
+
       open: function(){
         this.$vid.css( 'top', this.pos + 'px' )
             .removeClass('hidden')
@@ -54,6 +58,9 @@ $(function(){
 
     };
   })();
+
+  // Remove the video embed for now.
+  video.init();
 
   // Video overlay.
   $('a.launch-youtube').on( 'click', function( ev ){
