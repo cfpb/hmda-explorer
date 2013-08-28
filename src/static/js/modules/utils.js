@@ -34,6 +34,10 @@ var PDP = (function( pdp ) {
       nameParts.splice(0, 1);
     }
 
+    if ( nameParts[0] === 'year' ) {
+      nameParts.splice(1, 2);
+    }
+
     varTitle = nameParts.reverse().join(' ');
     varTitle = varTitle.charAt(0).toUpperCase() + varTitle.slice(1);
 
