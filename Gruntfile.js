@@ -81,7 +81,8 @@ module.exports = function(grunt) {
         },
         files: {
           'dist/index.html': 'src/index.html',
-          'dist/explore.html': 'src/explore.html'
+          'dist/explore.html': 'src/explore.html',
+          'dist/learn-more.html': 'src/learn-more.html'
         }
       }
     },
@@ -189,35 +190,6 @@ module.exports = function(grunt) {
         mangle: false,
         beautify: true
       },
-      all: {
-        files: {
-          'dist/static/js/all.min.js': [
-            'src/static/vendor/json3/lib/json3.js',
-            'src/static/vendor/jquery/jquery.js',
-            'src/static/vendor/lodash/lodash.js',
-            'src/static/vendor/eventEmitter/EventEmitter.js',
-            'src/static/vendor/chosen/public/chosen.jquery.js',
-            'src/static/vendor/bootstrap/js/bootstrap-tooltip.js',
-            'src/static/vendor/tidy-table/jquery.tidy.table.js',
-            'src/static/vendor/jquery-ui/ui/jquery.ui.core.js',
-            'src/static/vendor/jquery-ui/ui/jquery.ui.widget.js',
-            'src/static/vendor/jquery-ui/ui/jquery.ui.mouse.js',
-            'src/static/vendor/jquery-ui/ui/jquery.ui.slider.js',
-            'src/static/vendor/zeroclipboard/ZeroClipboard.js',
-            'src/static/js/templates/template.js',
-            'src/static/js/templates/template.js',
-            'src/static/js/modules/observer.js',
-            'src/static/js/modules/utils.js',
-            'src/static/js/modules/dom.js',
-            'src/static/js/modules/query.js',
-            'src/static/js/modules/preview.js',
-            'src/static/js/modules/summary-table.js',
-            'src/static/js/modules/form.js',
-            'src/static/js/modules/app.js',
-            'src/static/js/main.js'
-          ]
-        }
-      },
       main: {
         files: {
           'dist/static/js/main.min.js': [
@@ -270,7 +242,15 @@ module.exports = function(grunt) {
             'src/static/js/charts/chart2.js'
           ]
         }
-      }
+      },
+      all: {
+        files: {
+          'dist/static/js/all.min.js': [
+            'dist/static/js/main.min.js',
+            'dist/static/js/explore.min.js'
+          ]
+        }
+      },
     },
 
     /**
