@@ -132,7 +132,7 @@ var PDP = (function( pdp ) {
         return getJSON( url );
       }
 
-      setTimeout(function() {
+      setTimeout( function() {
         storageDfd.resolveWith( null, [ JSON.parse(storedData) ] );
       });
 
@@ -152,16 +152,21 @@ var PDP = (function( pdp ) {
 
   };
 
-  // Pass an event and its default action will be prevented if a non-numeric key
-  // was pressed. Numbers, commas, tab, delete, backspace and arrow keys are 
-  // allowed to be pressed.
-  utils.requireNumeric = function(e) {
+  // Pass a keypress event and its default action will be prevented if a 
+  // non-numeric key was pressed. Numbers, commas, tab, delete, backspace 
+  // and arrow keys are allowed to be pressed.
+  utils.requireNumeric = function( e ) {
 
       var key = e.which,
-          allowedKeys = [ 37, 38, 39, 40, 46, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 188, 8, 9 ];
+          allowedKeys = [ 8, 9, 16, 37, 38, 39, 40, 46, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 188 ];
 
       if ( allowedKeys.indexOf( key ) === -1 ) {
           e.preventDefault();
+          $( this ).tooltip( { title: 'Numbers only, please!', trigger: 'manual' } );
+          $( this ).tooltip( 'show' );
+          setTimeout( function(){
+            $( this ).tooltip( 'destroy' );
+          }.bind( this ), 3000);
       }
 
   };
