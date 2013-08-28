@@ -2,6 +2,7 @@ $(function(){
 
   'use strict';
 
+  // var map = L.mapbox.map('map', 'cfpb.ProjectQu'),
   var map = L.mapbox.map('map', 'crux.hmda'),
       video;
 
