@@ -2458,6 +2458,9 @@ textarea {
 .nlw {
   position: relative;
 }
+.download-size {
+  font-style: italic;
+}
 @media only screen and (min-width: 768px) {
   
 }
