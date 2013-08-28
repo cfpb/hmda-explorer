@@ -2085,6 +2085,32 @@ textarea {
     opacity: 1;
   }
 }
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@-moz-keyframes fadeout {
+  /* Firefox */
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes fadeout {
+  /* Safari and Chrome */
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
 .no-js #share {
   display: none !important;
 }
@@ -2650,6 +2676,7 @@ section p {
 }
 section.video {
   background-color: #E7E7E6;
+  min-height: 155px;
 }
 section.video .inner {
   padding: 23px 0 10px;
@@ -2802,6 +2829,39 @@ section.video h2 strong {
 }
 #developers .links li {
   margin-bottom: 10px;
+}
+#youtube {
+  background-color: #E7E7E6;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  animation: fadein .5s;
+  -moz-animation: fadein .5s;
+  -webkit-animation: fadein .5s;
+  -o-animation: fadein .5s;
+}
+#youtube.closing {
+  animation: fadeout .5s;
+  -moz-animation: fadeout .5s;
+  -webkit-animation: fadeout .5s;
+  -o-animation: fadeout .5s;
+}
+#youtube iframe {
+  margin: 30px;
+  animation: fadein .5s;
+  -moz-animation: fadein .5s;
+  -webkit-animation: fadein .5s;
+  -o-animation: fadein .5s;
+}
+#youtube .exit {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  font-size: 40px;
+  line-height: 0;
+  cursor: pointer;
 }
 @media only screen and (min-width: 768px) {
   .homepage .hero {
