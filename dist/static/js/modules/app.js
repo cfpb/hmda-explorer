@@ -29,8 +29,10 @@ var PDP = (function ( pdp ) {
 
     var hashParams = pdp.utils.getHashParams();
 
-    // Activate [chosen](http://harvesthq.github.io/chosen/) on select elements.
+    // Activate [chosen](http://harvesthq.github.io/chosen/) on select elements and correct 
+    // a bug that cuts off the placeholder text.
     app.$el.find('select').chosen({ width: '100%', disable_search_threshold: 10, allow_single_deselect: true });
+    $('.chzn-container .search-field input').css( 'width', '105%' );
 
     // Initialize Bootstrap tooltips
     app.$el.find('.help').tooltip({ placement: 'left' });
