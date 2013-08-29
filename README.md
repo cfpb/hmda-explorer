@@ -8,9 +8,12 @@ See some [front-end notes](https://fake.ghe.domain/data-platform/data-platform-d
 
 ## Contributing
 
+Please use the [fork and pull](https://help.github.com/articles/using-pull-requests#fork--pull) collaborative model.
+
 1. [Install Node and Grunt](https://fake.ghe.domain/contolini/grunt-init-cfpb#prerequisites)
 1. Install Bower v0.10.0: `npm install -g bower@0.10.0` *Avoid newer versions due to a [node-tar bug](https://github.com/bower/bower/issues/727#issuecomment-22309010).*
-1. `git clone git@fake.ghe.domain:data-platform/public-data-platform.git`
+1. [Fork this repo](https://fake.ghe.domain/data-platform/public-data-platform/fork) to your personal GH account.
+1. `git clone git@fake.ghe.domain:YOUR-USERNAME/public-data-platform.git`
 1. `cd public-data-platform`
 1. `npm install`
 1. `bower install`
@@ -68,4 +71,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Thu Aug 29 2013 12:46:25.*
+*This file was generated on Thu Aug 29 2013 13:36:15.*
