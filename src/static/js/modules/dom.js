@@ -70,11 +70,9 @@ var PDP = (function ( pdp ) {
     ev.preventDefault();
 
     var format = $('#summary-table-format').val(),
-        showCodes = !!parseInt( $('input[type=radio][name=codes_summary]:checked').val(), 10 ),
+        showCodes = true,
         url = pdp.query.generateApiUrl( format, showCodes, pdp.summaryTable.queryParams );
 
-    
-    console.log('alskdfjk');
     pdp.app.redirect( url );
 
   });

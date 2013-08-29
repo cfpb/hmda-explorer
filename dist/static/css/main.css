@@ -3470,6 +3470,24 @@ section.video h2 strong {
   border: 1px solid #d0d0ce;
   width: 25%;
 }
+#download-summary.disabled {
+  /* IE 8 */
+
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+  /* IE 5-7 */
+
+  filter: alpha(opacity=30);
+  /* Netscape */
+
+  -moz-opacity: .3;
+  /* Safari 1.x */
+
+  -khtml-opacity: .3;
+  /* Good browsers */
+
+  opacity: .3;
+  font-style: italic;
+}
 @media only screen and (min-width: 768px) {
   #summary-table-form .intro {
     display: inline-block;
