@@ -282,27 +282,10 @@
 
                 
                 <li class="field">
-                  <label for="lender_name">Lender name:</label>
-                  <div class="widget select">
-                    <select class="param" name="lender_name" id="lender_name" multiple="multiple" data-placeholder="Select a lender name">
-                      <option value="1234567890">1234567890</option>
-                      <option value="1234567890">1234567890</option>
-                      <option value="1234567890">1234567890</option>
-                    </select>
-                  </div>
-                  <div class="help" title="The name of the lending institution"><i class="icon-help-alt"></i></div>
-                </li>
-                
-
-                
-                <li class="field">
                   <label for="respondent_id">Lender ID:</label>
-                  <div class="widget select">
-                    <select class="param" name="respondent_id" id="respondent_id" multiple="multiple" data-placeholder="Select a lender ID">
-                      <option value="1234567890">1234567890</option>
-                      <option value="1234567890">1234567890</option>
-                      <option value="1234567890">1234567890</option>
-                    </select>
+                  <div class="widget range">
+                    <input type="text" class="param require-numeric" name="respondent_id" value="" placeholder="Enter a lender ID">
+                    <p class="ffiec-lookup">Use the <a href="http://www.ffiec.gov/hmdaadwebreport/DisWelcome.aspx" target="_blank">FFIEC's disclosure tool</a> to find a lender's ID.</p>
                   </div>
                   <div class="help" title="A 10-digit number used to identify a financial institution that reports data to HMDA. It must be paired with an Agency to identify unique institutions, such as your neighborhood bank or credit union."><i class="icon-help-alt"></i></div>
                 </li>
@@ -312,11 +295,15 @@
                 <li class="field">
                   <label for="agency_code">Regulatory agency:</label>
                   <div class="widget select">
-                    <select class="param" name="agency_code" id="agency_code" multiple="multiple" data-placeholder="Select an Agency Code">
+                    <select class="param" name="agency_code" id="agency_code" multiple="multiple" data-placeholder="Select an Agency">
                       <option value=""></option>
-                      <option value="1">Office of the Comprtoller of the Currency (OCC)</option>
+                      <option value="1">Office of the Comptroller of the Currency (OCC)</option>
                       <option value="2">Federal Reserve System (FRS)</option>
-                      <option value="3">Federal Deposit Insurance Corporation(FDIC)</option>
+                      <option value="3">Federal Deposit Insurance Corporation (FDIC)</option>
+                      <option value="4">Office of Thrift Supervision (OTS)</option>
+                      <option value="5">National Credit Union Administration (NCUA)</option>
+                      <option value="7">Department of Housing and Urban Development (HUD)</option>
+                      <option value="9">Consumer Financial Protection Bureau (CFPB)</option>
                     </select>
                   </div>
                   <div class="help" title="A code to identify the agency that supervises or regulates the HMDA-reporting institution. Some banks, for example, may have divisions that are overseen by different agencies."><i class="icon-help-alt"></i></div>
