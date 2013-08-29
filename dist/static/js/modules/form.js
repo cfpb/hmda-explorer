@@ -57,7 +57,7 @@ var PDP = (function ( pdp ) {
       $( this ).css('height', 'auto');
     });
 
-    $el.removeClass('closed').attr( 'title', 'Hide this filter section' );
+    $el.removeClass('closed').attr( 'title', '' );
     pdp.observer.emitEvent( 'filter:shown', el );
 
   };
