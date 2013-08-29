@@ -17,5 +17,6 @@
             //expect( PDP.summaryTable ).not.toBeUndefined();
         });
     
+    });
 
 })();
