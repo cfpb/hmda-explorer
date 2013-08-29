@@ -200,9 +200,9 @@ var PDP = (function ( pdp ) {
 
   
   /**
-   * This function performs output formatting. It will convert numbers
-   * store in 1000s to a US dollar format.; i.e.,"23.52323423" to "$23,523".
-   * The methond includes multipling the original number by 1000, rounding to 
+   * This function performs output formatting of numbers in 1000s to a 
+   * US dollar format.; i.e.,"23.52323423" to "$23,523".
+   * The method includes multipling the original number by 1000, rounding to 
    * the nearest whole dollar, and then adding comma separators and '$'.
    *
    * The implementation should be something like :
@@ -226,8 +226,11 @@ var PDP = (function ( pdp ) {
             
             num = respData.results[record][column];
 
-            if (num == null || num === '' || isNaN(num)){  
+            if (num == null || num === '' || isNaN(num)) {  
               respData.results[record][column] = 'Data not available';
+            }
+            else if (num < 0) {
+                respData.results[record][column] = 'Data format error! A non-positive numerical value found in original data: ' + num;
             }
             else {
              respData.results[record][column] = '$' + Math.round( num*1000 ).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
