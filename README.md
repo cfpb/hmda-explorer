@@ -17,12 +17,15 @@ See some [front-end notes](https://fake.ghe.domain/data-platform/data-platform-d
 1. `grunt`
 1. Open `localhost:8000` in a browser.
 
-Only edit files in `src`. When anything is changed, Grunt will lint, test, compile and build everything. [grunt-cfpb-internal](https://fake.ghe.domain/contolini/grunt-cfpb-internal) generates this README. Bump versions in CHANGELOG when appropriate.
+[Comprehensive setup notes](https://fake.ghe.domain/gist/382) from @danmurphy are also available.
+
+Only edit files in `src`. When anything is changed, Grunt will lint, test, compile and build everything. [grunt-cfpb-internal](https://fake.ghe.domain/contolini/grunt-cfpb-internal) generates this README.
 
 In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2013-08-28   [v0.12.0](../../tree/v0.12.0)   New lender section. New census tract functionality. Bug fixes galore.
  * 2013-08-27   [v0.11.2](../../tree/v0.11.2)   Debounce explore page interactions (#90).
  * 2013-08-26   [v0.11.1](../../tree/v0.11.1)   Improve tests and documentation. Add charts to homepage.
  * 2013-08-13   [v0.11.0](../../tree/v0.11.0)   Give up on an AJAX request after X seconds have passed. Ability to download summary tables.
@@ -65,4 +68,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Tue Aug 27 2013 12:13:38.*
+*This file was generated on Thu Aug 29 2013 12:46:25.*
