@@ -20,7 +20,7 @@ var PDP = (function ( pdp ) {
   query.format = query.debug ? 'json' : 'jsonp?$callback=';
 
   // Set a default endpoint for AJAX requests.
-  query.endpoint = query.debug ? 'static/js/dummy_data/' : 'https://qu.demo.cfpb.gov/data/hmda/';
+  query.endpoint = query.debug ? 'static/js/static_data/' : 'https://qu.demo.cfpb.gov/data/hmda/';
 
   // Seconds to wait on a response from the API before giving up.
   query.secondsToWait = 600;
@@ -308,7 +308,7 @@ var PDP = (function ( pdp ) {
       // param to the `queryVals` array.
       if ( param.values.length === 1 ) {
 
-        if ( isNaN( param.values[0] ) || paramName === 'msamd' || paramName === 'respondent_id' ) {
+        if ( isNaN( param.values[0] ) || paramName === 'msamd' || paramName === 'respondent_id' || paramName === 'census_tract_number' ) {
           paramVal = paramName + param.comparator + '"' + param.values[0] + '"';
         } else {
           paramVal = paramName + param.comparator + param.values[0];
@@ -323,7 +323,7 @@ var PDP = (function ( pdp ) {
 
         _.forEach( param.values, function( val, key ){
 
-          if ( isNaN( val ) || paramName === 'msamd' || paramName === 'respondent_id' ) {
+          if ( isNaN( val ) || paramName === 'msamd' || paramName === 'respondent_id' || paramName === 'census_tract_number' ) {
             paramVals.push( paramName + param.comparator + '"' + val + '"' );
           } else {
             paramVals.push( paramName + param.comparator + val );
