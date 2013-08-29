@@ -2566,6 +2566,9 @@ ul.chzn-choices {
 .chzn-container-single .chzn-single abbr {
   top: 9px;
 }
+.homepage .top-banner {
+  background-color: #E7E7E6;
+}
 .homepage .hero {
   padding-top: 10px;
   text-align: center;
