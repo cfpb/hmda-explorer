@@ -2427,7 +2427,7 @@ textarea {
   overflow: scroll;
   position: relative;
   margin-top: 10px;
-  min-height: 100px;
+  height: 450px;
 }
 .preview #preview table.tidy_table {
   table-layout: fixed;
@@ -3122,6 +3122,9 @@ section.video h2 strong {
 .explore .hero:after {
   clear: both;
 }
+.explore .ffiec-lookup {
+  font-size: .8em;
+}
 #filters,
 #summary {
   -webkit-box-sizing: border-box;
@@ -3350,6 +3353,12 @@ section.video h2 strong {
   .download-share.summary .widget {
     width: 100%;
   }
+}
+@media only screen and (min-width: 768px) {
+  
+}
+@media only screen and (min-width: 768px) {
+  
 }
 #summary {
   position: relative;
