@@ -8,6 +8,119 @@ See some [front-end notes](https://fake.ghe.domain/data-platform/data-platform-d
 
 ## Contributing
 
+
+#### xCode
+
+Use self-service to update xCode to the latest version
+
+#### 1. Homebrew:
+
+https://fake.ghe.domain/pages/cfpb/handbook/your-laptop.html
+
+If homebrew is already installed, update homebrew to the latest version:
+
+```
+$ brew update
+```
+
+#### 2. Brew-installed applications: Node.js and Phantom.js
+```
+$ brew install node
+- or - 
+$ brew upgrade node
+
+$ brew install phantomjs
+```
+
+#### 3. Configure Node Package Manager:
+
+Add the path to the Node package manager to your ~/.bashprofile, here is an example path variable that prepends the homebrew bin locations to your path:
+
+```
+export PATH=$HOME/homebrew/bin:$HOME/homebrew/sbin:$HOME/homebrew/share/npm/bin:$HOME/homebrew/share/python:$HOME/homebrew/opt/ruby/bin:$PATH
+```
+
+#### 4. Install the Node applications: Bower and Grunt
+
+Bower is a JavaScript library manager. Grunt is a task runner.
+
+```
+$ npm install -g bower
+$ npm install -g grunt
+```
+
+#### 5. Clone the project from git
+
+```
+$ cd ~/git
+$ git clone git@fake.ghe.domain:danmurphy/public-data-charts.git
+```
+
+Change directory to the project:
+```
+$ cd ~\git\public-data-charts
+```
+
+#### 6. Install bower packages
+
+Bower is used to install the JavaScript libraries used by the public data platform. Even though these libraries are stored inside the project, they are ignored from git.
+
+```
+$ bower install
+$ bower install git@fake.ghe.domain:front/ghost.git
+$ bower install git@fake.ghe.domain:adamscott/cfpb-icon-font.git
+```
+
+Bower uses .bowerrc and bower.json for configuration
+
+Bower downloads its packages into ~/git/public-data-charts/src/static/vendor/. This folder is ignored by git, according to the .gitignore file. This will download the files in bower.json, e.g. jQuery, Highcharts, etc.
+
+Now, rename:
+```
+src/static/vendor/cfpb-icon-font
+```
+to:
+```
+src/static/vendor/cfpb-font-icons
+```
+See issue 93 for more info: https://fake.ghe.domain/data-platform/public-data-platform/issues/93
+
+#### 7. Install Grunt requirements
+
+```
+$ npm install
+```
+
+This installs everything in package.json, all the grunt dependencies are listed in this file.
+
+#### 8. Configure Phantom.JS to run the tests
+
+```$ npm install phantomjs```
+
+#### 9. Start Grunt
+
+Run a few grunt commands to test things out:
+
+```
+$ grunt uglify
+(This is the JS concatenation)
+
+$ grunt less
+(CSS processing)
+
+$ grunt html
+(HTML processing)
+
+$ grunt
+(default grunt job: runs uglify, less, html and starts the server [connect])
+```
+
+Now open your browser to:
+
+http://localhost:8000
+
+## Notes
+=======
 1. [Install Node and Grunt](https://fake.ghe.domain/contolini/grunt-init-cfpb#prerequisites)
 1. Install Bower v0.10.0: `npm install -g bower@0.10.0` *Avoid newer versions due to a [node-tar bug](https://github.com/bower/bower/issues/727#issuecomment-22309010).*
 1. `git clone git@fake.ghe.domain:data-platform/public-data-platform.git`
