@@ -3130,6 +3130,9 @@ section.video h2 strong {
 .explore .hero:after {
   clear: both;
 }
+.explore .ffiec-lookup {
+  font-size: .8em;
+}
 #filters,
 #summary {
   -webkit-box-sizing: border-box;
