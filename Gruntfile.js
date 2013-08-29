@@ -61,10 +61,16 @@ module.exports = function(grunt) {
      * Compress CSS files.
      */
     cssmin: {
-      combine: {
+      main: {
         keepSpecialComments: '*',
         files: {
           'dist/static/css/main.min.css': ['<%= banner.cfpb %>', 'dist/static/css/main.css']
+        }
+      },
+      ie8: {
+        keepSpecialComments: '*',
+        files: {
+          'dist/static/css/ie8.min.css': ['src/static/vendor/html5-placeholder-polyfill/dist/placeholder_polyfill.min.css']
         }
       }
     },
@@ -135,21 +141,12 @@ module.exports = function(grunt) {
      * zipping the example directory.
      */
     shell: {
-      go: {
-        command: [
-          'bower install',
-          'grunt build',
-          'grunt'
-        ].join('&&')
-      },
       dist: {
         command: [
           'cp -r src/static/fonts dist/static',
           'cp -r src/static/img dist/static',
           'cp -r src/static/js dist/static',
           'cp src/static/vendor/cfpb-font-icons/static/css/icons-ie7.css dist/static/css/icons-ie7.css',
-          'cp src/static/vendor/html5shiv/dist/* dist/static/js/',
-          'cp src/static/vendor/respond/respond.min.js dist/static/js/',
           'cp src/static/vendor/zeroclipboard/* dist/static/js/zeroclipboard/',
           'cp src/static/vendor/chosen/public/chosen-* dist/static/css'
         ].join('&&')
@@ -252,6 +249,16 @@ module.exports = function(grunt) {
           ]
         }
       },
+      ie8: {
+        files: {
+          'dist/static/js/ie8.min.js': [
+            'src/static/vendor/html5shiv/dist/html5shiv.js',
+            'src/static/vendor/html5shiv/dist/html5shiv-printshiv.js',
+            'src/static/vendor/respond/respond.min.js',
+            'src/static/vendor/html5-placeholder-polyfill/dist/placeholder_polyfill.jquery.min.combo.js'
+          ]
+        }
+      }
     },
 
     /**
@@ -282,12 +289,13 @@ module.exports = function(grunt) {
     jasmine: {
       pdp: {
         src: [
-          'dist/static/js/all.min.js',
+          'dist/static/js/**/*.js',
           'test/specs/helpers/debug.js'
         ],
         options: {
           specs: 'test/specs/*.js',
           helpers: 'test/specs/helpers/*.js',
+          host:'http://localhost:8000',
           timeout: 30000
         }
       }

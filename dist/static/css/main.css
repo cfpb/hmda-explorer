@@ -2435,7 +2435,7 @@ textarea {
   overflow: scroll;
   position: relative;
   margin-top: 10px;
-  min-height: 100px;
+  height: 450px;
 }
 .preview #preview table.tidy_table {
   table-layout: fixed;
@@ -3137,6 +3137,9 @@ section.video h2 strong {
 .explore .hero:after {
   clear: both;
 }
+.explore .ffiec-lookup {
+  font-size: .8em;
+}
 #filters,
 #summary {
   -webkit-box-sizing: border-box;
@@ -3365,6 +3368,19 @@ section.video h2 strong {
   .download-share.summary .widget {
     width: 100%;
   }
+}
+#learn-more #what-is-hmda .inner {
+  width: 82%;
+}
+#learn-more #what-is-hmda p {
+  width: 66%;
+  display: inline-block;
+  margin-right: 4%;
+}
+#learn-more #what-is-hmda .links {
+  width: 29%;
+  display: inline-block;
+  vertical-align: top;
 }
 @media only screen and (min-width: 768px) {
   
