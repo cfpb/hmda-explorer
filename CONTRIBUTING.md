@@ -7,6 +7,8 @@
 1. `grunt`
 1. Open `localhost:8000` in a browser.
 
-Only edit files in `src`. When anything is changed, Grunt will lint, test, compile and build everything. [grunt-cfpb-internal](https://fake.ghe.domain/contolini/grunt-cfpb-internal) generates this README. Bump versions in CHANGELOG when appropriate.
+[Comprehensive setup notes](https://fake.ghe.domain/gist/382) from @danmurphy are also available.
+
+Only edit files in `src`. When anything is changed, Grunt will lint, test, compile and build everything. [grunt-cfpb-internal](https://fake.ghe.domain/contolini/grunt-cfpb-internal) generates this README.
 
 In lieu of a formal styleguide, take care to maintain the existing coding style.
