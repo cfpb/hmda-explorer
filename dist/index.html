@@ -11,11 +11,10 @@
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="static/css/main.css">
     <link href="//api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.css" rel="stylesheet">
-    <!--[if lte IE 8]><link href='//api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.ie.css' rel='stylesheet' />
+    <!--[if lt IE 8]><link href='//api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.ie.css' rel='stylesheet' />
       <link rel="stylesheet" href="static/css/icons-ie7.css"><![endif]-->
-    <!--[if lt IE 9]><script src="static/js/html5shiv.js"></script>
-      <script src="static/js/html5shiv-printshiv.js"></script>
-      <script src="static/js/respond.min.js"></script><![endif]-->
+    <!--[if lt IE 9]><link rel="stylesheet" href="static/css/ie8.min.css">
+      <script src="static/js/ie8.min.js"></script><![endif]-->
     <script>
       var docElement = document.documentElement;
       docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2');
@@ -903,21 +902,22 @@
         <h2>Get the data <strong>Find what you want</strong></h2>
 
         <div class="inner">
-          <div class="filters">
-            <h3>Filters</h3>
-            <p>Interested in learning about specific mortgage trends in a location, or among a community, or within a certain kind of loans? 
-               Filter your search results to get just the data you need. You can also download the filtered HMDA data in different formats.</p>
-            <a href="explore.html" class="action-arrow">Filter data <i class="icon-right"></i></a>
+            <div class="filters">
+              <h3>Filters</h3>
+              <p>Interested in learning about specific mortgage trends in a location, among a community, or with a certain type of loan? 
+                 Filter your search results to get just the data you need. You can also download the filtered HMDA data in different formats.</p>
+              <a href="explore.html" class="action-arrow">Filter data <i class="icon-right"></i></a>
+            </div>
+            <div class="summary">
+              <h3>Summary Tables</h3>
+              <p>Need more insight? Use your specific search filter to create unique aggregate views&mdash;<em>Summary Tables</em>.
+              Summary Tables allow you to gain statistical insight into concepts such as <em>applicant race</em>, <em>average income</em>, and more.
+              <a href="explore.html#!/section=summary" class="action-arrow">Tabulate data <i class="icon-right"></i></a>
+            </p></div>
           </div>
-          <div class="summary">
-            <h3>Summary Tables</h3>
-            <p>Need more insight? Use your specific search filter to create unique aggregate views&mdash;<em>Summary Tables</em>.
-            Summary Tables allow you to gain statistical insight into concepts such as <em>applicant race</em>, <em>average income</em>, and more.
-            <a href="explore.html#!/section=summary" class="action-arrow">Tabulate data <i class="icon-right"></i></a>
-          </p></div>
         </div>
 
-      </div>
+      
 
     </section>
 

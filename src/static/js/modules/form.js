@@ -57,7 +57,7 @@ var PDP = (function ( pdp ) {
       $( this ).css('height', 'auto');
     });
 
-    $el.removeClass('closed').attr( 'title', 'Hide this filter section' );
+    $el.removeClass('closed').attr( 'title', '' );
     pdp.observer.emitEvent( 'filter:shown', el );
 
   };
@@ -281,59 +281,79 @@ var PDP = (function ( pdp ) {
     var concept = $(el).find('select').data('concept') || $(el).find('select').attr('id'),
         id = $(el).find('select').attr('id'),
         conceptProperty = $(el).find('select').data('concept-property') || $(el).find('select').attr('id'),
-        conceptFetch = this.fetchFieldOptions( concept );
+        conceptFetch = this.fetchFieldOptions( concept, dependencies );
+
 
     // Fetch form field options and set fields when that request is fulfilled.
     conceptFetch.done( function( data ) {
 
-        // Grab the id of this element's dependency (e.g. state_code), @TODO rework this
-        // as it's kinda dumb and inefficient.
-        var options,
-            dependency = $( '[data-dependent~=' + id + ']' ).attr('id').replace( /\-[\w^_]+$/, '' );
+      // Grab the id of this element's dependency (e.g. state_code), @TODO rework this
+      // as it's kinda dumb and inefficient.
+      var options,
+          dependency = $( '[data-dependent~=' + id + ']' ).attr('id').replace( /\-[\w^_]+$/, '' );
 
-        // Only return objects from the JSON that match the the id of the depdency.
-        function filterDeps( obj ){
-          return _.contains( dependencies, obj[ dependency ] );
-        }
+      // Only return objects from the JSON that match the the id of the depdency.
+      function filterDeps( obj ){
+        return _.contains( dependencies, obj[ dependency ] );
+      }
 
-        // Modify the object to fit the underscore template.
-        function mapDeps( obj ){
+      // Modify the object to fit the underscore template.
+      function mapDeps( obj ){
+        return {
+          label: obj[ conceptProperty.replace( /\-[\w^_]+$/, '' ) ],
+          value: obj._id
+        };
+      }
+
+      // Modify census tract objects to fit the underscore template (they have a totally different format).
+      function mapCensus( obj ){
+        return {
+          label: obj.census_tract_number,
+          value: obj.census_tract_number
+        };
+      }
+
+      // Sort all the options into alphabetical order.
+      function sortDeps( obj ){
+        return obj.label;
+      }
+
+      // FIPS is weird, gotta trim the first two digits of the county ids.
+      function cleanCounties( obj ) {
+        if ( concept === 'fips' ) {
           return {
-            label: obj[ conceptProperty.replace( /\-[\w^_]+$/, '' ) ],
-            value: obj._id
+            label: obj.label,
+            value: obj.value.toString().substr(2,100)
           };
         }
+        return obj;
+      }
 
-        // Sort all the options into alphabetical order.
-        function sortDeps( obj ){
-          return obj.label;
-        }
+      // If any data was returned.
+      if ( typeof data.table !== 'undefined' ) {
 
-        // FIPS is weird, gotta trim the first two digits of the county ids.
-        function cleanCounties( obj ) {
-          if ( concept === 'fips' ) {
-            return {
-              label: obj.label,
-              value: obj.value.toString().substr(2,100)
-            };
-          }
-          return obj;
-        }
+        options = _( data.table.data ).filter( filterDeps ).map( mapDeps ).map( cleanCounties ).sortBy( sortDeps ).value();
+        this.setFieldOptions( el, options );
 
-        // If any data was returned.
-        if ( typeof data.table !== 'undefined' ) {
+        // Broadcast that the update has ended.
+        pdp.observer.emitEvent('field:updated');
 
-          options = _( data.table.data ).filter( filterDeps ).map( mapDeps ).map( cleanCounties ).sortBy( sortDeps ).value();
-          this.setFieldOptions( el, options );
+      }
 
-          // Broadcast that the update has ended.
-          pdp.observer.emitEvent('field:updated');
+      // Census tract concept data is in a different format.
+      if ( typeof data.results !== 'undefined' ) {
 
-        }
+        options = _( data.results ).map( mapCensus ).sortBy( sortDeps ).value();
+        this.setFieldOptions( el, options );
 
-        pdp.observer.emitEvent('update:stopped');
+        // Broadcast that the update has ended.
+        pdp.observer.emitEvent('field:updated');
 
-        $( el ).find('.spinning').hide();
+      }
+
+      pdp.observer.emitEvent('update:stopped');
+
+      $( el ).find('.spinning').hide();
 
     }.bind( this ));
 
@@ -354,11 +374,28 @@ var PDP = (function ( pdp ) {
   };
 
   // The `fetchFieldOptions` method returns a promise to a field's options.
-  form.fetchFieldOptions = function( concept ) {
+  form.fetchFieldOptions = function( concept, dependencies ) {
 
-    // Temporarily setting this to use dummy data
-    //var promise = pdp.utils.getJSON( pdp.query.endpoint + 'concept/' + concept + '.' + pdp.query.format + '?' );
-    var promise = pdp.utils.getJSON( 'static/js/dummy_data/concept/' + concept + '.' + 'json' );
+    var promise;
+
+    switch( concept ) {
+
+      // Use custom static data for fips because the concept data doesn't have state_codes in it.
+      case 'fips':
+        promise = pdp.utils.getJSON( 'static/js/static_data/concept/fips.json' );
+        break;
+        
+      // Census tract concept data is a format totally different from normal concept data so
+      // we have to handle it in a special way.
+      case 'census_tract_number':
+        promise = pdp.utils.getJSON( pdp.query.endpoint + 'slice/census_tracts.' + pdp.query.format + '?&$where=state_code=' + dependencies[0] + '&$limit=1000' );
+        break;
+
+      // Default course for getting concept data.
+      default:
+        promise = pdp.utils.getJSON( pdp.query.endpoint + 'concept/' + concept + '.' + pdp.query.format + '?' );
+
+    }
 
     return promise;
 
@@ -504,7 +541,7 @@ var PDP = (function ( pdp ) {
       var $el = $( '#' + name ),
           $partner = $( '.field.' + $el.data('toggle') );
 
-      if ( $partner.length > 0 && $el.val().length > 0 ) {
+      if ( $partner.length > 0 && $el.val() && $el.val().length > 0 ) {
         form.disableField( $partner );
       } else {
         form.enableField( $partner );
