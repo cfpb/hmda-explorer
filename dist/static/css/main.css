@@ -3362,6 +3362,19 @@ section.video h2 strong {
     width: 100%;
   }
 }
+#learn-more #what-is-hmda .inner {
+  width: 82%;
+}
+#learn-more #what-is-hmda p {
+  width: 66%;
+  display: inline-block;
+  margin-right: 4%;
+}
+#learn-more #what-is-hmda .links {
+  width: 29%;
+  display: inline-block;
+  vertical-align: top;
+}
 @media only screen and (min-width: 768px) {
   
 }
