@@ -1,18 +1,23 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 & !IEMobile]><html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
-<!--[if IE 7 & !IEMobile]><html lang="en" class="no-js lt-ie9 lt-ie8"><![endif]-->
-<!--[if IE 8 & !IEMobile]><html lang="en" class="no-js lt-ie9"><![endif]-->
+<!--[if lt IE 7 & !IEMobile]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7 & !IEMobile]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8 & !IEMobile]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8 | IEMobile]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>The Home Mortgage Disclosure Act</title>
+    <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="static/css/main.css">
-    <!--[if lt IE 8]><link rel="stylesheet" href="static/css/icons-ie7.css"><![endif]-->
-    <!--[if lt IE 9]><link rel="stylesheet" href="static/css/ie8.min.css">
-      <script src="static/js/ie8.min.js"></script><![endif]-->
+    <!--[if lte IE 8]>
+      <link rel="stylesheet" href="static/css/icons-ie7.css">
+    <![endif]-->
+    <!--[if lt IE 9]>
+      <script src="static/js/html5shiv.js"></script>
+      <script src="static/js/html5shiv-printshiv.js"></script>
+      <script src="static/js/respond.min.js"></script>
+    <![endif]-->
     <script>
       var docElement = document.documentElement;
       docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2');
@@ -24,14 +29,14 @@
 
         <div class="logo">
 
-          <img src="static/img/logo_2x.png" width="211" height="52" alt="Consumer Financial Protection Bureau">
+          <img src="static/img/logo_2x.png" width="211" height="52" alt="Consumer Financial Protection Bureau" />
 
         </div>
 
-        <nav role="navigation" aria-label="Main HMDA Menu">
+        <nav role="navigation">
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="learn-more.html">Learn more</a></li>
+                <li><a href="#">Learn more</a></li>
                 <li><a href="explore.html" class="active">Explore data</a></li>
                 <li><a href="http://cfpb.github.io/api/">API docs</a></li>
             </ul>
@@ -45,7 +50,7 @@
 
           <h1>Explore the data</h1>
 
-          <nav role="navigation" aria-label="Explore HMDA Menu">
+          <nav>
             <ul>
               <li><a href="#filters" class="section-toggle">Custom Datasets</a></li>
               <li><a href="#summary" class="section-toggle">Summary Tables</a></li>
@@ -56,19 +61,19 @@
 
       </div>
 
-      
+      <!-- filters -->
 
       <div id="filters" class="app-section">
 
         <form id="explore" action="" method="get">
 
-          
+          <!-- all filters section -->
 
           <h2>Filter the data</h2>
 
           <div id="all">
 
-            
+            <!-- filter section -->
 
             <div class="filter year" id="year">
 
@@ -82,11 +87,11 @@
 
               <ul class="fields">
 
-                
+                <!-- filter field -->
                 <li class="field popular">
                   <label for="as_of_year">Select year(s) of data:</label>
                   <div class="widget select">
-                    <select class="param" name="as_of_year" id="as_of_year" multiple="multiple" data-placeholder="Select a year">
+                    <select class="param" name="as_of_year" id="as_of_year" multiple data-placeholder="Select a year">
                       <option value="2012">2012</option>
                       <option value="2011">2011</option>
                       <option value="2010">2010</option>
@@ -97,15 +102,15 @@
                   </div>
                   <div class="help" title="Select one or more years you would like to see mortgage data from."><i class="icon-help-alt"></i></div>
                 </li>
-                
+                <!-- /filter field -->
 
               </ul>
               
             </div>
 
-            
+            <!-- /filter section -->
 
-            
+            <!-- filter section -->
 
             <div class="filter location closed" id="location">
 
@@ -123,9 +128,9 @@
               
             </div>
 
-            
+            <!-- /filter section -->
 
-            
+            <!-- filter section -->
 
             <div class="filter borrower closed" id="borrower">
 
@@ -139,25 +144,25 @@
 
               <ul class="fields">
 
-                
+                <!-- filter field -->
                 <li class="field applicant_sex">
                   <label for="applicant_sex">Applicant Sex:</label>
                   <div class="widget checkbox inline">
-                    <label><input type="checkbox" class="param" name="applicant_sex[]" value="1">Male</label>
-                    <label><input type="checkbox" class="param" name="applicant_sex[]" value="2">Female</label>
-                    <label><input type="checkbox" class="param" name="applicant_sex[]" value="3">Not provided</label>
-                    <label><input type="checkbox" class="param" name="applicant_sex[]" value="4">Not applicable</label>
+                    <label><input type="checkbox" class="param" name="applicant_sex[]" value="1" />Male</label>
+                    <label><input type="checkbox" class="param" name="applicant_sex[]" value="2" />Female</label>
+                    <label><input type="checkbox" class="param" name="applicant_sex[]" value="3" />Not provided</label>
+                    <label><input type="checkbox" class="param" name="applicant_sex[]" value="4" />Not applicable</label>
                   </div>
                   <div class="help" title="Not provided: Information not provided by applicant in mail, Internet, or telephone application. Not applicable: Not applicable because the applicant is not a natural person (a business, corporation or partnership, for example) or the applicant information is unavailable because the loan has been purchased by the institution."><i class="icon-help-alt"></i></div>
                 </li>
-                
+                <!-- /filter field -->
 
-                
+                <!-- filter field -->
                 <li class="field">
                   <label for="applicant_race_1">Applicant Race:</label>
                   <div class="widget select single">
-                    <select class="param" name="applicant_race_1" id="applicant_race_1" multiple="multiple" data-placeholder="Select an Applicant Race">
-                      <option value=""></option>
+                    <select class="param" name="applicant_race_1" id="applicant_race_1" multiple data-placeholder="Select an Applicant Race">
+                      <option value></option>
                       <option value="1">American Indian or Alaska Native</option>
                       <option value="2">Asian</option>
                       <option value="3">Black or African American</option>
@@ -169,14 +174,14 @@
                   </div>
                   <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt."><i class="icon-help-alt"></i></div>
                 </li>
-                
+                <!-- /filter field -->
 
-                
+                <!-- filter field -->
                 <li class="field">
                   <label for="applicant_ethnicity">Applicant Ethnicity:</label>
                   <div class="widget select">
-                    <select class="param" name="applicant_ethnicity" id="applicant_ethnicity" multiple="multiple" data-placeholder="Select an Applicant Ethnicity">
-                      <option value=""></option>
+                    <select class="param" name="applicant_ethnicity" id="applicant_ethnicity" multiple data-placeholder="Select an Applicant Ethnicity">
+                      <option value></option>
                       <option value="1">Hispanic or Latino</option>
                       <option value="2">Not Hispanic or Latino</option>
                       <option value="3">Information not provided by applicant in mail, Internet, or telephone application</option>
@@ -186,49 +191,49 @@
                   </div>
                   <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt."><i class="icon-help-alt"></i></div>
                 </li>
-                
+                <!-- /filter field -->
 
-                
+                <!-- filter field -->
                 <li class="field applicant_income_000s">
                   <label for="applicant_income_000s">Applicant Income:</label>
                   <div class="widget range">
-                    <span>$</span><input type="text" class="param require-numeric" name="applicant_income_000s-min" data-comparator=">" value="" placeholder="Min."><span class="thousands">,000 to</span>
-                    <span>$</span><input type="text" class="param require-numeric" name="applicant_income_000s-max" data-comparator="<" value="" placeholder="Max."><span class="thousands">,000</span>
+                    <span>$</span><input type="text" class="param" name="applicant_income_000s-min" data-comparator=">" value="" placeholder="Min."><span class="thousands">,000 to</span>
+                    <span>$</span><input type="text" class="param" name="applicant_income_000s-max" data-comparator="<" value="" placeholder="Max."><span class="thousands">,000</span>
                   </div>
                   <div class="help" title="Applicant’s annual gross income (in thousands) that an institution relied upon in making the credit decision."><i class="icon-help-alt"></i></div>
                 </li>
-                
+                <!-- /filter field -->
 
-                
+                <!-- filter field -->
                 <li class="field optional-toggle" data-optional="co_applicant">
                   <label for="include_co_applicant">Include co-applicant?</label>
                   <div class="widget radio include_co_applicant">
-                    <label><input type="radio" name="include_co_applicant" value="1">Yes</label>
-                    <label><input type="radio" name="include_co_applicant" value="0" checked="checked">No</label>
+                    <label><input type="radio" name="include_co_applicant" value="1" />Yes</label>
+                    <label><input type="radio" name="include_co_applicant" value="0" checked />No</label>
                   </div>
                   <div class="help" title="Do you want to include the details of a co-applicant?"><i class="icon-help-alt"></i></div>
                 </li>
-                
+                <!-- /filter field -->
 
-                
+                <!-- filter field -->
                 <li class="field optional co_applicant co_applicant_sex hidden" data-optional="co_applicant">
                   <label for="co_applicant_sex">Co-Applicant Sex</label>
                   <div class="widget checkbox inline">
-                    <label><input type="checkbox" class="param" name="co_applicant_sex[]" value="1">Male</label>
-                    <label><input type="checkbox" class="param" name="co_applicant_sex[]" value="2">Female</label>
-                    <label><input type="checkbox" class="param" name="co_applicant_sex[]" value="3">Not provided</label>
-                    <label><input type="checkbox" class="param" name="co_applicant_sex[]" value="4">Not applicable</label>
+                    <label><input type="checkbox" class="param" name="co_applicant_sex[]" value="1" />Male</label>
+                    <label><input type="checkbox" class="param" name="co_applicant_sex[]" value="2" />Female</label>
+                    <label><input type="checkbox" class="param" name="co_applicant_sex[]" value="3" />Not provided</label>
+                    <label><input type="checkbox" class="param" name="co_applicant_sex[]" value="4" />Not applicable</label>
                   </div>
-                  <div class="help" title="Not provided: Information not provided by applicant in mail, Internet, or telephone application. Not applicable: Not applicable because the applicant is not a natural person (a business, corporation or partnership, for example) or the applicant information is unavailable because the loan has been purchased by the institution."></div>
+                  <div class="help" title="Not provided: Information not provided by applicant in mail, Internet, or telephone application. Not applicable: Not applicable because the applicant is not a natural person (a business, corporation or partnership, for example) or the applicant information is unavailable because the loan has been purchased by the institution."></i></div>
                 </li>
-                
+                <!-- /filter field -->
 
-                
+                <!-- filter field -->
                 <li class="field optional co_applicant hidden" data-optional="co_applicant">
                   <label for="co_applicant_ethnicity">Co-Applicant Ethnicity:</label>
                   <div class="widget select">
-                    <select class="param" name="co_applicant_ethnicity" id="co_applicant_ethnicity" multiple="multiple" data-placeholder="Select a Co-Applicant Ethnicity">
-                      <option value=""></option>
+                    <select class="param" name="co_applicant_ethnicity" id="co_applicant_ethnicity" multiple data-placeholder="Select a Co-Applicant Ethnicity">
+                      <option value></option>
                       <option value="1">Hispanic or Latino</option>
                       <option value="2">Not Hispanic or Latino</option>
                       <option value="3">Information not provided by applicant in mail, Internet, or telephone application</option>
@@ -238,14 +243,14 @@
                   </div>
                   <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt."><i class="icon-help-alt"></i></div>
                 </li>
-                
+                <!-- /filter field -->
 
-                
+                <!-- filter field -->
                 <li class="field optional co_applicant hidden" data-optional="co_applicant">
                   <label for="co_applicant_race_1">Co-Applicant Race:</label>
                   <div class="widget select">
-                    <select class="param" name="co_applicant_race_1" id="co_applicant_race_1" multiple="multiple" data-placeholder="Select an Applicant Race">
-                      <option value=""></option>
+                    <select class="param" name="co_applicant_race_1" id="co_applicant_race_1" multiple data-placeholder="Select an Applicant Race">
+                      <option value></option>
                       <option value="1">American Indian or Alaska Native</option>
                       <option value="2">Asian</option>
                       <option value="3">Black or African American</option>
@@ -257,15 +262,15 @@
                   </div>
                   <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt."><i class="icon-help-alt"></i></div>
                 </li>
-                
+                <!-- /filter field -->
 
               </ul>
               
             </div>
 
-            
+            <!-- /filter section -->
 
-            
+            <!-- filter section -->
 
             <div class="filter lender closed" id="lender">
 
@@ -279,43 +284,56 @@
 
               <ul class="fields">
 
-                
+                <!-- filter field -->
+                <li class="field">
+                  <label for="lender_name">Lender name:</label>
+                  <div class="widget select">
+                    <select class="param" name="lender_name" id="lender_name" multiple data-placeholder="Select a lender name">
+                      <option value="1234567890">1234567890</option>
+                      <option value="1234567890">1234567890</option>
+                      <option value="1234567890">1234567890</option>
+                    </select>
+                  </div>
+                  <div class="help" title="The name of the lending institution"><i class="icon-help-alt"></i></div>
+                </li>
+                <!-- /filter field -->
+
+                <!-- filter field -->
                 <li class="field">
                   <label for="respondent_id">Lender ID:</label>
-                  <div class="widget range">
-                    <input type="text" class="param require-numeric" name="respondent_id" value="" maxlength="10" placeholder="Enter a lender ID">
-                    <p class="ffiec-lookup">Use the <a href="http://www.ffiec.gov/hmdaadwebreport/DisWelcome.aspx" target="_blank">FFIEC's disclosure tool</a> to find a lender's ID.</p>
+                  <div class="widget select">
+                    <select class="param" name="respondent_id" id="respondent_id" multiple data-placeholder="Select a lender ID">
+                      <option value="1234567890">1234567890</option>
+                      <option value="1234567890">1234567890</option>
+                      <option value="1234567890">1234567890</option>
+                    </select>
                   </div>
                   <div class="help" title="A 10-digit number used to identify a financial institution that reports data to HMDA. It must be paired with an Agency to identify unique institutions, such as your neighborhood bank or credit union."><i class="icon-help-alt"></i></div>
                 </li>
-                
+                <!-- /filter field -->
 
-                
+                <!-- filter field -->
                 <li class="field">
                   <label for="agency_code">Regulatory agency:</label>
                   <div class="widget select">
-                    <select class="param" name="agency_code" id="agency_code" multiple="multiple" data-placeholder="Select an Agency">
-                      <option value=""></option>
-                      <option value="1">Office of the Comptroller of the Currency (OCC)</option>
+                    <select class="param" name="agency_code" id="agency_code" multiple data-placeholder="Select an Agency Code">
+                      <option value></option>
+                      <option value="1">Office of the Comprtoller of the Currency (OCC)</option>
                       <option value="2">Federal Reserve System (FRS)</option>
-                      <option value="3">Federal Deposit Insurance Corporation (FDIC)</option>
-                      <option value="4">Office of Thrift Supervision (OTS)</option>
-                      <option value="5">National Credit Union Administration (NCUA)</option>
-                      <option value="7">Department of Housing and Urban Development (HUD)</option>
-                      <option value="9">Consumer Financial Protection Bureau (CFPB)</option>
+                      <option value="3">Federal Deposit Insurance Corporation(FDIC)</option>
                     </select>
                   </div>
                   <div class="help" title="A code to identify the agency that supervises or regulates the HMDA-reporting institution. Some banks, for example, may have divisions that are overseen by different agencies."><i class="icon-help-alt"></i></div>
                 </li>
-                
+                <!-- /filter field -->
 
               </ul>
               
             </div>
 
-            
+            <!-- /filter section -->
 
-            
+            <!-- filter section -->
 
             <div class="filter property closed" id="property">
 
@@ -329,37 +347,37 @@
 
               <ul class="fields">
                 
-                
+                <!-- filter field -->
                 <li class="field popular">
                   <label for="1">Property Type:</label>
                   <div class="widget checkbox">
-                    <label><input type="checkbox" class="param" name="property_type[]" value="1" id="foo">One to four-family</label>
-                    <label><input type="checkbox" class="param" name="property_type[]" value="2">Manufactured housing</label>
-                    <label><input type="checkbox" class="param" name="property_type[]" value="3">Multifamily dwelling</label>
+                    <label><input type="checkbox" class="param" name="property_type[]" value="1" id="foo"/>One to four-family</label>
+                    <label><input type="checkbox" class="param" name="property_type[]" value="2" />Manufactured housing</label>
+                    <label><input type="checkbox" class="param" name="property_type[]" value="3" />Multifamily dwelling</label>
                   </div>
                   <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt."><i class="icon-help-alt"></i></div>
                 </li>
-                
+                <!-- /filter field -->
 
-                
+                <!-- filter field -->
                 <li class="field popular">
                   <label for="1">Owner Occupancy:</label>
                   <div class="widget checkbox">
-                    <label><input type="checkbox" class="param" name="owner_occupancy[]" value="1">Owner-occupied (as a principal dwelling)</label>
-                    <label><input type="checkbox" class="param" name="owner_occupancy[]" value="2">Not owner-occupied/not principal dwelling</label>
-                    <label><input type="checkbox" class="param" name="owner_occupancy[]" value="3">Not applicable</label>
+                    <label><input type="checkbox" class="param" name="owner_occupancy[]" value="1" />Owner-occupied (as a principal dwelling)</label>
+                    <label><input type="checkbox" class="param" name="owner_occupancy[]" value="2" />Not owner-occupied/not principal dwelling</label>
+                    <label><input type="checkbox" class="param" name="owner_occupancy[]" value="3" />Not applicable</label>
                   </div>
                   <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt."><i class="icon-help-alt"></i></div>
                 </li>
-                
+                <!-- /filter field -->
 
               </ul>
               
             </div>
 
-            
+            <!-- /filter section -->
 
-            
+            <!-- filter section -->
 
             <div class="filter description closed" id="description">
 
@@ -373,84 +391,84 @@
 
               <ul class="fields">
 
-                
+                <!-- filter field -->
                 <li class="field popular">
                   <label for="lien_status">Lien Status:</label>
                   <div class="widget checkbox">
-                    <label><input type="checkbox" class="param" name="lien_status[]" value="1">Secured by a first lien</label>
-                    <label><input type="checkbox" class="param" name="lien_status[]" value="2">Secured by a subordinate lien</label>
-                    <label><input type="checkbox" class="param" name="lien_status[]" value="3">Not secured by a lien</label>
-                    <label><input type="checkbox" class="param" name="lien_status[]" value="4">Not applicable (purchased loans)</label>
+                    <label><input type="checkbox" class="param" name="lien_status[]" value="1" />Secured by a first lien</label>
+                    <label><input type="checkbox" class="param" name="lien_status[]" value="2" />Secured by a subordinate lien</label>
+                    <label><input type="checkbox" class="param" name="lien_status[]" value="3" />Not secured by a lien</label>
+                    <label><input type="checkbox" class="param" name="lien_status[]" value="4" />Not applicable (purchased loans)</label>
                   </div>
                   <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt."><i class="icon-help-alt"></i></div>
                 </li>
-                
+                <!-- /filter field -->
 
-                
+                <!-- filter field -->
                 <li class="field loan_amount_000s">
                   <label for="loan_amount_000s">How much is the loan for?</label>
                   <div class="widget range">
-                    <span>$</span><input type="text" class="param require-numeric" name="loan_amount_000s-min" data-comparator=">" value="" placeholder="Min."><span class="thousands">,000 to</span>
-                    <span>$</span><input type="text" class="param require-numeric" name="loan_amount_000s-max" data-comparator="<" value="" placeholder="Max."><span class="thousands">,000</span>
+                    <span>$</span><input type="text" class="param" name="loan_amount_000s-min" data-comparator=">" value="" placeholder="Min."><span class="thousands">,000 to</span>
+                    <span>$</span><input type="text" class="param" name="loan_amount_000s-max" data-comparator="<" value="" placeholder="Max."><span class="thousands">,000</span>
                   </div>
                   <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt."><i class="icon-help-alt"></i></div>
                 </li>
-                
+                <!-- /filter field -->
 
-                
+                <!-- filter field -->
                 <li class="field">
                   <label for="loan_type">What type of loan is it?</label>
                   <div class="widget checkbox">
-                    <label><input type="checkbox" class="param" name="loan_type[]" value="1">Conventional</label>
-                    <label><input type="checkbox" class="param" name="loan_type[]" value="2">Federal Housing Administration insured</label>
-                    <label><input type="checkbox" class="param" name="loan_type[]" value="3">Veterans Administration guaranteed</label>
-                    <label><input type="checkbox" class="param" name="loan_type[]" value="4">Farm Service Agency or Rural Housing Service</label>
+                    <label><input type="checkbox" class="param" name="loan_type[]" value="1" />Conventional</label>
+                    <label><input type="checkbox" class="param" name="loan_type[]" value="2" />Federal Housing Administration insured</label>
+                    <label><input type="checkbox" class="param" name="loan_type[]" value="3" />Veterans Administration guaranteed</label>
+                    <label><input type="checkbox" class="param" name="loan_type[]" value="4" />Farm Service Agency or Rural Housing Service</label>
                   </div>
                   <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt."><i class="icon-help-alt"></i></div>
                 </li>
-                
+                <!-- /filter field -->
 
-                
+                <!-- filter field -->
                 <li class="field">
                   <label for="loan_purpose">What is the loan being used for?</label>
                   <div class="widget checkbox">
-                    <label><input type="checkbox" class="param" name="loan_purpose[]" value="1">Home purchase</label>
-                    <label><input type="checkbox" class="param" name="loan_purpose[]" value="2">Home improvement</label>
-                    <label><input type="checkbox" class="param" name="loan_purpose[]" value="3">Refinancing</label>
+                    <label><input type="checkbox" class="param" name="loan_purpose[]" value="1" />Home purchase</label>
+                    <label><input type="checkbox" class="param" name="loan_purpose[]" value="2" />Home improvement</label>
+                    <label><input type="checkbox" class="param" name="loan_purpose[]" value="3" />Refinancing</label>
                   </div>
                   <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt."><i class="icon-help-alt"></i></div>
                 </li>
-                
+                <!-- /filter field -->
 
-                
+                <!-- filter field -->
                 <li class="field optional-toggle" data-optional="hoepa_loan">
                   <label for="include_hoepa_loan">Show optional HMDA reporting categories?</label>
                   <div class="widget radio inline include_hoepa_loan">
-                    <label><input type="radio" name="include_hoepa_loan" value="1">Yes</label>
-                    <label><input type="radio" name="include_hoepa_loan" value="0" checked="checked">No</label>
+                    <label><input type="radio" name="include_hoepa_loan" value="1" />Yes</label>
+                    <label><input type="radio" name="include_hoepa_loan" value="0" checked />No</label>
                   </div>
                   <div class="help" title="Selecting these categories as filters may significantly limit your results"><i class="icon-help-alt"></i></div>
                 </li>
-                
+                <!-- /filter field -->
 
-                
+                <!-- filter field -->
                 <li class="field optional hoepa_loan hidden">
                   <label for="hoepa_status">Is the loan a HOEPA loan?</label>
                   <div class="widget checkbox inline">
-                    <label><input type="checkbox" class="param" name="hoepa_status[]" value="1">Yes</label>
-                    <label><input type="checkbox" class="param" name="hoepa_status[]" value="0">No</label>
+                    <label><input type="checkbox" class="param" name="hoepa_status[]" value="1" />Yes</label>
+                    <label><input type="checkbox" class="param" name="hoepa_status[]" value="0" />No</label>
                   </div>
                   <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt."><i class="icon-help-alt"></i></div>
                 </li>
-                
+                <!-- /filter field -->
 
               </ul>
               
             </div>
 
-            
+            <!-- /filter section -->
 
-            
+            <!-- filter section -->
 
             <div class="filter action closed" id="action">
 
@@ -464,11 +482,11 @@
 
               <ul class="fields">
 
-                
+                <!-- filter field -->
                 <li class="field popular">
                   <label for="action_taken">What decision was made on the application?</label>
                   <div class="widget select">
-                    <select class="param" name="action_taken" id="action_taken" multiple="multiple" data-placeholder="Select a decision">
+                    <select class="param" name="action_taken" id="action_taken" multiple data-placeholder="Select a decision">
                       <option value="1">Loan originated</option>
                       <option value="2">Application approved but not accepted</option>
                       <option value="3">Application denied by financial institution</option>
@@ -483,35 +501,35 @@
                   </div>
                   <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt."><i class="icon-help-alt"></i></div>
                 </li>
-                
+                <!-- /filter field -->
 
-                
+                <!-- filter field -->
                 <li class="field">
                   <label for="preapproval">Did the applicant request pre-approval?</label>
                   <div class="widget checkbox inline">
-                    <label><input type="checkbox" class="param" name="preapproval[]" value="1">Yes</label>
-                    <label><input type="checkbox" class="param" name="preapproval[]" value="2">No</label>
+                    <label><input type="checkbox" class="param" name="preapproval[]" value="1" />Yes</label>
+                    <label><input type="checkbox" class="param" name="preapproval[]" value="2" />No</label>
                   </div>
                   <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt."><i class="icon-help-alt"></i></div>
                 </li>
-                
+                <!-- /filter field -->
 
-                
+                <!-- filter field -->
                 <li class="field optional-toggle" data-optional="hmda_reporting">
                   <label for="include_hmda_reporting">Show optional HMDA reporting categories?</label>
                   <div class="widget radio inline include_hmda_reporting">
-                    <label><input type="radio" name="include_hmda_reporting" value="1">Yes</label>
-                    <label><input type="radio" name="include_hmda_reporting" value="0" checked="checked">No</label>
+                    <label><input type="radio" name="include_hmda_reporting" value="1" />Yes</label>
+                    <label><input type="radio" name="include_hmda_reporting" value="0" checked />No</label>
                   </div>
                   <div class="help" title="Selecting these categories as filters may significantly limit your results"><i class="icon-help-alt"></i></div>
                 </li>
-                
+                <!-- /filter field -->
 
-                
+                <!-- filter field -->
                 <li class="field optional hmda_reporting hidden" data-optional="hmda_reporting">
                   <label for="purchaser_type">Purchaser Type:</label>
                   <div class="widget select">
-                    <select class="param" name="purchaser_type" id="purchaser_type" multiple="multiple" data-placeholder="Select a purchaser type">
+                    <select class="param" name="purchaser_type" id="purchaser_type" multiple data-placeholder="Select a purchaser type">
                       <option value="0">Loan was not originated or was not sold in calendar year covered by register</option>
                       <option value="1">Fannie Mae (FNMA)</option>
                       <option value="2">Ginnie Mae (GNMA)</option>
@@ -526,14 +544,14 @@
                   </div>
                   <div class="help" title="You may not find as many records using this filter because only some loan applications are submitted by financial institutions wanting to purchase a loan."><i class="icon-help-alt"></i></div>
                 </li>
-                
+                <!-- /filter field -->
 
-                
+                <!-- filter field -->
                 <li class="field optional hmda_reporting hidden" data-optional="hmda_reporting">
                   <label for="denial_reason_1">Denial Reason:</label>
                   <div class="widget select">
                     <select class="param" name="denial_reason_1" id="denial_reason_1" data-placeholder="Select a purchaser type">
-                      <option value=""></option>
+                      <option value></option>
                       <option value="1">Debt-to-income ratio</option>
                       <option value="2">Employment history</option>
                       <option value="3">Credit history</option>
@@ -547,15 +565,15 @@
                   </div>
                   <div class="help" title="You may not find as many records using this filter because only some loan applications are submitted by financial institutions wanting to purchase a loan."><i class="icon-help-alt"></i></div>
                 </li>
-                
+                <!-- /filter field -->
 
               </ul>
               
             </div>
 
-            
+            <!-- /filter section -->
 
-            
+            <!-- filter footer -->
 
             <div class="filter footer">
 
@@ -569,13 +587,13 @@
 
             </div>
 
-            
+            <!-- /filter footer -->
 
           </div>
 
-          
+          <!-- /all filters section -->
 
-          
+          <!-- preview section -->
 
           <h2>Preview</h2>
 
@@ -585,7 +603,7 @@
 
               <div class="title">
 
-                <a href="#preview"><h3>Preview the first 100 rows <i class="icon-minus-alt"></i></h3></a>
+                <a href="#preview"><h3>Preview the data <i class="icon-minus-alt"></i></h3></a>
 
               </div>
 
@@ -595,10 +613,10 @@
               </div>
             
           </div>
+            
+          <!-- /preview section -->
 
-          
-
-          
+          <!-- download and share section -->
 
           <div class="download-share no-summary">
 
@@ -611,7 +629,7 @@
                 <label for="format">File type:</label>
                 <div class="select widget">
                   <select name="format" id="format">
-                    <option value="csv">Spreadsheet (CSV)</option>
+                    <option value="csv">CSV</option>
                     <option value="json">JSON</option>
                     <option value="jsonp">JSONP</option>
                     <option value="xml">XML</option>
@@ -620,15 +638,13 @@
 
                 <label for="codes">HMDA codes:</label>
                 <div class="radio widget">
-                  <label><input type="radio" name="codes" value="0" checked="checked">Use plain names</label>
-                  <label><input type="radio" name="codes" value="1">Use codes</label>
+                  <label><input type="radio" name="codes" value="0" checked />Use plain names</label>
+                  <label><input type="radio" name="codes" value="1" />Use codes</label>
                 </div>
 
                 <div class="action">
 
                   <input type="submit" class="submit btn" value="Download">
-
-                  <p class="download-size hidden">The file is ~ <span class="bytes">1 MB</span></p>
 
                 </div>
 
@@ -661,24 +677,24 @@
 
           </div>
 
-          
+          <!-- download and share section -->
 
         </form>
 
       </div>
 
-      
+      <!-- /filters section -->
 
-      
+      <!-- group section -->
 
       <div id="summary" class="app-section">
 
         <h2>Create a summary table</h2>
 
         <div class="intro">
-        <p class="nlw"><img src="static/img/icon_bar_chart.png" class="left" alt="">There are <em class="calculating"><img src="static/img/icon_spinner.gif" alt="Loading icon"></em><strong class="count">many</strong> HMDA records from <strong class="years">2007 - 2012</strong> with the previously selected filters.</p>
+        <p class="nlw"><img src="static/img/icon_bar_chart.png" class="left" alt=""/>There are <em class="calculating"><img src="static/img/icon_spinner.gif" alt="Loading icon"></em><strong class="count">many</strong> HMDA records from <strong class="years">2007 - 2012</strong> with the previously selected filters.</p>
 
-        Not quite right? <a class="filter-link section-toggle" href="#filters">Revise your filters <img src="static/img/arrow_blue_right.png" alt=""></a>
+        Not quite right? <a class="filter-link section-toggle" href="#filters">Revise your filters <img src="static/img/arrow_blue_right.png" alt="" /></a>
         </div>
 
         <div class="instructions">
@@ -690,10 +706,10 @@
           <div class="drop-downs">
             <div class="variable">
               <label for="variable0" class="stretchy">
-                <img src="static/img/icon_number_one.png" alt="" class="icon">Pick up to THREE variables to group your data by
+                <img src="static/img/icon_number_one.png" alt="" class="icon" />Pick up to THREE variables to group your data by
               </label>
               <select id="variable0" class="chzn-single" data-summary-table-input="both" data-placeholder="Select the first variable">
-                <option value=""></option>
+                <option value></option>
               </select>
 
             </div>
@@ -701,7 +717,7 @@
             <div class="variable with-reset-link">
 
               <select id="variable1" class="chzn-single" data-summary-table-input="both" data-placeholder="Select the second variable">
-                <option value=""></option>
+                <option value></option>
               </select>
               <a href="#" id="reset-variable1" class="hidden reset-field" data-summary-table-input="both">Remove</a>
 
@@ -710,21 +726,21 @@
             <div class="variable with-reset-link">
 
               <select id="variable2" class="chzn-single" data-summary-table-input="both" data-placeholder="Select the third variable">
-                <option value=""></option>
+                <option value></option>
               </select>
               <a href="#" id="reset-variable2" class="hidden reset-field" data-summary-table-input="both">Remove</a>
 
             </div>
 
             <div class="calculate">
-              <label for="caluculate-by"><img src="static/img/icon_number_two.png" alt="" class="icon">Calculate by</label>
+              <label for="caluculate-by"><img src="static/img/icon_number_two.png" alt="" class="icon"/>Calculate by</label>
               <select class="chzn-single" id="calculate-by" data-summary-table-input="select" data-placeholder="Select a variable">
-                <option value=""></option>
-                <option placeholder="" class="placeholder">Applicant Income</option>
+                <option value></option>
+                <option placeholder class="placeholder">Applicant Income</option>
                 <option value="min_applicant_income_000s" class="indent">Min</option>
                 <option value="max_applicant_income_000s" class="indent">Max</option>
                 <option value="avg_applicant_income_000s" class="indent">Average</option>
-                <option placeholder="" class="placeholder">Loan Amount</option>
+                <option placeholder class="placeholder">Loan Amount</option>
                 <option value="min_loan_amount_000s" class="indent">Min</option>
                 <option value="max_loan_amount_000s" class="indent">Max</option>
                 <option value="avg_loan_amount_000s" class="indent">Average</option>
@@ -740,7 +756,7 @@
 
           <div class="spinning"></div>
 
-          
+          <!-- download and share section -->
 
           <div class="download-share summary">
 
@@ -753,7 +769,7 @@
                 <label for="format">File type:</label>
                 <div class="select widget">
                   <select name="format" id="format">
-                    <option value="csv">Spreadsheet (CSV)</option>
+                    <option value="csv">CSV</option>
                     <option value="json">JSON</option>
                     <option value="jsonp">JSONP</option>
                     <option value="xml">XML</option>
@@ -762,15 +778,13 @@
 
                 <label for="codes">HMDA codes:</label>
                 <div class="radio widget">
-                  <label><input type="radio" name="codes" value="0" checked="checked">Use plain names</label>
-                  <label><input type="radio" name="codes" value="1">Use codes</label>
+                  <label><input type="radio" name="codes" value="0" checked />Use plain names</label>
+                  <label><input type="radio" name="codes" value="1" />Use codes</label>
                 </div>
 
                 <div class="action">
 
                   <input type="submit" class="submit btn" value="Download">
-
-                  <p class="download-size hidden">The file is ~ <span class="bytes">1 MB</span></p>
 
                 </div>
 
@@ -796,8 +810,8 @@
 
                 <label for="codes">HMDA codes:</label>
                 <div class="radio widget">
-                  <label><input type="radio" name="codes_summary" value="0" checked="checked">Use plain names</label>
-                  <label><input type="radio" name="codes_summary" value="1">Use codes</label>
+                  <label><input type="radio" name="codes_summary" value="0" checked />Use plain names</label>
+                  <label><input type="radio" name="codes_summary" value="1" />Use codes</label>
                 </div>
 
                 <div class="action">
@@ -835,16 +849,16 @@
 
           </div>
 
-          
+          <!-- download and share section -->
             
         </form>
 
       </div>
 
-      
+      <!-- /group section -->
 
-      <footer role="contentinfo">
-        <nav role="navigation" aria-label="Footer Menu">
+      <footer>
+        <nav>
           <ul class="primary">
             <li><a href="#">Contact us</a></li>
             <li><a href="#">Newsroom</a></li>
@@ -852,12 +866,12 @@
             <li><a href="#">Open government</a></li>
           </ul>
           <ul class="social">
-            <li><a href="http://github.com/cfpb"><i class="icon-github" title="GitHub"></i><span class="visuallyhidden">Github</span></a></li>
-            <li><a href="http://facebook.com/cfpb"><i class="icon-facebook" title="Facebook"></i><span class="visuallyhidden">Facebook</span></a></li>
-            <li><a href="http://twitter.com/cfpb"><i class="icon-twitter" title="Twitter"></i><span class="visuallyhidden">Twitter</span></a></li>
-            <li><a href="http://youtube.com/cfpb"><i class="icon-youtube" title="YouTube"></i><span class="visuallyhidden">YouTube</span></a></li>
-            <li><a href="http://flickr.com/cfpbphotos"><i class="icon-flickr" title="Flickr"></i><span class="visuallyhidden">Flickr</span></a></li>
-            <li><a href="http://linkedin.com/company/consumer-financial-protection-bureau"><i class="icon-linkedin" title="Linkedin"></i><span class="visuallyhidden">Linkedin</span></a></li>
+            <li><a href="http://github.com/cfpb"><i class="icon-github" title="GitHub"></i></a></li>
+            <li><a href="http://facebook.com/cfpb"><i class="icon-facebook" title="Facebook"></i></a></li>
+            <li><a href="http://twitter.com/cfpb"><i class="icon-twitter" title="Twitter"></i></a></li>
+            <li><a href="http://youtube.com/cfpb"><i class="icon-youtube" title="YouTube"></i></a></li>
+            <li><a href="http://flickr.com/cfpbphotos"><i class="icon-flickr" title="Flickr"></i></a></li>
+            <li><a href="http://linkedin.com/company/consumer-financial-protection-bureau"><i class="icon-linkedin" title="Linkedin"></i></a></li>
           </ul>
           <ul class="tertiary">
             <li><a href="http://www.consumerfinance.gov/privacy-policy/">Privacy policy and legal notices</a></li>

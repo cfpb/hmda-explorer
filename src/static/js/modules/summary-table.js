@@ -30,7 +30,7 @@ var PDP = (function ( pdp ) {
   // we could call the api every time
   // or we can just do this
   // this is a subset of all available dimensions anyway
-  table.fields = ['action_taken_name','agency_name', 'applicant_ethnicity_name', 'applicant_sex_name', 'applicant_race_name_1','census_tract_number','co_applicant_ethnicity_name','co_applicant_race_name_1','co_applicant_sex_name','county_name','denial_reason_name_1','hoepa_status_name','lien_status_name','loan_purpose_name','loan_type_name','msamd_name','owner_occupancy_name','preapproval_name','property_type_name','purchaser_type_name', 'respondent_id', 'state_name'];
+  table.fields = ['action_taken_name','agency_name', 'applicant_ethnicity_name', 'applicant_sex_name', 'applicant_race_name_1','census_tract_number','co_applicant_ethnicity_name','co_applicant_race_name_1','co_applicant_sex_name','county_name','denial_reason_name_1','hoepa_status_name','lien_status_name','loan_purpose_name','loan_type_name','msamd_name','owner_occupancy_name','preapproval_name','property_type_name','purchaser_type_name', 'respondent_id', 'state_name', 'as_of_year'];
 
   // map for select clause statements and calculate by field values
   table.metrics = {
@@ -200,9 +200,9 @@ var PDP = (function ( pdp ) {
 
   
   /**
-   * This function performs output formatting. It will convert numbers
-   * store in 1000s to a US dollar format.; i.e.,"23.52323423" to "$23,523".
-   * The methond includes multipling the original number by 1000, rounding to 
+   * This function performs output formatting of numbers in 1000s to a 
+   * US dollar format.; i.e.,"23.52323423" to "$23,523".
+   * The method includes multipling the original number by 1000, rounding to 
    * the nearest whole dollar, and then adding comma separators and '$'.
    *
    * The implementation should be something like :
@@ -226,8 +226,11 @@ var PDP = (function ( pdp ) {
             
             num = respData.results[record][column];
 
-            if (num == null || num === '' || isNaN(num)){  
+            if (num == null || num === '' || isNaN(num)) {  
               respData.results[record][column] = 'Data not available';
+            }
+            else if (num < 0) {
+                respData.results[record][column] = 'Data format error! A non-positive numerical value found in original data: ' + num;
             }
             else {
              respData.results[record][column] = '$' + Math.round( num*1000 ).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');

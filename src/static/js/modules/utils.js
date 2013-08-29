@@ -34,6 +34,10 @@ var PDP = (function( pdp ) {
       nameParts.splice(0, 1);
     }
 
+    if ( nameParts[0] === 'year' ) {
+      nameParts.splice(1, 2);
+    }
+
     varTitle = nameParts.reverse().join(' ');
     varTitle = varTitle.charAt(0).toUpperCase() + varTitle.slice(1);
 
@@ -154,11 +158,11 @@ var PDP = (function( pdp ) {
 
   // Pass a keypress event and its default action will be prevented if a 
   // non-numeric key was pressed. Numbers, commas, tab, delete, backspace,
-  // meta and arrow keys are allowed to be pressed.
+  // meta, A (for selecting all), V (for pasting) and arrow keys are allowed to be pressed.
   utils.requireNumeric = function( e ) {
 
       var key = e.which,
-          allowedKeys = [ 8, 9, 16, 17, 18, 37, 38, 39, 40, 46, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 91, 93, 188, 224 ];
+          allowedKeys = [ 8, 9, 16, 17, 18, 37, 38, 39, 40, 46, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 65, 86, 91, 93, 188, 224 ];
 
       if ( allowedKeys.indexOf( key ) === -1 ) {
           e.preventDefault();
