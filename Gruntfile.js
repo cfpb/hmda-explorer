@@ -130,7 +130,7 @@ module.exports = function(grunt) {
           EventEmitter: true
         }
       },
-      files: ['Gruntfile.js', 'src/static/js/**/*.js', '!src/static/js/templates/template.js', '!src/static/js/charts/*.js']
+      files: ['Gruntfile.js', 'src/static/js/**/*.js', 'test/specs/*.js', '!src/static/js/templates/template.js', '!src/static/js/charts/*.js']
     },
 
     /**
@@ -289,13 +289,12 @@ module.exports = function(grunt) {
     jasmine: {
       pdp: {
         src: [
-          'dist/static/js/**/*.js',
+          'dist/static/js/all.min.js',
           'test/specs/helpers/debug.js'
         ],
         options: {
           specs: 'test/specs/*.js',
           helpers: 'test/specs/helpers/*.js',
-          host:'http://localhost:8000',
           timeout: 30000
         }
       }
