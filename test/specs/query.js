@@ -117,7 +117,7 @@
 
       window.location.hash = originalHash;
 
-      params = PDP.query.updateAll({ source: 'url' }),
+      params = PDP.query.updateAll({ source: 'url' });
 
       configObj = {
         clauses: {
@@ -126,6 +126,7 @@
           'where': PDP.query.params
         }
       };
+
       generatedUrl = PDP.query.generateApiUrl( 'json', true, configObj );
       expectedUrl = 'https://qu.demo.cfpb.gov/data/hmda/slice/hmda_lar.json?&$select=applicant_sex_name,state_name&$group=applicant_sex_name,state_name&$where=(as_of_year=2012+OR+as_of_year=2011)';
 
