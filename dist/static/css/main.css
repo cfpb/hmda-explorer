@@ -3817,9 +3817,14 @@ a.action-arrow {
   font-style: normal;
   font-size: 1.1em;
 }
-a.action-arrow i {
-  font-size: 2em;
-  line-height: .45em;
+a.action-arrow .icon-external-link {
+  font-size: 1.2em;
+  padding-left: 2px;
+  line-height: .5em;
+}
+a.action-arrow .icon-right {
+  font-size: 1.6em;
+  line-height: .6em;
 }
 a.action-arrow:hover {
   text-decoration: none;
