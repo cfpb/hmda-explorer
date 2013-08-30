@@ -34,6 +34,10 @@ var PDP = (function ( pdp ) {
 
   // map for select clause statements and calculate by field values
   table.metrics = {
+    'count': {
+      'api': 'COUNT()',
+      'human': 'Number of records'
+    },
     'min_applicant_income_000s': {
       'api': 'MIN(applicant_income_000s)',
       'human': 'Applicant Income Minimum'
@@ -209,7 +213,6 @@ var PDP = (function ( pdp ) {
    * */
   table._mungeDollarAmts = function( respData ) {
     var record, column, variable, amount, addCommas, dotIndex, amtParts, num;
-     
 
     // for row in results
     for ( record in respData.results ) {
@@ -219,17 +222,21 @@ var PDP = (function ( pdp ) {
 
           // if this is a calculate by field value
           if ( this.metrics.hasOwnProperty( column ) ) {
-            
-            num = respData.results[record][column];
 
+            num = respData.results[record][column];
+            
             if ( num === null || num === '' || isNaN(num) ) {
               respData.results[record][column] = 'Data not available';
             }
             else if (num < 0) {
-                respData.results[record][column] = 'Data format error! A non-positive numerical value found in original data: ' + num;
+              respData.results[record][column] = 'Data format error! A non-positive numerical value found in original data: ' + num;
+            }
+            // We don't want to add a dollar sign if it's a record count.
+            else if ( column === 'count' ) {
+              respData.results[record][column] = pdp.utils.commify( num );
             }
             else {
-             respData.results[record][column] = '$' + Math.round( num*1000 ).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+              respData.results[record][column] = '$' + Math.round( num*1000 ).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
             }
           }
         }
