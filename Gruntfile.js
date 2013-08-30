@@ -335,6 +335,10 @@ module.exports = function(grunt) {
       explore: {
         src: 'dist/static/js/explore.min.js',
         dest: 'dist/static/js/explore.min.js'
+      },
+      charts: {
+        src: 'dist/static/js/charts.min.js',
+        dest: 'dist/static/js/charts.min.js'
       }
     },
 

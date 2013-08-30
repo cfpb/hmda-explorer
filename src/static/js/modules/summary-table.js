@@ -108,8 +108,7 @@ var PDP = (function ( pdp ) {
   table._chosenInit = function() {
     this.$el.find('select').chosen({
       width: '100%',
-      disable_search_threshold: 10,
-      allow_single_deselect: true
+      disable_search_threshold: 10
     });
   };
 
@@ -137,7 +136,7 @@ var PDP = (function ( pdp ) {
       position = 3;
     }
 
-    this.updateQuery( 
+    this.updateQuery(
       clause,
       value,
       position
@@ -187,9 +186,6 @@ var PDP = (function ( pdp ) {
     $('.ajax-error').remove();
     check = setTimeout(function(){
       if ( responseJSON.state() !== 'resolved' ) {
-        console.log('Promise state: ' + responseJSON.state());
-        console.log('Status: ' + responseJSON.status);
-        console.log('Status text: ' + responseJSON.statusText);
         _abort( null, 'time out' );
       }
     }, pdp.query.secondsToWait * 1000 );
@@ -226,7 +222,7 @@ var PDP = (function ( pdp ) {
             
             num = respData.results[record][column];
 
-            if (num == null || num === '' || isNaN(num)) {  
+            if ( num === null || num === '' || isNaN(num) ) {
               respData.results[record][column] = 'Data not available';
             }
             else if (num < 0) {
@@ -415,6 +411,7 @@ var PDP = (function ( pdp ) {
     table._populateOptions();
     table._chosenInit();
     table.createTable();
+    table.disableDownload();
 
     // fields should be disabled until a first variable is selected
     // we don't want users selecting subsequent vars when earlier
@@ -437,6 +434,13 @@ var PDP = (function ( pdp ) {
         }
       }
 
+      // Enable the download box if a variable is selected.
+      if ( this.queryParams.clauses.group.length > 0 ) {
+        this.enableDownload();
+      } else {
+        this.disableDownload();
+      }
+
     }.bind(this));
 
     $('.reset-field').on('click', function(e) {
@@ -455,6 +459,24 @@ var PDP = (function ( pdp ) {
       $('#variable'.concat(++position)).attr('disabled', 'disabled').trigger('liszt:updated');
 
     }.bind( this ));
+  };
+
+  // The `disableDownload` method disables the summary table download block.
+  table.disableDownload = function() {
+
+    var $el = $('#download-summary');
+
+    $el.addClass('disabled').find('select, input').attr('disabled', 'disabled');
+
+  };
+
+  // The `enableDownload` method enables the summary table download block.
+  table.enableDownload = function() {
+
+    var $el = $('#download-summary');
+
+    $el.removeClass('disabled').find('select, input').removeAttr('disabled');
+
   };
 
   pdp.summaryTable = table;
