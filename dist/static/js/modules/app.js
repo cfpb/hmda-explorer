@@ -202,6 +202,13 @@ var PDP = (function ( pdp ) {
       // Update URL hash
       window.location.hash = PDP.query.generateUrlHash();
     }
+    
+    
+    if (this.currentSection === "summary") {
+      console.log('section updated');
+      pdp.summaryTable.setupDataRequest();
+    }
+    
 
   };
 
