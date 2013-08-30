@@ -2569,7 +2569,22 @@ ul.chzn-choices {
 .homepage .top-banner {
   background-color: #E7E7E6;
   background-position: top;
-  width: 100%;
+  height: 20px;
+  margin-bottom: 20px;
+}
+.homepage .top-banner > .inner {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  max-width: 960px;
+  padding: 0 15px;
+  margin: 0 auto;
+  position: relative;
+  clear: both;
+}
+.lt-ie8 .homepage .top-banner > .inner {
+  *zoom: 1;
+  *behavior: url(boxsizing.htc);
 }
 .homepage .hero {
   padding-top: 10px;
@@ -3639,7 +3654,7 @@ section.video h2 strong {
 }
 body,
 html {
-  margin: 20px 0 0 0;
+  margin: 0 0 0 0;
   background: #ffffff;
   font-family: Georgia, "Times New Roman", serif;
 }
