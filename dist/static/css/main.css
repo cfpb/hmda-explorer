@@ -2794,6 +2794,8 @@ section.video h2 strong {
   font-family: "Avenir Next Demi", Arial, sans-serif;
   font-weight: 600;
   font-style: normal;
+  font-size: 1.375em;
+  letter-spacing: normal;
 }
 #get-the-data .inner {
   margin: 0 auto;
@@ -2803,12 +2805,16 @@ section.video h2 strong {
   vertical-align: top;
   position: relative;
   background-color: #e7e7e6;
-  padding: 20px 20px 40px 20px;
+  padding: 10px 20px;
 }
 #get-the-data .filters .action-arrow,
 #get-the-data .summary .action-arrow {
   position: absolute;
-  bottom: 20px;
+  bottom: 30px;
+}
+#get-the-data .filters p,
+#get-the-data .summary p {
+  line-height: 1.375em;
 }
 #developers h2 {
   background-image: url('../img/icon_devs.png');
@@ -2823,9 +2829,14 @@ section.video h2 strong {
 #developers .inner {
   margin: 0 auto;
 }
+#developers .inner p {
+  line-height: 1.375em;
+}
+#developers .inner p a:link {
+  text-decoration: underline;
+}
 #developers .api {
-  background-color: #e7e7e6;
-  padding: 20px;
+  padding: 0px 20px;
 }
 #developers .links ul {
   list-style-type: none;
