@@ -71,4 +71,8 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
+<<<<<<< HEAD
 *This file was generated on Thu Aug 29 2013 13:36:15.*
+=======
+*This file was generated on Thu Aug 29 2013 20:55:42.*
+>>>>>>> 81d1650a9f15f6a5773aeeb66968bf7c5795a52a
