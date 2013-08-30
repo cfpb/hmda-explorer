@@ -94,32 +94,36 @@ nav li {
 .top-banner {
   background-color: #E7E7E6;
   height: 20px;
-  padding-top: 3px;
   margin-bottom: 20px;
+  padding-top: 3px;
   .avenir-next;
   font-size: 11px;
 
   &> .inner {
-     .wrapper(); 
-    }
+    .wrapper(); 
+  }
+
+  p {
+    margin: 0;
+  }
 
   a:link {
     text-decoration: underline;
   } 
 
-  p {
-    display: inline;
-
-     .official-website { 
-    text-align: right;
+  .return-cfgov { 
+    float: left;
   } 
+
+  .official-website { 
+    float: right;
+  } 
+
+  img {
+    vertical-align: center;
+    margin: 0 0 1px 10px;
   }
-
-  
-
-
-  
-  }
+}
 
 // Footer at the bottom of the page
 
@@ -133,7 +137,7 @@ nav li {
       .mobile-nav();
     }
     a.active {
-      .avenir-next-bold;
+      .avenir-next-demi;
     }
   }
 
