@@ -160,6 +160,7 @@ var PDP = (function ( pdp ) {
   };
 
   table._requestData = function() {
+    console.log('request data');
     var responseJSON, check;
 
     function _abort( data, textStatus ) {
@@ -239,6 +240,7 @@ var PDP = (function ( pdp ) {
 
 
   table._handleApiResponse = function( response ) {
+    console.log("handline API response");
     this.updateTableHeaders();
     this.populateTable(this._prepData(response));
   };
@@ -391,19 +393,22 @@ var PDP = (function ( pdp ) {
   };
   
   table.setupDataRequest = function () {
-    //update select & group clauses for each actual value in variables
-    _.each(this.fieldVals.variables, function (param, ind) {
-        if (param != null && param !== false) {
-          table.updateQuery('both', param, ind);
-        }
-    });
-    
-    //use selected calculate by value or default to "count"
-    this.fieldVals.calculate || (this.fieldVals.calculate = "count");
-    this.updateQuery('select', this.metrics[this.fieldVals.calculate].api, 3);
-    
     this.resetTable();
-    this._requestData();
+    
+    if (table.selectedVars()) {
+      //update select & group clauses for each actual value in variables
+      _.each(this.fieldVals.variables, function (param, ind) {
+          if (param != null && param !== false) {
+            table.updateQuery('both', param, ind);
+          }
+      });
+
+      //use selected calculate by value or default to "count"
+      this.fieldVals.calculate || (this.fieldVals.calculate = "count");
+      this.updateQuery('select', this.metrics[this.fieldVals.calculate].api, 3);
+
+      this._requestData();
+    }
   }
   
   table.processUrlParams = function () {
@@ -428,8 +433,15 @@ var PDP = (function ( pdp ) {
     table.setupDataRequest();
     table.enableDownload();
   }
+  
+  table.selectedVars = function () {
+    return _.find(this.fieldVals.variables, function (val) {
+      return (val != null && val !== false);
+    });
+  };
 
   table.init = function() {
+    console.log('init');
     table._populateOptions();
     table._chosenInit();
     table.createTable();
@@ -482,15 +494,9 @@ var PDP = (function ( pdp ) {
     
     $('#summary-submit').on('click', function(e) {
       e.preventDefault();
-      var selectedVars, 
-          vals = [];
+      var vals = [];
       
-      //check for an actual value in the variables array
-      selectedVars = _.find(this.fieldVals.variables, function (val) {
-        return (val != null && val !== false);
-      });
-      
-      if (selectedVars) {
+      if (table.selectedVars()) {
         this.setupDataRequest();
         
         //update share link
