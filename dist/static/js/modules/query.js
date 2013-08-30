@@ -274,7 +274,7 @@ var PDP = (function ( pdp ) {
     },
 
     group: function( param ) {
-      return '&$group=' + this._listVals( param ) + '&$orderBy=' + this._listVals( param );
+      return '&$group=' + this._listVals( param ) + '&$orderBy=' + this._listVals( param.reverse() );
     },
 
     // formats single value clauses
