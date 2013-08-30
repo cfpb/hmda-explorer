@@ -143,7 +143,6 @@ var PDP = (function ( pdp ) {
       hashParams.push( name + param.comparator + param.values.join(',') );
 
     }
-
     _.forEach( query.params, buildHashParam );
 
     hash = '!/' + hashParams.join('&') + '&section=' + pdp.app.currentSection;
@@ -162,8 +161,9 @@ var PDP = (function ( pdp ) {
     
     //remove 'select' so it won't be added to where clause
     //but will still be part of share links
+    delete (((apiCallParams || {}).clauses || {}).where || {}).select;
     delete apiCallParams.select;
-    
+        
     // Set a base url to append params to
     url = this.endpoint + 'slice/hmda_lar.' + downloadFormat + '?';
 
@@ -196,7 +196,6 @@ var PDP = (function ( pdp ) {
   //   }
   // } 
   query._buildApiQuery = function( params ) {
-
     var url = '', key;
 
     if ( params.hasOwnProperty('clauses') ) {

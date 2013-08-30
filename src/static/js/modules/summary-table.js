@@ -67,6 +67,11 @@ var PDP = (function ( pdp ) {
       'human': 'Loan Amount Sum'
     }
   };
+  
+  table.fieldVals = {
+    variables: [],
+    calculate: ''
+  };
 
   // holds onto user-selected options. consists of clauses object + pdp.query.params
   table.queryParams = {};
@@ -117,10 +122,9 @@ var PDP = (function ( pdp ) {
   };
 
   // event handler, called when a form field changes
-  table.updateTable = function(e) {
+  table.updateFieldVals = function(e) {
     var value,
-        position = e.target.id.substr( -1, 1 ),
-        clause = e.target.dataset.summaryTableInput;
+        position = e.target.id.substr( -1, 1 );
 
     if ( e.target.hasOwnProperty('selectedOptions') ) {
       value = e.target.selectedOptions[0].value;
@@ -129,27 +133,14 @@ var PDP = (function ( pdp ) {
     // if they've selected a placeholder, ignore it
     // a placeholder has no value
     if ( e.target.selectedOptions[0].hasAttribute('placeholder') ) {
-      return;
+      value = "";
     }
 
-    // if the event occurred on the calculate by field, 
-    // get the query string from the metrics map and
-    // make sure it gets set to the third queryParams.clauses array 
     if ( e.target.id === 'calculate-by' ) {
-      value = this.metrics[value].api;
-      position = 3;
+      this.fieldVals.calculate = value;
+    } else {
+      this.fieldVals.variables[position] = value;
     }
-
-    this.updateQuery(
-      clause,
-      value,
-      position
-    );
-
-    // reset it before the data comes back and builds
-    this.resetTable();
-
-    this._requestData();
 
     this._updateFields( value, position );
   };
@@ -248,6 +239,7 @@ var PDP = (function ( pdp ) {
 
 
   table._handleApiResponse = function( response ) {
+    this.updateTableHeaders();
     this.populateTable(this._prepData(response));
   };
 
@@ -271,7 +263,6 @@ var PDP = (function ( pdp ) {
   table.resetTable = function() {
     var $table = $('table#summary-table');
     $table.empty();
-    this.updateTableHeaders();
   };
 
   // takes query for calculate by field and
@@ -336,24 +327,9 @@ var PDP = (function ( pdp ) {
       pdp.utils.showError( this.genericError );
   };
 
-  // remove the var name from the queryParams.clauses arrays
-  // recursive if the data attribute data-summary-table-input
-  // is set to "both" to update both select and group arrays
+  // remove value from variables array
   table.resetColumn = function( clause, position ) {
-    var removedValue;
-    if ( clause === 'both' ) {
-      delete( this.queryParams.clauses['select'][position] );
-      this.resetColumn( 'group', position );
-      return;
-    }
-
-    removedValue = this.queryParams.clauses[clause][position];
-
-    delete( this.queryParams.clauses[clause][position] );
-
-    this.resetTable();
-    this._updateFields( removedValue, position );
-    this._requestData( clause, position );
+    this.fieldVals.variables[position] = null;
   };
 
   // updates object that reflects selected form options
@@ -414,28 +390,43 @@ var PDP = (function ( pdp ) {
     $table.prepend($headerRow);
   };
   
+  table.setupDataRequest = function () {
+    //update select & group clauses for each actual value in variables
+    _.each(this.fieldVals.variables, function (param, ind) {
+        if (param != null && param !== false) {
+          table.updateQuery('both', param, ind);
+        }
+    });
+    
+    //use selected calculate by value or default to "count"
+    this.fieldVals.calculate || (this.fieldVals.calculate = "count");
+    this.updateQuery('select', this.metrics[this.fieldVals.calculate].api, 3);
+    
+    this.resetTable();
+    this._requestData();
+  }
+  
   table.processUrlParams = function () {
     var pos = 0;
-    table.variables = [];
     
     _.each(pdp.query.params.select.values, function (param, ind) {
       if (table.metrics[param]) {
           //calculate by value
-          table.calculate = param;
-          table.updateQuery('', param, 3);
+          table.fieldVals.calculate = param;
           table._inputs.calculate.val(param).trigger("liszt:updated");
       } else {
-          console.log(param);
-          table.variables.push(param);
-          table.updateQuery('both',param,pos);
+          table.fieldVals.variables.push(param);
           table._inputs.varFields[pos].val(param).trigger("liszt:updated");
-          console.log(table._inputs.varFields[pos].val());
           pos++;
       }
-      console.log(table.queryParams);
-      //table._requestData();
     });
-
+    
+    if (!table.fieldVals.calculate) {
+      table.fieldVals.calculate = "count";
+    }
+    
+    table.setupDataRequest();
+    table.enableDownload();
   }
 
   table.init = function() {
@@ -447,7 +438,7 @@ var PDP = (function ( pdp ) {
     //check for select values in params
     if (typeof pdp.query.params.select != 'undefined') {
         table.processUrlParams();
-    }else{
+    } else {
       // fields should be disabled until a first variable is selected
       // we don't want users selecting subsequent vars when earlier
       // ones are undefined
@@ -456,7 +447,7 @@ var PDP = (function ( pdp ) {
 
     // event listener for form changes
     this._inputs.all.on('change', function(e) {
-      this.updateTable(e);
+      this.updateFieldVals(e);
 
       if (e.target.id !== 'calculate-by') {
         var position = e.target.id.substr( -1, 1 );
@@ -468,13 +459,6 @@ var PDP = (function ( pdp ) {
         if (position > 0) {
           $('#reset-' + e.target.id).removeClass('hidden');
         }
-      }
-
-      // Enable the download box if a variable is selected.
-      if ( this.queryParams.clauses.group.length > 0 ) {
-        this.enableDownload();
-      } else {
-        this.disableDownload();
       }
 
     }.bind(this));
@@ -495,6 +479,41 @@ var PDP = (function ( pdp ) {
       $('#variable'.concat(++position)).attr('disabled', 'disabled').trigger('liszt:updated');
 
     }.bind( this ));
+    
+    $('#summary-submit').on('click', function(e) {
+      e.preventDefault();
+      var selectedVars, 
+          vals = [];
+      
+      //check for an actual value in the variables array
+      selectedVars = _.find(this.fieldVals.variables, function (val) {
+        return (val != null && val !== false);
+      });
+      
+      if (selectedVars) {
+        this.setupDataRequest();
+        
+        //update share link
+        vals = _.filter(this.fieldVals.variables, function (val) {
+          return (val != null && val !== false);
+        });
+        vals.push(this.fieldVals.calculate);
+        pdp.query.params.select = {
+          comparator: "=",
+          values: vals
+        };
+        pdp.form.updateShareLink();
+      }   
+          
+      //conditionally display downloads table
+      if ( this.queryParams.clauses.group.length > 0 ) {
+        this.enableDownload();
+      } else {
+        this.disableDownload();
+      }
+
+    }.bind( this ));
+    
   };
 
   // The `disableDownload` method disables the summary table download block.
