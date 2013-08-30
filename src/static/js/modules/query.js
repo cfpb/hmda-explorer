@@ -156,10 +156,14 @@ var PDP = (function ( pdp ) {
   query.generateApiUrl = function( format, codes, params ) {
 
     var url,
-        apiCallParams = params || this.params,
+        apiCallParams = params || _.clone(this.params),
         showCodes = codes || this.codes,
         downloadFormat = format || this.format;
-
+    
+    //remove 'select' so it won't be added to where clause
+    //but will still be part of share links
+    delete apiCallParams.select;
+    
     // Set a base url to append params to
     url = this.endpoint + 'slice/hmda_lar.' + downloadFormat + '?';
 
