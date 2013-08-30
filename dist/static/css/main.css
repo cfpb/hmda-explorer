@@ -3378,6 +3378,30 @@ section.video h2 strong {
 @media only screen and (min-width: 768px) {
   
 }
+#api-docs .inner {
+  width: 82%;
+  padding: 15px;
+}
+#api-docs p {
+  width: 66%;
+  display: inline-block;
+  margin-right: 4%;
+  font-size: .95em;
+  line-height: 1.4em;
+  float: left;
+}
+#api-docs .links {
+  width: 29%;
+  display: inline-block;
+  vertical-align: top;
+}
+#api-docs .links ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+#api-docs .links li {
+  margin-bottom: 10px;
+}
 @media only screen and (min-width: 768px) {
   
 }
