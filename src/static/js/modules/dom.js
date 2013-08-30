@@ -56,7 +56,19 @@ var PDP = (function ( pdp ) {
   $('form#explore').on( 'submit', function( ev ){
 
     var format = $('#format').val(),
-        showCodes = !!parseInt( $('input[type=radio][name=codes]:checked').val(), 10 ),
+        showCodes = !!parseInt( $('.codes input[type=radio]:checked').val(), 10 ),
+        url = pdp.query.generateApiUrl( format, showCodes );
+
+    ev.preventDefault();
+    pdp.app.redirect( url );
+
+  });
+
+  // Hijack the 'download raw data' button on the summary table page.
+  $('#download-raw-button').on( 'click', function( ev ){
+
+    var format = $('#raw-format').val(),
+        showCodes = !!parseInt( $('.raw-codes input[type=radio]:checked').val(), 10 ),
         url = pdp.query.generateApiUrl( format, showCodes );
 
     ev.preventDefault();
@@ -67,12 +79,11 @@ var PDP = (function ( pdp ) {
   // Hijack the summary table submission.
   $('#download-summary-button').on( 'click', function( ev ){
 
-    ev.preventDefault();
-
     var format = $('#summary-table-format').val(),
         showCodes = true,
         url = pdp.query.generateApiUrl( format, showCodes, pdp.summaryTable.queryParams );
 
+    ev.preventDefault();
     pdp.app.redirect( url );
 
   });
