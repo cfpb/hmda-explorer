@@ -124,7 +124,8 @@ var PDP = (function ( pdp ) {
   // event handler, called when a form field changes
   table.updateFieldVals = function(e) {
     var value,
-        position = e.target.id.substr( -1, 1 );
+        position = e.target.id.substr( -1, 1 ),
+        removedVal;
 
     if ( e.target.hasOwnProperty('selectedOptions') ) {
       value = e.target.selectedOptions[0].value;
@@ -139,24 +140,27 @@ var PDP = (function ( pdp ) {
     if ( e.target.id === 'calculate-by' ) {
       this.fieldVals.calculate = value;
     } else {
+      removedVal = this.fieldVals.variables[position];
       this.fieldVals.variables[position] = value;
+      this._updateFields( value );
+      if (_.indexOf(this.fieldVals.variables, removedVal) === -1) {
+        this._updateFields( removedVal );
+      }
     }
-
-    this._updateFields( value, position );
   };
 
   // hide variables already selected from subsequent drop downs
   // or
   // show variables that are unselected due to column reset
-  table._updateFields = function(value, position) {
-    if ( position < 2 ) {
-      for (position; position<=2; position++) {
-        $('#variable' + position)
+  table._updateFields = function(value) {
+    var i;
+    for (i=0; i<=2; i++) {
+        $('#variable' + i)
           .find('option[value=' + value + ']')
           .toggleClass('hidden')
           .trigger('liszt:updated');
-      }
     }
+   
   };
 
   table._requestData = function() {
