@@ -104,7 +104,7 @@
         }
       };
       generatedUrl = PDP.query.generateApiUrl( 'json', true, configObj );
-      expectedUrl = PDP.query.endpoint + 'slice/hmda_lar.json?&$select=applicant_sex_name,state_name&$group=applicant_sex_name,state_name';
+      expectedUrl = PDP.query.endpoint + 'slice/hmda_lar.json?&$select=applicant_sex_name,state_name&$group=applicant_sex_name,state_name&$orderBy=state_name,applicant_sex_name';
 
   expect( generatedUrl ).toBe( expectedUrl );
 
@@ -128,7 +128,7 @@
       };
 
       generatedUrl = PDP.query.generateApiUrl( 'json', true, configObj );
-      expectedUrl = PDP.query.endpoint + 'slice/hmda_lar.json?&$select=applicant_sex_name,state_name&$group=applicant_sex_name,state_name&$where=(as_of_year=2012+OR+as_of_year=2011)';
+      expectedUrl = PDP.query.endpoint + 'slice/hmda_lar.json?&$select=applicant_sex_name,state_name&$group=applicant_sex_name,state_name&$orderBy=state_name,applicant_sex_name&$where=(as_of_year=2012+OR+as_of_year=2011)';
 
       expect( generatedUrl ).toBe( expectedUrl );
 
