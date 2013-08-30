@@ -1,26 +1,45 @@
 // Mobile first!
 
-#learn-more {
 
-  // stuff goes here
-	
-	#what-is-hmda {
-    	.inner {
-    	width: 82%;
-    	}	
-    	p {
-    	width: 66%;
-    	display: inline-block;
-    	margin-right: 4%;
-    	}
-    	.links {
-    	width: 29%;
-    	display: inline-block;
-    	vertical-align: top;
-    	}
-  	}
-  
+#learn-more {
+  .inner {
+    padding: 15px;
+    }     
+  p {
+
+    display: inline-block;
+    margin-right: 4%;
+    font-size: .95em;
+    line-height: 1.4em;
+    }
+  .links {
+    display: inline-block;
+    vertical-align: top;
+    }
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      }
+    li {
+      margin-bottom: 10px;
+    }
+      .highlight {
+      background-color: @light_field50;
+      padding: 20px;
+      width: 66%;
+      line-height: 1.4em;
+      margin-bottom: 10px;
+    }
+    .filter {
+      background-color: @white;
+      border-bottom: 0px;
+      padding: 0
+    }
+    .filter h3 {padding:0;}
+
 }
+  
+
 
 // Adjustments for larger screens
 
@@ -28,7 +47,43 @@
 
   #learn-more {
 
-    // stuff goes here
+   .inner {
+    padding: 15px;
+    }     
+
+  .page-title {margin-top: 30px;}
+  .title {padding:0;}
+  .highlight {
+      background-color: @light_field50;
+      padding: 20px;
+      width: 66%;
+      line-height: 1.4em;
+      margin-bottom: 10px;
+    }
+
+
+  p {
+    width: 66%;
+    display: inline-block;
+    margin-right: 4%;
+    font-size: .95em;
+    line-height: 1.4em;
+    float: left;
+    margin-bottom: 1em;
+    }
+
+  .links {
+    width: 29%;
+    display: inline-block;
+    vertical-align: top;
+    }
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      }
+    li {
+      margin-bottom: 10px;
+    }
 
   }
 
