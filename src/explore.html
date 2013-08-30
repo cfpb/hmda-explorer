@@ -623,14 +623,14 @@
                 </div>
 
                 <label for="codes">HMDA codes:</label>
-                <div class="radio widget">
+                <div class="radio widget codes">
                   <label><input type="radio" name="codes" value="0" checked />Use plain names</label>
                   <label><input type="radio" name="codes" value="1" />Use codes</label>
                 </div>
 
                 <div class="action">
 
-                  <input type="submit" class="submit btn" value="Download">
+                  <input type="submit" class="submit btn" value="Download" id="download-button">
 
                   <p class="download-size hidden">The file is ~ <span class="bytes">1 MB</span></p>
 
@@ -756,7 +756,7 @@
 
                 <label for="format">File type:</label>
                 <div class="select widget">
-                  <select name="format" id="format">
+                  <select name="format" id="raw-format">
                     <option value="csv">Spreadsheet (CSV)</option>
                     <option value="json">JSON</option>
                     <option value="jsonp">JSONP</option>
@@ -765,14 +765,14 @@
                 </div>
 
                 <label for="codes">HMDA codes:</label>
-                <div class="radio widget">
+                <div class="radio widget raw-codes">
                   <label><input type="radio" name="codes" value="0" checked />Use plain names</label>
                   <label><input type="radio" name="codes" value="1" />Use codes</label>
                 </div>
 
                 <div class="action">
 
-                  <input type="submit" class="submit btn" value="Download">
+                  <input type="submit" class="submit btn" value="Download" id="download-raw-button">
 
                   <p class="download-size hidden">The file is ~ <span class="bytes">1 MB</span></p>
 
