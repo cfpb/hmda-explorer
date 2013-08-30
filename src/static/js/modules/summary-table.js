@@ -413,17 +413,46 @@ var PDP = (function ( pdp ) {
 
     $table.prepend($headerRow);
   };
+  
+  table.processUrlParams = function () {
+    var pos = 0;
+    table.variables = [];
+    
+    _.each(pdp.query.params.select.values, function (param, ind) {
+      if (table.metrics[param]) {
+          //calculate by value
+          table.calculate = param;
+          table.updateQuery('', param, 3);
+          table._inputs.calculate.val(param).trigger("liszt:updated");
+      } else {
+          console.log(param);
+          table.variables.push(param);
+          table.updateQuery('both',param,pos);
+          table._inputs.varFields[pos].val(param).trigger("liszt:updated");
+          console.log(table._inputs.varFields[pos].val());
+          pos++;
+      }
+      console.log(table.queryParams);
+      //table._requestData();
+    });
+
+  }
 
   table.init = function() {
     table._populateOptions();
     table._chosenInit();
     table.createTable();
     table.disableDownload();
-
-    // fields should be disabled until a first variable is selected
-    // we don't want users selecting subsequent vars when earlier
-    // ones are undefined
-    $('#variable1, #variable2, #calculate-by').attr('disabled', 'disabled').trigger('liszt:updated');
+    
+    //check for select values in params
+    if (typeof pdp.query.params.select != 'undefined') {
+        table.processUrlParams();
+    }else{
+      // fields should be disabled until a first variable is selected
+      // we don't want users selecting subsequent vars when earlier
+      // ones are undefined
+      $('#variable1, #variable2, #calculate-by').attr('disabled', 'disabled').trigger('liszt:updated');
+    }
 
     // event listener for form changes
     this._inputs.all.on('change', function(e) {
