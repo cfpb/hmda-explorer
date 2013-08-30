@@ -3354,48 +3354,134 @@ section.video h2 strong {
     width: 100%;
   }
 }
-#learn-more #what-is-hmda .inner {
-  width: 82%;
-}
-#learn-more #what-is-hmda p {
-  width: 66%;
-  display: inline-block;
-  margin-right: 4%;
-}
-#learn-more #what-is-hmda .links {
-  width: 29%;
-  display: inline-block;
-  vertical-align: top;
-}
-@media only screen and (min-width: 768px) {
-  
-}
-#api-docs .inner {
-  width: 82%;
+#learn-more .inner {
   padding: 15px;
 }
-#api-docs p {
-  width: 66%;
+#learn-more p {
   display: inline-block;
   margin-right: 4%;
   font-size: .95em;
   line-height: 1.4em;
-  float: left;
 }
-#api-docs .links {
-  width: 29%;
+#learn-more .links {
   display: inline-block;
   vertical-align: top;
 }
-#api-docs .links ul {
+#learn-more ul {
   list-style-type: none;
   padding-left: 0;
 }
-#api-docs .links li {
+#learn-more li {
   margin-bottom: 10px;
 }
+#learn-more .highlight {
+  background-color: #e7e7e6;
+  padding: 20px;
+  width: 66%;
+  line-height: 1.4em;
+  margin-bottom: 10px;
+}
+#learn-more .filter {
+  background-color: #ffffff;
+  border-bottom: 0px;
+  padding: 0;
+}
+#learn-more .filter h3 {
+  padding: 0;
+}
 @media only screen and (min-width: 768px) {
-  
+  #learn-more .inner {
+    padding: 15px;
+  }
+  #learn-more .page-title {
+    margin-top: 30px;
+  }
+  #learn-more .title {
+    padding: 0;
+  }
+  #learn-more .highlight {
+    background-color: #e7e7e6;
+    padding: 20px;
+    width: 66%;
+    line-height: 1.4em;
+    margin-bottom: 10px;
+  }
+  #learn-more p {
+    width: 66%;
+    display: inline-block;
+    margin-right: 4%;
+    font-size: .95em;
+    line-height: 1.4em;
+    float: left;
+    margin-bottom: 1em;
+  }
+  #learn-more .links {
+    width: 29%;
+    display: inline-block;
+    vertical-align: top;
+  }
+  #learn-more ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  #learn-more li {
+    margin-bottom: 10px;
+  }
+}
+#api-docs .inner {
+  padding: 15px;
+}
+#api-docs p {
+  display: inline-block;
+  margin-right: 4%;
+  font-size: .95em;
+  line-height: 1.4em;
+}
+#api-docs .links {
+  display: inline-block;
+  vertical-align: top;
+}
+#api-docs ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+#api-docs li {
+  margin-bottom: 10px;
+}
+#api-docs h2 {
+  font-family: "Avenir Next Demi", Arial, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+@media only screen and (min-width: 768px) {
+  #api-docs .inner {
+    padding: 15px;
+  }
+  #api-docs p {
+    width: 66%;
+    display: inline-block;
+    margin-right: 4%;
+    font-size: .95em;
+    line-height: 1.4em;
+    float: left;
+  }
+  #api-docs .links {
+    width: 29%;
+    display: inline-block;
+    vertical-align: top;
+  }
+  #api-docs ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  #api-docs li {
+    margin-bottom: 10px;
+  }
+  #api-docs h2 {
+    font-family: "Avenir Next Demi", Arial, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+  }
 }
 #summary {
   position: relative;
