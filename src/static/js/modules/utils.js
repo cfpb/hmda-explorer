@@ -83,6 +83,11 @@ var PDP = (function( pdp ) {
 
   };
 
+  // Add commas to a number to make it pretty.
+  utils.commify = function( num ) {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  };
+
   // localStorage polyfill from https://gist.github.com/juliocesar/926500.
   // Basically just creates an object in memory.
   if ( !('localStorage' in window) ) {
