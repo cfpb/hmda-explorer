@@ -48,7 +48,7 @@
     });
 
    describe('Number format tests (_mungeDollarAmts)', function() {
-       var _err = 'Data format error! A non-positive numerical value found in original data: ';
+       var _err = 'Data format error. A negative number was found in original data: ';
        var _nan = 'Data not available';
        /**
         * 
@@ -61,7 +61,6 @@
          [9.876543210123456789, '$9,877', 'should format 18 decimals'],
          [98.76543210123456789, '$98,765', 'should format 17 decimals'],
          [987.6543210123456789, '$987,654', 'should format 16 decimals'],
-
          [9876.543210123456789, '$9,876,543', 'should format 15 decimals'],
          [98765.43210123456789, '$98,765,432', 'should format 14 decimals'],
          [987654.3210123456789, '$987,654,321', 'should format 13 decimals'],
