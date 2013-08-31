@@ -229,7 +229,7 @@ var PDP = (function ( pdp ) {
               respData.results[record][column] = 'Data not available';
             }
             else if (num < 0) {
-              respData.results[record][column] = 'Data format error! A non-positive numerical value found in original data: ' + num;
+              respData.results[record][column] = 'Data format error. A negative number was found in original data: ' + num;
             }
             // We don't want to add a dollar sign if it's a record count.
             else if ( column === 'count' ) {
