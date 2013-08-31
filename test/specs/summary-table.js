@@ -47,78 +47,64 @@
       });
     });
 
+   describe('Number format tests (_mungeDollarAmts)', function() {
+       var _err = 'Data format error! A non-positive numerical value found in original data: ';
+       var _nan = 'Data not available';
+       /**
+        * 
+        * Data to drive a specific test case. Data should be in the format of [test_input, expected_output, description]
+        * Common expected values are above; e.g., var _err = ...., etc.
+        *
+        * */
+       var _data = [ 
+         
+         [9.876543210123456789, '$9,877', 'should format 18 decimals'],
+         [98.76543210123456789, '$98,765', 'should format 17 decimals'],
+         [987.6543210123456789, '$987,654', 'should format 16 decimals'],
 
-
-    describe('Dollar format function _mungeDollarAmts (min and max) tests', function() {
-
-      it(' should properly handle negative numerical values', function(){
-        var data = { 'results': [{ 'min_loan_amount_000s': -1, 'max_loan_amount_000s': -1 }] };
-        expect( PDP.summaryTable._mungeDollarAmts( data )).
-          toEqual( { 'results': [{ 'min_loan_amount_000s': 'Data format error! A non-positive numerical value found in original data: -1' ,
-                                   'max_loan_amount_000s': 'Data format error! A non-positive numerical value found in original data: -1' }] } );
-      });
-
-      it(' should properly handle empty string values', function(){
-        var data = { 'results': [{ 'min_loan_amount_000s': '', 'max_loan_amount_000s':'' }] };
-        expect( PDP.summaryTable._mungeDollarAmts( data )).
-          toEqual( { 'results': [{ 'min_loan_amount_000s': 'Data not available' ,
-                                   'max_loan_amount_000s': 'Data not available' }] } );
-      });
-
-      it(' should properly handle text values', function(){
-        var data = { 'results': [{ 'min_loan_amount_000s': 'foo' , 'max_loan_amount_000s': 'bar' }] };
-        expect( PDP.summaryTable._mungeDollarAmts( data )).
-          toEqual( { 'results': [{ 'min_loan_amount_000s': 'Data not available',
-                                   'max_loan_amount_000s': 'Data not available' }] } );
-      });
-
-      it(' should properly handle null values', function(){
-        var data = { 'results': [{ 'min_loan_amount_000s': null , 'max_loan_amount_000s': null }] };
-        expect( PDP.summaryTable._mungeDollarAmts( data )).
-          toEqual( { 'results': [{ 'min_loan_amount_000s': 'Data not available' ,
-                                   'max_loan_amount_000s': 'Data not available' }] } );
-      });
-
-      it('should properly format single digit amounts', function() {
-        var data = { 'results':  [{ 'min_loan_amount_000s': 1, 'max_loan_amount_000s': 1 }] };
-        expect( PDP.summaryTable._mungeDollarAmts( data )).
-          toEqual( { 'results': [{ 'min_loan_amount_000s': '$1,000' ,
-                                   'max_loan_amount_000s': '$1,000' }] } );
-      });
-
-
-      it('should properly format two digit amounts', function() {
-        var data = { 'results':  [{ 'min_loan_amount_000s': 23.45643210000000,
-                                    'max_loan_amount_000s': 45.2321443434323 }] };
-        expect( PDP.summaryTable._mungeDollarAmts( data )).
-          toEqual( { 'results': [{ 'min_loan_amount_000s': '$23,456',
-                                   'max_loan_amount_000s': '$45,232' }] } );
-      });
-      
-      it('should properly format five digit amounts', function() {
-        var data = { 'results':  [{ 'min_loan_amount_000s': 23456 }]  };
-        expect( PDP.summaryTable._mungeDollarAmts( data ) )
-          .toEqual( { 'results': [ { 'min_loan_amount_000s': '$23,456,000' } ] });
-      });
- 
-      it('should properly format three digit amounts', function() {
-        var data = { 'results':  [{ 'min_loan_amount_000s': 234 }]  };
-        expect( PDP.summaryTable._mungeDollarAmts( data ) )
-          .toEqual( { 'results': [ { 'min_loan_amount_000s': '$234,000' } ] });
-      });
-
-      it('should properly format nine digit amounts', function() {
-        var data = { 'results':  [{ 'min_loan_amount_000s': 345678901 }]  };
-        expect( PDP.summaryTable._mungeDollarAmts( data ) )
-          .toEqual( { 'results': [ { 'min_loan_amount_000s': '$345,678,901,000' } ] });
-      });
-
-      it('should properly format crazy dot-separated amounts', function() {
-        var data = { 'results':  [{ 'min_loan_amount_000s': 234.234242342345 }]  };
-        expect( PDP.summaryTable._mungeDollarAmts( data ) )
-          .toEqual( { 'results': [ { 'min_loan_amount_000s': '$234,234' } ] });
+         [9876.543210123456789, '$9,876,543', 'should format 15 decimals'],
+         [98765.43210123456789, '$98,765,432', 'should format 14 decimals'],
+         [987654.3210123456789, '$987,654,321', 'should format 13 decimals'],
+         [9876543.210123456789, '$9,876,543,210', 'should format 12 decimals'],
+         [98765432.10123456789, '$98,765,432,101', 'should format 11 decimals'],
+         [987654321.0123456789, '$987,654,321,012', 'should format 10 decimals'],
+         [9876543210.123456789, '$9,876,543,210,123', 'should format 9 decimals'],
+         [98765432101.23456789, '$98,765,432,101,235', 'should format 8 decimals'],
+         [987654321012.3456789, '$987,654,321,012,346', 'should format 7 decimals'],
+         //Numbers getting a bit big for JavaScript
+         [123.456789, '$123,457', 'should format 6 decimals'],
+         [123.07861, '$123,079', 'should format 5 decimals'],
+         [1234.98765, '$1,234,988', 'should format 4 decimals'],
+         [12345.378, '$12,345,378', 'should format 3 decimals'],
+         [123456.73, '$123,456,730', 'should format 2 decimals'],
+         [14579., '$14,579,000', 'should format 1 decimals'],
+         [-0, '$0', 'should format 0 decimals'],
+         [+0, '$0', 'should format 0 decimals'],
+         [.1, '$100', 'should format o w/single decimal decimals'],
+         [1., '$1,000', 'should format 0 decimals'],
+         [.0, '$0', 'should format .0 decimal'],
+         [-1, _err.concat('-1'), 'should format negative numbers'], 
+         [0, '$0', 'should format 0'],
+         [1, '$1,000' , 'should format 1'],
+         [Number.MAX_VALUE, '$Infinity', 'should hanlde JS max'], //You would think it should be Number.POSITIVE_INFINITY vs. the string rep.
+         [Number.MIN_VALUE, '$0', 'should handle JS min.'],  //Should return _err but node returns 0
+         [Number.POSITIVE_INFINITY, '$Infinity', 'should handle positive infinity.'],
+         [Number.NEGATIVE_INFINITY, _err.concat(Number.NEGATIVE_INFINITY), 'should handle negative inifinity.'], 
+         [null, _nan, 'should handle null'],
+         ['', _nan, 'should handle empty string'],
+         ['Somebody\'s boring me. I think it\'s me.', _nan, 'should handle arbitrary Dylan Thomas quotes.'],
+       ];
+       
+       using( _data, function(val) {
+         it( '', function(){
+           var data = { 'results': [{ 'min_loan_amount_000s': val[0], 'max_loan_amount_000s': val[0] }] };
+           expect( PDP.summaryTable._mungeDollarAmts( data )).
+           toEqual( { 'results': [{ 'min_loan_amount_000s': val[1] ,
+                                    'max_loan_amount_000s': val[1] }] } );
+         });
       });
     });
+
 
     describe('queryToVal', function() {
       it('should properly format calculate field values', function() {
