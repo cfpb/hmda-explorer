@@ -149,10 +149,13 @@ nav li {
       color: @white;
     }
     .primary {
+      color: @white;
+      font-size: .875em;
+      line-height: 1.75em;
       li {
         &:after {
           content: "|";
-          padding-left: 5px;
+          padding: 0 10px;
         }
         &:last-child {
           &:after {
@@ -165,6 +168,8 @@ nav li {
       -webkit-column-count: 2;
       -moz-column-count: 2;
       column-count: 2;
+      font-size: .875em;
+      line-height: 1.5em;
       li {
         display: block;
       }
@@ -174,6 +179,10 @@ nav li {
       margin: 0;
       i {
         margin-left: 5px;
+      }
+      a:hover {
+        color: @pacific50;
+        text-decoration: none;
       }
     }
   }

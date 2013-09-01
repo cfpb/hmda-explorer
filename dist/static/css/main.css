@@ -2834,6 +2834,7 @@ section.video h2 strong {
 }
 #developers .inner p {
   line-height: 1.375em;
+  margin: 0;
 }
 #developers .inner p a:link {
   text-decoration: underline;
@@ -2844,6 +2845,7 @@ section.video h2 strong {
 #developers .links ul {
   list-style-type: none;
   padding-left: 0;
+  margin-top: 0;
 }
 #developers .links li {
   margin-bottom: 10px;
@@ -3788,9 +3790,14 @@ nav li {
 .hmda footer a:visited {
   color: #ffffff;
 }
+.hmda footer .primary {
+  color: #ffffff;
+  font-size: .875em;
+  line-height: 1.75em;
+}
 .hmda footer .primary li:after {
   content: "|";
-  padding-left: 5px;
+  padding: 0 10px;
 }
 .hmda footer .primary li:last-child:after {
   content: " ";
@@ -3799,6 +3806,8 @@ nav li {
   -webkit-column-count: 2;
   -moz-column-count: 2;
   column-count: 2;
+  font-size: .875em;
+  line-height: 1.5em;
 }
 .hmda footer .tertiary li {
   display: block;
@@ -3809,6 +3818,10 @@ nav li {
 }
 .hmda footer .social i {
   margin-left: 5px;
+}
+.hmda footer .social a:hover {
+  color: #7eb8dd;
+  text-decoration: none;
 }
 a.action-arrow {
   font-family: "Avenir Next Demi", Arial, sans-serif;
