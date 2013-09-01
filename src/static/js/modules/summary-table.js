@@ -210,7 +210,7 @@ var PDP = (function ( pdp ) {
    *    All non numerical values of ``the_number``` should be emitted as blanks; e.g., null and ""
    *    are represented as nothing on the screen.
    *  
-   * */
+   */
   table._mungeDollarAmts = function( respData ) {
     var record, column, variable, amount, addCommas, dotIndex, amtParts, num;
 

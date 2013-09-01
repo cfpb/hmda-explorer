@@ -1,7 +1,10 @@
 /**
  *
- *   Could be similar to a Python generator.
+ *  Could do a lot more, but it's good enough for now.
+ *
  *  Inspired by https://github.com/jphpsf/jasmine-data-provider
+ *
+ *
  *
  * */
 using = function (values, func) {
