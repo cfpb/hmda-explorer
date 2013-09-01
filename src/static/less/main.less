@@ -107,10 +107,6 @@ nav li {
     margin: 0;
   }
 
-  a:link {
-    text-decoration: underline;
-  } 
-
   .return-cfgov { 
     float: left;
   } 
@@ -189,19 +185,44 @@ nav li {
 
 }
 
+p {
+  a:link {
+    border-bottom: 1px dotted @pacific;
+    color: @pacific;
+    text-decoration: none;
+  } 
+  a:hover {
+    border-bottom: 1px solid @navy;
+    color: @navy;
+    text-decoration: none;
+  }
+  a.focus {
+    border-bottom: 1px solid @pacific;
+    color: @pacific;
+    outline: thin dotted;
+    text-decoration: none;
+  }
+  a.visited {
+    color: @teal;
+    border-bottom: 1px solid @teal;
+  }
+}
+
 a.action-arrow {
   .avenir-next-demi;
   font-size: 1.1em;
+  &:hover {
+    text-decoration: underline;
+  }
   .icon-external-link {
     font-size: 1.2em;
     padding-left: 2px;
     line-height: .5em;
+    text-decoration: none;
   }
   .icon-right {
     font-size: 1.6em;
     line-height: .6em;
-  }
-  &:hover {
     text-decoration: none;
   }
 }
