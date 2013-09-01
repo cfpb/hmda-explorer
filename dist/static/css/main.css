@@ -2689,13 +2689,6 @@ section.video .launch p {
   font-style: normal;
   margin-top: .5em;
 }
-section.video .launch a:hover {
-  text-decoration: none;
-}
-section.video .launch a.transcript,
-section.video .launch a.transcript:hover {
-  text-decoration: underline;
-}
 section.video .blurb p {
   font-size: .95em;
   line-height: 1.4em;
@@ -2833,9 +2826,6 @@ section.video h2 strong {
 #developers .inner p {
   line-height: 1.375em;
   margin: 0;
-}
-#developers .inner p a:link {
-  text-decoration: underline;
 }
 #developers .api {
   padding: 0px 20px;
@@ -3737,9 +3727,6 @@ nav li {
 .top-banner p {
   margin: 0;
 }
-.top-banner a:link {
-  text-decoration: underline;
-}
 .top-banner .return-cfgov {
   float: left;
 }
@@ -3821,22 +3808,44 @@ nav li {
   color: #7eb8dd;
   text-decoration: none;
 }
+p a:link {
+  border-bottom: 1px dotted #0072ce;
+  color: #0072ce;
+  text-decoration: none;
+}
+p a:hover {
+  border-bottom: 1px solid #002d72;
+  color: #002d72;
+  text-decoration: none;
+}
+p a.focus {
+  border-bottom: 1px solid #0072ce;
+  color: #0072ce;
+  outline: thin dotted;
+  text-decoration: none;
+}
+p a.visited {
+  color: #005e5d;
+  border-bottom: 1px solid #005e5d;
+}
 a.action-arrow {
   font-family: "Avenir Next Demi", Arial, sans-serif;
   font-weight: 600;
   font-style: normal;
   font-size: 1.1em;
 }
+a.action-arrow:hover {
+  text-decoration: underline;
+}
 a.action-arrow .icon-external-link {
   font-size: 1.2em;
   padding-left: 2px;
   line-height: .5em;
+  text-decoration: none;
 }
 a.action-arrow .icon-right {
   font-size: 1.6em;
   line-height: .6em;
-}
-a.action-arrow:hover {
   text-decoration: none;
 }
 @media only screen and (min-width: 768px) {
