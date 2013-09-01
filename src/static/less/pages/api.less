@@ -1,11 +1,42 @@
 // Mobile first!
 
 #api-docs {
-  .inner {
-    width: 82%;
+.inner {
     padding: 15px;
     }     
+  p {
+
+    display: inline-block;
+    margin-right: 4%;
+    font-size: .95em;
+    line-height: 1.4em;
+    }
+  .links {
+    display: inline-block;
+    vertical-align: top;
+    }
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      }
+    li {
+      margin-bottom: 10px;
+    }
+    h2 {.avenir-next-demi;}
+}
+
+
+
+// Adjustments for larger screens
+
+@media only screen and ( min-width: 768px ) {
+
+  #api-docs {
+
+   .inner {
+    padding: 15px;
   
+    }     
   p {
     width: 66%;
     display: inline-block;
@@ -18,27 +49,16 @@
     width: 29%;
     display: inline-block;
     vertical-align: top;
+    }
     ul {
       list-style-type: none;
       padding-left: 0;
-   		}
+      }
     li {
       margin-bottom: 10px;
-    	}
-
     }
-
-}
-
-// Adjustments for larger screens
-
-@media only screen and ( min-width: 768px ) {
-
-  #api {
-
-    // stuff goes here
+    h2 {.avenir-next-demi;}
 
   }
 
 }
-
