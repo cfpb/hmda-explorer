@@ -76,12 +76,13 @@
          [1234.98765, '$1,234,988', 'should format 4 decimals'],
          [12345.378, '$12,345,378', 'should format 3 decimals'],
          [123456.73, '$123,456,730', 'should format 2 decimals'],
-         [14579., '$14,579,000', 'should format 1 decimals'],
+         //Tesing weird numbers without leading or trailing numbers and decimal
+         [Number('14579.'), '$14,579,000', 'should format 1 decimals'],
          [-0, '$0', 'should format 0 decimals'],
          [+0, '$0', 'should format 0 decimals'],
-         [.1, '$100', 'should format o w/single decimal decimals'],
-         [1., '$1,000', 'should format 0 decimals'],
-         [.0, '$0', 'should format .0 decimal'],
+         [Number('.1'), '$100', 'should format o w/single decimal decimals'],
+         [Number('1.'), '$1,000', 'should format 0 decimals'],
+         [Number('.0'), '$0', 'should format .0 decimal'],
          [-1, _err.concat('-1'), 'should format negative numbers'], 
          [0, '$0', 'should format 0'],
          [1, '$1,000' , 'should format 1'],
@@ -92,6 +93,9 @@
          [null, _nan, 'should handle null'],
          ['', _nan, 'should handle empty string'],
          ['Somebody\'s boring me. I think it\'s me.', _nan, 'should handle arbitrary Dylan Thomas quotes.'],
+         ['!@#$%^&*(()|}{:\\"?><,./`\'})', 'Data not available', 'should handle weird ascii'],
+         ['!@#$%^&*(()|}{:\\"?><,./`\'})'.toString('utf-8'), 'Data not available', 'should handle weird utf-8'],
+         ['!@#$%^&*(()|}{:\\"?><,./`\'})'.toString('utf-16'), 'Data not available', 'should handle weird utf-8'],
        ];
        
        using( _data, function(val) {
