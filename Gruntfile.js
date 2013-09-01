@@ -2,6 +2,7 @@ module.exports = function(grunt) {
 
   'use strict';
 
+
   grunt.initConfig({
 
     /**
@@ -287,6 +288,37 @@ module.exports = function(grunt) {
      * Run jasmine specs headlessly through PhantomJS.
      */
     jasmine: {
+      cover: {
+         src: [
+           'src/static/js/modules/**/*.js',
+          ],
+          options: {
+            specs: 'test/specs/*.js',
+            template: require('grunt-template-jasmine-istanbul'),
+            templateOptions: {
+              coverage: 'test/coverage/coverage.json',
+              report: [
+                {
+                  type: 'html',
+                  options: { dir: 'test/coverage/report/html' }
+                },
+                {
+                  type: 'cobertura',
+                  options: { dir: 'test/coverage/report/cobertura'}
+                },
+                {
+                  type: 'text',
+                  options: { dir: 'test/coverage/report/text'}
+                },
+              ]
+            },
+            helpers: [
+              'dist/static/js/all.min.js',  
+              'test/specs/helpers/*.js'
+            ],
+            timeout: 30000
+          }
+      },
       pdp: {
         src: [
           'dist/static/js/all.min.js',
