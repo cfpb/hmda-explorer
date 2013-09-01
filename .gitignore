@@ -29,3 +29,7 @@ src/static/vendor
 # vim swap files #
 ##################
 *.swp
+
+# Shell
+#################
+ghpages.sh
