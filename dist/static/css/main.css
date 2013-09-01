@@ -2962,7 +2962,7 @@ section.video h2 strong {
   }
   .homepage .circle-nav {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     width: 150px;
     height: 150px;
     overflow: hidden;
@@ -2999,27 +2999,12 @@ section.video h2 strong {
   .homepage .circle-nav:hover .inner {
     top: -100px;
   }
-  .homepage .circle-nav:hover img {
-    -webkit-transform: scale(0);
-    -moz-transform: scale(0);
-    -o-transform: scale(0);
-    -ms-transform: scale(0);
-    transform: scale(0);
-    -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0)";
-    filter: alpha(opacity=0);
-    opacity: 0;
-    -webkit-transition-delay: .1s;
-    -moz-transition-delay: .1s;
-    -o-transition-delay: .1s;
-    -ms-transition-delay: .1s;
-    transition-delay: .1s;
-  }
   .homepage .circle-nav span {
     display: block;
     padding: 60px 10% 40px;
     text-align: center;
     font-size: .75em;
-    background-image: url('../img/icon_arrow_down.png');
+    background-image: url('../img/icon_goldcaret.png');
     background-repeat: no-repeat;
     background-position: center bottom;
   }
@@ -3059,8 +3044,8 @@ section.video h2 strong {
 }
 @media only screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
   .homepage .circle-nav span {
-    background-image: url("../img/icon_arrow_down_2x.png");
-    background-size: 32px 20px;
+    background-image: url("../img/icon_goldcaret_2x.png");
+    background-size: 34px 21px;
   }
 }
 .explore .hero {
