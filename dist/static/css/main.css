@@ -2750,11 +2750,11 @@ section.video h2 strong {
   border-bottom: 3px solid #f1f2f2;
 }
 #facts-and-figures .map-legends {
-  width: 140px;
+  width: 370px;
 }
 #facts-and-figures .legend-title {
   font-weight: bold;
-  font-size: 1.1em;
+  font-size: 1em;
   padding-bottom: 10px;
 }
 #facts-and-figures .legend-labels {
@@ -2763,12 +2763,10 @@ section.video h2 strong {
 }
 #facts-and-figures .legend-labels li {
   list-style-type: none;
-  height: 20px;
 }
 #facts-and-figures .legend-labels li span {
-  height: 20px;
-  width: 30px;
-  margin-right: 7px;
+  height: 10px;
+  width: 35px;
   display: inline-block;
 }
 #facts-and-figures .legend-source {
