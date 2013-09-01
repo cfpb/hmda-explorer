@@ -321,14 +321,13 @@ module.exports = function(grunt) {
       },
       pdp: {
         src: [
-          'src/static/js/**/*.js'
+          'dist/static/js/all.min.js',
+          'test/specs/helpers/debug.js',
         ],
         options: {
           specs: 'test/specs/*.js',
           helpers: [
-            'dist/static/js/all.min.js',
             'test/specs/helpers/*.js',
-            'test/specs/helpers/debug.js',
           ],
           timeout: 30000
         }
