@@ -47,6 +47,7 @@
     font-style: italic;
     font-family: @body-font;
     font-weight: normal;
+    font-size: 1.4em;
     background-repeat: no-repeat;
     padding-left: 100px;
     min-height: 100px;
@@ -75,7 +76,7 @@ section {
 
 section.video {
 
-  background-color: #E7E7E6;
+  background-color: @light_field10;
   min-height: 155px;
 
   .inner {
@@ -141,6 +142,8 @@ section.video {
   #map {
     width: 100%;
     height: 400px;
+    border-top: 3px solid @light_field10;
+    border-bottom: 3px solid @light_field10;
   }
 
   .map-legends {
@@ -182,8 +185,8 @@ section.video {
 
 #get-the-data {
   background: @white url(../img/bg_grid-tile.png) scroll repeat left top;
-  border-top: 3px solid @light_neutral50;
-  border-bottom: 3px solid @light_neutral50;
+  border-top: 3px solid @light_field10;
+  border-bottom: 3px solid @light_field10;
   padding-bottom: 50px;
   h2 {
     .at2x( '../img/icon_getdata.png', 79px, 92px );
@@ -201,7 +204,7 @@ section.video {
   .summary {
     vertical-align: top;
     position: relative;
-    background-color: @light_field50;
+    background-color: @light_field10;
     padding: 10px 20px;
     .action-arrow {
       position: absolute;
@@ -245,7 +248,7 @@ section.video {
 // Fullscreen YouTube video overlay
 
 #youtube {
-  background-color: #E7E7E6;
+  background-color: @light_field10;
   width: 100%;
   position: fixed;
   top: 0;
