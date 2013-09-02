@@ -54,7 +54,7 @@
 // General housekeeping
 
 body, html {
-  margin: 20px 0 0 0;
+  margin: 0 0 0 0;
   background: @white;
   font-family: @body-font;
 }
@@ -89,6 +89,38 @@ nav li {
 
 }
 
+// Top banner in header of the page
+
+.top-banner {
+  background-color: @light_field10;
+  height: 20px;
+  margin-bottom: 20px;
+  padding-top: 3px;
+  .avenir-next;
+  font-size: 11px;
+
+  &> .inner {
+    .wrapper(); 
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .return-cfgov { 
+    float: left;
+  } 
+
+  .official-website { 
+    float: right;
+  } 
+
+  img {
+    vertical-align: center;
+    margin: 0 0 1px 10px;
+  }
+}
+
 // Footer at the bottom of the page
 
 .hmda {
@@ -101,7 +133,7 @@ nav li {
       .mobile-nav();
     }
     a.active {
-      .avenir-next-bold;
+      .avenir-next-demi;
     }
   }
 
@@ -113,10 +145,13 @@ nav li {
       color: @white;
     }
     .primary {
+      color: @white;
+      font-size: .875em;
+      line-height: 1.75em;
       li {
         &:after {
           content: "|";
-          padding-left: 5px;
+          padding: 0 10px;
         }
         &:last-child {
           &:after {
@@ -129,6 +164,8 @@ nav li {
       -webkit-column-count: 2;
       -moz-column-count: 2;
       column-count: 2;
+      font-size: .875em;
+      line-height: 1.5em;
       li {
         display: block;
       }
@@ -139,22 +176,58 @@ nav li {
       i {
         margin-left: 5px;
       }
+      a:hover {
+        color: @pacific50;
+        text-decoration: none;
+      }
     }
   }
 
 }
 
+p {
+  a:link {
+    border-bottom: 1px dotted @pacific;
+    color: @pacific;
+    text-decoration: none;
+  } 
+  a:hover {
+    border-bottom: 1px solid @navy;
+    color: @navy;
+    text-decoration: none;
+  }
+  a.focus {
+    border-bottom: 1px solid @pacific;
+    color: @pacific;
+    outline: thin dotted;
+    text-decoration: none;
+  }
+  a.visited {
+    color: @teal;
+    border-bottom: 1px solid @teal;
+  }
+}
+
 a.action-arrow {
   .avenir-next-demi;
   font-size: 1.1em;
-  i {
-    font-size: 2em;
-    line-height: .45em;
-  }
   &:hover {
+    text-decoration: underline;
+  }
+  .icon-external-link {
+    font-size: 1.2em;
+    padding-left: 2px;
+    line-height: .5em;
+    text-decoration: none;
+  }
+  .icon-right {
+    font-size: 1.6em;
+    line-height: .6em;
     text-decoration: none;
   }
 }
+
+
 
 // Viewport adjustments
 

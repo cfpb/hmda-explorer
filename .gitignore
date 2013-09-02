@@ -8,11 +8,6 @@
 ehthumbs.db
 Thumbs.db
 
-# Grunt Generated Files #
-#########################
-_SpecRunner.html
-.grunt/
-
 # Node packages #
 #################
 node_modules/
@@ -25,7 +20,16 @@ src/static/vendor
 ############################
 # Not all scripts are in the Bower registry, add them here.
 !src/static/vendor/tidy-table/*
+<<<<<<< HEAD
 
-# vim swap files #
+# Vim swap files #
 ##################
 *.swp
+
+# Shell #
+#########
+ghpages.sh
+
+# Git attributes #
+##################
+.gitattributes
