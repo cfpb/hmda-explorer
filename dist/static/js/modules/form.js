@@ -16,7 +16,7 @@ var PDP = (function ( pdp ) {
   form.$el = $('form');
 
   // Maximum number of locations a person can search on.
-  form.maxNumLocations = 20;
+  form.maxNumLocations = 15;
 
   // Cache a reference to all the filter fields.
   form.init = function() {
