@@ -183,7 +183,7 @@
     <h1>Code coverage report for <span class="entity">modules/summary-table.js</span></h1>
     <h2>
         
-        Statements: <span class="metric">66.29% <small>(118 / 178)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">67.05% <small>(118 / 176)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
         Branches: <span class="metric">54.72% <small>(29 / 53)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
@@ -192,7 +192,7 @@
         Functions: <span class="metric">48.28% <small>(14 / 29)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Lines: <span class="metric">66.29% <small>(118 / 178)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">67.05% <small>(118 / 176)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
     </h2>
     <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">modules/</a> &#187; summary-table.js</div>
@@ -687,12 +687,7 @@
 486
 487
 488
-489
-490
-491
-492
-493
-494</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+489</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -814,16 +809,6 @@
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1007,6 +992,7 @@
 <span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1016,6 +1002,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1305,19 +1295,9 @@ var PDP = (function ( pdp ) {
 &nbsp;
   // event handler, called when a form field changes
   table.updateTable = <span class="fstat-no" title="function not covered" >function(e) {</span>
-<span class="cstat-no" title="statement not covered" >    var value,</span>
+<span class="cstat-no" title="statement not covered" >    var value = $(e.target).val() || null,</span>
         position = e.target.id.substr( -1, 1 ),
-        clause = e.target.dataset.summaryTableInput;
-&nbsp;
-<span class="cstat-no" title="statement not covered" >    if ( e.target.hasOwnProperty('selectedOptions') ) {</span>
-<span class="cstat-no" title="statement not covered" >      value = e.target.selectedOptions[0].value;</span>
-    }
-&nbsp;
-    // if they've selected a placeholder, ignore it
-    // a placeholder has no value
-<span class="cstat-no" title="statement not covered" >    if ( e.target.selectedOptions[0].hasAttribute('placeholder') ) {</span>
-<span class="cstat-no" title="statement not covered" >      return;</span>
-    }
+        clause = e.target.getAttribute('data-summary-table-input');
 &nbsp;
     // if the event occurred on the calculate by field, 
     // get the query string from the metrics map and
@@ -1467,7 +1447,7 @@ var PDP = (function ( pdp ) {
   table.queryToVal = function( qstr ) {
     var val, i;
 &nbsp;
-    // split on parenthesis
+    // split on parentheses
     val = qstr.split(/\(|\)/);
 &nbsp;
     i = val.length;
@@ -1500,6 +1480,7 @@ var PDP = (function ( pdp ) {
       $tr = $('&lt;tr&gt;&lt;/tr&gt;');
 &nbsp;
       for ( column=0; column&lt;clauseLen; column++ ) {
+&nbsp;
         <span class="missing-if-branch" title="else path not taken"" >E</span>if ( typeof this.queryParams.clauses.select[column] !== 'undefined' ) {
           // reads like
           // cellValue = response data object -&gt; iteration we're on -&gt; object key that matches the 
@@ -1509,6 +1490,10 @@ var PDP = (function ( pdp ) {
           // the column value won't match on calculate fields w/o some manipulation
           <span class="missing-if-branch" title="if path not taken"" >I</span>if ( typeof cellValue === 'undefined' ) {
 <span class="cstat-no" title="statement not covered" >            cellValue = responseData.results[i][this.queryToVal( this.queryParams.clauses.select[column] )];</span>
+            // if it's still undefined, gtfo
+<span class="cstat-no" title="statement not covered" >            if ( typeof cellValue === 'undefined' ) {</span>
+<span class="cstat-no" title="statement not covered" >              cellValue = '&lt;em class="not-reported"&gt;not reported&lt;/em&gt;';</span>
+            }
           }
           $tr.append('&lt;td&gt;' + cellValue + '&lt;/td&gt;');
         }
@@ -1572,7 +1557,7 @@ var PDP = (function ( pdp ) {
 <span class="cstat-no" title="statement not covered" >    this.$table = $('table#summary-table');</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    return this.$table;</span>
-  };  
+  };
 &nbsp;
   // generates &lt;tr&gt; of column headers
   table.updateTableHeaders = function() {
@@ -1640,7 +1625,7 @@ var PDP = (function ( pdp ) {
 <span class="cstat-no" title="statement not covered" >    $('.reset-field').on('click', <span class="fstat-no" title="function not covered" >function(e) {</span></span>
 <span class="cstat-no" title="statement not covered" >      e.preventDefault();</span>
 <span class="cstat-no" title="statement not covered" >      var position = e.target.id.substr( -1, 1 ),</span>
-          clause = e.target.dataset.summaryTableInput;
+          clause = e.target.getAttribute('data-summary-table-input');
 &nbsp;
 <span class="cstat-no" title="statement not covered" >      this.resetColumn( clause, position );</span>
 <span class="cstat-no" title="statement not covered" >      $(e.target).addClass('hidden');</span>
@@ -1683,7 +1668,7 @@ var PDP = (function ( pdp ) {
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Sep 01 2013 13:58:29 GMT-0400 (EDT)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Sep 02 2013 02:26:24 GMT-0400 (EDT)</div>
 </div>
 
 <script src="../prettify.js"></script>
