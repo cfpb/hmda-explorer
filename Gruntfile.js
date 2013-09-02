@@ -321,7 +321,7 @@ module.exports = function(grunt) {
               ]
             },
             helpers: [
-              'dist/static/js/all.min.js',  
+              'dist/static/js/all.min.js',
               'test/specs/helpers/*.js'
             ],
             timeout: 30000
@@ -420,10 +420,9 @@ module.exports = function(grunt) {
   /**
    * Create task aliases by registering new tasks
    */
-  grunt.registerTask('test', ['jshint', 'jasmine:pdp']);
+  grunt.registerTask('test', ['jshint', 'jasmine:cover']);
   grunt.registerTask('docs', ['removelogging', 'docco', 'build-cfpb']);
-  grunt.registerTask('go', ['shell:go']);
-  grunt.registerTask('build', ['htmlmin', 'shell:dist', 'jst', 'uglify', 'less', 'cssmin', 'jasmine:cover']);
+  grunt.registerTask('build', ['htmlmin', 'shell:dist', 'jst', 'uglify', 'less', 'cssmin']);
 
   /**
    * The 'default' task will run whenever `grunt` is run without specifying a task
