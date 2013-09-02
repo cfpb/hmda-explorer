@@ -189,11 +189,17 @@ module.exports = function(grunt) {
         mangle: false,
         beautify: true
       },
+      jquery: {
+        files: {
+          'dist/static/js/jquery.min.js': [
+            'src/static/vendor/jquery/jquery.js',
+          ]
+        }
+      },
       main: {
         files: {
           'dist/static/js/main.min.js': [
             'src/static/vendor/json3/lib/json3.js',
-            'src/static/vendor/jquery/jquery.js',
             'src/static/vendor/lodash/lodash.js',
             'src/static/vendor/bootstrap/js/bootstrap-tooltip.js',
             'src/static/vendor/chosen/public/chosen.jquery.js'
@@ -245,6 +251,7 @@ module.exports = function(grunt) {
       all: {
         files: {
           'dist/static/js/all.min.js': [
+            'dist/static/js/jquery.min.js',
             'dist/static/js/main.min.js',
             'dist/static/js/explore.min.js'
           ]
@@ -253,6 +260,7 @@ module.exports = function(grunt) {
       ie8: {
         files: {
           'dist/static/js/ie8.min.js': [
+            'src/static/vendor/es5-shim/es5-shim.js',
             'src/static/vendor/html5shiv/dist/html5shiv.js',
             'src/static/vendor/html5shiv/dist/html5shiv-printshiv.js',
             'src/static/vendor/respond/respond.min.js',

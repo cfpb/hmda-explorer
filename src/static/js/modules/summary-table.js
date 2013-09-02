@@ -118,19 +118,9 @@ var PDP = (function ( pdp ) {
 
   // event handler, called when a form field changes
   table.updateTable = function(e) {
-    var value,
+    var value = $(e.target).val() || null,
         position = e.target.id.substr( -1, 1 ),
-        clause = e.target.dataset.summaryTableInput;
-
-    if ( e.target.hasOwnProperty('selectedOptions') ) {
-      value = e.target.selectedOptions[0].value;
-    }
-
-    // if they've selected a placeholder, ignore it
-    // a placeholder has no value
-    if ( e.target.selectedOptions[0].hasAttribute('placeholder') ) {
-      return;
-    }
+        clause = e.target.getAttribute('data-summary-table-input');
 
     // if the event occurred on the calculate by field, 
     // get the query string from the metrics map and
@@ -280,7 +270,7 @@ var PDP = (function ( pdp ) {
   table.queryToVal = function( qstr ) {
     var val, i;
 
-    // split on parenthesis
+    // split on parentheses
     val = qstr.split(/\(|\)/);
 
     i = val.length;
@@ -313,6 +303,7 @@ var PDP = (function ( pdp ) {
       $tr = $('<tr></tr>');
 
       for ( column=0; column<clauseLen; column++ ) {
+
         if ( typeof this.queryParams.clauses.select[column] !== 'undefined' ) {
           // reads like
           // cellValue = response data object -> iteration we're on -> object key that matches the 
@@ -322,6 +313,10 @@ var PDP = (function ( pdp ) {
           // the column value won't match on calculate fields w/o some manipulation
           if ( typeof cellValue === 'undefined' ) {
             cellValue = responseData.results[i][this.queryToVal( this.queryParams.clauses.select[column] )];
+            // if it's still undefined, gtfo
+            if ( typeof cellValue === 'undefined' ) {
+              cellValue = '<em class="not-reported">not reported</em>';
+            }
           }
           $tr.append('<td>' + cellValue + '</td>');
         }
@@ -385,7 +380,7 @@ var PDP = (function ( pdp ) {
     this.$table = $('table#summary-table');
 
     return this.$table;
-  };  
+  };
 
   // generates <tr> of column headers
   table.updateTableHeaders = function() {
@@ -453,7 +448,7 @@ var PDP = (function ( pdp ) {
     $('.reset-field').on('click', function(e) {
       e.preventDefault();
       var position = e.target.id.substr( -1, 1 ),
-          clause = e.target.dataset.summaryTableInput;
+          clause = e.target.getAttribute('data-summary-table-input');
 
       this.resetColumn( clause, position );
       $(e.target).addClass('hidden');
