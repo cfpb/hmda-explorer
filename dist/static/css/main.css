@@ -3061,10 +3061,10 @@ section.video h2 strong {
 }
 .explore .hero h1 {
   font-size: 34px;
-  margin: 5px 0 0;
+  padding-top: 5px;
   padding-left: 55px;
   display: inline;
-  background: transparent url() scroll no-repeat center left;
+  background: transparent url() scroll no-repeat left center;
   background-image: url('../img/icon_explore-data.png');
 }
 @media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
@@ -3192,7 +3192,7 @@ section.video h2 strong {
   .explore .hero {
     background-color: #FAB051;
     padding: 5px 0 0;
-    border-bottom: 5px solid gray;
+    border-bottom: 5px solid #e3e4e5;
     position: relative;
   }
   .explore .hero > .inner {
@@ -3230,7 +3230,7 @@ section.video h2 strong {
   .explore .hero a.active {
     text-decoration: none;
     padding-bottom: 9px;
-    border-bottom: 5px solid #101820;
+    border-bottom: 5px solid #75787b;
     background-color: transparent !important;
   }
   .download-share .widget {
@@ -3355,6 +3355,17 @@ section.video h2 strong {
     width: 100%;
   }
 }
+.hero h1 {
+  padding-bottom: 5px;
+  background: transparent url() scroll no-repeat center left;
+  background-image: url('../img/icon_learn-more.png');
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
+  .hero h1 {
+    background-image: url("../img/icon_learn-more_2x.png");
+    background-size: 42px 42px;
+  }
+}
 #learn-more .inner {
   padding: 15px 0 0 0;
 }
@@ -3376,7 +3387,7 @@ section.video h2 strong {
   margin-bottom: 10px;
 }
 #learn-more .highlight {
-  background-color: #e7e7e6;
+  background-color: #f1f2f2;
   padding: 20px;
   width: 66%;
   line-height: 1.4em;
@@ -3401,7 +3412,7 @@ section.video h2 strong {
     padding: 0;
   }
   #learn-more .highlight {
-    background-color: #e7e7e6;
+    background-color: #f1f2f2;
     padding: 20px;
     width: 66%;
     line-height: 1.4em;
