@@ -22,10 +22,14 @@ src/static/vendor
 !src/static/vendor/tidy-table/*
 <<<<<<< HEAD
 
-# vim swap files #
+# Vim swap files #
 ##################
 *.swp
 
-# Shell
-#################
+# Shell #
+#########
 ghpages.sh
+
+# Git attributes #
+##################
+.gitattributes
