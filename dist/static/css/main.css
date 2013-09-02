@@ -3356,7 +3356,7 @@ section.video h2 strong {
   }
 }
 #learn-more .inner {
-  padding: 15px;
+  padding: 15px 0 0 0;
 }
 #learn-more p {
   display: inline-block;
@@ -3392,7 +3392,7 @@ section.video h2 strong {
 }
 @media only screen and (min-width: 768px) {
   #learn-more .inner {
-    padding: 15px;
+    padding: 15px 0 0 0;
   }
   #learn-more .page-title {
     margin-top: 30px;
@@ -3430,7 +3430,7 @@ section.video h2 strong {
   }
 }
 #api-docs .inner {
-  padding: 15px;
+  padding: 15px 0 0 0;
 }
 #api-docs p {
   display: inline-block;
@@ -3456,7 +3456,7 @@ section.video h2 strong {
 }
 @media only screen and (min-width: 768px) {
   #api-docs .inner {
-    padding: 15px;
+    padding: 15px 0 0 0;
   }
   #api-docs p {
     width: 66%;
