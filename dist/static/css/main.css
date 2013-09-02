@@ -3355,13 +3355,13 @@ section.video h2 strong {
     width: 100%;
   }
 }
-.hero h1 {
+.learn-more .hero h1 {
   padding-bottom: 5px;
-  background: transparent url() scroll no-repeat center left;
+  background: transparent url() scroll no-repeat left center;
   background-image: url('../img/icon_learn-more.png');
 }
 @media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
-  .hero h1 {
+  .learn-more .hero h1 {
     background-image: url("../img/icon_learn-more_2x.png");
     background-size: 42px 42px;
   }
@@ -3438,6 +3438,17 @@ section.video h2 strong {
   }
   #learn-more li {
     margin-bottom: 10px;
+  }
+}
+.api-docs .hero h1 {
+  padding-bottom: 5px;
+  background: transparent url() scroll no-repeat left center;
+  background-image: url('../img/icon_api-docs.png');
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
+  .api-docs .hero h1 {
+    background-image: url("../img/icon_api-docs_2x.png");
+    background-size: 42px 42px;
   }
 }
 #api-docs .inner {
