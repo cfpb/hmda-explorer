@@ -2,8 +2,8 @@ $(function(){
 
   'use strict';
 
-  // var map = L.mapbox.map('map', 'cfpb.ProjectQu'),
-  var map = L.mapbox.map('map', 'crux.hmda'),
+  var map = L.mapbox.map('map', 'cfpb.831v2'),
+  //var map = L.mapbox.map('map', 'crux.hmda'),
       video;
 
   // Disable map scrolling.
@@ -21,40 +21,41 @@ $(function(){
   // Methods to open and close the youtube video overlay on the homepage.
   video = (function(){
 
+    var $vid = $('#youtube'),
+        $embed = $('#youtube iframe'),
+        $exit = $('#youtube .exit'),
+        pos = $('.video').position().top + ( $('section.video').height() / 2 );
+
     return {
 
-      $vid: $('#youtube'),
-
-      $embed: $('#youtube iframe'),
-
-      $exit: $('#youtube .exit'),
-
-      pos: $('section.video').position().top + ( $('section.video').height() / 2 ),
+      isOpen: false,
 
       init: function() {
-        this.$embed.remove();
+        $embed.remove();
       },
 
       open: function(){
-        this.$vid.css( 'top', this.pos + 'px' )
+        $vid.css( 'top', pos + 'px' )
             .removeClass('hidden')
-            .animate({ 'height': '100%', 'margin-top': -this.pos + 'px' }, 300, 'swing', function(){
+            .animate({ 'height': '100%', 'margin-top': -pos + 'px' }, 300, 'swing', function(){
               setTimeout( function(){
-                this.$vid.append( this.$embed );
-                this.$exit.show();
-              }.bind( this ), 500 );
-            }.bind( this ) );
-        this.$embed.css( 'height', $(window).height() - 60 + 'px')
+                $vid.append( $embed );
+                $exit.show();
+              }, 500 );
+            });
+        $embed.css( 'height', $(window).height() - 60 + 'px')
               .css( 'width', $(window).width() - 60 + 'px');
+        this.isOpen = true;
       },
 
       close: function(){
-        this.$embed.remove();
-        this.$exit.hide();
-        this.$vid.addClass('closing');
+        $embed.remove();
+        $exit.hide();
+        $vid.addClass('closing');
         setTimeout( function(){
-          this.$vid.css({ 'height': 0, 'margin-top': 0 }).addClass('hidden').removeClass('closing');
-        }.bind( this ), 500 );
+          $vid.css({ 'height': 0, 'margin-top': 0 }).addClass('hidden').removeClass('closing');
+        }, 500 );
+        this. isOpen = false;
       }
 
     };
@@ -82,10 +83,13 @@ $(function(){
   });
 
   // Close video overlay
-  $( 'section.video .exit' ).on( 'click', function( ev ) {
+  $( 'section.video .exit, #youtube' ).on( 'click', function( ev ) {
 
       ev.preventDefault();
-      video.close();
+
+      if ( video.isOpen ) {
+        video.close();
+      }
 
   });
 
