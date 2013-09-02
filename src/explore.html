@@ -15,7 +15,6 @@
     <![endif]-->
     <!--[if lt IE 9]>
       <link rel="stylesheet" href="static/css/ie8.min.css">
-      <script src="static/js/ie8.min.js"></script>
     <![endif]-->
     <script>
       var docElement = document.documentElement;
@@ -725,11 +724,11 @@
               <select class="chzn-single" id="calculate-by" data-summary-table-input="select" data-placeholder="Select a variable">
                 <option value></option>
                 <option value="count" class="indent">Number of records</option>
-                <option placeholder class="placeholder">Applicant Income</option>
+                <option placeholder class="placeholder" disabled="disabled">Applicant Income</option>
                 <option value="min_applicant_income_000s" class="indent">Min</option>
                 <option value="max_applicant_income_000s" class="indent">Max</option>
                 <option value="avg_applicant_income_000s" class="indent">Average</option>
-                <option placeholder class="placeholder">Loan Amount</option>
+                <option placeholder class="placeholder" disabled="disabled">Loan Amount</option>
                 <option value="min_loan_amount_000s" class="indent">Min</option>
                 <option value="max_loan_amount_000s" class="indent">Max</option>
                 <option value="avg_loan_amount_000s" class="indent">Average</option>
@@ -870,6 +869,10 @@
           </ul>
         </nav>
       </footer>
+    <script src="static/js/jquery.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="static/js/ie8.min.js"></script>
+    <![endif]-->
     <script src="static/js/main.min.js"></script>
     <script src="static/js/explore.min.js"></script>
   </body>
