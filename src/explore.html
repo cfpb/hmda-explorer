@@ -729,7 +729,6 @@
             <div class="calculate">
               <label for="caluculate-by"><img src="static/img/icon_number_two.png" alt="" class="icon"/>Calculate by</label>
               <select class="chzn-single" id="calculate-by" data-summary-table-input="select" data-placeholder="Select a variable">
-                <option value></option>
                 <option value="count" class="indent">Number of records</option>
                 <option placeholder class="placeholder" disabled="disabled">Applicant Income</option>
                 <option value="min_applicant_income_000s" class="indent">Min</option>
@@ -744,10 +743,12 @@
             </div>
 
           </div>
-
+          <button id="summary-submit" style="float:right; margin-top: 15px; margin-right: 15px;margin-bottom: 20px">Go</button>
           <div id="error"></div>
-
           <div id="summary-table-container"></div>
+          <div id="summary-loading">
+              <p>This might take a few minutes...please wait, we're figuring it out for you!</p>
+          </div>
 
           <div class="spinning"></div>
 

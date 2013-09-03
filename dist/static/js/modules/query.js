@@ -128,7 +128,6 @@ var PDP = (function ( pdp ) {
 
   // The `generateUrlHash` method builds and returns a URL hash from `query`'s `params`.
   query.generateUrlHash = function() {
-
     var hash,
         hashParams = [];
 
@@ -143,23 +142,32 @@ var PDP = (function ( pdp ) {
       hashParams.push( name + param.comparator + param.values.join(',') );
 
     }
-
     _.forEach( query.params, buildHashParam );
 
     hash = '!/' + hashParams.join('&') + '&section=' + pdp.app.currentSection;
-
     return hash;
 
+  };
+  
+  query.removeSelectParam = function (params) {
+    //using a copy of the params means that the select obj
+    //is still available on query.params for share url generation
+    var paramsCopy = $.extend(true, {}, params);
+    delete (((paramsCopy || {}).clauses || {}).where || {}).select;
+    delete paramsCopy.select;
+    return paramsCopy;
   };
 
   // The `generateApiUrl` method builds and returns a Qu URL from `query`'s `params`.
   query.generateApiUrl = function( format, codes, params ) {
-
+    
     var url,
         apiCallParams = params || this.params,
         showCodes = codes || this.codes,
         downloadFormat = format || this.format;
-
+    //remove 'select' from params so it won't be added to where clause 
+    apiCallParams = query.removeSelectParam(apiCallParams);
+    
     // Set a base url to append params to
     url = this.endpoint + 'slice/hmda_lar.' + downloadFormat + '?';
 
@@ -178,6 +186,7 @@ var PDP = (function ( pdp ) {
     return url;
 
   };
+  
 
   // builds the query string to append to api url
   // arg: params, object. if you only need a 'where' clause, passing in
@@ -192,7 +201,6 @@ var PDP = (function ( pdp ) {
   //   }
   // } 
   query._buildApiQuery = function( params ) {
-
     var url = '', key;
 
     if ( params.hasOwnProperty('clauses') ) {

@@ -143,22 +143,13 @@
     });
   
     describe('resetColumn', function() {
-      it('should remove the queryParams value', function() {
+      it('should remove the variables value', function() {
         PDP.summaryTable.resetColumn( 'select', 0 );
 
-        expect( PDP.summaryTable.queryParams.clauses.select[0] )
-          .toBeUndefined();
+        expect( PDP.summaryTable.fieldVals.variables[0] )
+          .toBeNull();
       });
 
-      it('should retain the array structure', function() {
-        expect( PDP.summaryTable.queryParams.clauses.select.length )
-          .toEqual(2);
-      });
-
-      it('should cause the table to update', function() {
-        expect( $('#summary-table tr.header td:first').html() )
-          .toEqual('Fruit');
-      });
     });
 
     describe('updateQuery', function() {
