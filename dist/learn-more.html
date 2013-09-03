@@ -14,6 +14,19 @@
     <!--[if lt IE 9]><link rel="stylesheet" href="static/css/ie8.min.css">
       <script src="static/js/ie8.min.js"></script><![endif]-->
     <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-20466645-3']);
+      _gaq.push(['_setDomainName', 'none']); // For testing
+      // _gaq.push(['_setDomainName', '.consumerfinance.gov']); // For production
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    <script>
       var docElement = document.documentElement;
       docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2');
     </script>

@@ -195,7 +195,8 @@ module.exports = function(grunt) {
             'src/static/vendor/jquery/jquery.js',
             'src/static/vendor/lodash/lodash.js',
             'src/static/vendor/bootstrap/js/bootstrap-tooltip.js',
-            'src/static/vendor/chosen/public/chosen.jquery.js'
+            'src/static/vendor/chosen/public/chosen.jquery.js',
+            'src/static/js/analytics.js'
           ]
         }
       },
