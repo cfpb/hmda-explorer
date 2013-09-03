@@ -3406,6 +3406,9 @@ section.video h2 strong {
   width: 66%;
   line-height: 1.375em;
 }
+#learn-more #video-transcript {
+  margin-top: 40px;
+}
 #learn-more .filter {
   background-color: #ffffff;
   border-bottom: 0px;
