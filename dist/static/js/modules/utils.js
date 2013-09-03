@@ -171,7 +171,9 @@ var PDP = (function( pdp ) {
   utils.requireNumeric = function( e ) {
 
       var key = e.which,
-          allowedKeys = [ 8, 9, 16, 17, 18, 37, 38, 39, 40, 46, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 65, 86, 91, 93, 188, 224 ];
+          allowedKeys = [ 8, 9, 16, 17, 18, 37, 38, 39, 40, 46, 48, 49, 50, 51, 52, 53,
+                          54, 55, 56, 57, 65, 86, 91, 93, 96, 97, 98, 99, 100, 101, 102,
+                          103, 104, 105, 188, 224 ];
 
       if ( allowedKeys.indexOf( key ) === -1 ) {
           e.preventDefault();
@@ -206,9 +208,43 @@ var PDP = (function( pdp ) {
     };
   }
 
+  // A `splice()` polyfill.
   String.prototype.splice = function( idx, rem, s ) {
       return (this.slice(0,idx) + s + this.slice(idx + Math.abs(rem)));
   };
+
+  // A `indexOf()` polyfill.
+  if (!Array.prototype.indexOf) {
+    Array.prototype.indexOf = function (searchElement /*, fromIndex */ ) {
+      if (this === null) {
+        throw new TypeError();
+      }
+      var n, k, t = Object(this),
+          len = t.length >>> 0;
+
+      if (len === 0) {
+        return -1;
+      }
+      n = 0;
+      if (arguments.length > 1) {
+        n = Number(arguments[1]);
+        if (n != n) { // shortcut for verifying if it's NaN
+          n = 0;
+        } else if (n !== 0 && n != Infinity && n != -Infinity) {
+          n = (n > 0 || -1) * Math.floor(Math.abs(n));
+        }
+      }
+      if (n >= len) {
+        return -1;
+      }
+      for (k = n >= 0 ? n : Math.max(len - Math.abs(n), 0); k < len; k++) {
+        if (k in t && t[k] === searchElement) {
+          return k;
+        }
+      }
+      return -1;
+    };
+  }
 
   pdp.utils = utils;
 

@@ -233,7 +233,7 @@ var PDP = (function ( pdp ) {
    *    All non numerical values of ``the_number``` should be emitted as blanks; e.g., null and ""
    *    are represented as nothing on the screen.
    *  
-   * */
+   */
   table._mungeDollarAmts = function( respData ) {
     var record, column, variable, amount, addCommas, dotIndex, amtParts, num;
 
@@ -252,7 +252,7 @@ var PDP = (function ( pdp ) {
               respData.results[record][column] = 'Data not available';
             }
             else if (num < 0) {
-              respData.results[record][column] = 'Data format error! A non-positive numerical value found in original data: ' + num;
+              respData.results[record][column] = 'Data format error. A negative number was found in original data: ' + num;
             }
             // We don't want to add a dollar sign if it's a record count.
             else if ( column === 'count' ) {
@@ -294,7 +294,7 @@ var PDP = (function ( pdp ) {
   table.queryToVal = function( qstr ) {
     var val, i;
 
-    // split on parenthesis
+    // split on parentheses
     val = qstr.split(/\(|\)/);
 
     i = val.length;
@@ -327,6 +327,7 @@ var PDP = (function ( pdp ) {
       $tr = $('<tr></tr>');
 
       for ( column=0; column<clauseLen; column++ ) {
+
         if ( typeof this.queryParams.clauses.select[column] !== 'undefined' ) {
           // reads like
           // cellValue = response data object -> iteration we're on -> object key that matches the 
@@ -336,6 +337,10 @@ var PDP = (function ( pdp ) {
           // the column value won't match on calculate fields w/o some manipulation
           if ( typeof cellValue === 'undefined' ) {
             cellValue = responseData.results[i][this.queryToVal( this.queryParams.clauses.select[column] )];
+            // if it's still undefined, gtfo
+            if ( typeof cellValue === 'undefined' ) {
+              cellValue = '<em class="not-reported">not reported</em>';
+            }
           }
           $tr.append('<td>' + cellValue + '</td>');
         }
@@ -386,7 +391,7 @@ var PDP = (function ( pdp ) {
     this.$table = $('table#summary-table');
 
     return this.$table;
-  };  
+  };
 
   // generates <tr> of column headers
   table.updateTableHeaders = function() {
@@ -534,7 +539,7 @@ var PDP = (function ( pdp ) {
     $('.reset-field').on('click', function(e) {
       e.preventDefault();
       var position = e.target.id.substr( -1, 1 ),
-          clause = e.target.dataset.summaryTableInput;
+          clause = e.target.getAttribute('data-summary-table-input');
 
       this.resetColumn( clause, position );
       $(e.target).addClass('hidden');

@@ -34,8 +34,11 @@ var PDP = (function ( pdp ) {
     var numLocations = $('#location-sets .location-set').last().data('location-num');
 
     ev.preventDefault();
-    
     pdp.form.addState( ++numLocations );
+
+    if ( numLocations > pdp.form.maxNumLocations ) {
+      $('a#add-state').hide();
+    }
 
   });
 
