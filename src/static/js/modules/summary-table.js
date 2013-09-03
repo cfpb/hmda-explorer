@@ -190,7 +190,7 @@ var PDP = (function ( pdp ) {
     
   };
 
-  table._requestData = function() {
+  table._requestData = function() {    
     var responseJSON, check;
     
     function _abort( data, textStatus ) {
@@ -521,14 +521,14 @@ var PDP = (function ( pdp ) {
     $('#summary-submit').on('click', function(e) {
       e.preventDefault();
       var vals = [];
-      
       //disable button when data request is in progress
       if (!table._loading) {
         if (table.varSelected()) {
           
           this.setupDataTable();
 
-          //update share link
+          //add variables & calculate by values to query.params as 'select'
+          //and update share link with new params
           vals = _.filter(this.fieldVals.variables, function (val) {
             return !pdp.utils.isBlank(val);
           });

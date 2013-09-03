@@ -176,37 +176,34 @@ var PDP = (function ( pdp ) {
   // The `changeSection` toggles between the filters and summary tables sections.
   // @section = id of the section to show.
   app.changeSection = function( section, changeUrl ) {
+    section = section || this.currentSection;
+    changeUrl = typeof changeUrl === 'undefined' ? true : changeUrl;
 
-    if (this.currentSection !== section) {
-      section = section || this.currentSection;
-      changeUrl = typeof changeUrl === 'undefined' ? true : changeUrl;
+    if ( !$('#' + section).length ) {
+      return;
+    }
 
-      if ( !$('#' + section).length ) {
-        return;
-      }
+    $('.app-section').addClass('hidden');
+    $('nav a.section-toggle ').removeClass('active');
+    $('#' + section).removeClass('hidden');
+    $('nav a[href=#' + section + '].section-toggle').addClass('active');
 
-      $('.app-section').addClass('hidden');
-      $('nav a.section-toggle ').removeClass('active');
-      $('#' + section).removeClass('hidden');
-      $('nav a[href=#' + section + '].section-toggle').addClass('active');
+    // Update the current section
+    this.currentSection = section;
 
-      // Update the current section
-      this.currentSection = section;
+    // Update all the DOM fields.
+    pdp.form.setFields();
 
-      // Update all the DOM fields.
-      pdp.form.setFields();
+    // Show relevant filters.
+    pdp.form.checkFilters();
 
-      // Show relevant filters.
-      pdp.form.checkFilters();
+    if ( changeUrl ) {
+      // Update URL hash
+      window.location.hash = PDP.query.generateUrlHash();
+    }
 
-      if ( changeUrl ) {
-        // Update URL hash
-        window.location.hash = PDP.query.generateUrlHash();
-      }
-
-      if (this.currentSection === 'summary') {
-        pdp.summaryTable.setupDataTable();
-      }
+    if (this.currentSection === 'summary') {
+      pdp.summaryTable.setupDataTable();
     }
 
   };
