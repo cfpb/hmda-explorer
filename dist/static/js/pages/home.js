@@ -25,14 +25,14 @@ $(function(){
 
       $vid: $('#youtube'),
 
-      $embed: $('#youtube iframe'),
+      $embed: $('#youtube > #ZnQBUZLd3Bo'), // Specific ID of YouTube iFrame
 
       $exit: $('#youtube .exit'),
 
       pos: $('section.video').position().top + ( $('section.video').height() / 2 ),
 
       init: function() {
-        this.$embed.remove();
+        this.$embed.hide();
       },
 
       open: function(){
@@ -40,7 +40,8 @@ $(function(){
             .removeClass('hidden')
             .animate({ 'height': '100%', 'margin-top': -this.pos + 'px' }, 300, 'swing', function(){
               setTimeout( function(){
-                this.$vid.append( this.$embed );
+                this.$embed.show();
+                // this.$vid.append( this.$embed );
                 this.$exit.show();
               }.bind( this ), 500 );
             }.bind( this ) );
@@ -49,7 +50,7 @@ $(function(){
       },
 
       close: function(){
-        this.$embed.remove();
+        this.$embed.hide();
         this.$exit.hide();
         this.$vid.addClass('closing');
         setTimeout( function(){
