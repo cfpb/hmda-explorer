@@ -3145,7 +3145,12 @@ section.video h2 strong {
 }
 #filters h2,
 #summary h2 {
-  margin-top: 50px;
+  margin-top: 40px;
+  padding-bottom: 5px;
+  font-family: "Avenir Next Demi", Arial, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1.5em;
 }
 .download-share section {
   display: inline-block;
@@ -3366,14 +3371,19 @@ section.video h2 strong {
     background-size: 42px 42px;
   }
 }
-#learn-more .inner {
-  padding: 15px 0 0 0;
+.learn-more h2 {
+  margin-top: 40px;
+  padding-bottom: 5px;
+  font-family: "Avenir Next Demi", Arial, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1.5em;
 }
 #learn-more p {
   display: inline-block;
   margin-right: 4%;
-  font-size: .95em;
-  line-height: 1.4em;
+  font-size: 1em;
+  line-height: 1.375em;
 }
 #learn-more .links {
   display: inline-block;
@@ -3382,16 +3392,19 @@ section.video h2 strong {
 #learn-more ul {
   list-style-type: none;
   padding-left: 0;
+  margin: 8px 0 0 0;
 }
 #learn-more li {
   margin-bottom: 10px;
 }
+#learn-more #highlights {
+  margin-top: 80px;
+}
 #learn-more .highlight {
   background-color: #f1f2f2;
-  padding: 20px;
+  padding: 15px 20px;
   width: 66%;
-  line-height: 1.4em;
-  margin-bottom: 10px;
+  line-height: 1.375em;
 }
 #learn-more .filter {
   background-color: #ffffff;
@@ -3402,30 +3415,24 @@ section.video h2 strong {
   padding: 0;
 }
 @media only screen and (min-width: 768px) {
-  #learn-more .inner {
-    padding: 15px 0 0 0;
-  }
-  #learn-more .page-title {
-    margin-top: 30px;
-  }
   #learn-more .title {
     padding: 0;
   }
   #learn-more .highlight {
     background-color: #f1f2f2;
-    padding: 20px;
+    padding: 15px 20px;
     width: 66%;
-    line-height: 1.4em;
-    margin-bottom: 10px;
+    line-height: 1.375em;
+    margin-bottom: 15px;
   }
   #learn-more p {
     width: 66%;
     display: inline-block;
     margin-right: 4%;
-    font-size: .95em;
-    line-height: 1.4em;
+    font-size: 1em;
+    line-height: 1.375em;
     float: left;
-    margin-bottom: 1em;
+    margin-bottom: .2em;
   }
   #learn-more .links {
     width: 29%;
@@ -3451,14 +3458,14 @@ section.video h2 strong {
     background-size: 42px 42px;
   }
 }
-#api-docs .inner {
-  padding: 15px 0 0 0;
+#api-docs {
+  margin-top: 10px;
 }
 #api-docs p {
   display: inline-block;
   margin-right: 4%;
-  font-size: .95em;
-  line-height: 1.4em;
+  font-size: 1em;
+  line-height: 1.375em;
 }
 #api-docs .links {
   display: inline-block;
@@ -3484,8 +3491,8 @@ section.video h2 strong {
     width: 66%;
     display: inline-block;
     margin-right: 4%;
-    font-size: .95em;
-    line-height: 1.4em;
+    font-size: 1em;
+    line-height: 1.375em;
     float: left;
   }
   #api-docs .links {
