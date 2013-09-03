@@ -2167,7 +2167,19 @@ textarea {
   vertical-align: top;
   width: 100%;
   background-color: #f1f2f2;
-  border-bottom: 1px solid #d0d0ce;
+  border: 1px solid #d0d0ce;
+  border-top-color: initial;
+  border-top-style: initial;
+  border-top-width: 0px;
+  border-right-color: initial;
+  border-right-style: initial;
+  border-right-width: 0px;
+  border-bottom-color: #d0d0ce;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-left-color: initial;
+  border-left-style: initial;
+  border-left-width: 0px;
 }
 .ie .filter {
   margin-right: -0.26em;
@@ -2179,6 +2191,11 @@ textarea {
 }
 .filter:nth-child( even ) {
   background-color: #e3e4e5;
+}
+.filter:last-child {
+  border-bottom-color: initial;
+  border-bottom-style: initial;
+  border-bottom-width: 0px;
 }
 .filter .title {
   padding: 20px 0;
