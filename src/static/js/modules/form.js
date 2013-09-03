@@ -580,7 +580,6 @@ var PDP = (function ( pdp ) {
 
   // The `updateShareLink` method puts the current share link in the share text box.
   form.updateShareLink = function() {
-
     var hash = pdp.query.generateUrlHash(),
         baseUrl = window.location.href.replace(/#.*/, '');
 
