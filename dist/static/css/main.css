@@ -2304,7 +2304,7 @@ textarea {
   -o-animation: fadein .8s;
 }
 .filter .next-steps {
-  padding: 30px 0;
+  padding: 30px 15px;
 }
 .filter select {
   width: 100%;
