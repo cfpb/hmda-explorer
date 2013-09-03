@@ -438,8 +438,8 @@ var PDP = (function ( pdp ) {
           }
       });
 
-      //use selected calculate by value or default to "count"
-      //if using count, need to update field to reflect this
+      //use chosen calculate-by value or default to "count"
+      //if using count, update field to reflect this
       this.fieldVals.calculate = this.fieldVals.calculate || 'count';
       table._inputs.calculate.val(this.fieldVals.calculate).trigger('liszt:updated');
       this.updateQuery('select', this.metrics[this.fieldVals.calculate].api, 3);
@@ -473,7 +473,7 @@ var PDP = (function ( pdp ) {
       }
     });
     
-    //manage ui setup for different variable counts
+    //ui setup differs based on variable counts
     switch (table.fieldVals.variables.length) {
       case 0:
         return;
@@ -504,7 +504,7 @@ var PDP = (function ( pdp ) {
     table.createTable();
     table.disableDownload();
     //check for select values in params
-    if (pdp.query.params.hasOwnProperty('select') && typeof pdp.query.params.select != 'undefined') {
+    if (typeof pdp.query.params.select != 'undefined') {
         table.processUrlParams();
     } else {
       // fields should be disabled until a first variable is selected
