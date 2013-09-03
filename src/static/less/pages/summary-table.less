@@ -26,11 +26,26 @@
   .spinning {
     display: none;
   }
+  
+  #summary-loading {
+      background-color: black;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      display: none;
+  }
+  
   &.loading {
-    .spinning {
+    #summary-loading {
       display: block;
     }
+    #summary-submit {
+      .translucent();
+      cursor: default;
+    }
   }
+  
+  
 }
 
 .instructions {
