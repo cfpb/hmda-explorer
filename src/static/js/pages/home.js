@@ -22,7 +22,7 @@ $(function(){
   video = (function(){
 
     var $vid = $('#youtube'),
-        $embed = $('#youtube iframe'),
+        $embed = $('#youtube > iframe'),
         $exit = $('#youtube .exit'),
         pos = $('.video').position().top + ( $('section.video').height() / 2 );
 
@@ -30,14 +30,8 @@ $(function(){
 
       isOpen: false,
 
-      $embed: $('#youtube > #ZnQBUZLd3Bo'), // Specific ID of YouTube iFrame
-
-      $exit: $('#youtube .exit'),
-
-      pos: $('section.video').position().top + ( $('section.video').height() / 2 ),
-
       init: function() {
-        this.$embed.hide();
+        $embed.remove();
       },
 
       open: function(){
@@ -45,24 +39,24 @@ $(function(){
             .removeClass('hidden')
             .animate({ 'height': '100%', 'margin-top': -pos + 'px' }, 300, 'swing', function(){
               setTimeout( function(){
-                this.$embed.show();
-                // this.$vid.append( this.$embed );
-                this.$exit.show();
-              }.bind( this ), 500 );
-            }.bind( this ) );
-        this.$embed.css( 'height', $(window).height() - 60 + 'px')
+                $vid.append( $embed );
+                $exit.show();
+                onYouTubeIframeAPIReady();
+              }, 500 );
+            });
+        $embed.css( 'height', $(window).height() - 60 + 'px')
               .css( 'width', $(window).width() - 60 + 'px');
         this.isOpen = true;
       },
 
       close: function(){
-        this.$embed.hide();
-        this.$exit.hide();
-        this.$vid.addClass('closing');
+        $embed.remove();
+        $exit.hide();
+        $vid.addClass('closing');
         setTimeout( function(){
           $vid.css({ 'height': 0, 'margin-top': 0 }).addClass('hidden').removeClass('closing');
         }, 500 );
-        this. isOpen = false;
+        this.isOpen = false;
       }
 
     };
