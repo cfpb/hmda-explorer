@@ -27,7 +27,7 @@ __p += '<ul class="fields location-set location-set-' +
 ((__t = ( num )) == null ? '' : __t) +
 '">\n    <label for="msamd-' +
 ((__t = ( num )) == null ? '' : __t) +
-'">MSA:</label>\n    <div class="widget select">\n      <select class="param" name="msamd-' +
+'">Metropolitan Statistical Area (MSA)</label>\n    <div class="widget select">\n      <select class="param" name="msamd-' +
 ((__t = ( num )) == null ? '' : __t) +
 '" id="msamd-' +
 ((__t = ( num )) == null ? '' : __t) +
