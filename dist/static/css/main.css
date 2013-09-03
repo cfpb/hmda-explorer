@@ -3191,6 +3191,16 @@ section.video h2 strong {
 .calculating {
   display: inline-block;
 }
+#summary-loading {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  display: none;
+}
+#summary-loading .loading {
+  display: block;
+}
 @media only screen and (min-width: 768px) {
   .explore h1 {
     float: left;

@@ -68,6 +68,7 @@ var PDP = (function ( pdp ) {
     }
   };
   
+  //stores variables on select change to be used in clause generation on submit
   table.fieldVals = {
     variables: [],
     calculate: ''
@@ -78,6 +79,8 @@ var PDP = (function ( pdp ) {
 
   // clauses = { select|group: ['var_name_0', 'var_name_1', 'var_name_2', 'calculate-by'] }
   table.queryParams.clauses = {};
+  
+  table._loading = false;
 
   // returns a templated option tag
   table.optionTmpl = function(field, defaultOp) {
@@ -134,7 +137,7 @@ var PDP = (function ( pdp ) {
     // if they've selected a placeholder, ignore it
     // a placeholder has no value
     if ( e.target.selectedOptions[0].hasAttribute('placeholder') ) {
-      value = "";
+      value = '';
     }
 
     if ( e.target.id === 'calculate-by' ) {
@@ -162,14 +165,38 @@ var PDP = (function ( pdp ) {
     }
    
   };
+  
+  table._showSpinner = function() {
+    this.$page.addClass('loading');
+  };
+
+  table._removeSpinner = function() {
+    this.$page.removeClass('loading');
+  };
+
+  table._showLoadingState = function () {
+    //deactivate submit button
+    table._loading = true;
+    $('#variable0, #variable1, #variable2, #calculate-by').attr('disabled', 'disabled').trigger('liszt:updated');
+    $('#summary-loading').addClass('loading');
+    //TODO: create submit button deactivated state
+    //TODO? disable downloads button?
+  };
+  
+  table._removeLoadingState = function () {
+    table._loading = false;
+    $('#variable0, #variable1, #variable2, #calculate-by').removeAttr('disabled').trigger('liszt:updated');
+    $('#summary-loading').removeClass('loading');
+    
+  };
 
   table._requestData = function() {
-    console.log('request data');
     var responseJSON, check;
-
+    
     function _abort( data, textStatus ) {
       $('body').append('<h3 class="ajax-error">The API timed out after ' + pdp.query.secondsToWait + ' seconds. :(</h3>');
-        table._removeSpinner();
+        //table._removeSpinner();
+        table._removeLoadingState();
       $('.ajax-error').fadeOut( 5000 );
     }
 
@@ -178,6 +205,8 @@ var PDP = (function ( pdp ) {
     responseJSON.done(function( response ){
       table._handleApiResponse( response );
       // clearInterval(check);
+    }).always(function () {
+      table._removeLoadingState();
     });
 
     //responseJSON.fail( this._throwFetchError );
@@ -191,9 +220,8 @@ var PDP = (function ( pdp ) {
     }, pdp.query.secondsToWait * 1000 );
 
     // in the meantime, spin!
-    this._showSpinner();
+    //this._showSpinner();
   };
-
   
   /**
    * This function performs output formatting of numbers in 1000s to a 
@@ -242,26 +270,16 @@ var PDP = (function ( pdp ) {
     return respData;
   };
 
-
   table._handleApiResponse = function( response ) {
-    console.log("handline API response");
+    this.resetTable();
     this.updateTableHeaders();
     this.populateTable(this._prepData(response));
   };
-
 
   table._prepData = function( respData ) {
     respData = this._mungeDollarAmts( respData );
 
     return respData;
-  };
-
-  table._showSpinner = function() {
-    this.$page.addClass('loading');
-  };
-
-  table._removeSpinner = function() {
-    this.$page.removeClass('loading');
   };
 
   // removes table contents
@@ -396,56 +414,60 @@ var PDP = (function ( pdp ) {
     $table.prepend($headerRow);
   };
   
-  table.setupDataRequest = function () {
+  table.setupDataTable = function () {
     this.resetTable();
     
-    if (table.selectedVars()) {
+    if (table.varSelected()) {
+      table._showLoadingState();
       //update select & group clauses for each actual value in variables
       _.each(this.fieldVals.variables, function (param, ind) {
-          if (param != null && param !== false) {
+          if (param) {
             table.updateQuery('both', param, ind);
           }
       });
 
       //use selected calculate by value or default to "count"
-      this.fieldVals.calculate || (this.fieldVals.calculate = "count");
+      this.fieldVals.calculate= this.fieldVals.calculate || 'count';
+      //if using count, need to update field to reflect this
+      table._inputs.calculate.val(this.fieldVals.calculate).trigger('liszt:updated');
       this.updateQuery('select', this.metrics[this.fieldVals.calculate].api, 3);
 
       this._requestData();
     }
-  }
+    
+  };
   
   table.processUrlParams = function () {
     var pos = 0;
     
     _.each(pdp.query.params.select.values, function (param, ind) {
       if (table.metrics[param]) {
-          //calculate by value
+          //this is the calculate by value
           table.fieldVals.calculate = param;
-          table._inputs.calculate.val(param).trigger("liszt:updated");
+          table._inputs.calculate.val(param).trigger('liszt:updated');
       } else {
           table.fieldVals.variables.push(param);
-          table._inputs.varFields[pos].val(param).trigger("liszt:updated");
+          table._inputs.varFields[pos].val(param).trigger('liszt:updated');
           pos++;
       }
     });
     
     if (!table.fieldVals.calculate) {
-      table.fieldVals.calculate = "count";
+      table.fieldVals.calculate = 'count';
     }
     
-    table.setupDataRequest();
+    table.setupDataTable();
     table.enableDownload();
-  }
+  };
   
-  table.selectedVars = function () {
+  
+  table.varSelected = function () {
     return _.find(this.fieldVals.variables, function (val) {
-      return (val != null && val !== false);
+      return !pdp.utils.isBlank(val);
     });
   };
 
   table.init = function() {
-    console.log('init');
     table._populateOptions();
     table._chosenInit();
     table.createTable();
@@ -500,28 +522,34 @@ var PDP = (function ( pdp ) {
       e.preventDefault();
       var vals = [];
       
-      if (table.selectedVars()) {
-        this.setupDataRequest();
-        
-        //update share link
-        vals = _.filter(this.fieldVals.variables, function (val) {
-          return (val != null && val !== false);
-        });
-        vals.push(this.fieldVals.calculate);
-        pdp.query.params.select = {
-          comparator: "=",
-          values: vals
-        };
-        pdp.form.updateShareLink();
-      }   
+      //disable button when data request is in progress
+      if (!table._loading) {
+        if (table.varSelected()) {
           
-      //conditionally display downloads table
-      if ( this.queryParams.clauses.group.length > 0 ) {
-        this.enableDownload();
-      } else {
-        this.disableDownload();
-      }
+          this.setupDataTable();
 
+          //update share link
+          vals = _.filter(this.fieldVals.variables, function (val) {
+            return !pdp.utils.isBlank(val);
+          });
+          
+          vals.push(this.fieldVals.calculate);
+          pdp.query.params.select = {
+            comparator: '=',
+            values: vals
+          };
+          pdp.form.updateShareLink();
+        }   
+
+        //conditionally display downloads table
+        if ( this.queryParams.clauses.group.length > 0 ) {
+          this.enableDownload();
+        } else {
+          this.disableDownload();
+        }
+        
+      }
+      
     }.bind( this ));
     
   };
