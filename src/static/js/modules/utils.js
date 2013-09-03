@@ -87,6 +87,10 @@ var PDP = (function( pdp ) {
   utils.commify = function( num ) {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   };
+  
+  utils.isBlank = function (str) {
+      return (!str || /^\s*$/.test(str));
+  };
 
   // localStorage polyfill from https://gist.github.com/juliocesar/926500.
   // Basically just creates an object in memory.

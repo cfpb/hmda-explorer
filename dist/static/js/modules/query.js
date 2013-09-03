@@ -150,20 +150,25 @@ var PDP = (function ( pdp ) {
     return hash;
 
   };
+  
+  query.removeSelectParam = function (params) {
+    delete (((params || {}).clauses || {}).where || {}).select;
+    delete params.select;
+  };
 
   // The `generateApiUrl` method builds and returns a Qu URL from `query`'s `params`.
   query.generateApiUrl = function( format, codes, params ) {
-
+    
     var url,
         apiCallParams = params || _.clone(this.params),
         showCodes = codes || this.codes,
         downloadFormat = format || this.format;
     
-    //remove 'select' so it won't be added to where clause
-    //but will still be part of share links
-    delete (((apiCallParams || {}).clauses || {}).where || {}).select;
-    delete apiCallParams.select;
-        
+    //remove 'select' from params so it won't be added to where clause 
+    //if query.params used, it is cloned so select vals are still 
+    //available for share url generation
+    query.removeSelectParam(apiCallParams);
+    
     // Set a base url to append params to
     url = this.endpoint + 'slice/hmda_lar.' + downloadFormat + '?';
 
@@ -182,6 +187,7 @@ var PDP = (function ( pdp ) {
     return url;
 
   };
+  
 
   // builds the query string to append to api url
   // arg: params, object. if you only need a 'where' clause, passing in
