@@ -2196,6 +2196,7 @@ textarea {
 .filter h3 i {
   padding-right: 10px;
   font-size: 1em;
+  line-height: .75em;
 }
 .filter.closed i.icon-minus-alt:before {
   content: "\e0109";
