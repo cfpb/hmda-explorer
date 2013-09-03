@@ -350,7 +350,6 @@ For example with states, it might be: [CA, WA, OR]</p>             </td>        
     <span class="p">}</span>
 
   <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-78">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-78">&#182;</a>               </div>               <p>The <code>updateShareLink</code> method puts the current share link in the share text box.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">form</span><span class="p">.</span><span class="nx">updateShareLink</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-
     <span class="kd">var</span> <span class="nx">hash</span> <span class="o">=</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">generateUrlHash</span><span class="p">(),</span>
         <span class="nx">baseUrl</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/#.*/</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
 
