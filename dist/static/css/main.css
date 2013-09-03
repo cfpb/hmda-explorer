@@ -2166,7 +2166,7 @@ textarea {
   margin-right: -0.25em;
   vertical-align: top;
   width: 100%;
-  background-color: #f4f3f2;
+  background-color: #f1f2f2;
   border-bottom: 1px solid #d0d0ce;
 }
 .ie .filter {
@@ -2178,10 +2178,10 @@ textarea {
   *behavior: url(boxsizing.htc);
 }
 .filter:nth-child( even ) {
-  background-color: #e7e7e6;
+  background-color: #e3e4e5;
 }
 .filter .title {
-  padding: 30px 0;
+  padding: 20px 0;
 }
 .filter .title:hover {
   cursor: pointer;
@@ -2191,9 +2191,11 @@ textarea {
   color: #0072ce;
   display: inline-block;
   padding-left: 15px;
+  font-size: 1em;
 }
 .filter h3 i {
   padding-right: 10px;
+  font-size: 1em;
 }
 .filter.closed i.icon-minus-alt:before {
   content: "\e0109";
@@ -2290,16 +2292,14 @@ textarea {
 }
 .filter .help {
   position: absolute;
-  font-size: 1.3em;
+  font-size: 1em;
   display: inline-block;
   color: #0072ce;
   vertical-align: top;
-  height: 24px;
-  width: 24px;
 }
 .filter .help i {
-  height: 24px;
-  width: 24px;
+  font-size: 1em;
+  line-height: 1.75em;
   display: block;
 }
 .field.disabled {
@@ -2320,7 +2320,7 @@ textarea {
     border-width: 0 15px;
     margin-right: -0.25em;
     vertical-align: top;
-    width: 75%;
+    width: 91.66666666666666%;
   }
   .ie .filter .intro {
     margin-right: -0.26em;
@@ -2332,7 +2332,7 @@ textarea {
   }
   .filter .desc {
     display: inline-block;
-    font-size: 1.2em;
+    font-size: 1em;
     margin-left: 20px;
   }
   .filter .widget {
@@ -2420,7 +2420,7 @@ textarea {
   margin-right: -0.25em;
   vertical-align: top;
   width: 100%;
-  background-color: #f4f3f2;
+  background-color: #f1f2f2;
   padding: 10px 0 20px;
 }
 .ie .preview {
@@ -2800,11 +2800,11 @@ section.video h2 strong {
   position: relative;
   background-color: #f1f2f2;
   padding: 10px 20px;
+  height: 260px;
 }
 #get-the-data .filters .action-arrow,
 #get-the-data .summary .action-arrow {
   position: absolute;
-  bottom: 30px;
 }
 #get-the-data .filters p,
 #get-the-data .summary p {
@@ -3173,7 +3173,7 @@ section.video h2 strong {
   *behavior: url(boxsizing.htc);
 }
 .download-share .inner {
-  background-color: #f4f3f2;
+  background-color: #f1f2f2;
   padding: 15px;
 }
 .download-share .widget {
