@@ -54,7 +54,6 @@ var PDP = (function ( pdp ) {
 
   // Hijack the explore page form submission.
   $('form#explore').on( 'submit', function( ev ){
-
     var format = $('#format').val(),
         showCodes = !!parseInt( $('.codes input[type=radio]:checked').val(), 10 ),
         url = pdp.query.generateApiUrl( format, showCodes );

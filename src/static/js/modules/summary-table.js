@@ -178,21 +178,20 @@ var PDP = (function ( pdp ) {
     //deactivate submit button
     table._loading = true;
     $('#variable0, #variable1, #variable2, #calculate-by').attr('disabled', 'disabled').trigger('liszt:updated');
-    $('#summary-loading').addClass('loading');
+    $('#summary').addClass('loading');
     //TODO: create submit button deactivated state
-    //TODO? disable downloads button?
+    //TODO: disable downloads button?
   };
   
   table._removeLoadingState = function () {
     table._loading = false;
     $('#variable0, #variable1, #variable2, #calculate-by').removeAttr('disabled').trigger('liszt:updated');
-    $('#summary-loading').removeClass('loading');
+    $('#summary').removeClass('loading');
     
   };
 
-  table._requestData = function() {    
+  table._requestData = function() {   
     var responseJSON, check;
-    
     function _abort( data, textStatus ) {
       $('body').append('<h3 class="ajax-error">The API timed out after ' + pdp.query.secondsToWait + ' seconds. :(</h3>');
         //table._removeSpinner();
@@ -353,7 +352,9 @@ var PDP = (function ( pdp ) {
 
   // remove value from variables array
   table.resetColumn = function( clause, position ) {
+    var removedVal = this.fieldVals.variables[position];
     this.fieldVals.variables[position] = null;
+    this._updateFields(removedVal);
   };
 
   // updates object that reflects selected form options
@@ -414,24 +415,39 @@ var PDP = (function ( pdp ) {
     $table.prepend($headerRow);
   };
   
+  table.updateShareLink = function (selectVals) {
+    pdp.query.params.select = {
+      comparator: '=',
+      values: selectVals
+    };
+    pdp.form.updateShareLink();
+  };
+  
   table.setupDataTable = function () {
+    var vals = [];
     this.resetTable();
     
     if (table.varSelected()) {
+      table.queryParams.clauses = {};
       table._showLoadingState();
       //update select & group clauses for each actual value in variables
       _.each(this.fieldVals.variables, function (param, ind) {
           if (param) {
             table.updateQuery('both', param, ind);
+            vals.push(param);
           }
       });
 
       //use selected calculate by value or default to "count"
-      this.fieldVals.calculate= this.fieldVals.calculate || 'count';
       //if using count, need to update field to reflect this
+      this.fieldVals.calculate = this.fieldVals.calculate || 'count';
       table._inputs.calculate.val(this.fieldVals.calculate).trigger('liszt:updated');
       this.updateQuery('select', this.metrics[this.fieldVals.calculate].api, 3);
-
+      
+      //update share link to include select params
+      vals.push(this.fieldVals.calculate);
+      this.updateShareLink(vals);
+      
       this._requestData();
     }
     
@@ -442,24 +458,39 @@ var PDP = (function ( pdp ) {
     
     _.each(pdp.query.params.select.values, function (param, ind) {
       if (table.metrics[param]) {
-          //this is the calculate by value
-          table.fieldVals.calculate = param;
-          table._inputs.calculate.val(param).trigger('liszt:updated');
+        //this is the calculate by value
+        table.fieldVals.calculate = param;
+        table._inputs.calculate.val(param).trigger('liszt:updated');
       } else {
+        //perform some basic validation on the variable params
+        //they should be unique, in the field options list, and not exceed 3
+        if (_.indexOf(table.fields, param) !== -1 && _.indexOf(table.fieldVals.variables, param) === -1 && pos < 3) {
           table.fieldVals.variables.push(param);
           table._inputs.varFields[pos].val(param).trigger('liszt:updated');
+          table._updateFields(param);
           pos++;
+        }
       }
     });
     
-    if (!table.fieldVals.calculate) {
-      table.fieldVals.calculate = 'count';
+    //manage ui setup for different variable counts
+    switch (table.fieldVals.variables.length) {
+      case 0:
+        return;
+      case 1:
+        $('#variable2').attr('disabled', 'disabled').trigger('liszt:updated');
+        break;
+      case 2: 
+        $('#reset-variable1').removeClass('hidden');
+        break;
+      default:
+        $('#reset-variable1, #reset-variable2').removeClass('hidden');
+        break;    
     }
     
     table.setupDataTable();
     table.enableDownload();
   };
-  
   
   table.varSelected = function () {
     return _.find(this.fieldVals.variables, function (val) {
@@ -472,9 +503,8 @@ var PDP = (function ( pdp ) {
     table._chosenInit();
     table.createTable();
     table.disableDownload();
-    
     //check for select values in params
-    if (typeof pdp.query.params.select != 'undefined') {
+    if (pdp.query.params.hasOwnProperty('select') && typeof pdp.query.params.select != 'undefined') {
         table.processUrlParams();
     } else {
       // fields should be disabled until a first variable is selected
@@ -520,34 +550,15 @@ var PDP = (function ( pdp ) {
     
     $('#summary-submit').on('click', function(e) {
       e.preventDefault();
-      var vals = [];
-      //disable button when data request is in progress
+      //prevent submit if data request is in progress
       if (!table._loading) {
-        if (table.varSelected()) {
-          
-          this.setupDataTable();
-
-          //add variables & calculate by values to query.params as 'select'
-          //and update share link with new params
-          vals = _.filter(this.fieldVals.variables, function (val) {
-            return !pdp.utils.isBlank(val);
-          });
-          
-          vals.push(this.fieldVals.calculate);
-          pdp.query.params.select = {
-            comparator: '=',
-            values: vals
-          };
-          pdp.form.updateShareLink();
-        }   
-
+        this.setupDataTable();
         //conditionally display downloads table
         if ( this.queryParams.clauses.group.length > 0 ) {
           this.enableDownload();
         } else {
           this.disableDownload();
         }
-        
       }
       
     }.bind( this ));
