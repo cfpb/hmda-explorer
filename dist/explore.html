@@ -137,7 +137,7 @@
 
               <div class="title">
 
-                <a href="#borrower"> <h3><i class="icon-minus-alt"></i> Borrower</h3></a>
+                <a href="#borrower"> <h3><i class="icon-minus-alt"></i> Applicant</h3></a>
 
                 <div class="desc">Demographics, joint applicants, income levels, and more</div>
 
@@ -198,7 +198,7 @@
                 <li class="field applicant_income_000s">
                   <label for="applicant_income_000s">Applicant Income:</label>
                   <div class="widget range">
-                    <span>$</span><input type="text" class="param require-numeric" name="applicant_income_000s-min" data-comparator=">" value="" maxlength="7" placeholder="Min."><span class="thousands">,000 to</span>
+                    <span>$</span><input type="text" class="param require-numeric" name="applicant_income_000s-min" data-comparator=">" value="" maxlength="7" placeholder="Min."><span class="thousands">,000 &nbsp; to &nbsp;</span>
                     <span>$</span><input type="text" class="param require-numeric" name="applicant_income_000s-max" data-comparator="<" value="" placeholder="Max."><span class="thousands">,000</span>
                   </div>
                   <div class="help" title="Applicant’s annual gross income (in thousands) that an institution relied upon in making the credit decision."><i class="icon-help-alt"></i></div>
@@ -231,23 +231,6 @@
 
                 
                 <li class="field optional co_applicant hidden" data-optional="co_applicant">
-                  <label for="co_applicant_ethnicity">Co-Applicant Ethnicity:</label>
-                  <div class="widget select">
-                    <select class="param" name="co_applicant_ethnicity" id="co_applicant_ethnicity" multiple="multiple" data-placeholder="Select a Co-Applicant Ethnicity">
-                      <option value=""></option>
-                      <option value="1">Hispanic or Latino</option>
-                      <option value="2">Not Hispanic or Latino</option>
-                      <option value="3">Information not provided by applicant in mail, Internet, or telephone application</option>
-                      <option value="4">Not applicable</option>
-                      <option value="5">No co-applicant</option>
-                    </select>
-                  </div>
-                  <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt."><i class="icon-help-alt"></i></div>
-                </li>
-                
-
-                
-                <li class="field optional co_applicant hidden" data-optional="co_applicant">
                   <label for="co_applicant_race_1">Co-Applicant Race:</label>
                   <div class="widget select">
                     <select class="param" name="co_applicant_race_1" id="co_applicant_race_1" multiple="multiple" data-placeholder="Select an Applicant Race">
@@ -259,6 +242,23 @@
                       <option value="5">White</option>
                       <option value="6">Information not provided by applicant in mail, Internet, or telephone application</option>
                       <option value="7">Not applicable</option>
+                    </select>
+                  </div>
+                  <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt."><i class="icon-help-alt"></i></div>
+                </li>
+                
+
+                
+                <li class="field optional co_applicant hidden" data-optional="co_applicant">
+                  <label for="co_applicant_ethnicity">Co-Applicant Ethnicity:</label>
+                  <div class="widget select">
+                    <select class="param" name="co_applicant_ethnicity" id="co_applicant_ethnicity" multiple="multiple" data-placeholder="Select a Co-Applicant Ethnicity">
+                      <option value=""></option>
+                      <option value="1">Hispanic or Latino</option>
+                      <option value="2">Not Hispanic or Latino</option>
+                      <option value="3">Information not provided by applicant in mail, Internet, or telephone application</option>
+                      <option value="4">Not applicable</option>
+                      <option value="5">No co-applicant</option>
                     </select>
                   </div>
                   <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt."><i class="icon-help-alt"></i></div>
@@ -396,7 +396,7 @@
                 <li class="field loan_amount_000s">
                   <label for="loan_amount_000s">How much is the loan for?</label>
                   <div class="widget range">
-                    <span>$</span><input type="text" class="param require-numeric" name="loan_amount_000s-min" data-comparator=">" value="" placeholder="Min."><span class="thousands">,000 to</span>
+                    <span>$</span><input type="text" class="param require-numeric" name="loan_amount_000s-min" data-comparator=">" value="" placeholder="Min."><span class="thousands">,000 &nbsp; to &nbsp;</span>
                     <span>$</span><input type="text" class="param require-numeric" name="loan_amount_000s-max" data-comparator="<" value="" placeholder="Max."><span class="thousands">,000</span>
                   </div>
                   <div class="help" title="Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt."><i class="icon-help-alt"></i></div>
