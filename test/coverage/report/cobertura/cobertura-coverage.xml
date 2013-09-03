@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="887"  lines-covered="357"  line-rate="0.4025"  branches-valid="357"  branches-covered="98"  branch-rate="0.27449999999999997"  timestamp="1378243934872" complexity="0" version="0.1">
+<coverage lines-valid="887"  lines-covered="357"  line-rate="0.4025"  branches-valid="357"  branches-covered="98"  branch-rate="0.27449999999999997"  timestamp="1378245446518" complexity="0" version="0.1">
 <sources>
 	<source>/Users/iulom/Documents/projects/public-data-platform</source>
 </sources>
