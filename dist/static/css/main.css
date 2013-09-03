@@ -2166,7 +2166,7 @@ textarea {
   margin-right: -0.25em;
   vertical-align: top;
   width: 100%;
-  background-color: #f4f3f2;
+  background-color: #f1f2f2;
   border-bottom: 1px solid #d0d0ce;
 }
 .ie .filter {
@@ -2178,10 +2178,10 @@ textarea {
   *behavior: url(boxsizing.htc);
 }
 .filter:nth-child( even ) {
-  background-color: #e7e7e6;
+  background-color: #e3e4e5;
 }
 .filter .title {
-  padding: 30px 0;
+  padding: 20px 0;
 }
 .filter .title:hover {
   cursor: pointer;
@@ -2191,9 +2191,12 @@ textarea {
   color: #0072ce;
   display: inline-block;
   padding-left: 15px;
+  font-size: 1em;
 }
 .filter h3 i {
   padding-right: 10px;
+  font-size: 1em;
+  line-height: .75em;
 }
 .filter.closed i.icon-minus-alt:before {
   content: "\e0109";
@@ -2270,6 +2273,7 @@ textarea {
 .filter .loan_amount_000s input,
 .filter .applicant_income_000s input {
   width: 70px;
+  margin: 0 5px;
 }
 .filter .control {
   margin: 0 0 30px 53px;
@@ -2290,16 +2294,14 @@ textarea {
 }
 .filter .help {
   position: absolute;
-  font-size: 1.3em;
+  font-size: 1em;
   display: inline-block;
   color: #0072ce;
   vertical-align: top;
-  height: 24px;
-  width: 24px;
 }
 .filter .help i {
-  height: 24px;
-  width: 24px;
+  font-size: 1em;
+  line-height: 1.75em;
   display: block;
 }
 .field.disabled {
@@ -2320,7 +2322,7 @@ textarea {
     border-width: 0 15px;
     margin-right: -0.25em;
     vertical-align: top;
-    width: 75%;
+    width: 91.66666666666666%;
   }
   .ie .filter .intro {
     margin-right: -0.26em;
@@ -2332,7 +2334,7 @@ textarea {
   }
   .filter .desc {
     display: inline-block;
-    font-size: 1.2em;
+    font-size: 1em;
     margin-left: 20px;
   }
   .filter .widget {
@@ -2381,7 +2383,7 @@ textarea {
     display: block;
   }
   .filter.location li.field.msamd {
-    width: 40%;
+    width: 50%;
     display: inline-block;
   }
   .filter.location li.field.msamd > label {
@@ -2420,7 +2422,7 @@ textarea {
   margin-right: -0.25em;
   vertical-align: top;
   width: 100%;
-  background-color: #f4f3f2;
+  background-color: #f1f2f2;
   padding: 10px 0 20px;
 }
 .ie .preview {
@@ -2800,11 +2802,11 @@ section.video h2 strong {
   position: relative;
   background-color: #f1f2f2;
   padding: 10px 20px;
+  height: 260px;
 }
 #get-the-data .filters .action-arrow,
 #get-the-data .summary .action-arrow {
   position: absolute;
-  bottom: 30px;
 }
 #get-the-data .filters p,
 #get-the-data .summary p {
@@ -3061,10 +3063,10 @@ section.video h2 strong {
 }
 .explore .hero h1 {
   font-size: 34px;
-  margin: 5px 0 0;
+  padding-top: 5px;
   padding-left: 55px;
   display: inline;
-  background: transparent url() scroll no-repeat center left;
+  background: transparent url() scroll no-repeat left center;
   background-image: url('../img/icon_explore-data.png');
 }
 @media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
@@ -3145,7 +3147,12 @@ section.video h2 strong {
 }
 #filters h2,
 #summary h2 {
-  margin-top: 50px;
+  margin-top: 40px;
+  padding-bottom: 5px;
+  font-family: "Avenir Next Demi", Arial, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1.5em;
 }
 .download-share section {
   display: inline-block;
@@ -3168,7 +3175,7 @@ section.video h2 strong {
   *behavior: url(boxsizing.htc);
 }
 .download-share .inner {
-  background-color: #f4f3f2;
+  background-color: #f1f2f2;
   padding: 15px;
 }
 .download-share .widget {
@@ -3192,7 +3199,7 @@ section.video h2 strong {
   .explore .hero {
     background-color: #FAB051;
     padding: 5px 0 0;
-    border-bottom: 5px solid gray;
+    border-bottom: 5px solid #e3e4e5;
     position: relative;
   }
   .explore .hero > .inner {
@@ -3230,7 +3237,7 @@ section.video h2 strong {
   .explore .hero a.active {
     text-decoration: none;
     padding-bottom: 9px;
-    border-bottom: 5px solid #101820;
+    border-bottom: 5px solid #75787b;
     background-color: transparent !important;
   }
   .download-share .widget {
@@ -3355,14 +3362,30 @@ section.video h2 strong {
     width: 100%;
   }
 }
-#learn-more .inner {
-  padding: 15px;
+.learn-more .hero h1 {
+  padding-bottom: 5px;
+  background: transparent url() scroll no-repeat left center;
+  background-image: url('../img/icon_learn-more.png');
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
+  .learn-more .hero h1 {
+    background-image: url("../img/icon_learn-more_2x.png");
+    background-size: 42px 42px;
+  }
+}
+.learn-more h2 {
+  margin-top: 40px;
+  padding-bottom: 5px;
+  font-family: "Avenir Next Demi", Arial, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1.5em;
 }
 #learn-more p {
   display: inline-block;
   margin-right: 4%;
-  font-size: .95em;
-  line-height: 1.4em;
+  font-size: 1em;
+  line-height: 1.375em;
 }
 #learn-more .links {
   display: inline-block;
@@ -3371,16 +3394,22 @@ section.video h2 strong {
 #learn-more ul {
   list-style-type: none;
   padding-left: 0;
+  margin: 8px 0 0 0;
 }
 #learn-more li {
   margin-bottom: 10px;
 }
+#learn-more #highlights {
+  margin-top: 80px;
+}
 #learn-more .highlight {
-  background-color: #e7e7e6;
-  padding: 20px;
+  background-color: #f1f2f2;
+  padding: 15px 20px;
   width: 66%;
-  line-height: 1.4em;
-  margin-bottom: 10px;
+  line-height: 1.375em;
+}
+#learn-more #video-transcript {
+  margin-top: 40px;
 }
 #learn-more .filter {
   background-color: #ffffff;
@@ -3391,30 +3420,24 @@ section.video h2 strong {
   padding: 0;
 }
 @media only screen and (min-width: 768px) {
-  #learn-more .inner {
-    padding: 15px;
-  }
-  #learn-more .page-title {
-    margin-top: 30px;
-  }
   #learn-more .title {
     padding: 0;
   }
   #learn-more .highlight {
-    background-color: #e7e7e6;
-    padding: 20px;
+    background-color: #f1f2f2;
+    padding: 15px 20px;
     width: 66%;
-    line-height: 1.4em;
-    margin-bottom: 10px;
+    line-height: 1.375em;
+    margin-bottom: 15px;
   }
   #learn-more p {
     width: 66%;
     display: inline-block;
     margin-right: 4%;
-    font-size: .95em;
-    line-height: 1.4em;
+    font-size: 1em;
+    line-height: 1.375em;
     float: left;
-    margin-bottom: 1em;
+    margin-bottom: .2em;
   }
   #learn-more .links {
     width: 29%;
@@ -3429,14 +3452,25 @@ section.video h2 strong {
     margin-bottom: 10px;
   }
 }
-#api-docs .inner {
-  padding: 15px;
+.api-docs .hero h1 {
+  padding-bottom: 5px;
+  background: transparent url() scroll no-repeat left center;
+  background-image: url('../img/icon_api-docs.png');
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
+  .api-docs .hero h1 {
+    background-image: url("../img/icon_api-docs_2x.png");
+    background-size: 42px 42px;
+  }
+}
+#api-docs {
+  margin-top: 10px;
 }
 #api-docs p {
   display: inline-block;
   margin-right: 4%;
-  font-size: .95em;
-  line-height: 1.4em;
+  font-size: 1em;
+  line-height: 1.375em;
 }
 #api-docs .links {
   display: inline-block;
@@ -3456,14 +3490,14 @@ section.video h2 strong {
 }
 @media only screen and (min-width: 768px) {
   #api-docs .inner {
-    padding: 15px;
+    padding: 15px 0 0 0;
   }
   #api-docs p {
     width: 66%;
     display: inline-block;
     margin-right: 4%;
-    font-size: .95em;
-    line-height: 1.4em;
+    font-size: 1em;
+    line-height: 1.375em;
     float: left;
   }
   #api-docs .links {
@@ -3822,6 +3856,11 @@ nav li {
 .top-banner img {
   vertical-align: center;
   margin: 0 0 1px 10px;
+}
+strong {
+  font-family: "Avenir Next Demi", Arial, sans-serif;
+  font-weight: 600;
+  font-style: normal;
 }
 .hmda header nav {
   margin-bottom: 18px;
