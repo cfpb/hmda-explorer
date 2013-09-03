@@ -128,7 +128,6 @@ var PDP = (function ( pdp ) {
 
   // The `generateUrlHash` method builds and returns a URL hash from `query`'s `params`.
   query.generateUrlHash = function() {
-
     var hash,
         hashParams = [];
 
@@ -146,28 +145,28 @@ var PDP = (function ( pdp ) {
     _.forEach( query.params, buildHashParam );
 
     hash = '!/' + hashParams.join('&') + '&section=' + pdp.app.currentSection;
-
     return hash;
 
   };
   
   query.removeSelectParam = function (params) {
-    delete (((params || {}).clauses || {}).where || {}).select;
-    delete params.select;
+    //using a copy of the params means that the select obj
+    //is still available on query.params for share url generation
+    var paramsCopy = $.extend(true, {}, params);
+    delete (((paramsCopy || {}).clauses || {}).where || {}).select;
+    delete paramsCopy.select;
+    return paramsCopy;
   };
 
   // The `generateApiUrl` method builds and returns a Qu URL from `query`'s `params`.
   query.generateApiUrl = function( format, codes, params ) {
     
     var url,
-        apiCallParams = params || _.clone(this.params),
+        apiCallParams = params || this.params,
         showCodes = codes || this.codes,
         downloadFormat = format || this.format;
-    
     //remove 'select' from params so it won't be added to where clause 
-    //if query.params used, it is cloned so select vals are still 
-    //available for share url generation
-    query.removeSelectParam(apiCallParams);
+    apiCallParams = query.removeSelectParam(apiCallParams);
     
     // Set a base url to append params to
     url = this.endpoint + 'slice/hmda_lar.' + downloadFormat + '?';
