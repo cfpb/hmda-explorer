@@ -15,7 +15,6 @@
     <![endif]-->
     <!--[if lt IE 9]>
       <link rel="stylesheet" href="static/css/ie8.min.css">
-      <script src="static/js/ie8.min.js"></script>
     <![endif]-->
     <script>
       var docElement = document.documentElement;
@@ -24,11 +23,18 @@
   </head>
   <body class="hmda explore">
 
+      <div class="top-banner">
+        <div class = "inner">
+          <p class="return-cfgov">Return to <a href="http://www.consumerfinance.gov">consumerfinance.gov</a></p>
+          <p class="official-website">An official website of the United States Government<img src="static/img/icon_usflag.png" width="16" height="11" alt="US Flag" /></p>
+        </div>
+      </div> 
+
       <header role="banner">
 
         <div class="logo">
 
-          <img src="static/img/logo_2x.png" width="211" height="52" alt="Consumer Financial Protection Bureau" />
+          <a href="http://www.consumerfinance.gov"><img src="static/img/logo_2x.png" width="211" height="52" alt="Consumer Financial Protection Bureau" /></a>
 
         </div>
 
@@ -196,7 +202,7 @@
                 <li class="field applicant_income_000s">
                   <label for="applicant_income_000s">Applicant Income:</label>
                   <div class="widget range">
-                    <span>$</span><input type="text" class="param require-numeric" name="applicant_income_000s-min" data-comparator=">" value="" placeholder="Min."><span class="thousands">,000 to</span>
+                    <span>$</span><input type="text" class="param require-numeric" name="applicant_income_000s-min" data-comparator=">" value="" maxlength="7" placeholder="Min."><span class="thousands">,000 to</span>
                     <span>$</span><input type="text" class="param require-numeric" name="applicant_income_000s-max" data-comparator="<" value="" placeholder="Max."><span class="thousands">,000</span>
                   </div>
                   <div class="help" title="Applicant’s annual gross income (in thousands) that an institution relied upon in making the credit decision."><i class="icon-help-alt"></i></div>
@@ -724,11 +730,11 @@
               <label for="caluculate-by"><img src="static/img/icon_number_two.png" alt="" class="icon"/>Calculate by</label>
               <select class="chzn-single" id="calculate-by" data-summary-table-input="select" data-placeholder="Select a variable">
                 <option value="count" class="indent">Number of records</option>
-                <option placeholder class="placeholder">Applicant Income</option>
+                <option placeholder class="placeholder" disabled="disabled">Applicant Income</option>
                 <option value="min_applicant_income_000s" class="indent">Min</option>
                 <option value="max_applicant_income_000s" class="indent">Max</option>
                 <option value="avg_applicant_income_000s" class="indent">Average</option>
-                <option placeholder class="placeholder">Loan Amount</option>
+                <option placeholder class="placeholder" disabled="disabled">Loan Amount</option>
                 <option value="min_loan_amount_000s" class="indent">Min</option>
                 <option value="max_loan_amount_000s" class="indent">Max</option>
                 <option value="avg_loan_amount_000s" class="indent">Average</option>
@@ -846,10 +852,11 @@
       <footer role="contentinfo">
         <nav role="navigation" aria-label="Footer Menu">
           <ul class="primary">
-            <li><a href="#">Contact us</a></li>
-            <li><a href="#">Newsroom</a></li>
-            <li><a href="#">Jobs</a></li>
-            <li><a href="#">Open government</a></li>
+            <li><a href="http://www.consumerfinance.gov/">consumerfinance.gov</a></li>
+            <li><a href="http://www.consumerfinance.gov/contact-us/">Contact us</a></li>
+            <li><a href="http://www.consumerfinance.gov/newsroom/">Newsroom</a></li>
+            <li><a href="http://www.consumerfinance.gov/jobs/">Jobs</a></li>
+            <li><a href="http://www.consumerfinance.gov/open/">Open government</a></li>
           </ul>
           <ul class="social">
             <li><a href="http://github.com/cfpb"><i class="icon-github" title="GitHub"></i><span class="visuallyhidden">Github</span></a></li>
@@ -871,6 +878,10 @@
           </ul>
         </nav>
       </footer>
+    <script src="static/js/jquery.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="static/js/ie8.min.js"></script>
+    <![endif]-->
     <script src="static/js/main.min.js"></script>
     <script src="static/js/explore.min.js"></script>
   </body>

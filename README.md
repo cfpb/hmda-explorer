@@ -28,6 +28,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2013-09-01   [v0.12.1](../../tree/v0.12.1)   Update icons and links. Add coverage capabilities and data-driven testing.
  * 2013-08-28   [v0.12.0](../../tree/v0.12.0)   New lender section. New census tract functionality. Bug fixes galore.
  * 2013-08-27   [v0.11.2](../../tree/v0.11.2)   Debounce explore page interactions (#90).
  * 2013-08-26   [v0.11.1](../../tree/v0.11.1)   Improve tests and documentation. Add charts to homepage.
@@ -71,4 +72,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Thu Aug 29 2013 20:55:42.*
+*This file was generated on Sun Sep 01 2013 14:08:58.*
