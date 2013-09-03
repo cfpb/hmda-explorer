@@ -2272,6 +2272,7 @@ textarea {
 .filter .loan_amount_000s input,
 .filter .applicant_income_000s input {
   width: 70px;
+  margin: 0 5px;
 }
 .filter .control {
   margin: 0 0 30px 53px;
@@ -2381,7 +2382,7 @@ textarea {
     display: block;
   }
   .filter.location li.field.msamd {
-    width: 40%;
+    width: 50%;
     display: inline-block;
   }
   .filter.location li.field.msamd > label {
@@ -3854,6 +3855,11 @@ nav li {
 .top-banner img {
   vertical-align: center;
   margin: 0 0 1px 10px;
+}
+strong {
+  font-family: "Avenir Next Demi", Arial, sans-serif;
+  font-weight: 600;
+  font-style: normal;
 }
 .hmda header nav {
   margin-bottom: 18px;
