@@ -126,17 +126,13 @@ var PDP = (function ( pdp ) {
 
   // event handler, called when a form field changes
   table.updateFieldVals = function(e) {
-    var value,
+    var value = e.target.value,
         position = e.target.id.substr( -1, 1 ),
         removedVal;
-
-    if ( e.target.hasOwnProperty('selectedOptions') ) {
-      value = e.target.selectedOptions[0].value;
-    }
-
+    
     // if they've selected a placeholder, ignore it
     // a placeholder has no value
-    if ( e.target.selectedOptions[0].hasAttribute('placeholder') ) {
+    if ($(e.target).find('option[value=' + value + ']').attr('placeholder')) {
       value = '';
     }
 
@@ -560,7 +556,7 @@ var PDP = (function ( pdp ) {
       if (!table._loading) {
         this.setupDataTable();
         //conditionally display downloads table
-        if ( this.queryParams.clauses.group.length > 0 ) {
+        if ( this.queryParams.clauses.group && (this.queryParams.clauses.group.length > 0) ) {
           this.enableDownload();
         } else {
           this.disableDownload();
