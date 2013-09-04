@@ -153,7 +153,11 @@ var PDP = (function ( pdp ) {
     //using a copy of the params means that the select obj
     //is still available on query.params for share url generation
     var paramsCopy = $.extend(true, {}, params);
-    delete (((paramsCopy || {}).clauses || {}).where || {}).select;
+    try {
+      delete paramsCopy.clauses.where.select;
+    } catch (e) {
+      //nested property doesn't exist
+    }
     delete paramsCopy.select;
     return paramsCopy;
   };
