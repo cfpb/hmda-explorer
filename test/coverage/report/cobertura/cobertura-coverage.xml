@@ -1,11 +1,11 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="887"  lines-covered="357"  line-rate="0.4025"  branches-valid="357"  branches-covered="98"  branch-rate="0.27449999999999997"  timestamp="1378246018388" complexity="0" version="0.1">
+<coverage lines-valid="888"  lines-covered="357"  line-rate="0.402"  branches-valid="357"  branches-covered="98"  branch-rate="0.27449999999999997"  timestamp="1378329958286" complexity="0" version="0.1">
 <sources>
 	<source>/Users/contolinic/Sites/public-data-platform</source>
 </sources>
 <packages>
-	<package name="modules"  line-rate="0.4025"  branch-rate="0.27449999999999997" >
+	<package name="modules"  line-rate="0.402"  branch-rate="0.27449999999999997" >
 	<classes>
 		<class name="app.js"  filename="./src/static/js/modules/app.js"  line-rate="0.3457"  branch-rate="0.1364" >
 		<methods>
@@ -257,7 +257,7 @@
 			<line number="175"  hits="1"  branch="false" />
 		</lines>
 		</class>
-		<class name="form.js"  filename="./src/static/js/modules/form.js"  line-rate="0.203"  branch-rate="0.011399999999999999" >
+		<class name="form.js"  filename="./src/static/js/modules/form.js"  line-rate="0.20199999999999999"  branch-rate="0.011399999999999999" >
 		<methods>
 			<method name="(anonymous_1)"  hits="1"  signature="()V" >
 				<lines><line number="6"  hits="1" /></lines>
@@ -365,46 +365,46 @@
 				<lines><line number="422"  hits="0" /></lines>
 			</method>
 			<method name="(anonymous_36)"  hits="0"  signature="()V" >
-				<lines><line number="437"  hits="0" /></lines>
+				<lines><line number="438"  hits="0" /></lines>
 			</method>
 			<method name="(anonymous_37)"  hits="0"  signature="()V" >
-				<lines><line number="456"  hits="0" /></lines>
+				<lines><line number="457"  hits="0" /></lines>
 			</method>
 			<method name="(anonymous_38)"  hits="0"  signature="()V" >
-				<lines><line number="475"  hits="0" /></lines>
+				<lines><line number="476"  hits="0" /></lines>
 			</method>
 			<method name="(anonymous_39)"  hits="0"  signature="()V" >
-				<lines><line number="481"  hits="0" /></lines>
+				<lines><line number="482"  hits="0" /></lines>
 			</method>
 			<method name="(anonymous_40)"  hits="0"  signature="()V" >
-				<lines><line number="488"  hits="0" /></lines>
+				<lines><line number="489"  hits="0" /></lines>
 			</method>
 			<method name="emit"  hits="0"  signature="()V" >
-				<lines><line number="494"  hits="0" /></lines>
+				<lines><line number="495"  hits="0" /></lines>
 			</method>
 			<method name="(anonymous_42)"  hits="0"  signature="()V" >
-				<lines><line number="498"  hits="0" /></lines>
+				<lines><line number="499"  hits="0" /></lines>
 			</method>
 			<method name="(anonymous_43)"  hits="0"  signature="()V" >
-				<lines><line number="517"  hits="0" /></lines>
+				<lines><line number="518"  hits="0" /></lines>
 			</method>
 			<method name="(anonymous_44)"  hits="0"  signature="()V" >
-				<lines><line number="524"  hits="0" /></lines>
+				<lines><line number="525"  hits="0" /></lines>
 			</method>
 			<method name="(anonymous_45)"  hits="0"  signature="()V" >
-				<lines><line number="537"  hits="0" /></lines>
+				<lines><line number="538"  hits="0" /></lines>
 			</method>
 			<method name="(anonymous_46)"  hits="0"  signature="()V" >
-				<lines><line number="542"  hits="0" /></lines>
+				<lines><line number="543"  hits="0" /></lines>
 			</method>
 			<method name="(anonymous_47)"  hits="0"  signature="()V" >
-				<lines><line number="558"  hits="0" /></lines>
+				<lines><line number="559"  hits="0" /></lines>
 			</method>
 			<method name="(anonymous_48)"  hits="0"  signature="()V" >
-				<lines><line number="570"  hits="0" /></lines>
+				<lines><line number="571"  hits="0" /></lines>
 			</method>
 			<method name="(anonymous_49)"  hits="0"  signature="()V" >
-				<lines><line number="582"  hits="0" /></lines>
+				<lines><line number="583"  hits="0" /></lines>
 			</method>
 		</methods>
 		<lines>
@@ -549,62 +549,63 @@
 			<line number="428"  hits="0"  branch="false" />
 			<line number="429"  hits="0"  branch="false" />
 			<line number="430"  hits="0"  branch="false" />
-			<line number="437"  hits="1"  branch="false" />
-			<line number="439"  hits="0"  branch="false" />
-			<line number="443"  hits="0"  branch="false" />
-			<line number="446"  hits="0"  branch="true"  condition-coverage="0% (0/2)" />
-			<line number="447"  hits="0"  branch="false" />
+			<line number="431"  hits="0"  branch="false" />
+			<line number="438"  hits="1"  branch="false" />
+			<line number="440"  hits="0"  branch="false" />
+			<line number="444"  hits="0"  branch="false" />
+			<line number="447"  hits="0"  branch="true"  condition-coverage="0% (0/2)" />
 			<line number="448"  hits="0"  branch="false" />
-			<line number="451"  hits="0"  branch="false" />
-			<line number="456"  hits="1"  branch="false" />
-			<line number="458"  hits="0"  branch="false" />
-			<line number="462"  hits="0"  branch="false" />
-			<line number="465"  hits="0"  branch="true"  condition-coverage="0% (0/2)" />
-			<line number="466"  hits="0"  branch="false" />
+			<line number="449"  hits="0"  branch="false" />
+			<line number="452"  hits="0"  branch="false" />
+			<line number="457"  hits="1"  branch="false" />
+			<line number="459"  hits="0"  branch="false" />
+			<line number="463"  hits="0"  branch="false" />
+			<line number="466"  hits="0"  branch="true"  condition-coverage="0% (0/2)" />
 			<line number="467"  hits="0"  branch="false" />
-			<line number="470"  hits="0"  branch="false" />
-			<line number="475"  hits="1"  branch="false" />
-			<line number="476"  hits="0"  branch="false" />
+			<line number="468"  hits="0"  branch="false" />
+			<line number="471"  hits="0"  branch="false" />
+			<line number="476"  hits="1"  branch="false" />
 			<line number="477"  hits="0"  branch="false" />
-			<line number="481"  hits="1"  branch="false" />
-			<line number="482"  hits="0"  branch="false" />
+			<line number="478"  hits="0"  branch="false" />
+			<line number="482"  hits="1"  branch="false" />
 			<line number="483"  hits="0"  branch="false" />
-			<line number="488"  hits="1"  branch="false" />
-			<line number="491"  hits="0"  branch="true"  condition-coverage="0% (0/2)" />
-			<line number="494"  hits="1"  branch="false" />
-			<line number="495"  hits="0"  branch="false" />
-			<line number="498"  hits="0"  branch="false" />
-			<line number="502"  hits="0"  branch="false" />
-			<line number="507"  hits="0"  branch="true"  condition-coverage="0% (0/2)" />
-			<line number="511"  hits="0"  branch="false" />
+			<line number="484"  hits="0"  branch="false" />
+			<line number="489"  hits="1"  branch="false" />
+			<line number="492"  hits="0"  branch="true"  condition-coverage="0% (0/2)" />
+			<line number="495"  hits="1"  branch="false" />
+			<line number="496"  hits="0"  branch="false" />
+			<line number="499"  hits="0"  branch="false" />
+			<line number="503"  hits="0"  branch="false" />
+			<line number="508"  hits="0"  branch="true"  condition-coverage="0% (0/2)" />
 			<line number="512"  hits="0"  branch="false" />
-			<line number="516"  hits="0"  branch="true"  condition-coverage="0% (0/2)" />
-			<line number="517"  hits="0"  branch="false" />
-			<line number="520"  hits="0"  branch="false" />
+			<line number="513"  hits="0"  branch="false" />
+			<line number="517"  hits="0"  branch="true"  condition-coverage="0% (0/2)" />
+			<line number="518"  hits="0"  branch="false" />
 			<line number="521"  hits="0"  branch="false" />
-			<line number="524"  hits="0"  branch="false" />
+			<line number="522"  hits="0"  branch="false" />
 			<line number="525"  hits="0"  branch="false" />
-			<line number="537"  hits="1"  branch="false" />
-			<line number="540"  hits="0"  branch="true"  condition-coverage="0% (0/2)" />
-			<line number="542"  hits="0"  branch="false" />
-			<line number="544"  hits="0"  branch="false" />
-			<line number="547"  hits="0"  branch="true"  condition-coverage="0% (0/5)" />
-			<line number="548"  hits="0"  branch="false" />
-			<line number="550"  hits="0"  branch="false" />
-			<line number="558"  hits="1"  branch="false" />
-			<line number="560"  hits="0"  branch="false" />
-			<line number="562"  hits="0"  branch="false" />
+			<line number="526"  hits="0"  branch="false" />
+			<line number="538"  hits="1"  branch="false" />
+			<line number="541"  hits="0"  branch="true"  condition-coverage="0% (0/2)" />
+			<line number="543"  hits="0"  branch="false" />
+			<line number="545"  hits="0"  branch="false" />
+			<line number="548"  hits="0"  branch="true"  condition-coverage="0% (0/5)" />
+			<line number="549"  hits="0"  branch="false" />
+			<line number="551"  hits="0"  branch="false" />
+			<line number="559"  hits="1"  branch="false" />
+			<line number="561"  hits="0"  branch="false" />
 			<line number="563"  hits="0"  branch="false" />
-			<line number="570"  hits="1"  branch="false" />
-			<line number="572"  hits="0"  branch="true"  condition-coverage="0% (0/2)" />
-			<line number="573"  hits="0"  branch="false" />
-			<line number="575"  hits="0"  branch="false" />
+			<line number="564"  hits="0"  branch="false" />
+			<line number="571"  hits="1"  branch="false" />
+			<line number="573"  hits="0"  branch="true"  condition-coverage="0% (0/2)" />
+			<line number="574"  hits="0"  branch="false" />
 			<line number="576"  hits="0"  branch="false" />
-			<line number="582"  hits="1"  branch="false" />
-			<line number="583"  hits="0"  branch="false" />
-			<line number="586"  hits="0"  branch="false" />
-			<line number="590"  hits="1"  branch="false" />
-			<line number="592"  hits="1"  branch="false" />
+			<line number="577"  hits="0"  branch="false" />
+			<line number="583"  hits="1"  branch="false" />
+			<line number="584"  hits="0"  branch="false" />
+			<line number="587"  hits="0"  branch="false" />
+			<line number="591"  hits="1"  branch="false" />
+			<line number="593"  hits="1"  branch="false" />
 		</lines>
 		</class>
 		<class name="observer.js"  filename="./src/static/js/modules/observer.js"  line-rate="1"  branch-rate="0.5" >
