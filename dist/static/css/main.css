@@ -2213,7 +2213,8 @@ textarea {
 .filter h3 i {
   padding-right: 10px;
   font-size: 1em;
-  line-height: .75em;
+  position: relative;
+  top: -1px;
 }
 .filter.closed i.icon-minus-alt:before {
   content: "\e0109";
@@ -2318,7 +2319,8 @@ textarea {
 }
 .filter .help i {
   font-size: 1em;
-  line-height: 1.75em;
+  position: relative;
+  top: 5px;
   display: block;
 }
 .field.disabled {
@@ -4007,13 +4009,13 @@ a.action-arrow:hover {
 a.action-arrow .icon-external-link {
   font-size: 1.2em;
   padding-left: 2px;
-  line-height: .5em;
+  position: relative;
   text-decoration: none;
 }
 a.action-arrow .icon-right {
   font-size: 1.6em;
-  line-height: .6em;
   text-decoration: none;
+  position: relative;
 }
 @media only screen and (min-width: 768px) {
   .hmda header {
