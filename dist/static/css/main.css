@@ -2156,7 +2156,80 @@ textarea {
 /**
  *  Clearfix
  **/
-.filter {
+/* CFPB SimpleGrid */
+/* Clearfix Hack: http://nicolasgallagher.com/micro-clearfix-hack/ */
+.row:before,
+.row:after {
+  content: " ";
+  display: table;
+}
+.row:after {
+  clear: both;
+}
+.row {
+  margin: 1em auto;
+  width: 102%;
+  margin-left: -2%;
+  overflow: hidden;
+  clear: both;
+  /* Clearfix hack for IE 6/7 only */
+
+  *zoom: 1;
+}
+.row .span1,
+.row .span2,
+.row .span3,
+.row .span4,
+.row .span5,
+.row .span6,
+.row .span7,
+.row .span8,
+.row .span9,
+.row .span10,
+.row .span11,
+.row .span12 {
+  float: left;
+  margin-left: 2%;
+  min-height: 100px;
+  margin-top: 1em;
+}
+.row .span1 {
+  width: 6.33333%;
+}
+.row .span2 {
+  width: 14.66667%;
+}
+.row .span3 {
+  width: 23%;
+}
+.row .span4 {
+  width: 31.33333%;
+}
+.row .span5 {
+  width: 39.66667%;
+}
+.row .span6 {
+  width: 48%;
+}
+.row .span7 {
+  width: 56.33333%;
+}
+.row .span8 {
+  width: 64.66667%;
+}
+.row .span9 {
+  width: 73%;
+}
+.row .span10 {
+  width: 81.33333%;
+}
+.row .span11 {
+  width: 89.66667%;
+}
+.row .span12 {
+  width: 98%;
+}
+/* END CFPB SimpleGrid */.filter {
   display: inline-block;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -2167,7 +2240,19 @@ textarea {
   vertical-align: top;
   width: 100%;
   background-color: #f1f2f2;
-  border-bottom: 1px solid #d0d0ce;
+  border: 1px solid #d0d0ce;
+  border-top-color: initial;
+  border-top-style: initial;
+  border-top-width: 0px;
+  border-right-color: initial;
+  border-right-style: initial;
+  border-right-width: 0px;
+  border-bottom-color: #d0d0ce;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-left-color: initial;
+  border-left-style: initial;
+  border-left-width: 0px;
 }
 .ie .filter {
   margin-right: -0.26em;
@@ -2179,6 +2264,11 @@ textarea {
 }
 .filter:nth-child( even ) {
   background-color: #e3e4e5;
+}
+.filter:last-child {
+  border-bottom-color: initial;
+  border-bottom-style: initial;
+  border-bottom-width: 0px;
 }
 .filter .title {
   padding: 20px 0;
@@ -2196,7 +2286,8 @@ textarea {
 .filter h3 i {
   padding-right: 10px;
   font-size: 1em;
-  line-height: .75em;
+  position: relative;
+  top: -1px;
 }
 .filter.closed i.icon-minus-alt:before {
   content: "\e0109";
@@ -2287,7 +2378,7 @@ textarea {
   -o-animation: fadein .8s;
 }
 .filter .next-steps {
-  padding: 30px 0;
+  padding: 30px 15px;
 }
 .filter select {
   width: 100%;
@@ -2301,7 +2392,8 @@ textarea {
 }
 .filter .help i {
   font-size: 1em;
-  line-height: 1.75em;
+  position: relative;
+  top: 5px;
   display: block;
 }
 .field.disabled {
@@ -2766,9 +2858,6 @@ section.video h2 strong {
 }
 #facts-and-figures .legend-source {
   margin-top: 10px;
-}
-#facts-and-figures .charts {
-  text-align: center;
 }
 #get-the-data {
   background: #ffffff url(../img/bg_grid-tile.png) scroll repeat left top;
@@ -3732,6 +3821,49 @@ section.video h2 strong {
     *behavior: url(boxsizing.htc);
   }
 }
+.charts {
+  font-family: 'Avenir Next';
+}
+.chart-container {
+  width: 540px;
+}
+.chart-legend {
+  width: 540px;
+}
+.chart-legend th,
+td {
+  text-align: left;
+  width: 180px;
+  padding-right: 10px;
+  white-space: nowrap;
+}
+.chart-legend-oblt {
+  margin-left: 90px;
+}
+.chart-legend-box {
+  display: inline-block;
+  width: 40px;
+  height: 10px;
+  margin-right: 5px;
+}
+.chart-legend-box-hpa {
+  background-color: #addc91;
+}
+.chart-legend-box-hpo {
+  background-color: #2cb34a;
+}
+.chart-legend-box-hia {
+  background-color: #81afaf;
+}
+.chart-legend-box-hio {
+  background-color: #005e5d;
+}
+.chart-legend-box-ra {
+  background-color: #d7d2cb;
+}
+.chart-legend-box-ro {
+  background-color: #796e65;
+}
 .tooltip {
   position: absolute;
   z-index: 1030;
@@ -3990,13 +4122,13 @@ a.action-arrow:hover {
 a.action-arrow .icon-external-link {
   font-size: 1.2em;
   padding-left: 2px;
-  line-height: .5em;
+  position: relative;
   text-decoration: none;
 }
 a.action-arrow .icon-right {
   font-size: 1.6em;
-  line-height: .6em;
   text-decoration: none;
+  position: relative;
 }
 @media only screen and (min-width: 768px) {
   .hmda header {
