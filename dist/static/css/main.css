@@ -3611,16 +3611,10 @@ section.video h2 strong {
   position: relative;
 }
 #summary .intro {
-  border: 1px solid #d0d0ce;
-  border-left: 0;
-  border-right: 0;
-  background-color: #e7e7e6;
-  margin: 10px 0;
-  padding: 30px 20px;
+  border-bottom: 1px solid #d0d0ce;
+  background-color: #e3e4e5;
+  padding: 10px 15px 20px 15px;
   font-family: "Avenir Next", Arial, sans-serif;
-}
-#summary .intro .filter-link img {
-  margin-left: 5px;
 }
 #summary .intro .nlw img {
   margin-right: 10px;
@@ -3657,7 +3651,11 @@ section.video h2 strong {
   cursor: default;
 }
 .instructions {
-  margin: 15px 0;
+  padding: 15px;
+  background-color: #f1f2f2;
+}
+.drop-downs {
+  background-color: #f1f2f2;
 }
 #summary-table-form label {
   font-family: Georgia, "Times New Roman", serif;
@@ -3706,6 +3704,7 @@ section.video h2 strong {
 #summary-table-container {
   font-family: "Avenir Next", Arial, sans-serif;
   margin-top: 30px;
+  background-color: #f1f2f2;
 }
 #summary-table-container #summary-table {
   width: 100%;
