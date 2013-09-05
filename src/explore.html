@@ -99,7 +99,7 @@
 
                 <p>Filter the data to just what you're interested in, and then download the results or create a summary table.</p>
 
-                <p class="explanation">Most people search for loan originations for first-lien, owner-occupied, 1-4 family and manufactured housing in 2012. For your convenience, we have pre-filtered the results to only include those items. <strong><a href="#download">Download now</a> or add more filters below.</strong> (Or <a href="#" class="reset">clear fields</a>.)</p>
+                <p class="explanation">Most people search for loan originations for first-lien, owner-occupied, 1-4 family and manufactured housing in 2012. For your convenience, we have pre-filtered the results to only include those items. <strong><a href="#download">Download now</a> or add more filters below.</strong> (Or <a href="#" class="reset">clear all fields</a>.)</p>
 
               </div>
 
@@ -224,7 +224,7 @@
 
                 <!-- filter field -->
                 <li class="field optional-toggle" data-optional="co_applicant">
-                  <label for="include_co_applicant">Include co-applicant?</label>
+                  <label for="include_co_applicant">Show co-applicant?</label>
                   <div class="widget radio include_co_applicant">
                     <label><input type="radio" name="include_co_applicant" value="1" />Yes</label>
                     <label><input type="radio" name="include_co_applicant" value="0" checked />No</label>
@@ -409,13 +409,13 @@
                 <!-- /filter field -->
 
                 <!-- filter field -->
-                <li class="field loan_amount_000s">
-                  <label for="loan_amount_000s">How much is the loan for?</label>
-                  <div class="widget range">
-                    <span>$</span><input type="text" class="param require-numeric" name="loan_amount_000s-min" data-comparator=">" value="" placeholder="Min."><span class="thousands">,000 &nbsp; to &nbsp;</span>
-                    <span>$</span><input type="text" class="param require-numeric" name="loan_amount_000s-max" data-comparator="<" value="" placeholder="Max."><span class="thousands">,000</span>
+                <li class="field">
+                  <label for="loan_purpose">What is the loan being used for?</label>
+                  <div class="widget checkbox">
+                    <label><input type="checkbox" class="param" name="loan_purpose[]" value="1" />Home purchase</label>
+                    <label><input type="checkbox" class="param" name="loan_purpose[]" value="2" />Home improvement</label>
+                    <label><input type="checkbox" class="param" name="loan_purpose[]" value="3" />Refinancing</label>
                   </div>
-                  <div class="help" title="Round to the nearest thousand; round $500 up to the next thousand. If a preapproval request was denied and the borrower did not state a loan amount, enter 1."><i class="icon-help-alt"></i></div>
                 </li>
                 <!-- /filter field -->
 
@@ -432,13 +432,13 @@
                 <!-- /filter field -->
 
                 <!-- filter field -->
-                <li class="field">
-                  <label for="loan_purpose">What is the loan being used for?</label>
-                  <div class="widget checkbox">
-                    <label><input type="checkbox" class="param" name="loan_purpose[]" value="1" />Home purchase</label>
-                    <label><input type="checkbox" class="param" name="loan_purpose[]" value="2" />Home improvement</label>
-                    <label><input type="checkbox" class="param" name="loan_purpose[]" value="3" />Refinancing</label>
+                <li class="field loan_amount_000s">
+                  <label for="loan_amount_000s">How much is the loan for?</label>
+                  <div class="widget range">
+                    <span>$</span><input type="text" class="param require-numeric" name="loan_amount_000s-min" data-comparator=">" value="" placeholder="Min."><span class="thousands">,000 &nbsp; to &nbsp;</span>
+                    <span>$</span><input type="text" class="param require-numeric" name="loan_amount_000s-max" data-comparator="<" value="" placeholder="Max."><span class="thousands">,000</span>
                   </div>
+                  <div class="help" title="Round to the nearest thousand; round $500 up to the next thousand. If a preapproval request was denied and the borrower did not state a loan amount, enter 1."><i class="icon-help-alt"></i></div>
                 </li>
                 <!-- /filter field -->
 
@@ -486,7 +486,7 @@
 
                 <!-- filter field -->
                 <li class="field popular">
-                  <label for="action_taken">What decision was made on the application?</label>
+                  <label for="action_taken">What decision was made on <br> the application?</label>
                   <div class="widget select">
                     <select class="param" name="action_taken" id="action_taken" multiple data-placeholder="Select a decision">
                       <option value="1">Loan originated</option>
@@ -506,7 +506,7 @@
 
                 <!-- filter field -->
                 <li class="field">
-                  <label for="preapproval">Did the applicant request pre-approval?</label>
+                  <label for="preapproval">Did the applicant request <br> pre-approval?</label>
                   <div class="widget checkbox inline">
                     <label><input type="checkbox" class="param" name="preapproval[]" value="1" />Yes</label>
                     <label><input type="checkbox" class="param" name="preapproval[]" value="2" />No</label>
@@ -580,9 +580,9 @@
 
               <div class="next-steps">
 
-                <a href="#" class="reset action-arrow">Clear fields</a>
+                <a href="#" class="reset action-arrow">Clear all fields</a>
 
-                <span class="insight">Want more insight? <a href="#summary" class="section-toggle action-arrow">Create a summary table <i class="icon-right"></i></a></span>
+                <span class="insight">Want more insight? &nbsp;&nbsp;<a href="#summary" class="section-toggle action-arrow">Create a summary table <i class="icon-right"></i></a></span>
 
               </div>
 
@@ -695,22 +695,21 @@
         <h2>Create a summary table</h2>
 
         <div class="intro">
-        <p class="nlw"><img src="static/img/icon_bar_chart.png" class="left" alt=""/>There are <em class="calculating"><img src="static/img/icon_spinner.gif" alt="Loading icon"></em><strong class="count">many</strong> HMDA records from <strong class="years">2007 - 2012</strong> with the previously selected filters.</p>
+        <p class="nlw"><!--<img src="static/img/icon_bar_chart.png" class="left" alt=""/>-->There are <em class="calculating"><img src="static/img/icon_spinner.gif" alt="Loading icon"></em><strong class="count">many</strong> HMDA records from <strong class="years">2007 - 2012</strong> with the previously selected filters.</p>
 
-        Not quite right? <a class="filter-link section-toggle" href="#filters">Revise your filters <img src="static/img/arrow_blue_right.png" alt="" /></a>
+        Not quite what you're looking for? You can also go back and filter your results differently. <a href="#filters" class="section-toggle action-arrow modify-filters">Modify your filters <i class="icon-right"></i></a>
         </div>
 
         <div class="instructions">
-          Create a summary table for insight into the dataset. First, select up to three variables by which to group your data, and then function by which to calculate it.
+          Pick up to three variables and a calculation method to group your data.
+          <button id="summary-submit" >Submit</button>
         </div>
 
         <form id="summary-table-form">
           
           <div class="drop-downs">
             <div class="variable">
-              <label for="variable0" class="stretchy">
-                <img src="static/img/icon_number_one.png" alt="" class="icon" />Pick up to THREE variables to group your data by
-              </label>
+              
               <select id="variable0" class="chzn-single" data-summary-table-input="both" data-placeholder="Select the first variable">
                 <option value></option>
               </select>
@@ -736,7 +735,6 @@
             </div>
 
             <div class="calculate">
-              <label for="caluculate-by"><img src="static/img/icon_number_two.png" alt="" class="icon"/>Calculate by</label>
               <select class="chzn-single" id="calculate-by" data-summary-table-input="select" data-placeholder="Select a variable">
                 <option value="count" class="indent">Number of records</option>
                 <option placeholder class="placeholder" disabled="disabled">Applicant Income</option>
@@ -752,7 +750,6 @@
             </div>
 
           </div>
-          <button id="summary-submit" style="float:right; margin-top: 15px; margin-right: 15px;margin-bottom: 20px">Go</button>
           <div id="error"></div>
           <div id="summary-table-container"></div>
           <div id="summary-loading">
@@ -801,14 +798,14 @@
 
             <section id="download-summary" class="download-summary">
 
-              <h2>Download the table</h2>
+              <h2>Download table</h2>
 
               <div class="inner">
 
                 <label for="summary-table-format">Summary table file type:</label>
                 <div class="select widget">
                   <select name="summary-table-format" id="summary-table-format">
-                    <option value="csv">CSV</option>
+                    <option value="csv">Spreadsheet (CSV)</option>
                     <option value="json">JSON</option>
                     <option value="jsonp">JSONP</option>
                     <option value="xml">XML</option>
