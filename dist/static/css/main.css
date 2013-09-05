@@ -3547,6 +3547,9 @@ section.video h2 strong {
     float: left;
     margin-bottom: .2em;
   }
+  #learn-more li {
+    width: 90%;
+  }
   #learn-more ul {
     margin-right: 4%;
     line-height: 1.375em;
@@ -3558,6 +3561,9 @@ section.video h2 strong {
     vertical-align: top;
     list-style-type: none;
     padding-left: 0;
+  }
+  #learn-more .links li {
+    width: 100%;
   }
 }
 .api-docs .hero h1 {
