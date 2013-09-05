@@ -35,23 +35,29 @@
       cursor: default;
     }
   }
-  
-  
 }
 
 .instructions {
-  padding: 15px;
+  padding: 20px 0 10px 0;
   background-color: @light_field10;
+  font-size: 1em;
+  line-height: 1.375em;
 }
 
 .drop-downs {
   background-color: @light_field10;
 }
 
+//button
+#summary-submit {
+  float:right; 
+  margin-top: 15px; 
+}
+
 #summary-table-form {
 
   label {
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: 'Avenir Next Demi', Arial, sans-serif;
   }
 
   li:hover,
@@ -111,7 +117,6 @@
 
 #summary-table-container {
   font-family: "Avenir Next", Arial, sans-serif;
-  margin-top: 30px;
   background-color: @light_field10;
 
   #summary-table {
@@ -171,7 +176,6 @@
   }
 
   .instructions {
-    .wrapper();
     .column( 12 );
   }
 
