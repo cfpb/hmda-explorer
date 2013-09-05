@@ -2640,9 +2640,6 @@ ul.chzn-choices {
   font-weight: 600;
   font-size: 0.8em;
 }
-.charts select {
-  margin-bottom: 1em;
-}
 .charts .toggle-series-heading {
   display: inline-block;
   -webkit-box-sizing: border-box;
@@ -2652,7 +2649,7 @@ ul.chzn-choices {
   border-width: 0 15px;
   margin-right: -0.25em;
   vertical-align: top;
-  width: 50%;
+  width: 41.66666666666667%;
 }
 .ie .charts .toggle-series-heading {
   margin-right: -0.26em;
@@ -2671,7 +2668,7 @@ ul.chzn-choices {
   border-width: 0 15px;
   margin-right: -0.25em;
   vertical-align: top;
-  width: 50%;
+  width: 58.333333333333336%;
 }
 .ie .charts .toggle-series-controls {
   margin-right: -0.26em;
