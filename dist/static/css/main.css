@@ -2643,10 +2643,11 @@ ul.chzn-choices {
   font-weight: 600;
   font-style: normal;
   font-size: 0.8em;
+  padding-right: 4px;
 }
 .charts .toggle-series-heading {
   margin-top: 1em;
-  border-left-width: 0;
+  border-width: 0;
   display: inline-block;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -2703,6 +2704,11 @@ ul.chzn-choices {
   width: 180px;
   padding-right: 10px;
   white-space: nowrap;
+}
+.charts .chart-legend th {
+  font-family: "Avenir Next Demi", Arial, sans-serif;
+  font-weight: 600;
+  font-style: normal;
 }
 .charts .chart-legend-oblt {
   margin-left: 90px;
