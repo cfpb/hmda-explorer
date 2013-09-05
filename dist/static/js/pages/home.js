@@ -73,6 +73,11 @@ $(function(){
 
   });
 
+  // Autoplay video if requested.
+  if ( window.location.hash && window.location.hash === '#video' ) {
+    video.open();
+  }
+
   // Close video overlay
   $( document ).on( 'keyup', function( ev ) {
 
