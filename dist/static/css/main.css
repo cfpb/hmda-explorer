@@ -2310,14 +2310,14 @@ textarea {
 .filter select {
   width: 100%;
 }
-.filter .help {
+.help {
   position: absolute;
   font-size: 1em;
   display: inline-block;
   color: #0072ce;
   vertical-align: top;
 }
-.filter .help i {
+.help i {
   font-size: 1em;
   position: relative;
   top: 5px;
@@ -2595,6 +2595,44 @@ ul.chzn-choices {
   font-family: 'Avenir Next';
   font-weight: 400;
   font-size: 1.2em;
+}
+.charts .chart-info {
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: solid transparent;
+  border-width: 0 15px;
+  margin-right: -0.25em;
+  vertical-align: top;
+  width: 41.66666666666667%;
+}
+.ie .charts .chart-info {
+  margin-right: -0.26em;
+}
+.lt-ie8 .charts .chart-info {
+  display: inline;
+  *zoom: 1;
+  *behavior: url(boxsizing.htc);
+}
+.charts .chart-content {
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: solid transparent;
+  border-width: 0 15px;
+  margin-right: -0.25em;
+  vertical-align: top;
+  width: 58.333333333333336%;
+}
+.ie .charts .chart-content {
+  margin-right: -0.26em;
+}
+.lt-ie8 .charts .chart-content {
+  display: inline;
+  *zoom: 1;
+  *behavior: url(boxsizing.htc);
 }
 .charts .chart-container {
   width: 540px;
