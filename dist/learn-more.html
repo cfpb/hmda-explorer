@@ -9,15 +9,32 @@
     <title>The Home Mortgage Disclosure Act</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+    <script src="static/js/jquery.min.js"></script>
+    <!--[if lt IE 9]><script src="static/js/respond.min.js"></script>
+      <script src="static/js/ie8.min.js"></script><![endif]-->
     <link rel="stylesheet" href="static/css/main.css">
     <!--[if lt IE 8]><link rel="stylesheet" href="static/css/icons-ie7.css"><![endif]-->
     <!--[if lt IE 9]><link rel="stylesheet" href="static/css/ie8.min.css"><![endif]-->
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-20466645-3']);
+      _gaq.push(['_setDomainName', 'none']); // For testing
+      // _gaq.push(['_setDomainName', '.consumerfinance.gov']); // For production
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
     <script>
       var docElement = document.documentElement;
       docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2');
     </script>
   </head>
-  <body class="hmda explore">
+
+  <body class="hmda explore learn-more">
 
     <div class="top-banner">
       <div class="inner">
@@ -26,7 +43,7 @@
       </div>
     </div> 
 
-      <header role="banner">
+    <header role="banner">
 
         <div class="logo">
 
@@ -63,9 +80,9 @@
         
         <div class="background">
         <div class="inner">
-        <h2 class="page-title">What is HMDA?</h2>
+        <h2>What is HMDA?</h2>
         
-        <p>The <a href="http://www.gpo.gov/fdsys/pkg/USCODE-2011-title12/pdf/USCODE-2011-title12-chap29.pdf">Home Mortgage Disclosure Act</a> (HMDA) requires many financial institutions institutions to maintain, report, and public disclose information about mortgages.</p>
+        <p>The <a href="http://www.gpo.gov/fdsys/pkg/USCODE-2011-title12/pdf/USCODE-2011-title12-chap29.pdf">Home Mortgage Disclosure Act</a> (HMDA) requires many financial institutions to maintain, report, and public disclose information about mortgages.</p>
 
         <p>HMDA was enacted by Congress in 1975 and is implemented by <a href="http://www.gpo.gov/fdsys/pkg/CFR-2012-title12-vol8/xml/CFR-2012-title12-vol8-part1003.xml">Regulation C</a>. The <a href="http://www.gpo.gov/fdsys/pkg/PLAW-111publ203/pdf/PLAW-111publ203.pdf">Dodd-Frank Act</a> transferred HMDA rulemaking authority from the Federal Reserve Board to the Consumer Financial Protection Bureau (CFPB) on July 21, 2011. The FFIEC makes HMDA data and other HMDA resources available to the public through its website.</p>
 
@@ -153,6 +170,8 @@
 
     <section id="video-transcript">
       <div class="background">
+      <div class="inner">
+
     
 
 
@@ -206,6 +225,7 @@
             </div>
 
             
+        </div>
         </div>
       </section>
 </div>

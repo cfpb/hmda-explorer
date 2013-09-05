@@ -1,3 +1,9 @@
+v0.13.0:
+  date: 2013-09-03
+  changes:
+    - New summary table button.
+    - Permalinkin' the summary table.
+
 v0.12.1:
   date: 2013-09-01
   changes:

@@ -3,18 +3,42 @@
 .filter {
 
   .column( 12 );
-  background-color: #f4f3f2;
-  border-bottom: 1px solid @light_field;
+  background-color: @light_field10;
+  // "border-bottom" only declaration did not extend full width of well
+  border: 1px solid @light_field;
+  border-top-color: initial;
+  border-top-style: initial;
+  border-top-width: 0px;
+  border-right-color: initial;
+  border-right-style: initial;
+  border-right-width: 0px;
+  border-bottom-color: rgb(208, 208, 206);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-left-color: initial;
+  border-left-style: initial;
+  border-left-width: 0px;
+
 
   &:nth-child( even ) {
-    background-color: @light_field50;
+    background-color: @light_field20;
+  }
+
+  &:last-child {
+    border-bottom-color: initial;
+    border-bottom-style: initial;
+    border-bottom-width: 0px;
   }
 
   .title {
-    padding: 30px 0;
+    padding: 20px 0;
     &:hover {
       cursor: pointer;
     }
+  }
+
+  .intro {
+    padding-top: 10px;
   }
   
   h3 {
@@ -22,9 +46,13 @@
     color: @pacific;
     display: inline-block;
     padding-left: 15px;
+    font-size: 1em;
 
     i {
       padding-right: 10px;
+      font-size: 1em;
+      position: relative;
+      top: -1px;
     }
 
   }
@@ -43,6 +71,8 @@
     }
     .insight {
       float: right;
+      position: relative;
+      bottom: .5em;
     }
   }
 
@@ -133,6 +163,7 @@
   .applicant_income_000s {
     input {
       width: 70px;
+      margin: 0 5px;
     }
   }
 
@@ -149,7 +180,7 @@
   }
 
   .next-steps {
-    padding: 30px 0;
+    padding: 30px 15px;
   }
 
   select {
@@ -158,15 +189,14 @@
 
   .help {
     position: absolute;
-    font-size: 1.3em;
+    font-size: 1em;
     display: inline-block;
     color: @pacific;
     vertical-align: top;
-    height: 24px;
-    width: 24px;
     i {
-      height: 24px;
-      width: 24px;
+      font-size: 1em;
+      position: relative;
+      top: 5px;
       display: block;
     }
   }
@@ -191,12 +221,12 @@
   .filter {
 
     .intro {
-      .column( 9 );
+      .column( 11 );
     }
 
     .desc {
       display: inline-block;
-      font-size: 1.2em;
+      font-size: 1em;
       margin-left: 20px;
     }
 
@@ -257,7 +287,7 @@
       }
 
       li.field.msamd {
-        width: 40%;
+        width: 50%;
         display: inline-block;
         &> label {
           width: 100%;

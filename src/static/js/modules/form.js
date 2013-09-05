@@ -346,7 +346,7 @@ var PDP = (function ( pdp ) {
       // Census tract concept data is in a different format.
       if ( typeof data.results !== 'undefined' ) {
 
-        options = _( data.results ).map( mapCensus ).sortBy( sortDeps ).value();
+        options = _( data.results ).map( mapCensus ).sortBy( sortDeps ).uniq( true, 'value' ).value();
         this.setFieldOptions( el, options );
 
         // Broadcast that the update has ended.
@@ -428,6 +428,7 @@ var PDP = (function ( pdp ) {
         $('input[type=checkbox][name=' + param + ']').prop('checked', false);
         $('input[type=text][name=' + param + ']').val('');
         $('select[name=' + param + ']').val('').trigger('liszt:updated');
+        form.checkMutuallyExclusive( param );
 
     });
 

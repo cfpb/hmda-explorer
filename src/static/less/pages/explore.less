@@ -11,10 +11,10 @@
 
     h1 {
       font-size: 34px;
-      margin: 5px 0 0;
+      padding-top: 5px;
       padding-left: 55px;
       display: inline;
-      background: transparent url() scroll no-repeat center left;
+      background: transparent url() scroll no-repeat left center;
       .at2x( '../img/icon_explore-data.png', 42px, 42px );
     }
 
@@ -56,7 +56,10 @@
   //.transparent();
   
   h2 {
-    margin-top: 50px;
+    margin-top: 40px;
+    padding-bottom: 5px;
+    .avenir-next-demi;
+    font-size: 1.5em;
   }
 
   &.ready {
@@ -91,7 +94,7 @@
   }
 
   .inner {
-    background-color: #f4f3f2;
+    background-color: @light_field10;
     padding: 15px;
   }
 
@@ -134,7 +137,7 @@
       
       background-color: #FAB051;
       padding: 5px 0 0;
-      border-bottom: 5px solid gray;
+      border-bottom: 5px solid @light_field20;
       position: relative;
 
       &> .inner {
@@ -164,7 +167,7 @@
       a.active {
         text-decoration: none;
         padding-bottom: 9px;
-        border-bottom: 5px solid @black;
+        border-bottom: 5px solid @dark_field;
         background-color: transparent !important;
       }
 

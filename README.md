@@ -1,16 +1,20 @@
 # CFPB's Public Data Platform
 
-An interactive front-end for HMDA data served from [Qu](https://github.com/cfpb/qu). View the [stable](https://fake.ghe.domain/pages/data-platform/public-data-platform/) or [nightly](https://fake.ghe.domain/pages/contolini/public-data-platform) demo.
+An interactive front-end for HMDA data served from [Qu](https://github.com/cfpb/qu). View the [nightly](https://fake.ghe.domain/pages/data-platform/public-data-platform/) demo.
 
 ## Documentation
 
 See some [front-end notes](https://fake.ghe.domain/data-platform/data-platform-docs/wiki/Front-End-Framework-Notes) or the [documented source](https://fake.ghe.domain/pages/data-platform/public-data-platform/docs/main.html) (use the top right menu).
 
+## Deployment
+
+Copy the contents of `dist` to wherever you want the app to live. For github pages, here's a [git hook](https://fake.ghe.domain/gist/389) that will automatically copy the stuff in `dist` over to your gh-pages branch whenever you commit.
+
 ## Contributing
 
 Please use the [fork and pull](https://help.github.com/articles/using-pull-requests#fork--pull) collaborative model.
 
-1. [Install Node and Grunt](https://fake.ghe.domain/contolini/grunt-init-cfpb#prerequisites)
+1. [Install Node and Grunt](https://fake.ghe.domain/contolini/grunt-init-cfpb#prerequisites) (Just do the prerequisites section on that page, ignore all the other stuff.)
 1. Install Bower v0.10.0: `npm install -g bower@0.10.0` *Avoid newer versions due to a [node-tar bug](https://github.com/bower/bower/issues/727#issuecomment-22309010).*
 1. [Fork this repo](https://fake.ghe.domain/data-platform/public-data-platform/fork) to your personal GH account.
 1. `git clone git@fake.ghe.domain:YOUR-USERNAME/public-data-platform.git`
@@ -28,6 +32,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2013-09-03   [v0.13.0](../../tree/v0.13.0)   New summary table button. Permalinkin' the summary table.
  * 2013-09-01   [v0.12.1](../../tree/v0.12.1)   Update icons and links. Add coverage capabilities and data-driven testing.
  * 2013-08-28   [v0.12.0](../../tree/v0.12.0)   New lender section. New census tract functionality. Bug fixes galore.
  * 2013-08-27   [v0.11.2](../../tree/v0.11.2)   Debounce explore page interactions (#90).
@@ -72,4 +77,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Sun Sep 01 2013 14:08:58.*
+*This file was generated on Tue Sep 03 2013 17:18:05.*
