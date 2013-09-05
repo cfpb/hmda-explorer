@@ -2647,7 +2647,7 @@ ul.chzn-choices {
 }
 .charts .toggle-series-heading {
   margin-top: 1em;
-  border-width: 0;
+  border-width: 0 !important;
   display: inline-block;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
