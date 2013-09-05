@@ -2276,6 +2276,9 @@ textarea {
 .filter .title:hover {
   cursor: pointer;
 }
+.filter .intro {
+  padding-top: 10px;
+}
 .filter h3 {
   text-transform: uppercase;
   color: #0072ce;
@@ -3621,6 +3624,11 @@ section.video h2 strong {
 #summary .intro .nlw img {
   margin-right: 10px;
 }
+#summary .intro .revise-filters {
+  float: right;
+  position: relative;
+  bottom: .25em;
+}
 #summary .spinning {
   display: none;
 }
@@ -3653,17 +3661,18 @@ section.video h2 strong {
   cursor: default;
 }
 .instructions {
-  padding: 20px 0 10px 0;
+  padding: 30px 0 15px 0;
   background-color: #f1f2f2;
   font-size: 1em;
   line-height: 1.375em;
 }
-.drop-downs {
-  background-color: #f1f2f2;
-}
 #summary-submit {
   float: right;
-  margin-top: 15px;
+  position: relative;
+  bottom: .5em;
+}
+.drop-downs {
+  background-color: #f1f2f2;
 }
 #summary-table-form label {
   font-family: 'Avenir Next Demi', Arial, sans-serif;

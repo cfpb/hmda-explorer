@@ -695,20 +695,21 @@
         <h2>Create a summary table</h2>
 
         <div class="intro">
-        <p class="nlw"><img src="static/img/icon_bar_chart.png" class="left" alt=""/>There are <em class="calculating"><img src="static/img/icon_spinner.gif" alt="Loading icon"></em><strong class="count">many</strong> HMDA records from <strong class="years">2007 - 2012</strong> with the previously selected filters.</p>
+        <p class="nlw"><!--<img src="static/img/icon_bar_chart.png" class="left" alt=""/>-->There are <em class="calculating"><img src="static/img/icon_spinner.gif" alt="Loading icon"></em><strong class="count">many</strong> HMDA records from <strong class="years">2007 - 2012</strong> with the previously selected filters.</p>
 
-        Not quite right? &nbsp; <a href="#filters" class="section-toggle action-arrow">Revise your filters <i class="icon-right"></i></a>
+        Not quite what you're looking for? You can also go back and filter your results differently. <a href="#filters" class="section-toggle action-arrow revise-filters">Modify your filters <i class="icon-right"></i></a>
         </div>
 
         <div class="instructions">
-          Create a summary table for insight into the dataset. First, select up to three variables by which to group your data, <br>and then function by which to calculate it.
+          Pick up to three variables and a calculation method to group your data.
+          <button id="summary-submit" >Submit</button>
         </div>
 
         <form id="summary-table-form">
           
           <div class="drop-downs">
             <div class="variable">
-              <label for="variable0" class="stretchy">Pick up to THREE variables</label>
+              
               <select id="variable0" class="chzn-single" data-summary-table-input="both" data-placeholder="Select the first variable">
                 <option value></option>
               </select>
@@ -734,10 +735,6 @@
             </div>
 
             <div class="calculate">
-              <label for="calculate-by">Calculate</label>
-
-              <button id="summary-submit" >Submit</button>
-
               <select class="chzn-single" id="calculate-by" data-summary-table-input="select" data-placeholder="Select a variable">
                 <option value="count" class="indent">Number of records</option>
                 <option placeholder class="placeholder" disabled="disabled">Applicant Income</option>
