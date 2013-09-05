@@ -3470,6 +3470,9 @@ section.video h2 strong {
   font-style: normal;
   font-size: 1.5em;
 }
+.learn-more .background {
+  padding: 1px 15px 0px 15px;
+}
 #learn-more p {
   display: inline-block;
   margin-right: 4%;
@@ -3480,22 +3483,20 @@ section.video h2 strong {
   display: inline-block;
   vertical-align: top;
 }
-#learn-more ul {
+#learn-more .links ul {
   list-style-type: none;
   padding-left: 0;
   margin: 8px 0 0 0;
 }
-#learn-more li {
+#learn-more .links li {
   margin-bottom: 10px;
-}
-#learn-more #highlights {
-  margin-top: 80px;
 }
 #learn-more .highlight {
   background-color: #f1f2f2;
   padding: 15px 20px;
   width: 66%;
   line-height: 1.375em;
+  margin-bottom: 10px;
 }
 #learn-more #video-transcript {
   margin-top: 40px;
@@ -3528,12 +3529,17 @@ section.video h2 strong {
     float: left;
     margin-bottom: .2em;
   }
-  #learn-more .links {
-    width: 29%;
+  #learn-more ul {
+    display: inline-block;
+    margin-right: 4%;
+    float: left;
+    margin-bottom: .2em;
+    font-size: 1em;
+    line-height: 1.375em;
+  }
+  #learn-more .links ul {
     display: inline-block;
     vertical-align: top;
-  }
-  #learn-more ul {
     list-style-type: none;
     padding-left: 0;
   }
