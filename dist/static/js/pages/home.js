@@ -22,7 +22,7 @@ $(function(){
   video = (function(){
 
     var $vid = $('#youtube'),
-        $embed = $('#youtube iframe'),
+        $embed = $('#youtube > iframe'),
         $exit = $('#youtube .exit'),
         pos = $('.video').position().top + ( $('section.video').height() / 2 );
 
@@ -41,6 +41,7 @@ $(function(){
               setTimeout( function(){
                 $vid.append( $embed );
                 $exit.show();
+                onYouTubeIframeAPIReady();
               }, 500 );
             });
         $embed.css( 'height', $(window).height() - 60 + 'px')
@@ -55,7 +56,7 @@ $(function(){
         setTimeout( function(){
           $vid.css({ 'height': 0, 'margin-top': 0 }).addClass('hidden').removeClass('closing');
         }, 500 );
-        this. isOpen = false;
+        this.isOpen = false;
       }
 
     };

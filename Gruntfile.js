@@ -202,7 +202,8 @@ module.exports = function(grunt) {
             'src/static/vendor/json3/lib/json3.js',
             'src/static/vendor/lodash/lodash.js',
             'src/static/vendor/bootstrap/js/bootstrap-tooltip.js',
-            'src/static/vendor/chosen/public/chosen.jquery.js'
+            'src/static/vendor/chosen/public/chosen.jquery.js',
+            'src/static/js/analytics.js'
           ]
         }
       },
@@ -264,7 +265,15 @@ module.exports = function(grunt) {
             'src/static/vendor/html5shiv/dist/html5shiv.js',
             'src/static/vendor/html5shiv/dist/html5shiv-printshiv.js',
             'src/static/vendor/respond/respond.min.js',
-            'src/static/vendor/html5-placeholder-polyfill/dist/placeholder_polyfill.jquery.min.combo.js'
+            'src/static/vendor/html5-placeholder-polyfill/dist/placeholder_polyfill.jquery.min.combo.js',
+            'src/static/js/modules/ie8.js'
+          ]
+        }
+      },
+      respond: {
+        files: {
+          'dist/static/js/respond.min.js': [
+            'src/static/vendor/respond/respond.min.js'
           ]
         }
       }

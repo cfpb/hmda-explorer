@@ -31,6 +31,8 @@
 @import "less/forms.less";
 @import "less/utils.less";
 @import "less/mixins.less";
+@import "less/tooltips.less";
+@import "less/grid.less";
 
 // Modules
 
@@ -45,6 +47,7 @@
 @import "less/pages/learn-more.less";
 @import "less/pages/api.less";
 @import "less/pages/summary-table.less";
+@import "less/pages/charts.less";
 
 // Bootstrap, some of Bootstrap's variables were brought into variables.less
 // so we import this last.
@@ -121,6 +124,10 @@ nav li {
   }
 }
 
+strong {
+  .avenir-next-demi;
+}
+
 // Footer at the bottom of the page
 
 .hmda {
@@ -138,6 +145,7 @@ nav li {
   }
 
   footer {
+
     margin-top: 50px;
     background-color: #3e474c;
     a:link,
@@ -217,13 +225,13 @@ a.action-arrow {
   .icon-external-link {
     font-size: 1.2em;
     padding-left: 2px;
-    line-height: .5em;
+    position: relative;
     text-decoration: none;
   }
   .icon-right {
     font-size: 1.6em;
-    line-height: .6em;
     text-decoration: none;
+    position: relative;
   }
 }
 
