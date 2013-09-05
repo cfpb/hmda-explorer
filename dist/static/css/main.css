@@ -3624,7 +3624,7 @@ section.video h2 strong {
 #summary .intro .nlw img {
   margin-right: 10px;
 }
-#summary .intro .revise-filters {
+#summary .intro .modify-filters {
   float: right;
   position: relative;
   bottom: .25em;
@@ -3672,15 +3672,14 @@ section.video h2 strong {
   bottom: .5em;
   box-sizing: border-box;
   display: inline-block;
-  padding: 0.71428571428571em 1em;
+  padding: 0.7em 1em;
   border: none;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
-  margin-right: 1em;
   background-color: #0072CE;
   color: #FFF;
-  font-size: 1em;
+  font-size: .875em;
   line-height: 1;
   font-family: "Avenir Next Medium", Arial, sans-serif;
   font-weight: 500;
