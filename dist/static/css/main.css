@@ -3479,6 +3479,12 @@ section.video h2 strong {
   font-size: 1em;
   line-height: 1.375em;
 }
+#learn-more ul {
+  margin-right: 4%;
+  line-height: 1.375em;
+  display: inline-block;
+  font-size: 1em;
+}
 #learn-more .links {
   display: inline-block;
   vertical-align: top;
@@ -3498,16 +3504,28 @@ section.video h2 strong {
   line-height: 1.375em;
   margin-bottom: 10px;
 }
-#learn-more #video-transcript {
-  margin-top: 40px;
-}
 #learn-more .filter {
   background-color: #ffffff;
   border-bottom: 0px;
-  padding: 0;
+  padding-top: 1em;
+}
+#learn-more .filter label {
+  font-size: 1em;
+  color: #0072ce;
 }
 #learn-more .filter h3 {
   padding: 0;
+  letter-spacing: 0.075em;
+}
+#learn-more .filter i {
+  padding-right: 10px;
+  top: -1px;
+}
+#learn-more [type=checkbox] {
+  display: none;
+}
+#learn-more :checked + div {
+  display: inline-block !important;
 }
 @media only screen and (min-width: 768px) {
   #learn-more .title {
@@ -3529,13 +3547,14 @@ section.video h2 strong {
     float: left;
     margin-bottom: .2em;
   }
-  #learn-more ul {
-    display: inline-block;
+  #learn-more li {
     margin-right: 4%;
+    line-height: 1.375em;
+    display: inline-block;
+    font-size: 1em;
     float: left;
     margin-bottom: .2em;
-    font-size: 1em;
-    line-height: 1.375em;
+    width: 66%;
   }
   #learn-more .links ul {
     display: inline-block;

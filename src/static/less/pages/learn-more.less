@@ -30,6 +30,13 @@
     line-height: 1.375em;
   }
 
+  ul {
+    margin-right: 4%;
+    line-height: 1.375em;
+    display: inline-block;
+    font-size: 1em;
+  }
+
   .links {
     display: inline-block;
     vertical-align: top;
@@ -52,20 +59,36 @@
     line-height: 1.375em;
     margin-bottom: 10px;
   }
-
-  #video-transcript {
-    margin-top: 40px;
-  }
   
   .filter {
     background-color: @white;
     border-bottom: 0px;
-    padding: 0
+    padding-top: 1em;
+  }
+
+  .filter label {
+    font-size: 1em;
+    color: @pacific;
   }
     
   .filter h3 {
-    padding:0;
+    padding: 0;
+    letter-spacing: 0.075em;
   }
+
+  .filter i {
+    padding-right: 10px;
+    top: -1px;
+  }
+
+  [type=checkbox] {
+    display: none;
+  }
+
+  :checked + div {
+    display: inline-block !important;
+  }
+
 
 
 }
@@ -87,7 +110,6 @@
       margin-bottom: 10px;
     }
 
-
   p {
     width: 66%;
     display: inline-block;
@@ -98,14 +120,15 @@
     margin-bottom: .2em;
     }
 
-   ul {
-    display: inline-block;
+  li {
     margin-right: 4%;
+    line-height: 1.375em;
+    display: inline-block;
+    font-size: 1em;
     float: left;
     margin-bottom: .2em;
-    font-size: 1em;
-    line-height: 1.375em;
-   } 
+    width: 66%;
+    }
 
   .links ul {
     display: inline-block;
@@ -114,8 +137,6 @@
     padding-left: 0;
     }
     
-
-  
 
   }
 
