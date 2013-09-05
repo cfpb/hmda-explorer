@@ -20,7 +20,6 @@ src/static/vendor
 ############################
 # Not all scripts are in the Bower registry, add them here.
 !src/static/vendor/tidy-table/*
-!src/static/vendor/pie/*
 
 # Vim swap files #
 ##################

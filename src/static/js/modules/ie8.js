@@ -1,1 +1,7 @@
-//
+$(function(){
+
+  'use strict';
+
+  
+
+});

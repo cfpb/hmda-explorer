@@ -1,0 +1,11 @@
+@media only screen and (min-width: 768px) {
+  .homepage .circle-nav {
+    background: transparent url('../img/ie8_orange-circle.png') no-repeat scroll top left;
+  }
+  .homepage .circle-nav span {
+    background-image: url('../img/icon_goldcaret.png');
+  }
+  .homepage .title {
+    font-size: .95em;
+  }
+}

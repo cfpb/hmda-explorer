@@ -53,6 +53,15 @@ module.exports = function(grunt) {
         files: {
           'dist/static/css/main.css': ['src/static/less/main.less']
         }
+      },
+      ie8: {
+        options: {
+          banner: '<%= banner.cfpb %>',
+          paths: ['src/static']
+        },
+        files: {
+          'dist/static/css/ie8.css': ['src/static/less/ie/ie8.less']
+        }
       }
     },
 
@@ -71,7 +80,7 @@ module.exports = function(grunt) {
       ie8: {
         keepSpecialComments: '*',
         files: {
-          'dist/static/css/ie8.min.css': ['src/static/vendor/html5-placeholder-polyfill/dist/placeholder_polyfill.min.css']
+          'dist/static/css/ie8.min.css': ['src/static/vendor/html5-placeholder-polyfill/dist/placeholder_polyfill.min.css', 'dist/static/css/ie8.css']
         }
       }
     },
@@ -265,6 +274,7 @@ module.exports = function(grunt) {
             'src/static/vendor/html5shiv/dist/html5shiv.js',
             'src/static/vendor/html5shiv/dist/html5shiv-printshiv.js',
             'src/static/vendor/html5-placeholder-polyfill/dist/placeholder_polyfill.jquery.min.combo.js',
+            'src/static/vendor/ARC.jquery.corner/jquery.corner.js',
             'src/static/js/modules/ie8.js'
           ]
         }
@@ -307,6 +317,7 @@ module.exports = function(grunt) {
       cover: {
          src: [
            'src/static/js/modules/**/*.js',
+           '!src/static/js/modules/ie8.js'
           ],
           options: {
             specs: 'test/specs/*.js',
@@ -337,8 +348,7 @@ module.exports = function(grunt) {
       },
       pdp: {
         src: [
-          'dist/static/js/all.min.js',
-          'test/specs/helpers/debug.js',
+          'dist/static/js/all.min.js'
         ],
         options: {
           specs: 'test/specs/*.js',
