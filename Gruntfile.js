@@ -264,7 +264,6 @@ module.exports = function(grunt) {
             'src/static/vendor/es5-shim/es5-shim.js',
             'src/static/vendor/html5shiv/dist/html5shiv.js',
             'src/static/vendor/html5shiv/dist/html5shiv-printshiv.js',
-            'src/static/vendor/respond/respond.min.js',
             'src/static/vendor/html5-placeholder-polyfill/dist/placeholder_polyfill.jquery.min.combo.js',
             'src/static/js/modules/ie8.js'
           ]
