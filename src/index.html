@@ -186,14 +186,13 @@
       <!-- Chart 1 -->
       <section>
         <div class="background">
-          <div class="row">
-            <div class="span5">
+
+          <div class="chart-info">
               <h3>Number of applications &amp; originations by loan purpose</h3>
               <p>What&apos;s the strength of the mortgage market near you? One important metric is the relationship between applications and actual mortgage loans (originations).</p>
 
               <label for="hmda_chart_1_msa" class="chart-label">Metropolitan Statistical Area</label>
-              <div class="help" data-original-title="Need Text."><i class="icon-help-alt"></i>
-              </div>
+              <div class="help" title="Place holder."><i class="icon-help-alt"></i></div>
               <br>
               <select name="hmda_chart_1_msa" id="hmda_chart_1_msa">
                 <option selected value="msa01">U.S. Total</option>
@@ -577,8 +576,8 @@
               <div class="row">
                 <div class="span6">
                   <span class="chart-label">Loan Purpose</span>
-                  <div class="help" title="Select one or more years you would like to see mortgage data from."><i class="icon-help-alt"></i></div>
-                  </div>
+                  <div class="help" title="Place holder."><i class="icon-help-alt"></i></div>
+                </div>
                 </div>
                 <div class="span6">
                   <input type="checkbox" id="home_purchase_checkbox" name="home_purchase_checkbox" value="True" checked> Home purchases
@@ -590,10 +589,10 @@
               </div>
               <!-- /.row -->
               <p class="chart-note">Note: Data are for first-lien, owner-occupied, 1-4 family and manufactured homes.</p>
-            </div>
-            <!-- /.span5 -->
+            
+            </div><!-- /.chart-info -->
 
-            <div class="span7">
+            <div class="chart-content">
 
               <div id="hmda_chart_1" class="chart-container"></div>
 
@@ -621,459 +620,449 @@
                 </tr>
               </table>
 
-            </div>
-            <!-- /.span7 -->
-          </div>
-          <!-- /.row -->
-        </div>
-      </section>
-      <!-- //Chart 1 -->
+            </div><!-- //.chart-content -->
+
+        </div><!-- //.background -->
+      </section><!-- //Chart 1 -->
 
       <p>&nbsp;</p>
 
       <!-- Chart 2 -->
       <section>
         <div class="background">
-          <div class="row">
-            <div class="span5">
-              <h3>Number of originations by loan type</h3>
-              <p>There are several different types of loans, including “conventional” and government-insured mortgages. Government loan guarantee programs are offered by the Federal Housing Administration (FHA), the Department of Veterans&apos; Affairs (VA), and the Department of Agriculture&apos;s Rural Housing Service (RHS).</p>
+          <div class="chart-info">
+            <h3>Number of originations by loan type</h3>
+            <p>There are several different types of loans, including “conventional” and government-insured mortgages. Government loan guarantee programs are offered by the Federal Housing Administration (FHA), the Department of Veterans&apos; Affairs (VA), and the Department of Agriculture&apos;s Rural Housing Service (RHS).</p>
 
+            <label for="hmda_chart_2_msa" class="chart-label">Metropolitan Statistical Area</label>
 
-              <label for="hmda_chart_2_msa" class="chart-label">Metropolitan Statistical Area</label>
-              <div class="help" data-original-title="Need Text."><i class="icon-help-alt"></i>
+            <div class="help" title="Place holder."><i class="icon-help-alt"></i></div>
+
+            <select name="hmda_chart_2_msa" id="hmda_chart_2_msa">
+              <option selected value="msa01">U.S. Total</option>
+              <option value="msa02">Total, all counties not part of any MSA</option>
+              <option value="msa03">Abilene - TX</option>
+              <option value="msa04">Aguadilla, Isabela - PR</option>
+              <option value="msa05">Akron - OH</option>
+              <option value="msa06">Albany - GA</option>
+              <option value="msa07">Albany, Schenectady, Troy - NY</option>
+              <option value="msa08">Albuquerque - NM</option>
+              <option value="msa09">Alexandria - LA</option>
+              <option value="msa10">Allentown, Bethlehem, Easton - PA, NJ</option>
+              <option value="msa11">Altoona - PA</option>
+              <option value="msa12">Amarillo - TX</option>
+              <option value="msa13">Ames - IA</option>
+              <option value="msa14">Anchorage - AK</option>
+              <option value="msa15">Ann Arbor - MI</option>
+              <option value="msa16">Anniston, Oxford, Jacksonville - AL</option>
+              <option value="msa17">Appleton - WI</option>
+              <option value="msa18">Asheville - NC</option>
+              <option value="msa19">Athens, Clarke County - GA</option>
+              <option value="msa20">Atlanta, Sandy Springs, Roswell - GA</option>
+              <option value="msa21">Atlantic City, Hammonton - NJ</option>
+              <option value="msa22">Auburn, Opelika - AL</option>
+              <option value="msa23">Augusta, Richmond County - GA, SC</option>
+              <option value="msa24">Austin, Round Rock - TX</option>
+              <option value="msa25">Bakersfield - CA</option>
+              <option value="msa26">Baltimore, Columbia, Towson - MD</option>
+              <option value="msa27">Bangor - ME</option>
+              <option value="msa28">Barnstable Town - MA</option>
+              <option value="msa29">Baton Rouge - LA</option>
+              <option value="msa30">Battle Creek - MI</option>
+              <option value="msa31">Bay City - MI</option>
+              <option value="msa32">Beaumont, Port Arthur - TX</option>
+              <option value="msa33">Bellingham - WA</option>
+              <option value="msa34">Bend, Redmond - OR</option>
+              <option value="msa35">Bethesda, Rockville, Frederick - MD</option>
+              <option value="msa36">Billings - MT</option>
+              <option value="msa37">Binghamton - NY</option>
+              <option value="msa38">Birmingham, Hoover - AL</option>
+              <option value="msa39">Bismarck - ND</option>
+              <option value="msa40">Blacksburg, Christiansburg, Radford - VA</option>
+              <option value="msa41">Bloomington - IN</option>
+              <option value="msa42">Boise City - ID</option>
+              <option value="msa43">Boulder - CO</option>
+              <option value="msa44">Bowling Green - KY</option>
+              <option value="msa45">Bremerton, Silverdale - WA</option>
+              <option value="msa46">Bridgeport, Stamford, Norwalk - CT</option>
+              <option value="msa47">Brownsville, Harlingen - TX</option>
+              <option value="msa48">Brunswick - GA</option>
+              <option value="msa49">Buffalo, Cheektowaga, Niagara Falls - NY</option>
+              <option value="msa50">Burlington - NC</option>
+              <option value="msa51">Burlington, South Burlington - VT</option>
+              <option value="msa52">Camden - NJ</option>
+              <option value="msa53">Canton, Massillon - OH</option>
+              <option value="msa54">Cape Coral, Fort Myers - FL</option>
+              <option value="msa55">Cape Girardeau - MO, IL</option>
+              <option value="msa56">Carson City - NV</option>
+              <option value="msa57">Casper - WY</option>
+              <option value="msa58">Cedar Rapids - IA</option>
+              <option value="msa59">Champaign, Urbana - IL</option>
+              <option value="msa60">Charleston - WV</option>
+              <option value="msa61">Charleston, North Charleston - SC</option>
+              <option value="msa62">Charlotte, Concord, Gastonia - NC, SC</option>
+              <option value="msa63">Charlottesville - VA</option>
+              <option value="msa64">Chattanooga - TN, GA</option>
+              <option value="msa65">Cheyenne - WY</option>
+              <option value="msa66">Chicago, Joliet, Naperville - IL</option>
+              <option value="msa67">Chico - CA</option>
+              <option value="msa68">Cincinnati - OH, KY, IN</option>
+              <option value="msa69">Clarksville - TN, KY</option>
+              <option value="msa70">Cleveland - TN</option>
+              <option value="msa71">Cleveland, Elyria - OH</option>
+              <option value="msa72">Coeur d'Alene - ID</option>
+              <option value="msa73">College Station, Bryan - TX</option>
+              <option value="msa74">Colorado Springs - CO</option>
+              <option value="msa75">Columbia - MO</option>
+              <option value="msa76">Columbia - SC</option>
+              <option value="msa77">Columbus - GA, AL</option>
+              <option value="msa78">Columbus - IN</option>
+              <option value="msa79">Columbus - OH</option>
+              <option value="msa80">Corpus Christi - TX</option>
+              <option value="msa81">Corvallis - OR</option>
+              <option value="msa82">Crestview, Fort Walton Beach, Destin - FL</option>
+              <option value="msa83">Cumberland - MD, WV</option>
+              <option value="msa84">Dallas, Plano, Irving - TX</option>
+              <option value="msa85">Dalton - GA</option>
+              <option value="msa86">Danville - IL</option>
+              <option value="msa87">Davenport, Moline, Rock Island - IA, IL</option>
+              <option value="msa88">Dayton - OH</option>
+              <option value="msa89">Decatur - AL</option>
+              <option value="msa90">Decatur - IL</option>
+              <option value="msa91">Deltona, Daytona Beach, Ormond Beach - FL</option>
+              <option value="msa92">Denver, Aurora, Lakewood - CO</option>
+              <option value="msa93">Des Moines, West Des Moines - IA</option>
+              <option value="msa94">Detroit, Livonia, Dearborn - MI</option>
+              <option value="msa95">Dothan - AL</option>
+              <option value="msa96">Dover - DE</option>
+              <option value="msa97">Dubuque - IA</option>
+              <option value="msa98">Duluth - MN, WI</option>
+              <option value="msa99">Durham, Chapel Hill - NC</option>
+              <option value="msa100">Eau Claire - WI</option>
+              <option value="msa101">Edison, New Brunswick - NJ</option>
+              <option value="msa102">El Centro - CA</option>
+              <option value="msa103">El Paso - TX</option>
+              <option value="msa104">Elizabethtown, Fort Knox - KY</option>
+              <option value="msa105">Elkhart, Goshen - IN</option>
+              <option value="msa106">Elmira - NY</option>
+              <option value="msa107">Erie - PA</option>
+              <option value="msa108">Eugene - OR</option>
+              <option value="msa109">Evansville - IN, KY</option>
+              <option value="msa110">Fairbanks - AK</option>
+              <option value="msa111">Fargo - ND, MN</option>
+              <option value="msa112">Farmington - NM</option>
+              <option value="msa113">Fayetteville - NC</option>
+              <option value="msa114">Fayetteville, Springdale, Rogers - AR, MO</option>
+              <option value="msa115">Flagstaff - AZ</option>
+              <option value="msa116">Flint - MI</option>
+              <option value="msa117">Florence - SC</option>
+              <option value="msa118">Florence, Muscle Shoals - AL</option>
+              <option value="msa119">Fond du Lac - WI</option>
+              <option value="msa120">Fort Collins - CO</option>
+              <option value="msa121">Fort Lauderdale, Pompano Beach, Deerfield Beach - FL</option>
+              <option value="msa122">Fort Smith - AR, OK</option>
+              <option value="msa123">Fort Wayne - IN</option>
+              <option value="msa124">Fort Worth, Arlington - TX</option>
+              <option value="msa125">Fresno - CA</option>
+              <option value="msa126">Gadsden - AL</option>
+              <option value="msa127">Gainesville - FL</option>
+              <option value="msa128">Gainesville - GA</option>
+              <option value="msa129">Gary - IN</option>
+              <option value="msa130">Glens Falls - NY</option>
+              <option value="msa131">Goldsboro - NC</option>
+              <option value="msa132">Grand Forks - ND, MN</option>
+              <option value="msa133">Grand Junction - CO</option>
+              <option value="msa134">Grand Rapids, Wyoming - MI</option>
+              <option value="msa135">Great Falls - MT</option>
+              <option value="msa136">Greeley - CO</option>
+              <option value="msa137">Green Bay - WI</option>
+              <option value="msa138">Greensboro, High Point - NC</option>
+              <option value="msa139">Greenville - NC</option>
+              <option value="msa140">Greenville, Anderson, Mauldin - SC</option>
+              <option value="msa141">Guayama - PR</option>
+              <option value="msa142">Gulfport, Biloxi, Pascagoula - MS</option>
+              <option value="msa143">Hagerstown, Martinsburg - MD, WV</option>
+              <option value="msa144">Hanford, Corcoran - CA</option>
+              <option value="msa145">Harrisburg, Carlisle - PA</option>
+              <option value="msa146">Harrisonburg - VA</option>
+              <option value="msa147">Hartford, West Hartford, East Hartford - CT</option>
+              <option value="msa148">Hattiesburg - MS</option>
+              <option value="msa149">Hickory, Lenoir, Morganton - NC</option>
+              <option value="msa150">Hinesville - GA</option>
+              <option value="msa151">Hot Springs - AR</option>
+              <option value="msa152">Houma, Thibodaux - LA</option>
+              <option value="msa153">Houston, The Woodlands, Sugar Land - TX</option>
+              <option value="msa154">Huntington, Ashland - WV, KY, OH</option>
+              <option value="msa155">Huntsville - AL</option>
+              <option value="msa156">Idaho Falls - ID</option>
+              <option value="msa157">Indianapolis, Carmel, Anderson - IN</option>
+              <option value="msa158">Iowa City - IA</option>
+              <option value="msa159">Ithaca - NY</option>
+              <option value="msa160">Jackson - MI</option>
+              <option value="msa161">Jackson - MS</option>
+              <option value="msa162">Jackson - TN</option>
+              <option value="msa163">Jacksonville - FL</option>
+              <option value="msa164">Jacksonville - NC</option>
+              <option value="msa165">Janesville, Beloit - WI</option>
+              <option value="msa166">Jefferson City - MO</option>
+              <option value="msa167">Johnson City - TN</option>
+              <option value="msa168">Johnstown - PA</option>
+              <option value="msa169">Jonesboro - AR</option>
+              <option value="msa170">Joplin - MO</option>
+              <option value="msa171">Kalamazoo, Portage - MI</option>
+              <option value="msa172">Kankakee - IL</option>
+              <option value="msa173">Kansas City - MO, KS</option>
+              <option value="msa174">Kennewick, Richland - WA</option>
+              <option value="msa175">Killeen, Temple - TX</option>
+              <option value="msa176">Kingsport, Bristol, Bristol - TN, VA</option>
+              <option value="msa177">Kingston - NY</option>
+              <option value="msa178">Knoxville - TN</option>
+              <option value="msa179">Kokomo - IN</option>
+              <option value="msa180">La Crosse, Onalaska - WI, MN</option>
+              <option value="msa181">Lafayette - LA</option>
+              <option value="msa182">Lake Charles - LA</option>
+              <option value="msa183">Lake County, Kenosha County - IL</option>
+              <option value="msa184">Lake Havasu City, Kingman - AZ</option>
+              <option value="msa185">Lakeland, Winter Haven - FL</option>
+              <option value="msa186">Lancaster - PA</option>
+              <option value="msa187">Lansing, East Lansing - MI</option>
+              <option value="msa188">Laredo - TX</option>
+              <option value="msa189">Las Cruces - NM</option>
+              <option value="msa190">Las Vegas, Henderson, Paradise - NV</option>
+              <option value="msa191">Lawrence - KS</option>
+              <option value="msa192">Lawton - OK</option>
+              <option value="msa193">Lebanon - PA</option>
+              <option value="msa194">Lewiston - ID, WA</option>
+              <option value="msa195">Lewiston, Auburn - ME</option>
+              <option value="msa196">Lexington, Fayette - KY</option>
+              <option value="msa197">Lima - OH</option>
+              <option value="msa198">Lincoln - NE</option>
+              <option value="msa199">Little Rock, North Little Rock, Conway - AR</option>
+              <option value="msa200">Logan - UT, ID</option>
+              <option value="msa201">Longview - TX</option>
+              <option value="msa202">Longview - WA</option>
+              <option value="msa203">Los Angeles, Long Beach, Glendale - CA</option>
+              <option value="msa204">Louisville/Jefferson County - KY, IN</option>
+              <option value="msa205">Lubbock - TX</option>
+              <option value="msa206">Lynchburg - VA</option>
+              <option value="msa207">Macon - GA</option>
+              <option value="msa208">Madera - CA</option>
+              <option value="msa209">Madison - WI</option>
+              <option value="msa210">Manchester, Nashua - NH</option>
+              <option value="msa211">Manhattan - KS</option>
+              <option value="msa212">Mankato, North Mankato - MN</option>
+              <option value="msa213">Mansfield - OH</option>
+              <option value="msa214">Mayagüez - PR</option>
+              <option value="msa215">McAllen, Edinburg, Mission - TX</option>
+              <option value="msa216">Medford - OR</option>
+              <option value="msa217">Memphis - TN, MS, AR</option>
+              <option value="msa218">Merced - CA</option>
+              <option value="msa219">Miami, Miami Beach, Kendall - FL</option>
+              <option value="msa220">Michigan City, La Porte - IN</option>
+              <option value="msa221">Midland - TX</option>
+              <option value="msa222">Milwaukee, Waukesha, West Allis - WI</option>
+              <option value="msa223">Minneapolis, St. Paul, Bloomington - MN, WI</option>
+              <option value="msa224">Missoula - MT</option>
+              <option value="msa225">Mobile - AL</option>
+              <option value="msa226">Modesto - CA</option>
+              <option value="msa227">Monroe - LA</option>
+              <option value="msa228">Monroe - MI</option>
+              <option value="msa229">Montgomery - AL</option>
+              <option value="msa230">Morgantown - WV</option>
+              <option value="msa231">Morristown - TN</option>
+              <option value="msa232">Mount Vernon, Anacortes - WA</option>
+              <option value="msa233">Muncie - IN</option>
+              <option value="msa234">Muskegon - MI</option>
+              <option value="msa235">Myrtle Beach, Conway, North Myrtle Beach - SC, NC</option>
+              <option value="msa236">Napa - CA</option>
+              <option value="msa237">Naples, Immokalee, Marco Island - FL</option>
+              <option value="msa238">Nashville, Davidson--Murfreesboro--Franklin - TN</option>
+              <option value="msa239">Nassau, Suffolk - NY</option>
+              <option value="msa240">New Haven, Milford - CT</option>
+              <option value="msa241">New Orleans, Metairie - LA</option>
+              <option value="msa242">New York, White Plains, Wayne - NJ, NY</option>
+              <option value="msa243">Newark, Union - NJ, PA</option>
+              <option value="msa244">Niles, Benton Harbor - MI</option>
+              <option value="msa245">North Port, Sarasota, Bradenton - FL</option>
+              <option value="msa246">Norwich, New London - CT</option>
+              <option value="msa247">Oakland, Fremont, Hayward - CA</option>
+              <option value="msa248">Ocala - FL</option>
+              <option value="msa249">Ocean City - NJ</option>
+              <option value="msa250">Odessa - TX</option>
+              <option value="msa251">Ogden, Clearfield - UT</option>
+              <option value="msa252">Oklahoma City - OK</option>
+              <option value="msa253">Olympia, Tumwater - WA</option>
+              <option value="msa254">Omaha, Council Bluffs - NE, IA</option>
+              <option value="msa255">Orlando, Kissimmee, Sanford - FL</option>
+              <option value="msa256">Oshkosh, Neenah - WI</option>
+              <option value="msa257">Owensboro - KY</option>
+              <option value="msa258">Oxnard, Thousand Oaks, Ventura - CA</option>
+              <option value="msa259">Palm Bay, Melbourne, Titusville - FL</option>
+              <option value="msa260">Panama City - FL</option>
+              <option value="msa261">Parkersburg, Vienna - WV</option>
+              <option value="msa262">Pensacola, Ferry Pass, Brent - FL</option>
+              <option value="msa263">Peoria - IL</option>
+              <option value="msa264">Philadelphia - PA</option>
+              <option value="msa265">Phoenix, Mesa, Scottsdale - AZ</option>
+              <option value="msa266">Pine Bluff - AR</option>
+              <option value="msa267">Pittsburgh - PA</option>
+              <option value="msa268">Pittsfield - MA</option>
+              <option value="msa269">Pocatello - ID</option>
+              <option value="msa270">Ponce - PR</option>
+              <option value="msa271">Port St. Lucie - FL</option>
+              <option value="msa272">Portland, South Portland - ME</option>
+              <option value="msa273">Portland, Vancouver, Hillsboro - OR, WA</option>
+              <option value="msa274">Prescott - AZ</option>
+              <option value="msa275">Providence, Warwick - RI, MA</option>
+              <option value="msa276">Provo, Orem - UT</option>
+              <option value="msa277">Pueblo - CO</option>
+              <option value="msa278">Punta Gorda - FL</option>
+              <option value="msa279">Racine - WI</option>
+              <option value="msa280">Raleigh - NC</option>
+              <option value="msa281">Rapid City - SD</option>
+              <option value="msa282">Reading - PA</option>
+              <option value="msa283">Redding - CA</option>
+              <option value="msa284">Reno - NV</option>
+              <option value="msa285">Richmond - VA</option>
+              <option value="msa286">Riverside, San Bernardino, Ontario - CA</option>
+              <option value="msa287">Roanoke - VA</option>
+              <option value="msa288">Rochester - MN</option>
+              <option value="msa289">Rochester - NY</option>
+              <option value="msa290">Rockford - IL</option>
+              <option value="msa291">Rocky Mount - NC</option>
+              <option value="msa292">Rome - GA</option>
+              <option value="msa293">Sacramento--Roseville--Arden, Arcade - CA</option>
+              <option value="msa294">Saginaw - MI</option>
+              <option value="msa295">Salem - OR</option>
+              <option value="msa296">Salinas - CA</option>
+              <option value="msa297">Salisbury - MD, DE</option>
+              <option value="msa298">Salt Lake City - UT</option>
+              <option value="msa299">San Angelo - TX</option>
+              <option value="msa300">San Antonio, New Braunfels - TX</option>
+              <option value="msa301">San Diego, Carlsbad - CA</option>
+              <option value="msa302">San Francisco, San Mateo, Redwood City - CA</option>
+              <option value="msa303">San Germán - PR</option>
+              <option value="msa304">San Jose, Sunnyvale, Santa Clara - CA</option>
+              <option value="msa305">San Juan, Carolina, Caguas - PR</option>
+              <option value="msa306">San Luis Obispo, Paso Robles, Arroyo Grande - CA</option>
+              <option value="msa307">Santa Ana, Anaheim, Irvine - CA</option>
+              <option value="msa308">Santa Cruz, Watsonville - CA</option>
+              <option value="msa309">Santa Fe - NM</option>
+              <option value="msa310">Santa Rosa - CA</option>
+              <option value="msa311">Savannah - GA</option>
+              <option value="msa312">Scranton--Wilkes, Barre--Hazleton - PA</option>
+              <option value="msa313">Seattle, Bellevue, Everett - WA</option>
+              <option value="msa314">Sebastian, Vero Beach - FL</option>
+              <option value="msa315">Sheboygan - WI</option>
+              <option value="msa316">Sherman, Denison - TX</option>
+              <option value="msa317">Shreveport, Bossier City - LA</option>
+              <option value="msa318">Sioux City - IA, NE, SD</option>
+              <option value="msa319">Sioux Falls - SD</option>
+              <option value="msa320">South Bend, Mishawaka - IN, MI</option>
+              <option value="msa321">Spartanburg - SC</option>
+              <option value="msa322">Spokane, Spokane Valley - WA</option>
+              <option value="msa323">Springfield - IL</option>
+              <option value="msa324">Springfield - MA</option>
+              <option value="msa325">Springfield - MO</option>
+              <option value="msa326">Springfield - OH</option>
+              <option value="msa327">St. Cloud - MN</option>
+              <option value="msa328">St. George - UT</option>
+              <option value="msa329">St. Joseph - MO, KS</option>
+              <option value="msa330">St. Louis - MO, IL</option>
+              <option value="msa331">State College - PA</option>
+              <option value="msa332">Stockton, Lodi - CA</option>
+              <option value="msa333">Sumter - SC</option>
+              <option value="msa334">Syracuse - NY</option>
+              <option value="msa335">Tacoma - WA</option>
+              <option value="msa336">Tallahassee - FL</option>
+              <option value="msa337">Tampa, St. Petersburg, Clearwater - FL</option>
+              <option value="msa338">Terre Haute - IN</option>
+              <option value="msa339">Texarkana - TX, AR</option>
+              <option value="msa340">Toledo - OH</option>
+              <option value="msa341">Topeka - KS</option>
+              <option value="msa342">Trenton - NJ</option>
+              <option value="msa343">Tucson - AZ</option>
+              <option value="msa344">Tulsa - OK</option>
+              <option value="msa345">Tuscaloosa - AL</option>
+              <option value="msa346">Tyler - TX</option>
+              <option value="msa347">Utica, Rome - NY</option>
+              <option value="msa348">Valdosta - GA</option>
+              <option value="msa349">Vallejo, Fairfield - CA</option>
+              <option value="msa350">Victoria - TX</option>
+              <option value="msa351">Vineland, Bridgeton - NJ</option>
+              <option value="msa352">Virginia Beach, Norfolk, Newport News - VA, NC</option>
+              <option value="msa353">Visalia, Porterville - CA</option>
+              <option value="msa354">Waco - TX</option>
+              <option value="msa355">Warner Robins - GA</option>
+              <option value="msa356">Warren, Farmington Hills, Troy - MI</option>
+              <option value="msa357">Washington, Arlington, Alexandria - DC, VA, MD</option>
+              <option value="msa358">Waterloo, Cedar Falls - IA</option>
+              <option value="msa359">Wausau - WI</option>
+              <option value="msa360">Wenatchee - WA</option>
+              <option value="msa361">West Palm Beach, Boca Raton, Boynton Beach - FL</option>
+              <option value="msa362">Wheeling - WV, OH</option>
+              <option value="msa363">Wichita - KS</option>
+              <option value="msa364">Wichita Falls - TX</option>
+              <option value="msa365">Williamsport - PA</option>
+              <option value="msa366">Wilmington - DE</option>
+              <option value="msa367">Wilmington - NC</option>
+              <option value="msa368">Winchester - VA, WV</option>
+              <option value="msa369">Winston, Salem - NC</option>
+              <option value="msa370">Worcester - MA, CT</option>
+              <option value="msa371">Yakima - WA</option>
+              <option value="msa372">York, Hanover - PA</option>
+              <option value="msa373">Youngstown, Warren, Boardman - OH, PA</option>
+              <option value="msa374">Yuba City - CA</option>
+              <option value="msa375">Yuma - AZ</option>
+            </select>
+
+            <div class="row">
+              <div class="span6">
+                <span class="chart-label">Loan Type</span>
+                <div class="help" title="Place holder."><i class="icon-help-alt"></i></div>
               </div>
-              <select name="hmda_chart_2_msa" id="hmda_chart_2_msa">
-                <option selected value="msa01">U.S. Total</option>
-                <option value="msa02">Total, all counties not part of any MSA</option>
-                <option value="msa03">Abilene - TX</option>
-                <option value="msa04">Aguadilla, Isabela - PR</option>
-                <option value="msa05">Akron - OH</option>
-                <option value="msa06">Albany - GA</option>
-                <option value="msa07">Albany, Schenectady, Troy - NY</option>
-                <option value="msa08">Albuquerque - NM</option>
-                <option value="msa09">Alexandria - LA</option>
-                <option value="msa10">Allentown, Bethlehem, Easton - PA, NJ</option>
-                <option value="msa11">Altoona - PA</option>
-                <option value="msa12">Amarillo - TX</option>
-                <option value="msa13">Ames - IA</option>
-                <option value="msa14">Anchorage - AK</option>
-                <option value="msa15">Ann Arbor - MI</option>
-                <option value="msa16">Anniston, Oxford, Jacksonville - AL</option>
-                <option value="msa17">Appleton - WI</option>
-                <option value="msa18">Asheville - NC</option>
-                <option value="msa19">Athens, Clarke County - GA</option>
-                <option value="msa20">Atlanta, Sandy Springs, Roswell - GA</option>
-                <option value="msa21">Atlantic City, Hammonton - NJ</option>
-                <option value="msa22">Auburn, Opelika - AL</option>
-                <option value="msa23">Augusta, Richmond County - GA, SC</option>
-                <option value="msa24">Austin, Round Rock - TX</option>
-                <option value="msa25">Bakersfield - CA</option>
-                <option value="msa26">Baltimore, Columbia, Towson - MD</option>
-                <option value="msa27">Bangor - ME</option>
-                <option value="msa28">Barnstable Town - MA</option>
-                <option value="msa29">Baton Rouge - LA</option>
-                <option value="msa30">Battle Creek - MI</option>
-                <option value="msa31">Bay City - MI</option>
-                <option value="msa32">Beaumont, Port Arthur - TX</option>
-                <option value="msa33">Bellingham - WA</option>
-                <option value="msa34">Bend, Redmond - OR</option>
-                <option value="msa35">Bethesda, Rockville, Frederick - MD</option>
-                <option value="msa36">Billings - MT</option>
-                <option value="msa37">Binghamton - NY</option>
-                <option value="msa38">Birmingham, Hoover - AL</option>
-                <option value="msa39">Bismarck - ND</option>
-                <option value="msa40">Blacksburg, Christiansburg, Radford - VA</option>
-                <option value="msa41">Bloomington - IN</option>
-                <option value="msa42">Boise City - ID</option>
-                <option value="msa43">Boulder - CO</option>
-                <option value="msa44">Bowling Green - KY</option>
-                <option value="msa45">Bremerton, Silverdale - WA</option>
-                <option value="msa46">Bridgeport, Stamford, Norwalk - CT</option>
-                <option value="msa47">Brownsville, Harlingen - TX</option>
-                <option value="msa48">Brunswick - GA</option>
-                <option value="msa49">Buffalo, Cheektowaga, Niagara Falls - NY</option>
-                <option value="msa50">Burlington - NC</option>
-                <option value="msa51">Burlington, South Burlington - VT</option>
-                <option value="msa52">Camden - NJ</option>
-                <option value="msa53">Canton, Massillon - OH</option>
-                <option value="msa54">Cape Coral, Fort Myers - FL</option>
-                <option value="msa55">Cape Girardeau - MO, IL</option>
-                <option value="msa56">Carson City - NV</option>
-                <option value="msa57">Casper - WY</option>
-                <option value="msa58">Cedar Rapids - IA</option>
-                <option value="msa59">Champaign, Urbana - IL</option>
-                <option value="msa60">Charleston - WV</option>
-                <option value="msa61">Charleston, North Charleston - SC</option>
-                <option value="msa62">Charlotte, Concord, Gastonia - NC, SC</option>
-                <option value="msa63">Charlottesville - VA</option>
-                <option value="msa64">Chattanooga - TN, GA</option>
-                <option value="msa65">Cheyenne - WY</option>
-                <option value="msa66">Chicago, Joliet, Naperville - IL</option>
-                <option value="msa67">Chico - CA</option>
-                <option value="msa68">Cincinnati - OH, KY, IN</option>
-                <option value="msa69">Clarksville - TN, KY</option>
-                <option value="msa70">Cleveland - TN</option>
-                <option value="msa71">Cleveland, Elyria - OH</option>
-                <option value="msa72">Coeur d'Alene - ID</option>
-                <option value="msa73">College Station, Bryan - TX</option>
-                <option value="msa74">Colorado Springs - CO</option>
-                <option value="msa75">Columbia - MO</option>
-                <option value="msa76">Columbia - SC</option>
-                <option value="msa77">Columbus - GA, AL</option>
-                <option value="msa78">Columbus - IN</option>
-                <option value="msa79">Columbus - OH</option>
-                <option value="msa80">Corpus Christi - TX</option>
-                <option value="msa81">Corvallis - OR</option>
-                <option value="msa82">Crestview, Fort Walton Beach, Destin - FL</option>
-                <option value="msa83">Cumberland - MD, WV</option>
-                <option value="msa84">Dallas, Plano, Irving - TX</option>
-                <option value="msa85">Dalton - GA</option>
-                <option value="msa86">Danville - IL</option>
-                <option value="msa87">Davenport, Moline, Rock Island - IA, IL</option>
-                <option value="msa88">Dayton - OH</option>
-                <option value="msa89">Decatur - AL</option>
-                <option value="msa90">Decatur - IL</option>
-                <option value="msa91">Deltona, Daytona Beach, Ormond Beach - FL</option>
-                <option value="msa92">Denver, Aurora, Lakewood - CO</option>
-                <option value="msa93">Des Moines, West Des Moines - IA</option>
-                <option value="msa94">Detroit, Livonia, Dearborn - MI</option>
-                <option value="msa95">Dothan - AL</option>
-                <option value="msa96">Dover - DE</option>
-                <option value="msa97">Dubuque - IA</option>
-                <option value="msa98">Duluth - MN, WI</option>
-                <option value="msa99">Durham, Chapel Hill - NC</option>
-                <option value="msa100">Eau Claire - WI</option>
-                <option value="msa101">Edison, New Brunswick - NJ</option>
-                <option value="msa102">El Centro - CA</option>
-                <option value="msa103">El Paso - TX</option>
-                <option value="msa104">Elizabethtown, Fort Knox - KY</option>
-                <option value="msa105">Elkhart, Goshen - IN</option>
-                <option value="msa106">Elmira - NY</option>
-                <option value="msa107">Erie - PA</option>
-                <option value="msa108">Eugene - OR</option>
-                <option value="msa109">Evansville - IN, KY</option>
-                <option value="msa110">Fairbanks - AK</option>
-                <option value="msa111">Fargo - ND, MN</option>
-                <option value="msa112">Farmington - NM</option>
-                <option value="msa113">Fayetteville - NC</option>
-                <option value="msa114">Fayetteville, Springdale, Rogers - AR, MO</option>
-                <option value="msa115">Flagstaff - AZ</option>
-                <option value="msa116">Flint - MI</option>
-                <option value="msa117">Florence - SC</option>
-                <option value="msa118">Florence, Muscle Shoals - AL</option>
-                <option value="msa119">Fond du Lac - WI</option>
-                <option value="msa120">Fort Collins - CO</option>
-                <option value="msa121">Fort Lauderdale, Pompano Beach, Deerfield Beach - FL</option>
-                <option value="msa122">Fort Smith - AR, OK</option>
-                <option value="msa123">Fort Wayne - IN</option>
-                <option value="msa124">Fort Worth, Arlington - TX</option>
-                <option value="msa125">Fresno - CA</option>
-                <option value="msa126">Gadsden - AL</option>
-                <option value="msa127">Gainesville - FL</option>
-                <option value="msa128">Gainesville - GA</option>
-                <option value="msa129">Gary - IN</option>
-                <option value="msa130">Glens Falls - NY</option>
-                <option value="msa131">Goldsboro - NC</option>
-                <option value="msa132">Grand Forks - ND, MN</option>
-                <option value="msa133">Grand Junction - CO</option>
-                <option value="msa134">Grand Rapids, Wyoming - MI</option>
-                <option value="msa135">Great Falls - MT</option>
-                <option value="msa136">Greeley - CO</option>
-                <option value="msa137">Green Bay - WI</option>
-                <option value="msa138">Greensboro, High Point - NC</option>
-                <option value="msa139">Greenville - NC</option>
-                <option value="msa140">Greenville, Anderson, Mauldin - SC</option>
-                <option value="msa141">Guayama - PR</option>
-                <option value="msa142">Gulfport, Biloxi, Pascagoula - MS</option>
-                <option value="msa143">Hagerstown, Martinsburg - MD, WV</option>
-                <option value="msa144">Hanford, Corcoran - CA</option>
-                <option value="msa145">Harrisburg, Carlisle - PA</option>
-                <option value="msa146">Harrisonburg - VA</option>
-                <option value="msa147">Hartford, West Hartford, East Hartford - CT</option>
-                <option value="msa148">Hattiesburg - MS</option>
-                <option value="msa149">Hickory, Lenoir, Morganton - NC</option>
-                <option value="msa150">Hinesville - GA</option>
-                <option value="msa151">Hot Springs - AR</option>
-                <option value="msa152">Houma, Thibodaux - LA</option>
-                <option value="msa153">Houston, The Woodlands, Sugar Land - TX</option>
-                <option value="msa154">Huntington, Ashland - WV, KY, OH</option>
-                <option value="msa155">Huntsville - AL</option>
-                <option value="msa156">Idaho Falls - ID</option>
-                <option value="msa157">Indianapolis, Carmel, Anderson - IN</option>
-                <option value="msa158">Iowa City - IA</option>
-                <option value="msa159">Ithaca - NY</option>
-                <option value="msa160">Jackson - MI</option>
-                <option value="msa161">Jackson - MS</option>
-                <option value="msa162">Jackson - TN</option>
-                <option value="msa163">Jacksonville - FL</option>
-                <option value="msa164">Jacksonville - NC</option>
-                <option value="msa165">Janesville, Beloit - WI</option>
-                <option value="msa166">Jefferson City - MO</option>
-                <option value="msa167">Johnson City - TN</option>
-                <option value="msa168">Johnstown - PA</option>
-                <option value="msa169">Jonesboro - AR</option>
-                <option value="msa170">Joplin - MO</option>
-                <option value="msa171">Kalamazoo, Portage - MI</option>
-                <option value="msa172">Kankakee - IL</option>
-                <option value="msa173">Kansas City - MO, KS</option>
-                <option value="msa174">Kennewick, Richland - WA</option>
-                <option value="msa175">Killeen, Temple - TX</option>
-                <option value="msa176">Kingsport, Bristol, Bristol - TN, VA</option>
-                <option value="msa177">Kingston - NY</option>
-                <option value="msa178">Knoxville - TN</option>
-                <option value="msa179">Kokomo - IN</option>
-                <option value="msa180">La Crosse, Onalaska - WI, MN</option>
-                <option value="msa181">Lafayette - LA</option>
-                <option value="msa182">Lake Charles - LA</option>
-                <option value="msa183">Lake County, Kenosha County - IL</option>
-                <option value="msa184">Lake Havasu City, Kingman - AZ</option>
-                <option value="msa185">Lakeland, Winter Haven - FL</option>
-                <option value="msa186">Lancaster - PA</option>
-                <option value="msa187">Lansing, East Lansing - MI</option>
-                <option value="msa188">Laredo - TX</option>
-                <option value="msa189">Las Cruces - NM</option>
-                <option value="msa190">Las Vegas, Henderson, Paradise - NV</option>
-                <option value="msa191">Lawrence - KS</option>
-                <option value="msa192">Lawton - OK</option>
-                <option value="msa193">Lebanon - PA</option>
-                <option value="msa194">Lewiston - ID, WA</option>
-                <option value="msa195">Lewiston, Auburn - ME</option>
-                <option value="msa196">Lexington, Fayette - KY</option>
-                <option value="msa197">Lima - OH</option>
-                <option value="msa198">Lincoln - NE</option>
-                <option value="msa199">Little Rock, North Little Rock, Conway - AR</option>
-                <option value="msa200">Logan - UT, ID</option>
-                <option value="msa201">Longview - TX</option>
-                <option value="msa202">Longview - WA</option>
-                <option value="msa203">Los Angeles, Long Beach, Glendale - CA</option>
-                <option value="msa204">Louisville/Jefferson County - KY, IN</option>
-                <option value="msa205">Lubbock - TX</option>
-                <option value="msa206">Lynchburg - VA</option>
-                <option value="msa207">Macon - GA</option>
-                <option value="msa208">Madera - CA</option>
-                <option value="msa209">Madison - WI</option>
-                <option value="msa210">Manchester, Nashua - NH</option>
-                <option value="msa211">Manhattan - KS</option>
-                <option value="msa212">Mankato, North Mankato - MN</option>
-                <option value="msa213">Mansfield - OH</option>
-                <option value="msa214">Mayagüez - PR</option>
-                <option value="msa215">McAllen, Edinburg, Mission - TX</option>
-                <option value="msa216">Medford - OR</option>
-                <option value="msa217">Memphis - TN, MS, AR</option>
-                <option value="msa218">Merced - CA</option>
-                <option value="msa219">Miami, Miami Beach, Kendall - FL</option>
-                <option value="msa220">Michigan City, La Porte - IN</option>
-                <option value="msa221">Midland - TX</option>
-                <option value="msa222">Milwaukee, Waukesha, West Allis - WI</option>
-                <option value="msa223">Minneapolis, St. Paul, Bloomington - MN, WI</option>
-                <option value="msa224">Missoula - MT</option>
-                <option value="msa225">Mobile - AL</option>
-                <option value="msa226">Modesto - CA</option>
-                <option value="msa227">Monroe - LA</option>
-                <option value="msa228">Monroe - MI</option>
-                <option value="msa229">Montgomery - AL</option>
-                <option value="msa230">Morgantown - WV</option>
-                <option value="msa231">Morristown - TN</option>
-                <option value="msa232">Mount Vernon, Anacortes - WA</option>
-                <option value="msa233">Muncie - IN</option>
-                <option value="msa234">Muskegon - MI</option>
-                <option value="msa235">Myrtle Beach, Conway, North Myrtle Beach - SC, NC</option>
-                <option value="msa236">Napa - CA</option>
-                <option value="msa237">Naples, Immokalee, Marco Island - FL</option>
-                <option value="msa238">Nashville, Davidson--Murfreesboro--Franklin - TN</option>
-                <option value="msa239">Nassau, Suffolk - NY</option>
-                <option value="msa240">New Haven, Milford - CT</option>
-                <option value="msa241">New Orleans, Metairie - LA</option>
-                <option value="msa242">New York, White Plains, Wayne - NJ, NY</option>
-                <option value="msa243">Newark, Union - NJ, PA</option>
-                <option value="msa244">Niles, Benton Harbor - MI</option>
-                <option value="msa245">North Port, Sarasota, Bradenton - FL</option>
-                <option value="msa246">Norwich, New London - CT</option>
-                <option value="msa247">Oakland, Fremont, Hayward - CA</option>
-                <option value="msa248">Ocala - FL</option>
-                <option value="msa249">Ocean City - NJ</option>
-                <option value="msa250">Odessa - TX</option>
-                <option value="msa251">Ogden, Clearfield - UT</option>
-                <option value="msa252">Oklahoma City - OK</option>
-                <option value="msa253">Olympia, Tumwater - WA</option>
-                <option value="msa254">Omaha, Council Bluffs - NE, IA</option>
-                <option value="msa255">Orlando, Kissimmee, Sanford - FL</option>
-                <option value="msa256">Oshkosh, Neenah - WI</option>
-                <option value="msa257">Owensboro - KY</option>
-                <option value="msa258">Oxnard, Thousand Oaks, Ventura - CA</option>
-                <option value="msa259">Palm Bay, Melbourne, Titusville - FL</option>
-                <option value="msa260">Panama City - FL</option>
-                <option value="msa261">Parkersburg, Vienna - WV</option>
-                <option value="msa262">Pensacola, Ferry Pass, Brent - FL</option>
-                <option value="msa263">Peoria - IL</option>
-                <option value="msa264">Philadelphia - PA</option>
-                <option value="msa265">Phoenix, Mesa, Scottsdale - AZ</option>
-                <option value="msa266">Pine Bluff - AR</option>
-                <option value="msa267">Pittsburgh - PA</option>
-                <option value="msa268">Pittsfield - MA</option>
-                <option value="msa269">Pocatello - ID</option>
-                <option value="msa270">Ponce - PR</option>
-                <option value="msa271">Port St. Lucie - FL</option>
-                <option value="msa272">Portland, South Portland - ME</option>
-                <option value="msa273">Portland, Vancouver, Hillsboro - OR, WA</option>
-                <option value="msa274">Prescott - AZ</option>
-                <option value="msa275">Providence, Warwick - RI, MA</option>
-                <option value="msa276">Provo, Orem - UT</option>
-                <option value="msa277">Pueblo - CO</option>
-                <option value="msa278">Punta Gorda - FL</option>
-                <option value="msa279">Racine - WI</option>
-                <option value="msa280">Raleigh - NC</option>
-                <option value="msa281">Rapid City - SD</option>
-                <option value="msa282">Reading - PA</option>
-                <option value="msa283">Redding - CA</option>
-                <option value="msa284">Reno - NV</option>
-                <option value="msa285">Richmond - VA</option>
-                <option value="msa286">Riverside, San Bernardino, Ontario - CA</option>
-                <option value="msa287">Roanoke - VA</option>
-                <option value="msa288">Rochester - MN</option>
-                <option value="msa289">Rochester - NY</option>
-                <option value="msa290">Rockford - IL</option>
-                <option value="msa291">Rocky Mount - NC</option>
-                <option value="msa292">Rome - GA</option>
-                <option value="msa293">Sacramento--Roseville--Arden, Arcade - CA</option>
-                <option value="msa294">Saginaw - MI</option>
-                <option value="msa295">Salem - OR</option>
-                <option value="msa296">Salinas - CA</option>
-                <option value="msa297">Salisbury - MD, DE</option>
-                <option value="msa298">Salt Lake City - UT</option>
-                <option value="msa299">San Angelo - TX</option>
-                <option value="msa300">San Antonio, New Braunfels - TX</option>
-                <option value="msa301">San Diego, Carlsbad - CA</option>
-                <option value="msa302">San Francisco, San Mateo, Redwood City - CA</option>
-                <option value="msa303">San Germán - PR</option>
-                <option value="msa304">San Jose, Sunnyvale, Santa Clara - CA</option>
-                <option value="msa305">San Juan, Carolina, Caguas - PR</option>
-                <option value="msa306">San Luis Obispo, Paso Robles, Arroyo Grande - CA</option>
-                <option value="msa307">Santa Ana, Anaheim, Irvine - CA</option>
-                <option value="msa308">Santa Cruz, Watsonville - CA</option>
-                <option value="msa309">Santa Fe - NM</option>
-                <option value="msa310">Santa Rosa - CA</option>
-                <option value="msa311">Savannah - GA</option>
-                <option value="msa312">Scranton--Wilkes, Barre--Hazleton - PA</option>
-                <option value="msa313">Seattle, Bellevue, Everett - WA</option>
-                <option value="msa314">Sebastian, Vero Beach - FL</option>
-                <option value="msa315">Sheboygan - WI</option>
-                <option value="msa316">Sherman, Denison - TX</option>
-                <option value="msa317">Shreveport, Bossier City - LA</option>
-                <option value="msa318">Sioux City - IA, NE, SD</option>
-                <option value="msa319">Sioux Falls - SD</option>
-                <option value="msa320">South Bend, Mishawaka - IN, MI</option>
-                <option value="msa321">Spartanburg - SC</option>
-                <option value="msa322">Spokane, Spokane Valley - WA</option>
-                <option value="msa323">Springfield - IL</option>
-                <option value="msa324">Springfield - MA</option>
-                <option value="msa325">Springfield - MO</option>
-                <option value="msa326">Springfield - OH</option>
-                <option value="msa327">St. Cloud - MN</option>
-                <option value="msa328">St. George - UT</option>
-                <option value="msa329">St. Joseph - MO, KS</option>
-                <option value="msa330">St. Louis - MO, IL</option>
-                <option value="msa331">State College - PA</option>
-                <option value="msa332">Stockton, Lodi - CA</option>
-                <option value="msa333">Sumter - SC</option>
-                <option value="msa334">Syracuse - NY</option>
-                <option value="msa335">Tacoma - WA</option>
-                <option value="msa336">Tallahassee - FL</option>
-                <option value="msa337">Tampa, St. Petersburg, Clearwater - FL</option>
-                <option value="msa338">Terre Haute - IN</option>
-                <option value="msa339">Texarkana - TX, AR</option>
-                <option value="msa340">Toledo - OH</option>
-                <option value="msa341">Topeka - KS</option>
-                <option value="msa342">Trenton - NJ</option>
-                <option value="msa343">Tucson - AZ</option>
-                <option value="msa344">Tulsa - OK</option>
-                <option value="msa345">Tuscaloosa - AL</option>
-                <option value="msa346">Tyler - TX</option>
-                <option value="msa347">Utica, Rome - NY</option>
-                <option value="msa348">Valdosta - GA</option>
-                <option value="msa349">Vallejo, Fairfield - CA</option>
-                <option value="msa350">Victoria - TX</option>
-                <option value="msa351">Vineland, Bridgeton - NJ</option>
-                <option value="msa352">Virginia Beach, Norfolk, Newport News - VA, NC</option>
-                <option value="msa353">Visalia, Porterville - CA</option>
-                <option value="msa354">Waco - TX</option>
-                <option value="msa355">Warner Robins - GA</option>
-                <option value="msa356">Warren, Farmington Hills, Troy - MI</option>
-                <option value="msa357">Washington, Arlington, Alexandria - DC, VA, MD</option>
-                <option value="msa358">Waterloo, Cedar Falls - IA</option>
-                <option value="msa359">Wausau - WI</option>
-                <option value="msa360">Wenatchee - WA</option>
-                <option value="msa361">West Palm Beach, Boca Raton, Boynton Beach - FL</option>
-                <option value="msa362">Wheeling - WV, OH</option>
-                <option value="msa363">Wichita - KS</option>
-                <option value="msa364">Wichita Falls - TX</option>
-                <option value="msa365">Williamsport - PA</option>
-                <option value="msa366">Wilmington - DE</option>
-                <option value="msa367">Wilmington - NC</option>
-                <option value="msa368">Winchester - VA, WV</option>
-                <option value="msa369">Winston, Salem - NC</option>
-                <option value="msa370">Worcester - MA, CT</option>
-                <option value="msa371">Yakima - WA</option>
-                <option value="msa372">York, Hanover - PA</option>
-                <option value="msa373">Youngstown, Warren, Boardman - OH, PA</option>
-                <option value="msa374">Yuba City - CA</option>
-                <option value="msa375">Yuma - AZ</option>
-              </select>
-
-              <div class="row">
-                <div class="span6">
-                  <span class="chart-label">Loan Type</span>
-                  <div class="help" data-original-title="Need Text."><i class="icon-help-alt"></i>
-                  </div>
-                </div>
-                <div class="span6">
-
-                  <input type="checkbox" id="conventional_checkbox" name="conventional_checkbox" value="True" checked> Conventional
-                  <br>
-                  <input type="checkbox" id="va_checkbox" name="va_checkbox" value="True" checked> FSA/RHS
-
-                  <input type="checkbox" id="fha_checkbox" name="fha_checkbox" value="True" checked> FHA-insured
-                  <br>
-                  <input type="checkbox" id="rhs_checkbox" name="rhs_checkbox" value="True" checked> VA-guarenteed
-
-                </div>
+              <div class="span6">
+                <input type="checkbox" id="conventional_checkbox" name="conventional_checkbox" value="True" checked> Conventional
+                <br>
+                <input type="checkbox" id="va_checkbox" name="va_checkbox" value="True" checked> FSA/RHS
+                <br>
+                <input type="checkbox" id="fha_checkbox" name="fha_checkbox" value="True" checked> FHA-insured
+                <br>
+                <input type="checkbox" id="rhs_checkbox" name="rhs_checkbox" value="True" checked> VA-guarenteed
               </div>
-              <p class="chart-note">Note: Data are for first-lien, owner-occupied, 1-4 family and manufactured homes.</p>
-
-
-
             </div>
 
-            <div class="span7">
-              <div id="hmda_chart_2" class="chart-container"></div>
-
-              <table class="chart-legend chart-legend-oblt">
-
-                <tr>
-                  <td>
-                    <span class="chart-legend-box chart-legend-box-hpa">&nbsp;</span> Conventional</td>
-                  <td>
-                    <span class="chart-legend-box chart-legend-box-hia">&nbsp;</span> FHA-insured</td>
-
-                </tr>
-                <tr>
-                  <td>
-                    <span class="chart-legend-box chart-legend-box-hpo">&nbsp;</span> FSA/RHS</td>
-                  <td>
-                    <span class="chart-legend-box chart-legend-box-hio">&nbsp;</span> VA-guaranteed</td>
-                </tr>
-              </table>
-
-            </div>
+            <p class="chart-note">Note: Data are for first-lien, owner-occupied, 1-4 family and manufactured homes.</p>
 
           </div>
 
-        </div>
+          <div class="chart-content">
+            <div id="hmda_chart_2" class="chart-container"></div>
+
+            <table class="chart-legend chart-legend-oblt">
+
+              <tr>
+                <td>
+                  <span class="chart-legend-box chart-legend-box-hpa">&nbsp;</span> Conventional</td>
+                <td>
+                  <span class="chart-legend-box chart-legend-box-hia">&nbsp;</span> FHA-insured</td>
+
+              </tr>
+              <tr>
+                <td>
+                  <span class="chart-legend-box chart-legend-box-hpo">&nbsp;</span> FSA/RHS</td>
+                <td>
+                  <span class="chart-legend-box chart-legend-box-hio">&nbsp;</span> VA-guaranteed</td>
+              </tr>
+            </table>
+
+          </div><!-- //.chart-content -->
+
+        </div><!-- //.background -->
       </section>
       <!-- END CHART 2 -->
-    </div>
-    <!-- /.charts -->
+
+    </div><!-- /.charts -->
 
   </section>
 
