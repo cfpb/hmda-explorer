@@ -2294,6 +2294,8 @@ textarea {
 }
 .filter.footer .insight {
   float: right;
+  position: relative;
+  bottom: .5em;
 }
 .filter .fields {
   padding: 0;
@@ -3651,14 +3653,20 @@ section.video h2 strong {
   cursor: default;
 }
 .instructions {
-  padding: 15px;
+  padding: 20px 0 10px 0;
   background-color: #f1f2f2;
+  font-size: 1em;
+  line-height: 1.375em;
 }
 .drop-downs {
   background-color: #f1f2f2;
 }
+#summary-submit {
+  float: right;
+  margin-top: 15px;
+}
 #summary-table-form label {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: 'Avenir Next Demi', Arial, sans-serif;
 }
 #summary-table-form li:hover,
 #summary-table-form li:focus,
@@ -3703,7 +3711,6 @@ section.video h2 strong {
 }
 #summary-table-container {
   font-family: "Avenir Next", Arial, sans-serif;
-  margin-top: 30px;
   background-color: #f1f2f2;
 }
 #summary-table-container #summary-table {
@@ -3792,11 +3799,6 @@ section.video h2 strong {
     position: relative;
   }
   .instructions {
-    max-width: 960px;
-    padding: 0 15px;
-    margin: 0 auto;
-    position: relative;
-    clear: both;
     display: inline-block;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -3806,10 +3808,6 @@ section.video h2 strong {
     margin-right: -0.25em;
     vertical-align: top;
     width: 100%;
-  }
-  .lt-ie8 .instructions {
-    *zoom: 1;
-    *behavior: url(boxsizing.htc);
   }
   .ie .instructions {
     margin-right: -0.26em;
@@ -3830,7 +3828,7 @@ section.video h2 strong {
   width: 540px;
 }
 .chart-legend th,
-td {
+.chart-legend td {
   text-align: left;
   width: 180px;
   padding-right: 10px;
