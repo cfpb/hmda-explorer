@@ -2156,80 +2156,7 @@ textarea {
 /**
  *  Clearfix
  **/
-/* CFPB SimpleGrid */
-/* Clearfix Hack: http://nicolasgallagher.com/micro-clearfix-hack/ */
-.row:before,
-.row:after {
-  content: " ";
-  display: table;
-}
-.row:after {
-  clear: both;
-}
-.row {
-  margin: 1em auto;
-  width: 102%;
-  margin-left: -2%;
-  overflow: hidden;
-  clear: both;
-  /* Clearfix hack for IE 6/7 only */
-
-  *zoom: 1;
-}
-.row .span1,
-.row .span2,
-.row .span3,
-.row .span4,
-.row .span5,
-.row .span6,
-.row .span7,
-.row .span8,
-.row .span9,
-.row .span10,
-.row .span11,
-.row .span12 {
-  float: left;
-  margin-left: 2%;
-  min-height: 100px;
-  margin-top: 1em;
-}
-.row .span1 {
-  width: 6.33333%;
-}
-.row .span2 {
-  width: 14.66667%;
-}
-.row .span3 {
-  width: 23%;
-}
-.row .span4 {
-  width: 31.33333%;
-}
-.row .span5 {
-  width: 39.66667%;
-}
-.row .span6 {
-  width: 48%;
-}
-.row .span7 {
-  width: 56.33333%;
-}
-.row .span8 {
-  width: 64.66667%;
-}
-.row .span9 {
-  width: 73%;
-}
-.row .span10 {
-  width: 81.33333%;
-}
-.row .span11 {
-  width: 89.66667%;
-}
-.row .span12 {
-  width: 98%;
-}
-/* END CFPB SimpleGrid */.filter {
+.filter {
   display: inline-block;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -2659,6 +2586,55 @@ ul.chzn-choices {
 }
 .chzn-container-single .chzn-single abbr {
   top: 9px;
+}
+.charts {
+  font-family: 'Avenir Next';
+  font-weight: 400;
+}
+.charts h3 {
+  font-family: 'Avenir Next';
+  font-weight: 400;
+  font-size: 1.2em;
+}
+.charts .chart-container {
+  width: 540px;
+}
+.charts .chart-legend {
+  width: 540px;
+}
+.charts .chart-legend th,
+.charts td {
+  text-align: left;
+  width: 180px;
+  padding-right: 10px;
+  white-space: nowrap;
+}
+.charts .chart-legend-oblt {
+  margin-left: 90px;
+}
+.charts .chart-legend-box {
+  display: inline-block;
+  width: 40px;
+  height: 10px;
+  margin-right: 5px;
+}
+.charts .chart-legend-box-hpa {
+  background-color: #addc91;
+}
+.charts .chart-legend-box-hpo {
+  background-color: #2cb34a;
+}
+.charts .chart-legend-box-hia {
+  background-color: #81afaf;
+}
+.charts .chart-legend-box-hio {
+  background-color: #005e5d;
+}
+.charts .chart-legend-box-ra {
+  background-color: #d7d2cb;
+}
+.charts .chart-legend-box-ro {
+  background-color: #796e65;
 }
 .homepage .hero {
   padding-top: 10px;
@@ -3820,49 +3796,6 @@ section.video h2 strong {
     *zoom: 1;
     *behavior: url(boxsizing.htc);
   }
-}
-.charts {
-  font-family: 'Avenir Next';
-}
-.chart-container {
-  width: 540px;
-}
-.chart-legend {
-  width: 540px;
-}
-.chart-legend th,
-td {
-  text-align: left;
-  width: 180px;
-  padding-right: 10px;
-  white-space: nowrap;
-}
-.chart-legend-oblt {
-  margin-left: 90px;
-}
-.chart-legend-box {
-  display: inline-block;
-  width: 40px;
-  height: 10px;
-  margin-right: 5px;
-}
-.chart-legend-box-hpa {
-  background-color: #addc91;
-}
-.chart-legend-box-hpo {
-  background-color: #2cb34a;
-}
-.chart-legend-box-hia {
-  background-color: #81afaf;
-}
-.chart-legend-box-hio {
-  background-color: #005e5d;
-}
-.chart-legend-box-ra {
-  background-color: #d7d2cb;
-}
-.chart-legend-box-ro {
-  background-color: #796e65;
 }
 .tooltip {
   position: absolute;
