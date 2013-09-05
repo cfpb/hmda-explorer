@@ -3517,7 +3517,7 @@ section.video h2 strong {
     padding: 15px 20px;
     width: 66%;
     line-height: 1.375em;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
   }
   #learn-more p {
     width: 66%;
@@ -3536,9 +3536,6 @@ section.video h2 strong {
   #learn-more ul {
     list-style-type: none;
     padding-left: 0;
-  }
-  #learn-more li {
-    margin-bottom: 10px;
   }
 }
 .api-docs .hero h1 {
