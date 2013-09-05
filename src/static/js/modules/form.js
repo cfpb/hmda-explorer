@@ -428,6 +428,7 @@ var PDP = (function ( pdp ) {
         $('input[type=checkbox][name=' + param + ']').prop('checked', false);
         $('input[type=text][name=' + param + ']').val('');
         $('select[name=' + param + ']').val('').trigger('liszt:updated');
+        form.checkMutuallyExclusive( param );
 
     });
 

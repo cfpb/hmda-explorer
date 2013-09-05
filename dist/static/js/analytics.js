@@ -43,18 +43,18 @@ var track = function(category, name, value) {
 
     $(document).ready(function() {
         // Just for testing purposes
-        var a = 'http://www.consumerfinance.gov';
-        var b = 'http://davidakennedy.com';
-        var c = '/about';
+        // var a = 'http://www.consumerfinance.gov';
+        // var b = 'http://davidakennedy.com';
+        // var c = '/about';
 
-        var testInternal = isInternalHref(a);
-        console.log(testInternal); // Prints true.
+        // var testInternal = isInternalHref(a);
+        // console.log(testInternal); // Prints true.
 
-        var testExit = isInternalHref(b);
-        console.log(testExit); // Prints false.
+        // var testExit = isInternalHref(b);
+        // console.log(testExit); // Prints false.
 
-        var testNoProt = isInternalHref(c);
-        console.log(testNoProt); // Prints true.
+        // var testNoProt = isInternalHref(c);
+        // console.log(testNoProt); // Prints true.
         // End testing
 
         $( 'a' ).not('.exit-link, .internal-link').each(function() { // In case our links already have the class; don't include.
