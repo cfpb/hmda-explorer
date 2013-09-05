@@ -59,6 +59,9 @@ var track = function(category, name, value) {
 
         $( 'a' ).not('.exit-link, .internal-link').each(function() { // In case our links already have the class; don't include.
             var href = $(this).attr('href');
+            if ( !href ) {
+                return;
+            }
             if ( isInternalHref( href ) ) { // Internal links get a class; not tracked in Analytics.
                 $(this).addClass('internal-link');
             }
@@ -239,6 +242,9 @@ var track = function(category, name, value) {
         }
 
         function isSrcYouTubeVideo( src ) {
+            if ( !src ) {
+                return;
+            }
             if ( src.indexOf('youtube.com/embed/') !== -1 ) {
                 return true;
             } else {
