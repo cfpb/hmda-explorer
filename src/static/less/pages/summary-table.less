@@ -3,24 +3,21 @@
 #summary {
   position: relative;
   .intro {
-    border: 1px solid @light_field;
-    border-left: 0;
-    border-right: 0;
-    background-color: @light_field50;
-    margin: 10px 0;
-    padding: 30px 20px;
+    border-bottom: 1px solid @light_field;
+    background-color: @light_field20;
+    padding: 10px 15px 20px 20px;
     font-family: "Avenir Next", Arial, sans-serif;
-
-    .filter-link {
-      img {
-        margin-left: 5px;
-      }
-    }
 
     .nlw {
       img {
         margin-right: 10px;
       }
+    }
+
+    .modify-filters {
+      float: right;
+      position: relative;
+      bottom: .25em;
     }
   }
   .spinning {
@@ -44,19 +41,47 @@
       cursor: default;
     }
   }
-  
-  
 }
 
 .instructions {
-  margin: 15px 0;
+  padding: 30px 0 15px 0;
+  background-color: @light_field10;
+  font-size: 1em;
+  line-height: 1.375em;
 }
 
+//Submit button
+#summary-submit {
+  float:right; 
+  position: relative;
+  bottom: .5em;
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 0.7em 1em;
+  border: none;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  background-color: #0072CE;
+  color: #FFF;
+  font-size: .875em;
+  line-height: 1;
+  font-family: "Avenir Next Medium", Arial, sans-serif;
+  font-weight: 500;
+  text-decoration: none;
+  -webkit-transition: .1s;
+  -moz-transition: .1s;
+  transition: .1s;
+}
+
+.drop-downs {
+  background-color: @light_field10;
+}
 
 #summary-table-form {
 
   label {
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: 'Avenir Next Demi', Arial, sans-serif;
   }
 
   li:hover,
@@ -116,18 +141,20 @@
 
 #summary-table-container {
   font-family: "Avenir Next", Arial, sans-serif;
-  margin-top: 30px;
+  background-color: @light_field10;
+  padding: 40px 15px 20px 15px;
 
   #summary-table {
     width: 100%;
 
     tr.header td {
-      background-color: #FDEBD3;
-      font-weight: bold;
+      background-color: @gold20;
+      .avenir-next-demi;
       text-transform: uppercase;
     }
 
     td {
+      background-color: white;
       font-size: .8em;
       padding: 5px 10px;
       border: 1px solid @light_field;
@@ -175,7 +202,6 @@
   }
 
   .instructions {
-    .wrapper();
     .column( 12 );
   }
 
