@@ -3547,14 +3547,11 @@ section.video h2 strong {
     float: left;
     margin-bottom: .2em;
   }
-  #learn-more li {
+  #learn-more ul {
     margin-right: 4%;
     line-height: 1.375em;
     display: inline-block;
     font-size: 1em;
-    float: left;
-    margin-bottom: .2em;
-    width: 66%;
   }
   #learn-more .links ul {
     display: inline-block;
