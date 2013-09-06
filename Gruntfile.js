@@ -155,7 +155,6 @@ module.exports = function(grunt) {
         command: [
           'cp -r src/static/fonts dist/static',
           'cp -r src/static/img dist/static',
-          'cp -r src/static/js dist/static',
           'cp src/static/vendor/cfpb-font-icons/static/css/icons-ie7.css dist/static/css/icons-ie7.css',
           'cp src/static/vendor/zeroclipboard/* dist/static/js/zeroclipboard/',
           'cp src/static/vendor/chosen/public/chosen-* dist/static/css'
@@ -274,7 +273,6 @@ module.exports = function(grunt) {
             'src/static/vendor/html5shiv/dist/html5shiv.js',
             'src/static/vendor/html5shiv/dist/html5shiv-printshiv.js',
             'src/static/vendor/html5-placeholder-polyfill/dist/placeholder_polyfill.jquery.min.combo.js',
-            'src/static/vendor/ARC.jquery.corner/jquery.corner.js',
             'src/static/js/modules/ie8.js'
           ]
         }
@@ -410,7 +408,7 @@ module.exports = function(grunt) {
      */
     watch: {
       scripts: {
-        files: ['src/**/*.html', 'src/static/less/**/*.less', 'src/static/js/**/*.js', 'test/specs/*.js'],
+        files: ['src/*.html', 'src/static/less/**/*.less', 'src/static/js/**/*.js', 'test/specs/*.js'],
         tasks: ['build', 'test']
       }
     }
