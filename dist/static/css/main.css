@@ -2603,7 +2603,12 @@ ul.chzn-choices {
   font-family: "Avenir Next Demi", Arial, sans-serif;
   font-weight: 600;
   font-style: normal;
-  font-size: 1.4em;
+  font-size: 1.375em;
+  letter-spacing: 0;
+}
+.charts p {
+  font-size: 0.875em;
+  line-height: 1.25em;
 }
 .charts .chart-info {
   display: inline-block;
@@ -2647,8 +2652,14 @@ ul.chzn-choices {
   font-family: "Avenir Next Demi", Arial, sans-serif;
   font-weight: 600;
   font-style: normal;
-  font-size: 0.8em;
-  padding-right: 4px;
+  font-size: 0.875em;
+  line-height: 1.25em;
+}
+.charts .help {
+  position: relative;
+}
+.charts .help i {
+  top: 7px;
 }
 .charts .toggle-series-heading {
   margin-top: 1em;
@@ -2672,6 +2683,8 @@ ul.chzn-choices {
   *behavior: url(boxsizing.htc);
 }
 .charts .toggle-series-controls {
+  font-size: 0.75em;
+  line-height: 2em;
   margin-top: 1em;
   display: inline-block;
   -webkit-box-sizing: border-box;
@@ -2691,21 +2704,28 @@ ul.chzn-choices {
   *zoom: 1;
   *behavior: url(boxsizing.htc);
 }
+.charts .toggle-series-controls input {
+  padding-left: 4px;
+}
 .charts .chart-note {
-  font-family: 'Avenir Next Italic';
-  font-weight: 400;
-  font-style: italic;
-  font-size: 0.8em;
+  font-size: 0.75em;
 }
 .charts .chart-container {
   width: 540px;
 }
 .charts .chart-legend {
-  width: 540px;
+  width: 450px;
+  margin-left: 90px;
+}
+.charts .oblt {
+  width: 380px;
+  margin-left: 160px;
 }
 .charts .chart-legend th,
 .charts td {
   text-align: left;
+  font-size: 0.75em;
+  line-height: 1.25em;
   width: 180px;
   padding-right: 10px;
   white-space: nowrap;
@@ -2714,9 +2734,6 @@ ul.chzn-choices {
   font-family: "Avenir Next Demi", Arial, sans-serif;
   font-weight: 600;
   font-style: normal;
-}
-.charts .chart-legend-oblt {
-  margin-left: 90px;
 }
 .charts .chart-legend-box {
   display: inline-block;
