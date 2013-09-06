@@ -1,92 +1,114 @@
 .charts {
-	.avenir-next;
-	margin-top: 2em;
-	margin-bottom: 2em;
+    .avenir-next;
+    margin-top: 2em;
+    margin-bottom: 2em;
 
-	h3 {
-		.avenir-next-demi;
-		font-size: 1.4em;
-	}
+    h3 {
+        .avenir-next-demi;
+        font-size: 1.375em;
+        letter-spacing: 0;
+    }
 
-	.chart-info {
-		.column(5);
-	}
+    p {
+        font-size: 0.875em;
+        line-height: 1.25em;
+    }
 
-	.chart-content {
-		.column(7);
-	}
+    .chart-info {
+        .column(5);
+    }
 
-	.chart-label {
-		.avenir-next-demi;
-		font-size: 0.8em;
-		padding-right: 4px;
-	}
+    .chart-content {
+        .column(7);
+    }
 
-	.toggle-series-heading {
-		margin-top: 1em;
-		border-width: 0 !important;
-		.column(5);
-	}
+    .chart-label {
+        .avenir-next-demi;
+        font-size: 0.875em;
+        line-height: 1.25em;
+    }
 
-	.toggle-series-controls {
-		margin-top: 1em;
-		.column(7);
-	}
+    .help {
+        position: relative;
 
-	.chart-note {
-		font-family: 'Avenir Next Italic';
-	    font-weight: 400;
-	    font-style: italic;		
-		font-size: 0.8em;
-	}
+        i {
+            top: 7px;
+        }
+    }
 
-	.chart-container {
-		width: 540px;
-	}
+    .toggle-series-heading {
+        margin-top: 1em;
+        border-width: 0 !important;
+        .column(5);
+    }
 
-	.chart-legend {
-		width: 540px;
-	}
+    .toggle-series-controls {
+        font-size: 0.75em;
+        line-height: 2em;
+        margin-top: 1em;
+        .column(7);
 
-	.chart-legend th, td {
-		text-align: left;
-		width: 180px;
-		padding-right: 10px;
-		white-space: nowrap;
-	}
+        input {
+            padding-left: 4px;
+        }
 
-	.chart-legend th {
-		.avenir-next-demi;
-	}
+    }
 
-	.chart-legend-oblt {
-		margin-left: 90px;
-	}
+    .chart-note {   
+        font-size: 0.75em;
+    }
 
-	.chart-legend-box {
-		display: inline-block;
-		width: 40px;
-		height: 10px;
-		margin-right: 5px;
-	}
+    .chart-container {
+        width: 540px;
+    }
 
-	.chart-legend-box-hpa {
-		background-color: @green_midtone;
-	}
-	.chart-legend-box-hpo {
-		background-color: @green;
-	}
-	.chart-legend-box-hia {
-		background-color: @teal50;
-	}
-	.chart-legend-box-hio {
-		background-color: @teal;
-	}
-	.chart-legend-box-ra {
-		background-color: @light_neutral;
-	}
-	.chart-legend-box-ro {
-		background-color: @dark_neutral;
-	}
+    .chart-legend {
+        width: 450px;
+        margin-left: 90px;    
+    }
+
+    .oblt {
+        width: 380px;
+        margin-left: 160px;
+    }
+
+    .chart-legend th, td {
+        text-align: left;
+        font-size: 0.75em;
+        line-height: 1.25em;
+        width: 180px;
+        padding-right: 10px;
+        white-space: nowrap;
+    }
+
+    .chart-legend th {
+        .avenir-next-demi;
+    }
+
+    .chart-legend-box {
+        display: inline-block;
+        width: 40px;
+        height: 10px;
+        margin-right: 5px;
+    }
+
+    .chart-legend-box-hpa {
+        background-color: @green_midtone;
+    }
+    .chart-legend-box-hpo {
+        background-color: @green;
+    }
+    .chart-legend-box-hia {
+        background-color: @teal50;
+    }
+    .chart-legend-box-hio {
+        background-color: @teal;
+    }
+    .chart-legend-box-ra {
+        background-color: @light_neutral;
+    }
+    .chart-legend-box-ro {
+        background-color: @dark_neutral;
+    }
 
 }

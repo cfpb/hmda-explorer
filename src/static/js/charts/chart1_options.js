@@ -112,7 +112,14 @@ var chart1_options = {
         radius: 10
       },
       showInLegend: true,
-      shadow: false
+      shadow: false,
+      point: {
+        events: {
+          click: function() {
+            return false;
+          }
+        }
+      }
     },
     pie: {
       dataLabels: {
