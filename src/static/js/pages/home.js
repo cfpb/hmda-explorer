@@ -3,7 +3,6 @@ $(function(){
   'use strict';
 
   var map = L.mapbox.map('map', 'cfpb.Final'),
-  //var map = L.mapbox.map('map', 'crux.hmda'),
       video;
 
   // Disable map scrolling.
