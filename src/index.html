@@ -186,17 +186,16 @@
 
           <div class="chart-info">
               <h3>Number of applications &amp; originations by loan purpose</h3>
-              <p>What&apos;s the strength of the mortgage market near you? One important metric is the relationship between applications and actual mortgage loans (originations).</p>
+              <p>What&rsquo;s the strength of the mortgage market near you? One important metric is the relationship between applications and actual mortgage loans (originations).</p>
 
               <label for="hmda_chart_1_msa" class="chart-label">Metropolitan Statistical Area</label>
               
-              <div class="help" title="Placeholder text." data-toggle="tooltip"><i class="icon-help-alt"></i></div>
+              <div class="help" title="A Metropolitan Statistical Area (MSA) is a region with relatively high population density at its core (usually a single large city) and close economic ties throughout. Some larger MSAs are divided into Metropolitan Divisions (MDs)."><i class="icon-help-alt"></i></div>
               
               <br>
               
               <select name="hmda_chart_1_msa" id="hmda_chart_1_msa">
                 <option selected value="msa01">U.S. Total</option>
-                <option value="msa02">Total, all counties not part of any MSA</option>
                 <option value="msa03">Abilene - TX</option>
                 <option value="msa04">Aguadilla, Isabela - PR</option>
                 <option value="msa05">Akron - OH</option>
@@ -574,7 +573,6 @@
 
               <div class="toggle-series-heading">
                 <span class="chart-label">Loan Purpose</span>
-                <div class="help" title="Placeholder text." data-toggle="tooltip"><i class="icon-help-alt"></i></div>
               </div>
 
               <div class="toggle-series-controls">
@@ -586,7 +584,7 @@
               </div>
 
               <!-- /.row -->
-              <p class="chart-note">Note: Data are for first-lien, owner-occupied, 1-4 family and manufactured homes.</p>
+              
             
             </div><!-- /.chart-info -->
 
@@ -634,11 +632,10 @@
 
             <label for="hmda_chart_2_msa" class="chart-label">Metropolitan Statistical Area</label>
 
-            <div class="help" title="Place holder."><i class="icon-help-alt"></i></div>
+            <div class="help" title="A Metropolitan Statistical Area (MSA) is a region with relatively high population density at its core (usually a single large city) and close economic ties throughout. Some larger MSAs are divided into Metropolitan Divisions (MDs)."><i class="icon-help-alt"></i></div>
 
             <select name="hmda_chart_2_msa" id="hmda_chart_2_msa">
               <option selected value="msa01">U.S. Total</option>
-              <option value="msa02">Total, all counties not part of any MSA</option>
               <option value="msa03">Abilene - TX</option>
               <option value="msa04">Aguadilla, Isabela - PR</option>
               <option value="msa05">Akron - OH</option>
@@ -1016,45 +1013,43 @@
 
             <div class="toggle-series-heading">
               <span class="chart-label">Loan Type</span>
-              <div class="help" title="Place holder."><i class="icon-help-alt"></i></div>
             </div>
 
             <div class="toggle-series-controls">
               <input type="checkbox" id="conventional_checkbox" name="conventional_checkbox" value="True" checked> Conventional
               <br>
+              <input type="checkbox" id="fha_checkbox" name="fha_checkbox" value="True" checked> FHA
+              <br>
               <input type="checkbox" id="va_checkbox" name="va_checkbox" value="True" checked> FSA/RHS
               <br>
-              <input type="checkbox" id="fha_checkbox" name="fha_checkbox" value="True" checked> FHA-insured
-              <br>
-              <input type="checkbox" id="rhs_checkbox" name="rhs_checkbox" value="True" checked> VA-guarenteed
+              <input type="checkbox" id="rhs_checkbox" name="rhs_checkbox" value="True" checked> VA
             </div>
-
-            <p class="chart-note">Note: Data are for first-lien, owner-occupied, 1-4 family and manufactured homes.</p>
 
           </div>
 
           <div class="chart-content">
             <div id="hmda_chart_2" class="chart-container"></div>
 
-            <table class="chart-legend chart-legend-oblt">
+            <table class="chart-legend oblt">
 
               <tr>
                 <td>
                   <span class="chart-legend-box chart-legend-box-hpa">&nbsp;</span> Conventional</td>
                 <td>
-                  <span class="chart-legend-box chart-legend-box-hia">&nbsp;</span> FHA-insured</td>
-
+                  <span class="chart-legend-box chart-legend-box-hpo">&nbsp;</span> FSA/RHS</td>
               </tr>
               <tr>
                 <td>
-                  <span class="chart-legend-box chart-legend-box-hpo">&nbsp;</span> FSA/RHS</td>
+                  <span class="chart-legend-box chart-legend-box-hia">&nbsp;</span> FHA</td>
                 <td>
-                  <span class="chart-legend-box chart-legend-box-hio">&nbsp;</span> VA-guaranteed</td>
+                  <span class="chart-legend-box chart-legend-box-hio">&nbsp;</span> VA</td>
               </tr>
             </table>
 
           </div><!-- //.chart-content -->
 
+          <p class="chart-note">* All visualized data are for first-lien, owner-occupied, 1-4 family and manufactured homes.</p>
+        
         </div><!-- //.background -->
       </section>
       <!-- END CHART 2 -->
