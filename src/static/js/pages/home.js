@@ -26,8 +26,8 @@ $(function(){
 
   map = (function(){
 
-    var map = L.mapbox.map('map', 'cfpb.Final').setView([39.54, -97.87], 4),
-        layer1 = L.mapbox.tileLayer('cfpb.Final#O2012');
+    var map = L.mapbox.map('map', 'cfpb.HMDA_final').setView([39.54, -97.87], 4);
+        //layer1 = L.mapbox.tileLayer('cfpb.Final#O2012');
 
     // Disable map scrolling.
     map.scrollWheelZoom.disable();
@@ -36,8 +36,8 @@ $(function(){
       $('#map-title').removeClass('hidden');
     });
 
-    layer1.addTo( map );
-    map.addLayer( layer1 );
+    //layer1.addTo( map );
+    //map.addLayer( layer1 );
 
   })();
 
