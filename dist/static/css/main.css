@@ -65,9 +65,6 @@ html {
 /**
  * Remove default margin.
  */
-body {
-  margin: 0;
-}
 /* ==========================================================================
    Links
    ========================================================================== */
@@ -2838,31 +2835,12 @@ section.video h2 strong {
 #facts-and-figures #map {
   width: 100%;
   height: 400px;
+  margin-left: 1px;
   border-top: 3px solid #f1f2f2;
   border-bottom: 3px solid #f1f2f2;
 }
-#facts-and-figures .map-legends {
-  width: 370px;
-}
-#facts-and-figures .legend-title {
-  font-weight: bold;
-  font-size: 1em;
-  padding-bottom: 10px;
-}
-#facts-and-figures .legend-labels {
-  margin: 0;
-  padding: 0;
-}
-#facts-and-figures .legend-labels li {
-  list-style-type: none;
-}
-#facts-and-figures .legend-labels li span {
-  height: 10px;
-  width: 35px;
-  display: inline-block;
-}
-#facts-and-figures .legend-source {
-  margin-top: 10px;
+#facts-and-figures #map .leaflet-control-container {
+  height: 400px;
 }
 #get-the-data {
   background: #ffffff url(../img/bg_grid-tile.png) scroll repeat left top;

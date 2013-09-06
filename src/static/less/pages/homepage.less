@@ -135,37 +135,15 @@ section.video {
   #map {
     width: 100%;
     height: 400px;
+    // Setting a left margin corrects a MapBox bug that causes tooltip overlays to go bonkers
+    margin-left: 1px;
     border-top: 3px solid @light_field10;
     border-bottom: 3px solid @light_field10;
-  }
 
-  .map-legends {
-    width: 370px;
-  }
+    .leaflet-control-container {
+      height: 400px;
+    }
 
-  .legend-title {
-    font-weight: bold;
-    font-size: 1em;
-    padding-bottom: 10px;
-  }
-
-  .legend-labels {
-    margin: 0;
-    padding: 0;
-  }
-
-  .legend-labels li {
-    list-style-type: none;
-  }
-
-  .legend-labels li span {
-    height: 10px;
-    width: 35px;
-    display: inline-block;
-  }
-
-  .legend-source {
-    margin-top: 10px;
   }
   
 }
