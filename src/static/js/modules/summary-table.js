@@ -68,7 +68,7 @@ var PDP = (function ( pdp ) {
     }
   };
   
-  //stores variables on select change to be used in clause generation on submit
+  //stores variables for use in clause generation on submit
   table.fieldVals = {
     variables: [],
     calculate: ''
@@ -81,6 +81,8 @@ var PDP = (function ( pdp ) {
   table.queryParams.clauses = {};
   
   table._loading = false;
+  
+  table._lastRequestTime = '';
 
   // returns a templated option tag
   table.optionTmpl = function(field, defaultOp) {
@@ -164,58 +166,45 @@ var PDP = (function ( pdp ) {
   
   table._showSpinner = function() {
     this.$page.addClass('loading');
+    table._loading = true;
   };
 
   table._removeSpinner = function() {
     this.$page.removeClass('loading');
-  };
-
-  table._showLoadingState = function () {
-    //deactivate submit button
-    table._loading = true;
-    $('#variable0, #variable1, #variable2, #calculate-by').attr('disabled', 'disabled').trigger('liszt:updated');
-    $('#summary').addClass('loading');
-    //TODO: create submit button deactivated state
-    //TODO: disable downloads button?
-  };
-  
-  table._removeLoadingState = function () {
     table._loading = false;
-    $('#variable0, #variable1, #variable2, #calculate-by').removeAttr('disabled').trigger('liszt:updated');
-    $('#summary').removeClass('loading');
-    
   };
 
   table._requestData = function() {   
-    var responseJSON, check;
+    var responseJSON;
+    
     function _abort( data, textStatus ) {
       $('body').append('<h3 class="ajax-error">The API timed out after ' + pdp.query.secondsToWait + ' seconds. :(</h3>');
-        //table._removeSpinner();
-        table._removeLoadingState();
+        table._removeSpinner();
       $('.ajax-error').fadeOut( 5000 );
     }
 
     responseJSON = pdp.utils.getJSON( pdp.query.generateApiUrl( 'jsonp?$callback=', true, this.queryParams ) );
-
+    
+    responseJSON.timestamp = table._lastRequestTime = new Date().getTime();
+    
     responseJSON.done(function( response ){
-      table._handleApiResponse( response );
-      // clearInterval(check);
-    }).always(function () {
-      table._removeLoadingState();
+      if (responseJSON.timestamp == table._lastRequestTime) {
+        table._handleApiResponse( response );
+        table._removeSpinner();
+      }
     });
 
-    //responseJSON.fail( this._throwFetchError );
     responseJSON.fail( this._abort );
 
     $('.ajax-error').remove();
-    check = setTimeout(function(){
-      if ( responseJSON.state() !== 'resolved' ) {
+    
+    responseJSON.check = setTimeout(function(){
+      if ( responseJSON.timestamp == table._lastRequestTime && responseJSON.state() !== 'resolved' ) {
         _abort( null, 'time out' );
       }
     }, pdp.query.secondsToWait * 1000 );
-
-    // in the meantime, spin!
-    //this._showSpinner();
+    
+    table._loading = false;
   };
   
   /**
@@ -430,7 +419,7 @@ var PDP = (function ( pdp ) {
     
     if (table.varSelected()) {
       table.queryParams.clauses = {};
-      table._showLoadingState();
+      table._showSpinner();
       //update select & group clauses for each actual value in variables
       _.each(this.fieldVals.variables, function (param, ind) {
           if (param) {
@@ -552,9 +541,11 @@ var PDP = (function ( pdp ) {
     
     $('#summary-submit').on('click', function(e) {
       e.preventDefault();
-      //prevent submit if data request is in progress
+      
+      //prevent subsequent submits until initial data request sent
       if (!table._loading) {
         this.setupDataTable();
+        
         //conditionally display downloads table
         if ( this.queryParams.clauses.group && (this.queryParams.clauses.group.length > 0) ) {
           this.enableDownload();
