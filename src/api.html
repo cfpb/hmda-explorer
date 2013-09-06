@@ -34,8 +34,11 @@
       docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2');
     </script>
   </head>
+    
   <body class="hmda explore api-docs">
+    <div id="wrap">
 
+      
     <div class="top-banner">
       <div class = "inner">
         <p class="return-cfgov">Return to <a href="http://www.consumerfinance.gov">consumerfinance.gov</a></p>
@@ -72,8 +75,9 @@
 
       </div>
 
-      <!-- api section -->
 
+      <!-- api section -->
+      <div id="main"> 
       <div id="api-docs">
       
 
@@ -102,7 +106,7 @@
             </li>
           </ul>
         </div>
-        <div style="clear:both;"></div>
+
 
         </div>
       </div>
@@ -110,11 +114,14 @@
   </section>
 
 
-
+      
 
       </div>
 
       <!-- /api section -->
+
+    </div> <!--main-->
+  </div> <!--wrap-->
 
       <footer role="contentinfo">
         <nav role="navigation" aria-label="Footer Menu">
@@ -148,6 +155,10 @@
     <script src="static/js/jquery.min.js"></script>
     <!--[if lt IE 9]>
       <script src="static/js/ie8.min.js"></script>
+    <![endif]-->
+    <!--[if !IE 7]>
+    <style type="text/css">
+      #wrap {display:table;height:100%}</style>
     <![endif]-->
     <script src="static/js/main.min.js"></script>
   </body>

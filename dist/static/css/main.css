@@ -3576,6 +3576,10 @@ section.video h2 strong {
     width: 100%;
   }
 }
+html,
+body {
+  height: 100%;
+}
 .api-docs .hero h1 {
   padding-bottom: 5px;
   background: transparent url() scroll no-repeat left center;
@@ -3586,9 +3590,6 @@ section.video h2 strong {
     background-image: url("../img/icon_api-docs_2x.png");
     background-size: 42px 42px;
   }
-}
-#api-docs {
-  margin-top: 10px;
 }
 #api-docs p {
   display: inline-block;
@@ -3612,7 +3613,23 @@ section.video h2 strong {
   font-weight: 600;
   font-style: normal;
 }
+#api-docs .hmda footer {
+  margin-top: 0;
+}
 @media only screen and (min-width: 768px) {
+  #wrap {
+    min-height: 100%;
+  }
+  #main {
+    overflow: auto;
+    margin-bottom: -214px;
+  }
+  #footer {
+    position: relative;
+    margin-top: -214px;
+    height: 214px;
+    clear: both;
+  }
   #api-docs .inner {
     padding: 15px 0 0 0;
   }
