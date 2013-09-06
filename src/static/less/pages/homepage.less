@@ -133,12 +133,28 @@ section.video {
   }
 
   #map {
+
     width: 100%;
     height: 400px;
     // Setting a left margin corrects a MapBox bug that causes tooltip overlays to go bonkers
     margin-left: 1px;
     border-top: 3px solid @light_field10;
     border-bottom: 3px solid @light_field10;
+
+    #map-title {
+      z-index: 1;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 200px;
+      background-color: #fff;
+      border: 3px solid gray;
+      padding: 5px;
+    }
+
+    .leaflet-left {
+      left: 220px;
+    }
 
     .leaflet-control-container {
       height: 400px;

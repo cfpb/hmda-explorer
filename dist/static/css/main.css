@@ -2919,6 +2919,19 @@ section.video h2 strong {
   border-top: 3px solid #f1f2f2;
   border-bottom: 3px solid #f1f2f2;
 }
+#facts-and-figures #map #map-title {
+  z-index: 1;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 200px;
+  background-color: #fff;
+  border: 3px solid gray;
+  padding: 5px;
+}
+#facts-and-figures #map .leaflet-left {
+  left: 220px;
+}
 #facts-and-figures #map .leaflet-control-container {
   height: 400px;
 }
