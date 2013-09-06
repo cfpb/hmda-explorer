@@ -3642,24 +3642,6 @@ section.video h2 strong {
 #summary.loading #summary-loading {
   display: block;
 }
-#summary.loading #summary-submit {
-  /* IE 8 */
-
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
-  /* IE 5-7 */
-
-  filter: alpha(opacity=30);
-  /* Netscape */
-
-  -moz-opacity: .3;
-  /* Safari 1.x */
-
-  -khtml-opacity: .3;
-  /* Good browsers */
-
-  opacity: .3;
-  cursor: default;
-}
 .instructions {
   padding: 30px 0 15px 0;
   background-color: #f1f2f2;
