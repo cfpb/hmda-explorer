@@ -2,11 +2,18 @@ $(function(){
 
   'use strict';
 
-  var map = L.mapbox.map('map', 'cfpb.Final'),
+  var map,
       video;
 
-  // Disable map scrolling.
-  map.scrollWheelZoom.disable();
+  
+
+  
+
+  // layer.on('ready', function() {
+  //   // the layer has been fully loaded now, and you can
+  //   // call .getTileJSON and investigate its properties
+  // });
+
 
   // Circle nav on the homepage.
   $('.homepage .hero a').on( 'click', function( ev ){
@@ -16,6 +23,23 @@ $(function(){
     $('html, body').animate({ scrollTop: $( target ).position().top }, 200);
 
   });
+
+  map = (function(){
+
+    var map = L.mapbox.map('map', 'cfpb.Final').setView([39.54, -97.87], 4),
+        layer1 = L.mapbox.tileLayer('cfpb.Final#O2012');
+
+    // Disable map scrolling.
+    map.scrollWheelZoom.disable();
+
+    map.on( 'ready', function(){
+      $('#map-title').removeClass('hidden');
+    });
+
+    layer1.addTo( map );
+    map.addLayer( layer1 );
+
+  })();
 
   // Methods to open and close the youtube video overlay on the homepage.
   video = (function(){
@@ -30,6 +54,9 @@ $(function(){
       isOpen: false,
 
       init: function() {
+        var url = $embed.attr('src');
+        url = url.concat( '&autoplay=1' );
+        $embed.attr( 'src', url );
         $embed.remove();
       },
 
