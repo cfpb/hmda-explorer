@@ -3527,6 +3527,16 @@ section.video h2 strong {
 #learn-more :checked + div {
   display: inline-block !important;
 }
+#learn-more dfn {
+  font-family: "Avenir Next", Arial, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: .75em;
+}
+#learn-more .footnote {
+  width: 66%;
+  margin: 10px;
+}
 @media only screen and (min-width: 768px) {
   #learn-more .title {
     padding: 0;

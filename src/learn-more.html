@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 & !IEMobile]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7 & !IEMobile]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8 & !IEMobile]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if lt IE 7 & !IEMobile]><html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7 & !IEMobile]><html lang="en" class="no-js lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8 & !IEMobile]><html lang="en" class="no-js lt-ie9"><![endif]-->
 <!--[if gt IE 8 | IEMobile]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
@@ -10,12 +10,8 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="static/css/main.css">
-    <!--[if lt IE 8]>
-      <link rel="stylesheet" href="static/css/icons-ie7.css">
-    <![endif]-->
-    <!--[if lt IE 9]>
-      <link rel="stylesheet" href="static/css/ie8.min.css">
-    <![endif]-->
+    <!--[if lt IE 8]><link rel="stylesheet" href="static/css/icons-ie7.css"><![endif]-->
+    <!--[if lt IE 9]><link rel="stylesheet" href="static/css/ie8.min.css"><![endif]-->
     <script>
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-20466645-3']);
@@ -34,13 +30,12 @@
       docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2');
     </script>
   </head>
-
   <body class="hmda explore learn-more">
 
     <div class="top-banner">
-      <div class = "inner">
+      <div class="inner">
         <p class="return-cfgov">Return to <a href="http://www.consumerfinance.gov">consumerfinance.gov</a></p>
-        <p class="official-website">An official website of the United States Government<img src="static/img/icon_usflag.png" width="16" height="11" alt="US Flag" /></p>
+        <p class="official-website">An official website of the United States Government<img src="static/img/icon_usflag.png" width="16" height="11" alt="US Flag"></p>
       </div>
     </div> 
 
@@ -48,7 +43,7 @@
 
         <div class="logo">
 
-          <a href="http://www.consumerfinance.gov"><img src="static/img/logo_2x.png" width="211" height="52" alt="Consumer Financial Protection Bureau" /></a>
+          <a href="http://www.consumerfinance.gov"><img src="static/img/logo_2x.png" width="211" height="52" alt="Consumer Financial Protection Bureau"></a>
 
         </div>
 
@@ -73,7 +68,7 @@
 
       </div>
 
-      <!-- learn more section -->
+      
         
 <div id="learn-more"> 
 
@@ -122,7 +117,7 @@
                     <a href="" class="action-arrow">Read press release <i class="icon-right"></i></a>
                   </li>
                   <li>
-                    <a href=""class="action-arrow">Read entire article <i class="icon-external-link"></i></a>
+                    <a href="" class="action-arrow">Read entire article <i class="icon-external-link"></i></a>
                   </li>
                 </ul>
               </div>
@@ -139,10 +134,21 @@
 
 
       <div class="highlight">
-          <h5>Higher-priced loans were uncommon with some exceptions</h5>
-            <!--tooltip
-            <div class="help" title data-original-title="Higher-priced loans are defined as loans with annual percentage rates (APRs) that exceed the average prime offer rate (APOR) for a comparable transaction by at least 1.5 percentage points for first-lien loans and 3.5 percentage points for subordinate lien loans. APORs are estimated using data reported by Freddie Mac in its Primary Mortgage Market Survey."></div>-->Higher-priced loans are relatively rare overall, with less than x% of first-lien loans exceeded the loan price reporting thresholds. However, 82% of first-liens used to purchase manufactured homes were classified as higher-priced.
+          <h5>Higher-priced loans were uncommon with some exceptions</h5>  
+              Higher-priced loans* are relatively rare overall, with less than x% of first-lien loans exceeded the loan price reporting thresholds. However, 82% of first-liens used to purchase manufactured homes were classified as higher-priced.
+            
+            <!--tooltip starts
+            <div class="tooltip fade top in" style="bottom: 80px; left: 10px;">
+            <div class="tooltip-arrow" style=""></div>
+            <div class="tooltip-inner">
+                Higher-priced loans are defined as loans with annual percentage rates (APRs) that are 1.5 percentage points for first lien loans and 3.5 percentage points for junior lien loans above the average prime offer rates (APORs), estimated using data reported by Freddie Mac in its <a href="http://www.freddiemac.com/pmms">Primary Mortgage Market Survey</a>.
+            </div>
+            tooltip ends-->
       </div>
+      <div class="footnote">
+      <dfn>* Higher-priced loans are defined as loans with annual percentage rates (APRs) that are 1.5 percentage points for first lien loans and 3.5 percentage points for junior lien loans above the average prime offer rates (APORs), estimated using data reported by Freddie Mac in its <a href="http://www.freddiemac.com/pmms">Primary Mortgage Market Survey</a>.</dfn>
+    </div>
+
 
 </div>
 </div>
@@ -154,13 +160,15 @@
        
         <h2>Analyze HMDA Data</h2>
         <p>You can explore HMDA data on your own using our online tools. If you want even more flexibility to use the data in your own applications and projects, visit our API documentation pages.</p>
+
+
         <div class="links">
           <ul>
             <li>
               <a href="explore.html" class="action-arrow">Explore the data<i class="icon-right"></i></a>
             </li>
             <li>
-              <a href="http://cfpb.github.io/api/"class="action-arrow">Read API Documentation <i class="icon-external-link"></i></a>
+              <a href="http://cfpb.github.io/api/" class="action-arrow">Read API Documentation <i class="icon-external-link"></i></a>
             </li>
           </ul>
             </div>
@@ -174,7 +182,7 @@
           <div class="inner">
               <h2>Still have questions? Have an idea or suggestion?</h2>
               <p>Email us at <a href="mailto:hmda@consumerfinance.gov">hmda@consumerfinance.gov</a>.</p>
-
+              
           </div>
         </div>
       </section>
@@ -190,7 +198,7 @@
                 <label for="hmda-video-transcript"><h3><i class="icon-plus-alt"></i>  HMDA video transcript</h3></label>
               </div>
 
-              <input id="hmda-video-transcript" type="checkbox"><div style="display:none;" id="transcript-text">
+              <input id="hmda-video-transcript" type="checkbox"><div style="display:none" id="transcript-text">
 
               <p>Each year thousands of banks and other financial institutions report data about mortgages to the public, thanks to the Home Mortgage Disclosure Act, or “HMDA” for short. These public data are important because:</p>
 
@@ -217,18 +225,25 @@
               <p>Each September, the previous year’s data are released to the public so that anyone – including consumers, public officials, community groups, researchers, developers, journalists, and the banks themselves – can use the data.</p>
 
               <p>We hope you’ll explore the data further on your own! If you build something cool and want to share it with us, or want to see what we’ve made to help explore the data, check out the HMDA tools on <a href="http://github.com/cfpb" title="CFPB on Github">http://github.com/cfpb</a>.</p>
+
+
               </div>
+
+
 
         </div>
         </div>
       </section>
+      
+
+            
 </div>
 
      
 
 
 
-      <!-- /learn more section -->
+      
 
       <footer role="contentinfo">
         <nav role="navigation" aria-label="Footer Menu">
@@ -260,9 +275,7 @@
         </nav>
       </footer>
     <script src="static/js/jquery.min.js"></script>
-    <!--[if lt IE 9]>
-      <script src="static/js/ie8.min.js"></script>
-    <![endif]-->
+    <!--[if lt IE 9]><script src="static/js/ie8.min.js"></script><![endif]-->
     <script src="static/js/main.min.js"></script>
   </body>
 </html>
