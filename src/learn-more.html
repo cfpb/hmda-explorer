@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 & !IEMobile]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7 & !IEMobile]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8 & !IEMobile]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if lt IE 7 & !IEMobile]><html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7 & !IEMobile]><html lang="en" class="no-js lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8 & !IEMobile]><html lang="en" class="no-js lt-ie9"><![endif]-->
 <!--[if gt IE 8 | IEMobile]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
@@ -37,13 +37,12 @@
       docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2');
     </script>
   </head>
-
   <body class="hmda explore learn-more">
 
     <div class="top-banner">
-      <div class = "inner">
+      <div class="inner">
         <p class="return-cfgov">Return to <a href="http://www.consumerfinance.gov">consumerfinance.gov</a></p>
-        <p class="official-website">An official website of the United States Government<img src="static/img/icon_usflag.png" width="16" height="11" alt="US Flag" /></p>
+        <p class="official-website">An official website of the United States Government<img src="static/img/icon_usflag.png" width="16" height="11" alt="US Flag"></p>
       </div>
     </div> 
 
@@ -51,7 +50,7 @@
 
         <div class="logo">
 
-          <a href="http://www.consumerfinance.gov"><img src="static/img/logo_2x.png" width="211" height="52" alt="Consumer Financial Protection Bureau" /></a>
+          <a href="http://www.consumerfinance.gov"><img src="static/img/logo_2x.png" width="211" height="52" alt="Consumer Financial Protection Bureau"></a>
 
         </div>
 
@@ -76,7 +75,7 @@
 
       </div>
 
-      <!-- learn more section -->
+      
         
 <div id="learn-more"> 
 
@@ -125,7 +124,7 @@
                     <a href="" class="action-arrow">Read press release <i class="icon-right"></i></a>
                   </li>
                   <li>
-                    <a href=""class="action-arrow">Read entire article <i class="icon-external-link"></i></a>
+                    <a href="" class="action-arrow">Read entire article <i class="icon-external-link"></i></a>
                   </li>
                 </ul>
               </div>
@@ -142,10 +141,21 @@
 
 
       <div class="highlight">
-          <h5>Higher-priced loans were uncommon with some exceptions</h5>
-            <!--tooltip
-            <div class="help" title data-original-title="Higher-priced loans are defined as loans with annual percentage rates (APRs) that exceed the average prime offer rate (APOR) for a comparable transaction by at least 1.5 percentage points for first-lien loans and 3.5 percentage points for subordinate lien loans. APORs are estimated using data reported by Freddie Mac in its Primary Mortgage Market Survey."></div>-->Higher-priced loans are relatively rare overall, with less than x% of first-lien loans exceeded the loan price reporting thresholds. However, 82% of first-liens used to purchase manufactured homes were classified as higher-priced.
+          <h5>Higher-priced loans were uncommon with some exceptions</h5>  
+              Higher-priced loans* are relatively rare overall, with less than x% of first-lien loans exceeded the loan price reporting thresholds. However, 82% of first-liens used to purchase manufactured homes were classified as higher-priced.
+            
+            <!--tooltip starts
+            <div class="tooltip fade top in" style="bottom: 80px; left: 10px;">
+            <div class="tooltip-arrow" style=""></div>
+            <div class="tooltip-inner">
+                Higher-priced loans are defined as loans with annual percentage rates (APRs) that are 1.5 percentage points for first lien loans and 3.5 percentage points for junior lien loans above the average prime offer rates (APORs), estimated using data reported by Freddie Mac in its <a href="http://www.freddiemac.com/pmms">Primary Mortgage Market Survey</a>.
+            </div>
+            tooltip ends-->
       </div>
+      <div class="footnote">
+      <dfn>* Higher-priced loans are defined as loans with annual percentage rates (APRs) that are 1.5 percentage points for first lien loans and 3.5 percentage points for junior lien loans above the average prime offer rates (APORs), estimated using data reported by Freddie Mac in its <a href="http://www.freddiemac.com/pmms">Primary Mortgage Market Survey</a>.</dfn>
+    </div>
+
 
 </div>
 </div>
@@ -157,13 +167,15 @@
        
         <h2>Analyze HMDA Data</h2>
         <p>You can explore HMDA data on your own using our online tools. If you want even more flexibility to use the data in your own applications and projects, visit our API documentation pages.</p>
+
+
         <div class="links">
           <ul>
             <li>
               <a href="explore.html" class="action-arrow">Explore the data<i class="icon-right"></i></a>
             </li>
             <li>
-              <a href="http://cfpb.github.io/api/"class="action-arrow">Read API Documentation <i class="icon-external-link"></i></a>
+              <a href="http://cfpb.github.io/api/" class="action-arrow">Read API Documentation <i class="icon-external-link"></i></a>
             </li>
           </ul>
             </div>
@@ -171,78 +183,74 @@
         </div>
       </div>
       </section>
+
+      <section id="still-have-questions">
+        <div class="background">
+          <div class="inner">
+              <h2>Still have questions? Have an idea or suggestion?</h2>
+              <p>Email us at <a href="mailto:hmda@consumerfinance.gov">hmda@consumerfinance.gov</a>.</p>
+              
+          </div>
+        </div>
+      </section>
   
 
-    <section id="video-transcript">
+    <section id="transcript">
       <div class="background">
       <div class="inner">
+        <h2>"What is HMDA?" Video</h2>
+        <p>Watch our <a href="/index.html#youtube">introduction to HMDA</a>, featuring Ren Essene, CFPB Senior Policy Analyst. You can also <a href="#transcript">read the transcript</a> here.</p>
 
-    
-<!-- filter section -->
+              <div class="popdown filter closed">
+                <label for="hmda-video-transcript"><h3><i class="icon-plus-alt"></i>  HMDA video transcript</h3></label>
+              </div>
 
-            <div class="filter closed" id="transcript">
+              <input id="hmda-video-transcript" type="checkbox"><div style="display:none" id="transcript-text">
 
-              <div class="title">
+              <p>Each year thousands of banks and other financial institutions report data about mortgages to the public, thanks to the Home Mortgage Disclosure Act, or “HMDA” for short. These public data are important because:</p>
 
-                <a href="#transcript"><h3><i class="icon-minus-alt"></i> HMDA Video Transcript </h3></a>
+              <ul>
+              <li>They help show whether lenders are serving the housing needs of their communities;</li>
+              <li>They give public officials information that helps them make decisions and policies; and</li>
+              <li>They shed light on lending patterns that could be discriminatory.</li>
+              </ul>
 
-                <div class="desc"></div>
+              <p>In recent years, HMDA public data have contained about 15 to 20 million records per year. If you’re wondering what kind of information is available in public HMDA data, let’s begin with how mortgage originations usually work.</p>
+
+              <p>Meet Emily. She wants to buy a home but doesn’t have the money to pay for it in cash, so she applies for a loan at her bank. She tells the bank about her finances, the house she wants to buy, and other information the bank needs to make a decision about whether or not to lend to her, and the terms of the loan. The bank reviews Emily’s application, decides that she meets their criteria, and she gets approved. Once all the papers are signed, Emily closes the loan... or in mortgage-speak, the loan is “originated.”</p>
+
+              <p>Now, let’s look at kind of information you can find in the public HMDA data:</p>
+
+              <p>First, you can find information about the loan itself. The data include mortgage applications, regardless of whether the application was approved or denied. You can also see the loan amount, and the type of loan, including whether it is a “VA” or “FHA” loan. The data also show if the loan is for buying a home, refinancing an existing mortgage, or for home improvements. If the application was denied, in some cases you can see the reasons why.</p>
+
+              <p>Second, the data include demographic information on applicants’ race, ethnicity, and sex. This helps prevent discriminatory lending. It’s important to note that the data do not include direct identifying information, like names or Social Security numbers.</p>
+
+              <p>Third, there are data about the lender. You can see the name of the lender and which agency regulates them.</p>
+
+              <p>And finally, there’s information about the property itself. You can see the type of property and whether the owner intends to live there. Instead of disclosing the address, lenders disclose the census tract, which is the part of a community where the property is located. Census tracts vary in size, but on average about 4,000 people live in a census tract. This provides enough information about the location to be useful, but still provides protections for individual privacy.</p>
+
+              <p>Each September, the previous year’s data are released to the public so that anyone – including consumers, public officials, community groups, researchers, developers, journalists, and the banks themselves – can use the data.</p>
+
+              <p>We hope you’ll explore the data further on your own! If you build something cool and want to share it with us, or want to see what we’ve made to help explore the data, check out the HMDA tools on <a href="http://github.com/cfpb" title="CFPB on Github">http://github.com/cfpb</a>.</p>
+
 
               </div>
 
-          <p>
-          Each year thousands of banks and other financial institutions report data about mortgages to the public, thanks to the Home Mortgage Disclosure Act, or “HMDA” for short. These public data are important because they (text is inactive):
-          
-           <!--
-            - Help show whether lenders are serving the housing needs of their communities;
-            - Give public officials information that helps them make decisions and policies; and
-            - Shed light on lending patterns that could be discriminatory.-->
-          
-        </p>
-        <p>
-          In recent years, HMDA public data have contained about 15 to 20 million records per year. If you’re wondering what kind of information is available in public HMDA data, let’s begin with how mortgage origination usually works.
-        </p>
-        <p>
-          Meet Emily. She wants to buy a home but doesn’t have the money to pay for it in cash, so she applies for a loan at her bank. She tells the bank about her finances, the house she wants to buy, and other information the bank needs to make a decision about whether or not to lend to her, and the terms of the loan. The bank reviews Emily’s application, decides that she meets their criteria, and she gets approved. Once all the papers are signed, Emily closes the loan… or in mortgage-speak, the loan is “originated.” Congratulations, Emily!
-        </p>
-        <p>
-          Now, let’s look at kind of information you can find in the public HMDA data:
-        </p>
-        <p>
-          First, you can find information about the loan itself. The data include mortgage applications, regardless of whether the application was approved or denied.  You can also see the loan amount, and the type of loan, including whether it is a “VA” or “FHA” loan. The data also show if the loan is for buying a home, refinancing an existing mortgage, or for home improvements. If the application was denied, in some cases you can see the reasons why. 
-        </p>
-        <p>
-          Second, the data include demographic information on applicants’ race, ethnicity, and sex.  However, the data do not include direct identifying information, like names or Social Security numbers.
-        </p>
-        <p>
-          Third, there are data about the lender. You can see the name of the lender and which agency regulates them.
-        </p>
-        <p>
-          And finally, there’s information about the property itself.  You can see the type of property and whether the owner intends to live there.  Instead of disclosing the address, lenders disclose the census tract, which is the part of a community where the property is located. Census tracts vary in size, but on average about 4,000 people live in a census tract. This provides enough information about the location to be useful, but still provides protections for individual privacy. 
-        </p>
-        <p>
-          Each September, the previous year’s data are released to the public so that anyone – including consumers, public officials, community groups, researchers, developers, journalists, and the banks themselves – can use the data.
-        </p>
-        <p>
-          We hope you’ll explore the data further on your own! If you build something cool and want to share it with us, or want to see what we’ve made to help explore the data, check out the HMDA tools on GitHub dot com slash CFPB. 
-        </p>
 
 
-
-
-            </div>
-
-            <!-- /filter section -->
         </div>
         </div>
       </section>
+      
+
+            
 </div>
 
      
 
 
 
-      <!-- /learn more section -->
+      
 
       <footer role="contentinfo">
         <nav role="navigation" aria-label="Footer Menu">

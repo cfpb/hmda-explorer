@@ -3563,43 +3563,72 @@ section.video h2 strong {
   font-style: normal;
   font-size: 1.5em;
 }
+.learn-more .background {
+  padding: 1px 15px 0px 15px;
+}
 #learn-more p {
   display: inline-block;
   margin-right: 4%;
   font-size: 1em;
   line-height: 1.375em;
 }
+#learn-more ul {
+  margin-right: 4%;
+  line-height: 1.375em;
+  display: inline-block;
+  font-size: 1em;
+}
 #learn-more .links {
   display: inline-block;
   vertical-align: top;
 }
-#learn-more ul {
+#learn-more .links ul {
   list-style-type: none;
   padding-left: 0;
   margin: 8px 0 0 0;
 }
-#learn-more li {
+#learn-more .links li {
   margin-bottom: 10px;
-}
-#learn-more #highlights {
-  margin-top: 80px;
 }
 #learn-more .highlight {
   background-color: #f1f2f2;
   padding: 15px 20px;
   width: 66%;
   line-height: 1.375em;
-}
-#learn-more #video-transcript {
-  margin-top: 40px;
+  margin: 10px 0px;
 }
 #learn-more .filter {
   background-color: #ffffff;
   border-bottom: 0px;
-  padding: 0;
+  padding-top: 1em;
+}
+#learn-more .filter label {
+  font-size: 1em;
+  color: #0072ce;
 }
 #learn-more .filter h3 {
   padding: 0;
+  letter-spacing: 0.075em;
+}
+#learn-more .filter i {
+  padding-right: 10px;
+  top: -2px;
+}
+#learn-more [type=checkbox] {
+  display: none;
+}
+#learn-more :checked + div {
+  display: inline-block !important;
+}
+#learn-more dfn {
+  font-family: "Avenir Next", Arial, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: .75em;
+}
+#learn-more .footnote {
+  width: 66%;
+  margin: 10px;
 }
 @media only screen and (min-width: 768px) {
   #learn-more .title {
@@ -3610,7 +3639,7 @@ section.video h2 strong {
     padding: 15px 20px;
     width: 66%;
     line-height: 1.375em;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
   }
   #learn-more p {
     width: 66%;
@@ -3621,18 +3650,28 @@ section.video h2 strong {
     float: left;
     margin-bottom: .2em;
   }
-  #learn-more .links {
-    width: 29%;
-    display: inline-block;
-    vertical-align: top;
+  #learn-more li {
+    width: 90%;
   }
   #learn-more ul {
+    margin-right: 4%;
+    line-height: 1.375em;
+    display: inline-block;
+    font-size: 1em;
+  }
+  #learn-more .links ul {
+    display: inline-block;
+    vertical-align: top;
     list-style-type: none;
     padding-left: 0;
   }
-  #learn-more li {
-    margin-bottom: 10px;
+  #learn-more .links li {
+    width: 100%;
   }
+}
+html,
+body {
+  height: 100%;
 }
 .api-docs .hero h1 {
   padding-bottom: 5px;
@@ -3644,9 +3683,6 @@ section.video h2 strong {
     background-image: url("../img/icon_api-docs_2x.png");
     background-size: 42px 42px;
   }
-}
-#api-docs {
-  margin-top: 10px;
 }
 #api-docs p {
   display: inline-block;
@@ -3670,7 +3706,23 @@ section.video h2 strong {
   font-weight: 600;
   font-style: normal;
 }
+#api-docs .hmda footer {
+  margin-top: 0;
+}
 @media only screen and (min-width: 768px) {
+  #wrap {
+    min-height: 100%;
+  }
+  #main {
+    overflow: auto;
+    margin-bottom: -214px;
+  }
+  #footer {
+    position: relative;
+    margin-top: -214px;
+    height: 214px;
+    clear: both;
+  }
   #api-docs .inner {
     padding: 15px 0 0 0;
   }
