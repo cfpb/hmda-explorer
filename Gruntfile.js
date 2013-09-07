@@ -100,8 +100,8 @@ module.exports = function(grunt) {
           'dist/explore.html': 'src/explore.html',
           'dist/learn-more.html': 'src/learn-more.html',
           'dist/api.html': 'src/api.html',
-          'dist/index_planb.html': 'src/index_planb.html',
-          'dist/learn-more_planb.html': 'src/learn-more_planb.html'
+          'dist/index_v1.html': 'src/index_v1.html',
+          'dist/learn-more_v1.html': 'src/learn-more_v1.html'
         }
       }
     },
