@@ -32,6 +32,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2013-09-07   [v0.14.0](../../tree/v0.14.0)   Restructuring for Plan B. Whole lotta improvements to the static pages.
  * 2013-09-03   [v0.13.0](../../tree/v0.13.0)   New summary table button. Permalinkin' the summary table.
  * 2013-09-01   [v0.12.1](../../tree/v0.12.1)   Update icons and links. Add coverage capabilities and data-driven testing.
  * 2013-08-28   [v0.12.0](../../tree/v0.12.0)   New lender section. New census tract functionality. Bug fixes galore.
@@ -77,4 +78,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Fri Sep 06 2013 10:07:09.*
+*This file was generated on Sat Sep 07 2013 14:00:30.*

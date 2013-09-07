@@ -1,3 +1,9 @@
+v0.14.0:
+  date: 2013-09-07
+  changes:
+    - Restructuring for Plan B.
+    - Whole lotta improvements to the static pages.
+
 v0.13.0:
   date: 2013-09-03
   changes:
