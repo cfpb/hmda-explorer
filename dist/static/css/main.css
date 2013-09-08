@@ -2948,6 +2948,9 @@ section.video h2 strong {
   margin-left: 1px;
   border-top: 3px solid #f1f2f2;
   border-bottom: 3px solid #f1f2f2;
+  font-family: "Avenir Next", Arial, sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 #facts-and-figures #map #map-title {
   z-index: 5;
@@ -2958,6 +2961,32 @@ section.video h2 strong {
   background-color: #fff;
   border: 3px solid gray;
   padding: 5px;
+  font-size: 1.1em;
+}
+#facts-and-figures #map #map-title h3 {
+  font-size: 1.5em;
+  line-height: 1.1em;
+}
+#facts-and-figures #map #map-title p {
+  margin-bottom: .5em;
+}
+#facts-and-figures #map .map_tooltip ul {
+  list-style-type: none;
+  padding: 0;
+}
+#facts-and-figures #map .leaflet-control-container,
+#facts-and-figures #map #map-title {
+  display: none;
+  animation: fadein .5s;
+  -moz-animation: fadein .5s;
+  -webkit-animation: fadein .5s;
+  -o-animation: fadein .5s;
+}
+#facts-and-figures #map .my-legend .legend-title {
+  text-transform: uppercase;
+  font-size: 1.3em;
+  margin-bottom: 5px;
+  font-weight: 500;
 }
 #facts-and-figures #map .leaflet-left {
   left: 220px;
@@ -2965,13 +2994,25 @@ section.video h2 strong {
 #facts-and-figures #map .leaflet-control-container {
   height: 400px;
 }
+#facts-and-figures #map .wax-legend .legend-scale ul li {
+  width: 37px;
+}
+#facts-and-figures #map .wax-legend ul.legend-labels li span {
+  width: 37px;
+  height: 10px;
+}
+#facts-and-figures #map .year {
+  font-family: "Avenir Next Demi", Arial, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
 #facts-and-figures #map .year label {
-  text-decoration: underline;
+  font-size: 13px;
   color: #0072ce;
+  padding-bottom: 0;
 }
 #facts-and-figures #map .year label.selected {
-  text-decoration: none;
-  color: #101820;
+  border-bottom: 1px solid #101820;
 }
 #facts-and-figures #map .year input {
   border: 0;
@@ -2983,9 +3024,22 @@ section.video h2 strong {
   position: absolute;
   width: 1px;
 }
+#facts-and-figures #map .type {
+  margin-top: 5px;
+  font-family: "Avenir Next Demi", Arial, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
 #facts-and-figures #map .type label {
+  font-size: 13px;
   display: block;
   position: relative;
+}
+#facts-and-figures #map .type input {
+  margin-right: 5px;
+}
+#facts-and-figures #map .type .help {
+  margin-left: 5px;
 }
 #facts-and-figures #map .help {
   top: 0;
@@ -3235,6 +3289,10 @@ section.video h2 strong {
   .homepage section.video .blurb {
     width: 49.5%;
     display: inline-block;
+  }
+  .homepage #facts-and-figures #map .leaflet-control-container,
+  .homepage #facts-and-figures #map #map-title {
+    display: block;
   }
   .homepage #get-the-data .inner {
     width: 82%;
