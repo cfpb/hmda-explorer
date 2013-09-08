@@ -69,7 +69,7 @@ var track = function(category, name, value) {
             }
             else { // Exit links get a class; this is tracked with Analytics.
                 $(this).addClass('exit-link');
-            }               
+            }
         });
 
         // 2. Exit Links
@@ -83,9 +83,11 @@ var track = function(category, name, value) {
             try { track('exit link', link_text, link_url); }
             catch( error ) {}
 
-            // Give google analytics time to do its thing before changing the page url
-            // http://support.google.com/analytics/answer/1136920?hl=en
-            setTimeout(function() { document.location.href = link_url; }, linkDelay);
+            if ( !$(this).hasClass('dont-redirect') ) {
+                // Give google analytics time to do its thing before changing the page url
+                // http://support.google.com/analytics/answer/1136920?hl=en
+                setTimeout(function() { document.location.href = link_url; }, linkDelay);
+            }
         });
 
         // 3. Tracked Links

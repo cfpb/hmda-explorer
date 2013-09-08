@@ -2759,6 +2759,11 @@ ul.chzn-choices {
 .charts .chart-legend-box-ro {
   background-color: #796e65;
 }
+.homepage.plan-b #get-the-data .filters {
+  width: 100%;
+  min-height: 0;
+  height: auto;
+}
 .homepage .hero {
   padding-top: 10px;
   text-align: center;
@@ -2937,7 +2942,7 @@ section.video h2 strong {
   border-bottom: 3px solid #f1f2f2;
 }
 #facts-and-figures #map #map-title {
-  z-index: 1;
+  z-index: 5;
   position: absolute;
   top: 10px;
   left: 10px;
@@ -2961,7 +2966,14 @@ section.video h2 strong {
   color: #101820;
 }
 #facts-and-figures #map .year input {
-  display: none !important;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 #facts-and-figures #map .type label {
   display: block;
@@ -3011,6 +3023,11 @@ section.video h2 strong {
 #get-the-data .filters p,
 #get-the-data .summary p {
   line-height: 1.375em;
+}
+.plan-b #get-the-data .filters {
+  width: 100%;
+  min-height: 0;
+  height: auto;
 }
 #developers h2 {
   background-image: url('../img/icon_devs.png');
@@ -3583,6 +3600,13 @@ section.video h2 strong {
 }
 .learn-more .background {
   padding: 1px 15px 0px 15px;
+}
+.learn-more #transcript-text:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
 }
 #learn-more p {
   display: inline-block;
