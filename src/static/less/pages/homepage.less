@@ -7,27 +7,13 @@
   // bottom, as well, if need be.
   &.plan-b {
 
-    .hero {
-
-    }
-
-    .circle-nav {
-
-    }
-
-    section.video {
-
-    }
-
-    #facts-and-figures {
-
-    }
-
     #get-the-data {
 
-    }
-
-    #developers {
+      .filters {
+        width: 100%;
+        min-height: 0;
+        height: auto;
+      }
 
     }
 
@@ -175,7 +161,7 @@ section.video {
     border-bottom: 3px solid @light_field10;
 
     #map-title {
-      z-index: 1;
+      z-index: 5;
       position: absolute;
       top: 10px;
       left: 10px;
@@ -203,7 +189,7 @@ section.video {
         }
       }
       input {
-        .hidden;
+        .visuallyhidden;
       }
     }
 
@@ -253,6 +239,20 @@ section.video {
       line-height: 1.375em;
     }
   }
+}
+
+&.plan-b {
+
+  #get-the-data {
+
+    .filters {
+      width: 100%;
+      min-height: 0;
+      height: auto;
+    }
+
+  }
+
 }
 
 #developers {

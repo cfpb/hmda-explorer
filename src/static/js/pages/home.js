@@ -39,8 +39,28 @@ $(function(){
 
       _( map.layers ).forEach( function( layer ){
         layer.addTo( map.base );
-        map.base.addLayer( layer );
-        $( layer._tileContainer ).hide();
+
+        // IE and MapBox don't completely get along so we only add snazzy
+        // fade-in effects with non-IE browsers.
+        if ( !$('html').hasClass('lt-ie9') ) {
+          map.base.addLayer( layer );
+          $( layer._tileContainer ).hide();
+        }
+
+      });
+
+    };
+
+    map.showMap = function() {
+
+      this.addLayers();
+      this.showLayer();
+
+      $('#map-title').removeClass('hidden');
+
+      $('#map .controls input').on( 'change', function( ev ){
+        $( this ).parent().addClass('selected').siblings().removeClass('selected');
+        map.showLayer();
       });
 
     };
@@ -52,30 +72,34 @@ $(function(){
           selectedLayer = type + year,
           otherLayers = _.omit( map.layers, selectedLayer );
 
-      $( map.layers[ selectedLayer ]._tileContainer ).fadeIn();
+      // IE and MapBox don't completely get along so we only add snazzy
+      // fade-in effects with non-IE browsers.
+      if ( !$('html').hasClass('lt-ie9') ) {
 
-      _( otherLayers ).forEach( function( layer ){
-        $( layer._tileContainer ).fadeOut( 800 );
-      });
+        $( map.layers[ selectedLayer ]._tileContainer ).fadeIn();
+
+        _( otherLayers ).forEach( function( layer ){
+          $( layer._tileContainer ).fadeOut( 800 );
+        });
+
+      } else {
+
+        map.base.addLayer( map.layers[ selectedLayer ] );
+
+        _( otherLayers ).forEach( function( layer ){
+          map.base.removeLayer( layer );
+        });
+
+      }
       
     };
 
     map.init = function() {
 
       this.base.scrollWheelZoom.disable();
-      this.base.on( 'ready', function(){
 
-        this.addLayers();
-        this.showLayer();
-
-        $('#map-title').removeClass('hidden');
-
-        $('#map .controls input').on( 'click', function( ev ){
-          $( this ).parent().addClass('selected').siblings().removeClass('selected');
-          map.showLayer();
-        });
-
-      }.bind( this ));
+      map.showMap();
+      $('#map-title').removeClass('hidden');
 
       // Ensure the correct layer is shown whenever the user zooms.
       this.base.on( 'zoomend', function(){
@@ -96,7 +120,7 @@ $(function(){
   video = (function(){
 
     var $vid = $('#youtube'),
-        $embed = $('#youtube > iframe'),
+        $embed = $('<iframe width="100%" height="100%" src="//www.youtube.com/embed/wR9Tsdqgmuk?rel=0&version=3&enablejsapi=1&autoplay=1" frameborder="0" allowfullscreen></iframe>'),
         $exit = $('#youtube .exit'),
         pos = $('.video').position().top + ( $('section.video').height() / 2 );
 
@@ -105,10 +129,7 @@ $(function(){
       isOpen: false,
 
       init: function() {
-        var url = $embed.attr('src');
-        url = url.concat( '&autoplay=1' );
-        $embed.attr( 'src', url );
-        $embed.remove();
+
       },
 
       open: function(){
