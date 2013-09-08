@@ -170,6 +170,24 @@ section.video {
       background-color: #fff;
       border: 3px solid gray;
       padding: 5px;
+      font-size: 1.1em;
+
+      h3 {
+        font-size: 1.5em;
+        line-height: 1.1em;
+      }
+
+      p {
+        margin-bottom: .5em;
+      }
+
+    }
+
+    .map_tooltip {
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
     }
 
     // Hide the map controls on mobile devices
@@ -209,12 +227,13 @@ section.video {
     }
 
     .year {
+      .avenir-next-demi;
       label {
-        text-decoration: underline;
+        font-size: 13px;
         color: @pacific;
+        padding-bottom: 0;
         &.selected {
-          text-decoration: none;
-          color: @black;
+          border-bottom: 1px solid @black;
         }
       }
       input {
@@ -223,9 +242,18 @@ section.video {
     }
 
     .type {
+      margin-top: 5px;
+      .avenir-next-demi;
       label {
+        font-size: 13px;
         display: block;
         position: relative;
+      }
+      input {
+        margin-right: 5px;
+      }
+      .help {
+        margin-left: 5px;
       }
     }
 
