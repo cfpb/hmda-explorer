@@ -2954,6 +2954,10 @@ section.video h2 strong {
 #facts-and-figures #map .leaflet-left {
   left: 220px;
 }
+#facts-and-figures #map .leaflet-bottom.leaflet-right {
+  left: 10px;
+  right: auto;
+}
 #facts-and-figures #map .leaflet-control-container {
   height: 400px;
 }

@@ -108,7 +108,16 @@ $(function(){
 
       }.bind( this ));
 
+      // Fix the darn legend.
+      this.base.on( 'ready', function(){
+
+        var under30 = $('#map .legend-labels li').first().html();
+        $('#map .legend-labels li').first().html( under30.replace( 'Under -30%', '< -30%' ) );
+
+      }.bind( this ));
+
       $('#map .help').tooltip({ placement: 'right' });
+      
 
     };
 
