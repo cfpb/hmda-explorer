@@ -5,15 +5,10 @@ $(function(){
   var map,
       video;
 
-  
-
-  
-
   // layer.on('ready', function() {
   //   // the layer has been fully loaded now, and you can
   //   // call .getTileJSON and investigate its properties
   // });
-
 
   // Circle nav on the homepage.
   $('.homepage .hero a').on( 'click', function( ev ){
@@ -24,20 +19,76 @@ $(function(){
 
   });
 
+  // Map toggling on the homepage.
   map = (function(){
 
-    var map = L.mapbox.map('map', 'cfpb.HMDA_final').setView([39.54, -97.87], 4);
-        //layer1 = L.mapbox.tileLayer('cfpb.Final#O2012');
+    var map = {};
 
-    // Disable map scrolling.
-    map.scrollWheelZoom.disable();
+    map.base = L.mapbox.map('map', 'cfpb.hmda_basemap').setView([39.54, -97.87], 4);
+    
+    map.layers = {
+      a2012: L.mapbox.tileLayer('cfpb.hmda_a2012'),
+      a2011: L.mapbox.tileLayer('cfpb.hmda_a2011'),
+      o2012: L.mapbox.tileLayer('cfpb.hmda_o2012'),
+      o2011: L.mapbox.tileLayer('cfpb.hmda_o2011')
+    };
 
-    map.on( 'ready', function(){
-      $('#map-title').removeClass('hidden');
-    });
+    // In order to get a nice fade when we toggle between layers, 
+    // add them all at once but hide their containers.
+    map.addLayers = function() {
 
-    //layer1.addTo( map );
-    //map.addLayer( layer1 );
+      _( map.layers ).forEach( function( layer ){
+        layer.addTo( map.base );
+        map.base.addLayer( layer );
+        $( layer._tileContainer ).hide();
+      });
+
+    };
+
+    map.showLayer = function() {
+
+      var type = $('#map .type input:checked').val(),
+          year = $('#map .year input:checked').val(),
+          selectedLayer = type + year,
+          otherLayers = _.omit( map.layers, selectedLayer );
+
+      $( map.layers[ selectedLayer ]._tileContainer ).fadeIn();
+
+      _( otherLayers ).forEach( function( layer ){
+        $( layer._tileContainer ).fadeOut( 800 );
+      });
+      
+    };
+
+    map.init = function() {
+
+      this.base.scrollWheelZoom.disable();
+      this.base.on( 'ready', function(){
+
+        this.addLayers();
+        this.showLayer();
+
+        $('#map-title').removeClass('hidden');
+
+        $('#map .controls input').on( 'click', function( ev ){
+          $( this ).parent().addClass('selected').siblings().removeClass('selected');
+          map.showLayer();
+        });
+
+      }.bind( this ));
+
+      // Ensure the correct layer is shown whenever the user zooms.
+      this.base.on( 'zoomend', function(){
+
+        this.showLayer();
+
+      }.bind( this ));
+
+      $('#map .help').tooltip({ placement: 'right' });
+
+    };
+
+    map.init();
 
   })();
 
