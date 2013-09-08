@@ -162,6 +162,7 @@ section.video {
     margin-left: 1px;
     border-top: 3px solid @light_field10;
     border-bottom: 3px solid @light_field10;
+    .avenir-next;
 
     #map-title {
       z-index: 5;
@@ -172,6 +173,43 @@ section.video {
       background-color: #fff;
       border: 3px solid gray;
       padding: 5px;
+      font-size: 1.1em;
+
+      h3 {
+        font-size: 1.5em;
+        line-height: 1.1em;
+      }
+
+      p {
+        margin-bottom: .5em;
+      }
+
+    }
+
+    .map_tooltip {
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+    }
+
+    // Hide the map controls on mobile devices
+    .leaflet-control-container,
+    #map-title {
+      display: none;
+      animation: fadein .5s;
+      -moz-animation: fadein .5s;
+      -webkit-animation: fadein .5s;
+      -o-animation: fadein .5s;
+    }
+
+    .my-legend {
+      .legend-title {
+        text-transform: uppercase;
+        font-size: 1.3em;
+        margin-bottom: 5px;
+        font-weight: 500;
+      }
     }
 
     .leaflet-left {
@@ -182,13 +220,23 @@ section.video {
       height: 400px;
     }
 
+    .wax-legend .legend-scale ul li {
+      width: 37px;
+    }
+
+    .wax-legend ul.legend-labels li span {
+      width: 37px;
+      height: 10px;
+    }
+
     .year {
+      .avenir-next-demi;
       label {
-        text-decoration: underline;
+        font-size: 13px;
         color: @pacific;
+        padding-bottom: 0;
         &.selected {
-          text-decoration: none;
-          color: @black;
+          border-bottom: 1px solid @black;
         }
       }
       input {
@@ -197,9 +245,18 @@ section.video {
     }
 
     .type {
+      margin-top: 5px;
+      .avenir-next-demi;
       label {
+        font-size: 13px;
         display: block;
         position: relative;
+      }
+      input {
+        margin-right: 5px;
+      }
+      .help {
+        margin-left: 5px;
       }
     }
 
@@ -454,6 +511,16 @@ section.video {
         width: 49.5%;
         display: inline-block;
       } 
+    }
+
+    #facts-and-figures {
+      #map {
+        // Show the map controls on mobile devices
+        .leaflet-control-container,
+        #map-title {
+          display: block;
+        }
+      }
     }
 
     #get-the-data {

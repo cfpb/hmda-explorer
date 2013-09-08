@@ -2,8 +2,6 @@ $(function(){
 
   'use strict';
 
-  window.mapboxIE8 = true;
-
   // Close video overlay
   $( 'section.video .exit, #youtube' ).on( 'click', function( ev ) {
 
