@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="888"  lines-covered="357"  line-rate="0.402"  branches-valid="357"  branches-covered="98"  branch-rate="0.27449999999999997"  timestamp="1378637958841" complexity="0" version="0.1">
+<coverage lines-valid="888"  lines-covered="357"  line-rate="0.402"  branches-valid="357"  branches-covered="98"  branch-rate="0.27449999999999997"  timestamp="1378638097231" complexity="0" version="0.1">
 <sources>
 	<source>/Users/contolinic/Sites/public-data-platform</source>
 </sources>
