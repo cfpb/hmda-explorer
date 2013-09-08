@@ -2597,7 +2597,6 @@ ul.chzn-choices {
   font-weight: 400;
   font-style: normal;
   margin-top: 2em;
-  margin-bottom: 2em;
 }
 .charts h3 {
   font-family: "Avenir Next Demi", Arial, sans-serif;
@@ -2605,10 +2604,11 @@ ul.chzn-choices {
   font-style: normal;
   font-size: 1.375em;
   letter-spacing: 0;
+  margin-top: 4px;
 }
 .charts p {
-  font-size: 0.875em;
-  line-height: 1.25em;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.375em;
 }
 .charts .chart-info {
   display: inline-block;
@@ -2662,7 +2662,7 @@ ul.chzn-choices {
   top: 7px;
 }
 .charts .toggle-series-heading {
-  margin-top: 1em;
+  margin-top: 1.1em;
   border-width: 0 !important;
   display: inline-block;
   -webkit-box-sizing: border-box;
@@ -2709,6 +2709,10 @@ ul.chzn-choices {
 }
 .charts .chart-note {
   font-size: 0.75em;
+  font-family: "Avenir Next", Arial, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  padding: 30px 15px 0 15px;
 }
 .charts .chart-container {
   width: 540px;
@@ -2722,7 +2726,7 @@ ul.chzn-choices {
   margin-left: 160px;
 }
 .charts .chart-legend th,
-.charts td {
+.charts .chart-legend td {
   text-align: left;
   font-size: 0.75em;
   line-height: 1.25em;
@@ -2734,6 +2738,7 @@ ul.chzn-choices {
   font-family: "Avenir Next Demi", Arial, sans-serif;
   font-weight: 600;
   font-style: normal;
+  line-height: 1.75em;
 }
 .charts .chart-legend-box {
   display: inline-block;
@@ -2763,6 +2768,9 @@ ul.chzn-choices {
   width: 100%;
   min-height: 0;
   height: auto;
+}
+.homepage.plan-b #get-the-data h3 {
+  padding-top: 10px;
 }
 .homepage .hero {
   padding-top: 10px;
@@ -4169,6 +4177,7 @@ nav li {
 }
 .top-banner p {
   margin: 0;
+  padding: 0;
 }
 .top-banner .return-cfgov {
   float: left;
@@ -4179,6 +4188,7 @@ nav li {
 .top-banner img {
   vertical-align: center;
   margin: 0 0 1px 10px;
+  padding: 0;
 }
 strong {
   font-family: "Avenir Next Demi", Arial, sans-serif;
@@ -4234,6 +4244,7 @@ strong {
 }
 .hmda footer .primary li:last-child:after {
   content: " ";
+  padding: 0;
 }
 .hmda footer .tertiary {
   -webkit-column-count: 2;
