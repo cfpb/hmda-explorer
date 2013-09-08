@@ -193,6 +193,31 @@ section.video {
       height: 400px;
     }
 
+    .year {
+      label {
+        text-decoration: underline;
+        color: @pacific;
+        &.selected {
+          text-decoration: none;
+          color: @black;
+        }
+      }
+      input {
+        .hidden;
+      }
+    }
+
+    .type {
+      label {
+        display: block;
+        position: relative;
+      }
+    }
+
+    .help {
+      top: 0;
+    }
+
   }
   
 }

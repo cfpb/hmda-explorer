@@ -2952,6 +2952,24 @@ section.video h2 strong {
 #facts-and-figures #map .leaflet-control-container {
   height: 400px;
 }
+#facts-and-figures #map .year label {
+  text-decoration: underline;
+  color: #0072ce;
+}
+#facts-and-figures #map .year label.selected {
+  text-decoration: none;
+  color: #101820;
+}
+#facts-and-figures #map .year input {
+  display: none !important;
+}
+#facts-and-figures #map .type label {
+  display: block;
+  position: relative;
+}
+#facts-and-figures #map .help {
+  top: 0;
+}
 #get-the-data {
   background: #ffffff url(../img/bg_grid-tile.png) scroll repeat left top;
   border-top: 3px solid #f1f2f2;
