@@ -159,6 +159,7 @@ section.video {
     margin-left: 1px;
     border-top: 3px solid @light_field10;
     border-bottom: 3px solid @light_field10;
+    .avenir-next;
 
     #map-title {
       z-index: 5;
@@ -171,17 +172,40 @@ section.video {
       padding: 5px;
     }
 
+    // Hide the map controls on mobile devices
+    .leaflet-control-container,
+    #map-title {
+      display: none;
+      animation: fadein .5s;
+      -moz-animation: fadein .5s;
+      -webkit-animation: fadein .5s;
+      -o-animation: fadein .5s;
+    }
+
+    .my-legend {
+      .legend-title {
+        text-transform: uppercase;
+        font-size: 1.3em;
+        margin-bottom: 5px;
+        font-weight: 500;
+      }
+    }
+
     .leaflet-left {
       left: 220px;
     }
 
-    .leaflet-bottom.leaflet-right {
-      left: 10px;
-      right: auto;
-    }
-
     .leaflet-control-container {
       height: 400px;
+    }
+
+    .wax-legend .legend-scale ul li {
+      width: 37px;
+    }
+
+    .wax-legend ul.legend-labels li span {
+      width: 37px;
+      height: 10px;
     }
 
     .year {
@@ -456,6 +480,16 @@ section.video {
         width: 49.5%;
         display: inline-block;
       } 
+    }
+
+    #facts-and-figures {
+      #map {
+        // Show the map controls on mobile devices
+        .leaflet-control-container,
+        #map-title {
+          display: block;
+        }
+      }
     }
 
     #get-the-data {
