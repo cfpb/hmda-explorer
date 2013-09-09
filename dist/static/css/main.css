@@ -2968,7 +2968,7 @@ section.video h2 strong {
   position: absolute;
   top: 10px;
   left: 10px;
-  width: 200px;
+  width: 215px;
   background-color: #fff;
   border: 1px solid #d0d0ce;
   padding: 10px;
@@ -2991,13 +2991,16 @@ section.video h2 strong {
   font-size: 1.1em;
 }
 #facts-and-figures #map #map-title .year label {
-  font-size: 1em;
+  font-size: 1.1em;
   letter-spacing: 0;
   margin-bottom: .75em;
 }
 #facts-and-figures #map #map-title .type label {
   font-size: 1.1em;
   line-height: 1em;
+  font-family: "Avenir Next", Arial, sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 #facts-and-figures #map #map-title .type label i {
   font-size: 1.1em;
@@ -3018,9 +3021,9 @@ section.video h2 strong {
 }
 #facts-and-figures #map .my-legend .legend-title {
   text-transform: uppercase;
-  font-size: 1.3em;
+  font-size: 1.2em;
   margin-bottom: 5px;
-  font-weight: 500;
+  font-weight: 600;
 }
 #facts-and-figures #map .leaflet-control-container {
   height: 400px;
@@ -3043,7 +3046,7 @@ section.video h2 strong {
   padding-bottom: 0;
 }
 #facts-and-figures #map .year label.selected {
-  border-bottom: 1px solid #101820;
+  border-bottom: 2px solid #101820;
 }
 #facts-and-figures #map .year input {
   border: 0;
