@@ -252,11 +252,11 @@ var chart2_options = {
             data: [1428357, 1057843, 1278827]
         },
         {
-            name: 'RHS',
+            name: 'VA',
             data: [310522, 372783, 558690]
         },
         {
-            name: 'VA',
+            name: 'RHS',
             data: [87858, 113815, 132204]
 
         }
