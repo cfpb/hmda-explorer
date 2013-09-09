@@ -112,6 +112,7 @@ nav li {
 
   .return-cfgov { 
     float: left;
+    display: none;
   } 
 
   .official-website { 
@@ -133,8 +134,21 @@ strong {
 .hmda {
 
   header {
+    .logo {
+      display: inline-block;
+    }
     nav {
       margin-bottom: 18px;
+      display: none;
+    }
+    .navicon {
+      float: right;
+      margin-top: 5px;
+      display: block;
+      background-color: @dark_field;
+      font-size: 2em;
+      padding: 0 10px;
+      .border-radius( 5px );
     }
     ul {
       .mobile-nav();
@@ -243,16 +257,25 @@ a.action-arrow {
 
   .hmda {
 
+    .return-cfgov {
+      display: block;
+    }
+
     header {
       .logo {
         width: 30%;
         float: left;
+        display: block;
       }
       nav {
         width: 70%;
+        display: block;
         float: left;
         height: 30px;
         margin-top: 20px;
+      }
+      .navicon {
+        display: none;
       }
       ul {
         .horiz();
