@@ -122,6 +122,8 @@ $(function(){
 
         $('#map .my-legend .legend-title').html('Percentage Change');
 
+        $('#map .my-legend .legend-source').hide();
+
       }.bind( this ));
 
       $('#map .help').tooltip({ placement: 'right' });
