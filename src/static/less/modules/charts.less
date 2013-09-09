@@ -1,4 +1,7 @@
 .charts {
+    
+    // Hide charts on mobile devices
+    display: none;
     .avenir-next;
     margin-top: 2em;
 
@@ -112,6 +115,15 @@
     }
     .chart-legend-box-ro {
         background-color: @dark_neutral;
+    }
+
+}
+
+@media only screen and ( min-width: 768px ) {
+
+    .charts {
+        // Hide charts on mobile devices
+        display: block;
     }
 
 }
