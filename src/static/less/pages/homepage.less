@@ -25,6 +25,7 @@
   .hero {
     
     padding-top: 10px;
+    margin-top: 5px;
     text-align: center;
     background-color: #FAB051;
     background-size: cover;
@@ -46,6 +47,8 @@
 
     nav {
       font-family: @body-font;
+      margin-top: 15px;
+      border-top: 2px solid black;
     }
 
     .title {
@@ -220,7 +223,6 @@ section.video {
     }
 
     // Hide the map controls on mobile devices
-    .leaflet-control-container,
     #map-title {
       display: none;
       animation: fadein .5s;
@@ -236,10 +238,6 @@ section.video {
         margin-bottom: 5px;
         font-weight: 500;
       }
-    }
-
-    .leaflet-left {
-      left: 220px;
     }
 
     .leaflet-control-container {
@@ -414,6 +412,7 @@ section.video {
     .hero {
       min-height: 403px;
       padding-top: 45px;
+      margin-top: 0;
       h1 {
         font-size: 47px;
       }
@@ -421,6 +420,7 @@ section.video {
         width: 82%;
         margin: 0 auto;
         margin-top: 25px;
+        border: 0;
         .clearfix();
         li {
           width: 33%;
@@ -545,6 +545,9 @@ section.video {
         .leaflet-control-container,
         #map-title {
           display: block;
+        }
+        .leaflet-left {
+          left: 220px;
         }
       }
     }
