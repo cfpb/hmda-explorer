@@ -2721,6 +2721,18 @@ ul.chzn-choices {
 .charts .chart-legend-box-ro {
   background-color: #796e65;
 }
+.charts .chart2-legend-box-con {
+  background-color: #dbedd4;
+}
+.charts .chart2-legend-box-fha {
+  background-color: #addc91;
+}
+.charts .chart2-legend-box-va {
+  background-color: #2cb34a;
+}
+.charts .chart2-legend-box-rhs {
+  background-color: #005e5d;
+}
 @media only screen and (min-width: 768px) {
   .charts .chart-info {
     display: inline-block;
