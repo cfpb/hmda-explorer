@@ -1,3 +1,9 @@
+v0.14.1:
+  date: 2013-09-08
+  changes:
+    - Improve mobile experience.
+    - Add layers to homepage map.
+
 v0.14.0:
   date: 2013-09-07
   changes:

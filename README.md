@@ -32,6 +32,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2013-09-08   [v0.14.1](../../tree/v0.14.1)   Improve mobile experience. Add layers to homepage map.
  * 2013-09-07   [v0.14.0](../../tree/v0.14.0)   Restructuring for Plan B. Whole lotta improvements to the static pages.
  * 2013-09-03   [v0.13.0](../../tree/v0.13.0)   New summary table button. Permalinkin' the summary table.
  * 2013-09-01   [v0.12.1](../../tree/v0.12.1)   Update icons and links. Add coverage capabilities and data-driven testing.
@@ -78,4 +79,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Sun Sep 08 2013 20:17:16.*
+*This file was generated on Sun Sep 08 2013 20:20:34.*
