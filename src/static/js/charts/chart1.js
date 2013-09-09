@@ -4,7 +4,7 @@ $(document).ready(function() {
         var applicationsOriginationsChart = new Highcharts.Chart(chart1_options);
     }
     if ($('#hmda_chart_1_msa').length !== 0) {
-        $('#hmda_chart_1_msa').chosen();
+        $('#hmda_chart_1_msa').chosen({ width: '100%' });
     }
 
     var chart1DataObj = {
