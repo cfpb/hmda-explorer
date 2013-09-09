@@ -171,17 +171,43 @@ section.video {
       left: 10px;
       width: 200px;
       background-color: #fff;
-      border: 3px solid gray;
-      padding: 5px;
-      font-size: 1.1em;
+      border: 1px solid @light_field;
+      padding: 10px;
 
       h3 {
-        font-size: 1.5em;
-        line-height: 1.1em;
+        font-size: 1.75em;
+        line-height: 1.2em;
+        .avenir-next-demi;
+        letter-spacing: 0;
       }
 
-      p {
-        margin-bottom: .5em;
+      p, {
+        margin-bottom: .75em;
+        font-family: @body-font;
+        font-size: 1.3em;
+        line-height: 1.4em;
+      }
+
+      .year {
+        font-size: 1.1em;
+      }  
+
+      .year label {
+        font-size: 1em;
+        letter-spacing: 0;
+        margin-bottom: .75em;
+      }
+
+
+      .type label {
+        font-size: 1.1em;
+        line-height: 1em;
+        i {
+          font-size: 1.1em;
+          position: relative;
+          top: .4em;
+          left: .5em;
+        }
       }
 
     }

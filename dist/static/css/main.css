@@ -2959,16 +2959,40 @@ section.video h2 strong {
   left: 10px;
   width: 200px;
   background-color: #fff;
-  border: 3px solid gray;
-  padding: 5px;
-  font-size: 1.1em;
+  border: 1px solid #d0d0ce;
+  padding: 10px;
 }
 #facts-and-figures #map #map-title h3 {
-  font-size: 1.5em;
-  line-height: 1.1em;
+  font-size: 1.75em;
+  line-height: 1.2em;
+  font-family: "Avenir Next Demi", Arial, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0;
 }
 #facts-and-figures #map #map-title p {
-  margin-bottom: .5em;
+  margin-bottom: .75em;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.3em;
+  line-height: 1.4em;
+}
+#facts-and-figures #map #map-title .year {
+  font-size: 1.1em;
+}
+#facts-and-figures #map #map-title .year label {
+  font-size: 1em;
+  letter-spacing: 0;
+  margin-bottom: .75em;
+}
+#facts-and-figures #map #map-title .type label {
+  font-size: 1.1em;
+  line-height: 1em;
+}
+#facts-and-figures #map #map-title .type label i {
+  font-size: 1.1em;
+  position: relative;
+  top: .4em;
+  left: .5em;
 }
 #facts-and-figures #map .map_tooltip ul {
   list-style-type: none;
