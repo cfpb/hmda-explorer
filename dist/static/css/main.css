@@ -2593,6 +2593,7 @@ ul.chzn-choices {
   top: 9px;
 }
 .charts {
+  display: none;
   font-family: "Avenir Next", Arial, sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -2759,6 +2760,11 @@ ul.chzn-choices {
 .charts .chart-legend-box-ro {
   background-color: #796e65;
 }
+@media only screen and (min-width: 768px) {
+  .charts {
+    display: block;
+  }
+}
 .homepage.plan-b #get-the-data .filters {
   width: 100%;
   min-height: 0;
@@ -2766,6 +2772,7 @@ ul.chzn-choices {
 }
 .homepage .hero {
   padding-top: 10px;
+  margin-top: 5px;
   text-align: center;
   background-color: #FAB051;
   background-size: cover;
@@ -2804,6 +2811,8 @@ ul.chzn-choices {
 }
 .homepage .hero nav {
   font-family: Georgia, "Times New Roman", serif;
+  margin-top: 15px;
+  border-top: 2px solid black;
 }
 .homepage .hero .title {
   font-family: "Avenir Next", Arial, sans-serif;
@@ -2966,7 +2975,6 @@ section.video h2 strong {
   list-style-type: none;
   padding: 0;
 }
-#facts-and-figures #map .leaflet-control-container,
 #facts-and-figures #map #map-title {
   display: none;
   animation: fadein .5s;
@@ -2979,9 +2987,6 @@ section.video h2 strong {
   font-size: 1.3em;
   margin-bottom: 5px;
   font-weight: 500;
-}
-#facts-and-figures #map .leaflet-left {
-  left: 220px;
 }
 #facts-and-figures #map .leaflet-control-container {
   height: 400px;
@@ -3148,6 +3153,7 @@ section.video h2 strong {
   .homepage .hero {
     min-height: 403px;
     padding-top: 45px;
+    margin-top: 0;
   }
   .homepage .hero h1 {
     font-size: 47px;
@@ -3156,6 +3162,7 @@ section.video h2 strong {
     width: 82%;
     margin: 0 auto;
     margin-top: 25px;
+    border: 0;
     *zoom: 1;
   }
   .homepage .hero nav:before,
@@ -3286,6 +3293,9 @@ section.video h2 strong {
   .homepage #facts-and-figures #map #map-title {
     display: block;
   }
+  .homepage #facts-and-figures #map .leaflet-left {
+    left: 220px;
+  }
   .homepage #get-the-data .inner {
     width: 82%;
   }
@@ -3330,7 +3340,6 @@ section.video h2 strong {
   margin: 0 auto;
   position: relative;
   clear: both;
-  text-align: center;
 }
 .lt-ie8 .explore .hero > .inner {
   *zoom: 1;
@@ -3649,7 +3658,7 @@ section.video h2 strong {
   }
 }
 .learn-more h2 {
-  margin-top: 40px;
+  margin-top: 10px;
   padding-bottom: 5px;
   font-family: "Avenir Next Demi", Arial, sans-serif;
   font-weight: 600;
@@ -3731,6 +3740,9 @@ section.video h2 strong {
   margin: 10px;
 }
 @media only screen and (min-width: 768px) {
+  #learn-more h2 {
+    margin-top: 40px;
+  }
   #learn-more .title {
     padding: 0;
   }
@@ -4230,6 +4242,7 @@ nav li {
 }
 .top-banner .return-cfgov {
   float: left;
+  display: none;
 }
 .top-banner .official-website {
   float: right;
@@ -4243,8 +4256,23 @@ strong {
   font-weight: 600;
   font-style: normal;
 }
+.hmda header .logo {
+  display: inline-block;
+}
 .hmda header nav {
   margin-bottom: 18px;
+  display: none;
+}
+.hmda header .navicon {
+  float: right;
+  margin-top: 5px;
+  display: block;
+  background-color: #75787b;
+  font-size: 2em;
+  padding: 0 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
 }
 .hmda header ul {
   width: 100%;
@@ -4355,18 +4383,26 @@ a.action-arrow .icon-right {
   position: relative;
 }
 @media only screen and (min-width: 768px) {
+  .hmda .return-cfgov {
+    display: block;
+  }
   .hmda header {
     *zoom: 1;
   }
   .hmda header .logo {
     width: 30%;
     float: left;
+    display: block;
   }
   .hmda header nav {
     width: 70%;
+    display: block;
     float: left;
     height: 30px;
     margin-top: 20px;
+  }
+  .hmda header .navicon {
+    display: none;
   }
   .hmda header ul {
     margin: 0;
