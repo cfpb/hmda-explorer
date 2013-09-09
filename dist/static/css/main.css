@@ -3768,9 +3768,13 @@ section.video h2 strong {
   font-style: normal;
   font-size: .75em;
 }
+#learn-more dfn a {
+  border-bottom: 1px dotted #0072ce;
+}
 #learn-more .footnote {
   width: 66%;
-  margin: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 @media only screen and (min-width: 768px) {
   #learn-more h2 {
