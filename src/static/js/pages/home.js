@@ -24,7 +24,7 @@ $(function(){
 
     var map = {};
 
-    map.base = L.mapbox.map('map', 'cfpb.hmda_basemap').setView([39.54, -97.87], 4);
+    map.base = L.mapbox.map('map', 'cfpb.hmda_basemap-2').setView([39.54, -97.87], 4);
     
     map.layers = {
       a2012: L.mapbox.tileLayer('cfpb.hmda_a2012'),
@@ -115,7 +115,7 @@ $(function(){
             over30;
 
         under30 = $('#map .legend-labels li').first().html();
-        $('#map .legend-labels li').first().html( under30.replace( 'Under -30%', '< -30%' ) );
+        $('#map .legend-labels li').first().html( under30 + '< -30%' );
 
         over30 = $('#map .legend-labels li:nth-last-child(2)').html();
         $('#map .legend-labels li:nth-last-child(2)').html( over30.replace( 'Over 30%', '> 30%' ) );
