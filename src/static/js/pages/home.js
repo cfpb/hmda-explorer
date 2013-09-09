@@ -126,7 +126,19 @@ $(function(){
 
       }.bind( this ));
 
-      $('#map .help').tooltip({ placement: 'right' });
+      $('#map .help').tooltip({ placement: 'right' }).on('shown.bs.tooltip', function () {
+        $('.tooltip').css({
+          'margin-left': '10px',
+          'margin-top': '5px'
+        });
+      });
+
+      $('#map .help').tooltip({ placement: 'right' }).on('hide.bs.tooltip', function () {
+        $('.tooltip').css({
+          'margin-left': '0',
+          'margin-top': '0'
+        });
+      });
       
 
     };
