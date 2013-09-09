@@ -5,7 +5,7 @@
       }
 
       if ($('#hmda_chart_2_msa').length !== 0) {
-          $('#hmda_chart_2_msa').chosen();
+          $('#hmda_chart_2_msa').chosen({ width: '100%' });
       }
 
       var chart2DataObj = {

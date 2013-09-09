@@ -1,7 +1,5 @@
 .charts {
     
-    // Hide charts on mobile devices
-    display: none;
     .avenir-next;
     margin-top: 2em;
 
@@ -15,14 +13,6 @@
     p {
         font-family: @body-font;
         line-height: 1.375em;
-    }
-
-    .chart-info {
-        .column(5);
-    }
-
-    .chart-content {
-        .column(7);
     }
 
     .chart-label {
@@ -63,18 +53,9 @@
         padding: 30px 15px 0 15px;
     }
 
-    .chart-container {
-        width: 540px;
-    }
-
-    .chart-legend {
-        width: 450px;
-        margin-left: 90px;    
-    }
-
+    .chart-legend,
     .oblt {
-        width: 380px;
-        margin-left: 160px;
+        margin: 0 auto;
     }
 
     .chart-legend th, .chart-legend td {
@@ -122,8 +103,20 @@
 @media only screen and ( min-width: 768px ) {
 
     .charts {
-        // Hide charts on mobile devices
-        display: block;
+        .chart-info {
+            .column(5);
+        }
+
+        .chart-content {
+            .column(7);
+        }
+        .chart-legend {
+            margin: 0 auto 0 45px;
+        }
+
+        .oblt {
+            margin: 0 auto 0 115px;
+        }
     }
 
 }
