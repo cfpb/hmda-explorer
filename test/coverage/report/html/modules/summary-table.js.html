@@ -183,16 +183,16 @@
     <h1>Code coverage report for <span class="entity">modules/summary-table.js</span></h1>
     <h2>
         
-        Statements: <span class="metric">44.44% <small>(104 / 234)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">47.86% <small>(112 / 234)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Branches: <span class="metric">31.58% <small>(24 / 76)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">35.53% <small>(27 / 76)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
         Functions: <span class="metric">26.83% <small>(11 / 41)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Lines: <span class="metric">44.44% <small>(104 / 234)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">47.86% <small>(112 / 234)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
     </h2>
     <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">modules/</a> &#187; summary-table.js</div>
@@ -1120,30 +1120,30 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1711,35 +1711,35 @@ var PDP = (function ( pdp ) {
 &nbsp;
     this._removeSpinner();
 &nbsp;
-    if ( !_.isEmpty(responseData.errors) ) {
+    <span class="missing-if-branch" title="if path not taken"" >I</span>if ( !_.isEmpty(responseData.errors) ) {
 <span class="cstat-no" title="statement not covered" >      this._throwFetchError();</span>
 <span class="cstat-no" title="statement not covered" >      return;</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    for (i=0; i&lt;=len; i++) {</span>
-<span class="cstat-no" title="statement not covered" >      $tr = $('&lt;tr&gt;&lt;/tr&gt;');</span>
+    for (i=0; i&lt;=len; i++) {
+      $tr = $('&lt;tr&gt;&lt;/tr&gt;');
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      for ( column=0; column&lt;clauseLen; column++ ) {</span>
+      for ( column=0; column&lt;clauseLen; column++ ) {
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        if ( typeof this.queryParams.clauses.select[column] !== 'undefined' ) {</span>
+        <span class="missing-if-branch" title="else path not taken"" >E</span>if ( typeof this.queryParams.clauses.select[column] !== 'undefined' ) {
           // reads like
           // cellValue = response data object -&gt; iteration we're on -&gt; object key that matches the 
           // select clause array item for the inner interation we're on
-<span class="cstat-no" title="statement not covered" >          cellValue = responseData.results[i][this.queryParams.clauses.select[column]];</span>
+          cellValue = responseData.results[i][this.queryParams.clauses.select[column]];
 &nbsp;
           // the column value won't match on calculate fields w/o some manipulation
-<span class="cstat-no" title="statement not covered" >          if ( typeof cellValue === 'undefined' ) {</span>
+          <span class="missing-if-branch" title="if path not taken"" >I</span>if ( typeof cellValue === 'undefined' ) {
 <span class="cstat-no" title="statement not covered" >            cellValue = responseData.results[i][this.queryToVal( this.queryParams.clauses.select[column] )];</span>
             // if it's still undefined, gtfo
 <span class="cstat-no" title="statement not covered" >            if ( typeof cellValue === 'undefined' ) {</span>
 <span class="cstat-no" title="statement not covered" >              cellValue = '&lt;em class="not-reported"&gt;not reported&lt;/em&gt;';</span>
             }
           }
-<span class="cstat-no" title="statement not covered" >          $tr.append('&lt;td&gt;' + cellValue + '&lt;/td&gt;');</span>
+          $tr.append('&lt;td&gt;' + cellValue + '&lt;/td&gt;');
         }
       }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      $table.append($tr);</span>
+      $table.append($tr);
     }
 &nbsp;
   };
@@ -1992,7 +1992,7 @@ var PDP = (function ( pdp ) {
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Sep 09 2013 12:10:06 GMT-0400 (EDT)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Sep 09 2013 12:21:52 GMT-0400 (EDT)</div>
 </div>
 
 <script src="../prettify.js"></script>

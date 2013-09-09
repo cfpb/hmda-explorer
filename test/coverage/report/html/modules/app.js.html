@@ -183,16 +183,16 @@
     <h1>Code coverage report for <span class="entity">modules/app.js</span></h1>
     <h2>
         
-        Statements: <span class="metric">23.46% <small>(19 / 81)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">34.57% <small>(28 / 81)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Branches: <span class="metric">4.55% <small>(1 / 22)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">13.64% <small>(3 / 22)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Functions: <span class="metric">13.33% <small>(2 / 15)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">26.67% <small>(4 / 15)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Lines: <span class="metric">23.46% <small>(19 / 81)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">34.57% <small>(28 / 81)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
     </h2>
     <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">modules/</a> &#187; app.js</div>
@@ -573,32 +573,32 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">16</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">15</span>
+<span class="cline-any cline-yes">19</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">15</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">15</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -799,34 +799,34 @@ var PDP = (function ( pdp ) {
     var _params = [],
         params = pdp.utils.getHashParams();
 &nbsp;
-<span class="fstat-no" title="function not covered" >    function buildParam( val, name ) {</span>
+    function buildParam( val, name ) {
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      var _param = {},</span>
+      var _param = {},
           _values = [],
           values = val.values.split(',');
 &nbsp;
       // If it's the section hash, save it and abort.
-<span class="cstat-no" title="statement not covered" >      if ( name === 'section' ) {</span>
-<span class="cstat-no" title="statement not covered" >        app.currentSection = values;</span>
-<span class="cstat-no" title="statement not covered" >        return;</span>
+      if ( name === 'section' ) {
+        app.currentSection = values;
+        return;
       }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      _.forEach( values, <span class="fstat-no" title="function not covered" >function( value ){</span></span>
-<span class="cstat-no" title="statement not covered" >        _values.push( value );</span>
+      _.forEach( values, function( value ){
+        _values.push( value );
       });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      _param = {</span>
+      _param = {
         name: name,
         values: _values,
         comparator: val.comparator
       };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      _params.push( _param );</span>
+      _params.push( _param );
 &nbsp;
     }
 &nbsp;
     _.forEach( params, buildParam );
-<span class="cstat-no" title="statement not covered" >    return _params;</span>
+    return _params;
 &nbsp;
   };
 &nbsp;
@@ -888,7 +888,7 @@ var PDP = (function ( pdp ) {
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Sep 09 2013 12:10:06 GMT-0400 (EDT)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Sep 09 2013 12:21:52 GMT-0400 (EDT)</div>
 </div>
 
 <script src="../prettify.js"></script>
