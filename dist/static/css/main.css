@@ -3151,6 +3151,7 @@ section.video h2 strong {
 #developers .inner p {
   line-height: 1.375em;
   margin: 0;
+  margin-bottom: 10px;
 }
 #developers .api {
   padding: 0px 20px;
@@ -3358,16 +3359,6 @@ section.video h2 strong {
   }
   .homepage #developers .inner {
     width: 82%;
-  }
-  .homepage #developers p {
-    width: 66%;
-    display: inline-block;
-    margin-right: 4%;
-  }
-  .homepage #developers .links {
-    width: 29%;
-    display: inline-block;
-    vertical-align: top;
   }
 }
 @media only screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
