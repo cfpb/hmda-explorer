@@ -27,7 +27,7 @@ $(function(){
     map.base = L.mapbox.map('map', 'cfpb.Finalv2-Basemap').setView([39.54, -97.87], 4);
     
     map.layers = {
-      a2012: L.mapbox.tileLayer('cfpb.Finalv2-O2012'),
+      a2012: L.mapbox.tileLayer('cfpb.Finalv2-A2012'),
       a2011: L.mapbox.tileLayer('cfpb.Finalv2-A2011'),
       o2012: L.mapbox.tileLayer('cfpb.Finalv2-O2012'),
       o2011: L.mapbox.tileLayer('cfpb.Finalv2-O2011')
