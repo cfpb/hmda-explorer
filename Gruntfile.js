@@ -53,6 +53,15 @@ module.exports = function(grunt) {
         files: {
           'dist/static/css/main.css': ['src/static/less/main.less']
         }
+      },
+      ie8: {
+        options: {
+          banner: '<%= banner.cfpb %>',
+          paths: ['src/static']
+        },
+        files: {
+          'dist/static/css/ie8.css': ['src/static/less/ie/ie8.less']
+        }
       }
     },
 
@@ -71,7 +80,7 @@ module.exports = function(grunt) {
       ie8: {
         keepSpecialComments: '*',
         files: {
-          'dist/static/css/ie8.min.css': ['src/static/vendor/html5-placeholder-polyfill/dist/placeholder_polyfill.min.css']
+          'dist/static/css/ie8.min.css': ['src/static/vendor/html5-placeholder-polyfill/dist/placeholder_polyfill.min.css', 'dist/static/css/ie8.css']
         }
       }
     },
@@ -90,7 +99,9 @@ module.exports = function(grunt) {
           'dist/index.html': 'src/index.html',
           'dist/explore.html': 'src/explore.html',
           'dist/learn-more.html': 'src/learn-more.html',
-          'dist/api.html': 'src/api.html'
+          'dist/api.html': 'src/api.html',
+          'dist/index_v1.html': 'src/index_v1.html',
+          'dist/learn-more_v1.html': 'src/learn-more_v1.html'
         }
       }
     },
@@ -146,10 +157,15 @@ module.exports = function(grunt) {
         command: [
           'cp -r src/static/fonts dist/static',
           'cp -r src/static/img dist/static',
-          'cp -r src/static/js dist/static',
           'cp src/static/vendor/cfpb-font-icons/static/css/icons-ie7.css dist/static/css/icons-ie7.css',
           'cp src/static/vendor/zeroclipboard/* dist/static/js/zeroclipboard/',
           'cp src/static/vendor/chosen/public/chosen-* dist/static/css'
+        ].join('&&')
+      },
+      planb: {
+        command: [
+          'cp -r dist/* dist-plan-b/',
+          'rm dist-plan-b/api.html dist-plan-b/explore.html dist-plan-b/index_v1.html dist-plan-b/learn-more_v1.html'
         ].join('&&')
       }
     },
@@ -203,7 +219,8 @@ module.exports = function(grunt) {
             'src/static/vendor/lodash/lodash.js',
             'src/static/vendor/bootstrap/js/bootstrap-tooltip.js',
             'src/static/vendor/chosen/public/chosen.jquery.js',
-            'src/static/js/analytics.js'
+            'src/static/js/analytics.js',
+            'src/static/js/mobile.js'
           ]
         }
       },
@@ -264,7 +281,6 @@ module.exports = function(grunt) {
             'src/static/vendor/es5-shim/es5-shim.js',
             'src/static/vendor/html5shiv/dist/html5shiv.js',
             'src/static/vendor/html5shiv/dist/html5shiv-printshiv.js',
-            'src/static/vendor/respond/respond.min.js',
             'src/static/vendor/html5-placeholder-polyfill/dist/placeholder_polyfill.jquery.min.combo.js',
             'src/static/js/modules/ie8.js'
           ]
@@ -308,6 +324,7 @@ module.exports = function(grunt) {
       cover: {
          src: [
            'src/static/js/modules/**/*.js',
+           '!src/static/js/modules/ie8.js'
           ],
           options: {
             specs: 'test/specs/*.js',
@@ -338,8 +355,7 @@ module.exports = function(grunt) {
       },
       pdp: {
         src: [
-          'dist/static/js/all.min.js',
-          'test/specs/helpers/debug.js',
+          'dist/static/js/all.min.js'
         ],
         options: {
           specs: 'test/specs/*.js',
@@ -401,7 +417,7 @@ module.exports = function(grunt) {
      */
     watch: {
       scripts: {
-        files: ['src/**/*.html', 'src/static/less/**/*.less', 'src/static/js/**/*.js', 'test/specs/*.js'],
+        files: ['src/*.html', 'src/static/less/**/*.less', 'src/static/js/**/*.js', 'test/specs/*.js'],
         tasks: ['build', 'test']
       }
     }
@@ -431,7 +447,7 @@ module.exports = function(grunt) {
    */
   grunt.registerTask('test', ['jshint', 'jasmine:cover']);
   grunt.registerTask('docs', ['removelogging', 'docco', 'build-cfpb']);
-  grunt.registerTask('build', ['htmlmin', 'shell:dist', 'jst', 'uglify', 'less', 'cssmin']);
+  grunt.registerTask('build', ['htmlmin', 'shell:dist', 'jst', 'uglify', 'less', 'cssmin', 'shell:planb']);
 
   /**
    * The 'default' task will run whenever `grunt` is run without specifying a task

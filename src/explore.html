@@ -10,16 +10,14 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <script src="static/js/jquery.min.js"></script>
-    <!--[if lt IE 9]>
-      <script src="static/js/respond.min.js"></script>
-      <script src="static/js/ie8.min.js"></script>
-    <![endif]-->
     <link rel="stylesheet" href="static/css/main.css">
     <!--[if lt IE 8]>
       <link rel="stylesheet" href="static/css/icons-ie7.css">
     <![endif]-->
     <!--[if lt IE 9]>
+      <script src="static/js/ie8.min.js"></script>
       <link rel="stylesheet" href="static/css/ie8.min.css">
+      <script src="static/js/respond.min.js"></script>
     <![endif]-->
     <script>
       var _gaq = _gaq || [];
@@ -55,6 +53,10 @@
           <a href="http://www.consumerfinance.gov"><img src="static/img/logo_2x.png" width="211" height="52" alt="Consumer Financial Protection Bureau" /></a>
 
         </div>
+
+        <button class="navicon">
+          <i class="icon-menu"></i>
+        </button>
 
         <nav role="navigation" aria-label="Main HMDA Menu">
             <ul>
@@ -246,7 +248,7 @@
                     <label><input type="checkbox" class="param" name="co_applicant_sex[]" value="3" />Not provided</label>
                     <label><input type="checkbox" class="param" name="co_applicant_sex[]" value="4" />Not applicable</label>
                   </div>
-                  <div class="help" title='Choose "not applicable" if the applicant is not a natural person (e.g., a corporation), or if the loan has been purchased on the secondary market'></i></div>
+                  <div class="help" title='Choose "not applicable" if the applicant is not a natural person (e.g., a corporation), or if the loan has been purchased on the secondary market'><i class="icon-help-alt"></i></div>
                 </li>
                 <!-- /filter field -->
 
@@ -668,14 +670,14 @@
 
                 <p>Share and save your data query with a link.</p>
 
-                <label for="share_url-2">Save your filters:</label>
+                <label for="share_url">Save your filters:</label>
                 <div class="text widget">
-                  <input type="text" id="share_url" class="share_url" name="share_url-2" value="" placeholder="Select filters above">
+                  <input type="text" id="share_url" class="share_url" name="share_url" value="" placeholder="Select filters above">
                 </div>
 
                 <div class="action">
 
-                  <input href="#" type="button" class="btn share" value="Share" data-clipboard-target="share_url">
+                  <input type="button" class="btn share" value="Share" id="share-button" data-clipboard-target="share_url">
 
                 </div>
 

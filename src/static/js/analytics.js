@@ -3,10 +3,12 @@
  --------
  1. Utililty functions
  2. Exit Links
- 3. File Downloads
- 4. Social Tracking
- 5. Newsletter Signup Form
- 6. Find and Track YouTube Videos
+ 3. Tracked Links
+ 4. File Downloads
+ 5. Social Tracking
+ 6. Newsletter Signup Form
+ 7. Data tracking
+ 8. Find and Track YouTube Videos
 
 An analytics file to fire custom events based on on Google's ga.js:
 https://developers.google.com/analytics/devguides/collection/gajs/
@@ -67,7 +69,7 @@ var track = function(category, name, value) {
             }
             else { // Exit links get a class; this is tracked with Analytics.
                 $(this).addClass('exit-link');
-            }               
+            }
         });
 
         // 2. Exit Links
@@ -79,7 +81,24 @@ var track = function(category, name, value) {
             // (it's ok we saved the href and we'll fire it later)
             e.preventDefault();
             try { track('exit link', link_text, link_url); }
-            // try { track('exit link', link_text, link_url); }
+            catch( error ) {}
+
+            if ( !$(this).hasClass('dont-redirect') ) {
+                // Give google analytics time to do its thing before changing the page url
+                // http://support.google.com/analytics/answer/1136920?hl=en
+                setTimeout(function() { document.location.href = link_url; }, linkDelay);
+            }
+        });
+
+        // 3. Tracked Links
+        $('a.tracked-link').on('click', function(e) {
+            var linkDelay = 500;
+            var link_text = $(this).text();
+            var link_url = $(this).attr('href');
+            // Stop the link from going anywhere
+            // (it's ok we saved the href and we'll fire it later)
+            e.preventDefault();
+            try { track('internal links', link_text, link_url); }
             catch( error ) {}
 
             // Give google analytics time to do its thing before changing the page url
@@ -87,8 +106,9 @@ var track = function(category, name, value) {
             setTimeout(function() { document.location.href = link_url; }, linkDelay);
         });
 
-        // 3. File Downloads
-        $('a[href$="zip"],a[href$="pdf"],a[href$="doc"],a[href$="docx"],a[href$="xls"],a[href$="xlsx"],a[href$="ppt"],a[href$="pptx"],a[href$="txt"],a[href$="csv"],a[href$="jpg"],a[href$="jpeg"],a[href$="png"],a[href$="mov"],a[href$="wma"]').on('click', function(e) {
+        // 4. File Downloads
+        // a[href$="pdf#page=315"] is special to CFPB Exam Manual
+        $('a[href$="zip"],a[href$="pdf"],a[href$="pdf#page=315"],a[href$="doc"],a[href$="docx"],a[href$="xls"],a[href$="xlsx"],a[href$="ppt"],a[href$="pptx"],a[href$="txt"],a[href$="csv"],a[href$="jpg"],a[href$="jpeg"],a[href$="png"],a[href$="mov"],a[href$="wma"]').on('click', function(e) {
             var linkDelay = 500;
             var link_text = $(this).text();
             var link_url = $(this).attr('href');
@@ -103,7 +123,7 @@ var track = function(category, name, value) {
             setTimeout(function() { document.location.href = link_url; }, linkDelay);
         });
 
-        // 4. Social Tracking
+        // 5. Social Tracking
         // Links in the footer
         $('ul.social > a').on('click', function(e) { // Selector is a placeholder for redesign.
             var linkDelay = 500;
@@ -190,12 +210,22 @@ var track = function(category, name, value) {
             setTimeout(function() { document.location.href = link_url; }, linkDelay);
         });
 
-        /* Newsletter signup form */
+        /* 6. Newsletter signup form */
         $('.signup').on('click', 'button', function() {
             var zip = $(this).closest('.signup').find('questionid_10376').val();
             track('social', 'signup', 'mailing list signup');
         });
-    
+
+        /* 7. Data tracking */
+        /* On download button */
+        $('#download .submit.btn').on('click', function() {
+            track('downloads', 'HMDA raw data');
+        });
+
+        /* On focus of text area; also fires when button is clicked */
+        $('#share .share_url').on('focus', function() {
+            track('share URL link', 'HMDA box');
+        });
     }); // End document ready.
 }); // End anonymous function.
 
@@ -203,7 +233,7 @@ var track = function(category, name, value) {
     'use strict';
     /**
      * ========================================================================
-     * Find and Track YouTube Videos
+     * 8. Find and Track YouTube Videos
      * Find YouTube videos on a page and track them with google analytics
      * ========================================================================
      * cfpb.github.com: @davidakennedy, @mikem

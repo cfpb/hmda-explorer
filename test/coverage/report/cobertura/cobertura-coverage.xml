@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="880"  lines-covered="369"  line-rate="0.4193"  branches-valid="357"  branches-covered="99"  branch-rate="0.2773"  timestamp="1378829761570" complexity="0" version="0.1">
+<coverage lines-valid="880"  lines-covered="369"  line-rate="0.4193"  branches-valid="357"  branches-covered="99"  branch-rate="0.2773"  timestamp="1378830143227" complexity="0" version="0.1">
 <sources>
 	<source>/Users/czosekv/projects/ang-projects/public-data-platform</source>
 </sources>
@@ -606,12 +606,6 @@
 			<line number="587"  hits="1"  branch="false" />
 			<line number="591"  hits="1"  branch="false" />
 			<line number="593"  hits="1"  branch="false" />
-		</lines>
-		</class>
-		<class name="ie8.js"  filename="./src/static/js/modules/ie8.js"  line-rate="1"  branch-rate="1" >
-		<methods>
-		</methods>
-		<lines>
 		</lines>
 		</class>
 		<class name="observer.js"  filename="./src/static/js/modules/observer.js"  line-rate="1"  branch-rate="0.5" >

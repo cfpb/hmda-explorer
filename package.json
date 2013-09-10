@@ -1,7 +1,7 @@
 {
   "name": "public-data-platform-static",
   "description": "CFPB's Public Data Platform",
-  "version": "0.13.0",
+  "version": "0.14.1",
   "homepage": "http://consumerfinance.gov",
   "author": {
     "name": "Consumer Financial Protection Bureau",
@@ -34,7 +34,7 @@
   "devDependencies": {
     "grunt": "latest",
     "grunt-notify": "~0.2.4",
-    "grunt-contrib-watch": "~0.4.4",
+    "grunt-contrib-watch": "~0.5.2",
     "grunt-contrib-connect": "~0.3.0",
     "grunt-contrib-less": "~0.6.0",
     "grunt-shell": "~0.3.0",
