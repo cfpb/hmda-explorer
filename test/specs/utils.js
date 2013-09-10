@@ -52,5 +52,22 @@
     });
 
   });
+  
+  describe('emptyObject', function() {
+      var _data = [ 
+        [[], true, 'should return true on empty array'],
+        [[''], true, 'should return true on array containing only empty values'],
+        [[null], true, 'should return true on array containing only null values'],
+        [['hello'], false, 'should return false on array containing a value'],
+        [['', 'hello'], false, 'should return false on array containing at least one value']
+      ];
+
+      using( _data, function(val) {
+        it('', function(){
+          expect(PDP.utils.emptyObject(val[0]))
+            .toEqual(val[1]);
+        });
+     });
+  });
 
 })();
