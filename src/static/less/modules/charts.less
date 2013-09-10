@@ -1,0 +1,135 @@
+.charts {
+    
+    .avenir-next;
+    margin-top: 2em;
+
+    h3 {
+        .avenir-next-demi;
+        font-size: 1.375em;
+        letter-spacing: 0;
+        margin-top: 4px;
+    }
+
+    p {
+        font-family: @body-font;
+        line-height: 1.375em;
+    }
+
+    .chart-label {
+        .avenir-next-demi;
+        font-size: 0.875em;
+        line-height: 1.25em;
+    }
+
+    .help {
+        position: relative;
+
+        i {
+            top: 7px;
+        }
+    }
+
+    .toggle-series-heading {
+        margin-top: 1.1em;
+        border-width: 0 !important;
+        .column(5);
+    }
+
+    .toggle-series-controls {
+        font-size: 0.75em;
+        line-height: 2em;
+        margin-top: 1.5em;
+        .column(7);
+
+        input {
+            padding-left: 4px;
+        }
+
+    }
+
+    .chart-note {   
+        font-size: 0.75em;
+        .avenir-next;
+        padding: 30px 15px 0 15px;
+    }
+
+    .chart-legend,
+    .oblt {
+        margin: 0 auto;
+    }
+
+    .chart-legend th, .chart-legend td {
+        text-align: left;
+        font-size: 0.75em;
+        line-height: 1.25em;
+        width: 180px;
+        padding-right: 10px;
+        white-space: nowrap;
+    }
+
+    .chart-legend th {
+        .avenir-next-demi;
+        line-height: 1.75em;
+    }
+
+    .chart-legend-box {
+        display: inline-block;
+        width: 40px;
+        height: 10px;
+        margin-right: 5px;
+    }
+
+    .chart-legend-box-hpa {
+        background-color: @green_midtone;
+    }
+    .chart-legend-box-hpo {
+        background-color: @green;
+    }
+    .chart-legend-box-hia {
+        background-color: @teal50;
+    }
+    .chart-legend-box-hio {
+        background-color: @teal;
+    }
+    .chart-legend-box-ra {
+        background-color: @light_neutral;
+    }
+    .chart-legend-box-ro {
+        background-color: @dark_neutral;
+    }
+
+    .chart2-legend-box-con {
+        background-color: @green_tint;
+    }
+    .chart2-legend-box-fha {
+        background-color: @green_midtone;
+    }
+    .chart2-legend-box-va {
+        background-color: @green;
+    }
+    .chart2-legend-box-rhs {
+        background-color: @teal;
+    }
+
+}
+
+@media only screen and ( min-width: 768px ) {
+
+    .charts {
+        .chart-info {
+            .column(5);
+        }
+
+        .chart-content {
+            .column(7);
+        }
+        .chart-legend {
+            margin: 0 auto 0 45px;
+        }
+
+        .oblt {
+            margin: 0 auto 0 115px;
+        }
+    }
+
+}

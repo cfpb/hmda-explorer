@@ -10,16 +10,14 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <script src="static/js/jquery.min.js"></script>
-    <!--[if lt IE 9]>
-      <script src="static/js/respond.min.js"></script>
-      <script src="static/js/ie8.min.js"></script>
-    <![endif]-->
     <link rel="stylesheet" href="static/css/main.css">
     <!--[if lt IE 8]>
       <link rel="stylesheet" href="static/css/icons-ie7.css">
     <![endif]-->
     <!--[if lt IE 9]>
+    <script src="static/js/ie8.min.js"></script>
       <link rel="stylesheet" href="static/css/ie8.min.css">
+      <script src="static/js/respond.min.js"></script>
     <![endif]-->
     <script>
       var _gaq = _gaq || [];
@@ -39,8 +37,11 @@
       docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2');
     </script>
   </head>
+    
   <body class="hmda explore api-docs">
+    <div id="wrap">
 
+      
     <div class="top-banner">
       <div class = "inner">
         <p class="return-cfgov">Return to <a href="http://www.consumerfinance.gov">consumerfinance.gov</a></p>
@@ -55,6 +56,10 @@
           <a href="http://www.consumerfinance.gov"><img src="static/img/logo_2x.png" width="211" height="52" alt="Consumer Financial Protection Bureau" /></a>
 
         </div>
+
+        <button class="navicon">
+          <i class="icon-menu"></i>
+        </button>
 
         <nav role="navigation" aria-label="Main HMDA Menu">
             <ul>
@@ -77,8 +82,9 @@
 
       </div>
 
-      <!-- api section -->
 
+      <!-- api section -->
+      <div id="main"> 
       <div id="api-docs">
       
 
@@ -107,7 +113,7 @@
             </li>
           </ul>
         </div>
-        <div style="clear:both;"></div>
+
 
         </div>
       </div>
@@ -115,11 +121,14 @@
   </section>
 
 
-
+      
 
       </div>
 
       <!-- /api section -->
+
+    </div> <!--main-->
+  </div> <!--wrap-->
 
       <footer role="contentinfo">
         <nav role="navigation" aria-label="Footer Menu">
@@ -150,10 +159,9 @@
           </ul>
         </nav>
       </footer>
-    <script src="static/js/jquery.min.js"></script>
-    <!--[if lt IE 9]>
-      <script src="static/js/ie8.min.js"></script>
-    <![endif]-->
     <script src="static/js/main.min.js"></script>
+    <!--[if !IE 7]>
+      <style type="text/css">#wrap {display:table;height:100%}</style>
+    <![endif]-->
   </body>
 </html>

@@ -29,6 +29,3 @@ src/static/vendor
 #########
 ghpages.sh
 
-# Git attributes #
-##################
-.gitattributes

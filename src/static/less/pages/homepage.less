@@ -1,8 +1,31 @@
 .homepage {
 
+
+  // The Plan B version of the homepage has a body class of `plan-b`.
+  // Put any overrides for that version of the homepage here.
+  // We may want to put some overrides in the media query section at the 
+  // bottom, as well, if need be.
+  &.plan-b {
+
+    #get-the-data {
+
+      .filters {
+        width: 100%;
+        min-height: 0;
+        height: auto;
+      }
+      h3 {
+        padding-top: 10px;
+      }
+
+    }
+
+  }
+
   .hero {
     
     padding-top: 10px;
+    margin-top: 5px;
     text-align: center;
     background-color: #FAB051;
     background-size: cover;
@@ -24,6 +47,8 @@
 
     nav {
       font-family: @body-font;
+      margin-top: 15px;
+      border-top: 2px solid black;
     }
 
     .title {
@@ -111,7 +136,7 @@ section.video {
     -ms-transition: background-image .4s ease-in-out;
     transition: background-image .4s ease-in-out;
     max-width: 220px;
-    min-height: 0;
+    min-height: 75px;
     margin: 0;
     width: auto;
     padding: 0;
@@ -133,39 +158,140 @@ section.video {
   }
 
   #map {
+
     width: 100%;
     height: 400px;
+    // Setting a left margin corrects a MapBox bug that causes tooltip overlays to go bonkers
+    margin-left: -1px;
     border-top: 3px solid @light_field10;
     border-bottom: 3px solid @light_field10;
-  }
+    .avenir-next;
 
-  .map-legends {
-    width: 370px;
-  }
+    .tooltip {
+      width: 200px;
+    }
 
-  .legend-title {
-    font-weight: bold;
-    font-size: 1em;
-    padding-bottom: 10px;
-  }
+    #map-title {
+      z-index: 5;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 215px;
+      background-color: #fff;
+      border: 1px solid @light_field;
+      padding: 10px;
 
-  .legend-labels {
-    margin: 0;
-    padding: 0;
-  }
+      h3 {
+        font-size: 1.75em;
+        line-height: 1.2em;
+        .avenir-next-demi;
+        letter-spacing: 0;
+      }
 
-  .legend-labels li {
-    list-style-type: none;
-  }
+      p {
+        margin-bottom: .75em;
+        font-family: @body-font;
+        font-size: 1.3em;
+        line-height: 1.4em;
+      }
 
-  .legend-labels li span {
-    height: 10px;
-    width: 35px;
-    display: inline-block;
-  }
+      .year {
+        font-size: 1.1em;
+      }  
 
-  .legend-source {
-    margin-top: 10px;
+      .year label {
+        font-size: 1.1em;
+        letter-spacing: 0;
+        margin-bottom: .75em;
+      }
+
+      .type label {
+        font-size: 1.1em;
+        line-height: 1em;
+        .avenir-next;
+        i {
+          font-size: 1.1em;
+          position: relative;
+          top: .4em;
+          left: .5em;
+        }
+      }
+
+    }
+
+    .map_tooltip {
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+    }
+
+    // Hide the map controls on mobile devices
+    #map-title {
+      display: none;
+      animation: fadein .5s;
+      -moz-animation: fadein .5s;
+      -webkit-animation: fadein .5s;
+      -o-animation: fadein .5s;
+    }
+
+    .my-legend {
+      .legend-title {
+        text-transform: uppercase;
+        font-size: 1.2em;
+        margin-bottom: 5px;
+        font-weight: 600;
+      }
+    }
+
+    .leaflet-control-container {
+      height: 400px;
+    }
+
+    .wax-legend .legend-scale ul li {
+      width: 37px;
+    }
+
+    .wax-legend ul.legend-labels li span {
+      width: 37px;
+      height: 10px;
+    }
+
+    .year {
+      .avenir-next-demi;
+      label {
+        font-size: 13px;
+        color: @pacific;
+        padding-bottom: 0;
+        &.selected {
+          border-bottom: 2px solid @black;
+        }
+      }
+      input {
+        .visuallyhidden;
+      }
+    }
+
+    .type {
+      margin-top: 5px;
+      .avenir-next-demi;
+      label {
+        font-size: 13px;
+        display: block;
+        position: relative;
+      }
+      input {
+        margin-right: 5px;
+      }
+      .help {
+        margin-left: 5px;
+      }
+    }
+
+    .help {
+      top: 0;
+    }
+
   }
   
 }
@@ -203,6 +329,20 @@ section.video {
   }
 }
 
+&.plan-b {
+
+  #get-the-data {
+
+    .filters {
+      width: 100%;
+      min-height: 0;
+      height: auto;
+    }
+
+  }
+
+}
+
 #developers {
   h2 {
     .at2x( '../img/icon_devs.png', 92px, 97px );
@@ -213,6 +353,7 @@ section.video {
     p {
       line-height: 1.375em;
       margin: 0;
+      margin-bottom: 10px;
     }
   }
 
@@ -259,8 +400,9 @@ section.video {
   }
   .exit {
     position: absolute;
-    right: 10px;
-    top: 0;
+    right: 5px;
+    top: 5px;
+    height: 30px;
     font-size: 40px;
     line-height: 0;
     cursor: pointer;
@@ -276,6 +418,7 @@ section.video {
     .hero {
       min-height: 403px;
       padding-top: 45px;
+      margin-top: 0;
       h1 {
         font-size: 47px;
       }
@@ -283,6 +426,7 @@ section.video {
         width: 82%;
         margin: 0 auto;
         margin-top: 25px;
+        border: 0;
         .clearfix();
         li {
           width: 33%;
@@ -401,6 +545,19 @@ section.video {
       } 
     }
 
+    #facts-and-figures {
+      #map {
+        // Show the map controls on mobile devices
+        .leaflet-control-container,
+        #map-title {
+          display: block;
+        }
+        .leaflet-left {
+          left: 220px;
+        }
+      }
+    }
+
     #get-the-data {
       .inner {
         width: 82%;
@@ -420,16 +577,7 @@ section.video {
       .inner {
         width: 82%;
       }
-      p {
-        width: 66%;
-        display: inline-block;
-        margin-right: 4%;
-      }
-      .links {
-        width: 29%;
-        display: inline-block;
-        vertical-align: top;
-      }
+
     }
 
   }
