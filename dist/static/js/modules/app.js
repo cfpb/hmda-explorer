@@ -203,7 +203,7 @@ var PDP = (function ( pdp ) {
     }
 
     if (this.currentSection === 'summary') {
-      pdp.summaryTable.setupDataTable();
+      pdp.summaryTable.setupTable();
     }
 
   };
