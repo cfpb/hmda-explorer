@@ -175,14 +175,14 @@
           <h2>"What is HMDA?" Video</h2>
           <p>Watch our <a href="index.html#video">introduction to HMDA</a>, featuring Ren Essene, CFPB Senior Policy Analyst. You can also read the transcript below.</p>
 
-          <div class="popdown filter closed" id="transcript-toggle">
-            <label for="hmda-video-transcript"><h3><i class="icon-plus-alt"></i>  HMDA video transcript</h3></label>
-          </div>
+          <div class="filter transcript closed" id="transcript-toggle" title="show the video transcript">
+            
+              <a href="#transcript" class="internal-link">
+                <h3><i class="icon-minus-alt"></i>  HMDA video transcript</h3>
+              </a>
 
-          <div class="hidden" id="transcript-text">
-
+          <div id="transcript-text">
             <p>Each year thousands of banks and other financial institutions report data about mortgages to the public, thanks to the Home Mortgage Disclosure Act, or “HMDA” for short. These public data are important because:</p>
-
             <ul>
               <li>Help show whether lenders are serving the housing needs of their communities;</li>
               <li>Give public officials information that helps them make decisions and policies; and</li>
@@ -211,17 +211,9 @@
 
         </div>
       </div>
-    </section>
-      
-
-            
+    </div></section>            
 </div>
 
-     
-
-
-
-      
 
       <footer role="contentinfo">
         <nav role="navigation" aria-label="Footer Menu">
@@ -257,6 +249,7 @@
     $(function(){
       (function(){
 
+        /* only need to reference the id of the chunk of code you want to show/hide */
         var transcript = {
           init: function() {
             $('#transcript-text').removeClass('hidden').hide();
@@ -265,16 +258,19 @@
             $('#transcript-text').show();
           },
           toggle: function() {
-            $('#transcript-text').toggle();
+            $('#transcript-text').slideToggle();
+            $('#transcript-toggle').toggleClass('closed');
           }
         }
 
         transcript.init();
 
+        /* jumplink to the transcript showing breaks icons on refresh */
         if ( window.location.hash && window.location.hash === '#transcript' ) {
-          transcript.show();
+          transcript.toggle();
         }
 
+        /* reveal the video transcript text */
         $('#transcript-toggle').on( 'click', function(){
           transcript.toggle();
         });
