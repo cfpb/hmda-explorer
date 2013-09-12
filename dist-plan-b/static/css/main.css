@@ -3155,6 +3155,9 @@ section.video h2 strong {
   .homepage .hero nav li:after {
     clear: both;
   }
+  .homepage .hero nav li:first-child {
+    width: 34%;
+  }
   .homepage .hero nav a {
     background-color: transparent;
     text-transform: none;
