@@ -283,7 +283,8 @@
         }
 
         /* reveal the video transcript text */
-        $('#transcript-toggle').on( 'click', function(){
+        $('#transcript-toggle').on( 'click', function( ev ){
+          ev.preventDefault();
           transcript.toggle();
         });
 
