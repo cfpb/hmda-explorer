@@ -22,7 +22,7 @@
 
       PDP.query.reset({ defaults: true });
 
-      expect( PDP.query.params['as_of_year'].values[0] ).toBe( 2011 );
+      expect( PDP.query.params['as_of_year'].values[0] ).toBe( 2012 );
 
     });
 
