@@ -161,6 +161,12 @@ module.exports = function(grunt) {
           'cp src/static/vendor/zeroclipboard/* dist/static/js/zeroclipboard/',
           'cp src/static/vendor/chosen/public/chosen-* dist/static/css'
         ].join('&&')
+      },
+      planb: {
+        command: [
+          'cp -r dist/* dist-plan-b/',
+          'rm dist-plan-b/api.html dist-plan-b/explore.html dist-plan-b/index_v1.html dist-plan-b/learn-more_v1.html'
+        ].join('&&')
       }
     },
 
@@ -441,7 +447,7 @@ module.exports = function(grunt) {
    */
   grunt.registerTask('test', ['jshint', 'jasmine:cover']);
   grunt.registerTask('docs', ['removelogging', 'docco', 'build-cfpb']);
-  grunt.registerTask('build', ['htmlmin', 'shell:dist', 'jst', 'uglify', 'less', 'cssmin']);
+  grunt.registerTask('build', ['htmlmin', 'shell:dist', 'jst', 'uglify', 'less', 'cssmin', 'shell:planb']);
 
   /**
    * The 'default' task will run whenever `grunt` is run without specifying a task

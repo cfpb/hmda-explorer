@@ -24,13 +24,13 @@ $(function(){
 
     var map = {};
 
-    map.base = L.mapbox.map('map', 'cfpb.hmda_basemap').setView([39.54, -97.87], 4);
+    map.base = L.mapbox.map('map', 'cfpb.Finalv2-Basemap').setView([39.54, -97.87], 4);
     
     map.layers = {
-      a2012: L.mapbox.tileLayer('cfpb.hmda_a2012'),
-      a2011: L.mapbox.tileLayer('cfpb.hmda_a2011'),
-      o2012: L.mapbox.tileLayer('cfpb.hmda_o2012'),
-      o2011: L.mapbox.tileLayer('cfpb.hmda_o2011')
+      a2012: L.mapbox.tileLayer('cfpb.Finalv2-A2012'),
+      a2011: L.mapbox.tileLayer('cfpb.Finalv2-A2011'),
+      o2012: L.mapbox.tileLayer('cfpb.Finalv2-O2012'),
+      o2011: L.mapbox.tileLayer('cfpb.Finalv2-O2011')
     };
 
     // In order to get a nice fade when we toggle between layers, 
@@ -115,7 +115,7 @@ $(function(){
             over30;
 
         under30 = $('#map .legend-labels li').first().html();
-        $('#map .legend-labels li').first().html( under30.replace( 'Under -30%', '< -30%' ) );
+        $('#map .legend-labels li').first().html( under30 + '< -30%' );
 
         over30 = $('#map .legend-labels li:nth-last-child(2)').html();
         $('#map .legend-labels li:nth-last-child(2)').html( over30.replace( 'Over 30%', '> 30%' ) );
@@ -126,7 +126,19 @@ $(function(){
 
       }.bind( this ));
 
-      $('#map .help').tooltip({ placement: 'right' });
+      $('#map .help').tooltip({ placement: 'right' }).on('shown.bs.tooltip', function () {
+        $('.tooltip').css({
+          'margin-left': '10px',
+          'margin-top': '5px'
+        });
+      });
+
+      $('#map .help').tooltip({ placement: 'right' }).on('hide.bs.tooltip', function () {
+        $('.tooltip').css({
+          'margin-left': '0',
+          'margin-top': '0'
+        });
+      });
       
 
     };

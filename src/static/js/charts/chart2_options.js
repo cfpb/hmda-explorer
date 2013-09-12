@@ -19,7 +19,6 @@ var chart2_options = {
         enabled: false
     },
     title: {
-
         text: 'U.S. TOTAL',
         align: 'center',
         verticalAlign: 'bottom',
@@ -32,17 +31,14 @@ var chart2_options = {
             fontFamily: '"Avenir Next LT W01 Demi", "Avenir Next Demi", "Avenir Next", "Arial"',
             fontWeight: '600'
         }
-
     },
-
     credits: {
         text: 'Data are for first-lien, owner-occupied, 1-4 family and manufactured homes.',
         enabled: false
     },
     colors: [
-      '#acdc91', '#43af2a', '#81AFAF', '#005E5D', '#796E65', '#D7D2CB'
+      '#DBEDD4', '#ADDC91', '#2CB34A', '#005E5D'
     ],
-
     legend: {
         align: 'right',
         backgroundColor: '#FFFFFF',
@@ -57,7 +53,6 @@ var chart2_options = {
             fontFamily: '"Avenir Next LT W01 Medium Cn", "Avenir Next Light", "Avenir Next", "Arial Condensed", "Arial"',
             fontWeight: '',
             paddingBottom: '8pt'
-
         },
         layout: 'vertical',
         margin: 10,
@@ -70,8 +65,6 @@ var chart2_options = {
         y: 0,
         enabled: false
     },
-
-
     tooltip: {
         backgroundColor: 'rgba(0, 0, 0, 0.65)',
         borderColor: '#999999',
@@ -86,12 +79,10 @@ var chart2_options = {
             padding: 8,
             lineHeight: '12pt'
         },
-
         formatter: function() {
             var format = '<span style="font-size: 12pt;><span style="font-weight: 700;">' + addCommas(this.y) + '</span> ' + this.series.name + '<br>originations in ' + this.x + '</span>';
             return format;
         }
-
     },
 
     plotOptions: {
@@ -130,16 +121,13 @@ var chart2_options = {
             size: '90%' /* Used in IE 7/8 (VML) so pie graph is not clipped */
         },
         column: {
-
             dataLabels: {
                 enabled: false
             },
-
             grouping: true,
             groupPadding: 0.10,
             pointPadding: 0.00,
             /* determined by height of the div */
-
             stacking: null,
             events: {
                 legendItemClick: function() {
@@ -148,14 +136,11 @@ var chart2_options = {
             }
         },
         bar: {
-
             dataLabels: {
                 enabled: false
             },
-
             groupPadding: 0.10,
             pointPadding: 0.00,
-
             stacking: null
         },
         line: {
@@ -175,19 +160,12 @@ var chart2_options = {
     },
 
     xAxis: {
-
         categories: [
-
             '2010',
-
             '2011',
-
             '2012'
-
         ],
-
         gridLineWidth: 0,
-
         labels: {
             style: {
                 color: '#212121',
@@ -195,13 +173,10 @@ var chart2_options = {
                 fontFamily: '"Avenir Next LT W01 Regular", "Avenir Next", "Arial"',
                 fontWeight: '400'
             },
-
-
             enabled: true,
             y: 20
             //overflow: 'justify'
         },
-
         lineWidth: 0,
         title: {
             text: null,
@@ -232,7 +207,6 @@ var chart2_options = {
                 },
                 enabled: false
             },
-
             labels: {
                 style: {
                     color: '#212121',
@@ -240,30 +214,19 @@ var chart2_options = {
                     fontFamily: '"Avenir Next LT W01 Regular", "Avenir Next", "Arial"',
                     fontWeight: '400'
                 },
-
-
-
-
                 format: '{value:,.0f}',
-
-
                 enabled: true
                 //formatter: function() { return this.value; },
                 //overflow: 'justify'
             },
             gridLineWidth: 1
         },
-
         {
             opposite: true,
             /* secondary_axis_max */
-
-
-
             title: {
                 text: null
             },
-
             labels: {
                 style: {
                     color: '#212121',
@@ -271,13 +234,7 @@ var chart2_options = {
                     fontFamily: '"Avenir Next LT W01 Regular", "Avenir Next", "Arial"',
                     fontWeight: '400'
                 },
-
-
-
-
                 format: ' {value:,.0f} ',
-
-
                 enabled: true
                 //formatter: function() { return this.value; },
                 //overflow: 'justify'
@@ -285,32 +242,23 @@ var chart2_options = {
             gridLineWidth: 0
         }
     ],
-
-
     series: [
-
-
         {
             name: 'Conventional',
             data: [5038561, 4493378, 6432249]
         },
         {
-            name: 'FHA-insured',
+            name: 'FHA',
             data: [1428357, 1057843, 1278827]
-
         },
         {
-            name: 'FSA/RHS',
+            name: 'VA',
+            data: [310522, 372783, 558690]
+        },
+        {
+            name: 'RHS',
             data: [87858, 113815, 132204]
 
-        },
-
-
-        {
-            name: 'VA-guaranteed',
-            data: [310522, 372783, 558690]
-
         }
-
     ]
 };
