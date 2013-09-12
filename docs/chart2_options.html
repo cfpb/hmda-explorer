@@ -19,7 +19,6 @@
         <span class="nx">enabled</span><span class="o">:</span> <span class="kc">false</span>
     <span class="p">},</span>
     <span class="nx">title</span><span class="o">:</span> <span class="p">{</span>
-
         <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;U.S. TOTAL&#39;</span><span class="p">,</span>
         <span class="nx">align</span><span class="o">:</span> <span class="s1">&#39;center&#39;</span><span class="p">,</span>
         <span class="nx">verticalAlign</span><span class="o">:</span> <span class="s1">&#39;bottom&#39;</span><span class="p">,</span>
@@ -32,17 +31,14 @@
             <span class="nx">fontFamily</span><span class="o">:</span> <span class="s1">&#39;&quot;Avenir Next LT W01 Demi&quot;, &quot;Avenir Next Demi&quot;, &quot;Avenir Next&quot;, &quot;Arial&quot;&#39;</span><span class="p">,</span>
             <span class="nx">fontWeight</span><span class="o">:</span> <span class="s1">&#39;600&#39;</span>
         <span class="p">}</span>
-
     <span class="p">},</span>
-
     <span class="nx">credits</span><span class="o">:</span> <span class="p">{</span>
         <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Data are for first-lien, owner-occupied, 1-4 family and manufactured homes.&#39;</span><span class="p">,</span>
         <span class="nx">enabled</span><span class="o">:</span> <span class="kc">false</span>
     <span class="p">},</span>
     <span class="nx">colors</span><span class="o">:</span> <span class="p">[</span>
-      <span class="s1">&#39;#acdc91&#39;</span><span class="p">,</span> <span class="s1">&#39;#43af2a&#39;</span><span class="p">,</span> <span class="s1">&#39;#81AFAF&#39;</span><span class="p">,</span> <span class="s1">&#39;#005E5D&#39;</span><span class="p">,</span> <span class="s1">&#39;#796E65&#39;</span><span class="p">,</span> <span class="s1">&#39;#D7D2CB&#39;</span>
+      <span class="s1">&#39;#DBEDD4&#39;</span><span class="p">,</span> <span class="s1">&#39;#ADDC91&#39;</span><span class="p">,</span> <span class="s1">&#39;#2CB34A&#39;</span><span class="p">,</span> <span class="s1">&#39;#005E5D&#39;</span>
     <span class="p">],</span>
-
     <span class="nx">legend</span><span class="o">:</span> <span class="p">{</span>
         <span class="nx">align</span><span class="o">:</span> <span class="s1">&#39;right&#39;</span><span class="p">,</span>
         <span class="nx">backgroundColor</span><span class="o">:</span> <span class="s1">&#39;#FFFFFF&#39;</span><span class="p">,</span>
@@ -57,7 +53,6 @@
             <span class="nx">fontFamily</span><span class="o">:</span> <span class="s1">&#39;&quot;Avenir Next LT W01 Medium Cn&quot;, &quot;Avenir Next Light&quot;, &quot;Avenir Next&quot;, &quot;Arial Condensed&quot;, &quot;Arial&quot;&#39;</span><span class="p">,</span>
             <span class="nx">fontWeight</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
             <span class="nx">paddingBottom</span><span class="o">:</span> <span class="s1">&#39;8pt&#39;</span>
-
         <span class="p">},</span>
         <span class="nx">layout</span><span class="o">:</span> <span class="s1">&#39;vertical&#39;</span><span class="p">,</span>
         <span class="nx">margin</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
@@ -70,8 +65,6 @@
         <span class="nx">y</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
         <span class="nx">enabled</span><span class="o">:</span> <span class="kc">false</span>
     <span class="p">},</span>
-
-
     <span class="nx">tooltip</span><span class="o">:</span> <span class="p">{</span>
         <span class="nx">backgroundColor</span><span class="o">:</span> <span class="s1">&#39;rgba(0, 0, 0, 0.65)&#39;</span><span class="p">,</span>
         <span class="nx">borderColor</span><span class="o">:</span> <span class="s1">&#39;#999999&#39;</span><span class="p">,</span>
@@ -86,12 +79,10 @@
             <span class="nx">padding</span><span class="o">:</span> <span class="mi">8</span><span class="p">,</span>
             <span class="nx">lineHeight</span><span class="o">:</span> <span class="s1">&#39;12pt&#39;</span>
         <span class="p">},</span>
-
         <span class="nx">formatter</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
             <span class="kd">var</span> <span class="nx">format</span> <span class="o">=</span> <span class="s1">&#39;&lt;span style=&quot;font-size: 12pt;&gt;&lt;span style=&quot;font-weight: 700;&quot;&gt;&#39;</span> <span class="o">+</span> <span class="nx">addCommas</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">y</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&lt;/span&gt; &#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">series</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s1">&#39;&lt;br&gt;originations in &#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="s1">&#39;&lt;/span&gt;&#39;</span><span class="p">;</span>
             <span class="k">return</span> <span class="nx">format</span><span class="p">;</span>
         <span class="p">}</span>
-
     <span class="p">},</span>
 
     <span class="nx">plotOptions</span><span class="o">:</span> <span class="p">{</span>
@@ -130,16 +121,13 @@
             <span class="nx">size</span><span class="o">:</span> <span class="s1">&#39;90%&#39;</span> <span class="cm">/* Used in IE 7/8 (VML) so pie graph is not clipped */</span>
         <span class="p">},</span>
         <span class="nx">column</span><span class="o">:</span> <span class="p">{</span>
-
             <span class="nx">dataLabels</span><span class="o">:</span> <span class="p">{</span>
                 <span class="nx">enabled</span><span class="o">:</span> <span class="kc">false</span>
             <span class="p">},</span>
-
             <span class="nx">grouping</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
             <span class="nx">groupPadding</span><span class="o">:</span> <span class="mf">0.10</span><span class="p">,</span>
             <span class="nx">pointPadding</span><span class="o">:</span> <span class="mf">0.00</span><span class="p">,</span>
             <span class="cm">/* determined by height of the div */</span>
-
             <span class="nx">stacking</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
             <span class="nx">events</span><span class="o">:</span> <span class="p">{</span>
                 <span class="nx">legendItemClick</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
@@ -148,14 +136,11 @@
             <span class="p">}</span>
         <span class="p">},</span>
         <span class="nx">bar</span><span class="o">:</span> <span class="p">{</span>
-
             <span class="nx">dataLabels</span><span class="o">:</span> <span class="p">{</span>
                 <span class="nx">enabled</span><span class="o">:</span> <span class="kc">false</span>
             <span class="p">},</span>
-
             <span class="nx">groupPadding</span><span class="o">:</span> <span class="mf">0.10</span><span class="p">,</span>
             <span class="nx">pointPadding</span><span class="o">:</span> <span class="mf">0.00</span><span class="p">,</span>
-
             <span class="nx">stacking</span><span class="o">:</span> <span class="kc">null</span>
         <span class="p">},</span>
         <span class="nx">line</span><span class="o">:</span> <span class="p">{</span>
@@ -175,19 +160,12 @@
     <span class="p">},</span>
 
     <span class="nx">xAxis</span><span class="o">:</span> <span class="p">{</span>
-
         <span class="nx">categories</span><span class="o">:</span> <span class="p">[</span>
-
             <span class="s1">&#39;2010&#39;</span><span class="p">,</span>
-
             <span class="s1">&#39;2011&#39;</span><span class="p">,</span>
-
             <span class="s1">&#39;2012&#39;</span>
-
         <span class="p">],</span>
-
         <span class="nx">gridLineWidth</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-
         <span class="nx">labels</span><span class="o">:</span> <span class="p">{</span>
             <span class="nx">style</span><span class="o">:</span> <span class="p">{</span>
                 <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;#212121&#39;</span><span class="p">,</span>
@@ -195,11 +173,8 @@
                 <span class="nx">fontFamily</span><span class="o">:</span> <span class="s1">&#39;&quot;Avenir Next LT W01 Regular&quot;, &quot;Avenir Next&quot;, &quot;Arial&quot;&#39;</span><span class="p">,</span>
                 <span class="nx">fontWeight</span><span class="o">:</span> <span class="s1">&#39;400&#39;</span>
             <span class="p">},</span>
-
-
             <span class="nx">enabled</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
             <span class="nx">y</span><span class="o">:</span> <span class="mi">20</span></pre></div>             </td>           </tr>                               <tr id="section-2">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-2">&#182;</a>               </div>               <p>overflow: 'justify'</p>             </td>             <td class="code">               <div class="highlight"><pre>        <span class="p">},</span>
-
         <span class="nx">lineWidth</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
         <span class="nx">title</span><span class="o">:</span> <span class="p">{</span>
             <span class="nx">text</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
@@ -230,7 +205,6 @@
                 <span class="p">},</span>
                 <span class="nx">enabled</span><span class="o">:</span> <span class="kc">false</span>
             <span class="p">},</span>
-
             <span class="nx">labels</span><span class="o">:</span> <span class="p">{</span>
                 <span class="nx">style</span><span class="o">:</span> <span class="p">{</span>
                     <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;#212121&#39;</span><span class="p">,</span>
@@ -238,28 +212,17 @@
                     <span class="nx">fontFamily</span><span class="o">:</span> <span class="s1">&#39;&quot;Avenir Next LT W01 Regular&quot;, &quot;Avenir Next&quot;, &quot;Arial&quot;&#39;</span><span class="p">,</span>
                     <span class="nx">fontWeight</span><span class="o">:</span> <span class="s1">&#39;400&#39;</span>
                 <span class="p">},</span>
-
-
-
-
                 <span class="nx">format</span><span class="o">:</span> <span class="s1">&#39;{value:,.0f}&#39;</span><span class="p">,</span>
-
-
                 <span class="nx">enabled</span><span class="o">:</span> <span class="kc">true</span></pre></div>             </td>           </tr>                               <tr id="section-3">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-3">&#182;</a>               </div>               <p>formatter: function() { return this.value; },
 overflow: 'justify'</p>             </td>             <td class="code">               <div class="highlight"><pre>            <span class="p">},</span>
             <span class="nx">gridLineWidth</span><span class="o">:</span> <span class="mi">1</span>
         <span class="p">},</span>
-
         <span class="p">{</span>
             <span class="nx">opposite</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
             <span class="cm">/* secondary_axis_max */</span>
-
-
-
             <span class="nx">title</span><span class="o">:</span> <span class="p">{</span>
                 <span class="nx">text</span><span class="o">:</span> <span class="kc">null</span>
             <span class="p">},</span>
-
             <span class="nx">labels</span><span class="o">:</span> <span class="p">{</span>
                 <span class="nx">style</span><span class="o">:</span> <span class="p">{</span>
                     <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;#212121&#39;</span><span class="p">,</span>
@@ -267,45 +230,30 @@ overflow: 'justify'</p>             </td>             <td class="code">         
                     <span class="nx">fontFamily</span><span class="o">:</span> <span class="s1">&#39;&quot;Avenir Next LT W01 Regular&quot;, &quot;Avenir Next&quot;, &quot;Arial&quot;&#39;</span><span class="p">,</span>
                     <span class="nx">fontWeight</span><span class="o">:</span> <span class="s1">&#39;400&#39;</span>
                 <span class="p">},</span>
-
-
-
-
                 <span class="nx">format</span><span class="o">:</span> <span class="s1">&#39; {value:,.0f} &#39;</span><span class="p">,</span>
-
-
                 <span class="nx">enabled</span><span class="o">:</span> <span class="kc">true</span></pre></div>             </td>           </tr>                               <tr id="section-4">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-4">&#182;</a>               </div>               <p>formatter: function() { return this.value; },
 overflow: 'justify'</p>             </td>             <td class="code">               <div class="highlight"><pre>            <span class="p">},</span>
             <span class="nx">gridLineWidth</span><span class="o">:</span> <span class="mi">0</span>
         <span class="p">}</span>
     <span class="p">],</span>
-
-
     <span class="nx">series</span><span class="o">:</span> <span class="p">[</span>
-
-
         <span class="p">{</span>
             <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Conventional&#39;</span><span class="p">,</span>
             <span class="nx">data</span><span class="o">:</span> <span class="p">[</span><span class="mi">5038561</span><span class="p">,</span> <span class="mi">4493378</span><span class="p">,</span> <span class="mi">6432249</span><span class="p">]</span>
         <span class="p">},</span>
         <span class="p">{</span>
-            <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;FHA-insured&#39;</span><span class="p">,</span>
+            <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;FHA&#39;</span><span class="p">,</span>
             <span class="nx">data</span><span class="o">:</span> <span class="p">[</span><span class="mi">1428357</span><span class="p">,</span> <span class="mi">1057843</span><span class="p">,</span> <span class="mi">1278827</span><span class="p">]</span>
-
         <span class="p">},</span>
         <span class="p">{</span>
-            <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;FSA/RHS&#39;</span><span class="p">,</span>
+            <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;VA&#39;</span><span class="p">,</span>
+            <span class="nx">data</span><span class="o">:</span> <span class="p">[</span><span class="mi">310522</span><span class="p">,</span> <span class="mi">372783</span><span class="p">,</span> <span class="mi">558690</span><span class="p">]</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;RHS&#39;</span><span class="p">,</span>
             <span class="nx">data</span><span class="o">:</span> <span class="p">[</span><span class="mi">87858</span><span class="p">,</span> <span class="mi">113815</span><span class="p">,</span> <span class="mi">132204</span><span class="p">]</span>
 
-        <span class="p">},</span>
-
-
-        <span class="p">{</span>
-            <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;VA-guaranteed&#39;</span><span class="p">,</span>
-            <span class="nx">data</span><span class="o">:</span> <span class="p">[</span><span class="mi">310522</span><span class="p">,</span> <span class="mi">372783</span><span class="p">,</span> <span class="mi">558690</span><span class="p">]</span>
-
         <span class="p">}</span>
-
     <span class="p">]</span>
 <span class="p">};</span>
 
