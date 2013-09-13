@@ -157,6 +157,7 @@ module.exports = function(grunt) {
         command: [
           'cp -r src/static/fonts dist/static',
           'cp -r src/static/img dist/static',
+          'cp -r src/static/vendor/cfpb-font-icons/static/fonts/* dist/static/fonts',
           'cp src/static/vendor/cfpb-font-icons/static/css/icons-ie7.css dist/static/css/icons-ie7.css',
           'cp src/static/vendor/zeroclipboard/* dist/static/js/zeroclipboard/',
           'cp src/static/vendor/chosen/public/chosen-* dist/static/css'
@@ -402,27 +403,27 @@ module.exports = function(grunt) {
           testTimeout: 180000,
           browsers: [
             {
-                browserName: "firefox",
-                version: "20",
-                platform: "XP"
+                browserName: 'firefox',
+                version: '20',
+                platform: 'XP'
             }, {
-                browserName: "chrome",
-                platform: "XP"
+                browserName: 'chrome',
+                platform: 'XP'
             }, {
-                browserName: "chrome",
-                platform: "linux"
+                browserName: 'chrome',
+                platform: 'linux'
             }, {
-                browserName: "internet explorer",
-                platform: "WIN8",
-                version: "10"
+                browserName: 'internet explorer',
+                platform: 'WIN8',
+                version: '10'
             }, {
-                browserName: "internet explorer",
-                platform: "WIN7",
-                version: "9"
+                browserName: 'internet explorer',
+                platform: 'WIN7',
+                version: '9'
             }, {
-                browserName: "internet explorer",
-                platform: "VISTA",
-                version: "9"
+                browserName: 'internet explorer',
+                platform: 'VISTA',
+                version: '9'
             }
           ]
         }
