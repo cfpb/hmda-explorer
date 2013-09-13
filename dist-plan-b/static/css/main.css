@@ -3721,6 +3721,12 @@ section.video h2 strong {
     width: 66%;
     line-height: 1.375em;
     margin-bottom: 10px;
+    display: inline-block;
+  }
+  #learn-more .highlight p {
+    margin: 0;
+    padding: 0;
+    width: 100%;
   }
   #learn-more p {
     width: 66%;
