@@ -2140,7 +2140,7 @@ textarea {
   top: -1px;
 }
 .filter.closed i.icon-minus-alt:before {
-  content: "\e0109";
+  content: "\e109";
 }
 .filter.footer .insight {
   float: right;
@@ -2427,7 +2427,7 @@ textarea {
   padding-left: 3px;
 }
 .preview.closed i.icon-minus-alt:before {
-  content: "\e0109";
+  content: "\e109";
 }
 .nlw {
   position: relative;
@@ -3706,7 +3706,7 @@ section.video h2 strong {
   padding-right: 20px;
 }
 #learn-more.closed i.icon-minus-alt:before {
-  content: "\e0109";
+  content: "\e109";
 }
 @media only screen and (min-width: 768px) {
   #learn-more h2 {
