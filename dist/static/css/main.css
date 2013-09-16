@@ -3679,6 +3679,9 @@ section.video h2 strong {
   font-weight: 700;
   font-style: normal;
 }
+.learn-more .transcript ul {
+  padding: 0 0 0 20px;
+}
 .learn-more #transcript-text:after {
   content: ".";
   display: block;
@@ -3713,7 +3716,6 @@ section.video h2 strong {
 #learn-more .highlight {
   background-color: #f1f2f2;
   padding: 15px 20px;
-  width: 66%;
   line-height: 1.375em;
   margin: 10px 0px;
 }
@@ -3746,11 +3748,17 @@ section.video h2 strong {
   font-style: normal;
   font-size: .75em;
 }
-#learn-more dfn a {
+#learn-more dfn a:link {
   border-bottom: 1px dotted #0072ce;
+  color: #0072ce;
+  text-decoration: none;
+}
+#learn-more dfn a:hover {
+  border-bottom: 1px solid #002d72;
+  color: #002d72;
+  text-decoration: none;
 }
 #learn-more .footnote {
-  width: 66%;
   padding-left: 20px;
   padding-right: 20px;
 }
@@ -3803,6 +3811,9 @@ section.video h2 strong {
   }
   #learn-more .links li {
     width: 100%;
+  }
+  #learn-more .footnote {
+    width: 66%;
   }
 }
 html,
@@ -4370,6 +4381,12 @@ strong {
 }
 .hmda footer .social i {
   margin-left: 5px;
+  font-size: .9em;
+  position: relative;
+  top: .1em;
+}
+.hmda footer .social .icon-youtube {
+  font-size: .7em;
 }
 .hmda footer .social a:hover {
   color: #7eb8dd;
@@ -4405,17 +4422,17 @@ a.action-arrow {
 a.action-arrow:hover {
   text-decoration: underline;
 }
-a.action-arrow .icon-external-link {
-  font-size: 1em;
-  padding-left: 2px;
-  position: relative;
+a.action-arrow i {
+  font-size: .8em;
   text-decoration: none;
+  position: relative;
+  bottom: .2em;
+  margin-left: .5em;
 }
 a.action-arrow .icon-right {
-  font-size: .8em;
-  top: -3px;
-  text-decoration: none;
+  font-size: .7em;
   position: relative;
+  bottom: .25em;
 }
 @media only screen and (min-width: 768px) {
   .hmda .return-cfgov {
@@ -4484,6 +4501,7 @@ a.action-arrow .icon-right {
     margin-right: -0.25em;
     vertical-align: top;
     width: 66.66666666666666%;
+    border: 0;
   }
   .ie .hmda footer .primary,
   .ie .hmda footer .tertiary {
