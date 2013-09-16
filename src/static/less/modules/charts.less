@@ -133,3 +133,17 @@
     }
 
 }
+
+// This is to adjust the chart legends on small mobile screens
+
+@media only screen and (max-device-width: 480px) {
+    .chart-legend {
+        th, td {
+            padding-right: 0 !important;
+        }
+    }
+    .chart-legend-box {
+        display: block !important;
+        margin-top: 10px;
+    }
+}

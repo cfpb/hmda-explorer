@@ -151,6 +151,9 @@ strong {
       font-size: 2em;
       padding: 0 10px;
       .border-radius( 5px );
+      i {
+        line-height: 1em;
+      }
     }
     ul {
       .mobile-nav();
@@ -167,11 +170,13 @@ strong {
     a:link,
     a:visited {
       color: @white;
-    }
+    }  
+
     .primary {
       color: @white;
       font-size: .875em;
       line-height: 1.75em;
+     
       li {
         &:after {
           content: "|";
@@ -196,11 +201,17 @@ strong {
       }
     }
     .social {
-      font-size: 40px;
+      font-size: 30px;
       margin: 0;
       i {
         margin-left: 5px;
-      }
+        font-size: .9em;
+        position: relative;
+        top: .1em;
+        }
+      .icon-youtube {
+        font-size: .7em; 
+      } 
       a:hover {
         color: @pacific50;
         text-decoration: none;
@@ -236,23 +247,25 @@ p {
 a.action-arrow {
   .avenir-next-demi;
   font-size: 1.1em;
+  display: inline-block;
   &:hover {
     text-decoration: underline;
   }
-  .icon-external-link {
-    font-size: 1.2em;
-    padding-left: 2px;
-    position: relative;
+
+  i {
+    font-size: .8em;
     text-decoration: none;
+    position: relative;
+    bottom: .2em;
+    margin-left: .5em;
   }
+
   .icon-right {
-    font-size: 1.6em;
-    text-decoration: none;
+    font-size: .7em;
     position: relative;
-  }
+    bottom: .25em;
+  } 
 }
-
-
 
 // Viewport adjustments
 
@@ -303,6 +316,7 @@ a.action-arrow {
       .primary,
       .tertiary {
         .column(8);
+        border: 0;
       }
       .social {
         .column(4);

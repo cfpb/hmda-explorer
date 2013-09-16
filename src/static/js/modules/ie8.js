@@ -6,7 +6,8 @@ $(function(){
   $( 'section.video .exit, #youtube' ).on( 'click', function( ev ) {
 
       ev.preventDefault();
-      window.location.reload(true);
+      window.location.reload( true );
+      window.location.hash = '';
 
   });
 
@@ -14,7 +15,8 @@ $(function(){
 
     if ( ev.which === 27 ) {
       ev.preventDefault();
-      window.location.reload(true);
+      window.location.reload( true );
+      window.location.hash = '';
     }
 
   });

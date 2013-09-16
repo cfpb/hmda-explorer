@@ -1563,149 +1563,69 @@ table.tidy_table td {
    CFPB Boilerplate
    Color Variables
    ========================================================================== */
-/* ==========================================================================
-   CFPB Boilerplate
-   @font-face Declarations
-   ========================================================================== */
-/* 
- * CSS as specified in the following article until IE8 support is dropped:
- * http://coding.smashingmagazine.com/2013/02/14/setting-weights-and-styles-at-font-face-declaration/
- *
- * Only the esential variants are on, by default. Uncomment any others if 
- * you determine that you truly need them, and bring in their files from 
- * optio../font.
- *
- * Using Demi in place of Bold, by default. If using both Demi and Bold, set 
- * Avenir Next Demi's weight back to 600.
- */
+/*
+This CSS resource incorporates links to font software which is
+the valuable copyrighted property of Monotype Imaging and/or
+its suppliers. You may not attempt to copy, install, redistribute, convert,
+modify or reverse engineer this font software. Please contact Monotype Imaging
+with any questions regarding Web Fonts:  http://webfonts.fonts.com
+*/
 @font-face {
-  font-family: 'Avenir Next';
-  src: url('../fonts/e9167238-3b3f-4813-a04a-a384394eed42.eot');
-  src: url('../fonts/e9167238-3b3f-4813-a04a-a384394eed42.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-   url('../fonts/1e9892c0-6927-4412-9874-1b82801ba47a.woff') format('woff'), /* Modern Browsers */
-   url('../fonts/46cf1067-688d-4aab-b0f7-bd942af6efd8.ttf') format('truetype'), /* Safari, Android, iOS */
-   url('../fonts/52a192b1-bea5-4b48-879f-107f009b666f.svg#52a192b1-bea5-4b48-879f-107f009b666f') format('svg');
+  font-family: "Avenir Next";
+  src: url("../fonts/e9167238-3b3f-4813-a04a-a384394eed42.eot");
+  src: url("../fonts/e9167238-3b3f-4813-a04a-a384394eed42.eot?#iefix") format("embedded-opentype"), url("../fonts/1e9892c0-6927-4412-9874-1b82801ba47a.woff") format("woff");
   font-weight: 400;
-  font-style: normal;/* IE9 Compat Modes */
-  /* Legacy iOS */
+  font-style: normal;
 }
 @font-face {
-  font-family: 'Avenir Next Italic';
-  src: url('../fonts/d1fddef1-d940-4904-8f6c-17e809462301.eot');
-  src: url('../fonts/d1fddef1-d940-4904-8f6c-17e809462301.eot?#iefix') format('embedded-opentype'), url('../fonts/92b66dbd-4201-4ac2-a605-4d4ffc8705cc.woff') format('woff'), url('../fonts/18839597-afa8-4f0b-9abb-4a30262d0da8.ttf') format('truetype'), url('../fonts/1de7e6f4-9d4d-47e7-ab23-7d5cf10ab585.svg#1de7e6f4-9d4d-47e7-ab23-7d5cf10ab585') format('svg');
+  font-family: "Avenir Next Italic";
+  src: url("../fonts/d1fddef1-d940-4904-8f6c-17e809462301.eot");
+  src: url("../fonts/d1fddef1-d940-4904-8f6c-17e809462301.eot?#iefix") format("embedded-opentype"), url("../fonts/92b66dbd-4201-4ac2-a605-4d4ffc8705cc.woff") format("woff");
   font-weight: 400;
   font-style: italic;
 }
 @font-face {
-  font-family: 'Avenir Next Demi';
-  src: url('../fonts/12d643f2-3899-49d5-a85b-ff430f5fad15.eot');
-  src: url('../fonts/12d643f2-3899-49d5-a85b-ff430f5fad15.eot?#iefix') format('embedded-opentype'), url('../fonts/91b50bbb-9aa1-4d54-9159-ec6f19d14a7c.woff') format('woff'), url('../fonts/a0f4c2f9-8a42-4786-ad00-fce42b57b148.ttf') format('truetype'), url('../fonts/99affa9a-a5e9-4559-bd07-20cf0071852d.svg#99affa9a-a5e9-4559-bd07-20cf0071852d') format('svg');
+  font-family: "Avenir Next Medium";
+  src: url("../fonts/1a7c9181-cd24-4943-a9d9-d033189524e0.eot");
+  src: url("../fonts/1a7c9181-cd24-4943-a9d9-d033189524e0.eot?#iefix") format("embedded-opentype"), url("../fonts/f26faddb-86cc-4477-a253-1e1287684336.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Avenir Next Medium Italic";
+  src: url("../fonts/77a9cdce-ea6a-4f94-95df-e6a54555545e.eot");
+  src: url("../fonts/77a9cdce-ea6a-4f94-95df-e6a54555545e.eot?#iefix") format("embedded-opentype"), url("../fonts/8344e877-560d-44d4-82eb-9822766676f9.woff") format("woff");
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Avenir Next Demi";
+  src: url("../fonts/12d643f2-3899-49d5-a85b-ff430f5fad15.eot");
+  src: url("../fonts/12d643f2-3899-49d5-a85b-ff430f5fad15.eot?#iefix") format("embedded-opentype"), url("../fonts/91b50bbb-9aa1-4d54-9159-ec6f19d14a7c.woff") format("woff");
   font-weight: 600;
   font-style: normal;
 }
-/*
 @font-face {
-    font-family: 'Avenir Next Ultra Light';
-    src: url('../fonts/1a7c9181-cd24-4943-a9d9-d033189524e0.eot');
-    src: url('../fonts/1a7c9181-cd24-4943-a9d9-d033189524e0.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/f26faddb-86cc-4477-a253-1e1287684336.woff') format('woff'),
-         url('../fonts/6de0ce4d-9278-467b-b96f-c1f5f0a4c375.ttf') format('truetype'),
-         url('../fonts/9fd4ea0c-b19a-4b21-9fdf-37045707dd78.svg#9fd4ea0c-b19a-4b21-9fdf-37045707dd78') format('svg');
-    font-weight: 200;
-    font-style: normal;
+  font-family: "Avenir Next Demi Italic";
+  src: url("../fonts/770d9a7e-8842-4376-9319-8f2c8b8e880d.eot");
+  src: url("../fonts/770d9a7e-8842-4376-9319-8f2c8b8e880d.eot?#iefix") format("embedded-opentype"), url("../fonts/bc350df4-3100-4ce1-84ce-4a5363dbccfa.woff") format("woff");
+  font-weight: 600;
+  font-style: italic;
 }
-
 @font-face {
-    font-family: 'Avenir Next Ultra Light Italic';
-    src: url('../fonts/77a9cdce-ea6a-4f94-95df-e6a54555545e.eot');
-    src: url('../fonts/77a9cdce-ea6a-4f94-95df-e6a54555545e.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/8344e877-560d-44d4-82eb-9822766676f9.woff') format('woff'),
-         url('../fonts/3a561c83-40d4-4868-8255-e8455eb009c4.ttf') format('truetype'),
-         url('../fonts/3966f856-9dcf-48e7-88e7-7400f1b7d619.svg#3966f856-9dcf-48e7-88e7-7400f1b7d619') format('svg');
-    font-weight: 200;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'Avenir Next Medium';
-    src: url('../fonts/1a7c9181-cd24-4943-a9d9-d033189524e0.eot');
-    src: url('../fonts/1a7c9181-cd24-4943-a9d9-d033189524e0.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/f26faddb-86cc-4477-a253-1e1287684336.woff') format('woff'),
-         url('../fonts/63a74598-733c-4d0c-bd91-b01bffcd6e69.ttf') format('truetype'),
-         url('../fonts/a89d6ad1-a04f-4a8f-b140-e55478dbea80.svg#a89d6ad1-a04f-4a8f-b140-e55478dbea80') format('svg');
-    font-weight: 500;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Avenir Next Medium Italic';
-    src: url('../fonts/77a9cdce-ea6a-4f94-95df-e6a54555545e.eot');
-    src: url('../fonts/77a9cdce-ea6a-4f94-95df-e6a54555545e.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/8344e877-560d-44d4-82eb-9822766676f9.woff') format('woff'),
-         url('../fonts/b28b01d9-78c5-46c6-a30d-9a62c8f407c5.ttf') format('truetype'),
-         url('../fonts/ed4d3c45-af64-4992-974b-c37cd12a9570.svg#ed4d3c45-af64-4992-974b-c37cd12a9570') format('svg');
-    font-weight: 500;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'Avenir Next Demi Italic';
-    src: url('../fonts/770d9a7e-8842-4376-9319-8f2c8b8e880d.eot');
-    src: url('../fonts/770d9a7e-8842-4376-9319-8f2c8b8e880d.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/bc350df4-3100-4ce1-84ce-4a5363dbccfa.woff') format('woff'),
-         url('../fonts/bc13ae80-cd05-42b4-b2a9-c123259cb166.ttf') format('truetype'),
-         url('../fonts/4862b373-2643-46b1-b0b5-88537c52d15c.svg#4862b373-2643-46b1-b0b5-88537c52d15c') format('svg');
-    font-weight: 600;
-    font-style: italic;
-}*/
-@font-face {
-  font-family: 'Avenir Next Bold';
-  src: url('../fonts/dccb10af-07a2-404c-bfc7-7750e2716bc1.eot');
-  src: url('../fonts/dccb10af-07a2-404c-bfc7-7750e2716bc1.eot?#iefix') format('embedded-opentype'), url('../fonts/b8e906a1-f5e8-4bf1-8e80-82c646ca4d5f.woff') format('woff'), url('../fonts/890bd988-5306-43ff-bd4b-922bc5ebdeb4.ttf') format('truetype'), url('../fonts/ed104d8c-7f39-4e8b-90a9-4076be06b857.svg#ed104d8c-7f39-4e8b-90a9-4076be06b857') format('svg');
+  font-family: "Avenir Next Bold";
+  src: url("../fonts/dccb10af-07a2-404c-bfc7-7750e2716bc1.eot");
+  src: url("../fonts/dccb10af-07a2-404c-bfc7-7750e2716bc1.eot?#iefix") format("embedded-opentype"), url("../fonts/b8e906a1-f5e8-4bf1-8e80-82c646ca4d5f.woff") format("woff");
   font-weight: 700;
   font-style: normal;
 }
-/*
 @font-face {
-    font-family: 'Avenir Next Bold Italic';
-    src: url('../fonts/ac2d4349-4327-448f-9887-083a6a227a52.eot');
-    src: url('../fonts/ac2d4349-4327-448f-9887-083a6a227a52.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/25e83bf5-47e3-4da7-98b1-755efffb0089.woff') format('woff'),
-         url('../fonts/4112ec87-6ded-438b-83cf-aaff98f7e987.ttf') format('truetype'),
-         url('../fonts/ab1835cb-df6f-4d8d-b8ee-3075f5ba758d.svg#ab1835cb-df6f-4d8d-b8ee-3075f5ba758d') format('svg');
-    font-weight: 700;
-    font-style: italic;
+  font-family: "Avenir Next Bold Italic";
+  src: url("../fonts/ac2d4349-4327-448f-9887-083a6a227a52.eot");
+  src: url("../fonts/ac2d4349-4327-448f-9887-083a6a227a52.eot?#iefix") format("embedded-opentype"), url("../fonts/25e83bf5-47e3-4da7-98b1-755efffb0089.woff") format("woff");
+  font-weight: 700;
+  font-style: italic;
 }
-
-@font-face {
-    font-family: 'Avenir Next Heavy';
-    src: url('../fonts/dccb10af-07a2-404c-bfc7-7750e2716bc1.eot');
-    src: url('../fonts/dccb10af-07a2-404c-bfc7-7750e2716bc1.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/b8e906a1-f5e8-4bf1-8e80-82c646ca4d5f.woff') format('woff'),
-         url('../fonts/045d1654-97f2-4ff0-9d24-21ba9dfee219.ttf') format('truetype'),
-         url('../fonts/3c111f4f-c9f7-45d4-b35f-4f4ed018842f.svg#3c111f4f-c9f7-45d4-b35f-4f4ed018842f') format('svg');
-    font-weight: 800;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Avenir Next Heavy Italic';
-    src: url('../fonts/ac2d4349-4327-448f-9887-083a6a227a52.eot');
-    src: url('../fonts/ac2d4349-4327-448f-9887-083a6a227a52.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/25e83bf5-47e3-4da7-98b1-755efffb0089.woff') format('woff'),
-         url('../fonts/2b4885a7-fc02-4aa0-b998-5b008a589c80.ttf') format('truetype'),
-         url('../fonts/9b40a6ef-0ef5-49c0-aa8d-5ba7e8e7d9b7.svg#9b40a6ef-0ef5-49c0-aa8d-5ba7e8e7d9b7') format('svg');
-    font-weight: 800;
-    font-style: italic;
-}
-*/
-/*
- * This CSS resource incorporates links to font software which is
- * the valuable copyrighted property of Monotype Imaging and/or
- * its suppliers. You may not attempt to copy, install, redistribute, convert,
- * modify or reverse engineer this font software. Please contact Monotype Imaging
- * with any questions regarding Web Fonts:  http://webfonts.fonts.com
- */
 /* ==========================================================================
    CFPB Boilerplate
    Basic Typography
@@ -1721,7 +1641,7 @@ table.tidy_table td {
   font-style: normal;
 }
 .avenir-next-bold {
-  font-family: "Avenir Next", Arial, sans-serif;
+  font-family: "Avenir Next Bold", Arial, sans-serif;
   font-weight: 700;
   font-style: normal;
 }
@@ -2220,7 +2140,7 @@ textarea {
   top: -1px;
 }
 .filter.closed i.icon-minus-alt:before {
-  content: "\e0109";
+  content: "\e109";
 }
 .filter.footer .insight {
   float: right;
@@ -2507,7 +2427,7 @@ textarea {
   padding-left: 3px;
 }
 .preview.closed i.icon-minus-alt:before {
-  content: "\e0109";
+  content: "\e109";
 }
 .nlw {
   position: relative;
@@ -2779,6 +2699,16 @@ ul.chzn-choices {
     margin: 0 auto 0 115px;
   }
 }
+@media only screen and (max-device-width: 480px) {
+  .chart-legend th,
+  .chart-legend td {
+    padding-right: 0 !important;
+  }
+  .chart-legend-box {
+    display: block !important;
+    margin-top: 10px;
+  }
+}
 .homepage.plan-b #get-the-data .filters {
   width: 100%;
   min-height: 0;
@@ -2809,7 +2739,7 @@ ul.chzn-choices {
   *behavior: url(boxsizing.htc);
 }
 .homepage .hero h1 {
-  font-family: "Avenir Next", Arial, sans-serif;
+  font-family: "Avenir Next Bold", Arial, sans-serif;
   font-weight: 700;
   font-style: normal;
   font-size: 30px;
@@ -2832,7 +2762,7 @@ ul.chzn-choices {
   border-top: 2px solid black;
 }
 .homepage .hero .title {
-  font-family: "Avenir Next", Arial, sans-serif;
+  font-family: "Avenir Next Bold", Arial, sans-serif;
   font-weight: 700;
   font-style: normal;
   text-transform: uppercase;
@@ -2877,7 +2807,7 @@ ul.chzn-choices {
 }
 .homepage h2 strong {
   display: block;
-  font-family: "Avenir Next", Arial, sans-serif;
+  font-family: "Avenir Next Bold", Arial, sans-serif;
   font-weight: 700;
   font-style: normal;
   font-size: 1.4em;
@@ -2977,14 +2907,14 @@ section.video h2 strong {
   z-index: 5;
   position: absolute;
   top: 10px;
-  left: 10px;
-  width: 215px;
+  left: 45px;
+  width: auto;
   background-color: #fff;
   border: 1px solid #d0d0ce;
   padding: 10px;
 }
 #facts-and-figures #map #map-title h3 {
-  font-size: 1.75em;
+  font-size: 1em;
   line-height: 1.2em;
   font-family: "Avenir Next Demi", Arial, sans-serif;
   font-weight: 600;
@@ -2996,6 +2926,10 @@ section.video h2 strong {
   font-family: Georgia, "Times New Roman", serif;
   font-size: 1.3em;
   line-height: 1.4em;
+  display: none;
+}
+#facts-and-figures #map #map-title .controls {
+  display: none;
 }
 #facts-and-figures #map #map-title .year {
   font-size: 1.1em;
@@ -3023,7 +2957,6 @@ section.video h2 strong {
   padding: 0;
 }
 #facts-and-figures #map #map-title {
-  display: none;
   animation: fadein .5s;
   -moz-animation: fadein .5s;
   -webkit-animation: fadein .5s;
@@ -3194,8 +3127,7 @@ section.video h2 strong {
   right: 5px;
   top: 5px;
   height: 30px;
-  font-size: 40px;
-  line-height: 0;
+  font-size: 15px;
   cursor: pointer;
 }
 @media only screen and (min-width: 768px) {
@@ -3234,6 +3166,9 @@ section.video h2 strong {
   }
   .homepage .hero nav li:after {
     clear: both;
+  }
+  .homepage .hero nav li:first-child {
+    width: 34%;
   }
   .homepage .hero nav a {
     background-color: transparent;
@@ -3341,6 +3276,18 @@ section.video h2 strong {
   .homepage #facts-and-figures #map .leaflet-control-container,
   .homepage #facts-and-figures #map #map-title {
     display: block;
+    width: 215px;
+    left: 10px;
+  }
+  .homepage #facts-and-figures #map .leaflet-control-container h3,
+  .homepage #facts-and-figures #map #map-title h3 {
+    font-size: 1.75em;
+  }
+  .homepage #facts-and-figures #map .leaflet-control-container p,
+  .homepage #facts-and-figures #map #map-title p,
+  .homepage #facts-and-figures #map .leaflet-control-container .controls,
+  .homepage #facts-and-figures #map #map-title .controls {
+    display: block;
   }
   .homepage #facts-and-figures #map .leaflet-left {
     left: 220px;
@@ -3365,6 +3312,18 @@ section.video h2 strong {
   .homepage .circle-nav span {
     background-image: url("../img/icon_goldcaret_2x.png");
     background-size: 34px 21px;
+  }
+}
+@media only screen and (max-device-width: 480px) {
+  .leaflet-bottom.leaflet-right {
+    width: 100%;
+  }
+  .leaflet-bottom.leaflet-right .map-legends {
+    width: 95%;
+  }
+  .wax-legend .legend-scale ul li {
+    width: 30px !important;
+    font-size: .7em !important;
   }
 }
 .explore .hero {
@@ -3399,7 +3358,7 @@ section.video h2 strong {
   }
 }
 .explore .hero nav {
-  font-family: "Avenir Next", Arial, sans-serif;
+  font-family: "Avenir Next Bold", Arial, sans-serif;
   font-weight: 700;
   font-style: normal;
   text-transform: uppercase;
@@ -3411,7 +3370,7 @@ section.video h2 strong {
   font-style: normal;
 }
 .explore .hero nav a.active {
-  font-family: "Avenir Next", Arial, sans-serif;
+  font-family: "Avenir Next Bold", Arial, sans-serif;
   font-weight: 700;
   font-style: normal;
 }
@@ -3476,6 +3435,11 @@ section.video h2 strong {
   font-weight: 600;
   font-style: normal;
   font-size: 1.5em;
+}
+.hero h1 {
+  font-family: "Avenir Next Bold", Arial, sans-serif;
+  font-weight: 700;
+  font-style: normal;
 }
 .download-share section {
   display: inline-block;
@@ -3546,7 +3510,7 @@ section.video h2 strong {
     display: inline-block;
   }
   .explore .hero nav ul a {
-    font-family: "Avenir Next", Arial, sans-serif;
+    font-family: "Avenir Next Bold", Arial, sans-serif;
     font-weight: 700;
     font-style: normal;
     background-color: transparent;
@@ -3688,6 +3652,9 @@ section.video h2 strong {
 .learn-more .hero h1 {
   padding-bottom: 5px;
   background: transparent url() scroll no-repeat left center;
+  font-family: "Avenir Next Bold", Arial, sans-serif;
+  font-weight: 700;
+  font-style: normal;
   background-image: url('../img/icon_learn-more.png');
 }
 @media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
@@ -3706,6 +3673,14 @@ section.video h2 strong {
 }
 .learn-more .background {
   padding: 1px 15px 0px 15px;
+}
+.learn-more .transcript h3 {
+  font-family: "Avenir Next Bold", Arial, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.learn-more .transcript ul {
+  padding: 0 0 0 20px;
 }
 .learn-more #transcript-text:after {
   content: ".";
@@ -3741,7 +3716,6 @@ section.video h2 strong {
 #learn-more .highlight {
   background-color: #f1f2f2;
   padding: 15px 20px;
-  width: 66%;
   line-height: 1.375em;
   margin: 10px 0px;
 }
@@ -3774,13 +3748,22 @@ section.video h2 strong {
   font-style: normal;
   font-size: .75em;
 }
-#learn-more dfn a {
+#learn-more dfn a:link {
   border-bottom: 1px dotted #0072ce;
+  color: #0072ce;
+  text-decoration: none;
+}
+#learn-more dfn a:hover {
+  border-bottom: 1px solid #002d72;
+  color: #002d72;
+  text-decoration: none;
 }
 #learn-more .footnote {
-  width: 66%;
   padding-left: 20px;
   padding-right: 20px;
+}
+#learn-more.closed i.icon-minus-alt:before {
+  content: "\e109";
 }
 @media only screen and (min-width: 768px) {
   #learn-more h2 {
@@ -3795,6 +3778,12 @@ section.video h2 strong {
     width: 66%;
     line-height: 1.375em;
     margin-bottom: 10px;
+    display: inline-block;
+  }
+  #learn-more .highlight p {
+    margin: 0;
+    padding: 0;
+    width: 100%;
   }
   #learn-more p {
     width: 66%;
@@ -3823,6 +3812,9 @@ section.video h2 strong {
   #learn-more .links li {
     width: 100%;
   }
+  #learn-more .footnote {
+    width: 66%;
+  }
 }
 html,
 body {
@@ -3831,6 +3823,9 @@ body {
 .api-docs .hero h1 {
   padding-bottom: 5px;
   background: transparent url() scroll no-repeat left center;
+  font-family: "Avenir Next Bold", Arial, sans-serif;
+  font-weight: 700;
+  font-style: normal;
   background-image: url('../img/icon_api-docs.png');
 }
 @media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
@@ -4218,7 +4213,7 @@ nav li {
   display: block;
   text-align: center;
   text-transform: uppercase;
-  font-family: "Avenir Next", Arial, sans-serif;
+  font-family: "Avenir Next Bold", Arial, sans-serif;
   font-weight: 700;
   font-style: normal;
 }
@@ -4301,6 +4296,9 @@ strong {
   -moz-border-radius: 5px;
   border-radius: 5px;
 }
+.hmda header .navicon i {
+  line-height: 1em;
+}
 .hmda header ul {
   width: 100%;
   margin: 5px auto 0;
@@ -4360,11 +4358,17 @@ strong {
   display: block;
 }
 .hmda footer .social {
-  font-size: 40px;
+  font-size: 30px;
   margin: 0;
 }
 .hmda footer .social i {
   margin-left: 5px;
+  font-size: .9em;
+  position: relative;
+  top: .1em;
+}
+.hmda footer .social .icon-youtube {
+  font-size: .7em;
 }
 .hmda footer .social a:hover {
   color: #7eb8dd;
@@ -4395,20 +4399,22 @@ a.action-arrow {
   font-weight: 600;
   font-style: normal;
   font-size: 1.1em;
+  display: inline-block;
 }
 a.action-arrow:hover {
   text-decoration: underline;
 }
-a.action-arrow .icon-external-link {
-  font-size: 1.2em;
-  padding-left: 2px;
-  position: relative;
+a.action-arrow i {
+  font-size: .8em;
   text-decoration: none;
+  position: relative;
+  bottom: .2em;
+  margin-left: .5em;
 }
 a.action-arrow .icon-right {
-  font-size: 1.6em;
-  text-decoration: none;
+  font-size: .7em;
   position: relative;
+  bottom: .25em;
 }
 @media only screen and (min-width: 768px) {
   .hmda .return-cfgov {
@@ -4477,6 +4483,7 @@ a.action-arrow .icon-right {
     margin-right: -0.25em;
     vertical-align: top;
     width: 66.66666666666666%;
+    border: 0;
   }
   .ie .hmda footer .primary,
   .ie .hmda footer .tertiary {

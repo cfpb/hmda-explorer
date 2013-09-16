@@ -157,6 +157,7 @@ module.exports = function(grunt) {
         command: [
           'cp -r src/static/fonts dist/static',
           'cp -r src/static/img dist/static',
+          'cp -r src/static/vendor/cfpb-font-icons/static/fonts/* dist/static/fonts',
           'cp src/static/vendor/cfpb-font-icons/static/css/icons-ie7.css dist/static/css/icons-ie7.css',
           'cp src/static/vendor/zeroclipboard/* dist/static/js/zeroclipboard/',
           'cp src/static/vendor/chosen/public/chosen-* dist/static/css'
@@ -166,6 +167,11 @@ module.exports = function(grunt) {
         command: [
           'cp -r dist/* dist-plan-b/',
           'rm dist-plan-b/api.html dist-plan-b/explore.html dist-plan-b/index_v1.html dist-plan-b/learn-more_v1.html'
+        ].join('&&')
+      },
+      sauce: {
+        command: [
+          'rm -rf _SpecRunner.html .grunt sauce_connect.log*',
         ].join('&&')
       }
     },
@@ -308,9 +314,9 @@ module.exports = function(grunt) {
           base: 'dist'
         }
       },
-      test: {
+      sauce: {
         options: {
-          port: 8001
+          port: 9000
         }
       }
     },
@@ -347,22 +353,83 @@ module.exports = function(grunt) {
               ]
             },
             helpers: [
-              'dist/static/js/all.min.js',
-              'test/specs/helpers/*.js'
+              'test/specs/helpers/*.js',
+              'dist/static/js/all.min.js'
             ],
             timeout: 30000
           }
       },
-      pdp: {
-        src: [
-          'dist/static/js/all.min.js'
-        ],
-        options: {
-          specs: 'test/specs/*.js',
-          helpers: [
-            'test/specs/helpers/*.js',
+      sauce: {
+         src: [
+           'src/static/js/modules/**/*.js',
+           '!src/static/js/modules/ie8.js'
           ],
-          timeout: 30000
+          options: {
+            specs: 'test/specs/*.js',
+            template: require('grunt-template-jasmine-istanbul'),
+            templateOptions: {
+              coverage: 'test/coverage/coverage.json',
+              report: [
+                {
+                  type: 'html',
+                  options: { dir: 'test/coverage/report/html' }
+                },
+                {
+                  type: 'cobertura',
+                  options: { dir: 'test/coverage/report/cobertura'}
+                },
+                {
+                  type: 'text',
+                  options: { dir: 'test/coverage/report/text'}
+                },
+              ]
+            },
+            helpers: [
+              'test/specs/helpers/*.js',
+              'dist/static/js/all.min.js'
+            ],
+            keepRunner: true,
+            timeout: 30000
+          }
+      }
+    },
+
+    'saucelabs-jasmine': {
+      all: {
+        options: {
+          urls: ['http://127.0.0.1:9000/_SpecRunner.html'],
+          detailedError: true,
+          testname: 'HMDA',
+          testTimeout: 180000,
+          tags: [
+            'public-data-platform',
+            'hmda'
+          ],
+          browsers: [
+            {
+                browserName: 'firefox',
+                version: '20',
+                platform: 'XP'
+            }, {
+                browserName: 'chrome',
+                platform: 'XP'
+            }, {
+                browserName: 'chrome',
+                platform: 'linux'
+            }, {
+                browserName: 'internet explorer',
+                platform: 'WIN8',
+                version: '10'
+            }, {
+                browserName: 'internet explorer',
+                platform: 'WIN7',
+                version: '9'
+            }, {
+                browserName: 'internet explorer',
+                platform: 'VISTA',
+                version: '9'
+            }
+          ]
         }
       }
     },
@@ -441,11 +508,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-remove-logging');
   grunt.loadNpmTasks('grunt-contrib-jst');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
+  grunt.loadNpmTasks('grunt-saucelabs');
 
   /**
    * Create task aliases by registering new tasks
    */
   grunt.registerTask('test', ['jshint', 'jasmine:cover']);
+  grunt.registerTask('sauce', ['connect:sauce', 'jasmine:sauce', 'saucelabs-jasmine', 'shell:sauce']);
   grunt.registerTask('docs', ['removelogging', 'docco', 'build-cfpb']);
   grunt.registerTask('build', ['htmlmin', 'shell:dist', 'jst', 'uglify', 'less', 'cssmin', 'shell:planb']);
 
