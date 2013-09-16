@@ -2699,6 +2699,16 @@ ul.chzn-choices {
     margin: 0 auto 0 115px;
   }
 }
+@media only screen and (max-device-width: 480px) {
+  .chart-legend th,
+  .chart-legend td {
+    padding-right: 0 !important;
+  }
+  .chart-legend-box {
+    display: block !important;
+    margin-top: 10px;
+  }
+}
 .homepage.plan-b #get-the-data .filters {
   width: 100%;
   min-height: 0;
