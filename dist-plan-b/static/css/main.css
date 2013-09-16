@@ -2907,14 +2907,14 @@ section.video h2 strong {
   z-index: 5;
   position: absolute;
   top: 10px;
-  left: 10px;
-  width: 215px;
+  left: 45px;
+  width: auto;
   background-color: #fff;
   border: 1px solid #d0d0ce;
   padding: 10px;
 }
 #facts-and-figures #map #map-title h3 {
-  font-size: 1.75em;
+  font-size: 1em;
   line-height: 1.2em;
   font-family: "Avenir Next Demi", Arial, sans-serif;
   font-weight: 600;
@@ -2926,6 +2926,10 @@ section.video h2 strong {
   font-family: Georgia, "Times New Roman", serif;
   font-size: 1.3em;
   line-height: 1.4em;
+  display: none;
+}
+#facts-and-figures #map #map-title .controls {
+  display: none;
 }
 #facts-and-figures #map #map-title .year {
   font-size: 1.1em;
@@ -2953,7 +2957,6 @@ section.video h2 strong {
   padding: 0;
 }
 #facts-and-figures #map #map-title {
-  display: none;
   animation: fadein .5s;
   -moz-animation: fadein .5s;
   -webkit-animation: fadein .5s;
@@ -3273,6 +3276,18 @@ section.video h2 strong {
   .homepage #facts-and-figures #map .leaflet-control-container,
   .homepage #facts-and-figures #map #map-title {
     display: block;
+    width: 215px;
+    left: 10px;
+  }
+  .homepage #facts-and-figures #map .leaflet-control-container h3,
+  .homepage #facts-and-figures #map #map-title h3 {
+    font-size: 1.75em;
+  }
+  .homepage #facts-and-figures #map .leaflet-control-container p,
+  .homepage #facts-and-figures #map #map-title p,
+  .homepage #facts-and-figures #map .leaflet-control-container .controls,
+  .homepage #facts-and-figures #map #map-title .controls {
+    display: block;
   }
   .homepage #facts-and-figures #map .leaflet-left {
     left: 220px;
@@ -3297,6 +3312,18 @@ section.video h2 strong {
   .homepage .circle-nav span {
     background-image: url("../img/icon_goldcaret_2x.png");
     background-size: 34px 21px;
+  }
+}
+@media only screen and (max-device-width: 480px) {
+  .leaflet-bottom.leaflet-right {
+    width: 100%;
+  }
+  .leaflet-bottom.leaflet-right .map-legends {
+    width: 95%;
+  }
+  .wax-legend .legend-scale ul li {
+    width: 30px !important;
+    font-size: .7em !important;
   }
 }
 .explore .hero {
