@@ -167,11 +167,13 @@ strong {
     a:link,
     a:visited {
       color: @white;
-    }
+    }  
+
     .primary {
       color: @white;
       font-size: .875em;
       line-height: 1.75em;
+     
       li {
         &:after {
           content: "|";
@@ -200,7 +202,13 @@ strong {
       margin: 0;
       i {
         margin-left: 5px;
-      }
+        font-size: .9em;
+        position: relative;
+        top: .1em;
+        }
+      .icon-youtube {
+        font-size: .7em; 
+      } 
       a:hover {
         color: @pacific50;
         text-decoration: none;
@@ -240,21 +248,21 @@ a.action-arrow {
   &:hover {
     text-decoration: underline;
   }
-  .icon-external-link {
-    font-size: 1em;
-    padding-left: 2px;
-    position: relative;
-    text-decoration: none;
-  }
-  .icon-right {
+
+  i {
     font-size: .8em;
-    top: -3px;
     text-decoration: none;
     position: relative;
+    bottom: .2em;
+    margin-left: .5em;
   }
+
+  .icon-right {
+    font-size: .7em;
+    position: relative;
+    bottom: .25em;
+  } 
 }
-
-
 
 // Viewport adjustments
 
@@ -305,6 +313,7 @@ a.action-arrow {
       .primary,
       .tertiary {
         .column(8);
+        border: 0;
       }
       .social {
         .column(4);
