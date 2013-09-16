@@ -3114,8 +3114,7 @@ section.video h2 strong {
   right: 5px;
   top: 5px;
   height: 30px;
-  font-size: 40px;
-  line-height: 0;
+  font-size: 15px;
   cursor: pointer;
 }
 @media only screen and (min-width: 768px) {
@@ -4310,7 +4309,7 @@ strong {
   display: block;
 }
 .hmda footer .social {
-  font-size: 40px;
+  font-size: 30px;
   margin: 0;
 }
 .hmda footer .social i {
@@ -4345,18 +4344,19 @@ a.action-arrow {
   font-weight: 600;
   font-style: normal;
   font-size: 1.1em;
+  display: inline-block;
 }
 a.action-arrow:hover {
   text-decoration: underline;
 }
 a.action-arrow .icon-external-link {
-  font-size: 1.2em;
+  font-size: 1em;
   padding-left: 2px;
   position: relative;
   text-decoration: none;
 }
 a.action-arrow .icon-right {
-  font-size: 1.6em;
+  font-size: .8em;
   text-decoration: none;
   position: relative;
 }
