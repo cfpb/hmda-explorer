@@ -14,6 +14,7 @@
     h1 {
       padding-bottom: 5px;
       background: transparent url() scroll no-repeat left center;
+      .avenir-next-bold;
       .at2x( '../img/icon_learn-more.png', 42px, 42px );
     }
   }
@@ -26,6 +27,15 @@
 
   .background {
     padding: 1px 15px 0px 15px;
+  }
+
+  .transcript {
+    h3 {
+      .avenir-next-bold;
+    }
+    ul {
+      padding: 0 0 0 20px;
+    }
   }
 
   #transcript-text:after {
@@ -73,7 +83,6 @@
   .highlight {
     background-color: @light_field10;
     padding: 15px 20px;
-    width: 66%;
     line-height: 1.375em;
     margin: 10px 0px;
   }
@@ -110,15 +119,29 @@
   dfn {
     .avenir-next;
     font-size: .75em;
-    a {border-bottom: 1px dotted #0072ce;};
+    a:link {
+      border-bottom: 1px dotted @pacific;
+      color: @pacific;
+      text-decoration: none;
+    }
+    a:hover {
+      border-bottom: 1px solid @navy;
+      color: @navy;
+      text-decoration: none;
+    }
   }
 
   .footnote {
-    width: 66%;
     padding-left: 20px;
     padding-right:20px;
   }
 
+ // Show a plus icon when the filter is closed.
+    &.closed {
+      i.icon-minus-alt:before {
+      content: "\e109"; 
+    }
+  }
 
 }
   
@@ -141,6 +164,8 @@
       width: 66%;
       line-height: 1.375em;
       margin-bottom: 10px;
+      display: inline-block;  
+      p {margin:0; padding:0; width: 100%;}
     }
 
   p {
@@ -173,6 +198,10 @@
 
   .links li {
     width: 100%;
+  }
+
+  .footnote {
+    width: 66%;
   }
     
 
