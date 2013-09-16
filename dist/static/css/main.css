@@ -4357,6 +4357,7 @@ a.action-arrow .icon-external-link {
 }
 a.action-arrow .icon-right {
   font-size: .8em;
+  top: -3px;
   text-decoration: none;
   position: relative;
 }
