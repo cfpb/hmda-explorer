@@ -3637,6 +3637,11 @@ section.video h2 strong {
 .learn-more .background {
   padding: 1px 15px 0px 15px;
 }
+.learn-more .transcript h3 {
+  font-family: "Avenir Next Bold", Arial, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
 .learn-more #transcript-text:after {
   content: ".";
   display: block;
