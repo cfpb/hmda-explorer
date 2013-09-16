@@ -399,8 +399,12 @@ module.exports = function(grunt) {
         options: {
           urls: ['http://127.0.0.1:9000/_SpecRunner.html'],
           detailedError: true,
-          testname: 'HMDA homepage',
+          testname: 'HMDA',
           testTimeout: 180000,
+          tags: [
+            'public-data-platform',
+            'hmda'
+          ],
           browsers: [
             {
                 browserName: 'firefox',

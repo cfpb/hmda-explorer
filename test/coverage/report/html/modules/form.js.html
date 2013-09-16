@@ -183,16 +183,16 @@
     <h1>Code coverage report for <span class="entity">modules/form.js</span></h1>
     <h2>
         
-        Statements: <span class="metric">20.2% <small>(40 / 198)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">22.22% <small>(44 / 198)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Branches: <span class="metric">1.14% <small>(1 / 88)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">3.41% <small>(3 / 88)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Functions: <span class="metric">2.04% <small>(1 / 49)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">6.12% <small>(3 / 49)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Lines: <span class="metric">20.2% <small>(40 / 198)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">22.22% <small>(44 / 198)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
     </h2>
     <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">modules/</a> &#187; form.js</div>
@@ -1285,14 +1285,14 @@
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1334,9 +1334,9 @@
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1877,17 +1877,17 @@ var PDP = (function ( pdp ) {
 &nbsp;
   // Check if any filter fields need to be shown or hidden.
   // @names = array of param keys (e.g. as_of_year)
-  form.checkDeps = <span class="fstat-no" title="function not covered" >function( names ) {</span>
+  form.checkDeps = function( names ) {
 &nbsp;
     // Ensure names is an array.
-<span class="cstat-no" title="statement not covered" >    names = names instanceof Array ? names : [ names ];</span>
+    names = names instanceof Array ? names : <span class="branch-1 cbranch-no" title="branch not covered" >[ names ];</span>
 &nbsp;
     // Helper function to emit events
 <span class="fstat-no" title="function not covered" >    function emit( activity, el, dependencies ) {</span>
 <span class="cstat-no" title="statement not covered" >      pdp.observer.emitEvent( 'field:' + activity, [el, dependencies] );</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    _.forEach( names, <span class="fstat-no" title="function not covered" >function( name ){</span></span>
+    _.forEach( names, <span class="fstat-no" title="function not covered" >function( name ){</span>
 &nbsp;
       // The form field element is passed from the observer.
       // Grab the data-dependent attribute on the form field.
@@ -1926,12 +1926,12 @@ var PDP = (function ( pdp ) {
 &nbsp;
   // Check if any filter fields are mutally exclusive and need to be shown or hidden.
   // @names = array of param keys (e.g. as_of_year)
-  form.checkMutuallyExclusive = <span class="fstat-no" title="function not covered" >function( names ) {</span>
+  form.checkMutuallyExclusive = function( names ) {
 &nbsp;
     // Ensure names is an array.
-<span class="cstat-no" title="statement not covered" >    names = names instanceof Array ? names : [ names ];</span>
+    names = names instanceof Array ? names : <span class="branch-1 cbranch-no" title="branch not covered" >[ names ];</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    _.forEach( names, <span class="fstat-no" title="function not covered" >function( name ){</span></span>
+    _.forEach( names, <span class="fstat-no" title="function not covered" >function( name ){</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >      var $el = $( '#' + name ),</span>
           $partner = $( '.field.' + $el.data('toggle') );
@@ -1989,7 +1989,7 @@ var PDP = (function ( pdp ) {
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Sep 13 2013 14:50:12 GMT-0400 (EDT)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Sep 16 2013 00:55:19 GMT-0400 (EDT)</div>
 </div>
 
 <script src="../prettify.js"></script>

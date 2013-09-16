@@ -103,15 +103,7 @@ when passed the param's name.</p>             </td>             <td class="code"
       <span class="nx">pdp</span><span class="p">.</span><span class="nx">summaryTable</span><span class="p">.</span><span class="nx">setupDataTable</span><span class="p">();</span>
     <span class="p">}</span>
 
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-37">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-37">&#182;</a>               </div>               <p>I was fairly intoxicated when I wrote this, not too sure what it does.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">app</span><span class="p">.</span><span class="nx">setPreset</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">options</span> <span class="p">)</span> <span class="p">{</span>
-
-    <span class="kd">var</span> <span class="nx">$parents</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;select[data-dependent], input[data-dependent]&#39;</span><span class="p">);</span>
-
-    <span class="nx">pdp</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">setFields</span><span class="p">({</span> <span class="nx">empty</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
-    <span class="nx">pdp</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">reset</span><span class="p">(</span> <span class="nx">options</span> <span class="o">||</span> <span class="p">{}</span> <span class="p">);</span>
-    <span class="nx">pdp</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">setFields</span><span class="p">();</span>
-
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-38">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-38">&#182;</a>               </div>               <p>Export the public API.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">pdp</span><span class="p">.</span><span class="nx">app</span> <span class="o">=</span> <span class="nx">app</span><span class="p">;</span>
+  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-37">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-37">&#182;</a>               </div>               <p>Export the public API.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">pdp</span><span class="p">.</span><span class="nx">app</span> <span class="o">=</span> <span class="nx">app</span><span class="p">;</span>
 
   <span class="k">return</span> <span class="nx">pdp</span><span class="p">;</span>
 

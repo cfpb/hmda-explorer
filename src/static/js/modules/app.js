@@ -208,18 +208,6 @@ var PDP = (function ( pdp ) {
 
   };
 
-  // I was fairly intoxicated when I wrote this, not too sure what it does.
-
-  app.setPreset = function( options ) {
-
-    var $parents = $('select[data-dependent], input[data-dependent]');
-
-    pdp.form.setFields({ empty: true });
-    pdp.query.reset( options || {} );
-    pdp.form.setFields();
-
-  };
-
   // Export the public API.
   pdp.app = app;
 
