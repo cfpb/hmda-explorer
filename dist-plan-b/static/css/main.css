@@ -3399,6 +3399,11 @@ section.video h2 strong {
   font-style: normal;
   font-size: 1.5em;
 }
+.hero h1 {
+  font-family: "Avenir Next Bold", Arial, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
 .download-share section {
   display: inline-block;
   -webkit-box-sizing: border-box;
@@ -3610,6 +3615,9 @@ section.video h2 strong {
 .learn-more .hero h1 {
   padding-bottom: 5px;
   background: transparent url() scroll no-repeat left center;
+  font-family: "Avenir Next Bold", Arial, sans-serif;
+  font-weight: 700;
+  font-style: normal;
   background-image: url('../img/icon_learn-more.png');
 }
 @media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
@@ -3762,6 +3770,9 @@ body {
 .api-docs .hero h1 {
   padding-bottom: 5px;
   background: transparent url() scroll no-repeat left center;
+  font-family: "Avenir Next Bold", Arial, sans-serif;
+  font-weight: 700;
+  font-style: normal;
   background-image: url('../img/icon_api-docs.png');
 }
 @media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
