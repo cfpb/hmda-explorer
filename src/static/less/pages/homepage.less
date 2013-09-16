@@ -175,14 +175,14 @@ section.video {
       z-index: 5;
       position: absolute;
       top: 10px;
-      left: 10px;
-      width: 215px;
+      left: 45px;
+      width: auto;
       background-color: #fff;
       border: 1px solid @light_field;
       padding: 10px;
 
       h3 {
-        font-size: 1.75em;
+        font-size: 1em;
         line-height: 1.2em;
         .avenir-next-demi;
         letter-spacing: 0;
@@ -193,6 +193,11 @@ section.video {
         font-family: @body-font;
         font-size: 1.3em;
         line-height: 1.4em;
+        display: none;
+      }
+
+      .controls {
+        display: none;
       }
 
       .year {
@@ -228,7 +233,6 @@ section.video {
 
     // Hide the map controls on mobile devices
     #map-title {
-      display: none;
       animation: fadein .5s;
       -moz-animation: fadein .5s;
       -webkit-animation: fadein .5s;
@@ -549,10 +553,19 @@ section.video {
 
     #facts-and-figures {
       #map {
-        // Show the map controls on mobile devices
+        // Show the map controls on non-mobile devices
         .leaflet-control-container,
         #map-title {
           display: block;
+          width: 215px;
+          left: 10px;
+          h3 {
+            font-size: 1.75em;
+          }
+          p,
+          .controls {
+            display: block;
+          }
         }
         .leaflet-left {
           left: 220px;
@@ -584,4 +597,19 @@ section.video {
 
   }
 
+}
+
+// Hack to fix the map legend on mobiles
+
+@media only screen and (max-device-width: 480px) {
+    .leaflet-bottom.leaflet-right {
+      width: 100%;
+      .map-legends {
+        width: 95%;
+      }
+    }
+    .wax-legend .legend-scale ul li {
+      width: 30px !important;
+      font-size: .7em !important;
+    }
 }
