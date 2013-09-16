@@ -29,6 +29,13 @@
     padding: 1px 15px 0px 15px;
   }
 
+  #transcript-text {
+    ul {
+      padding: 0 0 0 20px;
+
+    }
+  }
+
   #transcript-text:after {
     content: ".";
     display: block;
@@ -112,7 +119,16 @@
   dfn {
     .avenir-next;
     font-size: .75em;
-    a {border-bottom: 1px dotted #0072ce;};
+    a:link {
+      border-bottom: 1px dotted @pacific;
+      color: @pacific;
+      text-decoration: none;
+    }
+    a:hover {
+      border-bottom: 1px solid @navy;
+      color: @navy;
+      text-decoration: none;
+    }
   }
 
   .footnote {
