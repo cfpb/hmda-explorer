@@ -4266,6 +4266,9 @@ strong {
   -moz-border-radius: 5px;
   border-radius: 5px;
 }
+.hmda header .navicon i {
+  line-height: 1em;
+}
 .hmda header ul {
   width: 100%;
   margin: 5px auto 0;
