@@ -171,6 +171,8 @@
                 <h3><i class="icon-minus-alt"></i>  HMDA video transcript</h3>
               </a>
 
+          </div>
+
           <div id="transcript-text">
             <p>Each year thousands of banks and other financial institutions report data about mortgages to the public, thanks to the Home Mortgage Disclosure Act, or “HMDA” for short. These public data are important because:</p>
             <ul>
@@ -201,7 +203,7 @@
 
         </div>
       </div>
-    </div></section>            
+    </section>            
 </div>
 
 
@@ -246,6 +248,7 @@
           },
           show: function() {
             $('#transcript-text').show();
+            $('#transcript-toggle').removeClass('closed');
           },
           toggle: function() {
             $('#transcript-text').slideToggle();
@@ -257,7 +260,7 @@
 
         /* jumplink to the transcript showing breaks icons on refresh */
         if ( window.location.hash && window.location.hash === '#transcript' ) {
-          transcript.toggle();
+          transcript.show();
         }
 
         /* reveal the video transcript text */
