@@ -599,9 +599,12 @@ section.video {
 
 }
 
-// Hack to fix the map legend on mobiles
+// Hack to fix the map legend on mobiles, also hide the charts!
 
 @media only screen and (max-device-width: 480px) {
+    #map {
+      display: none;
+    }
     .leaflet-bottom.leaflet-right {
       width: 100%;
       .map-legends {
