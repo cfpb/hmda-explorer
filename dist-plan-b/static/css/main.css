@@ -3315,6 +3315,9 @@ section.video h2 strong {
   }
 }
 @media only screen and (max-device-width: 480px) {
+  #map {
+    display: none;
+  }
   .leaflet-bottom.leaflet-right {
     width: 100%;
   }
