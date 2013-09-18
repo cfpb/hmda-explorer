@@ -82,7 +82,9 @@ var PDP = (function ( pdp ) {
   table.queryParams.clauses = {};
     
   table._lastRequestTime = '';
-
+  
+  table._lastTimeout = '';
+  
   // returns a templated option tag
   table.optionTmpl = function(field, defaultOp) {
     var def = (defaultOp) ? 'selected' : '';
@@ -171,34 +173,29 @@ var PDP = (function ( pdp ) {
     this.$page.removeClass('loading');
   };
 
-  table._requestData = function() {   
-    var check, responseJSON;
+  table._requestData = function() {
+    var check, responseJSON, itvl = 45;
     
-    function _abort( data, textStatus ) {
-      $('body').append('<h3 class="ajax-error">The API timed out after ' + pdp.query.secondsToWait + ' seconds. :(</h3>');
-        table._removeSpinner();
-      $('.ajax-error').fadeOut( 5000 );
-    }
-
-    responseJSON = pdp.utils.getJSON( pdp.query.generateApiUrl( 'jsonp?$callback=', true, this.queryParams ) );
+    this._lastRequestTime = new Date().getTime();
     
-    responseJSON.timestamp = table._lastRequestTime = new Date().getTime();
+    responseJSON = pdp.utils.getJSON(pdp.query.generateApiUrl('jsonp?$callback=', true, this.queryParams));
+    responseJSON.timestamp = this._lastRequestTime;
     
     responseJSON.done(function( response ){
-      if (responseJSON.timestamp == table._lastRequestTime) {
-        table._handleApiResponse( response );
-        table._removeSpinner();
-      }
-    }).fail( this._abort );
-
-    $('.ajax-error').remove();
-    
-    check = setTimeout(function(){
-      if ( responseJSON.timestamp == table._lastRequestTime && responseJSON.state() !== 'resolved' ) {
-        _abort( null, 'time out' );
-      }
-    }, pdp.query.secondsToWait * 1000 );
-    
+      table.cancelTimeout();
+      if (responseJSON.timestamp === table._lastRequestTime) {
+        if (response.computing) {
+          // the response isn't ready yet
+          // keep checking the API for completion
+          table._lastTimeout = setTimeout(function () {
+            table._requestData();
+          }, itvl * 1000);
+        } else {
+          table._handleApiResponse( response );
+          table._removeSpinner();
+        }
+      } 
+    });
   };
   
   /**
@@ -376,6 +373,10 @@ var PDP = (function ( pdp ) {
     $table.prepend($headerRow);
   };
   
+  table.cancelTimeout = function () {
+    clearTimeout(this._lastTimeout);
+  };
+  
   table._buildQueryArrays = function (vals) {
     //build arrays for select and group clauses
     //add filters as where clause
@@ -387,7 +388,7 @@ var PDP = (function ( pdp ) {
   };
   
   table._updateShareLink = function (vals) {
-    //add a query.params select param combining variables and calculate value
+    //add a select value consisting of variables + calculate-by to query.params
     vals = vals.variables.concat(vals.calculate);
     pdp.query.params.select = {
       comparator: '=',
@@ -408,6 +409,7 @@ var PDP = (function ( pdp ) {
   table.setupTable = function () {
     var queryVals = this._prepFieldVals();
         
+    this.cancelTimeout();
     this.resetTable();
     
     if (queryVals.variables.length > 0) {
@@ -525,17 +527,8 @@ var PDP = (function ( pdp ) {
     
     $('#summary-submit').on('click', function(e) {
       e.preventDefault();
-      
       this.setupTable();
-      
-      //conditionally display downloads table
-      if ( this.queryParams.clauses.group && (this.queryParams.clauses.group.length > 0) ) {
-        this.enableDownload();
-      } else {
-        this.disableDownload();
-      }
-      
-    }.bind( this ));
+    }.bind(this));
     
   };
 

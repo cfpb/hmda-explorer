@@ -183,16 +183,16 @@
     <h1>Code coverage report for <span class="entity">modules/summary-table.js</span></h1>
     <h2>
         
-        Statements: <span class="metric">53.24% <small>(115 / 216)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">54.21% <small>(116 / 214)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Branches: <span class="metric">38.46% <small>(30 / 78)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">41.67% <small>(30 / 72)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
         Functions: <span class="metric">39.47% <small>(15 / 38)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Lines: <span class="metric">53.24% <small>(115 / 216)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">54.21% <small>(116 / 214)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
     </h2>
     <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">modules/</a> &#187; summary-table.js</div>
@@ -756,14 +756,7 @@
 555
 556
 557
-558
-559
-560
-561
-562
-563
-564
-565</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+558</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -843,6 +836,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -939,14 +934,9 @@
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -955,10 +945,10 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1142,6 +1132,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
@@ -1173,6 +1167,7 @@
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -1290,16 +1285,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1411,7 +1397,9 @@ var PDP = (function ( pdp ) {
   table.queryParams.clauses = {};
     
   table._lastRequestTime = '';
-&nbsp;
+  
+  table._lastTimeout = '';
+  
   // returns a templated option tag
   table.optionTmpl = function(field, defaultOp) {
     var def = (defaultOp) ? 'selected' : '';
@@ -1500,34 +1488,29 @@ var PDP = (function ( pdp ) {
     this.$page.removeClass('loading');
   };
 &nbsp;
-  table._requestData = <span class="fstat-no" title="function not covered" >function() {   </span>
-<span class="cstat-no" title="statement not covered" >    var check, responseJSON;</span>
+  table._requestData = <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >    var check, responseJSON, itvl = 45;</span>
     
-<span class="fstat-no" title="function not covered" >    function _abort( data, textStatus ) {</span>
-<span class="cstat-no" title="statement not covered" >      $('body').append('&lt;h3 class="ajax-error"&gt;The API timed out after ' + pdp.query.secondsToWait + ' seconds. :(&lt;/h3&gt;');</span>
-<span class="cstat-no" title="statement not covered" >        table._removeSpinner();</span>
-<span class="cstat-no" title="statement not covered" >      $('.ajax-error').fadeOut( 5000 );</span>
-    }
-&nbsp;
-<span class="cstat-no" title="statement not covered" >    responseJSON = pdp.utils.getJSON( pdp.query.generateApiUrl( 'jsonp?$callback=', true, this.queryParams ) );</span>
+<span class="cstat-no" title="statement not covered" >    this._lastRequestTime = new Date().getTime();</span>
     
-<span class="cstat-no" title="statement not covered" >    responseJSON.timestamp = table._lastRequestTime = new Date().getTime();</span>
+<span class="cstat-no" title="statement not covered" >    responseJSON = pdp.utils.getJSON(pdp.query.generateApiUrl('jsonp?$callback=', true, this.queryParams));</span>
+<span class="cstat-no" title="statement not covered" >    responseJSON.timestamp = this._lastRequestTime;</span>
     
 <span class="cstat-no" title="statement not covered" >    responseJSON.done(<span class="fstat-no" title="function not covered" >function( response ){</span></span>
-<span class="cstat-no" title="statement not covered" >      if (responseJSON.timestamp == table._lastRequestTime) {</span>
-<span class="cstat-no" title="statement not covered" >        table._handleApiResponse( response );</span>
-<span class="cstat-no" title="statement not covered" >        table._removeSpinner();</span>
-      }
-    }).fail( this._abort );
-&nbsp;
-<span class="cstat-no" title="statement not covered" >    $('.ajax-error').remove();</span>
-    
-<span class="cstat-no" title="statement not covered" >    check = setTimeout(<span class="fstat-no" title="function not covered" >function(){</span></span>
-<span class="cstat-no" title="statement not covered" >      if ( responseJSON.timestamp == table._lastRequestTime &amp;&amp; responseJSON.state() !== 'resolved' ) {</span>
-<span class="cstat-no" title="statement not covered" >        _abort( null, 'time out' );</span>
-      }
-    }, pdp.query.secondsToWait * 1000 );
-    
+<span class="cstat-no" title="statement not covered" >      table.cancelTimeout();</span>
+<span class="cstat-no" title="statement not covered" >      if (responseJSON.timestamp === table._lastRequestTime) {</span>
+<span class="cstat-no" title="statement not covered" >        if (response.computing) {</span>
+          // the response isn't ready yet
+          // keep checking the API for completion
+<span class="cstat-no" title="statement not covered" >          table._lastTimeout = setTimeout(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >            table._requestData();</span>
+          }, itvl * 1000);
+        } else {
+<span class="cstat-no" title="statement not covered" >          table._handleApiResponse( response );</span>
+<span class="cstat-no" title="statement not covered" >          table._removeSpinner();</span>
+        }
+      } 
+    });
   };
   
   /**
@@ -1705,6 +1688,10 @@ var PDP = (function ( pdp ) {
     $table.prepend($headerRow);
   };
   
+  table.cancelTimeout = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    clearTimeout(this._lastTimeout);</span>
+  };
+  
   table._buildQueryArrays = function (vals) {
     //build arrays for select and group clauses
     //add filters as where clause
@@ -1716,7 +1703,7 @@ var PDP = (function ( pdp ) {
   };
   
   table._updateShareLink = function (vals) {
-    //add a query.params select param combining variables and calculate value
+    //add a select value consisting of variables + calculate-by to query.params
     vals = vals.variables.concat(vals.calculate);
     pdp.query.params.select = {
       comparator: '=',
@@ -1737,6 +1724,7 @@ var PDP = (function ( pdp ) {
   table.setupTable = <span class="fstat-no" title="function not covered" >function () {</span>
 <span class="cstat-no" title="statement not covered" >    var queryVals = this._prepFieldVals();</span>
         
+<span class="cstat-no" title="statement not covered" >    this.cancelTimeout();</span>
 <span class="cstat-no" title="statement not covered" >    this.resetTable();</span>
     
 <span class="cstat-no" title="statement not covered" >    if (queryVals.variables.length &gt; 0) {</span>
@@ -1854,17 +1842,8 @@ var PDP = (function ( pdp ) {
     
 <span class="cstat-no" title="statement not covered" >    $('#summary-submit').on('click', <span class="fstat-no" title="function not covered" >function(e) {</span></span>
 <span class="cstat-no" title="statement not covered" >      e.preventDefault();</span>
-      
 <span class="cstat-no" title="statement not covered" >      this.setupTable();</span>
-      
-      //conditionally display downloads table
-<span class="cstat-no" title="statement not covered" >      if ( this.queryParams.clauses.group &amp;&amp; (this.queryParams.clauses.group.length &gt; 0) ) {</span>
-<span class="cstat-no" title="statement not covered" >        this.enableDownload();</span>
-      } else {
-<span class="cstat-no" title="statement not covered" >        this.disableDownload();</span>
-      }
-      
-    }.bind( this ));
+    }.bind(this));
     
   };
 &nbsp;
@@ -1896,11 +1875,7 @@ var PDP = (function ( pdp ) {
 
 </div>
 <div class="footer">
-<<<<<<< HEAD
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Sep 10 2013 12:22:23 GMT-0400 (EDT)</div>
-=======
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Sep 16 2013 16:51:38 GMT-0400 (EDT)</div>
->>>>>>> 07fb59a85788a2c027c899239c459394c2d6eab0
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Sep 18 2013 11:33:49 GMT-0400 (EDT)</div>
 </div>
 
 <script src="../prettify.js"></script>

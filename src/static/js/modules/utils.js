@@ -132,6 +132,13 @@ var PDP = (function( pdp ) {
       var deferred = $.getJSON( url );
 
       deferred.done(function(data) {
+        
+        // if the request returns a status of 'computing'
+        // results are not ready and should not be cached
+        if (data && data.computing) {
+          return;
+        }
+        
         try {
           localStorage.setItem( storageKey, JSON.stringify(data) );
         } catch( e ) {
