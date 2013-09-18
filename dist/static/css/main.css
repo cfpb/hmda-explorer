@@ -2198,8 +2198,8 @@ textarea {
   bottom: 0;
 }
 .filter .location-set {
-  border-bottom: 1px solid #ccc;
   padding-bottom: 20px;
+  border-bottom: 1px solid #ccc;
 }
 .filter .location-set:last-child {
   border: 0;
@@ -2360,8 +2360,9 @@ textarea {
   .widget.inline label:last-child {
     margin-right: 0;
   }
-  .location-set {
+  #location-sets {
     margin-left: 53px;
+    margin-right: 53px;
   }
 }
 .preview {
