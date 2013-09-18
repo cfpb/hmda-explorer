@@ -133,6 +133,7 @@
         top: -1px;
         *overflow: hidden;
     }
+
   }
 
   &.location {
@@ -310,6 +311,16 @@
 
   .widget {
     width: 55%;
+   &.checkbox-inline {
+      label {
+        width: 40%;
+        display: inline-block;
+        margin-right: 19px;
+        &:last-child {
+          margin-right: 0
+        }
+      }
+    }
     &.inline {
       label {
         display: inline-block;
@@ -317,6 +328,7 @@
         &:last-child {
           margin-right: 0
         }
+
       }
       input[type=checkbox] {
         //width: 20px;
