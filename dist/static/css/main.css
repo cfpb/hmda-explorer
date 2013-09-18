@@ -2348,6 +2348,7 @@ textarea {
   .widget.inline label {
     display: inline-block;
     margin-right: 19px;
+    width: 40%;
   }
   .widget.inline label:last-child {
     margin-right: 0;
