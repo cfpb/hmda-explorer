@@ -3668,6 +3668,14 @@ section.video h2 strong {
   line-height: 1.375em;
   margin: 10px 0px;
 }
+#learn-more .highlight a {
+  color: #0072ce;
+  border-bottom: 1px dotted #0072ce;
+  text-decoration: none;
+  font-family: "Avenir Next", Arial, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 #learn-more .filter {
   background-color: #ffffff;
   border-bottom: 0px;
@@ -3699,6 +3707,7 @@ section.video h2 strong {
 }
 #learn-more dfn a {
   border-bottom: 1px dotted #0072ce;
+  text-decoration: none;
 }
 #learn-more .footnote {
   width: 66%;
