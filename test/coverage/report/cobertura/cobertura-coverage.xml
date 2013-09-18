@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="876"  lines-covered="398"  line-rate="0.4543"  branches-valid="353"  branches-covered="105"  branch-rate="0.2975"  timestamp="1379518429358" complexity="0" version="0.1">
+<coverage lines-valid="876"  lines-covered="398"  line-rate="0.4543"  branches-valid="353"  branches-covered="105"  branch-rate="0.2975"  timestamp="1379518611408" complexity="0" version="0.1">
 <sources>
 	<source>/Users/czosekv/projects/ang-projects/public-data-platform</source>
 </sources>
