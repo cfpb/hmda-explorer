@@ -2345,10 +2345,17 @@ textarea {
   .widget {
     width: 55%;
   }
+  .widget.checkbox-inline label {
+    width: 40%;
+    display: inline-block;
+    margin-right: 19px;
+  }
+  .widget.checkbox-inline label:last-child {
+    margin-right: 0;
+  }
   .widget.inline label {
     display: inline-block;
     margin-right: 19px;
-    width: 40%;
   }
   .widget.inline label:last-child {
     margin-right: 0;
