@@ -2763,13 +2763,11 @@ ul.chzn-choices {
   margin-top: 5px;
   width: 100%;
   background: transparent url() scroll no-repeat top center;
-  background-image: url('../img/hr_hero-top.png');
-  background-image: url(../img/hr_hero-top-mobile_2x.png);
-  background-size: 770px 17px;
+  background-image: url('../img/hr_hero-top-mobile.png');
 }
 @media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
   .homepage .hero h1 {
-    background-image: url("../img/hr_hero-top_2x.png");
+    background-image: url("../img/hr_hero-top-mobile_2x.png");
     background-size: 770px 17px;
   }
 }
@@ -3144,7 +3142,8 @@ section.video h2 strong {
     font-size: 47px;
     padding-top: 32px;
     margin-top: 0;
-    background-image: url('../img/hr_hero-top.png');
+    background-image: url(../img/hr_hero-top_2x.png);
+    background-size: 770px 17px;
   }
   .homepage .hero nav {
     width: 82%;
@@ -3332,12 +3331,6 @@ section.video h2 strong {
   }
   .homepage #developers .inner {
     width: 82%;
-  }
-}
-@media only screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
-  .homepage .hero h1 {
-    background-image: url("../img/hr_hero-top_2x.png");
-    background-size: 770px 17px;
   }
 }
 @media only screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
