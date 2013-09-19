@@ -3189,6 +3189,9 @@ section.video h2 strong {
   .homepage .hero nav a.get-the-data {
     margin: 0 auto;
   }
+  .homepage .hero nav a.get-the-data .circle-nav {
+    margin: 0 auto 20px;
+  }
   .homepage .hero nav a.get-the-data .inner {
     padding-left: 9%;
     padding-right: 9%;
