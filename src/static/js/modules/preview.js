@@ -266,6 +266,9 @@ var PDP = (function ( pdp ) {
         columnValues: _rows
       });
 
+      console.log(_.toArray( _fields ).length);
+      console.log(_rows[0].length);
+
   };
 
   // Export the public API.

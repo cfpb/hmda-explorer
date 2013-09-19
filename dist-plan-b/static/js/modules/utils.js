@@ -91,6 +91,23 @@ var PDP = (function( pdp ) {
   utils.isBlank = function (str) {
       return (!str || /^\s*$/.test(str));
   };
+  
+  utils.emptyObject = function (obj) {
+    if (_.isObject(obj)) {
+      return !_.some(obj, function(val, key) {
+          return !pdp.utils.isBlank(val);
+      });
+    } 
+  };
+  
+  utils.nonEmptyValues = function (obj) {
+    if (!_.isObject(obj)) {
+      return [];
+    }
+    return _.filter(obj, function(val, key) {
+        return !pdp.utils.isBlank(val);
+    });
+  };
 
   // localStorage polyfill from https://gist.github.com/juliocesar/926500.
   // Basically just creates an object in memory.
