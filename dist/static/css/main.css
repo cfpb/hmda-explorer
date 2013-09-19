@@ -3935,8 +3935,8 @@ body {
   display: none;
 }
 #summary #summary-loading {
-  background-color: black;
-  color: white;
+  background-color: #ffffff;
+  color: #101820;
   text-align: center;
   padding: 15px;
   display: none;
