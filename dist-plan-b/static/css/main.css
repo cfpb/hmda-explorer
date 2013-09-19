@@ -374,7 +374,7 @@ table {
 @font-face {
   font-family: "CFPB Icons";
   src: url("../fonts/CFPB_minicons.eot");
-  src: url("../fonts/CFPB_minicons.eot?#iefix") format("embedded-opentype"), url("../fonts/CFPB_minicons.woff") format("woff"), url("../fonts/CFPB_minicons.ttf") format("truetype"), url("../fonts/CFPB_minicons.svg") format("svg");
+  src: url("../fonts/CFPB_minicons.eot?#iefix") format('embedded-opentype'), url("../fonts/CFPB_minicons.woff") format('woff'), url("../fonts/CFPB_minicons.ttf") format('truetype'), url("../fonts/CFPB_minicons.svg") format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -518,460 +518,460 @@ a [class*=" icon-"] {
 /* NAVIGATION ICONS
  * -------------------------- */
 .icon-left:before {
-  content: "\e0000";
+  content: "\e000";
 }
 .icon-left-alt:before {
-  content: "\e0001";
+  content: "\e001";
 }
 .icon-right:before {
-  content: "\e0002";
+  content: "\e002";
 }
 .icon-right-alt:before {
-  content: "\e0003";
+  content: "\e003";
 }
 .icon-up:before {
-  content: "\e0004";
+  content: "\e004";
 }
 .icon-up-alt:before {
-  content: "\e0005";
+  content: "\e005";
 }
 .icon-down:before {
-  content: "\e0006";
+  content: "\e006";
 }
 .icon-down-alt:before {
-  content: "\e0007";
+  content: "\e007";
 }
 /* STATUS ICONS
  * -------------------------- */
 .icon-approved:before {
-  content: "\e0100";
+  content: "\e100";
 }
 .icon-approved-alt:before {
-  content: "\e0101";
+  content: "\e101";
 }
 .icon-error:before {
-  content: "\e0102";
+  content: "\e102";
 }
 .icon-error-alt:before {
-  content: "\e0103";
+  content: "\e103";
 }
 .icon-help:before {
-  content: "\e0104";
+  content: "\e104";
 }
 .icon-help-alt:before {
-  content: "\e0105";
+  content: "\e105";
 }
 .icon-delete:before {
-  content: "\e0106";
+  content: "\e106";
 }
 .icon-delete-alt:before {
-  content: "\e0107";
+  content: "\e107";
 }
 .icon-plus:before {
-  content: "\e0108";
+  content: "\e108";
 }
 .icon-plus-alt:before {
-  content: "\e0109";
+  content: "\e109";
 }
 .icon-minus:before {
-  content: "\e0110";
+  content: "\e110";
 }
 .icon-minus-alt:before {
-  content: "\e0111";
+  content: "\e111";
 }
 .icon-update:before {
-  content: "\e0112";
+  content: "\e112";
 }
 .icon-update-alt:before {
-  content: "\e0113";
+  content: "\e113";
 }
 /* SOCIAL ICONS
  * -------------------------- */
 .icon-youtube:before {
-  content: "\e0200";
+  content: "\e200";
 }
 .icon-youtube-alt:before {
-  content: "\e0201";
+  content: "\e201";
 }
 .icon-linkedin:before {
-  content: "\e0202";
+  content: "\e202";
 }
 .icon-linkedin-alt:before {
-  content: "\e0203";
+  content: "\e203";
 }
 .icon-facebook:before {
-  content: "\e0204";
+  content: "\e204";
 }
 .icon-facebook-alt:before {
-  content: "\e0205";
+  content: "\e205";
 }
 .icon-flickr:before {
-  content: "\e0206";
+  content: "\e206";
 }
 .icon-flickr-alt:before {
-  content: "\e0207";
+  content: "\e207";
 }
 .icon-twitter:before {
-  content: "\e0208";
+  content: "\e208";
 }
 .icon-twitter-alt:before {
-  content: "\e0209";
+  content: "\e209";
 }
 .icon-github:before {
-  content: "\e0210";
+  content: "\e210";
 }
 .icon-github-alt:before {
-  content: "\e0211";
+  content: "\e211";
 }
 /* COMMUNICATION ICONS
  * -------------------------- */
 .icon-web:before {
-  content: "\e0300";
+  content: "\e300";
 }
 .icon-web-alt:before {
-  content: "\e0301";
+  content: "\e301";
 }
 .icon-email:before {
-  content: "\e0302";
+  content: "\e302";
 }
 .icon-email-alt:before {
-  content: "\e0303";
+  content: "\e303";
 }
 .icon-mail:before {
-  content: "\e0304";
+  content: "\e304";
 }
 .icon-mail-alt:before {
-  content: "\e0305";
+  content: "\e305";
 }
 .icon-phone:before {
-  content: "\e0306";
+  content: "\e306";
 }
 .icon-phone-alt:before {
-  content: "\e0307";
+  content: "\e307";
 }
 .icon-technology:before {
-  content: "\e0308";
+  content: "\e308";
 }
 .icon-technology-alt:before {
-  content: "\e0309";
+  content: "\e309";
 }
 .icon-fax:before {
-  content: "\e0310";
+  content: "\e310";
 }
 .icon-fax-alt:before {
-  content: "\e0311";
+  content: "\e311";
 }
 /* DOCUMENT ICONS
  * -------------------------- */
 .icon-document:before {
-  content: "\e0400";
+  content: "\e400";
 }
 .icon-document-alt:before {
-  content: "\e0401";
+  content: "\e401";
 }
 .icon-pdf:before {
-  content: "\e0402";
+  content: "\e402";
 }
 .icon-pdf-alt:before {
-  content: "\e0403";
+  content: "\e403";
 }
 .icon-upload:before {
-  content: "\e0404";
+  content: "\e404";
 }
 .icon-upload-alt:before {
-  content: "\e0405";
+  content: "\e405";
 }
 .icon-download:before {
-  content: "\e0406";
+  content: "\e406";
 }
 .icon-download-alt:before {
-  content: "\e0407";
+  content: "\e407";
 }
 .icon-copy:before {
-  content: "\e0408";
+  content: "\e408";
 }
 .icon-copy-alt:before {
-  content: "\e0409";
+  content: "\e409";
 }
 .icon-edit:before {
-  content: "\e0410";
+  content: "\e410";
 }
 .icon-edit-alt:before {
-  content: "\e0411";
+  content: "\e411";
 }
 .icon-attach:before {
-  content: "\e0412";
+  content: "\e412";
 }
 .icon-attach-alt:before {
-  content: "\e0413";
+  content: "\e413";
 }
 .icon-print:before {
-  content: "\e0414";
+  content: "\e414";
 }
 .icon-print-alt:before {
-  content: "\e0415";
+  content: "\e415";
 }
 .icon-save:before {
-  content: "\e0416";
+  content: "\e416";
 }
 .icon-save-alt:before {
-  content: "\e0417";
+  content: "\e417";
 }
 .icon-appendix:before {
-  content: "\e0418";
+  content: "\e418";
 }
 .icon-appendix-alt:before {
-  content: "\e0419";
+  content: "\e419";
 }
 .icon-supplement:before {
-  content: "\e0420";
+  content: "\e420";
 }
 .icon-supplement-alt:before {
-  content: "\e0421";
+  content: "\e421";
 }
 /* FINANCIAL PRODUCTS ICONS
  * -------------------------- */
 .icon-bank-account:before {
-  content: "\e0500";
+  content: "\e500";
 }
 .icon-bank-account-alt:before {
-  content: "\e0501";
+  content: "\e501";
 }
 .icon-credit-card:before {
-  content: "\e0502";
+  content: "\e502";
 }
 .icon-credit-card-alt:before {
-  content: "\e0503";
+  content: "\e503";
 }
 .icon-loan:before {
-  content: "\e0504";
+  content: "\e504";
 }
 .icon-loan-alt:before {
-  content: "\e0505";
+  content: "\e505";
 }
 .icon-money-transfer:before {
-  content: "\e0506";
+  content: "\e506";
 }
 .icon-money-transfer-alt:before {
-  content: "\e0507";
+  content: "\e507";
 }
 .icon-mortgage:before {
-  content: "\e0508";
+  content: "\e508";
 }
 .icon-mortgage-alt:before {
-  content: "\e0509";
+  content: "\e509";
 }
 .icon-debt-collection:before {
-  content: "\e0510";
+  content: "\e510";
 }
 .icon-debt-collection-alt:before {
-  content: "\e0511";
+  content: "\e511";
 }
 .icon-credit-report:before {
-  content: "\e0512";
+  content: "\e512";
 }
 .icon-credit-report-alt:before {
-  content: "\e0513";
+  content: "\e513";
 }
 .icon-money:before {
-  content: "\e0514";
+  content: "\e514";
 }
 .icon-money-alt:before {
-  content: "\e0515";
+  content: "\e515";
 }
 .icon-quick-cash:before {
-  content: "\e0516";
+  content: "\e516";
 }
 .icon-quick-cash-alt:before {
-  content: "\e0517";
+  content: "\e517";
 }
 .icon-contract:before {
-  content: "\e0518";
+  content: "\e518";
 }
 .icon-contract-alt:before {
-  content: "\e0519";
+  content: "\e519";
 }
 .icon-complaint:before {
-  content: "\e0520";
+  content: "\e520";
 }
 .icon-complaint-alt:before {
-  content: "\e0521";
+  content: "\e521";
 }
 .icon-getting-credit-card:before {
-  content: "\e0522";
+  content: "\e522";
 }
 .icon-getting-credit-card-alt:before {
-  content: "\e0523";
+  content: "\e523";
 }
 .icon-buying-car:before {
-  content: "\e0524";
+  content: "\e524";
 }
 .icon-buying-car-alt:before {
-  content: "\e0525";
+  content: "\e525";
 }
 .icon-paying-college:before {
-  content: "\e0526";
+  content: "\e526";
 }
 .icon-paying-college-alt:before {
-  content: "\e0527";
+  content: "\e527";
 }
 .icon-owning-home:before {
-  content: "\e0528";
+  content: "\e528";
 }
 .icon-owning-home-alt:before {
-  content: "\e0529";
+  content: "\e529";
 }
 .icon-debt:before {
-  content: "\e0530";
+  content: "\e530";
 }
 .icon-debt-alt:before {
-  content: "\e0531";
+  content: "\e531";
 }
 .icon-building-credit:before {
-  content: "\e0532";
+  content: "\e532";
 }
 .icon-building-credit-alt:before {
-  content: "\e0533";
+  content: "\e533";
 }
 .icon-prepaid-cards:before {
-  content: "\e0534";
+  content: "\e534";
 }
 .icon-prepaid-cards-alt:before {
-  content: "\e0535";
+  content: "\e535";
 }
 .icon-payday-loan:before {
-  content: "\e0536";
+  content: "\e536";
 }
 .icon-payday-loan-alt:before {
-  content: "\e0537";
+  content: "\e537";
 }
 .icon-retirement:before {
-  content: "\e0538";
+  content: "\e538";
 }
 .icon-retirement-alt:before {
-  content: "\e0539";
+  content: "\e539";
 }
 /* WEB ICONS
  * -------------------------- */
 .icon-user:before {
-  content: "\e0600";
+  content: "\e600";
 }
 .icon-user-alt:before {
-  content: "\e0601";
+  content: "\e601";
 }
 .icon-wifi:before {
-  content: "\e0602";
+  content: "\e602";
 }
 .icon-wifi-alt:before {
-  content: "\e0603";
+  content: "\e603";
 }
 .icon-search:before {
-  content: "\e0604";
+  content: "\e604";
 }
 .icon-search-alt:before {
-  content: "\e0605";
+  content: "\e605";
 }
 .icon-share:before {
-  content: "\e0606";
+  content: "\e606";
 }
 .icon-share-alt:before {
-  content: "\e0607";
+  content: "\e607";
 }
 .icon-link:before {
-  content: "\e0608";
+  content: "\e608";
 }
 .icon-link-alt:before {
-  content: "\e0609";
+  content: "\e609";
 }
 .icon-external-link:before {
-  content: "\e0610";
+  content: "\e610";
 }
 .icon-external-link-alt:before {
-  content: "\e0611";
+  content: "\e611";
 }
 .icon-audio-mute:before {
-  content: "\e0612";
+  content: "\e612";
 }
 .icon-audio-mute-alt:before {
-  content: "\e0616";
+  content: "\e616";
 }
 .icon-audio-low:before {
-  content: "\e0613";
+  content: "\e613";
 }
 .icon-audio-low-alt:before {
-  content: "\e0617";
+  content: "\e617";
 }
 .icon-audio-medium:before {
-  content: "\e0614";
+  content: "\e614";
 }
 .icon-audio-medium-alt:before {
-  content: "\e0618";
+  content: "\e618";
 }
 .icon-audio-max:before {
-  content: "\e0615";
+  content: "\e615";
 }
 .icon-audio-max-alt:before {
-  content: "\e0619";
+  content: "\e619";
 }
 .icon-favorite:before {
-  content: "\e0620";
+  content: "\e620";
 }
 .icon-favorite-alt:before {
-  content: "\e0621";
+  content: "\e621";
 }
 .icon-unfavorite:before {
-  content: "\e0622";
+  content: "\e622";
 }
 .icon-unfavorite-alt:before {
-  content: "\e0623";
+  content: "\e623";
 }
 .icon-bookmark:before {
-  content: "\e0624";
+  content: "\e624";
 }
 .icon-bookmark-alt:before {
-  content: "\e0625";
+  content: "\e625";
 }
 .icon-unbookmark:before {
-  content: "\e0626";
+  content: "\e626";
 }
 .icon-unbookmark-alt:before {
-  content: "\e0627";
+  content: "\e627";
 }
 .icon-settings:before {
-  content: "\e0628";
+  content: "\e628";
 }
 .icon-settings-alt:before {
-  content: "\e0629";
+  content: "\e629";
 }
 .icon-menu:before {
-  content: "\e0630";
+  content: "\e630";
 }
 .icon-menu-alt:before {
-  content: "\e0631";
+  content: "\e631";
 }
 .icon-lock:before {
-  content: "\e0632";
+  content: "\e632";
 }
 .icon-lock-alt:before {
-  content: "\e0634";
+  content: "\e634";
 }
 .icon-unlock:before {
-  content: "\e0633";
+  content: "\e633";
 }
 .icon-unlock-alt:before {
-  content: "\e0635";
+  content: "\e635";
 }
 .icon-chart:before {
-  content: "\e0636";
+  content: "\e636";
 }
 .icon-chart-alt:before {
-  content: "\e0637";
+  content: "\e637";
 }
 .icon-play:before {
-  content: "\e0638";
+  content: "\e638";
 }
 .icon-play-alt:before {
-  content: "\e0639";
+  content: "\e639";
 }
 /* @group Base */
 .chzn-container {
@@ -2392,7 +2392,6 @@ textarea {
   height: 400px;
   overflow: scroll;
 }
-.preview #preview tr,
 .preview #preview th,
 .preview #preview td {
   width: 150px;

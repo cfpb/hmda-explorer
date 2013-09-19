@@ -174,7 +174,7 @@ var PDP = (function ( pdp ) {
   };
 
   table._requestData = function() {
-    var check, responseJSON, itvl = 45;
+    var check, responseJSON, itvl = 15;
     
     this._lastRequestTime = new Date().getTime();
     
@@ -194,7 +194,7 @@ var PDP = (function ( pdp ) {
           table._handleApiResponse( response );
           table._removeSpinner();
         }
-      } 
+      }
     });
   };
   
