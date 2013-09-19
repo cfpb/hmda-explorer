@@ -29,3 +29,6 @@ src/static/vendor
 #########
 ghpages.sh
 
+# Coverage reports #
+####################
+test/coverage/report/html
