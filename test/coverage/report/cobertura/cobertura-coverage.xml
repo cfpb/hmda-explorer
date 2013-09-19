@@ -1,8 +1,8 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="883"  lines-covered="385"  line-rate="0.436"  branches-valid="355"  branches-covered="104"  branch-rate="0.293"  timestamp="1379538000702" complexity="0" version="0.1">
+<coverage lines-valid="883"  lines-covered="385"  line-rate="0.436"  branches-valid="355"  branches-covered="104"  branch-rate="0.293"  timestamp="1379553625087" complexity="0" version="0.1">
 <sources>
-	<source>/Users/garciad/Downloads/public-data-platform</source>
+	<source>/Users/contolinic/Sites/public-data-platform</source>
 </sources>
 <packages>
 	<package name="modules"  line-rate="0.436"  branch-rate="0.293" >
