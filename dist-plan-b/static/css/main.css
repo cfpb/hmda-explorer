@@ -3040,7 +3040,10 @@ section.video h2 strong {
   padding-bottom: 50px;
 }
 #get-the-data h2 {
-  width: 450px;
+  width: 440px;
+}
+#get-the-data h2 strong {
+  font-size: 1.1em;
 }
 #get-the-data h3 {
   font-family: "Avenir Next Demi", Arial, sans-serif;
@@ -3307,6 +3310,9 @@ section.video h2 strong {
   }
   .homepage #get-the-data h2 {
     background-image: url('../img/icon_getdata.png');
+  }
+  .homepage #get-the-data h2 strong {
+    font-size: 1.4em;
   }
   .homepage #get-the-data .inner {
     width: 82%;
