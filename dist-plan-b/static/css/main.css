@@ -2409,6 +2409,7 @@ textarea {
   display: inline-block;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-align: left;
 }
 .preview #preview .spinning {
   display: none;
