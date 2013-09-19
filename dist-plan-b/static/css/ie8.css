@@ -4,6 +4,11 @@
   }
   .homepage .hero h1 {
     font-size: 52px;
+    background-image: url('../img/hr_hero-top.png');
+    background-size: 770px 17px;
+  }
+  .homepage .hero nav a.facts-and-figures {
+    width: 170px;
   }
   .homepage .circle-nav {
     background: transparent url('../img/ie8_orange-circle.gif') no-repeat scroll top left;
