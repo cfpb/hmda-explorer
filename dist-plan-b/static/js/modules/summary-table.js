@@ -68,7 +68,8 @@ var PDP = (function ( pdp ) {
     }
   };
   
-  //stores variables on select change to be used in clause generation on submit
+  //stores user-selected variables and calculate-by value
+  //these are used in clause generation on submit
   table.fieldVals = {
     variables: [],
     calculate: ''
@@ -79,8 +80,8 @@ var PDP = (function ( pdp ) {
 
   // clauses = { select|group: ['var_name_0', 'var_name_1', 'var_name_2', 'calculate-by'] }
   table.queryParams.clauses = {};
-  
-  table._loading = false;
+    
+  table._lastRequestTime = '';
 
   // returns a templated option tag
   table.optionTmpl = function(field, defaultOp) {
@@ -126,17 +127,13 @@ var PDP = (function ( pdp ) {
 
   // event handler, called when a form field changes
   table.updateFieldVals = function(e) {
-    var value,
+    var value = e.target.value,
         position = e.target.id.substr( -1, 1 ),
         removedVal;
-
-    if ( e.target.hasOwnProperty('selectedOptions') ) {
-      value = e.target.selectedOptions[0].value;
-    }
-
+    
     // if they've selected a placeholder, ignore it
     // a placeholder has no value
-    if ( e.target.selectedOptions[0].hasAttribute('placeholder') ) {
+    if ($(e.target).find('option[value=' + value + ']').attr('placeholder')) {
       value = '';
     }
 
@@ -174,52 +171,34 @@ var PDP = (function ( pdp ) {
     this.$page.removeClass('loading');
   };
 
-  table._showLoadingState = function () {
-    //deactivate submit button
-    table._loading = true;
-    $('#variable0, #variable1, #variable2, #calculate-by').attr('disabled', 'disabled').trigger('liszt:updated');
-    $('#summary').addClass('loading');
-    //TODO: create submit button deactivated state
-    //TODO: disable downloads button?
-  };
-  
-  table._removeLoadingState = function () {
-    table._loading = false;
-    $('#variable0, #variable1, #variable2, #calculate-by').removeAttr('disabled').trigger('liszt:updated');
-    $('#summary').removeClass('loading');
-    
-  };
-
   table._requestData = function() {   
-    var responseJSON, check;
+    var check, responseJSON;
+    
     function _abort( data, textStatus ) {
       $('body').append('<h3 class="ajax-error">The API timed out after ' + pdp.query.secondsToWait + ' seconds. :(</h3>');
-        //table._removeSpinner();
-        table._removeLoadingState();
+        table._removeSpinner();
       $('.ajax-error').fadeOut( 5000 );
     }
 
     responseJSON = pdp.utils.getJSON( pdp.query.generateApiUrl( 'jsonp?$callback=', true, this.queryParams ) );
-
+    
+    responseJSON.timestamp = table._lastRequestTime = new Date().getTime();
+    
     responseJSON.done(function( response ){
-      table._handleApiResponse( response );
-      // clearInterval(check);
-    }).always(function () {
-      table._removeLoadingState();
-    });
-
-    //responseJSON.fail( this._throwFetchError );
-    responseJSON.fail( this._abort );
+      if (responseJSON.timestamp == table._lastRequestTime) {
+        table._handleApiResponse( response );
+        table._removeSpinner();
+      }
+    }).fail( this._abort );
 
     $('.ajax-error').remove();
+    
     check = setTimeout(function(){
-      if ( responseJSON.state() !== 'resolved' ) {
+      if ( responseJSON.timestamp == table._lastRequestTime && responseJSON.state() !== 'resolved' ) {
         _abort( null, 'time out' );
       }
     }, pdp.query.secondsToWait * 1000 );
-
-    // in the meantime, spin!
-    //this._showSpinner();
+    
   };
   
   /**
@@ -362,29 +341,6 @@ var PDP = (function ( pdp ) {
     this._updateFields(removedVal);
   };
 
-  // updates object that reflects selected form options
-  // recursive if the data attribute data-summary-table-input
-  // is set to "both" to update both select and group arrays
-  table.updateQuery = function( clause, value, position ) {
-
-    if ( clause === 'both') {
-      this.updateQuery( 'select', value, position );
-      this.updateQuery( 'group', value, position );
-      return;
-    }
-
-    // if its the first time this clause is being used, create new array
-    if ( typeof this.queryParams.clauses[clause] === 'undefined' ) {
-      this.queryParams.clauses[clause] = [];
-    }
-
-    this.queryParams.clauses[clause][position] = value;
-
-    // re-copies the filters
-    this.queryParams.clauses.where = pdp.query.params;
-
-  };
-
   // create structure of table
   table.createTable = function() {
     $('#summary-table-container').append('<table id="summary-table"></table>');
@@ -406,7 +362,7 @@ var PDP = (function ( pdp ) {
         // 3 = array index of calculate by
         // calculate by = 3d vs. 2d since it has value id, 
         // query representation and human representation
-        if ( i === 3 ) {
+        if ( i === (len-1) ) {
           // walk the calculate by or metrics map for the correct title
           fieldVal = this.queryToVal( columns[i] );
           if ( this.metrics.hasOwnProperty( fieldVal ) ) {
@@ -420,46 +376,83 @@ var PDP = (function ( pdp ) {
     $table.prepend($headerRow);
   };
   
-  table.updateShareLink = function (selectVals) {
+  table._buildQueryArrays = function (vals) {
+    //build arrays for select and group clauses
+    //add filters as where clause
+    this.queryParams.clauses = {
+      group: vals.variables,
+      select: vals.variables.concat([this.metrics[vals.calculate].api]),
+      where: pdp.query.params
+    };
+  };
+  
+  table._updateShareLink = function (vals) {
+    //add a query.params select param combining variables and calculate value
+    vals = vals.variables.concat(vals.calculate);
     pdp.query.params.select = {
       comparator: '=',
-      values: selectVals
+      values: vals
     };
     pdp.form.updateShareLink();
   };
   
-  table.setupDataTable = function () {
-    var vals = [];
-    this.resetTable();
-    
-    if (table.varSelected()) {
-      table.queryParams.clauses = {};
-      table._showLoadingState();
-      //update select & group clauses for each actual value in variables
-      _.each(this.fieldVals.variables, function (param, ind) {
-          if (param) {
-            table.updateQuery('both', param, ind);
-            vals.push(param);
-          }
-      });
-
-      //use chosen calculate-by value or default to "count"
-      //if using count, update field to reflect this
-      this.fieldVals.calculate = this.fieldVals.calculate || 'count';
-      table._inputs.calculate.val(this.fieldVals.calculate).trigger('liszt:updated');
-      this.updateQuery('select', this.metrics[this.fieldVals.calculate].api, 3);
-      
-      //update share link to include select params
-      vals.push(this.fieldVals.calculate);
-      this.updateShareLink(vals);
-      
-      this._requestData();
-    }
-    
+  table._prepFieldVals = function () {
+    //extract non-empty values from fieldVals.variables
+    //ensure that there is a value for calculate
+    return {
+      variables: pdp.utils.nonEmptyValues(this.fieldVals.variables),
+      calculate: this.fieldVals.calculate || 'count'
+    };
   };
   
-  table.updateSummaryFieldsUI = function (num) {
-    var reset_fields;
+  table.setupTable = function () {
+    var queryVals = this._prepFieldVals();
+        
+    this.resetTable();
+    
+    if (queryVals.variables.length > 0) {
+      this._showSpinner();
+      this._buildQueryArrays(queryVals);
+      this._updateShareLink(queryVals);
+      this._requestData();
+      this.enableDownload();
+    }
+  };
+  
+  table._extractValuesFromUrlParams = function (vals) {
+    _.each(vals, function (param, ind) {
+      if (table.metrics[param]) {
+        //this is the calculate by value
+        table.fieldVals.calculate = param;
+      } else {
+        //perform some basic validation on the variable params
+        //they should be unique, in the field options list, and not exceed 3
+        if (_.indexOf(table.fields, param) !== -1 && _.indexOf(table.fieldVals.variables, param) === -1 && table.fieldVals.variables.length < 3) {
+          table.fieldVals.variables.push(param);
+        }
+      }
+    });
+  };
+  
+  table._updateSummaryFields = function () {
+    //update variable & calculate-by select values to match fieldVals
+    var i, val;
+    for (i=0; i<3; i++) {
+      if (table.fieldVals.variables[i]) {
+        val = table.fieldVals.variables[i];
+        table._inputs.varFields[i].val(val).trigger('liszt:updated');
+        table._updateFields(val);
+      }
+    }
+    if (table.fieldVals.calculate) {
+      table._inputs.calculate.val(table.fieldVals.calculate).trigger('liszt:updated');
+    }
+  };
+  
+  table._updateSummaryFieldsUI = function () {
+    //conditionally display reset links based on number of variables chosen
+    var reset_fields,
+        num = table.fieldVals.variables.length;
     if (num > 1) {
       reset_fields = (num === 2) ? $('#reset-variable1') : $('#reset-variable1, #reset-variable2');
       reset_fields.removeClass('hidden');
@@ -468,50 +461,26 @@ var PDP = (function ( pdp ) {
     }
   };
   
-  table.processUrlParams = function () {
-    var pos = 0;
-    
-    _.each(pdp.query.params.select.values, function (param, ind) {
-      if (table.metrics[param]) {
-        //this is the calculate by value
-        table.fieldVals.calculate = param;
-        table._inputs.calculate.val(param).trigger('liszt:updated');
-      } else {
-        //perform some basic validation on the variable params
-        //they should be unique, in the field options list, and not exceed 3
-        if (_.indexOf(table.fields, param) !== -1 && _.indexOf(table.fieldVals.variables, param) === -1 && pos < 3) {
-          table.fieldVals.variables.push(param);
-          table._inputs.varFields[pos].val(param).trigger('liszt:updated');
-          table._updateFields(param);
-          pos++;
-        }
-      }
-    });
-    
-    if (table.fieldVals.variables.length > 0) {
-      this.updateSummaryFieldsUI(table.fieldVals.variables.length);
-    } else {
-      return;
-    }
-    
-    table.setupDataTable();
-    table.enableDownload();
-  };
-  
-  table.varSelected = function () {
-    return _.find(this.fieldVals.variables, function (val) {
-      return !pdp.utils.isBlank(val);
-    });
+  table.showTableFromUrlParams = function (params) {
+    this._extractValuesFromUrlParams(params);
+    this._updateSummaryFields();
+    this._updateSummaryFieldsUI();
+    this.setupTable();
   };
 
   table.init = function() {
+    var selectParams;
+    
     table._populateOptions();
     table._chosenInit();
     table.createTable();
     table.disableDownload();
-    //check for select values in params
-    if (typeof pdp.query.params.select != 'undefined') {
-        table.processUrlParams();
+    
+    //check for select values in params 
+    selectParams = ((pdp.query.params.select || {}).values || []);
+    
+    if (selectParams.length > 0) {
+        table.showTableFromUrlParams(selectParams);
     } else {
       // fields should be disabled until a first variable is selected
       // we don't want users selecting subsequent vars when earlier
@@ -556,15 +525,14 @@ var PDP = (function ( pdp ) {
     
     $('#summary-submit').on('click', function(e) {
       e.preventDefault();
-      //prevent submit if data request is in progress
-      if (!table._loading) {
-        this.setupDataTable();
-        //conditionally display downloads table
-        if ( this.queryParams.clauses.group.length > 0 ) {
-          this.enableDownload();
-        } else {
-          this.disableDownload();
-        }
+      
+      this.setupTable();
+      
+      //conditionally display downloads table
+      if ( this.queryParams.clauses.group && (this.queryParams.clauses.group.length > 0) ) {
+        this.enableDownload();
+      } else {
+        this.disableDownload();
       }
       
     }.bind( this ));

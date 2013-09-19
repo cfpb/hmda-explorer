@@ -100,7 +100,9 @@ when passed the param's name.</p>             </td>             <td class="code"
     <span class="p">}</span>
 
     <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">currentSection</span> <span class="o">===</span> <span class="s1">&#39;summary&#39;</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">pdp</span><span class="p">.</span><span class="nx">summaryTable</span><span class="p">.</span><span class="nx">setupDataTable</span><span class="p">();</span>
+      <span class="nx">pdp</span><span class="p">.</span><span class="nx">summaryTable</span><span class="p">.</span><span class="nx">setupTable</span><span class="p">();</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">pdp</span><span class="p">.</span><span class="nx">summaryTable</span><span class="p">.</span><span class="nx">cancelTimeout</span><span class="p">();</span>
     <span class="p">}</span>
 
   <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-37">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-37">&#182;</a>               </div>               <p>Export the public API.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">pdp</span><span class="p">.</span><span class="nx">app</span> <span class="o">=</span> <span class="nx">app</span><span class="p">;</span>

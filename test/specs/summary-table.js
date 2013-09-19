@@ -115,7 +115,7 @@
           .toEqual('avg_applicant_income_000s');
       });
     });
-
+    
     describe('populateTable', function() {
       it ('should build out table rows', function() {
         PDP.summaryTable.queryParams.clauses.select = ['veggie', 'fruit'];
@@ -140,6 +140,7 @@
         expect( $('#summary-table td').length )
           .toEqual(4);
       });
+      
     });
   
     describe('resetColumn', function() {
@@ -152,39 +153,22 @@
 
     });
 
-    describe('updateQuery', function() {
-      it('should create the group clause array', function() {
-        PDP.summaryTable.updateQuery( 'both', 'starch', 2 );
-
-        expect( PDP.summaryTable.queryParams.clauses.group )
-          .not.toBeUndefined();
-      });
-
-      it('should add the value to the correct position in select', function() {
-        expect( PDP.summaryTable.queryParams.clauses.select[2] )
-          .toEqual('starch');
-      });
-
-      it('should add the value to the correct position in group', function() {
-        expect( PDP.summaryTable.queryParams.clauses.group[2] )
-          .toEqual('starch');
-      });
-    });
-
     describe('updateTableHeaders', function() {
       it('should add the header table row', function() {
         $('tr.header').remove();
+        PDP.summaryTable.queryParams.clauses.select = [];
+        
         PDP.summaryTable.queryParams.clauses.select[0] = 'food_veggie_name_1';
-        PDP.summaryTable.queryParams.clauses.select[3] = 'avg_loan_amount_000s';
+        PDP.summaryTable.queryParams.clauses.select[1] = 'avg_loan_amount_000s';
         PDP.summaryTable.updateTableHeaders();
 
         expect( $('tr.header').length )
           .toEqual(1);
       });
 
-      it('should have three cells', function() {
+      it('should have two cells', function() {
         expect( $('tr.header td').length )
-          .toEqual(4);
+          .toEqual(2);
       });
 
       it('should display the human name for metrics', function() {
@@ -196,9 +180,78 @@
         expect( $('tr.header td:first').html() )
           .toEqual('Food veggie');
 
+      });
+      
+      //this needs to be moved out
+      it('should clear table', function () {
+        PDP.summaryTable.resetTable();
+        expect( $('#summary-table').html() )
+          .toEqual('');
         $('#summary-table').remove();
+        
+      });
+      
+      
+    });
+    
+    
+    
+    describe('_updateShareLink', function() {
+      it('should add a select param to the share url', function() {
+        
+        var vals = {calculate: 'count', variables: ['agency_name']};
+        
+        $('body').append('<input type="text" class="share_url">');
+                
+        PDP.summaryTable._updateShareLink(vals);
+        
+        expect($('.share_url').val())
+          .toContain('select=agency_name,count');
+        
       });
     });
+    
+    describe('_extractValuesFromUrlParams', function() {
+      
+        var _data = [ 
+          [['count', 'agency_name'], {calculate: 'count', variables: ['agency_name']}, 'should distinguish calculate by values from variables'],
+          [['count', 'min_applicant_income_000s', 'agency_name'], {calculate: 'min_applicant_income_000s', variables: ['agency_name']}, 'should set calculate by to last eligible value in array'],
+          [['apples', 'oranges', '', 'counts', 'agency_names'], {calculate: '', variables: []}, 'should ignore ineligible values'],
+          [['count', 'agency_name', 'agency_name', 'agency_name'], {calculate: 'count', variables: ['agency_name']}, 'should ignore variable multiples'],
+          [['count', 'min_applicant_income_000s', 'action_taken_name', 'agency_name', 'applicant_ethnicity_name', 'applicant_sex_name'], {calculate: 'min_applicant_income_000s', variables: ['action_taken_name', 'agency_name', 'applicant_ethnicity_name']}, 'should only extract first three variable values']
+        ];
+        
+        using( _data, function(val) {
+          it('', function(){
+            PDP.summaryTable.fieldVals = {calculate: '', variables: []};
+            PDP.summaryTable._extractValuesFromUrlParams(val[0]);
+            expect(PDP.summaryTable.fieldVals)
+              .toEqual(val[1]);
+          });
+       });
+        
+    });
+    
+    describe('_buildQueryArrays', function() {
+      it('should build query arrays from fieldVals', function() {
+        
+        var vals = {calculate: 'count', variables: ['action_taken_name', 'agency_name']};
+        
+        PDP.query.params = {as_of_year: {comparator: '=', values: [2011]}};
+        PDP.summaryTable.queryParams.clauses = {group: [], select: [], where: {}};
+        
+        PDP.summaryTable._buildQueryArrays(vals);
+        
+        expect(PDP.summaryTable.queryParams.clauses)
+          .toEqual({
+            group: ['action_taken_name', 'agency_name'],
+            select: ['action_taken_name', 'agency_name', 'COUNT()'],
+            where: PDP.query.params
+          });
+          
+      });
+    });
+    
 
   });
 })();
