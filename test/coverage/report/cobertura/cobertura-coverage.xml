@@ -1,11 +1,11 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="876"  lines-covered="398"  line-rate="0.4543"  branches-valid="353"  branches-covered="105"  branch-rate="0.2975"  timestamp="1379518611408" complexity="0" version="0.1">
+<coverage lines-valid="878"  lines-covered="398"  line-rate="0.4533"  branches-valid="353"  branches-covered="105"  branch-rate="0.2975"  timestamp="1379579262141" complexity="0" version="0.1">
 <sources>
-	<source>/Users/czosekv/projects/ang-projects/public-data-platform</source>
+	<source>/Users/contolinic/Sites/public-data-platform</source>
 </sources>
 <packages>
-	<package name="modules"  line-rate="0.4543"  branch-rate="0.2975" >
+	<package name="modules"  line-rate="0.4533"  branch-rate="0.2975" >
 	<classes>
 		<class name="app.js"  filename="./src/static/js/modules/app.js"  line-rate="0.6753"  branch-rate="0.35" >
 		<methods>
@@ -614,7 +614,7 @@
 			<line number="20"  hits="1"  branch="false" />
 		</lines>
 		</class>
-		<class name="preview.js"  filename="./src/static/js/modules/preview.js"  line-rate="0.22579999999999997"  branch-rate="0.0417" >
+		<class name="preview.js"  filename="./src/static/js/modules/preview.js"  line-rate="0.2211"  branch-rate="0.0417" >
 		<methods>
 			<method name="(anonymous_1)"  hits="1"  signature="()V" >
 				<lines><line number="6"  hits="1" /></lines>
@@ -769,8 +769,10 @@
 			<line number="255"  hits="0"  branch="false" />
 			<line number="258"  hits="0"  branch="false" />
 			<line number="262"  hits="0"  branch="false" />
-			<line number="272"  hits="1"  branch="false" />
-			<line number="274"  hits="1"  branch="false" />
+			<line number="269"  hits="0"  branch="false" />
+			<line number="270"  hits="0"  branch="false" />
+			<line number="275"  hits="1"  branch="false" />
+			<line number="277"  hits="1"  branch="false" />
 		</lines>
 		</class>
 		<class name="query.js"  filename="./src/static/js/modules/query.js"  line-rate="0.9528"  branch-rate="0.7813" >
