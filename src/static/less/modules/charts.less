@@ -1,7 +1,7 @@
 .charts {
     
     .avenir-next;
-    margin-top: 2em;
+    margin-top: 0;
 
     h3 {
         .avenir-next-demi;
@@ -116,6 +116,7 @@
 @media only screen and ( min-width: 768px ) {
 
     .charts {
+        margin-top: 2em;
         .chart-info {
             .column(5);
         }
@@ -140,10 +141,12 @@
     .chart-legend {
         th, td {
             padding-right: 0 !important;
+            width: 32% !important;
         }
     }
     .chart-legend-box {
         display: block !important;
         margin-top: 10px;
+        width: auto !important;
     }
 }

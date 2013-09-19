@@ -2527,7 +2527,7 @@ ul.chzn-choices {
   font-family: "Avenir Next", Arial, sans-serif;
   font-weight: 400;
   font-style: normal;
-  margin-top: 2em;
+  margin-top: 0;
 }
 .charts h3 {
   font-family: "Avenir Next Demi", Arial, sans-serif;
@@ -2663,6 +2663,9 @@ ul.chzn-choices {
   background-color: #005e5d;
 }
 @media only screen and (min-width: 768px) {
+  .charts {
+    margin-top: 2em;
+  }
   .charts .chart-info {
     display: inline-block;
     -webkit-box-sizing: border-box;
@@ -2712,10 +2715,12 @@ ul.chzn-choices {
   .chart-legend th,
   .chart-legend td {
     padding-right: 0 !important;
+    width: 32% !important;
   }
   .chart-legend-box {
     display: block !important;
     margin-top: 10px;
+    width: auto !important;
   }
 }
 .homepage.plan-b #get-the-data .filters {
@@ -2728,7 +2733,7 @@ ul.chzn-choices {
 }
 .homepage .hero {
   padding-top: 10px;
-  margin-top: 5px;
+  margin-top: 0;
   text-align: center;
   background-color: #FAB051;
   background-size: cover;
@@ -2742,6 +2747,7 @@ ul.chzn-choices {
   margin: 0 auto;
   position: relative;
   clear: both;
+  padding-bottom: 10px;
 }
 .lt-ie8 .homepage .hero > .inner {
   *zoom: 1;
@@ -2753,11 +2759,13 @@ ul.chzn-choices {
   font-style: normal;
   font-size: 30px;
   line-height: 1.3em;
-  padding-bottom: 0 0 30px;
-  padding-top: 32px;
+  padding-top: 22px;
+  margin-top: 5px;
   width: 100%;
   background: transparent url() scroll no-repeat top center;
   background-image: url('../img/hr_hero-top.png');
+  background-image: url(../img/hr_hero-top-mobile_2x.png);
+  background-size: 770px 17px;
 }
 @media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
   .homepage .hero h1 {
@@ -2767,14 +2775,13 @@ ul.chzn-choices {
 }
 .homepage .hero nav {
   font-family: Georgia, "Times New Roman", serif;
-  margin-top: 15px;
-  border-top: 2px solid black;
+  margin-top: 9px;
 }
 .homepage .hero .title {
   font-family: "Avenir Next Bold", Arial, sans-serif;
   font-weight: 700;
   font-style: normal;
-  text-transform: uppercase;
+  text-transform: none;
 }
 .homepage .hero ul {
   width: 100%;
@@ -2787,15 +2794,20 @@ ul.chzn-choices {
   margin-bottom: 5px;
 }
 .homepage .hero ul a {
-  background-color: #FAB051;
+  font-family: "Avenir Next Bold", Arial, sans-serif;
+  font-weight: 700;
+  font-style: normal;
   padding: 3px 0;
   display: block;
-  text-transform: uppercase;
   text-decoration: none;
+  background-color: #fbcd92;
   color: #101820;
 }
 .homepage .hero ul a:hover,
 .homepage .hero ul a:active {
+  background-color: #FAB051;
+}
+.homepage .hero ul a:hover {
   background-color: #ff9e1b;
 }
 .homepage .circle-nav {
@@ -2807,12 +2819,12 @@ ul.chzn-choices {
   font-weight: normal;
   font-size: 1.4em;
   background-repeat: no-repeat;
-  padding-left: 100px;
+  padding-left: 15px;
   min-height: 100px;
   padding-top: 15px;
-  margin: 40px auto 30px;
   width: 380px;
   max-width: 100%;
+  margin-top: 15px;
 }
 .homepage h2 strong {
   display: block;
@@ -2889,15 +2901,6 @@ section.video h2:hover {
 }
 section.video h2 strong {
   background: transparent url(../img/icon_play-over.png) scroll no-repeat -9999999px -9999999px;
-}
-#facts-and-figures h2 {
-  background-image: url('../img/icon_dataviz.png');
-}
-@media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
-  #facts-and-figures h2 {
-    background-image: url("../img/icon_dataviz_2x.png");
-    background-size: 81px 93px;
-  }
 }
 #facts-and-figures #map {
   width: 100%;
@@ -3037,14 +3040,7 @@ section.video h2 strong {
   padding-bottom: 50px;
 }
 #get-the-data h2 {
-  background-image: url('../img/icon_getdata.png');
   width: 450px;
-}
-@media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
-  #get-the-data h2 {
-    background-image: url("../img/icon_getdata_2x.png");
-    background-size: 79px 92px;
-  }
 }
 #get-the-data h3 {
   font-family: "Avenir Next Demi", Arial, sans-serif;
@@ -3076,16 +3072,6 @@ section.video h2 strong {
   width: 100%;
   min-height: 0;
   height: auto;
-}
-#developers h2 {
-  background-image: url('../img/icon_devs.png');
-  padding-left: 110px;
-}
-@media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
-  #developers h2 {
-    background-image: url("../img/icon_devs_2x.png");
-    background-size: 92px 97px;
-  }
 }
 #developers .inner {
   margin: 0 auto;
@@ -3140,19 +3126,27 @@ section.video h2 strong {
   cursor: pointer;
 }
 @media only screen and (min-width: 768px) {
+  .homepage h2 {
+    padding-left: 100px;
+    margin: 40px auto 30px;
+  }
   .homepage .hero {
     min-height: 403px;
     padding-top: 45px;
-    margin-top: 0;
+  }
+  .homepage .hero .inner {
+    padding-bottom: 0;
   }
   .homepage .hero h1 {
     font-size: 47px;
+    padding-top: 32px;
+    margin-top: 0;
+    background-image: url('../img/hr_hero-top.png');
   }
   .homepage .hero nav {
     width: 82%;
     margin: 0 auto;
     margin-top: 25px;
-    border: 0;
     *zoom: 1;
   }
   .homepage .hero nav:before,
@@ -3179,10 +3173,17 @@ section.video h2 strong {
   .homepage .hero nav li:first-child {
     width: 34%;
   }
+  .homepage .hero nav .title {
+    text-transform: uppercase;
+  }
   .homepage .hero nav a {
     background-color: transparent;
-    text-transform: none;
     width: 160px;
+  }
+  .homepage .hero nav a span {
+    text-transform: none;
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 400;
   }
   .homepage .hero nav a.get-the-data {
     margin: 0 auto;
@@ -3282,6 +3283,9 @@ section.video h2 strong {
     width: 49.5%;
     display: inline-block;
   }
+  .homepage #facts-and-figures h2 {
+    background-image: url('../img/icon_dataviz.png');
+  }
   .homepage #facts-and-figures #map .leaflet-control-container,
   .homepage #facts-and-figures #map #map-title {
     display: block;
@@ -3301,6 +3305,9 @@ section.video h2 strong {
   .homepage #facts-and-figures #map .leaflet-left {
     left: 220px;
   }
+  .homepage #get-the-data h2 {
+    background-image: url('../img/icon_getdata.png');
+  }
   .homepage #get-the-data .inner {
     width: 82%;
   }
@@ -3313,14 +3320,42 @@ section.video h2 strong {
     min-height: 255px;
     display: inline-block;
   }
+  .homepage #developers h2 {
+    background-image: url('../img/icon_devs.png');
+    padding-left: 110px;
+  }
   .homepage #developers .inner {
     width: 82%;
+  }
+}
+@media only screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
+  .homepage .hero h1 {
+    background-image: url("../img/hr_hero-top_2x.png");
+    background-size: 770px 17px;
   }
 }
 @media only screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
   .homepage .circle-nav span {
     background-image: url("../img/icon_goldcaret_2x.png");
     background-size: 34px 21px;
+  }
+}
+@media only screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
+  .homepage #facts-and-figures h2 {
+    background-image: url("../img/icon_dataviz_2x.png");
+    background-size: 81px 93px;
+  }
+}
+@media only screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
+  .homepage #get-the-data h2 {
+    background-image: url("../img/icon_getdata_2x.png");
+    background-size: 79px 92px;
+  }
+}
+@media only screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
+  .homepage #developers h2 {
+    background-image: url("../img/icon_devs_2x.png");
+    background-size: 92px 97px;
   }
 }
 @media only screen and (max-device-width: 480px) {
@@ -3397,16 +3432,18 @@ section.video h2 strong {
   margin-bottom: 5px;
 }
 .explore .hero nav ul a {
-  background-color: #FAB051;
+  font-family: "Avenir Next Bold", Arial, sans-serif;
+  font-weight: 700;
+  font-style: normal;
   padding: 3px 0;
   display: block;
-  text-transform: uppercase;
   text-decoration: none;
+  background-color: #fbcd92;
   color: #101820;
 }
 .explore .hero nav ul a:hover,
 .explore .hero nav ul a:active {
-  background-color: #ff9e1b;
+  background-color: #FAB051;
 }
 .explore .hero nav li {
   display: block;
@@ -4254,6 +4291,7 @@ nav li {
   font-weight: 400;
   font-style: normal;
   font-size: 11px;
+  display: none;
 }
 .top-banner > .inner {
   -webkit-box-sizing: border-box;
@@ -4275,7 +4313,6 @@ nav li {
 }
 .top-banner .return-cfgov {
   float: left;
-  display: none;
 }
 .top-banner .official-website {
   float: right;
@@ -4292,21 +4329,31 @@ strong {
 }
 .hmda header .logo {
   display: inline-block;
+  margin: 15px 0;
+}
+.hmda header .logo a {
+  display: block;
+  background-image: url(../img/logo_mobile_2x.png);
+  text-indent: -9999999px;
+  background-size: 167px 36px;
+  width: 167px;
+  height: 36px;
 }
 .hmda header nav {
-  margin-bottom: 18px;
+  margin-bottom: 10px;
   display: none;
 }
+.hmda header nav li a {
+  padding-left: 10px;
+  text-align: left;
+}
 .hmda header .navicon {
-  float: right;
-  margin-top: 5px;
-  display: block;
-  background-color: #75787b;
+  background-color: #e7e7e6;
+  color: #75787b;
   font-size: 2em;
   padding: 0 10px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+  float: right;
+  margin-top: 13px;
 }
 .hmda header .navicon i {
   line-height: 1em;
@@ -4322,21 +4369,21 @@ strong {
   margin-bottom: 5px;
 }
 .hmda header ul a {
-  background-color: #FAB051;
+  font-family: "Avenir Next Bold", Arial, sans-serif;
+  font-weight: 700;
+  font-style: normal;
   padding: 3px 0;
   display: block;
-  text-transform: uppercase;
   text-decoration: none;
+  background-color: #fbcd92;
   color: #101820;
 }
 .hmda header ul a:hover,
 .hmda header ul a:active {
-  background-color: #ff9e1b;
+  background-color: #FAB051;
 }
 .hmda header a.active {
-  font-family: "Avenir Next Demi", Arial, sans-serif;
-  font-weight: 600;
-  font-style: normal;
+  background-color: #ff9e1b;
 }
 .hmda footer {
   margin-top: 50px;
@@ -4350,26 +4397,27 @@ strong {
   color: #ffffff;
   font-size: .875em;
   line-height: 1.75em;
+  padding-top: 60px;
 }
-.hmda footer .primary li:after {
-  content: "|";
-  padding: 0 10px;
-}
-.hmda footer .primary li:last-child:after {
-  content: " ";
-  padding: 0;
+.hmda footer .primary li {
+  display: block;
 }
 .hmda footer .tertiary {
   -webkit-column-count: 2;
   -moz-column-count: 2;
   column-count: 2;
-  font-size: .875em;
-  line-height: 1.5em;
+  font-size: .7em;
+  line-height: 1.2em;
+  margin-top: 25px;
 }
 .hmda footer .tertiary li {
   display: block;
+  padding-bottom: 8px;
 }
 .hmda footer .social {
+  position: absolute;
+  top: 0;
+  left: 15px;
   font-size: 30px;
   margin: 0;
 }
@@ -4429,7 +4477,7 @@ a.action-arrow .icon-right {
   bottom: .25em;
 }
 @media only screen and (min-width: 768px) {
-  .hmda .return-cfgov {
+  .hmda .top-banner {
     display: block;
   }
   .hmda header {
@@ -4439,9 +4487,15 @@ a.action-arrow .icon-right {
     width: 30%;
     float: left;
     display: block;
+    margin: 0;
+  }
+  .hmda header .logo a {
+    display: inline;
+    background-image: none;
   }
   .hmda header nav {
     width: 70%;
+    margin-bottom: 18px;
     display: block;
     float: left;
     height: 30px;
@@ -4464,6 +4518,10 @@ a.action-arrow .icon-right {
   }
   .hmda header ul li {
     margin-left: 20px;
+    padding-left: 0;
+  }
+  .hmda header ul li a {
+    padding-left: 0;
   }
   .hmda header ul a {
     background-color: transparent;
@@ -4476,6 +4534,12 @@ a.action-arrow .icon-right {
     background-color: transparent;
     color: #0072ce;
   }
+  .hmda header a.active {
+    font-family: "Avenir Next Demi", Arial, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    background-color: transparent;
+  }
   .hmda header:before,
   .hmda header:after {
     content: " ";
@@ -4483,6 +4547,28 @@ a.action-arrow .icon-right {
   }
   .hmda header:after {
     clear: both;
+  }
+  .hmda footer .primary {
+    padding-top: 0;
+  }
+  .hmda footer .primary li {
+    display: inline-block;
+  }
+  .hmda footer .primary li:after {
+    content: "|";
+    padding: 0 10px;
+  }
+  .hmda footer .primary li:last-child:after {
+    content: " ";
+    padding: 0;
+  }
+  .hmda footer .tertiary {
+    font-size: .875em;
+    line-height: 1.5em;
+    margin-top: 0;
+  }
+  .hmda footer .tertiary li {
+    padding-bottom: 0;
   }
   .hmda footer .primary,
   .hmda footer .tertiary {
@@ -4518,6 +4604,7 @@ a.action-arrow .icon-right {
     vertical-align: top;
     width: 33.33333333333333%;
     text-align: right;
+    position: relative;
   }
   .ie .hmda footer .social {
     margin-right: -0.26em;

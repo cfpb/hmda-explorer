@@ -101,6 +101,7 @@ nav li {
   padding-top: 3px;
   .avenir-next;
   font-size: 11px;
+  display: none;
 
   &> .inner {
     .wrapper(); 
@@ -111,14 +112,13 @@ nav li {
     padding: 0;
   }
 
-  .return-cfgov { 
+  .return-cfgov {
     float: left;
-    display: none;
-  } 
+  }
 
   .official-website { 
     float: right;
-  } 
+  }
 
   img {
     vertical-align: center;
@@ -131,26 +131,38 @@ strong {
   .avenir-next-demi;
 }
 
-// Footer at the bottom of the page
+// Header and footer
 
 .hmda {
 
   header {
     .logo {
       display: inline-block;
+      margin: 15px 0;
+      a {
+        display: block;
+        background-image: url(../img/logo_mobile_2x.png);
+        text-indent: -9999999px;
+        background-size: 167px 36px;
+        width: 167px;
+        height: 36px;
+      }
     }
     nav {
-      margin-bottom: 18px;
+      margin-bottom: 10px;
       display: none;
+      li a {
+        padding-left: 10px;
+        text-align: left;
+      }
     }
     .navicon {
-      float: right;
-      margin-top: 5px;
-      display: block;
-      background-color: @dark_field;
+      background-color: #e7e7e6;
+      color: #75787b;
       font-size: 2em;
       padding: 0 10px;
-      .border-radius( 5px );
+      float: right;
+      margin-top: 13px;
       i {
         line-height: 1em;
       }
@@ -159,7 +171,7 @@ strong {
       .mobile-nav();
     }
     a.active {
-      .avenir-next-demi;
+      background-color: @gold;
     }
   }
 
@@ -176,31 +188,27 @@ strong {
       color: @white;
       font-size: .875em;
       line-height: 1.75em;
-     
+      padding-top: 60px;
       li {
-        &:after {
-          content: "|";
-          padding: 0 10px;
-        }
-        &:last-child {
-          &:after {
-            content: " ";
-            padding: 0;
-          }
-        }
+        display: block;
       }
     }
     .tertiary {
       -webkit-column-count: 2;
       -moz-column-count: 2;
       column-count: 2;
-      font-size: .875em;
-      line-height: 1.5em;
+      font-size: .7em;
+      line-height: 1.2em;
+      margin-top: 25px;
       li {
         display: block;
+        padding-bottom: 8px;
       }
     }
     .social {
+      position: absolute;
+      top: 0;
+      left: 15px;
       font-size: 30px;
       margin: 0;
       i {
@@ -208,7 +216,7 @@ strong {
         font-size: .9em;
         position: relative;
         top: .1em;
-        }
+      }
       .icon-youtube {
         font-size: .7em; 
       } 
@@ -273,7 +281,7 @@ a.action-arrow {
 
   .hmda {
 
-    .return-cfgov {
+    .top-banner {
       display: block;
     }
 
@@ -282,9 +290,15 @@ a.action-arrow {
         width: 30%;
         float: left;
         display: block;
+        margin: 0;
+        a {
+          display: inline;
+          background-image: none;
+        }
       }
       nav {
         width: 70%;
+        margin-bottom: 18px;
         display: block;
         float: left;
         height: 30px;
@@ -298,6 +312,10 @@ a.action-arrow {
         text-align: right;
         li {
           margin-left: 20px;
+          padding-left: 0;
+          a {
+            padding-left: 0;
+          }
         }
         a {
           background-color: transparent;
@@ -309,10 +327,38 @@ a.action-arrow {
           }
         }
       }
+      a.active {
+        .avenir-next-demi;
+        background-color: transparent;
+      }
       .clearfix();
     }
 
     footer {
+      .primary {
+        padding-top: 0;
+        li {
+          display: inline-block;
+          &:after {
+            content: "|";
+            padding: 0 10px;
+          }
+          &:last-child {
+            &:after {
+              content: " ";
+              padding: 0;
+            }
+          }
+        }
+      }
+      .tertiary {
+        font-size: .875em;
+        line-height: 1.5em;
+        margin-top: 0;
+        li {
+          padding-bottom: 0;
+        }
+      }
       .primary,
       .tertiary {
         .column(8);
@@ -321,7 +367,9 @@ a.action-arrow {
       .social {
         .column(4);
         text-align: right;
+        position: relative;
       }
+
     }
 
   }
