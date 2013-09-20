@@ -3369,16 +3369,6 @@ section.video h2 strong {
   #map {
     display: none;
   }
-  .leaflet-bottom.leaflet-right {
-    width: 100%;
-  }
-  .leaflet-bottom.leaflet-right .map-legends {
-    width: 95%;
-  }
-  .wax-legend .legend-scale ul li {
-    width: 30px !important;
-    font-size: .7em !important;
-  }
 }
 .explore .hero {
   *zoom: 1;

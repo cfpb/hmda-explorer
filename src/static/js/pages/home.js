@@ -94,6 +94,23 @@ $(function(){
       
     };
 
+    map.fixLegend = function() {
+
+      var under30,
+          over30;
+
+      under30 = $('#map .legend-labels li').first().html();
+      $('#map .legend-labels li').first().html( under30 + '< -30%' );
+
+      over30 = $('#map .legend-labels li:nth-last-child(2)').html();
+      $('#map .legend-labels li:nth-last-child(2)').html( over30.replace( 'Over 30%', '> 30%' ) );
+
+      $('#map .my-legend .legend-title').html('Percentage Change');
+
+      $('#map .my-legend .legend-source').hide();
+
+    };
+
     map.init = function() {
 
       this.base.scrollWheelZoom.disable();
@@ -111,18 +128,7 @@ $(function(){
       // Fix the darn legend.
       this.base.on( 'ready', function(){
 
-        var under30,
-            over30;
-
-        under30 = $('#map .legend-labels li').first().html();
-        $('#map .legend-labels li').first().html( under30 + '< -30%' );
-
-        over30 = $('#map .legend-labels li:nth-last-child(2)').html();
-        $('#map .legend-labels li:nth-last-child(2)').html( over30.replace( 'Over 30%', '> 30%' ) );
-
-        $('#map .my-legend .legend-title').html('Percentage Change');
-
-        $('#map .my-legend .legend-source').hide();
+        map.fixLegend();
 
       }.bind( this ));
 
@@ -139,7 +145,16 @@ $(function(){
           'margin-top': '0'
         });
       });
-      
+
+      // IE8 doesn't hear the map 'ready' event so here's a setinterval hack.
+      if ( $('html').hasClass('lt-ie9') ) {
+        var checkForLegend = setInterval( function(){
+          if ( $('#map .my-legend .legend-source').length ) {
+            map.fixLegend();
+            clearInterval( checkForLegend );
+          }
+        }, 1000);
+      }
 
     };
 
