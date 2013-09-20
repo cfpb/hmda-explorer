@@ -32,6 +32,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2013-09-20   [v0.15.2](../../tree/v0.15.2)   Swap chart columns. Hack map `ready` event listener for IE8.
  * 2013-09-18   [v0.15.1](../../tree/v0.15.1)   Fix MSAs in charts. Refactor summary table page to work with API changes.
  * 2013-09-17   [v0.15.0](../../tree/v0.15.0)   Bajillion tweaks in preparation for Plan B release.
  * 2013-09-08   [v0.14.1](../../tree/v0.14.1)   Improve mobile experience. Add layers to homepage map.
@@ -81,4 +82,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Fri Sep 20 2013 13:40:08.*
+*This file was generated on Fri Sep 20 2013 15:21:19.*
