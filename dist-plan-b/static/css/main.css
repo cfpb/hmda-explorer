@@ -374,7 +374,7 @@ table {
 @font-face {
   font-family: "CFPB Icons";
   src: url("../fonts/CFPB_minicons.eot");
-  src: url("../fonts/CFPB_minicons.svg") format('svg'), url("../fonts/CFPB_minicons.eot?#iefix") format('embedded-opentype'), url("../fonts/CFPB_minicons.woff") format('woff'), url("../fonts/CFPB_minicons.ttf") format('truetype');
+  src: url("../fonts/CFPB_minicons.eot?#iefix") format('embedded-opentype'), url("../fonts/CFPB_minicons.svg") format('svg'), url("../fonts/CFPB_minicons.woff") format('woff'), url("../fonts/CFPB_minicons.ttf") format('truetype');
   font-weight: normal;
   font-style: normal;
 }
