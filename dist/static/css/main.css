@@ -2145,7 +2145,6 @@ textarea {
 .filter.footer .insight {
   float: right;
   position: relative;
-  bottom: .5em;
 }
 .filter .fields {
   padding: 0;
