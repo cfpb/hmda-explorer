@@ -32,3 +32,8 @@ ghpages.sh
 # Coverage reports #
 ####################
 test/coverage/
+
+# Dist reports #
+####################
+dist/
+dist-plan-b/
