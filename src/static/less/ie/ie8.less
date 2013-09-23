@@ -1,4 +1,23 @@
+// Global fixes
+
+.hmda header .logo {
+  a {
+    background-image: url(../img/logo_mobile.png);
+  }
+}
+
+
 @media only screen and ( min-width: 768px ) {
+
+  // Global fixes
+
+  .hmda header .logo {
+    a {
+      background-image: none;
+    }
+  }
+
+  // Homepage fixes
 
   .homepage {
     .hero {
@@ -20,6 +39,15 @@
     }
     .title {
       font-size: .95em;
+    }
+    #facts-and-figures h2 {
+      background-image: url("../img/icon_dataviz.png");
+    }
+    #get-the-data h2 {
+      background-image: url("../img/icon_getdata.png");
+    }
+    #developers h2 {
+      background-image: url("../img/icon_devs.png");
     }
   }
 
