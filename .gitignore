@@ -31,4 +31,4 @@ ghpages.sh
 
 # Coverage reports #
 ####################
-test/coverage/report/html
+test/coverage/
