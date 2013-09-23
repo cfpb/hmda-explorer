@@ -49,7 +49,7 @@ __p += '<ul class="fields location-set location-set-' +
 ((__t = ( num )) == null ? '' : __t) +
 '" id="census_tract_number-' +
 ((__t = ( num )) == null ? '' : __t) +
-'" multiple data-concept="census_tract_number" data-placeholder="Select a state above" data-pre-placeholder="Select a state above" data-post-placeholder="Select a census" disabled>\n      </select>\n    </div>\n    <div class="help" title="A census tract is"><i class="icon-help-alt"></i></div>\n  </li>\n  <!-- /filter field -->\n\n<ul>';
+'" multiple data-concept="census_tract_number" data-placeholder="Select a state above" data-pre-placeholder="Select a state above" data-post-placeholder="Select a census" disabled>\n      </select>\n    </div>\n    <div class="help" title="A census tract is the smallest regional unit for which population data are available. Census tracts vary in size, but on average about 4,000 people live in a census tract."><i class="icon-help-alt"></i></div>\n  </li>\n  <!-- /filter field -->\n\n<ul>';
 
 }
 return __p
