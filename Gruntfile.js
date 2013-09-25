@@ -176,7 +176,7 @@ module.exports = function(grunt) {
       },
       mogo: {
         command: [
-          'java -jar test/mogotest.jar ' + process.env.MOGO_API_KEY + ' www.hmda.test 9001',
+          'java -jar test/mogotest.jar ' + process.env.MOGO_API_KEY + ' www.hmda.test 9005',
         ].join('&&')
       }
     },
@@ -326,7 +326,7 @@ module.exports = function(grunt) {
       },
       mogo: {
         options: {
-          port: 9001,
+          port: 9005,
           base: 'dist'
         }
       }
