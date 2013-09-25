@@ -32,7 +32,7 @@ var PDP = (function ( pdp ) {
     // Activate [chosen](http://harvesthq.github.io/chosen/) on select elements and correct 
     // a bug that cuts off the placeholder text.
     app.$el.find('select').chosen({ width: '100%', disable_search_threshold: 10, allow_single_deselect: true });
-    $('.chzn-container .search-field input').css( 'width', '105%' );
+    $('.chzn-container .search-field input').css( 'width', '130%' );
 
     // Initialize Bootstrap tooltips
     app.$el.find('.help').tooltip({ placement: 'left' });
@@ -203,7 +203,9 @@ var PDP = (function ( pdp ) {
     }
 
     if (this.currentSection === 'summary') {
-      pdp.summaryTable.setupDataTable();
+      pdp.summaryTable.setupTable();
+    } else {
+      pdp.summaryTable.cancelTimeout();
     }
 
   };
