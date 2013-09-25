@@ -19,9 +19,8 @@ Please use the [fork and pull](https://help.github.com/articles/using-pull-reque
 1. [Fork this repo](https://fake.ghe.domain/data-platform/public-data-platform/fork) to your personal GH account.
 1. `git clone git@fake.ghe.domain:YOUR-USERNAME/public-data-platform.git`
 1. `cd public-data-platform`
-1. `npm install`
-1. `bower install`
-1. `grunt`
+1. `npm install && bower install`
+1. `grunt build && grunt`
 1. Open `localhost:8000` in a browser.
 
 [Comprehensive setup notes](https://fake.ghe.domain/gist/382) from @danmurphy are also available.
