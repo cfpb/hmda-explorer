@@ -72,8 +72,7 @@
     .insight {
       float: right;
       position: relative;
-      bottom: .5em;
-    }
+      }
   }
 
   // The fields are displayed in an unordered list
@@ -133,6 +132,7 @@
         top: -1px;
         *overflow: hidden;
     }
+
   }
 
   &.location {
@@ -144,8 +144,8 @@
   }
 
   .location-set {
-    border-bottom: 1px solid #ccc;
     padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
     &:last-child {
       border: 0;
     }
@@ -262,22 +262,23 @@
 
       li.location-separator {
         display: inline-block;
-        margin: 0 20px;
+        margin: 0 35px 0 -5px;
       }
 
       li.field.state_code,
       li.field.county_code,
       li.field.census_tract_number {
-        width: 25%;
+        width: 30%;
         display: inline-block;
         &> label {
-          width: 100%;
+          width: 83%;
           margin: 0;
           text-align: left;
         }
         .widget {
-          width: 100%;
+          width: 83%;
           margin: 0;
+          margin-right: 15px;
         }
       }
 
@@ -295,8 +296,8 @@
           text-align: left;
         }
         .widget {
-          width: 80%;
-          margin: 0 10px 0 0;
+          width: 83%;
+          margin: 0 15px 0 0;
         }
       }
 
@@ -310,6 +311,16 @@
 
   .widget {
     width: 55%;
+   &.checkbox-inline {
+      label {
+        width: 40%;
+        display: inline-block;
+        margin-right: 19px;
+        &:last-child {
+          margin-right: 0
+        }
+      }
+    }
     &.inline {
       label {
         display: inline-block;
@@ -317,6 +328,7 @@
         &:last-child {
           margin-right: 0
         }
+
       }
       input[type=checkbox] {
         //width: 20px;
@@ -324,8 +336,10 @@
     }
   }
 
-  .location-set {
+  #location-sets {
     margin-left: 53px;
+    margin-right: 53px;
   }
+
 
 }

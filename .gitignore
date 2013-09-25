@@ -29,3 +29,12 @@ src/static/vendor
 #########
 ghpages.sh
 
+# Coverage reports #
+####################
+test/coverage/
+
+# Built app #
+#############
+# Commenting these out for now until we get an automated build going.
+#dist/
+#dist-plan-b/

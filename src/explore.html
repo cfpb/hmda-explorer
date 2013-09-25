@@ -109,6 +109,7 @@
 
               </div>
 
+
               <ul class="fields">
 
                 <!-- filter field -->
@@ -138,7 +139,7 @@
 
             <div class="filter location closed" id="location">
 
-              <div class="title">
+              <div class="title"> 
 
                 <a href="#location"><h3><i class="icon-minus-alt"></i> Location</h3></a>
 
@@ -169,9 +170,9 @@
               <ul class="fields">
 
                 <!-- filter field -->
-                <li class="field applicant_sex">
+                <li class="field">
                   <label for="applicant_sex">Applicant Sex:</label>
-                  <div class="widget checkbox inline">
+                  <div class="widget checkbox checkbox-inline">
                     <label><input type="checkbox" class="param" name="applicant_sex[]" value="1" />Male</label>
                     <label><input type="checkbox" class="param" name="applicant_sex[]" value="2" />Female</label>
                     <label><input type="checkbox" class="param" name="applicant_sex[]" value="3" />Not provided</label>
@@ -231,7 +232,7 @@
                 <!-- filter field -->
                 <li class="field optional-toggle" data-optional="co_applicant">
                   <label for="include_co_applicant">Show co-applicant?</label>
-                  <div class="widget radio include_co_applicant">
+                  <div class="widget radio inline include_co_applicant">
                     <label><input type="radio" name="include_co_applicant" value="1" />Yes</label>
                     <label><input type="radio" name="include_co_applicant" value="0" checked />No</label>
                   </div>
@@ -239,9 +240,9 @@
                 <!-- /filter field -->
 
                 <!-- filter field -->
-                <li class="field optional co_applicant co_applicant_sex hidden" data-optional="co_applicant">
+                <li class="field optional co_applicant hidden" data-optional="co_applicant">
                   <label for="co_applicant_sex">Co-Applicant Sex</label>
-                  <div class="widget checkbox inline">
+                  <div class="widget checkbox checkbox-inline">
                     <label><input type="checkbox" class="param" name="co_applicant_sex[]" value="1" />Male</label>
                     <label><input type="checkbox" class="param" name="co_applicant_sex[]" value="2" />Female</label>
                     <label><input type="checkbox" class="param" name="co_applicant_sex[]" value="3" />Not provided</label>
@@ -255,7 +256,7 @@
                 <li class="field optional co_applicant hidden" data-optional="co_applicant">
                   <label for="co_applicant_race_1">Co-Applicant Race:</label>
                   <div class="widget select">
-                    <select class="param" name="co_applicant_race_1" id="co_applicant_race_1" multiple data-placeholder="Select an Applicant Race">
+                    <select class="param" name="co_applicant_race_1" id="co_applicant_race_1" multiple data-placeholder="Select a Co-Applicant Race">
                       <option value></option>
                       <option value="1">American Indian or Alaska Native</option>
                       <option value="2">Asian</option>
@@ -583,11 +584,10 @@
             <!-- filter footer -->
 
             <div class="filter footer">
-
               <div class="next-steps">
-
-                <a href="#" class="reset action-arrow">Clear all fields</a>
-
+              
+                <a href="#" class="reset action-arrow">Clear all fields</a> &nbsp;&nbsp; | &nbsp;&nbsp;<a href="#" class="reset action-arrow">Reset to default</a>
+           
                 <span class="insight">Want more insight? &nbsp;&nbsp;<a href="#summary" class="section-toggle action-arrow">Create a summary table <i class="icon-right"></i></a></span>
 
               </div>
@@ -757,10 +757,12 @@
 
           </div>
           <div id="error"></div>
-          <div id="summary-table-container"></div>
-          <div id="summary-loading">
-              <p>This might take a few minutes...please wait, we're figuring it out for you!</p>
+          <div id="summary-table-container">
+            <div id="summary-loading">
+                <p><img src="static/img/icon_spinner.gif" alt="Loading icon"> This might take a few minutes...please wait, we're figuring it out for you!</p>
+            </div>
           </div>
+          
 
           <div class="spinning"></div>
 

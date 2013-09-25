@@ -330,6 +330,7 @@ module.exports = function(grunt) {
       cover: {
          src: [
            'src/static/js/modules/**/*.js',
+           '!src/static/js/modules/dom.js',
            '!src/static/js/modules/ie8.js'
           ],
           options: {

@@ -25,40 +25,43 @@
   .hero {
     
     padding-top: 10px;
-    margin-top: 5px;
+    margin-top: 0;
     text-align: center;
     background-color: #FAB051;
     background-size: cover;
 
     &> .inner {
       .wrapper();
+      padding-bottom: 10px;
     }
 
     h1 {
       .avenir-next-bold;
       font-size: 30px;
       line-height: 1.3em;
-      padding-bottom: 0 0 30px;
-      padding-top: 32px;
+      padding-top: 22px;
+      margin-top: 5px;
       width: 100%;
       background: transparent url() scroll no-repeat top center;
-      .at2x( '../img/hr_hero-top.png', 770px, 17px );
+      .at2x( '../img/hr_hero-top-mobile.png', 770px, 17px );
     }
 
     nav {
       font-family: @body-font;
-      margin-top: 15px;
-      border-top: 2px solid black;
+      margin-top: 9px;
     }
 
     .title {
       .avenir-next-bold;
-      text-transform: uppercase;
+      text-transform: none;
     }
 
     // Nav underneath the main title
     ul {
       .mobile-nav();
+      a:hover {
+        background-color: @gold;
+      }
     }
 
   }
@@ -74,12 +77,12 @@
     font-weight: normal;
     font-size: 1.4em;
     background-repeat: no-repeat;
-    padding-left: 100px;
+    padding-left: 15px;
     min-height: 100px;
     padding-top: 15px;
-    margin: 40px auto 30px;
     width: 380px;
     max-width: 100%;
+    margin-top: 15px;
     strong {
       font-style: normal;
       display: block;
@@ -152,10 +155,6 @@ section.video {
 }
 
 #facts-and-figures {
-
-  h2 {
-    .at2x( '../img/icon_dataviz.png', 81px, 93px );
-  }
 
   #map {
 
@@ -306,8 +305,10 @@ section.video {
   border-bottom: 3px solid @light_field10;
   padding-bottom: 50px;
   h2 {
-    .at2x( '../img/icon_getdata.png', 79px, 92px );
-    width: 450px;
+    width: 440px;
+    strong {
+      font-size: 1.1em;
+    }
   }
   h3 {
     .avenir-next-demi;
@@ -348,10 +349,6 @@ section.video {
 }
 
 #developers {
-  h2 {
-    .at2x( '../img/icon_devs.png', 92px, 97px );
-    padding-left: 110px;
-  }
   .inner {
     margin: 0 auto;
     p {
@@ -418,18 +415,27 @@ section.video {
 
   .homepage {
 
+    h2 {
+      padding-left: 100px;
+      margin: 40px auto 30px;
+    }
+
     .hero {
       min-height: 403px;
       padding-top: 45px;
-      margin-top: 0;
+      .inner {
+        padding-bottom: 0;
+      }
       h1 {
         font-size: 47px;
+        padding-top: 32px;
+        margin-top: 0;
+        .at2x( '../img/hr_hero-top.png', 770px, 17px );
       }
       nav {
         width: 82%;
         margin: 0 auto;
         margin-top: 25px;
-        border: 0;
         .clearfix();
         li {
           width: 33%;
@@ -439,12 +445,22 @@ section.video {
         li:first-child {
           width: 34%;
         }
+        .title {
+          text-transform: uppercase;
+        }
         a {
           background-color: transparent;
-          text-transform: none;
           width: 160px;
+          span {
+            text-transform: none;
+            font-family: @body-font;
+            font-weight: 400;
+          }
           &.get-the-data {
             margin: 0 auto;
+            .circle-nav {
+              margin: 0 auto 20px;
+            }
             .inner {
               padding-left: 9%;
               padding-right: 9%;
@@ -453,7 +469,6 @@ section.video {
           &.developers {
             .clearfix();
             float: right;
-            
             width: 150px;
             .circle-nav {
               float: right;
@@ -552,6 +567,9 @@ section.video {
     }
 
     #facts-and-figures {
+      h2 {
+        .at2x( '../img/icon_dataviz.png', 81px, 93px );
+      }
       #map {
         // Show the map controls on non-mobile devices
         .leaflet-control-container,
@@ -574,6 +592,12 @@ section.video {
     }
 
     #get-the-data {
+      h2 {
+        .at2x( '../img/icon_getdata.png', 79px, 92px );
+        strong {
+          font-size: 1.4em;
+        }
+      }
       .inner {
         width: 82%;
       }
@@ -589,6 +613,10 @@ section.video {
     }
 
     #developers {
+      h2 {
+        .at2x( '../img/icon_devs.png', 92px, 97px );
+        padding-left: 110px;
+      }
       .inner {
         width: 82%;
       }
@@ -599,20 +627,10 @@ section.video {
 
 }
 
-// Hack to fix the map legend on mobiles, also hide the charts!
+// Hide the map on small devices
 
 @media only screen and (max-device-width: 480px) {
     #map {
       display: none;
-    }
-    .leaflet-bottom.leaflet-right {
-      width: 100%;
-      .map-legends {
-        width: 95%;
-      }
-    }
-    .wax-legend .legend-scale ul li {
-      width: 30px !important;
-      font-size: .7em !important;
     }
 }
