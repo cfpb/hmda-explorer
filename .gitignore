@@ -29,9 +29,10 @@ src/static/vendor
 #########
 ghpages.sh
 
-# Coverage reports #
-####################
-test/coverage/
+# Test reports #
+################
+test/coverage
+test/junit
 
 # Built app #
 #############
