@@ -368,6 +368,9 @@ module.exports = function(grunt) {
               'test/specs/helpers/*.js',
               'dist/static/js/all.min.js'
             ],
+            junit: {
+              path: 'test/junit'
+            },
             timeout: 30000
           }
       },
@@ -406,6 +409,11 @@ module.exports = function(grunt) {
       }
     },
 
+    /**
+     * Sauce Labs: https://github.com/axemclion/grunt-saucelabs
+     * 
+     * A Grunt task for running QUnit, Jasmine, Mocha and YUI tests using Sauce Labs' Cloudified Browsers.
+     */
     'saucelabs-jasmine': {
       all: {
         options: {
