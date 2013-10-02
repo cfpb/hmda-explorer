@@ -2145,7 +2145,6 @@ textarea {
 .filter.footer .insight {
   float: right;
   position: relative;
-  bottom: .5em;
 }
 .filter .fields {
   padding: 0;
@@ -2301,26 +2300,27 @@ textarea {
   }
   .filter.location li.location-separator {
     display: inline-block;
-    margin: 0 20px;
+    margin: 0 35px 0 -5px;
   }
   .filter.location li.field.state_code,
   .filter.location li.field.county_code,
   .filter.location li.field.census_tract_number {
-    width: 25%;
+    width: 30%;
     display: inline-block;
   }
   .filter.location li.field.state_code > label,
   .filter.location li.field.county_code > label,
   .filter.location li.field.census_tract_number > label {
-    width: 100%;
+    width: 83%;
     margin: 0;
     text-align: left;
   }
   .filter.location li.field.state_code .widget,
   .filter.location li.field.county_code .widget,
   .filter.location li.field.census_tract_number .widget {
-    width: 100%;
+    width: 83%;
     margin: 0;
+    margin-right: 15px;
   }
   .filter.location li.field.county_code,
   .filter.location li.field.census_tract_number {
@@ -2336,8 +2336,8 @@ textarea {
     text-align: left;
   }
   .filter.location li.field.msamd .widget {
-    width: 80%;
-    margin: 0 10px 0 0;
+    width: 83%;
+    margin: 0 15px 0 0;
   }
   .filter .help {
     position: static;
@@ -2456,7 +2456,7 @@ textarea {
   bottom: 10px;
 }
 ul.chzn-choices {
-  width: 100%;
+  width: 130%;
 }
 .chzn-container-multi .chzn-choices {
   background: #ffffff;
@@ -2464,7 +2464,10 @@ ul.chzn-choices {
 .chzn-container-multi .chzn-choices .search-field input,
 .chzn-container-multi .chzn-choices .search-field input.default {
   height: 100%;
-  width: 110px;
+  width: 100%;
+}
+.chzn-container.chzn-container-multi.chzn-container-active .chzn-choices .search-field {
+  width: 100%;
 }
 .chzn-container-multi .chzn-choices .search-field .default {
   font-family: "Avenir Next", Arial, sans-serif;
@@ -2522,6 +2525,12 @@ ul.chzn-choices {
 }
 .chzn-container-single .chzn-single abbr {
   top: 9px;
+}
+#applicant_ethnicity_chzn .search-field {
+  width: 130%;
+}
+#co_applicant_ethnicity_chzn .search-field {
+  width: 130%;
 }
 .charts {
   font-family: "Avenir Next", Arial, sans-serif;
@@ -2703,6 +2712,9 @@ ul.chzn-choices {
     display: inline;
     *zoom: 1;
     *behavior: url(boxsizing.htc);
+  }
+  .charts .chart-content .chart-container {
+    padding-left: 5px;
   }
   .charts .chart-legend {
     margin: 0 auto 0 45px;
@@ -3764,6 +3776,17 @@ section.video h2 strong {
   padding: 15px 20px;
   line-height: 1.375em;
   margin: 10px 0px;
+}
+#learn-more .highlight a {
+  color: #0072ce;
+  border-bottom: 1px dotted #0072ce;
+  text-decoration: none;
+  font-family: "Avenir Next", Arial, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+#learn-more .highlight h5 {
+  margin-bottom: .5em;
 }
 #learn-more .filter {
   background-color: #ffffff;
