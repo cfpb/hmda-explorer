@@ -2,8 +2,36 @@
 
   <span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
 
+  <span class="kd">var</span> <span class="nx">mobileNav</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+
+    <span class="kd">var</span> <span class="nx">$navicon</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;button.navicon&#39;</span><span class="p">),</span>
+        <span class="nx">$menu</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.hmda header nav&#39;</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+
+      <span class="nx">open</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="nx">$navicon</span><span class="p">.</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;open&#39;</span><span class="p">);</span>
+        <span class="nx">$menu</span><span class="p">.</span><span class="nx">slideDown</span><span class="p">(</span> <span class="mi">200</span> <span class="p">);</span>
+      <span class="p">},</span>
+
+      <span class="nx">close</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="nx">$menu</span><span class="p">.</span><span class="nx">slideUp</span><span class="p">(</span> <span class="mi">200</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+          <span class="nx">$navicon</span><span class="p">.</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;open&#39;</span><span class="p">);</span>
+        <span class="p">});</span>
+      <span class="p">}</span>
+
+    <span class="p">};</span>
+
+  <span class="p">})();</span>
+
   <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;button.navicon&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span> <span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.hmda header nav&#39;</span><span class="p">).</span><span class="nx">slideToggle</span><span class="p">();</span>
+    
+    <span class="k">if</span> <span class="p">(</span> <span class="nx">$</span><span class="p">(</span> <span class="k">this</span> <span class="p">).</span><span class="nx">hasClass</span><span class="p">(</span><span class="s1">&#39;open&#39;</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="nx">mobileNav</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">mobileNav</span><span class="p">.</span><span class="nx">open</span><span class="p">();</span>
+    <span class="p">}</span>
+    
   <span class="p">});</span>
 
 <span class="p">});</span>
