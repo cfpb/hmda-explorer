@@ -374,7 +374,7 @@ table {
 @font-face {
   font-family: "CFPB Icons";
   src: url("../fonts/CFPB_minicons.eot");
-  src: url("../fonts/CFPB_minicons.eot?#iefix") format('embedded-opentype'), url("../fonts/CFPB_minicons.woff") format('woff'), url("../fonts/CFPB_minicons.ttf") format('truetype'), url("../fonts/CFPB_minicons.svg") format('svg');
+  src: url("../fonts/CFPB_minicons.eot?#iefix") format('embedded-opentype'), url("../fonts/CFPB_minicons.svg") format('svg'), url("../fonts/CFPB_minicons.woff") format('woff'), url("../fonts/CFPB_minicons.ttf") format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -2743,6 +2743,19 @@ ul.chzn-choices {
 .homepage.plan-b #get-the-data h3 {
   padding-top: 10px;
 }
+.homepage.plan-b #developers h2 {
+  background-image: url('../img/icon_devs.png');
+  padding-left: 110px;
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
+  .homepage.plan-b #developers h2 {
+    background-image: url("../img/icon_devs_2x.png");
+    background-size: 92px 97px;
+  }
+}
+.homepage.plan-b #developers .inner {
+  width: 82%;
+}
 .homepage .hero {
   padding-top: 10px;
   margin-top: 0;
@@ -3345,6 +3358,20 @@ section.video h2 strong {
   }
   .homepage #developers .inner {
     width: 82%;
+    *zoom: 1;
+  }
+  .homepage #developers .inner:before,
+  .homepage #developers .inner:after {
+    content: " ";
+    display: table;
+  }
+  .homepage #developers .inner:after {
+    clear: both;
+  }
+  .homepage #developers .api {
+    width: 65%;
+    margin-right: 3%;
+    float: left;
   }
 }
 @media only screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
