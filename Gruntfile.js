@@ -173,6 +173,11 @@ module.exports = function(grunt) {
         command: [
           'rm -rf _SpecRunner.html .grunt sauce_connect.log*',
         ].join('&&')
+      },
+      mogo: {
+        command: [
+          'java -jar test/mogotest.jar ' + process.env.MOGO_API_KEY + ' www.hmda.test 9005',
+        ].join('&&')
       }
     },
 
@@ -318,6 +323,12 @@ module.exports = function(grunt) {
         options: {
           port: 9000
         }
+      },
+      mogo: {
+        options: {
+          port: 9005,
+          base: 'dist'
+        }
       }
     },
 
@@ -357,6 +368,9 @@ module.exports = function(grunt) {
               'test/specs/helpers/*.js',
               'dist/static/js/all.min.js'
             ],
+            junit: {
+              path: 'test/junit'
+            },
             timeout: 30000
           }
       },
@@ -395,6 +409,11 @@ module.exports = function(grunt) {
       }
     },
 
+    /**
+     * Sauce Labs: https://github.com/axemclion/grunt-saucelabs
+     * 
+     * A Grunt task for running QUnit, Jasmine, Mocha and YUI tests using Sauce Labs' Cloudified Browsers.
+     */
     'saucelabs-jasmine': {
       all: {
         options: {
@@ -516,6 +535,7 @@ module.exports = function(grunt) {
    */
   grunt.registerTask('test', ['jshint', 'jasmine:cover']);
   grunt.registerTask('sauce', ['connect:sauce', 'jasmine:sauce', 'saucelabs-jasmine', 'shell:sauce']);
+  grunt.registerTask('mogo', ['connect:mogo', 'shell:mogo']);
   grunt.registerTask('docs', ['removelogging', 'docco', 'build-cfpb']);
   grunt.registerTask('build', ['htmlmin', 'shell:dist', 'jst', 'uglify', 'less', 'cssmin', 'shell:planb']);
 
