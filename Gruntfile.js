@@ -176,6 +176,11 @@ module.exports = function(grunt) {
           {expand: true, cwd: 'src/static/vendor/zeroclipboard/', src: ['**'], dest: 'dist/static/js/zeroclipboard/'},
           {expand: true, cwd: 'src/static/vendor/chosen/public/', src: ['*.png'], dest: 'dist/static/css/'}
         ]
+      },
+      ghpages: {
+        files: [
+          {expand: true, cwd: 'dist/', src: ['**'], dest: '.'}
+        ]
       }
     },
 
@@ -601,6 +606,7 @@ module.exports = function(grunt) {
   grunt.registerTask('mogo', ['connect:mogo', 'shell:mogo']);
   grunt.registerTask('docs', ['removelogging', 'docco', 'build-cfpb']);
   grunt.registerTask('build', ['template', 'copy:dist', 'jst', 'uglify', 'less', 'cssmin']);
+  grunt.registerTask('ghpages', ['build', 'copy:ghpages']);
 
   /**
    * The 'default' task will run whenever `grunt` is run without specifying a task
