@@ -1,1 +1,0 @@
-Round to the nearest thousand; round $500 up to the next thousand. If a preapproval request was denied and the borrower did not state a loan amount, enter 1.

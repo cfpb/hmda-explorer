@@ -1,1 +1,1 @@
-A 10-digit code used to identify reporting financial institutions. Paired with an Agency to identify unique institutions, such as your neighborhood bank or credit union.
+Lender ID is a 10-digit code. To uniquely identify each reporting financial institution, the Lender ID must be combined with the regulatory agency code.
