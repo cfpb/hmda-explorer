@@ -123,7 +123,7 @@
                   <option value="2007">2007</option>
                 </select>
               </div>
-              <div class="help" title="<%= explore_tooltips_years %>"><i class="icon-help-alt"></i></div>
+              
             </li>
             <!-- /filter field -->
 
@@ -364,7 +364,7 @@
                 <label><input type="checkbox" class="param" name="property_type[]" value="2" />Manufactured housing</label>
                 <label><input type="checkbox" class="param" name="property_type[]" value="3" />Multifamily dwelling</label>
               </div>
-              <div class="help" title="<%= explore_tooltips_property_type %>"><i class="icon-help-alt"></i></div>
+              
             </li>
             <!-- /filter field -->
 
@@ -409,7 +409,7 @@
                 <label><input type="checkbox" class="param" name="lien_status[]" value="3" />Not secured by a lien</label>
                 <label><input type="checkbox" class="param" name="lien_status[]" value="4" />Not applicable (purchased loans)</label>
               </div>
-              <div class="help" title="<%= explore_tooltips_lien_status %>"><i class="icon-help-alt"></i></div>
+              
             </li>
             <!-- /filter field -->
 
@@ -443,7 +443,7 @@
                 <span>$</span><input type="text" class="param require-numeric" name="loan_amount_000s-min" data-comparator=">" value="" placeholder="Min."><span class="thousands">,000 &nbsp; to &nbsp;</span>
                 <span>$</span><input type="text" class="param require-numeric" name="loan_amount_000s-max" data-comparator="<" value="" placeholder="Max."><span class="thousands">,000</span>
               </div>
-              <div class="help" title="<%= explore_tooltips_loan_amount_000s %>"><i class="icon-help-alt"></i></div>
+              
             </li>
             <!-- /filter field -->
 
@@ -516,7 +516,7 @@
                 <label><input type="checkbox" class="param" name="preapproval[]" value="1" />Yes</label>
                 <label><input type="checkbox" class="param" name="preapproval[]" value="2" />No</label>
               </div>
-              <div class="help" title="<%= explore_tooltips_preapproval %>"><i class="icon-help-alt"></i></div>
+              
             </li>
             <!-- /filter field -->
 
@@ -643,9 +643,13 @@
 
             <label for="codes">HMDA codes:</label>
             <div class="radio widget codes">
-              <label><input type="radio" name="codes" value="0" checked />Use plain names</label>
-              <label><input type="radio" name="codes" value="1" />Use codes</label>
+              <label><input type="radio" name="codes" value="0" checked />Plain names</label>
+              <label><input type="radio" name="codes" value="1" />Codes only</label>
+
+              <div class="help" title="&quot;Plain names&quot; replaces HMDA data codes in the dataset with simple language. Choose &quot;codes only&quot; if you are already familiar with the HMDA reporting codes."><i class="icon-help-alt"></i></div>
             </div>
+
+
 
             <div class="action">
 
@@ -786,8 +790,8 @@
 
             <label for="codes">HMDA codes:</label>
             <div class="radio widget raw-codes">
-              <label><input type="radio" name="codes" value="0" checked />Use plain names</label>
-              <label><input type="radio" name="codes" value="1" />Use codes</label>
+              <label><input type="radio" name="codes" value="0" checked />Plain names</label>
+              <label><input type="radio" name="codes" value="1" />Codes only</label>
             </div>
             
 
