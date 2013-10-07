@@ -19,8 +19,9 @@ Please use the [fork and pull](https://help.github.com/articles/using-pull-reque
 1. [Fork this repo](https://fake.ghe.domain/data-platform/public-data-platform/fork) to your personal GH account.
 1. `git clone git@fake.ghe.domain:YOUR-USERNAME/public-data-platform.git`
 1. `cd public-data-platform`
-1. `npm install && bower install`
-1. `grunt build && grunt`
+1. `npm install`
+1. `bower install`
+1. `grunt`
 1. Open `localhost:8000` in a browser.
 
 [Comprehensive setup notes](https://fake.ghe.domain/gist/382) from @danmurphy are also available.
@@ -31,6 +32,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2013-10-07   [v0.16.0](../../tree/v0.16.0)   Break pages into HTML partials and Markdown files. Remove build artifacts from repo.
  * 2013-09-20   [v0.15.2](../../tree/v0.15.2)   Swap chart columns. Hack map `ready` event listener for IE8.
  * 2013-09-18   [v0.15.1](../../tree/v0.15.1)   Fix MSAs in charts. Refactor summary table page to work with API changes.
  * 2013-09-17   [v0.15.0](../../tree/v0.15.0)   Bajillion tweaks in preparation for Plan B release.
@@ -81,4 +83,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Fri Sep 20 2013 15:21:19.*
+*This file was generated on Mon Oct 07 2013 04:19:52.*
