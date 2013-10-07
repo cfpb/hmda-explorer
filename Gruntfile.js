@@ -153,16 +153,6 @@ module.exports = function(grunt) {
      * zipping the example directory.
      */
     shell: {
-      dist: {
-        command: [
-          'cp -r src/static/fonts dist/static',
-          'cp -r src/static/img dist/static',
-          'cp -r src/static/vendor/cfpb-font-icons/static/fonts/* dist/static/fonts',
-          'cp src/static/vendor/cfpb-font-icons/static/css/icons-ie7.css dist/static/css/icons-ie7.css',
-          'cp src/static/vendor/zeroclipboard/* dist/static/js/zeroclipboard/',
-          'cp src/static/vendor/chosen/public/chosen-* dist/static/css'
-        ].join('&&')
-      },
       sauce: {
         command: [
           'rm -rf _SpecRunner.html .grunt sauce_connect.log*',
@@ -172,6 +162,24 @@ module.exports = function(grunt) {
         command: [
           'java -jar test/mogotest.jar ' + process.env.MOGO_API_KEY + ' www.hmda.test 9005',
         ].join('&&')
+      }
+    },
+
+    /**
+     * Copy: https://github.com/gruntjs/grunt-contrib-copy
+     * 
+     * Copy files and folders.
+     */
+    copy: {
+      dist: {
+        files: [
+          {expand: true, cwd: 'src/static/fonts/', src: ['**'], dest: 'dist/static/fonts/'},
+          {expand: true, cwd: 'src/static/img/', src: ['**'], dest: 'dist/static/img/'},
+          {expand: true, cwd: 'src/static/vendor/cfpb-font-icons/static/fonts/', src: ['**'], dest: 'dist/static/fonts/'},
+          {expand: true, cwd: 'src/static/vendor/cfpb-font-icons/static/css/', src: ['icons-ie7.css'], dest: 'dist/static/css/'},
+          {expand: true, cwd: 'src/static/vendor/zeroclipboard/', src: ['**'], dest: 'dist/static/js/zeroclipboard/'},
+          {expand: true, cwd: 'src/static/vendor/chosen/public/', src: ['*.png'], dest: 'dist/static/css/'}
+        ]
       }
     },
 
@@ -585,6 +593,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jst');
   grunt.loadNpmTasks('grunt-template');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-saucelabs');
 
   /**
@@ -594,7 +603,7 @@ module.exports = function(grunt) {
   grunt.registerTask('sauce', ['connect:sauce', 'jasmine:sauce', 'saucelabs-jasmine', 'shell:sauce']);
   grunt.registerTask('mogo', ['connect:mogo', 'shell:mogo']);
   grunt.registerTask('docs', ['removelogging', 'docco', 'build-cfpb']);
-  grunt.registerTask('build', ['template', 'shell:dist', 'jst', 'uglify', 'less', 'cssmin']);
+  grunt.registerTask('build', ['template', 'copy:dist', 'jst', 'uglify', 'less', 'cssmin']);
 
   /**
    * The 'default' task will run whenever `grunt` is run without specifying a task
