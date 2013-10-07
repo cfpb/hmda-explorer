@@ -1,5 +1,11 @@
-v0.16.0:
+v0.16.1:
   date: 2013-10-07
+  changes:
+    - Purge `dist` directories.
+    - Update readme accordingly.
+
+v0.16.0:
+  date: 2013-10-06
   changes:
     - Break pages into HTML partials and Markdown files.
     - Remove build artifacts from repo.
