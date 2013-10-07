@@ -1,0 +1,1 @@
+Round to the nearest thousand; round $500 up to the next thousand.

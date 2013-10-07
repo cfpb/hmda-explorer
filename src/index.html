@@ -42,7 +42,7 @@
   </script>
 </head>
 
-<body class="hmda homepage plan-b">
+<body class="hmda homepage">
 
   <div class="top-banner">
     <div class="inner">
@@ -70,10 +70,10 @@
 
     <nav role="navigation" aria-label="Main HMDA Menu">
       <ul>
-        <li><a href="." class="active">Home</a>
-        </li>
-        <li><a href="learn-more">Learn more</a>
-        </li>
+        <li><a href="." class="active">Home</a></li>
+        <li><a href="learn-more">Learn more</a></li>
+        <li><a href="explore">Explore data</a></li>
+        <li><a href="api" class="developers">API docs</a></li>
       </ul>
     </nav>
 
@@ -205,11 +205,11 @@
 
               <label for="hmda_chart_1_msa" class="chart-label">Metropolitan Statistical Area</label>
               
-              <div class="help" title="<%= charts_first_chart_help_text %>"><i class="icon-help-alt"></i></div>
+              <div class="help" title="<%= homepage_charts_first_chart_help_text %>"><i class="icon-help-alt"></i></div>
               
               <br>
-
-              <%= charts_first_chart_msa_dropdown %>
+              
+              <%= homepage_charts_first_chart_msa_dropdown %>
 
               <div class="toggle-series-heading">
                 <span class="chart-label">Loan Purpose</span>
@@ -273,9 +273,11 @@
 
             <label for="hmda_chart_2_msa" class="chart-label">Metropolitan Statistical Area</label>
 
-            <div class="help" title="<%= charts_second_chart_help_text %>"><i class="icon-help-alt"></i></div>
-
-            <%= charts_second_chart_msa_dropdown %>
+            <div class="help" title="<%= homepage_charts_second_chart_help_text %>"><i class="icon-help-alt"></i></div>
+              
+              <br>
+              
+              <%= homepage_charts_second_chart_msa_dropdown %>
 
             <div class="toggle-series-heading">
               <span class="chart-label">Loan Type</span>
@@ -334,9 +336,14 @@
 
       <div class="inner">
         <div class="filters">
-          <h3>Want to learn more?</h3>
-          <p>Coming soon from the CFPB: easy-to-use tools that allow you to filter down millions of HMDA records to get just the data set that you need. You'll be able to preview the records before you download them, or create your own aggregations (summary tables) for additional insight. You can also download HMDA data <a href="http://www.ffiec.gov/hmda/hmdaproducts.htm">from the FFIEC.</a>
-          </p>  
+          <h3>Filters</h3>
+          <p>Interested in learning about specific mortgage trends in a location, among a community, or with a certain type of loan? Filter your search results to get just the data you need. You can also download the filtered HMDA data in different formats.</p>
+          <a href="explore" class="action-arrow">Filter data <i class="icon-right"></i></a>
+        </div>
+        <div class="summary">
+          <h3>Summary tables</h3>
+          <p>Need more insight? Use your specific search filter to create unique aggregate views called summary tables. These allow you to gain statistical insight into concepts such as applicant race, average income, and more.</p>
+          <p>You can create a summary table based on your custom data set once you've filtered to the results you want.</p>
         </div>
       </div>
     </div>
@@ -353,9 +360,15 @@
 
       <div class="inner">
         <div class="api">
-          <p>We will soon release an API that will make HMDA data much more accessible to researchers and software developers.</p>
-          <p>In the meantime, <a href="https://github.com/cfpb/qu">check out Qu,</a> the software that will power our API, on GitHub. We encourage you to contribute to the project, and we look forward to seeing how you'll use it to bring CFPB's data into your own applications and visualizations!</p>
-
+          <p>Under the hood, the HMDA data is stored and served by Qu, a public API for serving the CFPB's public data sets. Qu is open source software, and we encourage you to <a href="https://github.com/cfpb/qu">contribute</a> to the project on GitHub, or <a href="http://cfpb.github.io/api/">use it</a> to bring CFPB's data into your own applications and visualizations!</p>
+        </div>
+        <div class="links">
+          <ul>
+             <li><a href="http://cfpb.github.io/api/" class="action-arrow">API documentation<i class="icon-external-link"></i></a>
+             </li>
+             <li><a href="https://github.com/cfpb/qu" class="action-arrow">Project Qu on GitHub<i class="icon-external-link"></i></a>
+             </li>
+           </ul>
         </div>
       </div>
 
@@ -363,54 +376,7 @@
 
   </section>
 
-  <footer role="contentinfo">
-    <nav role="navigation" aria-label="Footer Menu">
-      <ul class="primary">
-        <li><a href="http://www.consumerfinance.gov/">consumerfinance.gov</a>
-        </li>
-        <li><a href="http://www.consumerfinance.gov/contact-us/">Contact us</a>
-        </li>
-        <li><a href="http://www.consumerfinance.gov/newsroom/">Newsroom</a>
-        </li>
-        <li><a href="http://www.consumerfinance.gov/jobs/">Jobs</a>
-        </li>
-        <li><a href="http://www.consumerfinance.gov/open/">Open government</a>
-        </li>
-      </ul>
-      <ul class="social">
-        <li><a href="http://github.com/cfpb"><i class="icon-github" title="GitHub"></i><span class="visuallyhidden">Github</span></a>
-        </li>
-        <li><a href="http://facebook.com/cfpb"><i class="icon-facebook" title="Facebook"></i><span class="visuallyhidden">Facebook</span></a>
-        </li>
-        <li><a href="http://twitter.com/cfpb"><i class="icon-twitter" title="Twitter"></i><span class="visuallyhidden">Twitter</span></a>
-        </li>
-        <li><a href="http://youtube.com/cfpb"><i class="icon-youtube" title="YouTube"></i><span class="visuallyhidden">YouTube</span></a>
-        </li>
-        <li><a href="http://flickr.com/cfpbphotos"><i class="icon-flickr" title="Flickr"></i><span class="visuallyhidden">Flickr</span></a>
-        </li>
-        <li><a href="http://linkedin.com/company/consumer-financial-protection-bureau"><i class="icon-linkedin" title="Linkedin"></i><span class="visuallyhidden">Linkedin</span></a>
-        </li>
-      </ul>
-      <ul class="tertiary">
-        <li><a href="http://www.consumerfinance.gov/privacy-policy/">Privacy policy and legal notices</a>
-        </li>
-        <li><a href="http://www.consumerfinance.gov/accessibility/">Accessibility</a>
-        </li>
-        <li><a href="http://www.consumerfinance.gov/plain-writing/">Plain writing</a>
-        </li>
-        <li><a href="http://www.consumerfinance.gov/no-fear-act/">No FEAR Act</a>
-        </li>
-        <li><a href="http://www.consumerfinance.gov/foia/">FOIA</a>
-        </li>
-        <li><a href="http://usa.gov/">USA.gov</a>
-        </li>
-        <li><a href="http://www.federalreserve.gov/oig/default.htm">Office of Inspector General</a>
-        </li>
-        <li><a href="http://www.consumerfinance.gov/ombudsman/">Ombudsman</a>
-        </li>
-      </ul>
-    </nav>
-  </footer>
+  <%= footer %>
 
   <script src="//api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.js"></script>
   <script src="static/js/home.min.js"></script>
