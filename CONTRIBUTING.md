@@ -7,6 +7,7 @@ Please use the [fork and pull](https://help.github.com/articles/using-pull-reque
 1. `cd public-data-platform`
 1. `npm install`
 1. `bower install`
+1. `grunt build`
 1. `grunt`
 1. Open `localhost:8000` in a browser.
 
