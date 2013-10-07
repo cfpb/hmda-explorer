@@ -2,7 +2,45 @@ module.exports = function(grunt) {
 
   'use strict';
 
+  /**
+   * Templating helper function that converts markdown into html for feeding
+   * into the grunt-template task.
+   * @param  {string} dir Directory containing content.
+   * @return {object}     Object w/ filenames as keys.
+   */
+  function _getTemplateContent( dir ) {
 
+    var data = {},
+        markdown = require('marked'),
+        _process;
+    
+    _process = function( abspath, rootdir, subdir, filename ) {
+
+      function _convert( string ) {
+        return string.replace(/[\s\/\-]+/g, '_').toLowerCase().replace(/\.[^/.]+$/, '');
+      }
+
+      var file = _convert( filename ),
+          dir = !grunt.util._.isEmpty( subdir ) ? _convert( subdir ) + '_' : '';
+
+      if( !grunt.util._.isEmpty( file ) ) {
+        data[ dir + file ] = filename.slice(-2) === 'md' ? markdown( grunt.file.read( abspath ) ) : grunt.file.read( abspath );
+      }
+
+    };
+
+    if ( grunt.file.isDir( dir ) ) {
+      grunt.file.recurse( dir, _process );
+      return data;
+    } else {
+      grunt.fail.warn( dir + ' is not a valid directory.' );
+    }
+
+  }
+
+  /**
+   * Grunt time
+   */
   grunt.initConfig({
 
     /**
@@ -96,12 +134,12 @@ module.exports = function(grunt) {
           removeComments: true
         },
         files: {
-          'dist/index.html': 'src/index.html',
-          'dist/explore.html': 'src/explore.html',
-          'dist/learn-more.html': 'src/learn-more.html',
-          'dist/api.html': 'src/api.html',
-          'dist/index_v1.html': 'src/index_v1.html',
-          'dist/learn-more_v1.html': 'src/learn-more_v1.html'
+          'dist/index.html': 'dist/index.html',
+          'dist/explore.html': 'dist/explore.html',
+          'dist/learn-more.html': 'dist/learn-more.html',
+          'dist/api.html': 'dist/api.html',
+          'dist/index_v1.html': 'dist/index_v1.html',
+          'dist/learn-more_v1.html': 'dist/learn-more_v1.html'
         }
       }
     },
@@ -199,6 +237,34 @@ module.exports = function(grunt) {
         },
         files: {
           'src/static/js/templates/template.js': ['src/static/js/templates/*.html']
+        }
+      }
+    },
+
+    /**
+     * Template: https://github.com/mathiasbynens/grunt-template
+     * 
+     * Interpolates template files with any data you provide and saves the result to another file.
+     */
+    template: {
+      homepage: {
+        options: {
+          data: function() {
+            return _getTemplateContent( 'src/content/homepage' );
+          }
+        },
+        files: {
+          'dist/index.html': ['src/index.html']
+        }
+      },
+      'explore': {
+        'options': {
+          'data': {
+            'body': 'wat.'
+          }
+        },
+        'files': {
+          'dist/explore.html': ['src/explore.html']
         }
       }
     },
@@ -504,7 +570,7 @@ module.exports = function(grunt) {
      */
     watch: {
       scripts: {
-        files: ['src/*.html', 'src/static/less/**/*.less', 'src/static/js/**/*.js', 'test/specs/*.js'],
+        files: ['src/*.html', 'src/content/**/*', 'src/static/less/**/*.less', 'src/static/js/**/*.js', 'test/specs/*.js'],
         tasks: ['build', 'test']
       }
     }
@@ -527,6 +593,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-docco');
   grunt.loadNpmTasks('grunt-remove-logging');
   grunt.loadNpmTasks('grunt-contrib-jst');
+  grunt.loadNpmTasks('grunt-template');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-saucelabs');
 
@@ -537,7 +604,7 @@ module.exports = function(grunt) {
   grunt.registerTask('sauce', ['connect:sauce', 'jasmine:sauce', 'saucelabs-jasmine', 'shell:sauce']);
   grunt.registerTask('mogo', ['connect:mogo', 'shell:mogo']);
   grunt.registerTask('docs', ['removelogging', 'docco', 'build-cfpb']);
-  grunt.registerTask('build', ['htmlmin', 'shell:dist', 'jst', 'uglify', 'less', 'cssmin', 'shell:planb']);
+  grunt.registerTask('build', ['template', 'htmlmin', 'shell:dist', 'jst', 'uglify', 'less', 'cssmin', 'shell:planb']);
 
   /**
    * The 'default' task will run whenever `grunt` is run without specifying a task
