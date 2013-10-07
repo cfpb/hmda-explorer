@@ -133,11 +133,7 @@ module.exports = function(grunt) {
         globals: {
           jQuery: true,
           $: true,
-          Backbone: true,
           _: true,
-          module: true,
-          require: true,
-          define: true,
           console: true,
           EventEmitter: true
         }
