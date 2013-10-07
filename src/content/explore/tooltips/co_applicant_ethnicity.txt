@@ -1,1 +1,1 @@
-Only Census ethnic categories are shown. Choose "not applicable" if the applicant is not a natural person (e.g., a corporation), or if the loan has been purchased on the secondary market
+Choose "not applicable" if the applicant is not a natural person (e.g., a corporation), or if the loan has been purchased on the secondary market.

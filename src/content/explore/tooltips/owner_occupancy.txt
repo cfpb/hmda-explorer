@@ -1,1 +1,1 @@
-A property is only considered owner-occupied if it is the primary residence of the owner. Choose "not applicable" only if the applicant is not a natural person (e.g., a corporation), or if the loan has been purchased on the secondary market.
+Indicates whether the owner will use the property as a primary residence. Second homes, vacation homes, and rentals are classified as "not owner-occupied as principal dwelling."
