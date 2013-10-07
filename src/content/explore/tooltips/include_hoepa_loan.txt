@@ -1,1 +1,1 @@
-Reporting whether or not a loan is covered by the Home Ownership and Equity Protection Act of 1994 (HOEPA) is optional; specifying a filter here may limit your results significantly.
+Selecting these categories as filters may significantly limit your results.
