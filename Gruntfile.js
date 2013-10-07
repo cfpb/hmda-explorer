@@ -2,9 +2,6 @@ module.exports = function(grunt) {
 
   'use strict';
 
-  /**
-   * Grunt time
-   */
   grunt.initConfig({
 
     /**
