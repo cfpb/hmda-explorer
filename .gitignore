@@ -36,6 +36,5 @@ test/junit
 
 # Built app #
 #############
-# Commenting these out for now until we get an automated build going.
-#dist/
-#dist-plan-b/
+dist/
+dist-plan-b/

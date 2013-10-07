@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 & !IEMobile]><html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
-<!--[if IE 7 & !IEMobile]><html lang="en" class="no-js lt-ie9 lt-ie8"><![endif]-->
-<!--[if IE 8 & !IEMobile]><html lang="en" class="no-js lt-ie9"><![endif]-->
+<!--[if lt IE 7 & !IEMobile]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7 & !IEMobile]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8 & !IEMobile]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8 | IEMobile]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
@@ -11,12 +11,16 @@
   <meta name="viewport" content="width=device-width">
   <script src="static/js/jquery.min.js"></script>
   <link rel="stylesheet" href="static/css/main.css">
-  <link href="//api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.css" rel="stylesheet">
-  <!--[if lt IE 8]><link href="//api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.ie.css" rel="stylesheet" />
-    <link rel="stylesheet" href="static/css/icons-ie7.css"><![endif]-->
-  <!--[if lt IE 9]><script src="static/js/ie8.min.js"></script>
+  <link href='//api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.css' rel='stylesheet' />
+  <!--[if lt IE 8]>
+    <link href="//api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.ie.css" rel="stylesheet" />
+    <link rel="stylesheet" href="static/css/icons-ie7.css">
+  <![endif]-->
+  <!--[if lt IE 9]>
+    <script src="static/js/ie8.min.js"></script>
     <link rel="stylesheet" href="static/css/ie8.min.css">
-    <script src="static/js/respond.min.js"></script><![endif]-->
+    <script src="static/js/respond.min.js"></script>
+  <![endif]-->
   <script>
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-20466645-3']);
@@ -38,14 +42,14 @@
   </script>
 </head>
 
-<body class="hmda homepage plan-b">
+<body class="hmda homepage">
 
   <div class="top-banner">
     <div class="inner">
       <p class="return-cfgov">Return to <a href="http://www.consumerfinance.gov">consumerfinance.gov</a>
       </p>
       <p class="official-website">An official website of the United States Government
-        <img src="static/img/icon_usflag.png" width="16" height="11" alt="US Flag">
+        <img src="static/img/icon_usflag.png" width="16" height="11" alt="US Flag" />
       </p>
     </div>
   </div>
@@ -55,7 +59,7 @@
     <div class="logo">
 
       <a href="http://www.consumerfinance.gov">
-        <img src="static/img/logo_2x.png" width="211" height="52" alt="Consumer Financial Protection Bureau">
+        <img src="static/img/logo_2x.png" width="211" height="52" alt="Consumer Financial Protection Bureau" />
       </a>
 
     </div>
@@ -66,10 +70,10 @@
 
     <nav role="navigation" aria-label="Main HMDA Menu">
       <ul>
-        <li><a href="." class="active">Home</a>
-        </li>
-        <li><a href="learn-more">Learn more</a>
-        </li>
+        <li><a href="." class="active">Home</a></li>
+        <li><a href="learn-more">Learn more</a></li>
+        <li><a href="explore">Explore data</a></li>
+        <li><a href="api" class="developers">API docs</a></li>
       </ul>
     </nav>
 
@@ -178,19 +182,19 @@
         <p>Application and loan volumes increased as most local mortgage markets improved in 2012.</p>
         <div class="controls">
           <div class="year">
-            <label><input type="radio" name="year" value="2011">2010-2011</label>&nbsp; or &nbsp;
-            <label class="selected"><input type="radio" name="year" value="2012" checked="checked">2011-2012</label>
+            <label><input type="radio" name="year" value="2011" />2010-2011</label>&nbsp; or &nbsp;
+            <label class="selected"><input type="radio" name="year" value="2012" checked />2011-2012</label>
           </div>
           <div class="type">
-            <label><input type="radio" name="type" value="a">Applications</label>
-            <label><input type="radio" name="type" value="o" checked="checked">Originations <div class="help" title="Originations are applications that resulted in a mortgage loan."><i class="icon-help-alt"></i></div></label>
+            <label><input type="radio" name="type" value="a" />Applications</label>
+            <label><input type="radio" name="type" value="o" checked />Originations <div class="help" title="Originations are applications that resulted in a mortgage loan."><i class="icon-help-alt"></i></div></label>
           </div>
         </div>
       </div>
     </div>
 
     <div class="charts">
-      
+      <!-- Chart 1 -->
       <section>
         <div class="background">
 
@@ -204,9 +208,9 @@
               <div class="help" title="A Metropolitan Statistical Area (MSA) is a region with relatively high population density at its core (usually a single large city) and close economic ties throughout. Some larger MSAs are divided into Metropolitan Divisions (MDs)."><i class="icon-help-alt"></i></div>
               
               <br>
-
+              
               <select name="hmda_chart_1_msa" id="hmda_chart_1_msa">
-  <option selected="selected" value="CBSA00000">U.S. Total</option>
+  <option selected value="CBSA00000">U.S. Total</option>
   <option value="CBSA10180">Abilene - TX</option>
   <option value="CBSA10380">Aguadilla, Isabela, San Sebastian - PR</option>
   <option value="CBSA10420">Akron - OH</option>
@@ -606,17 +610,17 @@
               </div>
 
               <div class="toggle-series-controls">
-                <input type="checkbox" id="home_purchase_checkbox" name="home_purchase_checkbox" value="True" checked="checked"> Home purchases
+                <input type="checkbox" id="home_purchase_checkbox" name="home_purchase_checkbox" value="True" checked> Home purchases
                 <br>
-                <input type="checkbox" id="home_improvements_checkbox" name="home_improvements_checkbox" value="True" checked="checked"> Home improvements
+                <input type="checkbox" id="home_improvements_checkbox" name="home_improvements_checkbox" value="True" checked> Home improvements
                 <br>
-                <input type="checkbox" id="refinancing_checkbox" name="refinancing_checkbox" value="True" checked="checked"> Refinancing
+                <input type="checkbox" id="refinancing_checkbox" name="refinancing_checkbox" value="True" checked> Refinancing
               </div>
 
-              
+              <!-- /.row -->
               
             
-            </div>
+            </div><!-- /.chart-info -->
 
             <div class="chart-content">
 
@@ -646,14 +650,14 @@
                 </tr>
               </table>
 
-            </div>
+            </div><!-- //.chart-content -->
 
-        </div>
-      </section>
+        </div><!-- //.background -->
+      </section><!-- //Chart 1 -->
 
       <p>&nbsp;</p>
 
-      
+      <!-- Chart 2 -->
       <section>
         <div class="background">
           <div class="chart-info">
@@ -664,9 +668,11 @@
             <label for="hmda_chart_2_msa" class="chart-label">Metropolitan Statistical Area</label>
 
             <div class="help" title="A Metropolitan Statistical Area (MSA) is a region with relatively high population density at its core (usually a single large city) and close economic ties throughout. Some larger MSAs are divided into Metropolitan Divisions (MDs)."><i class="icon-help-alt"></i></div>
-
-            <select name="hmda_chart_2_msa" id="hmda_chart_2_msa">
-  <option selected="selected" value="CBSA00000">U.S. Total</option>
+              
+              <br>
+              
+              <select name="hmda_chart_2_msa" id="hmda_chart_2_msa">
+  <option selected value="CBSA00000">U.S. Total</option>
   <option value="CBSA10180">Abilene - TX</option>
   <option value="CBSA10380">Aguadilla, Isabela, San Sebastian - PR</option>
   <option value="CBSA10420">Akron - OH</option>
@@ -1066,13 +1072,13 @@
             </div>
 
             <div class="toggle-series-controls">
-              <input type="checkbox" id="conventional_checkbox" name="conventional_checkbox" value="True" checked="checked"> Conventional
+              <input type="checkbox" id="conventional_checkbox" name="conventional_checkbox" value="True" checked> Conventional
               <br>
-              <input type="checkbox" id="fha_checkbox" name="fha_checkbox" value="True" checked="checked"> FHA
+              <input type="checkbox" id="fha_checkbox" name="fha_checkbox" value="True" checked> FHA
               <br>
-              <input type="checkbox" id="va_checkbox" name="va_checkbox" value="True" checked="checked"> VA
+              <input type="checkbox" id="va_checkbox" name="va_checkbox" value="True" checked> VA
               <br>
-              <input type="checkbox" id="rhs_checkbox" name="rhs_checkbox" value="True" checked="checked"> RHS
+              <input type="checkbox" id="rhs_checkbox" name="rhs_checkbox" value="True" checked> RHS
             </div>
 
           </div>
@@ -1096,15 +1102,15 @@
               </tr>
             </table>
 
-          </div>
+          </div><!-- //.chart-content -->
 
           <p class="chart-note">* All visualized data are for first-lien, owner-occupied, 1-4 family and manufactured homes.</p>
         
-        </div>
+        </div><!-- //.background -->
       </section>
-      
+      <!-- END CHART 2 -->
 
-    </div>
+    </div><!-- /.charts -->
 
   </section>
 
@@ -1118,9 +1124,14 @@
 
       <div class="inner">
         <div class="filters">
-          <h3>Want to learn more?</h3>
-          <p>Coming soon from the CFPB: easy-to-use tools that allow you to filter down millions of HMDA records to get just the data set that you need. You'll be able to preview the records before you download them, or create your own aggregations (summary tables) for additional insight. You can also download HMDA data <a href="http://www.ffiec.gov/hmda/hmdaproducts.htm">from the FFIEC.</a>
-          </p>  
+          <h3>Filters</h3>
+          <p>Interested in learning about specific mortgage trends in a location, among a community, or with a certain type of loan? Filter your search results to get just the data you need. You can also download the filtered HMDA data in different formats.</p>
+          <a href="explore" class="action-arrow">Filter data <i class="icon-right"></i></a>
+        </div>
+        <div class="summary">
+          <h3>Summary tables</h3>
+          <p>Need more insight? Use your specific search filter to create unique aggregate views called summary tables. These allow you to gain statistical insight into concepts such as applicant race, average income, and more.</p>
+          <p>You can create a summary table based on your custom data set once you've filtered to the results you want.</p>
         </div>
       </div>
     </div>
@@ -1137,9 +1148,15 @@
 
       <div class="inner">
         <div class="api">
-          <p>We will soon release an API that will make HMDA data much more accessible to researchers and software developers.</p>
-          <p>In the meantime, <a href="https://github.com/cfpb/qu">check out Qu,</a> the software that will power our API, on GitHub. We encourage you to contribute to the project, and we look forward to seeing how you'll use it to bring CFPB's data into your own applications and visualizations!</p>
-
+          <p>Under the hood, the HMDA data is stored and served by Qu, a public API for serving the CFPB's public data sets. Qu is open source software, and we encourage you to <a href="https://github.com/cfpb/qu">contribute</a> to the project on GitHub, or <a href="http://cfpb.github.io/api/">use it</a> to bring CFPB's data into your own applications and visualizations!</p>
+        </div>
+        <div class="links">
+          <ul>
+             <li><a href="http://cfpb.github.io/api/" class="action-arrow">API documentation<i class="icon-external-link"></i></a>
+             </li>
+             <li><a href="https://github.com/cfpb/qu" class="action-arrow">Project Qu on GitHub<i class="icon-external-link"></i></a>
+             </li>
+           </ul>
         </div>
       </div>
 
@@ -1148,53 +1165,53 @@
   </section>
 
   <footer role="contentinfo">
-    <nav role="navigation" aria-label="Footer Menu">
-      <ul class="primary">
-        <li><a href="http://www.consumerfinance.gov/">consumerfinance.gov</a>
-        </li>
-        <li><a href="http://www.consumerfinance.gov/contact-us/">Contact us</a>
-        </li>
-        <li><a href="http://www.consumerfinance.gov/newsroom/">Newsroom</a>
-        </li>
-        <li><a href="http://www.consumerfinance.gov/jobs/">Jobs</a>
-        </li>
-        <li><a href="http://www.consumerfinance.gov/open/">Open government</a>
-        </li>
-      </ul>
-      <ul class="social">
-        <li><a href="http://github.com/cfpb"><i class="icon-github" title="GitHub"></i><span class="visuallyhidden">Github</span></a>
-        </li>
-        <li><a href="http://facebook.com/cfpb"><i class="icon-facebook" title="Facebook"></i><span class="visuallyhidden">Facebook</span></a>
-        </li>
-        <li><a href="http://twitter.com/cfpb"><i class="icon-twitter" title="Twitter"></i><span class="visuallyhidden">Twitter</span></a>
-        </li>
-        <li><a href="http://youtube.com/cfpb"><i class="icon-youtube" title="YouTube"></i><span class="visuallyhidden">YouTube</span></a>
-        </li>
-        <li><a href="http://flickr.com/cfpbphotos"><i class="icon-flickr" title="Flickr"></i><span class="visuallyhidden">Flickr</span></a>
-        </li>
-        <li><a href="http://linkedin.com/company/consumer-financial-protection-bureau"><i class="icon-linkedin" title="Linkedin"></i><span class="visuallyhidden">Linkedin</span></a>
-        </li>
-      </ul>
-      <ul class="tertiary">
-        <li><a href="http://www.consumerfinance.gov/privacy-policy/">Privacy policy and legal notices</a>
-        </li>
-        <li><a href="http://www.consumerfinance.gov/accessibility/">Accessibility</a>
-        </li>
-        <li><a href="http://www.consumerfinance.gov/plain-writing/">Plain writing</a>
-        </li>
-        <li><a href="http://www.consumerfinance.gov/no-fear-act/">No FEAR Act</a>
-        </li>
-        <li><a href="http://www.consumerfinance.gov/foia/">FOIA</a>
-        </li>
-        <li><a href="http://usa.gov/">USA.gov</a>
-        </li>
-        <li><a href="http://www.federalreserve.gov/oig/default.htm">Office of Inspector General</a>
-        </li>
-        <li><a href="http://www.consumerfinance.gov/ombudsman/">Ombudsman</a>
-        </li>
-      </ul>
-    </nav>
-  </footer>
+  <nav role="navigation" aria-label="Footer Menu">
+    <ul class="primary">
+      <li><a href="http://www.consumerfinance.gov/">consumerfinance.gov</a>
+      </li>
+      <li><a href="http://www.consumerfinance.gov/contact-us/">Contact us</a>
+      </li>
+      <li><a href="http://www.consumerfinance.gov/newsroom/">Newsroom</a>
+      </li>
+      <li><a href="http://www.consumerfinance.gov/jobs/">Jobs</a>
+      </li>
+      <li><a href="http://www.consumerfinance.gov/open/">Open government</a>
+      </li>
+    </ul>
+    <ul class="social">
+      <li><a href="http://github.com/cfpb"><i class="icon-github" title="GitHub"></i><span class="visuallyhidden">Github</span></a>
+      </li>
+      <li><a href="http://facebook.com/cfpb"><i class="icon-facebook" title="Facebook"></i><span class="visuallyhidden">Facebook</span></a>
+      </li>
+      <li><a href="http://twitter.com/cfpb"><i class="icon-twitter" title="Twitter"></i><span class="visuallyhidden">Twitter</span></a>
+      </li>
+      <li><a href="http://youtube.com/cfpb"><i class="icon-youtube" title="YouTube"></i><span class="visuallyhidden">YouTube</span></a>
+      </li>
+      <li><a href="http://flickr.com/cfpbphotos"><i class="icon-flickr" title="Flickr"></i><span class="visuallyhidden">Flickr</span></a>
+      </li>
+      <li><a href="http://linkedin.com/company/consumer-financial-protection-bureau"><i class="icon-linkedin" title="Linkedin"></i><span class="visuallyhidden">Linkedin</span></a>
+      </li>
+    </ul>
+    <ul class="tertiary">
+      <li><a href="http://www.consumerfinance.gov/privacy-policy/">Privacy policy and legal notices</a>
+      </li>
+      <li><a href="http://www.consumerfinance.gov/accessibility/">Accessibility</a>
+      </li>
+      <li><a href="http://www.consumerfinance.gov/plain-writing/">Plain writing</a>
+      </li>
+      <li><a href="http://www.consumerfinance.gov/no-fear-act/">No FEAR Act</a>
+      </li>
+      <li><a href="http://www.consumerfinance.gov/foia/">FOIA</a>
+      </li>
+      <li><a href="http://usa.gov/">USA.gov</a>
+      </li>
+      <li><a href="http://www.federalreserve.gov/oig/default.htm">Office of Inspector General</a>
+      </li>
+      <li><a href="http://www.consumerfinance.gov/ombudsman/">Ombudsman</a>
+      </li>
+    </ul>
+  </nav>
+</footer>
 
   <script src="//api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.js"></script>
   <script src="static/js/home.min.js"></script>

@@ -3,42 +3,6 @@ module.exports = function(grunt) {
   'use strict';
 
   /**
-   * Templating helper function that converts markdown into html for feeding
-   * into the grunt-template task.
-   * @param  {string} dir Directory containing content.
-   * @return {object}     Object w/ filenames as keys.
-   */
-  function _getTemplateContent( dir ) {
-
-    var data = {},
-        markdown = require('marked'),
-        _process;
-    
-    _process = function( abspath, rootdir, subdir, filename ) {
-
-      function _convert( string ) {
-        return string.replace(/[\s\/\-]+/g, '_').toLowerCase().replace(/\.[^/.]+$/, '');
-      }
-
-      var file = _convert( filename ),
-          dir = !grunt.util._.isEmpty( subdir ) ? _convert( subdir ) + '_' : '';
-
-      if( !grunt.util._.isEmpty( file ) ) {
-        data[ dir + file ] = filename.slice(-2) === 'md' ? markdown( grunt.file.read( abspath ) ) : grunt.file.read( abspath );
-      }
-
-    };
-
-    if ( grunt.file.isDir( dir ) ) {
-      grunt.file.recurse( dir, _process );
-      return data;
-    } else {
-      grunt.fail.warn( dir + ' is not a valid directory.' );
-    }
-
-  }
-
-  /**
    * Grunt time
    */
   grunt.initConfig({
@@ -137,9 +101,7 @@ module.exports = function(grunt) {
           'dist/index.html': 'dist/index.html',
           'dist/explore.html': 'dist/explore.html',
           'dist/learn-more.html': 'dist/learn-more.html',
-          'dist/api.html': 'dist/api.html',
-          'dist/index_v1.html': 'dist/index_v1.html',
-          'dist/learn-more_v1.html': 'dist/learn-more_v1.html'
+          'dist/api.html': 'dist/api.html'
         }
       }
     },
@@ -201,12 +163,6 @@ module.exports = function(grunt) {
           'cp src/static/vendor/chosen/public/chosen-* dist/static/css'
         ].join('&&')
       },
-      planb: {
-        command: [
-          'cp -r dist/* dist-plan-b/',
-          'rm dist-plan-b/api.html dist-plan-b/explore.html dist-plan-b/index_v1.html dist-plan-b/learn-more_v1.html'
-        ].join('&&')
-      },
       sauce: {
         command: [
           'rm -rf _SpecRunner.html .grunt sauce_connect.log*',
@@ -247,24 +203,58 @@ module.exports = function(grunt) {
      * Interpolates template files with any data you provide and saves the result to another file.
      */
     template: {
-      homepage: {
+      hmda: {
         options: {
           data: function() {
-            return _getTemplateContent( 'src/content/homepage' );
+
+            /**
+             * Templating helper function that converts markdown into html for feeding
+             * into the grunt-template task.
+             * @param  {string} dir Directory containing content.
+             * @return {object}     Object w/ filenames as keys.
+             */
+            function _getTemplateContent( dir ) {
+
+              var data = {},
+                  markdown = require('marked'),
+                  _process;
+              
+              _process = function( abspath, rootdir, subdir, filename ) {
+
+                function _convert( string ) {
+                  return string.replace(/[\s\/\-]+/g, '_').toLowerCase().replace(/\.[^/.]+$/, '');
+                }
+
+                var file = _convert( filename ),
+                    dir = !grunt.util._.isEmpty( subdir ) ? _convert( subdir ) + '_' : '';
+
+                if( !grunt.util._.isEmpty( file ) ) {
+                  data[ dir + file ] = filename.slice(-2) === 'md' ? markdown( grunt.file.read( abspath ) ) : grunt.file.read( abspath );
+                }
+
+              };
+
+              if ( grunt.file.isDir( dir ) ) {
+                grunt.file.recurse( dir, _process );
+                return data;
+              } else {
+                grunt.fail.warn( dir + ' is not a valid directory.' );
+              }
+
+            }
+
+            /**
+             * And now return the content template object.
+             */
+            return _getTemplateContent( 'src/content' );
+
           }
         },
         files: {
-          'dist/index.html': ['src/index.html']
-        }
-      },
-      'explore': {
-        'options': {
-          'data': {
-            'body': 'wat.'
-          }
-        },
-        'files': {
-          'dist/explore.html': ['src/explore.html']
+          'dist/index.html': ['src/index.html'],
+          'dist/learn-more.html': ['src/learn-more.html'],
+          'dist/explore.html': ['src/explore.html'],
+          'dist/api.html': ['src/api.html']
         }
       }
     },
@@ -604,7 +594,7 @@ module.exports = function(grunt) {
   grunt.registerTask('sauce', ['connect:sauce', 'jasmine:sauce', 'saucelabs-jasmine', 'shell:sauce']);
   grunt.registerTask('mogo', ['connect:mogo', 'shell:mogo']);
   grunt.registerTask('docs', ['removelogging', 'docco', 'build-cfpb']);
-  grunt.registerTask('build', ['template', 'htmlmin', 'shell:dist', 'jst', 'uglify', 'less', 'cssmin', 'shell:planb']);
+  grunt.registerTask('build', ['template', 'shell:dist', 'jst', 'uglify', 'less', 'cssmin']);
 
   /**
    * The 'default' task will run whenever `grunt` is run without specifying a task
