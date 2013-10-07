@@ -276,9 +276,10 @@ module.exports = function(grunt) {
     uglify: {
       options: {
         banner: '<%= banner.cfpb %> <%= banner.vendors %>',
-        compress: false,
-        mangle: false,
-        beautify: true
+        compress: true,
+        mangle: true,
+        sourceMap: 'dist/static/js/source-map.js',
+        sourceMappingURL: 'static/js/source-map.js'
       },
       jquery: {
         files: {

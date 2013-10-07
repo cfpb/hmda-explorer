@@ -17,12 +17,8 @@
   },
   "licenses": [
     {
-      "type": "Public",
-      "url": "http://consumerfinance.gov/blob/master/LICENSE-Public"
-    },
-    {
-      "type": "Domain",
-      "url": "http://consumerfinance.gov/blob/master/LICENSE-Domain"
+      "type": "Public Domain",
+      "url": "http://www.consumerfinance.gov/developers/sourcecodepolicy"
     }
   ],
   "engines": {
