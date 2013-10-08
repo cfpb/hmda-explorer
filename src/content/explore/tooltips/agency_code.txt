@@ -1,1 +1,1 @@
-Identifies which federal agency regulates the HMDA-reporting institution.
+Every HMDA-reporting lending institution must be regulated by a federal agency.
