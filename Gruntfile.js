@@ -235,6 +235,7 @@ module.exports = function(grunt) {
                     dir = !grunt.util._.isEmpty( subdir ) ? _convert( subdir ) + '_' : '';
 
                 if( !grunt.util._.isEmpty( file ) ) {
+                  // Convert files ending into 'md' from markdown into HTML.
                   data[ dir + file ] = filename.slice(-2) === 'md' ? markdown( grunt.file.read( abspath ) ) : grunt.file.read( abspath );
                 }
 

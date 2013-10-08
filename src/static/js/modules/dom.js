@@ -59,7 +59,7 @@ var PDP = (function ( pdp ) {
   $('form#explore').on( 'submit', function( ev ){
     var format = $('#format').val(),
         showCodes = !!parseInt( $('.codes input[type=radio]:checked').val(), 10 ),
-        url = pdp.query.generateApiUrl( format, showCodes );
+        url = pdp.query.generateApiUrl( format, showCodes ) + '&$limit=0';
 
     ev.preventDefault();
     pdp.app.redirect( url );
@@ -71,7 +71,7 @@ var PDP = (function ( pdp ) {
 
     var format = $('#raw-format').val(),
         showCodes = !!parseInt( $('.raw-codes input[type=radio]:checked').val(), 10 ),
-        url = pdp.query.generateApiUrl( format, showCodes );
+        url = pdp.query.generateApiUrl( format, showCodes ) + '&$limit=0';
 
     ev.preventDefault();
     pdp.app.redirect( url );
@@ -83,7 +83,7 @@ var PDP = (function ( pdp ) {
 
     var format = $('#summary-table-format').val(),
         showCodes = true,
-        url = pdp.query.generateApiUrl( format, showCodes, pdp.summaryTable.queryParams );
+        url = pdp.query.generateApiUrl( format, showCodes, pdp.summaryTable.queryParams ) + '&$limit=0';
 
     ev.preventDefault();
     pdp.app.redirect( url );
