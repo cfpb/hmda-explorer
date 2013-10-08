@@ -360,10 +360,11 @@
             <li class="field popular">
               <label for="property_type">Property Type:</label>
               <div class="widget checkbox">
-                <label><input type="checkbox" class="param" name="property_type[]" value="1" id="foo"/>One to four-family</label>
+                <label><input type="checkbox" class="param" name="property_type[]" value="1" id="foo"/>One-to-four family dwelling (other than manufactured housing)</label>
                 <label><input type="checkbox" class="param" name="property_type[]" value="2" />Manufactured housing</label>
                 <label><input type="checkbox" class="param" name="property_type[]" value="3" />Multifamily dwelling</label>
               </div>
+             
               
             </li>
             <!-- /filter field -->
@@ -372,11 +373,11 @@
             <li class="field popular">
               <label for="owner_occupancy">Owner Occupancy:</label>
               <div class="widget checkbox">
-                <label><input type="checkbox" class="param" name="owner_occupancy[]" value="1" />Owner-occupied (as a principal dwelling)</label>
-                <label><input type="checkbox" class="param" name="owner_occupancy[]" value="2" />Not owner-occupied/not principal dwelling</label>
+                <label><input type="checkbox" class="param" name="owner_occupancy[]" value="1" />Owner-occupied as a principal dwelling</label>
+                <label><input type="checkbox" class="param" name="owner_occupancy[]" value="2" />Not owner-occupied as a principal dwelling</label>
                 <label><input type="checkbox" class="param" name="owner_occupancy[]" value="3" />Not applicable</label>
               </div>
-              <div class="help" title='<%= explore_tooltips_owner_occupancy %>'><i class="icon-help-alt"></i></div>
+              <div class="help" title='<%= explore_tooltips_loan_type %>'><i class="icon-help-alt"></i></div>
             </li>
             <!-- /filter field -->
 
@@ -409,6 +410,7 @@
                 <label><input type="checkbox" class="param" name="lien_status[]" value="3" />Not secured by a lien</label>
                 <label><input type="checkbox" class="param" name="lien_status[]" value="4" />Not applicable (purchased loans)</label>
               </div>
+              <div class="help" title='<%= explore_tooltips_lien_status %>'><i class="icon-help-alt"></i></div>
               
             </li>
             <!-- /filter field -->
@@ -429,9 +431,9 @@
               <label for="loan_type">What type of loan is it?</label>
               <div class="widget checkbox">
                 <label><input type="checkbox" class="param" name="loan_type[]" value="1" />Conventional</label>
-                <label><input type="checkbox" class="param" name="loan_type[]" value="2" />Federal Housing Administration insured</label>
-                <label><input type="checkbox" class="param" name="loan_type[]" value="3" />Veterans Administration guaranteed</label>
-                <label><input type="checkbox" class="param" name="loan_type[]" value="4" />Farm Service Agency or Rural Housing Service</label>
+                <label><input type="checkbox" class="param" name="loan_type[]" value="2" />FHA-insured</label>
+                <label><input type="checkbox" class="param" name="loan_type[]" value="3" />VA-guaranteed</label>
+                <label><input type="checkbox" class="param" name="loan_type[]" value="4" />FSA/RHS-guaranteed</label>
               </div>
             </li>
             <!-- /filter field -->
@@ -449,7 +451,7 @@
 
             <!-- filter field -->
             <li class="field optional-toggle" data-optional="hoepa_loan">
-              <label for="include_hoepa_loan">Show optional HMDA reporting categories?</label>
+              <label for="include_hoepa_loan">Show additional filters</label>
               <div class="widget radio inline include_hoepa_loan">
                 <label><input type="radio" name="include_hoepa_loan" value="1" />Yes</label>
                 <label><input type="radio" name="include_hoepa_loan" value="0" checked />No</label>
@@ -491,7 +493,7 @@
 
             <!-- filter field -->
             <li class="field popular">
-              <label for="action_taken">What decision was made on <br> the application?</label>
+              <label for="action_taken">What action was taken<br> on the loan or application?</label>
               <div class="widget select">
                 <select class="param" name="action_taken" id="action_taken" multiple data-placeholder="Select a decision">
                   <option value="1">Loan originated</option>
@@ -515,6 +517,7 @@
               <div class="widget checkbox inline">
                 <label><input type="checkbox" class="param" name="preapproval[]" value="1" />Yes</label>
                 <label><input type="checkbox" class="param" name="preapproval[]" value="2" />No</label>
+                <label><input type="checkbox" class="param" name="preapproval[]" value="3" />Not applicable</label>
               </div>
               
             </li>
@@ -522,7 +525,7 @@
 
             <!-- filter field -->
             <li class="field optional-toggle" data-optional="hmda_reporting">
-              <label for="include_hmda_reporting">Show optional HMDA reporting categories?</label>
+              <label for="include_hmda_reporting">Show additional filters</label>
               <div class="widget radio inline include_hmda_reporting">
                 <label><input type="radio" name="include_hmda_reporting" value="1" />Yes</label>
                 <label><input type="radio" name="include_hmda_reporting" value="0" checked />No</label>
@@ -556,7 +559,7 @@
             <li class="field optional hmda_reporting hidden" data-optional="hmda_reporting">
               <label for="denial_reason_1">Denial Reason:</label>
               <div class="widget select">
-                <select class="param" name="denial_reason_1" id="denial_reason_1" data-placeholder="Select a purchaser type">
+                <select class="param" name="denial_reason_1" id="denial_reason_1" data-placeholder="Select a denial reason">
                   <option value></option>
                   <option value="1">Debt-to-income ratio</option>
                   <option value="2">Employment history</option>
