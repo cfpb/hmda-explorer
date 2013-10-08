@@ -313,7 +313,7 @@
               <label for="respondent_id">Lender ID:</label>
               <div class="widget range">
                 <input type="text" class="param require-numeric" name="respondent_id" value="" maxlength="10" placeholder="Enter a lender ID">
-                <p class="ffiec-lookup">Use the <a href="http://www.ffiec.gov/hmdaadwebreport/DisWelcome.aspx" target="_blank">FFIEC's disclosure tool</a> to find a lender's ID.</p>
+                <p class="ffiec-lookup">Don't know a lender's ID?<br>Use the <a href="http://www.ffiec.gov/hmdaadwebreport/DisWelcome.aspx" target="_blank">FFIEC's disclosure tool</a> to look it up.</p>
               </div>
               <div class="help" title="<%= explore_tooltips_respondent_id %>"><i class="icon-help-alt"></i></div>
             </li>
@@ -321,9 +321,9 @@
 
             <!-- filter field -->
             <li class="field">
-              <label for="agency_code">Regulatory agency:</label>
+              <label for="agency_code">Who regulates this lender?</label>
               <div class="widget select">
-                <select class="param" name="agency_code" id="agency_code" multiple data-placeholder="Select an Agency">
+                <select class="param" name="agency_code" id="agency_code" multiple data-placeholder="Select a Regulatory Agency">
                   <option value></option>
                   <option value="1">Office of the Comptroller of the Currency (OCC)</option>
                   <option value="2">Federal Reserve System (FRS)</option>
@@ -362,7 +362,7 @@
             <li class="field popular">
               <label for="property_type">Property Type:</label>
               <div class="widget checkbox">
-                <label><input type="checkbox" class="param" name="property_type[]" value="1" id="foo"/>One-to-four family dwelling (other than manufactured housing)</label>
+                <label><input type="checkbox" class="param" name="property_type[]" value="1" id="foo"/>One-to-four family dwelling<br> (other than manufactured housing)</label>
                 <label><input type="checkbox" class="param" name="property_type[]" value="2" />Manufactured housing</label>
                 <label><input type="checkbox" class="param" name="property_type[]" value="3" />Multifamily dwelling</label>
               </div>
@@ -373,7 +373,7 @@
 
             <!-- filter field -->
             <li class="field popular">
-              <label for="owner_occupancy">Owner Occupancy:</label>
+              <label for="owner_occupancy">Will the owner live on the property?</label>
               <div class="widget checkbox">
                 <label><input type="checkbox" class="param" name="owner_occupancy[]" value="1" />Owner-occupied as a principal dwelling</label>
                 <label><input type="checkbox" class="param" name="owner_occupancy[]" value="2" />Not owner-occupied as a principal dwelling</label>
@@ -405,7 +405,7 @@
 
             <!-- filter field -->
             <li class="field popular">
-              <label for="lien_status">Lien Status:</label>
+              <label for="lien_status">What is the loan's lien status?</label>
               <div class="widget checkbox">
                 <label><input type="checkbox" class="param" name="lien_status[]" value="1" />Secured by a first lien</label>
                 <label><input type="checkbox" class="param" name="lien_status[]" value="2" />Secured by a subordinate lien</label>
@@ -454,7 +454,7 @@
 
             <!-- filter field -->
             <li class="field optional-toggle" data-optional="hoepa_loan">
-              <label for="include_hoepa_loan">Show additional filters</label>
+              <label for="include_hoepa_loan">Show additional filters?</label>
               <div class="widget radio inline include_hoepa_loan">
                 <label><input type="radio" name="include_hoepa_loan" value="1" />Yes</label>
                 <label><input type="radio" name="include_hoepa_loan" value="0" checked />No</label>
@@ -496,7 +496,7 @@
 
             <!-- filter field -->
             <li class="field popular">
-              <label for="action_taken">What action was taken<br> on the loan or application?</label>
+              <label for="action_taken">What action was taken?</label>
               <div class="widget select">
                 <select class="param" name="action_taken" id="action_taken" multiple data-placeholder="Select a decision">
                   <option value="1">Loan originated</option>
@@ -528,7 +528,7 @@
 
             <!-- filter field -->
             <li class="field optional-toggle" data-optional="hmda_reporting">
-              <label for="include_hmda_reporting">Show additional filters</label>
+              <label for="include_hmda_reporting">Show additional filters?</label>
               <div class="widget radio inline include_hmda_reporting">
                 <label><input type="radio" name="include_hmda_reporting" value="1" />Yes</label>
                 <label><input type="radio" name="include_hmda_reporting" value="0" checked />No</label>
@@ -637,7 +637,7 @@
 
           <div class="inner">
 
-            <label for="format">File type:</label>
+            <label for="format">File format:</label>
             <div class="select widget">
               <select name="format" id="format">
                 <option value="csv">Spreadsheet (CSV)</option>
@@ -649,10 +649,12 @@
 
             <label for="codes">HMDA codes:</label>
             <div class="radio widget codes">
-              <label><input type="radio" name="codes" value="0" checked />Plain names</label>
-              <label><input type="radio" name="codes" value="1" />Codes only</label>
+              <label><input type="radio" name="codes" value="0" checked />Use simple text instead of HMDA data codes</label>
+              <label><input type="radio" name="codes" value="1" />Keep the default HMDA codes</label>
 
-              <div class="help" title="&quot;Plain names&quot; replaces HMDA data codes in the dataset with simple language. Choose &quot;codes only&quot; if you are already familiar with the HMDA reporting codes."><i class="icon-help-alt"></i></div>
+              <div class="help" title="For example, Loan Type instead of LOANTYPE and Conventional instead of 1">
+
+              <i class="icon-help-alt"></i></div>
             </div>
 
 
