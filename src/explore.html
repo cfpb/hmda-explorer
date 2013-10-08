@@ -360,10 +360,11 @@
             <li class="field popular">
               <label for="property_type">Property Type:</label>
               <div class="widget checkbox">
-                <label><input type="checkbox" class="param" name="property_type[]" value="1" id="foo"/>One to four family dwelling (other than manufactured housing)</label>
+                <label><input type="checkbox" class="param" name="property_type[]" value="1" id="foo"/>One-to-four family dwelling (other than manufactured housing)</label>
                 <label><input type="checkbox" class="param" name="property_type[]" value="2" />Manufactured housing</label>
                 <label><input type="checkbox" class="param" name="property_type[]" value="3" />Multifamily dwelling</label>
               </div>
+                <div class="help" title='<%= explore_tooltips_owner_occupancy %>'><i class="icon-help-alt"></i></div>
               
             </li>
             <!-- /filter field -->
@@ -409,6 +410,7 @@
                 <label><input type="checkbox" class="param" name="lien_status[]" value="3" />Not secured by a lien</label>
                 <label><input type="checkbox" class="param" name="lien_status[]" value="4" />Not applicable (purchased loans)</label>
               </div>
+              <div class="help" title='<%= explore_tooltips_lien_status %>'><i class="icon-help-alt"></i></div>
               
             </li>
             <!-- /filter field -->
