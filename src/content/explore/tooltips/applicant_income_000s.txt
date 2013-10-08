@@ -1,1 +1,1 @@
-Applicant income is the gross annual income that the institution relied on when making the credit decision.
+The gross annual income that the institution relied on when making the credit decision.
