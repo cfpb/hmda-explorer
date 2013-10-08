@@ -191,9 +191,9 @@ var PDP = (function ( pdp ) {
 
     preview.$downloadSize.removeClass('hidden');
 
-    // A CSV with 100 records is approximately 20k so we're doing a really rough estimate 
+    // A CSV with 100 records is approximately 40k so we're doing a really rough estimate 
     // here to get the item's filesize.
-    filesize = pdp.utils.getPrettyFilesize( count / 100 * 20000 );
+    filesize = pdp.utils.getPrettyFilesize( count / 100 * 40000 );
 
     preview.$downloadSize.find('.bytes').html( filesize );
 
