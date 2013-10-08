@@ -168,6 +168,7 @@ module.exports = function(grunt) {
         files: [
           {expand: true, cwd: 'src/static/fonts/', src: ['**'], dest: 'dist/static/fonts/'},
           {expand: true, cwd: 'src/static/img/', src: ['**'], dest: 'dist/static/img/'},
+          {expand: true, cwd: 'src/static/js/static_data/', src: ['**'], dest: 'dist/static/js/static_data/'},
           {expand: true, cwd: 'src/static/vendor/cfpb-font-icons/static/fonts/', src: ['**'], dest: 'dist/static/fonts/'},
           {expand: true, cwd: 'src/static/vendor/cfpb-font-icons/static/css/', src: ['icons-ie7.css'], dest: 'dist/static/css/'},
           {expand: true, cwd: 'src/static/vendor/zeroclipboard/', src: ['**'], dest: 'dist/static/js/zeroclipboard/'},
