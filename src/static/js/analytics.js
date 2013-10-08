@@ -77,6 +77,7 @@ var track = function(category, name, value) {
             var linkDelay = 500;
             var link_text = $(this).text();
             var link_url = $(this).attr('href');
+            var isCtrlPressed = e.ctrlKey || e.metaKey;
             // Stop the link from going anywhere
             // (it's ok we saved the href and we'll fire it later)
             e.preventDefault();
@@ -86,7 +87,13 @@ var track = function(category, name, value) {
             if ( !$(this).hasClass('dont-redirect') ) {
                 // Give google analytics time to do its thing before changing the page url
                 // http://support.google.com/analytics/answer/1136920?hl=en
-                setTimeout(function() { document.location.href = link_url; }, linkDelay);
+                setTimeout(function() {
+                    if (isCtrlPressed) {
+                        window.open(link_url, '_blank');
+                    } else {
+                        document.location.href = link_url;
+                    }
+                }, linkDelay);
             }
         });
 
