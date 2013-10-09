@@ -157,6 +157,25 @@ var PDP = (function ( pdp ) {
 
   });
 
+  // Set fields to default values and scroll to the top of the filters page.
+  $('a.reset-default').on( 'click', function( ev ){
+
+    ev.preventDefault();
+
+    pdp.query.reset( { defaults: true } );
+    pdp.form.setFields();
+    pdp.form.updateShareLink();
+
+    var parents = _.map( $('select[data-dependent], input[data-dependent]'), function( el ){
+      return $( el ).attr('id');
+    });
+    pdp.form.checkDeps( parents );
+
+    pdp.preview.update();
+    $('html, body').animate({ scrollTop: $( '#filters' ).position().top }, 200);
+
+  });
+
   // Prevent non-numeric characters from being typed into specified fields.
   $('.require-numeric').on( 'keydown', pdp.utils.requireNumeric );
 
