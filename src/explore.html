@@ -538,7 +538,26 @@
             </li>
             <!-- /filter field -->
 
-            
+            <!-- filter field -->
+            <li class="field optional hmda_reporting hidden" data-optional="hmda_reporting">
+              <label for="denial_reason_1">Denial Reason:</label>
+              <div class="widget select">
+                <select class="param" name="denial_reason_1" id="denial_reason_1" data-placeholder="Select a denial reason">
+                  <option value></option>
+                  <option value="1">Debt-to-income ratio</option>
+                  <option value="2">Employment history</option>
+                  <option value="3">Credit history</option>
+                  <option value="4">Collateral</option>
+                  <option value="5">Insufficient cash (downpayment, closing costs)</option>
+                  <option value="6">Unverifiable information</option>
+                  <option value="7">Credit application incomplete</option>
+                  <option value="8">Mortgage insurance denied</option>
+                  <option value="9">Other</option>
+                </select>
+              </div>
+              <div class="help" title="<%= explore_tooltips_denial_reason_1 %>"><i class="icon-help-alt"></i></div>
+            </li>
+            <!-- /filter field -->
 
             <!-- filter field -->
             <li class="field optional hmda_reporting hidden" data-optional="hmda_reporting">
@@ -558,27 +577,6 @@
                 </select>
               </div>
               <div class="help" title="<%= explore_tooltips_purchaser_type %>"><i class="icon-help-alt"></i></div>
-            </li>
-            <!-- /filter field -->
-
-            <!-- filter field -->
-            <li class="field optional hmda_reporting hidden" data-optional="hmda_reporting">
-              <label for="denial_reason_1">Denial Reason:</label>
-              <div class="widget select">
-                <select class="param" name="denial_reason_1" id="denial_reason_1" data-placeholder="Select a denial reason">
-                  <option value></option>
-                  <option value="1">Debt-to-income ratio</option>
-                  <option value="2">Employment history</option>
-                  <option value="3">Credit history</option>
-                  <option value="4">Collateral</option>
-                  <option value="5">Insufficient cash (downpayment, closing costs)</option>
-                  <option value="6">Unverifiable information</option>
-                  <option value="7">Credit application incomplete</option>
-                  <option value="8">Mortgage insurance denied</option>
-                  <option value="9">Other</option>
-                </select>
-              </div>
-              <div class="help" title="<%= explore_tooltips_denial_reason_1 %>"><i class="icon-help-alt"></i></div>
             </li>
             <!-- /filter field -->
 
@@ -609,7 +607,7 @@
 
       <!-- preview section -->
 
-      <h2>Preview</h2>
+      <h2>Preview the results</h2>
 
       <div class="preview closed">
 
@@ -654,7 +652,7 @@
 
             <div class="radio widget codes">
               <label><input type="radio" name="codes" value="0" checked />Use plain language labels</label>
-              <label><input type="radio" name="codes" value="1" />Keep the default HMDA codes</label>
+              <label><input type="radio" name="codes" value="1" />Keep the HMDA codes</label>
               
               <div class="help" title="<%= explore_tooltips_download_raw_data %>">
               <i class="icon-help-alt"></i></div>
