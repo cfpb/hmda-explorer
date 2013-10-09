@@ -197,7 +197,9 @@
 
     #share {
       border-right: 0;
-
+      label {
+      .column( 5, 6 );
+      }
 
     }
 
@@ -210,7 +212,8 @@
     }
 
     label {
-      .column( 5, 6 );
+      .column( 2, 6 );
+      margin-right: -2em;
 
     }
 
@@ -221,7 +224,7 @@
         .column( 2, 4 );
         text-align: left;
         border: 0;
-        width:47%;
+        width:90%;
       }
       input[type=radio] {
         width: 20px;
@@ -241,6 +244,12 @@
       width: 100%;
     }
 
+  }
+
+  .helper-text {
+    .avenir-next;
+    color: @black;
+    font-size: .5em;
   }
 
 }
