@@ -103,7 +103,12 @@
 
           <div class="intro">
 
-            <%= explore_intro_text %>
+            
+<p>Filter the data to just what you're interested in, and then download the results or aggregate them into a summary table.</p>
+
+<p class="explanation">Most people search for <strong>loan originations</strong> for <strong>first-lien</strong>, <strong>owner-occupied</strong>, <strong>1-4 family</strong> and <strong>manufactured housing</strong> in <strong>2012</strong>. To save you time, we have pre-filtered the data to these results.</p>
+
+<p><strong><a href="#download">Download the data now</a></strong> or change the filters below. <a href="#" class="reset">Clear all fields.</a></p>
 
           </div>
 
@@ -176,7 +181,7 @@
                 <label><input type="checkbox" class="param" name="applicant_sex[]" value="3" />Not provided</label>
                 <label><input type="checkbox" class="param" name="applicant_sex[]" value="4" />Not applicable</label>
               </div>
-              <div class="help" title='<%= explore_tooltips_applicant_sex %>'><i class="icon-help-alt"></i></div>
+              <div class="help" title='“Not provided” means that the person did not provide the information. “Not applicable” means that the applicant was not a person (for example, a corporation) or the loan was purchased on the secondary market.'><i class="icon-help-alt"></i></div>
             </li>
             <!-- /filter field -->
 
@@ -195,7 +200,7 @@
                   <option value="7">Not applicable</option>
                 </select>
               </div>
-              <div class="help" title='<%= explore_tooltips_applicant_race_1 %>'><i class="icon-help-alt"></i></div>
+              <div class="help" title='“Not provided” means that the person did not provide the information. “Not applicable” means that the applicant was not a person (for example, a corporation) or the loan was purchased on the secondary market.'><i class="icon-help-alt"></i></div>
             </li>
             <!-- /filter field -->
 
@@ -211,7 +216,7 @@
                   <option value="4">Not applicable</option>
                 </select>
               </div>
-              <div class="help" title='<%= explore_tooltips_applicant_ethnicity %>'><i class="icon-help-alt"></i></div>
+              <div class="help" title='“Not provided” means that the person did not provide the information. “Not applicable” means that the applicant was not a person (for example, a corporation) or the loan was purchased on the secondary market.'><i class="icon-help-alt"></i></div>
             </li>
             <!-- /filter field -->
 
@@ -222,7 +227,7 @@
                 <span>$</span><input type="text" class="param require-numeric" name="applicant_income_000s-min" data-comparator=">" value="" maxlength="7" placeholder="Min."><span class="thousands">,000 &nbsp; to &nbsp;</span>
                 <span>$</span><input type="text" class="param require-numeric" name="applicant_income_000s-max" data-comparator="<" value="" placeholder="Max."><span class="thousands">,000</span>
               </div>
-              <div class="help" title="<%= explore_tooltips_applicant_income_000s %>"><i class="icon-help-alt"></i></div>
+              <div class="help" title="The gross annual income that the institution relied on when making the credit decision."><i class="icon-help-alt"></i></div>
             </li>
             <!-- /filter field -->
 
@@ -233,7 +238,7 @@
                 <label><input type="radio" name="include_co_applicant" value="1" />Yes</label>
                 <label><input type="radio" name="include_co_applicant" value="0" checked />No</label>
               </div>
-              <div class="help" title="<%= explore_tooltips_co_applicant_filters %>"><i class="icon-help-alt"></i></div>
+              <div class="help" title="If you only want to search applications with no co-applicant, choose the no “No co-applicant” option for all three filters below."><i class="icon-help-alt"></i></div>
             </li>
             <!-- /filter field -->
 
@@ -247,7 +252,7 @@
                 <label><input type="checkbox" class="param" name="co_applicant_sex[]" value="4" />Not applicable</label>
                 <label><input type="checkbox" class="param" name="co_applicant_sex[]" value="5" />No co-applicant</label>
               </div>
-              <div class="help" title='<%= explore_tooltips_co_applicant_sex %>'><i class="icon-help-alt"></i></div>
+              <div class="help" title='“Not provided” means that the person did not provide the information. “Not applicable” means that the applicant was not a person (for example, a corporation) or the loan was purchased on the secondary market.'><i class="icon-help-alt"></i></div>
             </li>
             <!-- /filter field -->
 
@@ -267,7 +272,7 @@
                   <option value="8">No co-applicant</option>
                 </select>
               </div>
-              <div class="help" title='<%= explore_tooltips_co_applicant_race_1 %>'><i class="icon-help-alt"></i></div>
+              <div class="help" title='“Not provided” means that the person did not provide the information. “Not applicable” means that the applicant was not a person (for example, a corporation) or the loan was purchased on the secondary market.'><i class="icon-help-alt"></i></div>
             </li>
             <!-- /filter field -->
 
@@ -284,7 +289,7 @@
                   <option value="5">No co-applicant</option>
                 </select>
               </div>
-              <div class="help" title='<%= explore_tooltips_co_applicant_ethnicity %>'><i class="icon-help-alt"></i></div>
+              <div class="help" title='“Not provided” means that the person did not provide the information. “Not applicable” means that the applicant was not a person (for example, a corporation) or the loan was purchased on the secondary market.'><i class="icon-help-alt"></i></div>
             </li>
             <!-- /filter field -->
 
@@ -315,7 +320,7 @@
                 <input type="text" class="param require-numeric" name="respondent_id" value="" maxlength="10" placeholder="Enter a lender ID">
                 <p class="ffiec-lookup">Don't know a lender's ID?<br>Use the <a href="http://www.ffiec.gov/hmdaadwebreport/DisWelcome.aspx" target="_blank">FFIEC's disclosure tool</a> to look it up.</p>
               </div>
-              <div class="help" title="<%= explore_tooltips_respondent_id %>"><i class="icon-help-alt"></i></div>
+              <div class="help" title="Lender ID is a 10-digit code. To uniquely identify each reporting financial institution, the Lender ID must be combined with the regulatory agency code."><i class="icon-help-alt"></i></div>
             </li>
             <!-- /filter field -->
 
@@ -334,7 +339,7 @@
                   <option value="9">Consumer Financial Protection Bureau (CFPB)</option>
                 </select>
               </div>
-              <div class="help" title="<%= explore_tooltips_agency_code %>"><i class="icon-help-alt"></i></div>
+              <div class="help" title="Every HMDA-reporting lending institution must be regulated by a federal agency."><i class="icon-help-alt"></i></div>
             </li>
             <!-- /filter field -->
 
@@ -366,7 +371,7 @@
                 <label><input type="checkbox" class="param" name="property_type[]" value="2" />Manufactured housing</label>
                 <label><input type="checkbox" class="param" name="property_type[]" value="3" />Multifamily dwelling</label>
               </div>
-                <div class="help" title='<%= explore_tooltips_property_type %>'><i class="icon-help-alt"></i></div>
+                <div class="help" title='Many manufactured homes are also one-to-four family dwellings. HMDA data records any of these instances as simply "Manufactured housing."'><i class="icon-help-alt"></i></div>
               
             </li>
             <!-- /filter field -->
@@ -379,7 +384,7 @@
                 <label><input type="checkbox" class="param" name="owner_occupancy[]" value="2" />Not owner-occupied as a principal dwelling</label>
                 <label><input type="checkbox" class="param" name="owner_occupancy[]" value="3" />Not applicable</label>
               </div>
-              <div class="help" title='<%= explore_tooltips_owner_occupancy %>'><i class="icon-help-alt"></i></div>
+              <div class="help" title='Indicates whether the owner will use the property as a primary residence. Second homes, vacation homes, and rentals are examples of property that is "not owner-occupied as principal dwelling."'><i class="icon-help-alt"></i></div>
             </li>
             <!-- /filter field -->
 
@@ -412,7 +417,7 @@
                 <label><input type="checkbox" class="param" name="lien_status[]" value="3" />Not secured by a lien</label>
                 <label><input type="checkbox" class="param" name="lien_status[]" value="4" />Not applicable (purchased loans)</label>
               </div>
-              <div class="help" title='<%= explore_tooltips_lien_status %>'><i class="icon-help-alt"></i></div>
+              <div class="help" title='Most mortgages are secured by liens against the property. In the event of a forced liquidation, first lien holders will get paid before second lien holders.'><i class="icon-help-alt"></i></div>
               
             </li>
             <!-- /filter field -->
@@ -437,7 +442,7 @@
                 <label><input type="checkbox" class="param" name="loan_type[]" value="3" />VA-guaranteed</label>
                 <label><input type="checkbox" class="param" name="loan_type[]" value="4" />FSA/RHS-guaranteed</label>
               </div>
-                 <div class="help" title="<%= explore_tooltips_loan_type %>"><i class="icon-help-alt"></i></div>
+                 <div class="help" title="Many loans are insured or guaranteed by government programs offered by the Federal Housing Administration (FHA), the Department of Veterans Affairs (VA), or the Department of Agriculture’s Rural Housing Service (RHS) or Farm Service Agency (FSA). All other loans are classified as Conventional."><i class="icon-help-alt"></i></div>
             </li>
             <!-- /filter field -->
 
@@ -459,7 +464,7 @@
                 <label><input type="radio" name="include_hoepa_loan" value="1" />Yes</label>
                 <label><input type="radio" name="include_hoepa_loan" value="0" checked />No</label>
               </div>
-              <div class="help" title="<%= explore_tooltips_include_hoepa_loan %>"><i class="icon-help-alt"></i></div>
+              <div class="help" title="Selecting these categories as filters may significantly limit your results."><i class="icon-help-alt"></i></div>
             </li>
             <!-- /filter field -->
 
@@ -470,7 +475,7 @@
                 <label><input type="checkbox" class="param" name="hoepa_status[]" value="1" />Yes</label>
                 <label><input type="checkbox" class="param" name="hoepa_status[]" value="0" />No</label>
               </div>
-              <div class="help" title="<%= explore_tooltips_hoepa_status %>"><i class="icon-help-alt"></i></div>
+              <div class="help" title="Indicates whether a loan is subject to the Home Ownership and Equity Protection Act of 1994 (HOEPA)."><i class="icon-help-alt"></i></div>
             </li>
             <!-- /filter field -->
 
@@ -506,6 +511,9 @@
                   <option value="5">File closed for incompleteness</option>
                   <option value="6">Loan purchased by the institution</option>
                   <option value="7">Preapproval request denied by financial institution</option>
+                 <!-- <optgroup label="Optional reporting"> -->
+                    <option value="8">Preapproval request approved but not accepted</option>
+                 <!-- </optgroup> -->
                 </select>
               </div>
             </li>
@@ -518,13 +526,11 @@
                 <label><input type="radio" name="include_hmda_reporting" value="1" />Yes</label>
                 <label><input type="radio" name="include_hmda_reporting" value="0" checked />No</label>
               </div>
-              <div class="help" title="<%= explore_tooltips_include_hmda_reporting %>"><i class="icon-help-alt"></i></div>
+              <div class="help" title="Selecting these categories as filters may significantly limit your results."><i class="icon-help-alt"></i></div>
             </li>
             <!-- /filter field -->
 
-            <!-- <optgroup label="Optional reporting"> -->
-                    <option value="8">Preapproval request approved but not accepted</option>
-                 <!-- </optgroup> -->
+
 
             <!-- filter field -->
             <li class="field optional hmda_reporting hidden" data-optional="hmda_reporting">
@@ -535,6 +541,29 @@
                 <label><input type="checkbox" class="param" name="preapproval[]" value="3" />Not applicable</label>
               </div>
               
+            </li>
+            <!-- /filter field -->
+
+            
+
+            <!-- filter field -->
+            <li class="field optional hmda_reporting hidden" data-optional="hmda_reporting">
+              <label for="purchaser_type">Purchaser Type:</label>
+              <div class="widget select">
+                <select class="param" name="purchaser_type" id="purchaser_type" multiple data-placeholder="Select a purchaser type">
+                  <option value="0">Loan was not originated or was not sold in calendar year covered by register</option>
+                  <option value="1">Fannie Mae (FNMA)</option>
+                  <option value="2">Ginnie Mae (GNMA)</option>
+                  <option value="3">Freddie Mac (FHLMC)</option>
+                  <option value="4">Farmer Mac (FAMC)</option>
+                  <option value="5">Private securitization</option>
+                  <option value="6">Commercial bank, savings bank or savings association</option>
+                  <option value="7">Life insurance company, credit union, mortgage bank, or finance company</option>
+                  <option value="8">Affiliate institution</option>
+                  <option value="9">Other type of purchaser</option>
+                </select>
+              </div>
+              <div class="help" title="Used only for loans sold on the secondary market, whether to a government-sponsored enterprise (e.g., Fannie Mae) or a private institution."><i class="icon-help-alt"></i></div>
             </li>
             <!-- /filter field -->
 
@@ -555,28 +584,7 @@
                   <option value="9">Other</option>
                 </select>
               </div>
-              <div class="help" title="<%= explore_tooltips_denial_reason_1 %>"><i class="icon-help-alt"></i></div>
-            </li>
-            <!-- /filter field -->
-
-            <!-- filter field -->
-            <li class="field optional hmda_reporting hidden" data-optional="hmda_reporting">
-              <label for="purchaser_type">Purchaser Type:</label>
-              <div class="widget select">
-                <select class="param" name="purchaser_type" id="purchaser_type" multiple data-placeholder="Select a purchaser type">
-                  <option value="0">Loan was not originated or was not sold in calendar year covered by register</option>
-                  <option value="1">Fannie Mae (FNMA)</option>
-                  <option value="2">Ginnie Mae (GNMA)</option>
-                  <option value="3">Freddie Mac (FHLMC)</option>
-                  <option value="4">Farmer Mac (FAMC)</option>
-                  <option value="5">Private securitization</option>
-                  <option value="6">Commercial bank, savings bank or savings association</option>
-                  <option value="7">Life insurance company, credit union, mortgage bank, or finance company</option>
-                  <option value="8">Affiliate institution</option>
-                  <option value="9">Other type of purchaser</option>
-                </select>
-              </div>
-              <div class="help" title="<%= explore_tooltips_purchaser_type %>"><i class="icon-help-alt"></i></div>
+              <div class="help" title="Many lenders are not required to list a denial reason; specifying a filter here may limit your results significantly."><i class="icon-help-alt"></i></div>
             </li>
             <!-- /filter field -->
 
@@ -607,7 +615,7 @@
 
       <!-- preview section -->
 
-      <h2>Preview the results</h2>
+      <h2>Preview</h2>
 
       <div class="preview closed">
 
@@ -652,9 +660,10 @@
 
             <div class="radio widget codes">
               <label><input type="radio" name="codes" value="0" checked />Use plain language labels</label>
-              <label><input type="radio" name="codes" value="1" />Keep the HMDA codes</label>
+              <label><input type="radio" name="codes" value="1" />Keep the default HMDA codes</label>
               
-              <div class="help" title="<%= explore_tooltips_download_raw_data %>">
+              <div class="help" title="Plain language labels replace HMDA data codes in the dataset with simple language (for example:
+“Loan Type = Conventional”  instead of “LOANTYPE = 1”). Keep the HMDA codes only if you are already familiar with the HMDA reporting codes.">
               <i class="icon-help-alt"></i></div>
               
             </div>
@@ -664,7 +673,7 @@
 
             <div class="action">
 
-              <input type="submit" class="submit btn button" value="Download" id="download-button">
+              <input type="submit" class="submit btn" value="Download" id="download-button">
 
               <p class="download-size hidden">The file is ~ <span class="bytes">1 MB</span></p>
 
@@ -687,7 +696,7 @@
 
             <div class="action">
 
-              <input type="button" class="btn share button" value="Share" id="share-button" data-clipboard-target="share_url">
+              <input type="button" class="btn share" value="Share" id="share-button" data-clipboard-target="share_url">
 
             </div>
 
@@ -714,12 +723,12 @@
     <div class="intro">
     <p class="nlw"><!--<img src="static/img/icon_bar_chart.png" class="left" alt=""/>-->There are <em class="calculating"><img src="static/img/icon_spinner.gif" alt="Loading icon"></em><strong class="count">many</strong> HMDA records from <strong class="years">2007 - 2012</strong> with the previously selected filters.</p>
 
-    Not quite what you're looking for? You can also go back and filter your results differently. <a href="#filters" class="section-toggle action-arrow modify-filters">Modify your filters<i class="icon-right"></i></a>
+    Not quite what you're looking for? You can also go back and filter your results differently. <a href="#filters" class="section-toggle action-arrow modify-filters">Modify your filters <i class="icon-right"></i></a>
     </div>
 
     <div class="instructions">
       Pick up to three variables and a calculation method to group your data.
-      <button class="button">Submit</button>
+      <button id="summary-submit" >Submit</button>
     </div>
 
     <form id="summary-table-form">
@@ -806,7 +815,7 @@
 
             <div class="action">
 
-              <input type="submit" class="submit btn button" value="Download" id="download-raw-button">
+              <input type="submit" class="submit btn" value="Download" id="download-raw-button">
 
               <p class="download-size hidden">The file is ~ <span class="bytes">1 MB</span></p>
 
@@ -834,7 +843,7 @@
 
             <div class="action">
 
-              <input type="submit" class="submit btn button" value="Download" id="download-summary-button">
+              <input type="submit" class="submit btn" value="Download" id="download-summary-button">
 
             </div>
 
@@ -855,7 +864,7 @@
 
             <div class="action">
 
-              <input href="#" type="button" class="btn share button" value="Share" data-clipboard-target="share_url">
+              <input href="#" type="button" class="btn share" value="Share" data-clipboard-target="share_url">
 
             </div>
 
@@ -873,7 +882,54 @@
 
   <!-- /group section -->
 
-  <%= footer %>
+  <footer role="contentinfo">
+  <nav role="navigation" aria-label="Footer Menu">
+    <ul class="primary">
+      <li><a href="http://www.consumerfinance.gov/">consumerfinance.gov</a>
+      </li>
+      <li><a href="http://www.consumerfinance.gov/contact-us/">Contact us</a>
+      </li>
+      <li><a href="http://www.consumerfinance.gov/newsroom/">Newsroom</a>
+      </li>
+      <li><a href="http://www.consumerfinance.gov/jobs/">Jobs</a>
+      </li>
+      <li><a href="http://www.consumerfinance.gov/open/">Open government</a>
+      </li>
+    </ul>
+    <ul class="social">
+      <li><a href="http://github.com/cfpb"><i class="icon-github" title="GitHub"></i><span class="visuallyhidden">Github</span></a>
+      </li>
+      <li><a href="http://facebook.com/cfpb"><i class="icon-facebook" title="Facebook"></i><span class="visuallyhidden">Facebook</span></a>
+      </li>
+      <li><a href="http://twitter.com/cfpb"><i class="icon-twitter" title="Twitter"></i><span class="visuallyhidden">Twitter</span></a>
+      </li>
+      <li><a href="http://youtube.com/cfpb"><i class="icon-youtube" title="YouTube"></i><span class="visuallyhidden">YouTube</span></a>
+      </li>
+      <li><a href="http://flickr.com/cfpbphotos"><i class="icon-flickr" title="Flickr"></i><span class="visuallyhidden">Flickr</span></a>
+      </li>
+      <li><a href="http://linkedin.com/company/consumer-financial-protection-bureau"><i class="icon-linkedin" title="Linkedin"></i><span class="visuallyhidden">Linkedin</span></a>
+      </li>
+    </ul>
+    <ul class="tertiary">
+      <li><a href="http://www.consumerfinance.gov/privacy-policy/">Privacy policy and legal notices</a>
+      </li>
+      <li><a href="http://www.consumerfinance.gov/accessibility/">Accessibility</a>
+      </li>
+      <li><a href="http://www.consumerfinance.gov/plain-writing/">Plain writing</a>
+      </li>
+      <li><a href="http://www.consumerfinance.gov/no-fear-act/">No FEAR Act</a>
+      </li>
+      <li><a href="http://www.consumerfinance.gov/foia/">FOIA</a>
+      </li>
+      <li><a href="http://usa.gov/">USA.gov</a>
+      </li>
+      <li><a href="http://www.federalreserve.gov/oig/default.htm">Office of Inspector General</a>
+      </li>
+      <li><a href="http://www.consumerfinance.gov/ombudsman/">Ombudsman</a>
+      </li>
+    </ul>
+  </nav>
+</footer>
 
   <script src="static/js/main.min.js"></script>
   <script src="static/js/explore.min.js"></script>
