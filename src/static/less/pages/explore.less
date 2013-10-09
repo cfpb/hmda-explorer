@@ -10,9 +10,9 @@
 
     h1 {
       font-size: 34px;
-      padding-top: 5px;
-      padding-left: 55px;
-      display: inline;
+      padding: 5px 0 5px 55px;
+      display: inline-block;
+      margin-bottom: 5px;
       background: transparent url() scroll no-repeat left center;
       .at2x( '../img/icon_explore-data.png', 42px, 42px );
     }
@@ -146,10 +146,14 @@
       nav {
         margin: 0 0 0 13px;
         float: left;
+        position: relative;
+        width: 55%;
         ul {
           .horiz();
           margin: 19px 0 0;
           height: 37px;
+          position: absolute;
+          bottom: -60px;
           a {
             .avenir-next-bold;
             background-color: transparent;
