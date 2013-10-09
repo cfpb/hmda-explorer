@@ -362,7 +362,7 @@
             <li class="field popular">
               <label for="property_type">Property Type:</label>
               <div class="widget checkbox">
-                <label><input type="checkbox" class="param" name="property_type[]" value="1" id="foo"/>One-to-four family dwelling<br> (other than manufactured housing)</label>
+                <label><input type="checkbox" class="param" name="property_type[]" value="1" id="foo"/>One-to-four family dwelling<br><class="helper-text"> (other than manufactured housing)</a></label>
                 <label><input type="checkbox" class="param" name="property_type[]" value="2" />Manufactured housing</label>
                 <label><input type="checkbox" class="param" name="property_type[]" value="3" />Multifamily dwelling</label>
               </div>
@@ -647,15 +647,17 @@
               </select>
             </div>
 
-            <label for="codes">HMDA codes:</label>
+            <label for="codes">Data codes:</label>
+
             <div class="radio widget codes">
-              <label><input type="radio" name="codes" value="0" checked />Use simple text instead of HMDA data codes</label>
+              <label><input type="radio" name="codes" value="0" checked />Use plain language labels</label>
               <label><input type="radio" name="codes" value="1" />Keep the default HMDA codes</label>
-
-              <div class="help" title="For example, Loan Type instead of LOANTYPE and Conventional instead of 1">
-
+              
+              <div class="help" title="<%= explore_tooltips_download_raw_data %>">
               <i class="icon-help-alt"></i></div>
+              
             </div>
+
 
 
 
