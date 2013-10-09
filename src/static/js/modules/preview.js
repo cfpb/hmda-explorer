@@ -82,8 +82,11 @@ var PDP = (function ( pdp ) {
     var $title = $('.preview .title');
 
     $title.addClass('disabled');
-    $('body').append('<h3 class="ajax-error">The API timed out after ' + pdp.query.secondsToWait + ' seconds. :(</h3>');
-    $('.ajax-error').fadeOut( 5000 );
+
+    if ( pdp.query.debug ) {
+      $('body').append('<h3 class="ajax-error">The API timed out after ' + pdp.query.secondsToWait + ' seconds. :(</h3>');
+      $('.ajax-error').fadeOut( 5000 );
+    }
 
   };
 
