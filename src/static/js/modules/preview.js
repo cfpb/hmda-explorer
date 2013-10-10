@@ -1,8 +1,3 @@
-// Scope
-// -----
-
-// To avoid global scope pollution, declare all variables and functions inside an
-// [immediately-invoked function expression](http://benalman.com/news/2010/11/immediately-invoked-function-expression/) using an augmented [module pattern](http://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript).
 var PDP = (function ( pdp ) {
 
   'use strict';

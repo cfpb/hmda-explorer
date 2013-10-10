@@ -1,9 +1,3 @@
-// Scope
-// -----
-
-// To avoid global scope pollution, declare all variables and functions inside an
-// [immediately-invoked function expression](http://benalman.com/news/2010/11/immediately-invoked-function-expression/) using an augmented [module pattern](http://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript).
-//
 // @TODO: 
 // - refactor to use tidy tables. I didn't realize it was in use when I wrote this
 // - move table.queryParams.clauses properties from arrays to objects. this will create a nicer branch in logic dealing with
