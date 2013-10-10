@@ -100,6 +100,18 @@ var PDP = (function ( pdp ) {
 
   });
 
+  // Let user deselect the rate spread radios
+  $('input[name=rate_spread]').on( 'click', function( ev ) {
+    var $this = $( this );
+    if ( $this.hasClass('rate-checked') ) {
+      $this.prop( 'checked', false ).trigger('change');
+      $('input[name=rate_spread]').removeClass('rate-checked');
+    } else {
+      $('input[name=rate_spread]').removeClass('rate-checked');
+      $this.addClass('rate-checked');
+    }
+  });
+
   // Open and close preview section
   $('.preview .title').on( 'click', function( ev ){
 

@@ -33,6 +33,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2013-10-10   [v0.16.2](../../tree/v0.16.2)   Include rate spread in loan description section (#38).
  * 2013-10-07   [v0.16.1](../../tree/v0.16.1)   Purge `dist` directories. Update readme accordingly.
  * 2013-10-06   [v0.16.0](../../tree/v0.16.0)   Break pages into HTML partials and Markdown files. Remove build artifacts from repo.
  * 2013-09-20   [v0.15.2](../../tree/v0.15.2)   Swap chart columns. Hack map `ready` event listener for IE8.
@@ -85,4 +86,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Mon Oct 07 2013 04:37:32.*
+*This file was generated on Thu Oct 10 2013 03:04:10.*

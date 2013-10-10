@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
   <script src="static/js/jquery.min.js"></script>
-  <link rel="stylesheet" href="static/css/main.css">
+  <link rel="stylesheet" href="static/css/main.min.css">
   <!--[if lt IE 8]>
     <link rel="stylesheet" href="static/css/icons-ie7.css">
   <![endif]-->
@@ -449,6 +449,17 @@
                 <span>$</span><input type="text" class="param require-numeric" name="loan_amount_000s-max" data-comparator="<" value="" placeholder="Max."><span class="thousands">,000</span>
               </div>
               
+            </li>
+            <!-- /filter field -->
+
+            <!-- filter field -->
+            <li class="field rate_spread">
+              <label for="rate_spread">Is this a higher-priced loan?</label>
+              <div class="widget radio inline rate_spread">
+                <label><input type="radio" class="param" name="rate_spread" data-comparator="!=" value="null" />Yes</label>
+                <label><input type="radio" class="param" name="rate_spread" data-comparator="=" value="null" />No</label>
+              </div>
+              <div class="help" title="<%= explore_tooltips_rate_spread %>"><i class="icon-help-alt"></i></div>
             </li>
             <!-- /filter field -->
 
