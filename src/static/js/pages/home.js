@@ -5,11 +5,6 @@ $(function(){
   var map,
       video;
 
-  // layer.on('ready', function() {
-  //   // the layer has been fully loaded now, and you can
-  //   // call .getTileJSON and investigate its properties
-  // });
-
   // Circle nav on the homepage.
   $('.homepage .hero a').on( 'click', function( ev ){
 
@@ -24,13 +19,13 @@ $(function(){
 
     var map = {};
 
-    map.base = L.mapbox.map('map', 'cfpb.Finalv2-Basemap').setView([39.54, -97.87], 4);
+    map.base = L.mapbox.map('map', 'cfpb.Finalv3-Basemap').setView([39.54, -97.87], 4);
     
     map.layers = {
-      a2012: L.mapbox.tileLayer('cfpb.Finalv2-A2012'),
-      a2011: L.mapbox.tileLayer('cfpb.Finalv2-A2011'),
-      o2012: L.mapbox.tileLayer('cfpb.Finalv2-O2012'),
-      o2011: L.mapbox.tileLayer('cfpb.Finalv2-O2011')
+      a2012: L.mapbox.tileLayer('cfpb.Finalv3-A2012'),
+      a2011: L.mapbox.tileLayer('cfpb.Finalv3-A2011'),
+      o2012: L.mapbox.tileLayer('cfpb.Finalv3-O2012'),
+      o2011: L.mapbox.tileLayer('cfpb.Finalv3-O2011')
     };
 
     // In order to get a nice fade when we toggle between layers, 
