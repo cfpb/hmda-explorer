@@ -1,1 +1,1 @@
-The rate spread is the difference between the annual percentage rage (APR) and the average prime offer rate (APOR) for a comparable transaction. It is only reported if the spread is at least 1.5 percentage points for first-lien loans and 3.5 percentage points for subordinate lien loans.
+Generally, higher-priced loans are defined as loans with annual percentage rates (APRs) that exceed the average prime offer rate (APOR) for a comparable transaction by at least 1.5 percentage points for first-lien loans and 3.5 percentage points for subordinate lien loans.
