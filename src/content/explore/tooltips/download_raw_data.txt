@@ -1,0 +1,2 @@
+Plain language labels replace HMDA data codes in the dataset with simple language (for example:
+“Loan Type = Conventional”  instead of “LOANTYPE = 1”). Keep the HMDA codes only if you are already familiar with the HMDA reporting codes.
