@@ -1,3 +1,8 @@
+v0.16.2:
+  date: 2013-10-10
+  changes:
+    - Include rate spread in loan description section (#38).
+
 v0.16.1:
   date: 2013-10-07
   changes:

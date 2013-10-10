@@ -168,7 +168,7 @@ module.exports = function(grunt) {
         files: [
           {expand: true, cwd: 'src/static/fonts/', src: ['**'], dest: 'dist/static/fonts/'},
           {expand: true, cwd: 'src/static/img/', src: ['**'], dest: 'dist/static/img/'},
-          {expand: true, cwd: 'src/static/js/static_data/', src: ['**'], dest: 'dist/static/js/static_data/'},
+          {expand: true, cwd: 'src/static/js/', src: ['**'], dest: 'dist/static/js/'},
           {expand: true, cwd: 'src/static/vendor/cfpb-font-icons/static/fonts/', src: ['**'], dest: 'dist/static/fonts/'},
           {expand: true, cwd: 'src/static/vendor/cfpb-font-icons/static/css/', src: ['icons-ie7.css'], dest: 'dist/static/css/'},
           {expand: true, cwd: 'src/static/vendor/zeroclipboard/', src: ['**'], dest: 'dist/static/js/zeroclipboard/'},
@@ -278,10 +278,14 @@ module.exports = function(grunt) {
         banner: '<%= banner.cfpb %> <%= banner.vendors %>',
         compress: true,
         mangle: true,
-        sourceMap: 'dist/static/js/source-map.js',
-        sourceMappingURL: 'static/js/source-map.js'
+        sourceMapRoot: '/static/',
+        sourceMapPrefix: 2
       },
       jquery: {
+        options: {
+          sourceMap: 'dist/static/js/source-maps/jquery.js',
+          sourceMappingURL: 'source-maps/jquery.js'
+        },
         files: {
           'dist/static/js/jquery.min.js': [
             'src/static/vendor/jquery/jquery.js',
@@ -289,6 +293,10 @@ module.exports = function(grunt) {
         }
       },
       main: {
+        options: {
+          sourceMap: 'dist/static/js/source-maps/main.js',
+          sourceMappingURL: 'source-maps/main.js'
+        },
         files: {
           'dist/static/js/main.min.js': [
             'src/static/vendor/json3/lib/json3.js',
@@ -301,6 +309,10 @@ module.exports = function(grunt) {
         }
       },
       home: {
+        options: {
+          sourceMap: 'dist/static/js/source-maps/home.js',
+          sourceMappingURL: 'source-maps/home.js'
+        },
         files: {
           'dist/static/js/home.min.js': [
             'src/static/js/pages/home.js',
@@ -308,6 +320,10 @@ module.exports = function(grunt) {
         }
       },
       explore: {
+        options: {
+          sourceMap: 'dist/static/js/source-maps/explore.js',
+          sourceMappingURL: 'source-maps/explore.js'
+        },
         files: {
           'dist/static/js/explore.min.js': [
             'src/static/vendor/eventEmitter/EventEmitter.js',
@@ -331,6 +347,10 @@ module.exports = function(grunt) {
         }
       },
       charts: {
+        options: {
+          sourceMap: 'dist/static/js/source-maps/charts.js',
+          sourceMappingURL: 'source-maps/charts.js'
+        },
         files: {
           'dist/static/js/charts.min.js': [
             'src/static/vendor/highcharts.com/js/highcharts.src.js',
@@ -343,6 +363,10 @@ module.exports = function(grunt) {
         }
       },
       all: {
+        options: {
+          sourceMap: 'dist/static/js/source-maps/all.js',
+          sourceMappingURL: 'source-maps/all.js'
+        },
         files: {
           'dist/static/js/all.min.js': [
             'dist/static/js/jquery.min.js',
@@ -352,6 +376,10 @@ module.exports = function(grunt) {
         }
       },
       ie8: {
+        options: {
+          sourceMap: 'dist/static/js/source-maps/ie8.js',
+          sourceMappingURL: 'source-maps/ie8.js'
+        },
         files: {
           'dist/static/js/ie8.min.js': [
             'src/static/vendor/es5-shim/es5-shim.js',
@@ -363,6 +391,10 @@ module.exports = function(grunt) {
         }
       },
       respond: {
+        options: {
+          sourceMap: 'dist/static/js/source-maps/respond.js',
+          sourceMappingURL: 'source-maps/respond.js'
+        },
         files: {
           'dist/static/js/respond.min.js': [
             'src/static/vendor/respond/respond.min.js'

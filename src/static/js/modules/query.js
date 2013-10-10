@@ -315,8 +315,13 @@ var PDP = (function ( pdp ) {
       // param to the `queryVals` array.
       if ( param.values.length === 1 ) {
 
-        if ( isNaN( param.values[0] ) || paramName === 'msamd' || paramName === 'respondent_id' || paramName === 'census_tract_number' ) {
+        // Rate spread specialness
+        if ( param.values[0] == 'null' ) {
+          paramVal = paramName + param.comparator + '""';
+        // Strings
+        } else if ( isNaN( param.values[0] ) || paramName === 'msamd' || paramName === 'respondent_id' || paramName === 'census_tract_number' ) {
           paramVal = paramName + param.comparator + '"' + param.values[0] + '"';
+        // Numbers
         } else {
           paramVal = paramName + param.comparator + param.values[0];
         }
