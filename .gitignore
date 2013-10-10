@@ -38,3 +38,8 @@ test/junit
 #############
 dist/
 dist-plan-b/
+static/
+index.html
+learn-more.html
+api.html
+explore.html
