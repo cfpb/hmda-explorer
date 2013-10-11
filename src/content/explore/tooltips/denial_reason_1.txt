@@ -1,1 +1,1 @@
-Many lenders are not required to list a denial reason; specifying a filter here may limit your results significantly.
+A lender may report the reasons it denied a loan application, but reporting this is optional.
