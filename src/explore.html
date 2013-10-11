@@ -799,11 +799,11 @@
 
         <section id="download" class="download">
 
-          <h2>Download raw data</h2>
+          <h2>Download the raw data</h2>
 
           <div class="inner">
 
-            <label for="format">File type:</label>
+            <label for="format">File format:</label>
             <div class="select widget">
               <select name="format" id="raw-format">
                 <option value="csv">Spreadsheet (CSV)</option>
@@ -813,10 +813,14 @@
               </select>
             </div>
 
-            <label for="codes">HMDA codes:</label>
+            <label for="codes"> </label>
             <div class="radio widget raw-codes">
-              <label><input type="radio" name="codes" value="0" checked />Plain names</label>
-              <label><input type="radio" name="codes" value="1" />Codes only</label>
+              <label><input type="radio" name="codes" value="0" checked />Include plain language labels with codes</label>
+              <label><input type="radio" name="codes" value="1" />Include only the codes</label>
+
+              <div class="help" title="<%= explore_tooltips_download_raw_data %>">
+              <i class="icon-help-alt"></i></div>
+
             </div>
             
 
@@ -834,11 +838,11 @@
 
         <section id="download-summary" class="download-summary">
 
-          <h2>Download table</h2>
+          <h2>Download the data in a table</h2>
 
           <div class="inner">
 
-            <label for="summary-table-format">Summary table file type:</label>
+            <label for="summary-table-format">Summary table file format:</label>
             <div class="select widget">
               <select name="summary-table-format" id="summary-table-format">
                 <option value="csv">Spreadsheet (CSV)</option>
