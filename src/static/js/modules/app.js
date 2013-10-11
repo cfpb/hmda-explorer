@@ -22,7 +22,8 @@ var PDP = (function ( pdp ) {
   // The `init` method is called when the DOM is loaded so we can do some preparation.
   app.init = function() {
 
-    var hashParams = pdp.utils.getHashParams();
+    var hashParams = pdp.utils.getHashParams(),
+        tooltipPlacement = $( window ).width() > 768 ? 'right' : 'left';
 
     // Activate [chosen](http://harvesthq.github.io/chosen/) on select elements and correct 
     // a bug that cuts off the placeholder text.
@@ -30,7 +31,7 @@ var PDP = (function ( pdp ) {
     $('.chzn-container .search-field input').css( 'width', '130%' );
 
     // Initialize Bootstrap tooltips
-    app.$el.find('.help').tooltip({ placement: 'right' });
+    app.$el.find('.help').tooltip({ placement: tooltipPlacement });
     app.$el.find('.share_url').tooltip({ title: 'Copied to clipboard!', trigger: 'manual' });
 
     // If there are hash params in the URL OR the only hashParam is to designate which section,

@@ -301,7 +301,7 @@ module.exports = function(grunt) {
           'dist/static/js/main.min.js': [
             'src/static/vendor/json3/lib/json3.js',
             'src/static/vendor/lodash/lodash.js',
-            'src/static/vendor/bootstrap/js/bootstrap-tooltip.js',
+            'src/static/vendor/bootstrap/js/tooltip.js',
             'src/static/vendor/chosen/public/chosen.jquery.js',
             'src/static/js/analytics.js',
             'src/static/js/mobile.js'
