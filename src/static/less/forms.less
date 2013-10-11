@@ -22,10 +22,7 @@ textarea {
     font-weight: 400;
 }
 
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+button {
     font-size: 0.875em; /* 14/16 */
     line-height: 1em;
     font-family: "Avenir Next Medium", Arial, sans-serif;
@@ -47,13 +44,16 @@ input[type="submit"] {
     font-weight: 500;
     font-style: normal;
     text-decoration: none;
+
+    i {
+      text-decoration: none;
+      position: relative;
+      bottom: .1em;
+    }
 }
 
 button:hover,
-input[type="button"]:hover,
-input[type="reset"]:hover,
-input[type="submit"]:hover,
-input[type="button"].clipboard-hover {
+button.clipboard-hover {
     background-color: @navy;
     color: @white;
     text-decoration: none;
@@ -61,6 +61,8 @@ input[type="button"].clipboard-hover {
     -moz-transition: .1s;
     transition: .1s;
 }
+
+
 
 label {
     -webkit-box-sizing: border-box;
