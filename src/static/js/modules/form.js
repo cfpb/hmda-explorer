@@ -20,7 +20,8 @@ var PDP = (function ( pdp ) {
 
   // Initialize ZeroClipboard on the share button.
   form.clip = new ZeroClipboard( $('.share.btn'), {
-    moviePath: 'static/js/zeroclipboard/ZeroClipboard.swf'
+    moviePath: 'static/js/zeroclipboard/ZeroClipboard.swf',
+    hoverClass: 'clipboard-hover'
   });
 
   // When the share URL has been saved to clipboard, show a tooltip for a few seconds.
