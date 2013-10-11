@@ -8,7 +8,7 @@ See some [front-end notes](https://fake.ghe.domain/data-platform/data-platform-d
 
 ## Deployment
 
-Follow the steps below to get your environment set up. `grunt build` will create a `dist` directory. Copy the contents of `dist` to wherever you want the app to live. For github pages, here's a [git hook](https://fake.ghe.domain/gist/389) that will automatically copy the stuff in `dist` over to your gh-pages branch whenever you commit.
+Follow the steps below to get your environment set up. `grunt build` will create a `dist` directory. Copy the contents of `dist` to wherever you want the app to live.
 
 ## Contributing
 

@@ -87,8 +87,10 @@
 // Stuff from bootstrap for their tooltip
 
 .opacity(@opacity) {
-  opacity: @opacity / 100;
-  filter: ~"alpha(opacity=@{opacity})";
+  opacity: @opacity;
+  // IE8 filter
+  @opacity-ie: (@opacity * 100);
+  filter: ~"alpha(opacity=@{opacity-ie})";
 }
 
 // CSS3 PROPERTIES
