@@ -15,40 +15,50 @@ legend {
 
 input,
 label,
-button,
 textarea {
     font-size: 0.875em; /* 14/16 */
-    line-height: 1.4;
-    /*font-family: "Avenir Next", Arial, sans-serif;*/
-    font-weight: 400;
+    line-height: 1.25em;
+    font-family: "Avenir Next Medium", Arial, sans-serif;
+    font-weight: 500;
 }
 
 button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
+    font-size: 0.875em; /* 14/16 */
+    line-height: 1em;
+    font-family: "Avenir Next Medium", Arial, sans-serif;
+    font-weight: 500;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -ms-box-sizing: border-box;
     box-sizing: border-box;
     display: inline-block;
-    padding: 0.5em 1.428571429em; /* 7/14 20/14 */
-    border: 0;
+    padding: 0.7em 1em;
+    border: none;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
     cursor: pointer;
-    background: @pacific;
+    background-color: @pacific;
     color: @white;
     font-family: "Avenir Next Medium", Arial, sans-serif;
     font-weight: 500;
     font-style: normal;
+    text-decoration: none;
 }
 
 button:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
-    background: @pacific;
+    background-color: @navy;
     color: @white;
     text-decoration: none;
+    -webkit-transition: .1s;
+    -moz-transition: .1s;
+    transition: .1s;
 }
 
 label {
@@ -132,13 +142,6 @@ textarea.failure,
 select.failure {
     border-color: red;
     box-shadow: 0 0 10px red;
-}
-
-input,
-label,
-button,
-textarea {
-    line-height: 1.25;
 }
 
 select {
