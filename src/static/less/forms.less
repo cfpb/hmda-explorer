@@ -25,6 +25,8 @@ textarea {
 button {
     font-size: 0.875em; /* 14/16 */
     line-height: 1em;
+    background-color: @pacific;
+    color: @white;
     font-family: "Avenir Next Medium", Arial, sans-serif;
     font-weight: 500;
     -webkit-box-sizing: border-box;
@@ -32,24 +34,34 @@ button {
     -ms-box-sizing: border-box;
     box-sizing: border-box;
     display: inline-block;
-    padding: 0.7em 1em;
+    padding: 0.6em 1em;
     border: none;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
     cursor: pointer;
-    background-color: @pacific;
-    color: @white;
-    font-family: "Avenir Next Medium", Arial, sans-serif;
-    font-weight: 500;
     font-style: normal;
     text-decoration: none;
 
     i {
       text-decoration: none;
       position: relative;
-      bottom: .1em;
+      bottom: .08em;
+
+      &:after {
+        content: "|";
+        padding: 0 10px;
+        color: @pacific50;
+        font-size: 20px;
+        font-family: "Avenir Next", Arial, sans-serif;
+        font-weight: 400;
+      }
     }
+
+    .icon-download {
+      font-size: 1.1em;
+    } 
+
 }
 
 button:hover,
