@@ -168,6 +168,7 @@ var PDP = (function ( pdp ) {
 
     ev.preventDefault();
 
+    pdp.form.resetFields();
     pdp.query.reset( { defaults: true } );
     pdp.form.setFields();
     pdp.form.updateShareLink();
