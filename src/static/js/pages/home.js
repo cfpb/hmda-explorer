@@ -19,13 +19,13 @@ $(function(){
 
     var map = {};
 
-    map.base = L.mapbox.map('map', 'cfpb.Finalv3-Basemap').setView([39.54, -97.87], 4);
+    map.base = L.mapbox.map('map', 'cfpb.HMDA_basemap_003').setView([39.54, -97.87], 4);
     
     map.layers = {
-      a2012: L.mapbox.tileLayer('cfpb.Finalv3-A2012'),
-      a2011: L.mapbox.tileLayer('cfpb.Finalv3-A2011'),
-      o2012: L.mapbox.tileLayer('cfpb.Finalv3-O2012'),
-      o2011: L.mapbox.tileLayer('cfpb.Finalv3-O2011')
+      a2012: L.mapbox.tileLayer('cfpb.HMDA_A2012_003'),
+      a2011: L.mapbox.tileLayer('cfpb.HMDA_A2011_003'),
+      o2012: L.mapbox.tileLayer('cfpb.HMDA_O2012_003'),
+      o2011: L.mapbox.tileLayer('cfpb.HMDA_O2011_003')
     };
 
     // In order to get a nice fade when we toggle between layers, 
