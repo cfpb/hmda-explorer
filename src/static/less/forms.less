@@ -48,14 +48,6 @@ button {
       position: relative;
       bottom: .08em;
 
-      &:after {
-        content: "|";
-        padding: 0 10px;
-        color: @pacific50;
-        font-size: 20px;
-        font-family: "Avenir Next", Arial, sans-serif;
-        font-weight: 400;
-      }
     }
 
     .icon-download {
@@ -74,7 +66,16 @@ button.clipboard-hover {
     transition: .1s;
 }
 
-
+.btn i {
+    &:after {
+        content: "|";
+        padding: 0 10px;
+        color: @pacific50;
+        font-size: 20px;
+        font-family: "Avenir Next", Arial, sans-serif;
+        font-weight: 400;
+    }
+}
 
 label {
     -webkit-box-sizing: border-box;
