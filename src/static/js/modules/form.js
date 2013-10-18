@@ -554,9 +554,10 @@ var PDP = (function ( pdp ) {
   // Add a new state/MSA location section thingy.
   form.addState = function( num ) {
 
-    var template = PDP.templates.location;
+    var template = PDP.templates.location,
+        tooltipPlacement = $( window ).width() > 768 ? 'right' : 'left';
 
-    $('#location-sets').append( template( { num: num } ) ).find('.help').tooltip({ placement: 'left' });
+    $('#location-sets').append( template( { num: num } ) ).find('.help').tooltip({ placement: tooltipPlacement, container: 'body' });
     $( '.location-set-' + num ).find('select').chosen({ width: '100%', disable_search_threshold: 10, allow_single_deselect: true });
 
   };
