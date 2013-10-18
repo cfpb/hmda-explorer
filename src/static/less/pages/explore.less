@@ -51,6 +51,20 @@
     margin-top: .5em; 
   }
 
+  .pipe {
+    padding: 0 15px;
+    position: relative;
+    bottom: 2px;
+    color: @dark_field;
+  }
+
+  // File size estimation
+  .download-size {
+    font-style: italic;
+    font-size: .875em;
+    display: inline-block;
+  }
+
 }
 
 // Wrapper on explore page
@@ -192,12 +206,6 @@
 
     }
 
-    .pipe {
-      padding: 0 15px;
-      position: relative;
-      bottom: 2px;
-      color: @dark_field;
-    }
   }
 
   .download-share {
@@ -255,8 +263,10 @@
 
     .action {
       .column( 4, 6 );
-      button {
+      .download-size {
+        .column( 2, 4 ); 
       }
+     
     }
 
 
