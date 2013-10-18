@@ -94,6 +94,10 @@ var track = function(category, name, value) {
                         document.location.href = link_url;
                     }
                 }, linkDelay);
+            } else if ( $(this).is('[target=_blank]') ) {
+                window.open(link_url, '_blank');
+            } else {
+                document.location.href = link_url;
             }
         });
 
