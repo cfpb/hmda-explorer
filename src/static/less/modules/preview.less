@@ -4,7 +4,7 @@
 
   .column( 12 );
   background-color: @light_field10;
-  padding: 10px 0 20px;
+  padding: 10px 15px 20px 15px;
 
   #preview {
 
@@ -27,12 +27,22 @@
     th,
     td {
       width: 150px;
-      height: 35px;
+      height: 30px;
       max-height: 35px;
       display: inline-block;
       overflow: hidden;
       text-overflow: ellipsis;
       text-align: left;
+    }
+
+    th {
+      background-color: @gold20;
+      .avenir-next-demi;
+    }
+
+    td {
+      background-color: white;
+      font-size: .8em;
     }
 
     .spinning {
@@ -64,11 +74,16 @@
   h3 {
     color: @pacific;
     display: inline-block;
+    .avenir-next-demi;
+    font-size: 1.1em;
+    letter-spacing: 0;
 
     i {
-      padding-left: 3px;
+      padding-right: 10px;
+      font-size: .9em;
+      position: relative;
+      top: -2px;
     }
-
   }
 
   &.closed {
