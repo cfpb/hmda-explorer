@@ -7,10 +7,46 @@
 
 .tooltip {
   .avenir-next;
-  .tooltip-arrow {
-    // Mess with the arrow here.
-  }
+  font-weight: 400;
+  font-size: @font-size-base;
+  line-height: 1.4; 
+  opacity: 100;
+
+  &.in     { opacity: 100; }
+
   .tooltip-inner {
-    // Inner stuff here.
+    border-radius: 0;
+    padding: 15px;
+    background-color: #3e474c;
+    color: white;
+    text-align: left;
   }
+
+  // Arrow color
+  
+  &.top .tooltip-arrow {
+    border-top-color: #3e474c;
+  }
+  &.top-left .tooltip-arrow {
+    border-top-color: #3e474c;
+  }
+  &.top-right .tooltip-arrow {
+    border-top-color: #3e474c;
+  }
+  &.right .tooltip-arrow {
+    border-right-color: #3e474c;
+  }
+  &.left .tooltip-arrow {
+    border-left-color: #3e474c;
+  }
+  &.bottom .tooltip-arrow {
+    border-bottom-color: #3e474c;
+  }
+  &.bottom-left .tooltip-arrow {
+    border-bottom-color: #3e474c;
+  }
+  &.bottom-right .tooltip-arrow {
+    border-bottom-color: #3e474c;
+  }
+
 }
