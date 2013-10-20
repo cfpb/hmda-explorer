@@ -78,10 +78,7 @@ var PDP = (function ( pdp ) {
 
     $title.addClass('disabled');
 
-    if ( pdp.query.debug ) {
-      $('body').append('<h3 class="ajax-error">The API timed out after ' + pdp.query.secondsToWait + ' seconds. :(</h3>');
-      $('.ajax-error').fadeOut( 5000 );
-    }
+    $('.msg').addClass('error').append('<i class="icon-error-alt"></i> There was a problem connecting to the API. If this error is not resolved soon, <a href="http://www.consumerfinance.gov/contact-us/">contact us</a>.');
 
   };
 

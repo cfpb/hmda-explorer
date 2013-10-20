@@ -39,13 +39,14 @@
 
   .intro {
     padding-top: 10px;
+    .column( 11 );
   }
   
   h3 {
     text-transform: uppercase;
     color: @pacific;
     display: inline-block;
-    padding-left: 30px;
+    padding-left: 15px;
     font-size: 1em;
 
     i {
@@ -55,6 +56,11 @@
       top: -2px;
     }
 
+  }
+
+  .desc {
+    margin-left: 15px;
+    margin-top: 15px;
   }
 
   // Show a plus icon when the filter is closed.
@@ -218,6 +224,12 @@
   }
 }
 
+.data-minicon {
+  float: left;
+  margin-top: 3px;
+  margin-right: 15px;
+}
+
 // Viewport adjustments
 
 @media only screen and ( min-width: 768px ) {
@@ -225,19 +237,23 @@
   .filter {
 
     .intro {
-      .column( 11 );
+      
       padding: 15px 15px 0 15px;
-
       .clear-text {
         font-size: .75em;
         margin-left: 10px;
       }
     }
 
+    h3 {
+      padding-left: 30px;
+    }
+
     .desc {
       display: inline-block;
       font-size: 1em;
       margin-left: 20px;
+      margin-top: 0;
     }
 
     .widget {
@@ -288,7 +304,7 @@
         .widget {
           width: 83%;
           margin: 0;
-          margin-right: 15px;
+          margin-right: 5%;
         }
       }
 
@@ -317,13 +333,6 @@
       position: static;
     }
 
-  }
-
-  .data-minicon {
-    float: left;
-    margin-right: 15px;
-    position: relative;
-    bottom: 3px;
   }
 
   .widget {
