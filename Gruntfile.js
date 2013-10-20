@@ -636,7 +636,7 @@ module.exports = function(grunt) {
   grunt.registerTask('sauce', ['connect:sauce', 'jasmine:sauce', 'saucelabs-jasmine', 'shell:sauce']);
   grunt.registerTask('mogo', ['connect:mogo', 'shell:mogo']);
   grunt.registerTask('docs', ['removelogging', 'docco', 'build-cfpb']);
-  grunt.registerTask('build', ['template', 'copy:dist', 'jst', 'uglify', 'less', 'cssmin']);
+  grunt.registerTask('build', ['template', 'copy:dist', 'less', 'cssmin', 'jst', 'uglify']);
   grunt.registerTask('ghpages', ['build', 'copy:ghpages']);
 
   /**

@@ -107,7 +107,7 @@ var PDP = (function ( pdp ) {
   // The `redirect` method redirects the browser to a new URL.
   // It is used to send the user to the Qu URL with their results.
   app.redirect = function( url ) {
-    window.location.href = url;
+    window.open( url, '_blank' );
   };
 
   // The 'getUrlValue' method returns an object containing a hash params name and value
