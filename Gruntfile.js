@@ -333,6 +333,7 @@ module.exports = function(grunt) {
             'src/static/vendor/jquery-ui/ui/jquery.ui.mouse.js',
             'src/static/vendor/jquery-ui/ui/jquery.ui.slider.js',
             'src/static/vendor/zeroclipboard/ZeroClipboard.js',
+            'src/static/vendor/jquery.cookie/jquery.cookie.js',
             'src/static/js/templates/template.js',
             'src/static/js/modules/observer.js',
             'src/static/js/modules/utils.js',
@@ -376,10 +377,6 @@ module.exports = function(grunt) {
         }
       },
       ie8: {
-        options: {
-          sourceMap: 'dist/static/js/source-maps/ie8.js',
-          sourceMappingURL: 'source-maps/ie8.js'
-        },
         files: {
           'dist/static/js/ie8.min.js': [
             'src/static/vendor/es5-shim/es5-shim.js',

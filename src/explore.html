@@ -222,9 +222,9 @@
             <!-- filter field -->
             <li class="field applicant_income_000s">
               <label for="applicant_income_000s">Applicant Income:</label>
-              <div class="widget range">
-                <span>$</span><input type="text" class="param require-numeric" name="applicant_income_000s-min" data-comparator=">" value="" maxlength="7" placeholder="Min."><span class="thousands">,000 &nbsp; to &nbsp;</span>
-                <span>$</span><input type="text" class="param require-numeric" name="applicant_income_000s-max" data-comparator="<" value="" placeholder="Max."><span class="thousands">,000</span>
+              <div class="widget range check-range">
+                <span>$</span><input type="text" class="param require-numeric min-value" name="applicant_income_000s-min" data-comparator=">" value="" maxlength="7" placeholder="Min."><span class="thousands">,000 &nbsp; to &nbsp;</span>
+                <span>$</span><input type="text" class="param require-numeric max-value" name="applicant_income_000s-max" data-comparator="<" value="" placeholder="Max."><span class="thousands">,000</span>
               </div>
               <div class="help" title="<%= explore_tooltips_applicant_income_000s %>"><i class="icon-help-alt"></i></div>
             </li>
@@ -448,9 +448,9 @@
             <!-- filter field -->
             <li class="field loan_amount_000s">
               <label for="loan_amount_000s">How much is the loan for?</label>
-              <div class="widget range">
-                <span>$</span><input type="text" class="param require-numeric" name="loan_amount_000s-min" data-comparator=">" value="" placeholder="Min."><span class="thousands">,000 &nbsp; to &nbsp;</span>
-                <span>$</span><input type="text" class="param require-numeric" name="loan_amount_000s-max" data-comparator="<" value="" placeholder="Max."><span class="thousands">,000</span>
+              <div class="widget range check-range">
+                <span>$</span><input type="text" class="param require-numeric min-value" name="loan_amount_000s-min" data-comparator=">" value="" placeholder="Min."><span class="thousands">,000 &nbsp; to &nbsp;</span>
+                <span>$</span><input type="text" class="param require-numeric max-value" name="loan_amount_000s-max" data-comparator="<" value="" placeholder="Max."><span class="thousands">,000</span>
               </div>
               
             </li>
@@ -537,10 +537,6 @@
               <div class="help" title="<%= explore_tooltips_include_hmda_reporting %>"><i class="icon-help-alt"></i></div>
             </li>
             <!-- /filter field -->
-
-            <!-- <optgroup label="Optional reporting"> -->
-                    <option value="8">Preapproval request approved but not accepted</option>
-                 <!-- </optgroup> -->
 
             <!-- filter field -->
             <li class="field optional hmda_reporting hidden" data-optional="hmda_reporting">
