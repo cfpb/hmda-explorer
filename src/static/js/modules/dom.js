@@ -168,7 +168,6 @@ var PDP = (function ( pdp ) {
     pdp.form.checkDeps( parents );
 
     pdp.preview.update();
-    $('html, body').animate({ scrollTop: $( '#filters' ).position().top }, 200);
 
   });
 
@@ -188,7 +187,6 @@ var PDP = (function ( pdp ) {
     pdp.form.checkDeps( parents );
 
     pdp.preview.update();
-    $('html, body').animate({ scrollTop: $( '#filters' ).position().top }, 200);
 
   });
 
