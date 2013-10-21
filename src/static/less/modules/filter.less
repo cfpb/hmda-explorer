@@ -215,16 +215,23 @@
 
 // Disabled fields
 
-.field.disabled {
+.disabled {
   color: @light_field;
   font-style: italic;
   label,
   input {
     font-style: italic !important;
   }
+  button {
+    .opacity( .5 );
+    &:hover {
+      background-color: @pacific;
+      cursor: not-allowed;
+    }
+  }
 }
 
-.data-minicon {
+.explanation .data-minicon {
   float: left;
   margin-top: 3px;
   margin-right: 15px;

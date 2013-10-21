@@ -4,7 +4,7 @@ var PDP = (function ( pdp ) {
 
   // DOM Interactions
   // ----------------
-  // jQuery is used to attach event handlers to DOM elements.
+  // jQuery is used to attach misc. event handlers to DOM elements.
 
   // Toggle the popular/all filters sections  
   $('a.section-toggle').on( 'click', function( ev ){
@@ -84,6 +84,14 @@ var PDP = (function ( pdp ) {
 
   });
 
+  // When the codes/no codes toggle is changed, update the filesize preview.
+  $('#download .codes input').on( 'change', function( ev ){
+
+    pdp.query.codes = !!parseInt( $('.codes input[type=radio]:checked').val(), 10 );
+    pdp.preview.updateDownloadSize();
+
+  });
+
   // Open and close filters
   $('.filter .title').on( 'click', function( ev ){
 
@@ -149,6 +157,7 @@ var PDP = (function ( pdp ) {
 
     ev.preventDefault();
 
+    $.removeCookie('_hmda');
     pdp.form.resetFields();
     pdp.query.reset( { empty: true } );
     pdp.form.updateShareLink();
@@ -185,6 +194,23 @@ var PDP = (function ( pdp ) {
 
   // Prevent non-numeric characters from being typed into specified fields.
   $('.require-numeric').on( 'keydown', pdp.utils.requireNumeric );
+
+  $('.check-range').on( 'change', function( e ){
+
+      var $this = $( this ),
+          $min = $this.find('.min-value'),
+          $max = $this.find('.max-value');
+
+      if ( $min.val() && $max.val() && $min.val() > $max.val() ) {
+        e.preventDefault();
+        $max.tooltip( { title: 'Max. amount must be greater than the minimum!', trigger: 'manual' } );
+        $max.tooltip( 'show' );
+        $max.val('');
+        setTimeout( function(){
+          $max.tooltip('destroy');
+        }.bind( this ), 3000);
+      }
+    });
 
   // When the share URL text box is focused, select all the text inside.
   // `click` is used instead of `focus` due to a [Chrome bug](http://stackoverflow.com/questions/3150275/jquery-input-select-all-on-focus).

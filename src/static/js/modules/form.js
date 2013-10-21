@@ -437,7 +437,7 @@ var PDP = (function ( pdp ) {
         $select = $el.find('select'),
         placeholder;
 
-    $el.addClass('disabled').find('select, input').attr('disabled', 'disabled');
+    $el.addClass('disabled').find('select, input, button').attr('disabled', 'disabled');
 
     // If it's a select element, swap out its placeholder text
     if ( !_.isEmpty( $select ) ) {
@@ -456,7 +456,7 @@ var PDP = (function ( pdp ) {
         $select = $el.find('select'),
         placeholder;
 
-    $el.removeClass('disabled').find('select, input').removeAttr('disabled').trigger('liszt:updated');
+    $el.removeClass('disabled').find('select, input, button').removeAttr('disabled').trigger('liszt:updated');
 
     // If it's a select element, swap out its placeholder text
     if ( !_.isEmpty( $select ) ) {
