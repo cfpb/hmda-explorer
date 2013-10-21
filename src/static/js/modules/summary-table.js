@@ -168,11 +168,11 @@ var PDP = (function ( pdp ) {
   };
 
   table._requestData = function() {
-    var check, responseJSON, itvl = 15;
+    var check, responseJSON, itvl = 10;
     
     this._lastRequestTime = new Date().getTime();
     
-    responseJSON = pdp.utils.getJSON(pdp.query.generateApiUrl('jsonp?$callback=', true, this.queryParams));
+    responseJSON = pdp.utils.getJSON( pdp.query.generateApiUrl( 'jsonp?$callback=', true, this.queryParams ) + '&$limit=0' );
     responseJSON.timestamp = this._lastRequestTime;
     
     responseJSON.done(function( response ){
@@ -287,9 +287,15 @@ var PDP = (function ( pdp ) {
         clauses, clauseLen = this.queryParams.clauses.select.length;
 
     this._removeSpinner();
+    this._enableTable();
 
     if ( !_.isEmpty(responseData.errors) ) {
       this._throwFetchError();
+      return;
+    }
+
+    if ( responseData.total === 0 ) {
+      this._disableTable();
       return;
     }
 
@@ -399,6 +405,20 @@ var PDP = (function ( pdp ) {
       calculate: this.fieldVals.calculate || 'count'
     };
   };
+
+  table._disableTable = function () {
+    pdp.form.disableField( $('#summary .instructions') );
+    pdp.form.disableField( $('#summary .drop-downs') );
+    pdp.form.disableField( $('#download-summary .action') );
+    $('#summary-table').hide();
+  };
+
+  table._enableTable = function () {
+    pdp.form.enableField( $('#summary .instructions') );
+    pdp.form.enableField( $('#summary .drop-downs') );
+    pdp.form.enableField( $('#download-summary .action') );
+    $('#summary-table').show();
+  };
   
   table.setupTable = function () {
     var queryVals = this._prepFieldVals();
@@ -471,6 +491,7 @@ var PDP = (function ( pdp ) {
     table._chosenInit();
     table.createTable();
     table.disableDownload();
+    table.$page.find('.share_url').tooltip({ title: 'Copied to clipboard!', trigger: 'manual' });
     
     //check for select values in params 
     selectParams = ((pdp.query.params.select || {}).values || []);

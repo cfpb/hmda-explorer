@@ -26,7 +26,21 @@
 
     });
 
-    it('properly deserialize a URL\'s hash params', function(){
+    it('should be able to store params in a cookie', function(){
+
+      PDP.query.setCookie();
+    
+      expect( $.cookie('_hmda') ).toBeDefined();
+    
+    });
+
+    it('should be able to retrive its cookie', function(){
+    
+      expect( PDP.query.getCookie() ).toBeDefined();
+    
+    });
+
+    it('should properly deserialize a URL\'s hash params', function(){
 
       window.location.hash = '#!/as_of_year=2011&state_abbr=OR';
 

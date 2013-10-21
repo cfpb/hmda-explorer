@@ -39,6 +39,7 @@
 
   .intro {
     padding-top: 10px;
+    .column( 11 );
   }
   
   h3 {
@@ -52,9 +53,14 @@
       padding-right: 10px;
       font-size: 1em;
       position: relative;
-      top: -1px;
+      top: -2px;
     }
 
+  }
+
+  .desc {
+    margin-left: 15px;
+    margin-top: 15px;
   }
 
   // Show a plus icon when the filter is closed.
@@ -171,7 +177,7 @@
   // Some controls
 
   .control {
-    margin: 0 0 30px 53px;
+    margin: 0 0 30px 66px;
     display: block;
     .avenir-next-demi;
     animation: fadein .8s;
@@ -181,7 +187,7 @@
   }
 
   .next-steps {
-    padding: 30px 15px;
+    padding: 30px;
   }
 
   select {
@@ -209,13 +215,26 @@
 
 // Disabled fields
 
-.field.disabled {
+.disabled {
   color: @light_field;
   font-style: italic;
   label,
   input {
     font-style: italic !important;
   }
+  button {
+    .opacity( .5 );
+    &:hover {
+      background-color: @pacific;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.explanation .data-minicon {
+  float: left;
+  margin-top: 3px;
+  margin-right: 15px;
 }
 
 // Viewport adjustments
@@ -225,13 +244,23 @@
   .filter {
 
     .intro {
-      .column( 11 );
+      
+      padding: 15px 15px 0 15px;
+      .clear-text {
+        font-size: .75em;
+        margin-left: 10px;
+      }
+    }
+
+    h3 {
+      padding-left: 30px;
     }
 
     .desc {
       display: inline-block;
       font-size: 1em;
       margin-left: 20px;
+      margin-top: 0;
     }
 
     .widget {
@@ -282,7 +311,7 @@
         .widget {
           width: 83%;
           margin: 0;
-          margin-right: 15px;
+          margin-right: 5%;
         }
       }
 
@@ -341,8 +370,8 @@
   }
 
   #location-sets {
-    margin-left: 53px;
-    margin-right: 53px;
+    margin-left: 66px;
+    margin-right: 66px;
   }
 
 

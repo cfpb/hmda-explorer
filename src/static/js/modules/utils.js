@@ -195,12 +195,12 @@ var PDP = (function( pdp ) {
                           103, 104, 105, 188, 224 ];
 
       if ( allowedKeys.indexOf( key ) === -1 ) {
-          e.preventDefault();
-          $( this ).tooltip( { title: 'Numbers only, please!', trigger: 'manual' } );
-          $( this ).tooltip( 'show' );
-          setTimeout( function(){
-            $( this ).tooltip( 'destroy' );
-          }.bind( this ), 3000);
+        e.preventDefault();
+        $( this ).tooltip( { title: 'Numbers only, please!', trigger: 'manual' } );
+        $( this ).tooltip( 'show' );
+        setTimeout( function(){
+          $( this ).tooltip('destroy');
+        }.bind( this ), 3000);
       }
 
   };

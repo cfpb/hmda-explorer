@@ -140,6 +140,22 @@
   display: inline-block;
 }
 
+// Messages on the explore page
+
+.msg {
+  .border-radius( 5px );
+  &.error {
+    margin: 0 30px;
+    background-color: red;
+    color: @white;
+    font-weight: 700;
+    padding: 10px;
+    a {
+      color: @white;
+      text-decoration: underline;
+    }
+  }
+}
 
 @media only screen and ( min-width: 768px ) {
 
@@ -194,6 +210,12 @@
 
     }
 
+    .pipe {
+      padding: 0 15px;
+      position: relative;
+      bottom: 2px;
+      color: @dark_field;
+    }
   }
 
   .download-share {
