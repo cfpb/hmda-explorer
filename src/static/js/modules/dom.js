@@ -203,12 +203,12 @@ var PDP = (function ( pdp ) {
 
       if ( $min.val() && $max.val() && $min.val() > $max.val() ) {
         e.preventDefault();
-        $max.tooltip( { title: 'Max. amount must be greater than the minimum!', trigger: 'manual' } );
+        $max.tooltip( { title: 'Maximum amount must be greater than the minimum!', trigger: 'manual' } );
         $max.tooltip( 'show' );
         $max.val('');
         setTimeout( function(){
           $max.tooltip('destroy');
-        }.bind( this ), 3000);
+        }.bind( this ), 5000);
       }
     });
 
