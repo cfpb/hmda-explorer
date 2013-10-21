@@ -286,8 +286,6 @@ var PDP = (function ( pdp ) {
         len = responseData.results.length - 1,
         clauses, clauseLen = this.queryParams.clauses.select.length;
 
-        console.log(responseData);
-
     this._removeSpinner();
     this._enableTable();
 
