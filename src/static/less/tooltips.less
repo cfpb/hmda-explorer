@@ -1,0 +1,52 @@
+// Bootstrap tooltips consist of HTML that looks like this:
+// 
+// <div class="tooltip fade left in">
+//   <div class="tooltip-arrow" style=""></div>
+//   <div class="tooltip-inner">Lorem ipsum Consectetur in magna aliqua dolore do ut est mollit dolor pariatur pariatur nisi sunt.</div>
+// </div>
+
+.tooltip {
+  .avenir-next;
+  font-weight: 400;
+  font-size: @font-size-base;
+  line-height: 1.4; 
+  opacity: 100;
+
+  &.in     { opacity: 100; }
+
+  .tooltip-inner {
+    border-radius: 0;
+    padding: 15px;
+    background-color: #3e474c;
+    color: white;
+    text-align: left;
+  }
+
+  // Arrow color
+  
+  &.top .tooltip-arrow {
+    border-top-color: #3e474c;
+  }
+  &.top-left .tooltip-arrow {
+    border-top-color: #3e474c;
+  }
+  &.top-right .tooltip-arrow {
+    border-top-color: #3e474c;
+  }
+  &.right .tooltip-arrow {
+    border-right-color: #3e474c;
+  }
+  &.left .tooltip-arrow {
+    border-left-color: #3e474c;
+  }
+  &.bottom .tooltip-arrow {
+    border-bottom-color: #3e474c;
+  }
+  &.bottom-left .tooltip-arrow {
+    border-bottom-color: #3e474c;
+  }
+  &.bottom-right .tooltip-arrow {
+    border-bottom-color: #3e474c;
+  }
+
+}

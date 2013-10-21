@@ -58,12 +58,12 @@
     </button>
 
     <nav role="navigation" aria-label="Main HMDA Menu">
-        <ul>
-            <li><a href=".">Home</a></li>
-            <li><a href="learn-more">Learn more</a></li>
-            <li><a href="explore" class="active">Explore data</a></li>
-            <li><a href="api">API docs</a></li>
-        </ul>
+      <ul>
+        <li><a href=".">Home</a></li>
+        <li><a href="learn-more">Learn more</a></li>
+        <li><a href="explore" class="active">Explore data</a></li>
+        <li><a href="api">API docs</a></li>
+      </ul>
     </nav>
 
   </header>
@@ -104,6 +104,10 @@
           <div class="intro">
 
             <%= explore_intro_text %>
+
+          </div>
+
+          <div class="msg">
 
           </div>
 
@@ -185,7 +189,6 @@
               <label for="applicant_race_1">Applicant Race:</label>
               <div class="widget select single">
                 <select class="param" name="applicant_race_1" id="applicant_race_1" multiple data-placeholder="Select an Applicant Race">
-                  <option value></option>
                   <option value="1">American Indian or Alaska Native</option>
                   <option value="2">Asian</option>
                   <option value="3">Black or African American</option>
@@ -204,7 +207,6 @@
               <label for="applicant_ethnicity">Applicant Ethnicity:</label>
               <div class="widget select">
                 <select class="param" name="applicant_ethnicity" id="applicant_ethnicity" multiple data-placeholder="Select an Applicant Ethnicity">
-                  <option value></option>
                   <option value="1">Hispanic or Latino</option>
                   <option value="2">Not Hispanic or Latino</option>
                   <option value="3">Information not provided by applicant in mail, Internet, or telephone application</option>
@@ -218,9 +220,9 @@
             <!-- filter field -->
             <li class="field applicant_income_000s">
               <label for="applicant_income_000s">Applicant Income:</label>
-              <div class="widget range">
-                <span>$</span><input type="text" class="param require-numeric" name="applicant_income_000s-min" data-comparator=">" value="" maxlength="7" placeholder="Min."><span class="thousands">,000 &nbsp; to &nbsp;</span>
-                <span>$</span><input type="text" class="param require-numeric" name="applicant_income_000s-max" data-comparator="<" value="" placeholder="Max."><span class="thousands">,000</span>
+              <div class="widget range check-range">
+                <span>$</span><input type="text" class="param require-numeric min-value" name="applicant_income_000s-min" data-comparator=">" value="" maxlength="7" placeholder="Min."><span class="thousands">,000 &nbsp; to &nbsp;</span>
+                <span>$</span><input type="text" class="param require-numeric max-value" name="applicant_income_000s-max" data-comparator="<" value="" placeholder="Max."><span class="thousands">,000</span>
               </div>
               <div class="help" title="<%= explore_tooltips_applicant_income_000s %>"><i class="icon-help-alt"></i></div>
             </li>
@@ -316,7 +318,7 @@
               <label for="respondent_id">Lender ID:</label>
               <div class="widget range">
                 <input type="text" class="param require-numeric" name="respondent_id" value="" maxlength="10" placeholder="Enter a lender ID">
-                <p class="ffiec-lookup">Don't know a lender's ID?<br>Use the <a href="http://www.ffiec.gov/hmdaadwebreport/DisWelcome.aspx" target="_blank">FFIEC's disclosure tool</a> to look it up.</p>
+                <p class="ffiec-lookup">Don't know a lender's ID?<br>Use the <a href="http://www.ffiec.gov/hmdaadwebreport/DisWelcome.aspx" target="_blank" class="dont-redirect">FFIEC's disclosure tool</a> to look it up.</p>
               </div>
               <div class="help" title="<%= explore_tooltips_respondent_id %>"><i class="icon-help-alt"></i></div>
             </li>
@@ -448,9 +450,9 @@
             <!-- filter field -->
             <li class="field loan_amount_000s">
               <label for="loan_amount_000s">How much is the loan for?</label>
-              <div class="widget range">
-                <span>$</span><input type="text" class="param require-numeric" name="loan_amount_000s-min" data-comparator=">" value="" placeholder="Min."><span class="thousands">,000 &nbsp; to &nbsp;</span>
-                <span>$</span><input type="text" class="param require-numeric" name="loan_amount_000s-max" data-comparator="<" value="" placeholder="Max."><span class="thousands">,000</span>
+              <div class="widget range check-range">
+                <span>$</span><input type="text" class="param require-numeric min-value" name="loan_amount_000s-min" data-comparator=">" value="" placeholder="Min."><span class="thousands">,000 &nbsp; to &nbsp;</span>
+                <span>$</span><input type="text" class="param require-numeric max-value" name="loan_amount_000s-max" data-comparator="<" value="" placeholder="Max."><span class="thousands">,000</span>
               </div>
               
             </li>
@@ -538,13 +540,13 @@
             </li>
             <!-- /filter field -->
 
-            <!-- <optgroup label="Optional reporting"> -->
-                    <option value="8">Preapproval request approved but not accepted</option>
-                 <!-- </optgroup> -->
-
             <!-- filter field -->
             <li class="field optional hmda_reporting hidden" data-optional="hmda_reporting">
+<<<<<<< HEAD
               <label for="preapproval">Did the applicant request preapproval?</label>
+=======
+              <label for="preapproval">Did the applicant request pre-approval?</label>
+>>>>>>> upstream/master
               <div class="widget checkbox inline">
                 <label><input type="checkbox" class="param" name="preapproval[]" value="1" />Yes</label>
                 <label><input type="checkbox" class="param" name="preapproval[]" value="2" />No</label>
@@ -607,9 +609,9 @@
         <div class="filter footer">
           <div class="next-steps">
           
-            <a href="#" class="reset action-arrow">Clear all fields</a> | <a href="#" class="reset-default action-arrow">Reset to default</a>
+            <a href="#" class="reset action-arrow">Clear all fields</a><span class="pipe">|</span><a href="#" class="reset-default action-arrow">Reset to default</a>
        
-            <span class="insight">Want more insight? <a href="#summary" class="section-toggle action-arrow">Create a summary table<i class="icon-right"></i></a></span>
+            <span class="insight">Want more insight? &nbsp;&nbsp;<a href="#summary" class="section-toggle action-arrow">Create a summary table<i class="icon-right"></i></a></span>
 
           </div>
 
@@ -631,7 +633,7 @@
 
           <div class="title">
 
-            <a href="#preview"><h3>Preview the first 100 rows <i class="icon-minus-alt"></i></h3></a>
+            <a href="#preview"><h3><i class="icon-minus-alt"></i>Preview the first 100 rows</h3></a>
 
           </div>
 
@@ -726,7 +728,9 @@
     <h2>Create a summary table</h2>
 
     <div class="intro">
-    <p class="nlw"><!--<img src="static/img/icon_bar_chart.png" class="left" alt=""/>-->There are <em class="calculating"><img src="static/img/icon_spinner.gif" alt="Loading icon"></em><strong class="count">many</strong> HMDA records from <strong class="years">2007 - 2012</strong> with the previously selected filters.</p>
+    <p class="nlw">
+      <img src="static/img/icon_data_2x.png" width="30" height="30" alt="Data icon" class="data-minicon" />
+      There are <em class="calculating"><img src="static/img/icon_spinner.gif" alt="Loading icon"></em><strong class="count">many</strong> HMDA records from <strong class="years">2007 - 2012</strong> with the previously selected filters.</p>
 
     Not quite what you're looking for? You can also go back and filter your results differently. <a href="#filters" class="section-toggle action-arrow modify-filters">Modify your filters<i class="icon-right"></i></a>
     </div>

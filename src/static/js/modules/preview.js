@@ -67,7 +67,7 @@ var PDP = (function ( pdp ) {
   preview.enableTable = function() {
 
     $('.preview .title').removeClass('disabled');
-    $('.ajax-error').remove();
+    $('.msg').removeClass('error').html('');
 
   };
 
@@ -78,10 +78,7 @@ var PDP = (function ( pdp ) {
 
     $title.addClass('disabled');
 
-    if ( pdp.query.debug ) {
-      $('body').append('<h3 class="ajax-error">The API timed out after ' + pdp.query.secondsToWait + ' seconds. :(</h3>');
-      $('.ajax-error').fadeOut( 5000 );
-    }
+    $('.msg').addClass('error').html('<i class="icon-error-alt"></i> There was a problem connecting to the API. Reload the page and if this problem persists, <a href="http://www.consumerfinance.gov/contact-us/">contact us</a>.');
 
   };
 
@@ -104,6 +101,7 @@ var PDP = (function ( pdp ) {
   preview.update = function() {
 
     var promise = this._fetchPreviewJSON(),
+        $downloadButton = $('#download .action'),
         check,
         aborted;
 
@@ -115,17 +113,23 @@ var PDP = (function ( pdp ) {
       aborted = true;
       preview.stopLoading();
       preview.disableTable();
+      pdp.form.disableField( $downloadButton );
 
     }
 
     preview.startLoading();
     preview.enableTable();
+    pdp.form.enableField( $downloadButton );
     preview.updateNLW();
 
     promise.done( function( data ) {
 
       if ( promise._timestamp < preview._lastRequestTime || aborted ) {
         return;
+      }
+
+      if ( data.total <= 0 ) {
+        pdp.form.disableField( $downloadButton );
       }
 
       preview.nlw.count = data.total;
@@ -180,6 +184,7 @@ var PDP = (function ( pdp ) {
   preview.updateDownloadSize = function() {
 
     var count = preview.nlw.count,
+        multiplier = pdp.query.codes ? 511 : 489,
         filesize;
 
     if ( isNaN( count ) || !count ) {
@@ -189,9 +194,9 @@ var PDP = (function ( pdp ) {
 
     preview.$downloadSize.removeClass('hidden');
 
-    // A CSV with 100 records is approximately 40k so we're doing a really rough estimate 
-    // here to get the item's filesize.
-    filesize = pdp.utils.getPrettyFilesize( count / 100 * 40000 );
+    // The multiplier numbers above is the result of averaging the filesizes of a random 
+    // sample of file downloads.
+    filesize = pdp.utils.getPrettyFilesize( count * multiplier );
 
     preview.$downloadSize.find('.bytes').html( filesize );
 
