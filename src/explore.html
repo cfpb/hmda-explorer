@@ -165,7 +165,7 @@
 
             <a href="#borrower"> <h3><i class="icon-minus-alt"></i> Applicant</h3></a>
 
-            <div class="desc">Demographics for applicants and co-applicants</div>
+            <div class="desc">Demographic information for applicants and co-applicants</div>
 
           </div>
 
@@ -304,7 +304,7 @@
 
             <a href="#lender"><h3><i class="icon-minus-alt"></i> Lender</h3></a>
 
-            <div class="desc">Lender ID and regulatory agency</div>
+            <div class="desc">Lender ID and federal agency</div>
 
           </div>
 
@@ -312,7 +312,10 @@
 
             <!-- filter field -->
             <li class="field">
-              <label for="respondent_id">Choose a lender:</label>
+
+            <p class="coming-soon">We are working on a way for you to find a lender simply by typing to search their name. Thanks for bearing with us as we hack this out!</p>
+
+              <label for="respondent_id">Lender ID:</label>
               <div class="widget range">
                 <input type="text" class="param require-numeric" name="respondent_id" value="" maxlength="10" placeholder="Enter a lender ID">
                 <p class="ffiec-lookup">Don't know a lender's ID?<br>Use the <a href="http://www.ffiec.gov/hmdaadwebreport/DisWelcome.aspx" target="_blank" class="dont-redirect">FFIEC's disclosure tool</a> to look it up.</p>
@@ -323,9 +326,9 @@
 
             <!-- filter field -->
             <li class="field">
-              <label for="agency_code">Who regulates this lender?</label>
+              <label for="agency_code">Federal agency:</label>
               <div class="widget select">
-                <select class="param" name="agency_code" id="agency_code" multiple data-placeholder="Select a Regulatory Agency">
+                <select class="param" name="agency_code" id="agency_code" multiple data-placeholder="Select an agency">
                   <option value></option>
                   <option value="1">Office of the Comptroller of the Currency (OCC)</option>
                   <option value="2">Federal Reserve System (FRS)</option>
@@ -339,6 +342,7 @@
               <div class="help" title="<%= explore_tooltips_agency_code %>"><i class="icon-help-alt"></i></div>
             </li>
             <!-- /filter field -->
+
 
           </ul>
           
@@ -375,7 +379,7 @@
 
             <!-- filter field -->
             <li class="field popular">
-              <label for="owner_occupancy">Will the owner live on the property?</label>
+              <label for="owner_occupancy">Will the owner use the property<br> as their primary residence?</label>
               <div class="widget checkbox">
                 <label><input type="checkbox" class="param" name="owner_occupancy[]" value="1" />Owner-occupied as a principal dwelling</label>
                 <label><input type="checkbox" class="param" name="owner_occupancy[]" value="2" />Not owner-occupied as a principal dwelling</label>
@@ -456,7 +460,7 @@
 
             <!-- filter field -->
             <li class="field rate_spread">
-              <label for="rate_spread">Is this a higher-priced loan?</label>
+              <label for="rate_spread">Is it a higher-priced loan?</label>
               <div class="widget radio inline rate_spread">
                 <label><input type="radio" class="param" name="rate_spread" data-comparator="!=" value="null" />Yes</label>
                 <label><input type="radio" class="param" name="rate_spread" data-comparator="=" value="null" />No</label>
@@ -478,7 +482,7 @@
 
             <!-- filter field -->
             <li class="field optional hoepa_loan hidden">
-              <label for="hoepa_status">Is the loan a HOEPA loan?</label>
+              <label for="hoepa_status">Is it a HOEPA loan?</label>
               <div class="widget checkbox inline">
                 <label><input type="checkbox" class="param" name="hoepa_status[]" value="1" />Yes</label>
                 <label><input type="checkbox" class="param" name="hoepa_status[]" value="0" />No</label>
@@ -509,9 +513,9 @@
 
             <!-- filter field -->
             <li class="field popular">
-              <label for="action_taken">What action was taken on the loan or application?</label>
+              <label for="action_taken">What action was taken<br> on the loan or application?</label>
               <div class="widget select">
-                <select class="param" name="action_taken" id="action_taken" multiple data-placeholder="Select a decision">
+                <select class="param" name="action_taken" id="action_taken" multiple data-placeholder="Select an action">
                   <option value="1">Loan originated</option>
                   <option value="2">Application approved but not accepted</option>
                   <option value="3">Application denied by financial institution</option>
@@ -538,7 +542,11 @@
 
             <!-- filter field -->
             <li class="field optional hmda_reporting hidden" data-optional="hmda_reporting">
+<<<<<<< HEAD
+              <label for="preapproval">Did the applicant request preapproval?</label>
+=======
               <label for="preapproval">Did the applicant request pre-approval?</label>
+>>>>>>> upstream/master
               <div class="widget checkbox inline">
                 <label><input type="checkbox" class="param" name="preapproval[]" value="1" />Yes</label>
                 <label><input type="checkbox" class="param" name="preapproval[]" value="2" />No</label>
@@ -550,7 +558,7 @@
 
             <!-- filter field -->
             <li class="field optional hmda_reporting hidden" data-optional="hmda_reporting">
-              <label for="denial_reason_1">Denial Reason:</label>
+              <label for="denial_reason_1">If the loan or application was denied, did the lender<br> report a reason?</label>
               <div class="widget select">
                 <select class="param" name="denial_reason_1" id="denial_reason_1" data-placeholder="Select a denial reason">
                   <option value></option>
@@ -571,7 +579,7 @@
 
             <!-- filter field -->
             <li class="field optional hmda_reporting hidden" data-optional="hmda_reporting">
-              <label for="purchaser_type">Purchaser Type:</label>
+              <label for="purchaser_type">If this loan was sold on the secondary market,<br> who purchased it?</label>
               <div class="widget select">
                 <select class="param" name="purchaser_type" id="purchaser_type" multiple data-placeholder="Select a purchaser type">
                   <option value="0">Loan was not originated or was not sold in calendar year covered by register</option>
@@ -661,8 +669,8 @@
             <label for="codes" title="data-codes"> </label>
 
             <div class="radio widget codes">
-              <label><input type="radio" name="codes" value="0" checked />Use plain language labels</label>
-              <label><input type="radio" name="codes" value="1" />Keep the HMDA codes</label>
+              <label><input type="radio" name="codes" value="0" checked />Include plain language labels with codes</label>
+              <label><input type="radio" name="codes" value="1" />Include only the codes</label>
               
               <div class="help" title="<%= explore_tooltips_download_raw_data %>">
               <i class="icon-help-alt"></i></div>
@@ -793,11 +801,11 @@
 
         <section id="download" class="download">
 
-          <h2>Download raw data</h2>
+          <h2>Download the raw data</h2>
 
           <div class="inner">
 
-            <label for="format">File type:</label>
+            <label for="format">File format:</label>
             <div class="select widget">
               <select name="format" id="raw-format">
                 <option value="csv">Spreadsheet (CSV)</option>
@@ -807,10 +815,14 @@
               </select>
             </div>
 
-            <label for="codes">HMDA codes:</label>
+            <label for="codes"> </label>
             <div class="radio widget raw-codes">
-              <label><input type="radio" name="codes" value="0" checked />Plain names</label>
-              <label><input type="radio" name="codes" value="1" />Codes only</label>
+              <label><input type="radio" name="codes" value="0" checked />Include plain language labels with codes</label>
+              <label><input type="radio" name="codes" value="1" />Include only the codes</label>
+
+              <div class="help" title="<%= explore_tooltips_download_raw_data %>">
+              <i class="icon-help-alt"></i></div>
+
             </div>
             
 
@@ -828,11 +840,11 @@
 
         <section id="download-summary" class="download-summary">
 
-          <h2>Download table</h2>
+          <h2>Download the data in a table</h2>
 
           <div class="inner">
 
-            <label for="summary-table-format">Summary table file type:</label>
+            <label for="summary-table-format">Summary table file format:</label>
             <div class="select widget">
               <select name="summary-table-format" id="summary-table-format">
                 <option value="csv">Spreadsheet (CSV)</option>
