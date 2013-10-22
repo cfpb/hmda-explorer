@@ -67,7 +67,7 @@ var PDP = (function ( pdp ) {
   preview.enableTable = function() {
 
     $('.preview .title').removeClass('disabled');
-    $('.msg').removeClass('error').html('');
+    $('.msg.preview-table').removeClass('error').html('');
 
   };
 
@@ -78,7 +78,7 @@ var PDP = (function ( pdp ) {
 
     $title.addClass('disabled');
 
-    $('.msg').addClass('error').html('<i class="icon-error-alt"></i> There was a problem connecting to the API. Reload the page and if this problem persists, <a href="http://www.consumerfinance.gov/contact-us/">contact us</a>.');
+    $('.msg.preview-table').addClass('error').html('<i class="icon-error-alt"></i> There was a problem connecting to the API. Reload the page and if this problem persists, <a href="http://www.consumerfinance.gov/contact-us/">contact us</a>.');
 
   };
 
