@@ -128,7 +128,7 @@ var PDP = (function ( pdp ) {
   // The `setCookie` method stores the param object in a cookie.
   query.setCookie = function() {
 
-    $.cookie( '_hmda', pdp.form.getFields() );
+    $.cookie( '_hmda', pdp.form.getFields(), { expires: 1 } );
 
   };
 
