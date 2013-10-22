@@ -60,7 +60,7 @@
 
   .wrapper();
   margin-top: 40px;
-  //.transparent();
+  .transparent();
   
   h2 {
     margin-top: 40px;
@@ -69,8 +69,15 @@
     font-size: 1.5em;
   }
 
+  .pipe {
+    padding: 0 15px;
+    position: relative;
+    bottom: 2px;
+    color: @dark_field;
+  }
+
   &.ready {
-    //.opaque();
+    .opaque();
   }
 
   &.loading {
@@ -230,12 +237,6 @@
 
     }
 
-    .pipe {
-      padding: 0 15px;
-      position: relative;
-      bottom: 2px;
-      color: @dark_field;
-    }
   }
 
   .download-share {
