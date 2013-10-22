@@ -615,7 +615,7 @@
 
       <h2>Preview the results</h2>
 
-      <div class="msg">
+      <div class="msg preview-table">
 
       </div>
 
@@ -658,8 +658,6 @@
               </select>
             </div>
 
-            <label for="codes" title="data-codes"> </label>
-
             <div class="radio widget codes">
               <label><input type="radio" name="codes" value="0" checked />Include plain language labels with codes</label>
               <label><input type="radio" name="codes" value="1" />Include only the codes</label>
@@ -669,6 +667,11 @@
               
             </div>
 
+            <div class="msg mobile-warning">
+
+              <%= explore_mobile_warning %>
+
+            </div>
 
             <div class="action">
 
@@ -816,7 +819,12 @@
               <i class="icon-help-alt"></i></div>
 
             </div>
-            
+
+            <div class="msg mobile-warning">
+
+              <%= explore_mobile_warning %>
+
+            </div>
 
             <div class="action">
 
@@ -844,6 +852,12 @@
                 <option value="jsonp">JSONP</option>
                 <option value="xml">XML</option>
               </select>
+            </div>
+
+            <div class="msg mobile-warning">
+
+              <%= explore_mobile_warning %>
+
             </div>
 
             <div class="action">
