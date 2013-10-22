@@ -152,7 +152,7 @@ var PDP = (function ( pdp ) {
     var tagName = $el.prop('tagName').toLowerCase(),
         type = $el.attr('type'),
         name = $el.attr('name') || undefined,
-        value = $el.val() && $el.val().indexOf(',') !== -1 ? $el.val().replace( ',', '' ) : $el.val(),
+        value = $el.val() && $el.val().indexOf(',') !== -1 ? $el.val().replace( /,/g, '' ) : $el.val(),
         field = {},
         comparator = '=';
 
