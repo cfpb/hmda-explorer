@@ -336,7 +336,8 @@ section.video {
     position: relative;
     background-color: @light_field10;
     padding: 10px 20px;
-    height: 260px;
+    min-height: 200px;
+    margin-bottom: 20px;
     .action-arrow {
       position: absolute;
     }
@@ -578,67 +579,67 @@ section.video {
       } 
     }
 
-    #facts-and-figures {
-      h2 {
-        .at2x( '../img/icon_dataviz.png', 81px, 93px );
-      }
-      #map {
-        // Show the map controls on non-mobile devices
-        .leaflet-control-container,
-        #map-title {
+  }
+
+  #facts-and-figures {
+    h2 {
+      .at2x( '../img/icon_dataviz.png', 81px, 93px );
+    }
+    #map {
+      // Show the map controls on non-mobile devices
+      .leaflet-control-container,
+      #map-title {
+        display: block;
+        width: 215px;
+        left: 10px;
+        h3 {
+          font-size: 1.75em;
+        }
+        p,
+        .controls {
           display: block;
-          width: 215px;
-          left: 10px;
-          h3 {
-            font-size: 1.75em;
-          }
-          p,
-          .controls {
-            display: block;
-          }
         }
-        .leaflet-left {
-          left: 220px;
-        }
+      }
+      .leaflet-left {
+        left: 220px;
       }
     }
+  }
 
-    #get-the-data {
-      h2 {
-        .at2x( '../img/icon_getdata.png', 79px, 92px );
-        strong {
-          font-size: 1.4em;
-        }
-      }
-      .inner {
-        width: 82%;
-      }
-      .filters {
-        margin-right: 3%;
-      }
-      .filters,
-      .summary {
-        width: 48%;
-        min-height: 255px;
-        display: inline-block;
+  #get-the-data {
+    h2 {
+      .at2x( '../img/icon_getdata.png', 79px, 92px );
+      strong {
+        font-size: 1.4em;
       }
     }
+    .inner {
+      width: 82%;
+    }
+    .filters {
+      margin-right: 3%;
+    }
+    .filters,
+    .summary {
+      width: 48%;
+      min-height: 292px;
+      display: inline-block;
+    }
+  }
 
-    #developers {
-      h2 {
-        .at2x( '../img/icon_devs.png', 92px, 97px );
-        padding-left: 110px;
-      }
-      .inner {
-        width: 82%;
-        .clearfix;
-      }
-      .api {
-        width: 65%;
-        margin-right: 3%;
-        float: left;
-      }
-
+  #developers {
+    h2 {
+      .at2x( '../img/icon_devs.png', 92px, 97px );
+      padding-left: 110px;
+    }
+    .inner {
+      width: 82%;
+      .clearfix;
+    }
+    .api {
+      width: 65%;
+      margin-right: 3%;
+      float: left;
     }
 
   }
