@@ -142,8 +142,6 @@ module.exports = function(grunt) {
      * Shell: https://github.com/sindresorhus/grunt-shell
      * 
      * Grunt task to run shell commands.
-     * For now we're just copying the src file over to dist and
-     * zipping the example directory.
      */
     shell: {
       sauce: {
@@ -169,6 +167,7 @@ module.exports = function(grunt) {
           {expand: true, cwd: 'src/static/fonts/', src: ['**'], dest: 'dist/static/fonts/'},
           {expand: true, cwd: 'src/static/img/', src: ['**'], dest: 'dist/static/img/'},
           {expand: true, cwd: 'src/static/js/', src: ['**'], dest: 'dist/static/js/'},
+          {expand: true, cwd: 'src/static/desc/', src: ['**'], dest: 'dist/static/desc/'},
           {expand: true, cwd: 'src/static/vendor/cfpb-font-icons/static/fonts/', src: ['**'], dest: 'dist/static/fonts/'},
           {expand: true, cwd: 'src/static/vendor/cfpb-font-icons/static/css/', src: ['icons-ie7.css'], dest: 'dist/static/css/'},
           {expand: true, cwd: 'src/static/vendor/zeroclipboard/', src: ['**'], dest: 'dist/static/js/zeroclipboard/'},
