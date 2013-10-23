@@ -14,7 +14,7 @@ var PDP = (function ( pdp ) {
   };
 
   // Cache a reference to the app's jQuery object.
-  app.$el = $('#filters, #summary');
+  app.$el = $('#filters');
 
   // The current section the user is viewing.
   app.currentSection = 'filters';
@@ -52,7 +52,7 @@ var PDP = (function ( pdp ) {
     }
 
     // Give our app a special class.
-    this.$el.addClass('ready');
+    $('.app-section').addClass('ready');
 
     // Broadcast that the app is loaded and good to go.
     pdp.observer.emitEvent('app:ready');
