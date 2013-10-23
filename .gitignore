@@ -12,6 +12,10 @@ Thumbs.db
 #################
 node_modules/
 
+# Grunt #
+#########
+.grunt/
+
 # Bower vendor scripts #
 ########################
 src/static/vendor
