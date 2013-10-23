@@ -14,7 +14,7 @@ var PDP = (function ( pdp ) {
   };
 
   // Cache a reference to the app's jQuery object.
-  app.$el = $('#filters');
+  app.$el = $('#filters, #summary');
 
   // The current section the user is viewing.
   app.currentSection = 'filters';
