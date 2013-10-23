@@ -142,8 +142,6 @@ module.exports = function(grunt) {
      * Shell: https://github.com/sindresorhus/grunt-shell
      * 
      * Grunt task to run shell commands.
-     * For now we're just copying the src file over to dist and
-     * zipping the example directory.
      */
     shell: {
       sauce: {
@@ -169,6 +167,7 @@ module.exports = function(grunt) {
           {expand: true, cwd: 'src/static/fonts/', src: ['**'], dest: 'dist/static/fonts/'},
           {expand: true, cwd: 'src/static/img/', src: ['**'], dest: 'dist/static/img/'},
           {expand: true, cwd: 'src/static/js/', src: ['**'], dest: 'dist/static/js/'},
+          {expand: true, cwd: 'src/static/desc/', src: ['**'], dest: 'dist/static/desc/'},
           {expand: true, cwd: 'src/static/vendor/cfpb-font-icons/static/fonts/', src: ['**'], dest: 'dist/static/fonts/'},
           {expand: true, cwd: 'src/static/vendor/cfpb-font-icons/static/css/', src: ['icons-ie7.css'], dest: 'dist/static/css/'},
           {expand: true, cwd: 'src/static/vendor/zeroclipboard/', src: ['**'], dest: 'dist/static/js/zeroclipboard/'},
@@ -333,6 +332,7 @@ module.exports = function(grunt) {
             'src/static/vendor/jquery-ui/ui/jquery.ui.mouse.js',
             'src/static/vendor/jquery-ui/ui/jquery.ui.slider.js',
             'src/static/vendor/zeroclipboard/ZeroClipboard.js',
+            'src/static/vendor/jquery.cookie/jquery.cookie.js',
             'src/static/js/templates/template.js',
             'src/static/js/modules/observer.js',
             'src/static/js/modules/utils.js',
@@ -376,10 +376,6 @@ module.exports = function(grunt) {
         }
       },
       ie8: {
-        options: {
-          sourceMap: 'dist/static/js/source-maps/ie8.js',
-          sourceMappingURL: 'source-maps/ie8.js'
-        },
         files: {
           'dist/static/js/ie8.min.js': [
             'src/static/vendor/es5-shim/es5-shim.js',
@@ -636,7 +632,7 @@ module.exports = function(grunt) {
   grunt.registerTask('sauce', ['connect:sauce', 'jasmine:sauce', 'saucelabs-jasmine', 'shell:sauce']);
   grunt.registerTask('mogo', ['connect:mogo', 'shell:mogo']);
   grunt.registerTask('docs', ['removelogging', 'docco', 'build-cfpb']);
-  grunt.registerTask('build', ['template', 'copy:dist', 'jst', 'uglify', 'less', 'cssmin']);
+  grunt.registerTask('build', ['template', 'copy:dist', 'less', 'cssmin', 'jst', 'uglify']);
   grunt.registerTask('ghpages', ['build', 'copy:ghpages']);
 
   /**

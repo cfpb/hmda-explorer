@@ -127,15 +127,13 @@ $(function(){
 
       }.bind( this ));
 
-      $('#map .help').tooltip({ placement: 'right' }).on('shown.bs.tooltip', function () {
+      $('#map .help').tooltip({ placement: 'right', container: 'body' }).on('shown.bs.tooltip', function () {
         $('.tooltip').css({
           'margin-left': '10px',
-          'margin-top': '5px',
+          'margin-top': '-2px',
           'width': '250px'
         });
-      });
-
-      $('#map .help').tooltip({ placement: 'right' }).on('hide.bs.tooltip', function () {
+      }).on('hide.bs.tooltip', function () {
         $('.tooltip').css({
           'margin-left': '0',
           'margin-top': '0',
