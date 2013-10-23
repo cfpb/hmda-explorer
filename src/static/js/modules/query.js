@@ -15,10 +15,10 @@ var PDP = (function ( pdp ) {
   query.format = query.debug ? 'json' : 'jsonp?$callback=';
 
   // Set a default endpoint for AJAX requests.
-  query.endpoint = query.debug ? 'static/js/static_data/' : 'https://qu2.demo.cfpb.gov/data/hmda/';
+  query.endpoint = query.debug ? 'static/js/static_data/' : 'https://api.consumerfinance.gov/data/hmda/';
 
   // Seconds to wait on a response from the API before giving up.
-  query.secondsToWait = 600;
+  query.secondsToWait = 300;
 
   // Whether or not they want codes in their downloaded file.
   query.codes = false;
@@ -70,11 +70,15 @@ var PDP = (function ( pdp ) {
     var fields,
         opts = options || {};
 
-    // Get our fields array from either the hash in the url or the DOM field elements.
-    if ( opts.source === 'url' ) {
-      fields = pdp.app.getUrlValues();
-    } else {
-      fields = pdp.form.getFields();
+    switch( opts.source ) {
+      case 'url':
+        fields = pdp.app.getUrlValues();
+        break;
+      case 'session':
+        fields = pdp.query.getCookie();
+        break;
+      default:
+        fields = pdp.form.getFields();
     }
 
     this.reset();
@@ -118,6 +122,20 @@ var PDP = (function ( pdp ) {
     _.forEach( fields, _processField );
 
     pdp.observer.emitEvent( 'params:updated' );
+
+  };
+
+  // The `setCookie` method stores the param object in a cookie.
+  query.setCookie = function() {
+
+    $.cookie( '_hmda', pdp.form.getFields(), { expires: 1 } );
+
+  };
+
+  // The `getCookie` method retrives the param object from a cookie.
+  query.getCookie = function() {
+
+    return $.cookie( '_hmda' );
 
   };
 

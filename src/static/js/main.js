@@ -31,7 +31,8 @@ var PDP = (function ( pdp ) {
       pdp.query.updateAll.bind( pdp.query ),
       pdp.form.checkDeps.bind( pdp.form ),
       pdp.form.checkMutuallyExclusive.bind( pdp.form ),
-      pdp.form.updateShareLink.bind( pdp.form )
+      pdp.form.updateShareLink.bind( pdp.form ),
+      pdp.query.setCookie.bind( pdp.query )
     ],
 
     // When the popular/all nav is clicked: change to the appropriate section
@@ -42,7 +43,7 @@ var PDP = (function ( pdp ) {
     ],
 
     // When the `query.params` hash is finished updating,
-    // update the preview table.
+    // update the preview table and store the params.
     'params:updated': [
       pdp.preview.update.bind( pdp.preview )
     ],

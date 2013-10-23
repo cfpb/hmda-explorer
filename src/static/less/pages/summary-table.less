@@ -7,12 +7,6 @@
     background-color: @light_field20;
     padding: 10px 15px 20px 20px;
     font-family: "Avenir Next", Arial, sans-serif;
-
-    .modify-filters {
-      float: right;
-      position: relative;
-      bottom: .25em;
-    }
   }
   .spinning {
     display: none;
@@ -31,26 +25,33 @@
       display: block;
     }
   }
+  #share {
+    label {
+      border: 0;
+      width: 100%;
+    }
+  }
 }
 
 .instructions {
-  padding: 30px 0 15px 0;
+  padding: 30px 15px 15px;
   background-color: @light_field10;
   font-size: 1em;
   line-height: 1.375em;
 }
 
 .submit-btn {
-  float: right; 
-  position: relative;
+  margin-top: 20px;
+  display: block;
   bottom: .5em;
   padding: 0.75em 1em;
 }
 
-
-
 .drop-downs {
   background-color: @light_field10;
+  > div {
+    padding: 15px;
+  }
 }
 
 #summary-table-form {
@@ -105,8 +106,8 @@
   }
 
   .reset-field {
-    position: absolute;
-    right: 0;
+    text-align: right;
+    display: block;
     margin-top: 4px;
     font-size: .8em;
     font-family: 'Avenir Next Demi', Arial, sans-serif;
@@ -159,7 +160,6 @@
     .calculate {
       .column( 2 );
       display: table-cell;
-      vertical-align: bottom;
 
       label.stretchy {
         position: absolute;
@@ -171,12 +171,28 @@
     .drop-downs {
       display: table-row;
       position: relative;
+      > div {
+        padding: 0;
+      }
     }
 
   }
 
+  .modify-filters {
+    float: right;
+    line-height: 1em;
+  }
+
   .instructions {
     .column( 12 );
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .submit-btn {
+    margin-top: 0;
+    float: right; 
+    position: relative;
   }
 
 }

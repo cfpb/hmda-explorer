@@ -1,1 +1,1 @@
-Every HMDA-reporting lending institution must be regulated by a federal agency.
+Identifies the federal agency to which the HMDA-reporting institution submits its HMDA data.

@@ -25,6 +25,9 @@ var PDP = (function ( pdp ) {
     var hashParams = pdp.utils.getHashParams(),
         tooltipPlacement = $( window ).width() > 768 ? 'right' : 'left';
 
+    // Turn on automatic storage of JSON objects passed as the cookie value.
+    $.cookie.json = true;
+
     // Activate [chosen](http://harvesthq.github.io/chosen/) on select elements and correct 
     // a bug that cuts off the placeholder text.
     app.$el.find('select').chosen({ width: '100%', disable_search_threshold: 10, allow_single_deselect: true });
@@ -37,7 +40,11 @@ var PDP = (function ( pdp ) {
     // If there are hash params in the URL OR the only hashParam is to designate which section,
     // grab them and populate the DOM fields.
     if ( !_.isEmpty( hashParams ) ) {
-      pdp.query.updateAll({source: 'url'});
+      pdp.query.updateAll({ source: 'url' });
+      pdp.form.hideIntroExplanation();
+    } else if ( !_.isEmpty( $.cookie('_hmda') ) ) {
+      // Read from the cookie if it exists.
+      pdp.query.updateAll({ source: 'session' });
       pdp.form.hideIntroExplanation();
     } else {
       // Clear out any cached values.
@@ -45,7 +52,7 @@ var PDP = (function ( pdp ) {
     }
 
     // Give our app a special class.
-    this.$el.addClass('ready');
+    $('.app-section').addClass('ready');
 
     // Broadcast that the app is loaded and good to go.
     pdp.observer.emitEvent('app:ready');
@@ -107,7 +114,7 @@ var PDP = (function ( pdp ) {
   // The `redirect` method redirects the browser to a new URL.
   // It is used to send the user to the Qu URL with their results.
   app.redirect = function( url ) {
-    window.location.href = url;
+    window.open( url, '_blank' );
   };
 
   // The 'getUrlValue' method returns an object containing a hash params name and value

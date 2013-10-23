@@ -1,3 +1,9 @@
+v0.17.1:
+  date: 2013-10-20
+  changes:
+    - Improved caching (#373), error handling and file size estimation.
+    - Disable download button if record count is zero (#380).
+
 v0.16.2:
   date: 2013-10-10
   changes:

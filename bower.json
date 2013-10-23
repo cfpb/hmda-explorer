@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "devDependencies": {
     "ghost": "https://fake.ghe.domain/front/ghost.git",
-    "jquery": "~1.10.1",
+    "jquery": "~1.10.2",
     "normalize-css": "~2.1.2",
     "html5shiv": "~3.6.2",
     "eventEmitter": "~4.1.1",
@@ -18,6 +18,7 @@
     "respond": "~1.2.0",
     "highcharts.com": "~v3.0.5",
     "html5-placeholder-polyfill": "~2.0.8",
-    "es5-shim": "~2.1.0"
+    "es5-shim": "~2.1.0",
+    "jquery.cookie": "~1.4.0"
   }
 }
