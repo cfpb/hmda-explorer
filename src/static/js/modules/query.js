@@ -242,7 +242,8 @@ var PDP = (function ( pdp ) {
     where: function( params ) {
 
       var _params = {},
-          queryVals = [];
+          queryVals = [],
+          where;
 
       // In order to compensate for enumerated location fields (state_code-1, county_name-1, etc.)
       // we have to go through and consolidate all enumerated params into unified objects.
@@ -287,9 +288,20 @@ var PDP = (function ( pdp ) {
 
       }.bind( this ));
 
-      // Join all the params with `AND` operators and append it to the base url,
-      // replacing spaces with plus signs.
-      return '&$where=' + encodeURI( queryVals.join(' AND ') ).replace( /%20/g, '+' );
+      // Join all the params with `AND` operators
+      where = queryVals.join(' AND ');
+
+      // All params are joined with `AND` operators... except with locations things
+      // get weird. If the user selects multiple states and MSAs, records should be
+      // shown that match any of the locations. `OR` operators need to be used.
+      // The simplest way of dealing with this one-off use case is to replace()
+      // after building the query string.
+      where = where.replace( /(msamd|state_code)=([\d"]+)\)? (AND) \(?(msamd|state_code)/, function replacer( match ){
+        return match.replace( 'AND', 'OR' );
+      });
+
+      // Encode for URIs and replace spaces with plus signs.
+      return '&$where=' + encodeURI( where ).replace( /%20/g, '+' );
 
     },
 
@@ -307,8 +319,7 @@ var PDP = (function ( pdp ) {
     _listVals: function( param ) {
 
       var i = param.length,
-
-        str = '';
+          str = '';
 
       while( i-- ) {
         if ( typeof param[i] !== 'undefined' ) {
