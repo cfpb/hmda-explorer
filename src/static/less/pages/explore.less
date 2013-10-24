@@ -91,8 +91,7 @@
   // File size estimation
   .download-size {
     font-style: italic;
-    font-size: .875em;
-    display: inline-block;
+    font-size: .75em;
   }
 
 }
@@ -159,13 +158,14 @@
 
   .inner {
     background-color: @light_field10;
-    padding: 30px;
-    min-height: 200px;
+    padding: 25px 30px;
+    min-height: 275px;
   }
 
   label {
     .avenir-next-demi;
     margin-right: 15px;
+    padding: 0 0 .5em 0;
   }
 
   .widget {
@@ -320,18 +320,29 @@
     }
 
     #share {
-      border-right: 0;
+      border: 0;
       label {
-        .column( 5, 6 );
+        border: 0;
+      }
+      .share-url-width {
+        width: 180%;
       }
     }
 
     .codes {
-      margin-left: 24%;
+      width: 100%;
     }
 
     .help {
       margin-left: 0;
+    }
+
+    .bump-up {
+      top: 0;
+    }
+
+    .btn-bump-down {
+      margin-top: 5px;
     }
 
   }
@@ -341,38 +352,6 @@
     section {
       .column( 6 );
     }
-
-    label {
-    border-width: 0;
-    }
-
-    .widget {
-      .column( 4, 6 );
-      border-right: 0;
-      label {
-        .column( 2, 4 );
-        text-align: left;
-        border: 0;
-        width:90%;
-
-        p {
-          display: inline-block;
-        }
-      }
-      input[type=radio] {
-        width: 20px;
-        display: inline-block;
-      }
-    }
-
-    .action {
-      .column( 4, 6 );
-      .download-size {
-        .column( 2, 4 ); 
-      }
-     
-    }
-
 
   }
 
