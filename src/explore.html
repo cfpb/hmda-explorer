@@ -743,7 +743,7 @@
     </div>
 
     <div class="instructions">
-      Pick up to three variables and a calculation method to group your data.
+      Choose up to three variables and a calculation method to compare your data.
       <button class="submit-btn" id="summary-submit">Submit</button>
     </div>
 
@@ -822,13 +822,12 @@
               </select>
             </div>
 
-            <label for="codes"> </label>
             <div class="radio widget raw-codes">
               <label><input type="radio" name="codes" value="0" checked />Include plain language labels with codes</label>
               <label><input type="radio" name="codes" value="1" />Include only the codes</label>
 
               <div class="help" title="<%= explore_tooltips_download_raw_data %>">
-              <i class="icon-help-alt"></i></div>
+              <i class="icon-help-alt bump-up"></i></div>
 
             </div>
 
@@ -874,7 +873,7 @@
 
             <div class="action">
 
-              <button type="submit" class="submit btn" id="download-summary-button"><i class="icon-download"></i>Download</button>
+              <button type="submit" class="submit btn btn-bump-down" id="download-summary-button"><i class="icon-download"></i>Download</button>
 
             </div>
 
@@ -888,14 +887,14 @@
 
           <div class="inner">
 
-            <label for="share_url-1">Save your filters, or share them with a link:</label>
+            <label for="share_url-1">Save your filters, or share them<br>with a link:</label>
             <div class="text widget">
               <input type="text" class="share_url" id="share_url" name="share_url-1" value="" placeholder="Select filters above">
             </div>
 
             <div class="action">
 
-              <button href="#" type="button" class="btn share" data-clipboard-target="share_url"><i class="icon-share"></i>Share</button>
+              <button href="#" type="button" class="btn share btn-bump-down" data-clipboard-target="share_url"><i class="icon-share"></i>Share</button>
 
             </div>
 
