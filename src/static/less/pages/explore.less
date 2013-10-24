@@ -159,20 +159,19 @@
 
   .inner {
     background-color: @light_field10;
-    padding: 25px;
+    padding: 30px;
     min-height: 200px;
   }
 
   label {
     .avenir-next-demi;
-    margin-left:1.25em;
-    text-indent:-1.5em;
+    margin-right: 15px;
   }
 
   .widget {
     border-right: 0;
     input[type=radio] {
-      margin: 0 5px 0 15px;
+      margin: 0 8px 0 0;
     }
     label {
       .avenir-next;
@@ -328,7 +327,7 @@
     }
 
     .codes {
-      margin-left: 32%;
+      margin-left: 24%;
     }
 
     .help {
@@ -344,9 +343,7 @@
     }
 
     label {
-      .column( 2, 6 );
-      margin-right: -2em;
-
+    border-width: 0;
     }
 
     .widget {
@@ -357,9 +354,14 @@
         text-align: left;
         border: 0;
         width:90%;
+
+        p {
+          display: inline-block;
+        }
       }
       input[type=radio] {
         width: 20px;
+        display: inline-block;
       }
     }
 
