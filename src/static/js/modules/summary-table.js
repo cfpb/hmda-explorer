@@ -58,7 +58,7 @@ var PDP = (function ( pdp ) {
     },
     'sum_loan_amount_000s': {
       'api': 'SUM(loan_amount_000s)',
-      'human': 'Loan Amount Sum'
+      'human': 'Loan Amount Sum Total'
     }
   };
   
