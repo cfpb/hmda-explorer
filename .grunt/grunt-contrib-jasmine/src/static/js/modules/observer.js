@@ -1,6 +1,0 @@
-if (typeof __coverage__ === 'undefined') { __coverage__ = {}; }
-if (!__coverage__['./src/static/js/modules/observer.js']) {
-   __coverage__['./src/static/js/modules/observer.js'] = {"path":"./src/static/js/modules/observer.js","s":{"1":0,"2":0,"3":0,"4":0},"b":{"1":[0,0]},"f":{"1":0},"fnMap":{"1":{"name":"(anonymous_1)","line":1,"loc":{"start":{"line":1,"column":11},"end":{"line":1,"column":28}}}},"statementMap":{"1":{"start":{"line":1,"column":0},"end":{"line":17,"column":16}},"2":{"start":{"line":10,"column":2},"end":{"line":10,"column":36}},"3":{"start":{"line":13,"column":2},"end":{"line":13,"column":26}},"4":{"start":{"line":15,"column":2},"end":{"line":15,"column":13}}},"branchMap":{"1":{"line":17,"type":"binary-expr","locations":[{"start":{"line":17,"column":3},"end":{"line":17,"column":6}},{"start":{"line":17,"column":10},"end":{"line":17,"column":12}}]}}};
-}
-var __cov_gy6oWqPSkzgfkTtu84p2nA = __coverage__['./src/static/js/modules/observer.js'];
-__cov_gy6oWqPSkzgfkTtu84p2nA.s['1']++;var PDP=function(pdp){'use strict';__cov_gy6oWqPSkzgfkTtu84p2nA.f['1']++;__cov_gy6oWqPSkzgfkTtu84p2nA.s['2']++;var observer=new EventEmitter();__cov_gy6oWqPSkzgfkTtu84p2nA.s['3']++;pdp.observer=observer;__cov_gy6oWqPSkzgfkTtu84p2nA.s['4']++;return pdp;}((__cov_gy6oWqPSkzgfkTtu84p2nA.b['1'][0]++,PDP)||(__cov_gy6oWqPSkzgfkTtu84p2nA.b['1'][1]++,{}));
