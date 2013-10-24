@@ -5,8 +5,11 @@
   .intro {
     border-bottom: 1px solid @light_field;
     background-color: @light_field20;
-    padding: 10px 15px 20px 20px;
+    padding: 15px 30px 20px 30px;
     font-family: "Avenir Next", Arial, sans-serif;
+    .nlw {
+      margin-bottom: 20px;
+    }
   }
   .spinning {
     display: none;
@@ -34,10 +37,13 @@
 }
 
 .instructions {
-  padding: 30px 15px 15px;
+  border-width: 0 30px;
+  padding: 25px 30px;
   background-color: @light_field10;
   font-size: 1em;
   line-height: 1.375em;
+  .avenir-next;
+  font-weight: 400;
 }
 
 .submit-btn {
@@ -55,10 +61,6 @@
 }
 
 #summary-table-form {
-
-  label {
-    font-family: 'Avenir Next Demi', Arial, sans-serif;
-  }
 
   li:hover,
   li:focus,
@@ -118,7 +120,7 @@
 #summary-table-container {
   font-family: "Avenir Next", Arial, sans-serif;
   background-color: @light_field10;
-  padding: 40px 15px 20px 15px;
+  padding: 40px 30px 20px 30px;
 
   #summary-table {
     width: 100%;
@@ -185,8 +187,7 @@
 
   .instructions {
     .column( 12 );
-    padding-left: 0;
-    padding-right: 0;
+    border: 0;
   }
 
   .submit-btn {
