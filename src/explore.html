@@ -312,14 +312,21 @@
 
           <ul class="fields">
 
+            <!-- filter field -->  
+            <li class="field">
+              <label for="respondent_name">Lender name:</label>
+                <div class="widget">
+                  <p class="coming-soon"><i>This feature coming soon!</i></p>
+                </div>
+            </li>
+            <!-- filter field -->
+
             <!-- filter field -->
             <li class="field">
-
               <label for="respondent_id">Lender ID:</label>
               <div class="widget range">
                 <input type="text" class="param require-numeric" name="respondent_id" value="" maxlength="10" placeholder="Enter a lender ID">
                 <p class="ffiec-lookup">Don't know a lender's ID?<br>Use the <a href="http://www.ffiec.gov/hmdaadwebreport/DisWelcome.aspx" target="_blank" class="dont-redirect">FFIEC's disclosure tool</a> to look it up.</p>
-                <p class="coming-soon">* We are working on a way for you to find a lender simply by typing to search their name. Thanks for bearing with us as we hack this out!</p>
               </div>
               <div class="help" title="<%= explore_tooltips_respondent_id %>"><i class="icon-help-alt"></i></div>
             </li>
