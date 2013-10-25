@@ -561,7 +561,7 @@ var PDP = (function ( pdp ) {
     var template = PDP.templates.location,
         tooltipPlacement = $( window ).width() > 768 ? 'right' : 'left';
 
-    $('#location-sets').append( template( { num: num } ) ).find('.help').tooltip({ placement: tooltipPlacement, container: 'body' });
+    $('#location-sets').append( template( { num: num } ) ).initTooltips({ placement: tooltipPlacement, container: 'body' });
     $( '.location-set-' + num ).find('select').chosen({ width: '100%', disable_search_threshold: 10, allow_single_deselect: true });
 
   };

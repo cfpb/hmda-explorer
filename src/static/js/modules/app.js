@@ -34,7 +34,7 @@ var PDP = (function ( pdp ) {
     $('.chzn-container .search-field input').css( 'width', '130%' );
 
     // Initialize Bootstrap tooltips
-    app.$el.find('.help').tooltip({ placement: tooltipPlacement });
+    app.$el.initTooltips({ placement: tooltipPlacement });
     app.$el.find('.share_url').tooltip({ title: 'Copied to clipboard!', trigger: 'manual' });
 
     // If there are hash params in the URL OR the only hashParam is to designate which section,

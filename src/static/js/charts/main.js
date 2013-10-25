@@ -13,4 +13,8 @@ function addCommas(nStr)
   return x1 + x2;
 }
 
-$('.charts .help').tooltip();
+$('.charts .help').tooltip({
+  title: function getTooltipTitle(){
+    return $( this ).attr('title') || $( this ).next('.help-text').html();
+  }
+});

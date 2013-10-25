@@ -127,7 +127,13 @@ $(function(){
 
       }.bind( this ));
 
-      $('#map .help').tooltip({ placement: 'right', container: 'body' }).on('shown.bs.tooltip', function () {
+      $('#map .help').tooltip({
+        placement: 'right',
+        container: 'body',
+        title: function getTooltipTitle(){
+          return $( this ).next('.help-text').html();
+        }
+      }).on('shown.bs.tooltip', function () {
         $('.tooltip').css({
           'margin-left': '10px',
           'margin-top': '-2px',
