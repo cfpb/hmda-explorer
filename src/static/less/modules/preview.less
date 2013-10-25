@@ -16,6 +16,7 @@
     table.tidy_table {
       table-layout: fixed;
       position: relative;
+      border: none;
     }
 
     tbody {
@@ -39,11 +40,13 @@
     th {
       background-color: @gold20;
       .avenir-next-demi;
+      border-right: 1px solid @light_field;
     }
 
     td {
       background-color: white;
       font-size: .8em;
+      border-right: 1px solid @light_field;
     }
 
     .spinning {
@@ -99,12 +102,6 @@
 
 .nlw {
   position: relative;
-}
-
-// File size estimation
-
-.download-size {
-  font-style: italic;
 }
 
 // Viewport adjustments

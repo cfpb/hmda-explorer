@@ -10,7 +10,7 @@
 
     h1 {
       font-size: 34px;
-      padding: 5px 0 5px 50px;
+      padding: 5px 0 5px 55px;
       display: inline-block;
       margin-bottom: 5px;
       background: transparent url() scroll no-repeat left center;
@@ -47,38 +47,8 @@
   }
 
   .ffiec-lookup {
-    font-size: .875em;
+    font-size: .8em;
     margin-top: .5em; 
-  }
-
-  .lender-name-temp {
-    list-style-type: none;
-    margin-bottom: 1.75em;
-    font-size: .875em;
-
-    .lender-name-label {
-      width: 25%;
-      margin: 0 15px;
-      display: inline-block;
-      vertical-align: top;
-      .avenir-next-demi;
-      text-align: right;      
-    }
-
-    .lender-name-text {
-      .avenir-next;
-      width: 50%;
-      margin: 0 15px;
-      display: inline-block; 
-      vertical-align: top;
-      text-align: left;
- 
-    }
-    
-  }
-
-  .coming-soon {
-    font-size: .875em;
   }
 
   .pipe {
@@ -91,7 +61,8 @@
   // File size estimation
   .download-size {
     font-style: italic;
-    font-size: .75em;
+    font-size: .875em;
+    display: inline-block;
   }
 
 }
@@ -158,19 +129,20 @@
 
   .inner {
     background-color: @light_field10;
-    padding: 25px 30px;
+    padding: 25px;
+    min-height: 200px;
   }
 
   label {
     .avenir-next-demi;
-    margin-right: 15px;
-    padding: 0 0 .5em 0;
+    margin-left:1.25em;
+    text-indent:-1.5em;
   }
 
   .widget {
     border-right: 0;
     input[type=radio] {
-      margin: 0 8px 0 0;
+      margin: 0 5px 0 15px;
     }
     label {
       .avenir-next;
@@ -206,13 +178,13 @@
 // Messages on the explore page
 
 .msg {
+  .border-radius( 5px );
   &.error {
     margin: 0 0 10px;
     background-color: @red_orange;
     color: @white;
-    font-weight: 600;
+    font-weight: 700;
     padding: 10px;
-    font-size: .875em;
     a {
       color: @white;
       text-decoration: underline;
@@ -220,13 +192,12 @@
   }
   &.mobile-warning,
   &.javascript-warning {
-    .avenir-next-demi;
+    .avenir-next;
     margin: 10px 0 10px;
     background-color: @red_orange;
     color: @white;
-    font-weight: 600;
+    font-weight: 700;
     padding: 10px;
-    font-size: .875em;
     a {
       color: @white;
       text-decoration: underline;
@@ -268,7 +239,7 @@
         margin: 0 0 0 13px;
         float: left;
         position: relative;
-        width: 54.5%;
+        width: 55%;
         ul {
           .horiz();
           margin: 19px 0 0;
@@ -321,31 +292,18 @@
     }
 
     #share {
-      border: 0;
+      border-right: 0;
       label {
-        border: 0;
-      }
-      .share-url-width {
-        width: 180%;
+        .column( 5, 6 );
       }
     }
 
     .codes {
-      width: 100%;
-      .avenir-next;
-      font-weight: 400;
+      margin-left: 32%;
     }
 
     .help {
       margin-left: 0;
-    }
-
-    .bump-up {
-      top: 0;
-    }
-
-    .btn-bump-down {
-      margin-top: 5px;
     }
 
   }
@@ -354,10 +312,42 @@
 
     section {
       .column( 6 );
-      .inner {
-        min-height: 275px;
+    }
+
+    label {
+      .column( 2, 6 );
+      margin-right: -2em;
+
+    }
+
+    .widget {
+      .column( 4, 6 );
+      border-right: 0;
+      label {
+        .column( 2, 4 );
+        text-align: left;
+        border: 0;
+        width:90%;
+      }
+      input[type=radio] {
+        width: 20px;
       }
     }
+
+    .action {
+      .column( 4, 6 );
+      .download-size {
+        .column( 2, 4 ); 
+      }
+     
+    }
+
+
+  }
+
+  .coming-soon {
+    font: avenir-next-demi;
+    font-size: .8em;
 
   }
 
@@ -365,9 +355,6 @@
 
     section {
       .column( 4 );
-      .inner {
-        min-height: 290px;
-      }
     }
 
     .widget {
@@ -383,4 +370,8 @@
     }
   }
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 598448be81c86ce2ea53ebd2375691d2e5a345c3
