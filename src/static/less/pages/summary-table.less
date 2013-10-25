@@ -166,9 +166,7 @@
 
     .variable,
     .calculate {
-      .column( 2 );
-      display: table-cell;
-
+      .column( 3 );
       label.stretchy {
         position: absolute;
         margin-top: -30px;
@@ -176,8 +174,15 @@
 
     }
 
+    .variable:first-child {
+      border-width: 0 15px 0 30px;
+    }
+
+    .calculate:first-child {
+      border-width: 0 30px 0 15px;
+    }
+
     .drop-downs {
-      display: table-row;
       position: relative;
       > div {
         padding: 0;
