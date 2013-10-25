@@ -492,6 +492,7 @@ var PDP = (function ( pdp ) {
     table.createTable();
     table.disableDownload();
     table.$page.find('.share_url').tooltip({ title: 'Copied to clipboard!', trigger: 'manual' });
+    table.$page.find('.help').tooltip({ placement: 'right' });
     
     //check for select values in params 
     selectParams = ((pdp.query.params.select || {}).values || []);

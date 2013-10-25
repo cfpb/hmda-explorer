@@ -1,3 +1,9 @@
+v0.17.2:
+  date: 2013-10-24
+  changes:
+    - Properly coerce loan amounts (#408).
+    - Correctly fire download tooltips (#415).
+
 v0.17.1:
   date: 2013-10-20
   changes:
