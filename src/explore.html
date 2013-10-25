@@ -312,11 +312,15 @@
 
           <ul class="fields">
 
+            <!-- placeholder text for filter field -->
+            <li class="lender-name-temp">
+              <div class="lender-name-label">Lender name:</div>
+              <div class="lender-name-text"><i>This feature coming soon!</i></div>
+            </li>
+            <!-- filter field -->
+
             <!-- filter field -->
             <li class="field">
-
-            <p class="coming-soon">We are working on a way for you to find a lender simply by typing to search their name. Thanks for bearing with us as we hack this out!</p>
-
               <label for="respondent_id">Lender ID:</label>
               <div class="widget range">
                 <input type="text" class="param require-numeric" name="respondent_id" value="" maxlength="10" placeholder="Enter a lender ID">
@@ -543,7 +547,7 @@
 
             <!-- filter field -->
             <li class="field optional hmda_reporting hidden" data-optional="hmda_reporting">
-              <label for="preapproval">Did the applicant request pre-approval?</label>
+              <label for="preapproval">Did the applicant request <br>pre-approval?</label>
               <div class="widget checkbox inline">
                 <label><input type="checkbox" class="param" name="preapproval[]" value="1" />Yes</label>
                 <label><input type="checkbox" class="param" name="preapproval[]" value="2" />No</label>
@@ -653,7 +657,7 @@
 
         <section id="download" class="download">
 
-          <h2>Download the raw data</h2>
+          <h2>Download raw data</h2>
 
           <div class="inner">
 
@@ -672,7 +676,7 @@
               <label><input type="radio" name="codes" value="1" />Include only the codes</label>
               
               <div class="help" title="<%= explore_tooltips_download_raw_data %>">
-              <i class="icon-help-alt"></i></div>
+              <i class="icon-help-alt bump-up"></i></div>
               
             </div>
 
@@ -685,8 +689,7 @@
             <div class="action">
 
               <button type="submit" class="submit btn" id="download-button"><i class="icon-download"></i>Download</button>
-
-              <p class="download-size hidden">The file is ~ <span class="bytes">1 MB</span></p>
+              <p class="download-size hidden">The file is ~<span class="bytes">1 MB</span></p>
 
             </div>
 
@@ -696,18 +699,18 @@
 
         <section id="share" class="share">
 
-          <h2>Save and share your work</h2>
+          <h2>Save & share your work</h2>
 
           <div class="inner">
 
             <label for="share_url">Save your filters, or share them with a link:</label>
             <div class="text widget">
-              <input type="text" id="share_url" class="share_url" name="share_url" value="" placeholder="Select filters above">
+              <input type="text" id="share_url" class="share_url share-url-width" name="share_url" value="" placeholder="Select filters above">
             </div>
 
             <div class="action">
 
-              <button type="button" class="btn share" id="share-button" data-clipboard-target="share_url"><i class="icon-share"></i>Share</button>
+              <button type="button" class="btn share btn-bump-down" id="share-button" data-clipboard-target="share_url"><i class="icon-share"></i>Share</button>
 
             </div>
 
@@ -740,7 +743,7 @@
     </div>
 
     <div class="instructions">
-      Pick up to three variables and a calculation method to group your data.
+      Choose up to three variables and a calculation method to compare your data.
       <button class="submit-btn" id="summary-submit">Submit</button>
     </div>
 
@@ -805,7 +808,7 @@
 
         <section id="download" class="download">
 
-          <h2>Download the raw data</h2>
+          <h2>Download raw data</h2>
 
           <div class="inner">
 
@@ -819,13 +822,12 @@
               </select>
             </div>
 
-            <label for="codes"> </label>
             <div class="radio widget raw-codes">
               <label><input type="radio" name="codes" value="0" checked />Include plain language labels with codes</label>
               <label><input type="radio" name="codes" value="1" />Include only the codes</label>
 
               <div class="help" title="<%= explore_tooltips_download_raw_data %>">
-              <i class="icon-help-alt"></i></div>
+              <i class="icon-help-alt bump-up"></i></div>
 
             </div>
 
@@ -849,7 +851,7 @@
 
         <section id="download-summary" class="download-summary">
 
-          <h2>Download the data in a table</h2>
+          <h2>Download table</h2>
 
           <div class="inner">
 
@@ -871,7 +873,7 @@
 
             <div class="action">
 
-              <button type="submit" class="submit btn" id="download-summary-button"><i class="icon-download"></i>Download</button>
+              <button type="submit" class="submit btn btn-bump-down" id="download-summary-button"><i class="icon-download"></i>Download</button>
 
             </div>
 
@@ -881,18 +883,18 @@
 
         <section id="share" class="share">
 
-          <h2>Save and share your work</h2>
+          <h2>Save & share your work</h2>
 
           <div class="inner">
 
-            <label for="share_url-1">Save your filters, or share them with a link:</label>
+            <label for="share_url-1">Save your filters, or share them<br>with a link:</label>
             <div class="text widget">
               <input type="text" class="share_url" id="share_url" name="share_url-1" value="" placeholder="Select filters above">
             </div>
 
             <div class="action">
 
-              <button href="#" type="button" class="btn share" data-clipboard-target="share_url"><i class="icon-share"></i>Share</button>
+              <button href="#" type="button" class="btn share btn-bump-down" data-clipboard-target="share_url"><i class="icon-share"></i>Share</button>
 
             </div>
 
