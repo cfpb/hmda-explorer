@@ -184,7 +184,8 @@
                 <label><input type="checkbox" class="param" name="applicant_sex[]" value="3" />Not provided</label>
                 <label><input type="checkbox" class="param" name="applicant_sex[]" value="4" />Not applicable</label>
               </div>
-              <div class="help" title='<%= explore_tooltips_applicant_sex %>'><i class="icon-help-alt"></i></div>
+              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
+              <span class="help-text"><%= explore_tooltips_applicant_sex %></span>
             </li>
             <!-- /filter field -->
 
@@ -202,7 +203,8 @@
                   <option value="7">Not applicable</option>
                 </select>
               </div>
-              <div class="help" title='<%= explore_tooltips_applicant_race_1 %>'><i class="icon-help-alt"></i></div>
+              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
+              <span class="help-text"><%= explore_tooltips_applicant_race_1 %></span>
             </li>
             <!-- /filter field -->
 
@@ -217,7 +219,8 @@
                   <option value="4">Not applicable</option>
                 </select>
               </div>
-              <div class="help" title='<%= explore_tooltips_applicant_ethnicity %>'><i class="icon-help-alt"></i></div>
+              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
+              <span class="help-text"><%= explore_tooltips_applicant_ethnicity %></span>
             </li>
             <!-- /filter field -->
 
@@ -228,7 +231,8 @@
                 <span>$</span><input type="text" class="param require-numeric min-value" name="applicant_income_000s-min" data-comparator=">" value="" maxlength="7" placeholder="Min."><span class="thousands">,000 &nbsp; to &nbsp;</span>
                 <span>$</span><input type="text" class="param require-numeric max-value" name="applicant_income_000s-max" data-comparator="<" value="" placeholder="Max."><span class="thousands">,000</span>
               </div>
-              <div class="help" title="<%= explore_tooltips_applicant_income_000s %>"><i class="icon-help-alt"></i></div>
+              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
+              <span class="help-text"><%= explore_tooltips_applicant_income_000s %></span>
             </li>
             <!-- /filter field -->
 
@@ -239,7 +243,8 @@
                 <label><input type="radio" name="include_co_applicant" value="1" />Yes</label>
                 <label><input type="radio" name="include_co_applicant" value="0" checked />No</label>
               </div>
-              <div class="help" title="<%= explore_tooltips_co_applicant_filters %>"><i class="icon-help-alt"></i></div>
+              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
+              <span class="help-text"><%= explore_tooltips_co_applicant_filters %></span>
             </li>
             <!-- /filter field -->
 
@@ -253,7 +258,8 @@
                 <label><input type="checkbox" class="param" name="co_applicant_sex[]" value="4" />Not applicable</label>
                 <label><input type="checkbox" class="param" name="co_applicant_sex[]" value="5" />No co-applicant</label>
               </div>
-              <div class="help" title='<%= explore_tooltips_co_applicant_sex %>'><i class="icon-help-alt"></i></div>
+              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
+              <span class="help-text"><%= explore_tooltips_co_applicant_sex %></span>
             </li>
             <!-- /filter field -->
 
@@ -272,7 +278,8 @@
                   <option value="8">No co-applicant</option>
                 </select>
               </div>
-              <div class="help" title='<%= explore_tooltips_co_applicant_race_1 %>'><i class="icon-help-alt"></i></div>
+              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
+              <span class="help-text"><%= explore_tooltips_co_applicant_race_1 %></span>
             </li>
             <!-- /filter field -->
 
@@ -288,7 +295,8 @@
                   <option value="5">No co-applicant</option>
                 </select>
               </div>
-              <div class="help" title='<%= explore_tooltips_co_applicant_ethnicity %>'><i class="icon-help-alt"></i></div>
+              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
+              <span class="help-text"><%= explore_tooltips_co_applicant_ethnicity %></span>
             </li>
             <!-- /filter field -->
 
@@ -326,7 +334,8 @@
                 <input type="text" class="param require-numeric" name="respondent_id" value="" maxlength="10" placeholder="Enter a lender ID">
                 <p class="ffiec-lookup">Don't know a lender's ID?<br>Use the <a href="http://www.ffiec.gov/hmdaadwebreport/DisWelcome.aspx" target="_blank" class="dont-redirect">FFIEC's disclosure tool</a> to look it up.</p>
               </div>
-              <div class="help" title="<%= explore_tooltips_respondent_id %>"><i class="icon-help-alt"></i></div>
+              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
+              <span class="help-text"><%= explore_tooltips_respondent_id %></span>
             </li>
             <!-- /filter field -->
 
@@ -344,7 +353,8 @@
                   <option value="9">Consumer Financial Protection Bureau (CFPB)</option>
                 </select>
               </div>
-              <div class="help" title="<%= explore_tooltips_agency_code %>"><i class="icon-help-alt"></i></div>
+              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
+              <span class="help-text"><%= explore_tooltips_agency_code %></span>
             </li>
             <!-- /filter field -->
 
@@ -377,8 +387,8 @@
                 <label><input type="checkbox" class="param" name="property_type[]" value="2" />Manufactured housing</label>
                 <label><input type="checkbox" class="param" name="property_type[]" value="3" />Multifamily dwelling</label>
               </div>
-                <div class="help" title='<%= explore_tooltips_property_type %>'><i class="icon-help-alt"></i></div>
-              
+              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
+              <span class="help-text"><%= explore_tooltips_property_type %></span>
             </li>
             <!-- /filter field -->
 
@@ -390,7 +400,8 @@
                 <label><input type="checkbox" class="param" name="owner_occupancy[]" value="2" />Not owner-occupied as a principal dwelling</label>
                 <label><input type="checkbox" class="param" name="owner_occupancy[]" value="3" />Not applicable</label>
               </div>
-              <div class="help" title='<%= explore_tooltips_owner_occupancy %>'><i class="icon-help-alt"></i></div>
+              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
+              <span class="help-text"><%= explore_tooltips_owner_occupancy %></span>
             </li>
             <!-- /filter field -->
 
@@ -423,7 +434,8 @@
                 <label><input type="checkbox" class="param" name="lien_status[]" value="3" />Not secured by a lien</label>
                 <label><input type="checkbox" class="param" name="lien_status[]" value="4" />Not applicable (purchased loans)</label>
               </div>
-              <div class="help" title='<%= explore_tooltips_lien_status %>'><i class="icon-help-alt"></i></div>
+              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
+              <span class="help-text"><%= explore_tooltips_lien_status %></span>
               
             </li>
             <!-- /filter field -->
@@ -448,7 +460,8 @@
                 <label><input type="checkbox" class="param" name="loan_type[]" value="3" />VA-guaranteed</label>
                 <label><input type="checkbox" class="param" name="loan_type[]" value="4" />FSA/RHS-guaranteed</label>
               </div>
-                 <div class="help" title="<%= explore_tooltips_loan_type %>"><i class="icon-help-alt"></i></div>
+              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
+              <span class="help-text"><%= explore_tooltips_loan_type %></span>
             </li>
             <!-- /filter field -->
 
@@ -470,7 +483,8 @@
                 <label><input type="radio" class="param" name="rate_spread" data-comparator="!=" value="null" />Yes</label>
                 <label><input type="radio" class="param" name="rate_spread" data-comparator="=" value="null" />No</label>
               </div>
-              <div class="help" title="<%= explore_tooltips_rate_spread %>"><i class="icon-help-alt"></i></div>
+              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
+              <span class="help-text"><%= explore_tooltips_rate_spread %></span>
             </li>
             <!-- /filter field -->
 
@@ -481,7 +495,8 @@
                 <label><input type="radio" name="include_hoepa_loan" value="1" />Yes</label>
                 <label><input type="radio" name="include_hoepa_loan" value="0" checked />No</label>
               </div>
-              <div class="help" title="<%= explore_tooltips_include_hoepa_loan %>"><i class="icon-help-alt"></i></div>
+              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
+              <span class="help-text"><%= explore_tooltips_include_hoepa_loan %></span>
             </li>
             <!-- /filter field -->
 
@@ -492,7 +507,8 @@
                 <label><input type="checkbox" class="param" name="hoepa_status[]" value="1" />Yes</label>
                 <label><input type="checkbox" class="param" name="hoepa_status[]" value="0" />No</label>
               </div>
-              <div class="help" title="<%= explore_tooltips_hoepa_status %>"><i class="icon-help-alt"></i></div>
+              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
+              <span class="help-text"><%= explore_tooltips_hoepa_status %></span>
             </li>
             <!-- /filter field -->
 
@@ -541,7 +557,8 @@
                 <label><input type="radio" name="include_hmda_reporting" value="1" />Yes</label>
                 <label><input type="radio" name="include_hmda_reporting" value="0" checked />No</label>
               </div>
-              <div class="help" title="<%= explore_tooltips_include_hmda_reporting %>"><i class="icon-help-alt"></i></div>
+              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
+              <span class="help-text"><%= explore_tooltips_include_hmda_reporting %></span>
             </li>
             <!-- /filter field -->
 
@@ -553,7 +570,6 @@
                 <label><input type="checkbox" class="param" name="preapproval[]" value="2" />No</label>
                 <label><input type="checkbox" class="param" name="preapproval[]" value="3" />Not applicable</label>
               </div>
-              
             </li>
             <!-- /filter field -->
 
@@ -574,7 +590,8 @@
                   <option value="9">Other</option>
                 </select>
               </div>
-              <div class="help" title="<%= explore_tooltips_denial_reason_1 %>"><i class="icon-help-alt"></i></div>
+              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
+              <span class="help-text"><%= explore_tooltips_denial_reason_1 %></span>
             </li>
             <!-- /filter field -->
 
@@ -595,7 +612,8 @@
                   <option value="9">Other type of purchaser</option>
                 </select>
               </div>
-              <div class="help" title="<%= explore_tooltips_purchaser_type %>"><i class="icon-help-alt"></i></div>
+              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
+              <span class="help-text"><%= explore_tooltips_purchaser_type %></span>
             </li>
             <!-- /filter field -->
 
@@ -643,7 +661,6 @@
           </div>
 
           <div id="preview">
-
             <div class="spinning"></div>
           </div>
         
@@ -675,8 +692,8 @@
               <label><input type="radio" name="codes" value="0" checked />Include plain language labels with codes</label>
               <label><input type="radio" name="codes" value="1" />Include only the codes</label>
               
-              <div class="help" title="<%= explore_tooltips_download_raw_data %>">
-              <i class="icon-help-alt bump-up"></i></div>
+              <div class="help" role="tooltip"><i class="icon-help-alt bump-up"></i></div>
+              <span class="help-text"><%= explore_tooltips_download_raw_data %></span>
               
             </div>
 
@@ -828,9 +845,8 @@
               <label><input type="radio" name="codes" value="0" checked />Include plain language labels with codes</label>
               <label><input type="radio" name="codes" value="1" />Include only the codes</label>
 
-              <div class="help" title="<%= explore_tooltips_download_raw_data %>">
-              <i class="icon-help-alt bump-up"></i></div>
-
+              <div class="help" role="tooltip"><i class="icon-help-alt bump-up"></i></div>
+              <span class="help-text"><%= explore_tooltips_download_raw_data %></span>
             </div>
 
             <div class="msg mobile-warning">

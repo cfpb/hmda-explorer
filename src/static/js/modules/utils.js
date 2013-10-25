@@ -259,6 +259,22 @@ var PDP = (function( pdp ) {
     };
   }
 
+  $.fn.initTooltips = function( options ){
+
+    var settings = $.extend({
+        placement: 'top',
+        container: false
+    }, options );
+
+    return this.find('.help').tooltip({
+      placement: settings.placement,
+      container: settings.container,
+      title: function getTooltipTitle(){
+        return $( this ).attr('title') || $( this ).next('.help-text').html();
+      }
+    });
+  };
+
   pdp.utils = utils;
 
   return pdp;
