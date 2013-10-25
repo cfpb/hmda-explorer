@@ -7,7 +7,6 @@
   padding: 10px 15px 20px 15px;
 
   #preview {
-
     overflow: scroll;
     position: relative;
     margin-top: 10px;
@@ -16,12 +15,12 @@
     table.tidy_table {
       table-layout: fixed;
       position: relative;
+      border: none;
     }
 
     tbody {
       display: block;
       height: 400px;
-      overflow: scroll;
     }
 
     th,
@@ -38,11 +37,13 @@
     th {
       background-color: @gold20;
       .avenir-next-demi;
+      border-right: 1px solid @light_field;
     }
 
     td {
       background-color: white;
       font-size: .8em;
+      border-right: 1px solid @light_field;
     }
 
     .spinning {
@@ -98,12 +99,6 @@
 
 .nlw {
   position: relative;
-}
-
-// File size estimation
-
-.download-size {
-  font-style: italic;
 }
 
 // Viewport adjustments
