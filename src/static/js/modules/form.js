@@ -122,6 +122,10 @@ var PDP = (function ( pdp ) {
 
     var $els = $el.find('select, input');
 
+    if ( !$els ) {
+      return false;
+    }
+
     // If it's a select element or text box
     if ( $els.prop('tagName').toLowerCase() === 'select' || $els.attr('type') === 'text' ) {
 
