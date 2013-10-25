@@ -67,6 +67,7 @@ var PDP = (function ( pdp ) {
   preview.enableTable = function() {
 
     $('.preview .title').removeClass('disabled');
+    this.$el.find('th, td').tooltip({ container: 'body', html: true });
     $('.msg.preview-table').removeClass('error').html('');
 
   };
