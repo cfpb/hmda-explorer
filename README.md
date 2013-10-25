@@ -33,6 +33,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2013-10-24   [v0.17.2](../../tree/v0.17.2)   Properly coerce loan amounts (#408). Correctly fire download tooltips (#415).
  * 2013-10-20   [v0.17.1](../../tree/v0.17.1)   Improved caching (#373), error handling and file size estimation. Disable download button if record count is zero (#380).
  * 2013-10-10   [v0.16.2](../../tree/v0.16.2)   Include rate spread in loan description section (#38).
  * 2013-10-07   [v0.16.1](../../tree/v0.16.1)   Purge `dist` directories. Update readme accordingly.
@@ -87,4 +88,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Mon Oct 21 2013 05:07:53.*
+*This file was generated on Fri Oct 25 2013 02:50:58.*

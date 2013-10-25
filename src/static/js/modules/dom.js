@@ -199,9 +199,9 @@ var PDP = (function ( pdp ) {
           $min = $this.find('.min-value'),
           $max = $this.find('.max-value');
 
-      if ( $min.val() && $max.val() && $min.val() > $max.val() ) {
+      if ( $min.val() && $max.val() && parseInt( $min.val(), 10 ) > parseInt( $max.val(), 10 ) ) {
         e.preventDefault();
-        $max.tooltip( { title: 'Maximum amount must be greater than the minimum!', trigger: 'manual' } );
+        $max.tooltip( { title: 'Maximum amount must be greater than or equal to the minimum amount', trigger: 'manual' } );
         $max.tooltip( 'show' );
         $max.val('');
         setTimeout( function(){
