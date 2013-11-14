@@ -200,6 +200,9 @@ var PDP = (function ( pdp ) {
     // Show relevant filters.
     pdp.form.checkFilters();
 
+    // Scroll to the top of the page.
+    window.scrollTo(0,0);
+
     if ( changeUrl ) {
       // Update URL hash
       window.location.hash = PDP.query.generateUrlHash();
