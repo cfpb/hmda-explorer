@@ -15,7 +15,7 @@ var PDP = (function ( pdp ) {
   query.format = query.debug ? 'json' : 'jsonp?$callback=';
 
   // Set a default endpoint for AJAX requests.
-  query.endpoint = query.debug ? 'static/js/static_data/' : 'https://qu2.demo.cfpb.gov/data/hmda/';
+  query.endpoint = query.debug ? 'static/js/static_data/' : 'https://api.consumerfinance.gov/data/hmda/';
 
   // Seconds to wait on a response from the API before giving up.
   query.secondsToWait = 300;
