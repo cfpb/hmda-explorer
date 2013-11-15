@@ -37,7 +37,7 @@ $(function(){
 
         // IE and MapBox don't completely get along so we only add snazzy
         // fade-in effects with non-IE browsers.
-        if ( !$('html').hasClass('lt-ie9') ) {
+        if ( !$('body').hasClass('lt-ie9') ) {
           map.base.addLayer( layer );
           $( layer._tileContainer ).hide();
         }
@@ -69,7 +69,7 @@ $(function(){
 
       // IE and MapBox don't completely get along so we only add snazzy
       // fade-in effects with non-IE browsers.
-      if ( !$('html').hasClass('lt-ie9') ) {
+      if ( !$('body').hasClass('lt-ie9') ) {
 
         $( map.layers[ selectedLayer ]._tileContainer ).fadeIn();
 
@@ -148,7 +148,7 @@ $(function(){
       });
 
       // IE8 doesn't hear the map 'ready' event so here's a setinterval hack.
-      if ( $('html').hasClass('lt-ie9') ) {
+      if ( $('body').hasClass('lt-ie9') ) {
         var checkForLegend = setInterval( function(){
           if ( $('#map .my-legend .legend-source').length ) {
             map.fixLegend();

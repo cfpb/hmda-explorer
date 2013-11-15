@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 & !IEMobile]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7 & !IEMobile]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8 & !IEMobile]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8 | IEMobile]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<html lang="en" class="no-js">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -36,7 +33,11 @@
     docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2');
   </script>
 </head>
-<body class="hmda explore">
+<!--[if lt IE 7]>      <body class="lt-ie9 lt-ie8 lt-ie7 hmda explore"> <![endif]-->
+<!--[if IE 7]>         <body class="lt-ie9 lt-ie8 hmda explore"> <![endif]-->
+<!--[if IE 8]>         <body class="lt-ie9 hmda explore"> <![endif]-->
+<!--[if IE 9]>         <body class="lt-ie10 hmda explore"> <![endif]-->
+<!--[if gt IE 9]><!--><body class="hmda explore"><!--<![endif]-->
 
   <div class="top-banner">
     <div class="inner">
