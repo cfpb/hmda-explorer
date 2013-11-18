@@ -35,11 +35,6 @@ var PDP = (function ( pdp ) {
 
   });
 
-  // Hide the intro explanation, useful if they enter the app with hash params present.
-  form.hideIntroExplanation = function() {
-    $('.intro .explanation').hide();
-  };
-
   // The `showFilter` method shows all the fields of a given filter section.
   form.showFilter = function( el ) {
 

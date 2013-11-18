@@ -34,7 +34,7 @@
     "grunt-contrib-connect": "~0.3.0",
     "grunt-contrib-less": "~0.6.0",
     "grunt-shell": "~0.3.0",
-    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-uglify": "~0.2.7",
     "grunt-contrib-jshint": "~0.6.0",
     "grunt-contrib-jasmine": "~0.4.2",
     "grunt-cfpb-internal": "git://fake.ghe.domain/front/grunt-cfpb-internal.git",
@@ -48,7 +48,9 @@
     "grunt-saucelabs": "~4.0.4",
     "grunt-template": "~0.2.0",
     "marked": "~0.2.9",
-    "grunt-contrib-copy": "~0.4.1"
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-concurrent": "~0.4.1",
+    "time-grunt": "~0.2.1"
   },
   "keywords": []
 }

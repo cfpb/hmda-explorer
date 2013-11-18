@@ -2,6 +2,8 @@ module.exports = function(grunt) {
 
   'use strict';
 
+  require('time-grunt')(grunt);
+
   grunt.initConfig({
 
     /**
@@ -600,6 +602,17 @@ module.exports = function(grunt) {
         files: ['src/*.html', 'src/content/**/*', 'src/static/less/**/*.less', 'src/static/js/**/*.js', 'test/specs/*.js'],
         tasks: ['build', 'test']
       }
+    },
+
+    /**
+     * Concurrent: https://github.com/sindresorhus/grunt-concurrent
+     * 
+     * Run grunt tasks concurrently.
+     */
+    concurrent: {
+      compile: ['template', 'less', 'jst'],
+      compress: ['copy:dist', 'cssmin', 'uglify'],
+      test: ['jshint', 'jasmine:cover']
     }
 
   });
@@ -624,15 +637,16 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-saucelabs');
+  grunt.loadNpmTasks('grunt-concurrent');
 
   /**
    * Create task aliases by registering new tasks
    */
-  grunt.registerTask('test', ['jshint', 'jasmine:cover']);
+  grunt.registerTask('test', ['concurrent:test']);
   grunt.registerTask('sauce', ['connect:sauce', 'jasmine:sauce', 'saucelabs-jasmine', 'shell:sauce']);
   grunt.registerTask('mogo', ['connect:mogo', 'shell:mogo']);
   grunt.registerTask('docs', ['removelogging', 'docco', 'build-cfpb']);
-  grunt.registerTask('build', ['template', 'copy:dist', 'less', 'cssmin', 'jst', 'uglify']);
+  grunt.registerTask('build', ['concurrent:compile', 'concurrent:compress']);
   grunt.registerTask('ghpages', ['build', 'copy:ghpages']);
 
   /**
