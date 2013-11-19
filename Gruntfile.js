@@ -611,7 +611,7 @@ module.exports = function(grunt) {
      */
     concurrent: {
       compile: ['template', 'less', 'jst'],
-      compress: ['copy:dist', 'cssmin', 'uglify'],
+      package: ['copy:dist', 'cssmin', 'uglify'],
       test: ['jshint', 'jasmine:cover']
     }
 
@@ -646,7 +646,7 @@ module.exports = function(grunt) {
   grunt.registerTask('sauce', ['connect:sauce', 'jasmine:sauce', 'saucelabs-jasmine', 'shell:sauce']);
   grunt.registerTask('mogo', ['connect:mogo', 'shell:mogo']);
   grunt.registerTask('docs', ['removelogging', 'docco', 'build-cfpb']);
-  grunt.registerTask('build', ['concurrent:compile', 'concurrent:compress']);
+  grunt.registerTask('build', ['concurrent:compile', 'concurrent:package']);
   grunt.registerTask('ghpages', ['build', 'copy:ghpages']);
 
   /**
