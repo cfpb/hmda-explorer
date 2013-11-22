@@ -120,11 +120,11 @@
           <ul class="fields">
 
             <!-- filter field -->
-            <li class="field popular">
+            <li class="field as_of_year">
               <label for="as_of_year">Select year(s) of data:</label>
               <div class="widget select">
-                <select class="param" name="as_of_year" id="as_of_year" multiple data-placeholder="Select a year">
-                  <option value="2012">2012</option>
+                <select class="param" name="as_of_year" id="as_of_year" multiple data-placeholder="Select one or more years">
+                  <option value="2012" selected>2012</option>
                   <option value="2011">2011</option>
                   <option value="2010">2010</option>
                   <option value="2009">2009</option>
@@ -136,14 +136,15 @@
             <!-- /filter field -->
 
             <!-- filter field -->
-            <li class="field suggested">
-              <label for="suggested">Select a filter set:</label>
+            <li class="field suggested ignore">
+              <label for="suggested">Select suggested filters:</label>
               <div class="widget select">
-                <select class="param" name="suggested" id="suggested" data-placeholder="Select a filter set">
-                  <option value="all">All loans</option>
-                  <option value="originations">All originated loans</option>
-                  <option value="common">Loans for first-lien, owner-occupied, 1-4 family homes (including manufactured housing)</option>
-                  <option value="custom">Custom filters</option>
+                <select name="suggested" id="suggested" data-placeholder="Select a filter set">
+                  <option value=""></option>
+                  <option value="common">Mortgages for first-lien, owner-occupied, 1-4 family homes (including manufactured housing)</option>
+                  <option value="originations">All originated mortgages</option>
+                  <option value="all">All records</option>
+                  <option value="custom"></option>
                 </select>
               </div>
             </li>

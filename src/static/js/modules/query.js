@@ -27,36 +27,62 @@ var PDP = (function ( pdp ) {
   query.params = {};
 
   // The `reset` method empties the `params` object.
-  // If defaults: true is passed, some defaults will be set.
-  query.reset = function( options ) {
+  // If a preset is passed, some defaults will be set.
+  query.reset = function( preset ) {
 
-    options = options || {};
+    // The year is selected independent of the preset so we
+    // have to ensure it doesn't get overwritten.
+    var years = $('.field.as_of_year select').val() || [];
 
-    if ( options.defaults ) {
-      this.params = {
-        as_of_year: {
-          values: [2012],
-          comparator: '='
-        },
-        property_type: {
-          values: [1,2],
-          comparator: '='
-        },
-        owner_occupancy: {
-          values: [1],
-          comparator: '='
-        },
-        lien_status: {
-          values: [1],
-          comparator: '='
-        },
-        action_taken: {
-          values: [1],
-          comparator: '='
-        }
-      };
-    } else {
-      this.params = {};
+    switch( preset ) {
+
+      case 'originations':
+        this.params = {
+          as_of_year: {
+            values: years,
+            comparator: '='
+          },
+          action_taken: {
+            values: [1],
+            comparator: '='
+          }
+        };
+      break;
+
+      case 'common':
+        this.params = {
+          as_of_year: {
+            values: years,
+            comparator: '='
+          },
+          property_type: {
+            values: [1,2],
+            comparator: '='
+          },
+          owner_occupancy: {
+            values: [1],
+            comparator: '='
+          },
+          lien_status: {
+            values: [1],
+            comparator: '='
+          },
+          action_taken: {
+            values: [1],
+            comparator: '='
+          }
+        };
+      break;
+
+      default:
+        this.params = {
+          as_of_year: {
+            values: years,
+            comparator: '='
+          }
+        };
+        break;
+
     }
 
     return this;
@@ -72,11 +98,12 @@ var PDP = (function ( pdp ) {
 
     switch( opts.source ) {
       case 'url':
+      console.log('from url!');
         fields = pdp.app.getUrlValues();
         break;
-      case 'session':
-        fields = pdp.query.getCookie();
-        break;
+      // case 'session':
+      //   fields = pdp.query.getCookie();
+      //   break;
       default:
         fields = pdp.form.getFields();
     }
@@ -97,7 +124,7 @@ var PDP = (function ( pdp ) {
         }
 
         // If the value is a string from a text box we don't want to iterate 
-        // over it because it will split up the characters.
+        // over it because it will be split up the characters.
         if ( field.type === 'text' ) {
           query.params[ field.name ].values = [ field.values ];
         } else {

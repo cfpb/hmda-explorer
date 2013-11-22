@@ -4,7 +4,7 @@ var PDP = (function ( pdp ) {
 
   // DOM Interactions
   // ----------------
-  // jQuery is used to attach misc. event handlers to DOM elements.
+  // A place for misc. event handlers.
 
   // Toggle the popular/all filters sections  
   $('a.section-toggle').on( 'click', function( ev ){
@@ -12,13 +12,34 @@ var PDP = (function ( pdp ) {
     var targetSection = $( this ).attr('href').replace('#', '');
 
     ev.preventDefault();
-
     pdp.observer.emitEvent( 'navigation:clicked', [ targetSection ] );
 
   });
 
+  // Act appropriately when suggested filter sets are changed.
+  $('.field.suggested').on( 'change', _.debounce(function( ev ){
+
+    var preset = $('.field.suggested select').val(),
+        parents;
+
+    ev.preventDefault();
+
+    if ( preset === 'custom' ) {
+      pdp.form.resetFields();
+      pdp.query.reset();
+      pdp.form.showSections();
+      pdp.form.updateShareLink();
+    } else {
+      pdp.form.resetFields();
+      pdp.query.reset( preset );
+      pdp.form.setFields();
+      pdp.form.hideSections();
+    }
+
+  }, 100));
+
   // Whenever a field element is changed emit an event.
-  $('.filter').on( 'change', '.field select, .field:not(".optional-toggle") input', _.debounce( function(){
+  $('.filter').on( 'change', '.field select, .field:not(.optional-toggle) input', _.debounce(function(){
     pdp.observer.emitEvent('field:changed', [ $( this ).attr('id') ] );
   }, 300 ));
 
@@ -94,6 +115,8 @@ var PDP = (function ( pdp ) {
 
   // Open and close filters
   $('.filter .title').on( 'click', function( ev ){
+
+    console.log(this);
 
     var id = $( this ).parents('.filter').attr('id'),
         $el = $('#' + id);

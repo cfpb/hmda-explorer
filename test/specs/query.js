@@ -14,15 +14,17 @@
 
       PDP.query.reset();
 
-      expect( _.isEmpty( PDP.query.params ) ).toBeTruthy();
+      expect( Object.keys( PDP.query.params ).length ).toEqual( 1 );
 
     });
 
     it('should be able to reset with defaults', function(){
 
-      PDP.query.reset({ defaults: true });
+      PDP.query.reset( 'common' );
 
-      expect( PDP.query.params['as_of_year'].values[0] ).toBe( 2012 );
+      expect( PDP.query.params['property_type'].values[1] ).toBe( 2 );
+      expect( PDP.query.params['owner_occupancy'].values[0] ).toBe( 1 );
+      expect( PDP.query.params['lien_status'].values[0] ).toBe( 1 );
 
     });
 
