@@ -21,8 +21,8 @@ var PDP = (function ( pdp ) {
     // After the app has started.
     'app:started': [
       pdp.form.updateShareLink.bind( pdp.form ),
-      pdp.preview.update.bind( pdp.preview ),
-      pdp.form.updateFieldOptions.bind( pdp.form )
+      pdp.form.updateFieldOptions.bind( pdp.form ),
+      pdp.preview.update.bind( pdp.preview )
     ],
 
     // When a field is changed: Update the `query.params` hash, check form

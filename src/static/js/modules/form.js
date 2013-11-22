@@ -7,7 +7,7 @@ var PDP = (function ( pdp ) {
   // The `form` object stores stuff specific to the DOM form.
   var form = {};
 
-  // Cache a reference to the form's jQuery object.
+  // Cache a reference to the form's jQuery object and field sections.
   form.$el = $('form');
 
   // Maximum number of locations a person can search on.
@@ -15,7 +15,7 @@ var PDP = (function ( pdp ) {
 
   // Cache a reference to all the filter fields.
   form.init = function() {
-    this.$fields = form.$el.find('.field');
+    this.$fields = form.$el.find('.field:not(.ignore)');
   };
 
   // Initialize ZeroClipboard on the share button.
@@ -34,6 +34,17 @@ var PDP = (function ( pdp ) {
     }, 3000);
 
   });
+
+  // The `hideSections` method hides all filter sections (location, applicant, lender, etc.)
+  // This is used if a filter set other than `custom` is chosen.
+  form.hideSections = function() {
+    $('.filter:not(.year), .no-summary #share').addClass('hidden');
+  };
+
+  // The `showSections` shows all filter sections (location, applicant, lender, etc.)
+  form.showSections = function() {
+    $('.filter:not(.year), .no-summary #share').removeClass('hidden');
+  };
 
   // The `showFilter` method shows all the fields of a given filter section.
   form.showFilter = function( el ) {
@@ -64,7 +75,8 @@ var PDP = (function ( pdp ) {
 
   };
 
-  // The `checkFilters` method checks if a filter has any fields with values.
+  // The `checkFilters` method checks if a filter has any fields with values
+  // and expands it if so.
   form.checkFilters = function() {
 
     pdp.form.$fields.each(function(){
@@ -412,7 +424,7 @@ var PDP = (function ( pdp ) {
   // `chosen` to update selects accordingly.
   form.resetFields = function() {
 
-    var $fields = pdp.app.$el.find('.param');
+    var $fields = pdp.app.$el.find('.param:not(#as_of_year)');
 
     $fields.each( function() {
 

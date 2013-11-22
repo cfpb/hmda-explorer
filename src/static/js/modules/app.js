@@ -41,11 +41,9 @@ var PDP = (function ( pdp ) {
     // grab them and populate the DOM fields.
     if ( !_.isEmpty( hashParams ) ) {
       pdp.query.updateAll({ source: 'url' });
-      pdp.form.hideIntroExplanation();
     } else if ( !_.isEmpty( $.cookie('_hmda') ) ) {
       // Read from the cookie if it exists.
       pdp.query.updateAll({ source: 'session' });
-      pdp.form.hideIntroExplanation();
     } else {
       // Clear out any cached values.
       pdp.query.reset({ defaults: true });
@@ -70,6 +68,7 @@ var PDP = (function ( pdp ) {
 
     // Initialize the form.
     pdp.form.init();
+    pdp.form.hideSections();
 
     // Pull any `param` entries into the DOM.
     pdp.form.setFields();
@@ -94,6 +93,12 @@ var PDP = (function ( pdp ) {
 
     // Change sections if necessary.
     app.changeSection( app.currentSection, false );
+
+    // Switch it into custom mode if need be.
+    if ( !_.isEmpty( pdp.utils.getHashParams() ) ) {
+      $('.field.suggested select').val('custom').trigger('liszt:updated');
+      pdp.form.showSections();
+    }
 
     // Broadcast that the app has started.
     pdp.observer.emitEvent('app:started');
