@@ -1,4 +1,4 @@
-v0.18:
+v0.18.0:
   date: 2013-11-25
   changes:
     - Add suggested filters (#438).

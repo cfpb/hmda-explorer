@@ -33,7 +33,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
- * 2013-11-25   [v0.18](../../tree/v0.18)   Add suggested filters (#438).
+ * 2013-11-25   [v0.18.0](../../tree/v0.18.0)   Add suggested filters (#438).
  * 2013-10-24   [v0.17.2](../../tree/v0.17.2)   Properly coerce loan amounts (#408). Correctly fire download tooltips (#415).
  * 2013-10-20   [v0.17.1](../../tree/v0.17.1)   Improved caching (#373), error handling and file size estimation. Disable download button if record count is zero (#380).
  * 2013-10-10   [v0.16.2](../../tree/v0.16.2)   Include rate spread in loan description section (#38).
@@ -79,7 +79,13 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## License
 
-Software source code written entirely by Consumer Financial Protection Bureau staff, and by contractors who are developing software on behalf of CFPB, is by default a public domain work.
+The project is in the public domain within the United States, and
+copyright and related rights in the work worldwide are waived through
+the [CC0 1.0 Universal public domain dedication](http://creativecommons.org/publicdomain/zero/1.0/).
+
+All contributions to this project will be released under the CC0
+dedication. By submitting a pull request, you are agreeing to comply
+with this waiver of copyright interest.
 
 Software source code previously released under an open source license and then modified by CFPB staff is considered a "joint work" (see 17 USC § 101); it is partially copyrighted, partially public domain, and as a whole is protected by the copyrights of the non-government authors and must be released according to the terms of the original open-source license.
 
@@ -87,4 +93,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Mon Nov 25 2013 01:32:31.*
+*This file was generated on Mon Nov 25 2013 01:45:27.*

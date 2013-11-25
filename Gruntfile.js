@@ -614,6 +614,21 @@ module.exports = function(grunt) {
       compile: ['template', 'less', 'jst'],
       package: ['copy:dist', 'cssmin', 'uglify'],
       test: ['jshint', 'jasmine:cover']
+    },
+
+    /**
+     * grunt-cfpb-internal: https://github.com/cfpb/grunt-cfpb-internal
+     * 
+     * Some internal CFPB tasks.
+     */
+    'build-cfpb': {
+      main: {
+        options: {
+          commit: true,
+          tag: true,
+          push: false
+        }
+      }
     }
 
   });
