@@ -36,6 +36,7 @@ var PDP = (function ( pdp ) {
 
     switch( preset ) {
 
+      // All originated mortgages.
       case 'originations':
         this.params = {
           as_of_year: {
@@ -49,6 +50,7 @@ var PDP = (function ( pdp ) {
         };
       break;
 
+      // First-lien, owner-occupied, 1-4 family homes (including manufactured homes).
       case 'common':
         this.params = {
           as_of_year: {
@@ -74,6 +76,12 @@ var PDP = (function ( pdp ) {
         };
       break;
 
+      // Empty everything.
+      case 'clear':
+        this.params = {};
+        break;
+
+      // Default to an empty state with whatever years they've selected.
       default:
         this.params = {
           as_of_year: {
@@ -98,9 +106,11 @@ var PDP = (function ( pdp ) {
 
     switch( opts.source ) {
       case 'url':
-      console.log('from url!');
         fields = pdp.app.getUrlValues();
         break;
+      // State is stored in a cookie. Removing this functionality for now because
+      // it's confusing the UX team. I'd rather work on other stuff than explain 
+      // to them how this works. Winter is coming.
       // case 'session':
       //   fields = pdp.query.getCookie();
       //   break;
@@ -108,7 +118,7 @@ var PDP = (function ( pdp ) {
         fields = pdp.form.getFields();
     }
 
-    this.reset();
+    this.reset('clear');
 
     // Iterate over all the filter field values and push them into `query.params`.
     function _processField( field ) {

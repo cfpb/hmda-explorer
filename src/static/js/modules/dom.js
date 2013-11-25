@@ -19,28 +19,48 @@ var PDP = (function ( pdp ) {
   // Act appropriately when suggested filter sets are changed.
   $('.field.suggested').on( 'change', _.debounce(function( ev ){
 
-    var preset = $('.field.suggested select').val(),
+    var $field = $('.field.suggested select'),
+        preset = $field.val(),
         parents;
 
     ev.preventDefault();
 
     if ( preset === 'custom' ) {
-      pdp.form.resetFields();
-      pdp.query.reset();
-      pdp.form.showSections();
-      pdp.form.updateShareLink();
+      return;
+    } else if ( preset === 'default' ) {
+      pdp.query.reset('all');
     } else {
-      pdp.form.resetFields();
       pdp.query.reset( preset );
-      pdp.form.setFields();
-      pdp.form.hideSections();
     }
+
+    pdp.form.resetFields();
+    pdp.form.setFields();
+    pdp.form.showSections();
+    pdp.form.updateShareLink();
 
   }, 100));
 
   // Whenever a field element is changed emit an event.
   $('.filter').on( 'change', '.field select, .field:not(.optional-toggle) input', _.debounce(function(){
+
+    var name,
+        value = $('#suggested').val(),
+        isSuggestedField = $( this ).parents('.field').hasClass('suggested') || $( this ).parents('.field').hasClass('as_of_year'),
+        isCustomAlreadyChosen = value === 'custom';
+
     pdp.observer.emitEvent('field:changed', [ $( this ).attr('id') ] );
+
+    // Select the 'custom' suggestion if the field they're changing is NOT 
+    // the suggestion dropdown and the 'custom' suggestion isn't already chosen.
+    if ( !isSuggestedField && !isCustomAlreadyChosen && value ) {
+      name = $('.field.suggested select').find('option[value=' + $('.field.suggested select').val() + ']').text();
+      name = name ? name + ' (modified)' : 'User modified (see filters below)';
+      pdp.form.setCustom( name );
+      pdp.form.selectCustom();
+    } else if ( isSuggestedField ) {
+      pdp.form.removeCustom();
+    }
+
   }, 300 ));
 
   // Add a new location section whenever the `#add-state` link is clicked.
@@ -115,8 +135,6 @@ var PDP = (function ( pdp ) {
 
   // Open and close filters
   $('.filter .title').on( 'click', function( ev ){
-
-    console.log(this);
 
     var id = $( this ).parents('.filter').attr('id'),
         $el = $('#' + id);

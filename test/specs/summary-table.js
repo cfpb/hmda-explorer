@@ -251,7 +251,86 @@
           
       });
     });
-    
+
+    describe('Table initializing', function() {
+
+      it('should set itself up', function() {
+        spyOn(PDP.summaryTable, 'resetTable');
+        PDP.summaryTable.setupTable();
+        expect( PDP.summaryTable.resetTable ).toHaveBeenCalled();
+      });
+
+      it('should be able to hide itself', function() {
+        setUpTableFixture();
+        PDP.summaryTable._disableTable();
+        expect( $('#summary-table').is(':visible') ).toBe( false );
+      });
+
+      it('should be able to update its values', function() {
+        setUpTableFixture();
+        var e = jQuery.Event('keydown');
+        spyOn(PDP.summaryTable, 'updateFieldVals');
+        $('#summary-table').on( 'keydown', PDP.summaryTable.updateFieldVals );
+        $('#summary-table').trigger(e);
+        PDP.summaryTable.updateFieldVals(e);
+        expect( PDP.summaryTable.updateFieldVals ).toHaveBeenCalled();
+      });
+
+      it('should reset after receiving a response', function() {
+        var response = {'total':6,'slice':'hmda_lar','dataset':'hmda','computing':false,'page':1,'errors':{},'size':6,'_links':[{'rel':'self','href':'/data/hmda/slice/hmda_lar.jsonp?$callback=jQuery110208900953254196793_1385358055943&$group=agency_name,action_taken_name&$orderBy=action_taken_name,agency_name&$select=COUNT(),agency_name,action_taken_name&$where=as_of_year=2012+AND+state_code=2+AND+applicant_sex=3+AND+action_taken=1&$limit=0&_=1385358055945'},{'href':'/data/hmda','rel':'up'},{'href':'/data/hmda/slice/hmda_lar.jsonp?$select={?select}&$group={?group}&$where={?where}&$orderBy={?orderBy}&$limit={?limit}&$offset={?offset}&$callback={?callback}','templated':true,'rel':'query'}],results:[{'action_taken_name':'Loan originated','agency_name':'Consumer Financial Protection Bureau','count':453},{'action_taken_name':'Loan originated','agency_name':'Department of Housing and Urban Development','count':211},{'action_taken_name':'Loan originated','agency_name':'Federal Deposit Insurance Corporation','count':40},{'action_taken_name':'Loan originated','agency_name':'Federal Reserve System','count':3},{'action_taken_name':'Loan originated','agency_name':'National Credit Union Administration','count':1201},{'action_taken_name':'Loan originated','agency_name':'Office of the Comptroller of the Currency','count':166}],'dimensions':{},'query':{'callback':'jQuery110208900953254196793_1385358055943','offset':0,'limit':0,'orderBy':'action_taken_name,agency_name','where':'as_of_year=2012 AND state_code=2 AND applicant_sex=3 AND action_taken=1','group':'agency_name,action_taken_name','select':'COUNT(),agency_name,action_taken_name'}};
+        spyOn(PDP.summaryTable, 'resetTable');
+        PDP.summaryTable._handleApiResponse(response);
+        expect( PDP.summaryTable.resetTable ).toHaveBeenCalled();
+      });
+
+      it('should prep itself after receiving a response', function() {
+        var response = {'total':6,'slice':'hmda_lar','dataset':'hmda','computing':false,'page':1,'errors':{},'size':6,'_links':[{'rel':'self','href':'/data/hmda/slice/hmda_lar.jsonp?$callback=jQuery110208900953254196793_1385358055943&$group=agency_name,action_taken_name&$orderBy=action_taken_name,agency_name&$select=COUNT(),agency_name,action_taken_name&$where=as_of_year=2012+AND+state_code=2+AND+applicant_sex=3+AND+action_taken=1&$limit=0&_=1385358055945'},{'href':'/data/hmda','rel':'up'},{'href':'/data/hmda/slice/hmda_lar.jsonp?$select={?select}&$group={?group}&$where={?where}&$orderBy={?orderBy}&$limit={?limit}&$offset={?offset}&$callback={?callback}','templated':true,'rel':'query'}],results:[{'action_taken_name':'Loan originated','agency_name':'Consumer Financial Protection Bureau','count':453},{'action_taken_name':'Loan originated','agency_name':'Department of Housing and Urban Development','count':211},{'action_taken_name':'Loan originated','agency_name':'Federal Deposit Insurance Corporation','count':40},{'action_taken_name':'Loan originated','agency_name':'Federal Reserve System','count':3},{'action_taken_name':'Loan originated','agency_name':'National Credit Union Administration','count':1201},{'action_taken_name':'Loan originated','agency_name':'Office of the Comptroller of the Currency','count':166}],'dimensions':{},'query':{'callback':'jQuery110208900953254196793_1385358055943','offset':0,'limit':0,'orderBy':'action_taken_name,agency_name','where':'as_of_year=2012 AND state_code=2 AND applicant_sex=3 AND action_taken=1','group':'agency_name,action_taken_name','select':'COUNT(),agency_name,action_taken_name'}};
+        spyOn( PDP.summaryTable, '_mungeDollarAmts' );
+        PDP.summaryTable._prepData(response);
+        expect( PDP.summaryTable._mungeDollarAmts ).toHaveBeenCalled();
+      });
+
+      it('should update its fields', function() {
+        spyOn( PDP.summaryTable, '_updateFields' );
+        PDP.summaryTable._updateSummaryFields();
+        expect( PDP.summaryTable._updateFields ).toHaveBeenCalled();
+      });
+
+      it('should update its UI', function() {
+        setUpUIFixture();
+        PDP.summaryTable.fieldVals.variables = [1,2,3];
+        PDP.summaryTable._updateSummaryFieldsUI();
+        expect( $('#reset-variable1').attr('class').indexOf('hidden') ).toEqual( -1 );
+        PDP.summaryTable.fieldVals.variables = [1];
+        PDP.summaryTable._updateSummaryFieldsUI();
+        expect( $('#variable2').attr('disabled') ).toBe( 'disabled' );
+      });
+
+      it('should pull down URL params', function() {
+        spyOn( PDP.summaryTable, '_extractValuesFromUrlParams' );
+        PDP.summaryTable.showTableFromUrlParams();
+        expect( PDP.summaryTable._extractValuesFromUrlParams ).toHaveBeenCalled();
+      });
+
+      it('should initalize', function() {
+        spyOn( PDP.summaryTable, '_chosenInit' );
+        spyOn( PDP.summaryTable, 'createTable' );
+        spyOn( PDP.summaryTable, '_populateOptions' );
+        PDP.summaryTable.init();
+        expect( PDP.summaryTable._chosenInit ).toHaveBeenCalled();
+        expect( PDP.summaryTable.createTable ).toHaveBeenCalled();
+        expect( PDP.summaryTable._populateOptions ).toHaveBeenCalled();
+      });
+
+    });
+
+    function setUpTableFixture() {
+      jasmine.getFixtures().set('<div id="summary-table"><div class="app-section filters" id="foo"></div><div class="app-section summary" id="bar"></div><li class="field as_of_year"><label for="as_of_year">Select year(s) of data:</label><div class="widget select"><select class="param" name="as_of_year" id="as_of_year" multiple data-placeholder="Select one or more years"><option value="2012" selected>2012</option><option value="2011">2011</option><option value="2010">2010</option><option value="2009">2009</option><option value="2008">2008</option><option value="2007">2007</option></select></div></li></div>');
+    }
+
+    function setUpUIFixture() {
+      jasmine.getFixtures().set('<div id="summary-table"><div id="variable1"></div><div id="variable2"></div><div id="variable3"></div><div id="reset-variable1" class="hidden"></div><div id="reset-variable2" class="hidden"></div></div>');
+    }
 
   });
 })();

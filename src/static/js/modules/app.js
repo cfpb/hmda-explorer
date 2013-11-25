@@ -41,12 +41,12 @@ var PDP = (function ( pdp ) {
     // grab them and populate the DOM fields.
     if ( !_.isEmpty( hashParams ) ) {
       pdp.query.updateAll({ source: 'url' });
-    } else if ( !_.isEmpty( $.cookie('_hmda') ) ) {
-      // Read from the cookie if it exists.
-      pdp.query.updateAll({ source: 'session' });
+    // } else if ( !_.isEmpty( $.cookie('_hmda') ) ) {
+    //   // Read from the cookie if it exists.
+    //   pdp.query.updateAll({ source: 'session' });
     } else {
       // Clear out any cached values.
-      pdp.query.reset({ defaults: true });
+      pdp.query.reset();
     }
 
     // Give our app a special class.

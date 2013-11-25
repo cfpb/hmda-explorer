@@ -33,6 +33,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2013-11-25   [v0.18](../../tree/v0.18)   Add suggested filters (#438).
  * 2013-10-24   [v0.17.2](../../tree/v0.17.2)   Properly coerce loan amounts (#408). Correctly fire download tooltips (#415).
  * 2013-10-20   [v0.17.1](../../tree/v0.17.1)   Improved caching (#373), error handling and file size estimation. Disable download button if record count is zero (#380).
  * 2013-10-10   [v0.16.2](../../tree/v0.16.2)   Include rate spread in loan description section (#38).
@@ -58,9 +59,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
  * 2013-08-02   [v0.9.0](../../tree/v0.9.0)   New location section functionality. Moved templates into JST using grunt-contrib-jst task.
  * 2013-08-01   [v0.8.1](../../tree/v0.8.1)   Fix preview table bug that returned wrong number of columns.
  * 2013-07-31   [v0.8.0](../../tree/v0.8.0)   Initial NLW implementation.
- * 2013-07-31   [v0.7.6](../../tree/v0.7.6)   Add Co-Applicant toggle. Add CFPB logo.
- * 2013-07-30   [v0.7.5](../../tree/v0.7.5)   Improve test coverage of new API.
- * 2013-07-30   [v0.7.4](../../tree/v0.7.4)   Refactor API URL building method to better accommodate summary table $select/$group clauses.
+ * 2013-07-31   [v0.7.4](../../tree/v0.7.4)   Add Co-Applicant toggle. Add CFPB logo.
  * 2013-07-30   [v0.7.3](../../tree/v0.7.3)   Use ZeroClipboard to save share URL to clipboard.
  * 2013-07-29   [v0.7.2](../../tree/v0.7.2)   Memoize AJAX requests. Add section toggle to explore page header.
  * 2013-07-24   [v0.7.1](../../tree/v0.7.1)   Section parameter is properly stored in sharing URL hash.
@@ -88,4 +87,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Fri Oct 25 2013 02:50:58.*
+*This file was generated on Mon Nov 25 2013 01:32:31.*
