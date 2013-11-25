@@ -140,11 +140,11 @@
               <label for="suggested">Select suggested filters:</label>
               <div class="widget select">
                 <select name="suggested" id="suggested" data-placeholder="Select a filter set">
-                  <option value=""></option>
+                  <option value="default"></option>
                   <option value="common">Mortgages for first-lien, owner-occupied, 1-4 family homes (including manufactured housing)</option>
                   <option value="originations">All originated mortgages</option>
                   <option value="all">All records</option>
-                  <option value="custom"></option>
+                  <option value="custom" class="custom"></option>
                 </select>
               </div>
             </li>
@@ -667,7 +667,7 @@
 
       <div class="preview closed">
 
-          <p class="nlw">There are <em class="calculating"><img src="static/img/icon_spinner_2x.gif" alt="Loading icon" height="30" width="30" class="spinnergif"></em><strong class="count">many</strong> HMDA records from <strong class="years">2007 - 2012</strong> with the above selected filters.</p>
+          <p class="nlw">There are <em class="calculating"><img src="static/img/icon_spinner_2x.gif" alt="Loading icon" height="30" width="30" class="spinnergif"></em><strong class="count">many</strong> HMDA records from <strong class="years">2007 - 2012</strong><span class="filter-selection"> with the above selected filters</span>.</p>
 
           <div class="title">
 

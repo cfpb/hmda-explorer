@@ -16,6 +16,10 @@ var PDP = (function ( pdp ) {
   // Cache a reference to all the filter fields.
   form.init = function() {
     this.$fields = form.$el.find('.field:not(.ignore)');
+    if ( !_.isEmpty( pdp.utils.getHashParams() ) ) {
+      pdp.form.setCustom( 'User modified (see filters below)' );
+      pdp.form.selectCustom();
+    }
   };
 
   // Initialize ZeroClipboard on the share button.
@@ -38,12 +42,27 @@ var PDP = (function ( pdp ) {
   // The `hideSections` method hides all filter sections (location, applicant, lender, etc.)
   // This is used if a filter set other than `custom` is chosen.
   form.hideSections = function() {
-    $('.filter:not(.year), .no-summary #share').addClass('hidden');
+    $('.filter:not(.year)').not('.footer').addClass('hidden');
   };
 
-  // The `showSections` shows all filter sections (location, applicant, lender, etc.)
+  // The `showSections` method shows all filter sections (location, applicant, lender, etc.)
   form.showSections = function() {
-    $('.filter:not(.year), .no-summary #share').removeClass('hidden');
+    $('.filter:not(.year)').not('.footer').removeClass('hidden');
+  };
+
+  // The `setCustom` method modifies the custom suggested filter text.
+  form.setCustom = function( text ) {
+    $('.suggested .custom').text( text ).parent('select').trigger('liszt:updated');
+  };
+
+  // The `selectCustom` method selects the custom option in the suggested filter dropdown.
+  form.selectCustom = function(){
+    $('#suggested').val('custom').trigger('liszt:updated');
+  };
+
+  // The `removeCustom` method removes the custom option in the suggested filter dropdown.
+  form.removeCustom = function(){
+    $('.suggested .custom').text('').trigger('liszt:updated');
   };
 
   // The `showFilter` method shows all the fields of a given filter section.
@@ -75,8 +94,8 @@ var PDP = (function ( pdp ) {
 
   };
 
-  // The `checkFilters` method checks if a filter has any fields with values
-  // and expands it if so.
+  // The `checkFilters` method checks all the filters for any fields with values
+  // and expands them if so.
   form.checkFilters = function() {
 
     pdp.form.$fields.each(function(){
@@ -406,6 +425,8 @@ var PDP = (function ( pdp ) {
         promise = pdp.utils.getJSON( pdp.query.endpoint + 'concept/' + concept + '.' + pdp.query.format + '?' );
 
     }
+
+    window.prms = promise;
 
     return promise;
 

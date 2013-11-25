@@ -152,12 +152,30 @@ var PDP = (function ( pdp ) {
   };
 
   // The `updateNLW` method updates the natural language sentence above the preview table.
-  preview.updateNLW = function( count ) {
+  preview.updateNLW = function() {
 
     // If there are year(s) selected use 'em, otherwise use all years.
-    var years = typeof pdp.query.params.as_of_year !== 'undefined' && !_.isEmpty( pdp.query.params.as_of_year.values[0] ) ? _.clone( pdp.query.params.as_of_year.values ).sort() : [2007, 2008, 2009, 2010, 2011, 2012],
+    var years = typeof pdp.query.params.as_of_year !== 'undefined' && !_.isEmpty( pdp.query.params.as_of_year.values ) ? _.clone( pdp.query.params.as_of_year.values ).sort() : [2007, 2008, 2009, 2010, 2011, 2012],
         countFormatted = pdp.utils.commify( preview.nlw.count ),
+        filters,
         areConsecutive;
+
+    switch( $('#suggested').val() ) {
+      case 'common':
+        filters = ' for first-lien, owner-occupied, 1-4 family homes';
+        break;
+      case 'originations':
+        filters = ' with originated mortgages';
+        break;
+      case 'default':
+        filters = '';
+        break;
+      case 'all':
+        filters = '';
+        break;
+      default:
+        filters = ' with the above selected filters';
+    }
 
     if ( years.length > 1 ) {
 
@@ -177,6 +195,7 @@ var PDP = (function ( pdp ) {
 
     preview.nlw.$el.find('.count').html( countFormatted );
     preview.nlw.$el.find('.years').html( years );
+    preview.nlw.$el.find('.filter-selection').html( filters );
 
   };
 

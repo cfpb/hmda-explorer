@@ -5,17 +5,33 @@
   describe('The data platform', function(){
 
     it('should provide an object called PDP', function(){
-
-        expect( PDP ).not.toBeUndefined();
-
+      expect( PDP ).not.toBeUndefined();
     });
 
     it('should have a container element', function(){
-
       PDP.app.init();
-
       expect( PDP.app.$el ).not.toBeUndefined();
+    });
 
+    it('should indicate that it\'s loading', function() {
+      setUpAppFixture();
+      PDP.app.$el = $('#filters');
+      PDP.app.startLoading();
+      expect( $('#filters').attr('class').indexOf('loading') ).toBeGreaterThan( -1 );
+    });
+
+    it('should indicate that it\'s done loading', function() {
+      setUpAppFixture();
+      PDP.app.$el = $('#filters');
+      PDP.app.stopLoading();
+      expect( $('#filters').attr('class') ).toBeFalsy();
+    });
+
+    it('should be able to change sections', function() {
+      setUpAppFixture();
+      PDP.form.$fields = $('.field');
+      PDP.app.changeSection('filters', false);
+      expect( $('.summary').attr('class').indexOf('hidden') ).toBe( -1 );
     });
 
     it('should initialize the form when it starts', function(){
@@ -50,5 +66,9 @@
     });
 
   });
+
+  function setUpAppFixture() {
+    jasmine.getFixtures().set('<div id="filters"><div class="app-section filters" id="foo"></div><div class="app-section summary" id="bar"></div><li class="field as_of_year"><label for="as_of_year">Select year(s) of data:</label><div class="widget select"><select class="param" name="as_of_year" id="as_of_year" multiple data-placeholder="Select one or more years"><option value="2012" selected>2012</option><option value="2011">2011</option><option value="2010">2010</option><option value="2009">2009</option><option value="2008">2008</option><option value="2007">2007</option></select></div></li></div>');
+  }
 
 })();

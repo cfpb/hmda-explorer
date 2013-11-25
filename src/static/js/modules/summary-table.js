@@ -240,6 +240,7 @@ var PDP = (function ( pdp ) {
   };
 
   table._handleApiResponse = function( response ) {
+    console.log(JSON.stringify(response));
     this.resetTable();
     this.updateTableHeaders();
     this.populateTable(this._prepData(response));
