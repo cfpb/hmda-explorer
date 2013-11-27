@@ -33,6 +33,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2013-11-27   [v0.18.1](../../tree/v0.18.1)   Improve charts' UX (#333,
  * 2013-11-25   [v0.18.0](../../tree/v0.18.0)   Add suggested filters (#438).
  * 2013-10-24   [v0.17.2](../../tree/v0.17.2)   Properly coerce loan amounts (#408). Correctly fire download tooltips (#415).
  * 2013-10-20   [v0.17.1](../../tree/v0.17.1)   Improved caching (#373), error handling and file size estimation. Disable download button if record count is zero (#380).
@@ -93,4 +94,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Mon Nov 25 2013 01:45:27.*
+*This file was generated on Wed Nov 27 2013 11:52:59.*
