@@ -14,7 +14,7 @@ var chart1_options = {
     marginTop: 20,
     marginBottom: 80,
     type: 'column',
-    animation: true
+    animation: false
   },
   exporting: {
     enabled: false
