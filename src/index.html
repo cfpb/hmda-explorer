@@ -216,16 +216,9 @@
               
               <%= homepage_charts_first_chart_msa_dropdown %>
 
-              <div class="toggle-series-heading">
-                <span class="chart-label">Loan Purpose</span>
-              </div>
-
-              <div class="toggle-series-controls">
-                <input type="checkbox" id="home_purchase_checkbox" name="home_purchase_checkbox" value="True" checked> Home purchases
-                <br>
-                <input type="checkbox" id="home_improvements_checkbox" name="home_improvements_checkbox" value="True" checked> Home improvements
-                <br>
-                <input type="checkbox" id="refinancing_checkbox" name="refinancing_checkbox" value="True" checked> Refinancing
+              <div class="toggle-series-controls applications">
+                  <label><input type="radio" name="toggle-applications" value="1" checked />Applications</label>
+                  <label><input type="radio" name="toggle-applications" value="0" />Originations</label>
               </div>
 
               <!-- /.row -->
@@ -239,25 +232,17 @@
 
               <table class="chart-legend">
                 <tr>
-                  <th>Home Purchases</th>
-                  <th>Home Improvements</th>
-                  <th>Refinancing</th>
+                  <td>
+                    <span class="chart-legend-box chart-legend-box-purchases">&nbsp;</span> Home Purchases</td>
                 </tr>
                 <tr>
                   <td>
-                    <span class="chart-legend-box chart-legend-box-hpa">&nbsp;</span> Applications</td>
-                  <td>
-                    <span class="chart-legend-box chart-legend-box-hia">&nbsp;</span> Applications</td>
-                  <td>
-                    <span class="chart-legend-box chart-legend-box-ra">&nbsp;</span> Applications</td>
+                    <span class="chart-legend-box chart-legend-box-improvements">&nbsp;</span> Home Improvements</td>
                 </tr>
                 <tr>
                   <td>
-                    <span class="chart-legend-box chart-legend-box-hpo">&nbsp;</span> Originations</td>
+                    <span class="chart-legend-box chart-legend-box-refinancing">&nbsp;</span> Refinancing</td>
                   <td>
-                    <span class="chart-legend-box chart-legend-box-hio">&nbsp;</span> Originations</td>
-                  <td>
-                    <span class="chart-legend-box chart-legend-box-ro">&nbsp;</span> Originations</td>
                 </tr>
               </table>
 
@@ -272,7 +257,7 @@
       <section>
         <div class="background">
           <div class="chart-info">
-            <h3>Number of originations by <br> loan type</h3>
+            <h3>Percent of home purchases by <br> loan type</h3>
 
             <p>Many loans are insured or guaranteed by government programs offered by the Federal Housing Administration (FHA), the Department of Veterans Affairs (VA), or the Department of Agriculture&rsquo;s Rural Housing Service or Farm Service Agency (RHS/FSA). All other loans are classified as Conventional.</p>
 

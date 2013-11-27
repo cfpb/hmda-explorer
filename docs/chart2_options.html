@@ -80,7 +80,7 @@
             <span class="nx">lineHeight</span><span class="o">:</span> <span class="s1">&#39;12pt&#39;</span>
         <span class="p">},</span>
         <span class="nx">formatter</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-            <span class="kd">var</span> <span class="nx">format</span> <span class="o">=</span> <span class="s1">&#39;&lt;span style=&quot;font-size: 12pt;&gt;&lt;span style=&quot;font-weight: 700;&quot;&gt;&#39;</span> <span class="o">+</span> <span class="nx">addCommas</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">y</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&lt;/span&gt; &#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">series</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s1">&#39;&lt;br&gt;originations in &#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="s1">&#39;&lt;/span&gt;&#39;</span><span class="p">;</span>
+            <span class="kd">var</span> <span class="nx">format</span> <span class="o">=</span> <span class="s1">&#39;&lt;span style=&quot;font-size: 12pt;&gt;&lt;span style=&quot;font-weight: 700;&quot;&gt;&#39;</span> <span class="o">+</span> <span class="nx">addCommas</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span> <span class="o">/</span> <span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;%&lt;/span&gt; &#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">series</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s1">&#39; loans in &#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="s1">&#39;&lt;/span&gt;&#39;</span><span class="p">;</span>
             <span class="k">return</span> <span class="nx">format</span><span class="p">;</span>
         <span class="p">}</span>
     <span class="p">},</span>
@@ -212,10 +212,11 @@
                     <span class="nx">fontFamily</span><span class="o">:</span> <span class="s1">&#39;&quot;Avenir Next LT W01 Regular&quot;, &quot;Avenir Next&quot;, &quot;Arial&quot;&#39;</span><span class="p">,</span>
                     <span class="nx">fontWeight</span><span class="o">:</span> <span class="s1">&#39;400&#39;</span>
                 <span class="p">},</span>
-                <span class="nx">format</span><span class="o">:</span> <span class="s1">&#39;{value:,.0f}&#39;</span><span class="p">,</span>
+                <span class="nx">format</span><span class="o">:</span> <span class="s1">&#39;{value}%&#39;</span><span class="p">,</span>
                 <span class="nx">enabled</span><span class="o">:</span> <span class="kc">true</span></pre></div>             </td>           </tr>                               <tr id="section-3">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-3">&#182;</a>               </div>               <p>formatter: function() { return this.value; },
 overflow: 'justify'</p>             </td>             <td class="code">               <div class="highlight"><pre>            <span class="p">},</span>
-            <span class="nx">gridLineWidth</span><span class="o">:</span> <span class="mi">1</span>
+            <span class="nx">gridLineWidth</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="nx">max</span><span class="o">:</span> <span class="mi">100</span>
         <span class="p">},</span>
         <span class="p">{</span>
             <span class="nx">opposite</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -239,19 +240,19 @@ overflow: 'justify'</p>             </td>             <td class="code">         
     <span class="nx">series</span><span class="o">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Conventional&#39;</span><span class="p">,</span>
-            <span class="nx">data</span><span class="o">:</span> <span class="p">[</span><span class="mi">5038561</span><span class="p">,</span> <span class="mi">4493378</span><span class="p">,</span> <span class="mi">6432249</span><span class="p">]</span>
+            <span class="nx">data</span><span class="o">:</span> <span class="p">[</span><span class="mf">47.37</span><span class="p">,</span><span class="mf">50.28</span><span class="p">,</span><span class="mf">55.3</span><span class="p">]</span>
         <span class="p">},</span>
         <span class="p">{</span>
             <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;FHA&#39;</span><span class="p">,</span>
-            <span class="nx">data</span><span class="o">:</span> <span class="p">[</span><span class="mi">1428357</span><span class="p">,</span> <span class="mi">1057843</span><span class="p">,</span> <span class="mi">1278827</span><span class="p">]</span>
+            <span class="nx">data</span><span class="o">:</span> <span class="p">[</span><span class="mf">40.8</span><span class="p">,</span><span class="mf">35.34</span><span class="p">,</span><span class="mf">30.5</span><span class="p">]</span>
         <span class="p">},</span>
         <span class="p">{</span>
             <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;VA&#39;</span><span class="p">,</span>
-            <span class="nx">data</span><span class="o">:</span> <span class="p">[</span><span class="mi">310522</span><span class="p">,</span> <span class="mi">372783</span><span class="p">,</span> <span class="mi">558690</span><span class="p">]</span>
+            <span class="nx">data</span><span class="o">:</span> <span class="p">[</span><span class="mf">3.85</span><span class="p">,</span><span class="mf">5.31</span><span class="p">,</span><span class="mf">5.3</span><span class="p">]</span>
         <span class="p">},</span>
         <span class="p">{</span>
             <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;RHS&#39;</span><span class="p">,</span>
-            <span class="nx">data</span><span class="o">:</span> <span class="p">[</span><span class="mi">87858</span><span class="p">,</span> <span class="mi">113815</span><span class="p">,</span> <span class="mi">132204</span><span class="p">]</span>
+            <span class="nx">data</span><span class="o">:</span> <span class="p">[</span><span class="mf">7.98</span><span class="p">,</span><span class="mf">9.07</span><span class="p">,</span><span class="mf">8.9</span><span class="p">]</span>
 
         <span class="p">}</span>
     <span class="p">]</span>
