@@ -1,7 +1,7 @@
 v0.18.1:
   date: 2013-11-27
   changes:
-    - Improve charts' UX (#333, #334).
+    - Improve charts' UX (#333).
 
 v0.18.0:
   date: 2013-11-25

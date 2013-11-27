@@ -109,11 +109,14 @@ var PDP = (function ( pdp ) {
 
     });
 
-    // Check if the co-applicant section needs to be shown.
+    // Check if any optional fields needs to be shown.
     $('.field.optional').each(function(){
 
       if ( pdp.form.hasValue( $( this ) ) ) {
-        pdp.form.toggleOptional( $( this ).data('optional'), 'show' );
+        var children = $( this ).data('optional').split(' ');
+        _( children ).forEach(function( child ){
+          pdp.form.toggleOptional( child, 'show' );
+        });
       }
 
     });
