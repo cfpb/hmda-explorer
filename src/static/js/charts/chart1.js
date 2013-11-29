@@ -403,56 +403,58 @@ $(document).ready(function() {
 'CBSA00000': {name: 'U.S. Total', data:[[3358121,3117454,3448970],[2213631,2060808,2331989],[245034,235335,270879],[142357,136967,169193],[7609156,6560190,9264878],[4509310,3840044,5900788]]}
 
     };
-    // the button action
-    //console.log(chart1DataObj.msa01.data[0]);
+    
+    var SeriesToggle = function( el ) {
 
-    var $home_purchase_checkbox = $("#home_purchase_checkbox");
-    $home_purchase_checkbox.click(function() {
-        var series1 = applicationsOriginationsChart.series[0];
-        var series2 = applicationsOriginationsChart.series[1];
-        if (series1.visible) {
-            series1.hide();
-            series2.hide();
-            $home_purchase_checkbox.removeAttr("checked");
+      var applications = [],
+          originations = [],
+          checkVal,
+          showSeries,
+          hideSeries;
 
+      for ( var i = 0; i < applicationsOriginationsChart.series.length; i++ ) {
+        if ( i % 2 ) {
+          originations.push( applicationsOriginationsChart.series[i] );
         } else {
-            series1.show();
-            series2.show();
-            $home_purchase_checkbox.attr("checked");
+          applications.push( applicationsOriginationsChart.series[i] );
         }
-    });
+      }
 
-    var $home_improvements_checkbox = $("#home_improvements_checkbox");
-    $home_improvements_checkbox.click(function() {
-        var series1 = applicationsOriginationsChart.series[2];
-        var series2 = applicationsOriginationsChart.series[3];
-        if (series1.visible) {
-            series1.hide();
-            series2.hide();
-            $home_improvements_checkbox.removeAttr("checked");
+      this.init = function() {
+        this.$el = $( el );
+        showSeries( applications );
+        hideSeries( originations );
+        this.$el.find('input').on( 'click', checkVal.bind( this ) );
+      };
 
+      checkVal = function() {
+        if ( Number( this.$el.find('input:checked').val() ) ) {
+          showSeries( applications );
+          hideSeries( originations );
         } else {
-            series1.show();
-            series2.show();
-            $home_improvements_checkbox.attr("checked");
+          hideSeries( applications );
+          showSeries( originations );
         }
-    });
+      };
 
-    var $refinancing_checkbox = $("#refinancing_checkbox");
-    $refinancing_checkbox.click(function() {
-        var series1 = applicationsOriginationsChart.series[4];
-        var series2 = applicationsOriginationsChart.series[5];
-        if (series1.visible) {
-            series1.hide();
-            series2.hide();
-            $refinancing_checkbox.removeAttr("checked");
+      showSeries = function( series ) {
+        series = series instanceof Array ? series : [series];
+        _( series ).forEach(function( series ){
+          series.show();
+        });
+      };
 
-        } else {
-            series1.show();
-            series2.show();
-            $refinancing_checkbox.attr("checked");
-        }
-    });
+      hideSeries = function( series ) {
+        series = series instanceof Array ? series : [series];
+        _( series ).forEach(function( series ){
+          series.hide();
+        });
+      };
+
+    };
+
+    var chartOneToggle = new SeriesToggle('.toggle-series-controls.applications');
+    chartOneToggle.init();
 
     var $msa = $('#hmda_chart_1_msa');
     $msa.change(function() {

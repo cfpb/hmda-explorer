@@ -80,7 +80,7 @@ var chart2_options = {
             lineHeight: '12pt'
         },
         formatter: function() {
-            var format = '<span style="font-size: 12pt;><span style="font-weight: 700;">' + addCommas(this.y) + '</span> ' + this.series.name + '<br>originations in ' + this.x + '</span>';
+            var format = '<span style="font-size: 12pt;><span style="font-weight: 700;">' + addCommas(Math.round(this.y * 10) / 10) + '%</span> ' + this.series.name + ' loans in ' + this.x + '</span>';
             return format;
         }
     },
@@ -214,12 +214,13 @@ var chart2_options = {
                     fontFamily: '"Avenir Next LT W01 Regular", "Avenir Next", "Arial"',
                     fontWeight: '400'
                 },
-                format: '{value:,.0f}',
+                format: '{value}%',
                 enabled: true
                 //formatter: function() { return this.value; },
                 //overflow: 'justify'
             },
-            gridLineWidth: 1
+            gridLineWidth: 1,
+            max: 100
         },
         {
             opposite: true,
@@ -245,19 +246,19 @@ var chart2_options = {
     series: [
         {
             name: 'Conventional',
-            data: [5038561, 4493378, 6432249]
+            data: [47.37,50.28,55.3]
         },
         {
             name: 'FHA',
-            data: [1428357, 1057843, 1278827]
+            data: [40.8,35.34,30.5]
         },
         {
             name: 'VA',
-            data: [310522, 372783, 558690]
+            data: [3.85,5.31,5.3]
         },
         {
             name: 'RHS',
-            data: [87858, 113815, 132204]
+            data: [7.98,9.07,8.9]
 
         }
     ]

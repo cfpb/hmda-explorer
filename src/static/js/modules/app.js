@@ -188,7 +188,11 @@ var PDP = (function ( pdp ) {
     changeUrl = typeof changeUrl === 'undefined' ? true : changeUrl;
 
     if ( !$('#' + section).length ) {
-      return;
+      if ( section instanceof Array ) {
+        section = section[0].indexOf('summary') > -1 ? 'summary' : 'filters';
+      } else {
+        return;
+      }
     }
 
     $('.app-section').addClass('hidden');

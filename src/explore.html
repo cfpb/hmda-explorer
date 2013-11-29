@@ -178,6 +178,291 @@
 
         <!-- filter section -->
 
+        <div class="filter property closed" id="property">
+
+          <div class="title">
+
+            <a href="#property"><h3><i class="icon-minus-alt"></i> Property</h3></a>
+
+            <div class="desc">Property type and occupancy</div>
+
+          </div>
+
+          <ul class="fields">
+            
+            <!-- filter field -->
+            <li class="field popular">
+              <label for="property_type">Property Type:</label>
+              <div class="widget checkbox">
+                <label><input type="checkbox" class="param" name="property_type[]" value="1" id="foo"/>One-to-four family dwelling<br><label class="helper-text"> (other than manufactured housing)</label></label>
+                <label><input type="checkbox" class="param" name="property_type[]" value="2" />Manufactured housing</label>
+                <label><input type="checkbox" class="param" name="property_type[]" value="3" />Multifamily dwelling</label>
+              </div>
+              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
+              <span class="help-text"><%= explore_tooltips_property_type %></span>
+            </li>
+            <!-- /filter field -->
+
+            <!-- filter field -->
+            <li class="field popular">
+              <label for="owner_occupancy">Will the owner use the property<br> as their primary residence?</label>
+              <div class="widget checkbox">
+                <label><input type="checkbox" class="param" name="owner_occupancy[]" value="1" />Owner-occupied as a principal dwelling</label>
+                <label><input type="checkbox" class="param" name="owner_occupancy[]" value="2" />Not owner-occupied as a principal dwelling</label>
+                <label><input type="checkbox" class="param" name="owner_occupancy[]" value="3" />Not applicable</label>
+              </div>
+              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
+              <span class="help-text"><%= explore_tooltips_owner_occupancy %></span>
+            </li>
+            <!-- /filter field -->
+
+          </ul>
+          
+        </div>
+
+        <!-- /filter section -->
+
+        <!-- filter section -->
+
+        <div class="filter description closed" id="description">
+
+          <div class="title">
+
+            <a href="#description"><h3><i class="icon-minus-alt"></i> Loan</h3></a>
+
+            <div class="desc">Loan action, purpose, type, and more</div>
+
+          </div>
+
+          <ul class="fields">
+
+            <!-- filter field -->
+            <li class="field popular">
+              <label for="action_taken">What action was taken<br> on the loan or application?</label>
+              <div class="widget select">
+                <select class="param" name="action_taken" id="action_taken" multiple data-placeholder="Select an action">
+                  <option value="1">Loan originated</option>
+                  <option value="2">Application approved but not accepted</option>
+                  <option value="3">Application denied by financial institution</option>
+                  <option value="4">Application withdrawn by applicant</option>
+                  <option value="5">File closed for incompleteness</option>
+                  <option value="6">Loan purchased by the institution</option>
+                  <option value="7">Preapproval request denied by financial institution</option>
+                  <option value="8">Preapproval request approved but not accepted</option>
+                </select>
+              </div>
+            </li>
+            <!-- /filter field -->
+
+            <!-- filter field -->
+            <li class="field">
+              <label for="loan_purpose">What is the loan being used for?</label>
+              <div class="widget checkbox">
+                <label><input type="checkbox" class="param" name="loan_purpose[]" value="1" />Home purchase</label>
+                <label><input type="checkbox" class="param" name="loan_purpose[]" value="2" />Home improvement</label>
+                <label><input type="checkbox" class="param" name="loan_purpose[]" value="3" />Refinancing</label>
+              </div>
+            </li>
+            <!-- /filter field -->
+
+            <!-- filter field -->
+            <li class="field">
+              <label for="loan_type">What type of loan is it?</label>
+              <div class="widget checkbox">
+                <label><input type="checkbox" class="param" name="loan_type[]" value="1" />Conventional</label>
+                <label><input type="checkbox" class="param" name="loan_type[]" value="2" />FHA-insured</label>
+                <label><input type="checkbox" class="param" name="loan_type[]" value="3" />VA-guaranteed</label>
+                <label><input type="checkbox" class="param" name="loan_type[]" value="4" />FSA/RHS-guaranteed</label>
+              </div>
+              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
+              <span class="help-text"><%= explore_tooltips_loan_type %></span>
+            </li>
+            <!-- /filter field -->
+
+            <!-- filter field -->
+            <li class="field popular">
+              <label for="lien_status">What is the loan's lien status?</label>
+              <div class="widget checkbox">
+                <label><input type="checkbox" class="param" name="lien_status[]" value="1" />Secured by a first lien</label>
+                <label><input type="checkbox" class="param" name="lien_status[]" value="2" />Secured by a subordinate lien</label>
+                <label><input type="checkbox" class="param" name="lien_status[]" value="3" />Not secured by a lien</label>
+                <label><input type="checkbox" class="param" name="lien_status[]" value="4" />Not applicable (purchased loans)</label>
+              </div>
+              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
+              <span class="help-text"><%= explore_tooltips_lien_status %></span>
+              
+            </li>
+            <!-- /filter field -->
+
+            <!-- filter field -->
+            <li class="field rate_spread">
+              <label for="rate_spread">Is it a higher-priced loan?</label>
+              <div class="widget radio inline rate_spread">
+                <label><input type="radio" class="param" name="rate_spread" data-comparator="!=" value="null" />Yes</label>
+                <label><input type="radio" class="param" name="rate_spread" data-comparator="=" value="null" />No</label>
+              </div>
+              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
+              <span class="help-text"><%= explore_tooltips_rate_spread %></span>
+            </li>
+            <!-- /filter field -->            
+
+            <!-- filter field -->
+            <li class="field optional-toggle" data-optional="loan_optional">
+              <label for="include_loan_optional">Show additional filters?</label>
+              <div class="widget radio inline include_loan_optional">
+                <label><input type="radio" name="include_loan_optional" value="1" />Yes</label>
+                <label><input type="radio" name="include_loan_optional" value="0" checked />No</label>
+              </div>
+              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
+              <span class="help-text"><%= explore_tooltips_include_hoepa_loan %></span>
+            </li>
+            <!-- /filter field -->
+
+            <!-- filter field -->
+            <li class="field optional loan_optional loan_amount_000s hidden" data-optional="loan_optional">
+              <label for="loan_amount_000s">How much is the loan for?</label>
+              <div class="widget range check-range">
+                <span>$</span><input type="text" class="param require-numeric min-value" name="loan_amount_000s-min" data-comparator=">" value="" placeholder="Min."><span class="thousands">,000 &nbsp; to &nbsp;</span>
+                <span>$</span><input type="text" class="param require-numeric max-value" name="loan_amount_000s-max" data-comparator="<" value="" placeholder="Max."><span class="thousands">,000</span>
+              </div>
+              
+            </li>
+            <!-- /filter field -->
+
+            <!-- filter field -->
+            <li class="field optional loan_optional hidden" data-optional="loan_optional">
+              <label for="hoepa_status">Is it a HOEPA loan?</label>
+              <div class="widget checkbox inline">
+                <label><input type="checkbox" class="param" name="hoepa_status[]" value="1" />Yes</label>
+                <label><input type="checkbox" class="param" name="hoepa_status[]" value="0" />No</label>
+              </div>
+              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
+              <span class="help-text"><%= explore_tooltips_hoepa_status %></span>
+            </li>
+            <!-- /filter field -->
+
+            <!-- filter field -->
+            <li class="field optional loan_optional hmda_reporting hidden" data-optional="loan_optional">
+              <label for="preapproval">Did the applicant request <br>pre-approval?</label>
+              <div class="widget checkbox inline">
+                <label><input type="checkbox" class="param" name="preapproval[]" value="1" />Yes</label>
+                <label><input type="checkbox" class="param" name="preapproval[]" value="2" />No</label>
+                <label><input type="checkbox" class="param" name="preapproval[]" value="3" />Not applicable</label>
+              </div>
+            </li>
+            <!-- /filter field -->
+
+            <!-- filter field -->
+            <li class="field optional hmda_reporting loan_optional hidden" data-optional="loan_optional">
+              <label for="denial_reason_1">If the loan or application was denied, did the lender<br> report a reason?</label>
+              <div class="widget select">
+                <select class="param" name="denial_reason_1" id="denial_reason_1" data-placeholder="Select a denial reason">
+                  <option value></option>
+                  <option value="1">Debt-to-income ratio</option>
+                  <option value="2">Employment history</option>
+                  <option value="3">Credit history</option>
+                  <option value="4">Collateral</option>
+                  <option value="5">Insufficient cash (downpayment, closing costs)</option>
+                  <option value="6">Unverifiable information</option>
+                  <option value="7">Credit application incomplete</option>
+                  <option value="8">Mortgage insurance denied</option>
+                  <option value="9">Other</option>
+                </select>
+              </div>
+              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
+              <span class="help-text"><%= explore_tooltips_denial_reason_1 %></span>
+            </li>
+            <!-- /filter field -->
+
+            <!-- filter field -->
+            <li class="field optional hmda_reporting loan_optional hidden" data-optional="loan_optional">
+              <label for="purchaser_type">If this loan was sold on the secondary market,<br> who purchased it?</label>
+              <div class="widget select">
+                <select class="param" name="purchaser_type" id="purchaser_type" multiple data-placeholder="Select a purchaser type">
+                  <option value="0">Loan was not originated or was not sold in calendar year covered by register</option>
+                  <option value="1">Fannie Mae (FNMA)</option>
+                  <option value="2">Ginnie Mae (GNMA)</option>
+                  <option value="3">Freddie Mac (FHLMC)</option>
+                  <option value="4">Farmer Mac (FAMC)</option>
+                  <option value="5">Private securitization</option>
+                  <option value="6">Commercial bank, savings bank or savings association</option>
+                  <option value="7">Life insurance company, credit union, mortgage bank, or finance company</option>
+                  <option value="8">Affiliate institution</option>
+                  <option value="9">Other type of purchaser</option>
+                </select>
+              </div>
+              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
+              <span class="help-text"><%= explore_tooltips_purchaser_type %></span>
+            </li>
+            <!-- /filter field -->
+
+          </ul>
+          
+        </div>
+
+        <!-- /filter section -->
+
+        <!-- filter section -->
+
+        <div class="filter lender closed" id="lender">
+
+          <div class="title">
+
+            <a href="#lender"><h3><i class="icon-minus-alt"></i> Lender</h3></a>
+
+            <div class="desc">Lender ID and federal agency</div>
+
+          </div>
+
+          <ul class="fields">
+
+            <!-- placeholder text for filter field -->
+            <li class="lender-name-temp">
+              <div class="lender-name-label">Lender name:</div>
+              <div class="lender-name-text"><i>This feature coming soon!</i></div>
+            </li>
+            <!-- filter field -->
+
+            <!-- filter field -->
+            <li class="field">
+              <label for="respondent_id">Lender ID:</label>
+              <div class="widget range">
+                <input type="text" class="param require-numeric" name="respondent_id" value="" maxlength="10" placeholder="Enter a lender ID">
+                <p class="ffiec-lookup">Don't know a lender's ID?<br>Use the <a href="http://www.ffiec.gov/hmdaadwebreport/DisWelcome.aspx" target="_blank" class="dont-redirect">FFIEC's disclosure tool</a> to look it up.</p>
+              </div>
+              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
+              <span class="help-text"><%= explore_tooltips_respondent_id %></span>
+            </li>
+            <!-- /filter field -->
+
+            <!-- filter field -->
+            <li class="field">
+              <label for="agency_code">Federal agency:</label>
+              <div class="widget select">
+                <select class="param" name="agency_code" id="agency_code" multiple data-placeholder="Select an agency">
+                  <option value="1">Office of the Comptroller of the Currency (OCC)</option>
+                  <option value="2">Federal Reserve System (FRS)</option>
+                  <option value="3">Federal Deposit Insurance Corporation (FDIC)</option>
+                  <option value="4">Office of Thrift Supervision (OTS)</option>
+                  <option value="5">National Credit Union Administration (NCUA)</option>
+                  <option value="7">Department of Housing and Urban Development (HUD)</option>
+                  <option value="9">Consumer Financial Protection Bureau (CFPB)</option>
+                </select>
+              </div>
+              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
+              <span class="help-text"><%= explore_tooltips_agency_code %></span>
+            </li>
+            <!-- /filter field -->
+
+
+          </ul>
+          
+        </div>
+
+        <!-- /filter section -->
+
+        <!-- filter section -->
+
         <div class="filter borrower closed" id="borrower">
 
           <div class="title">
@@ -321,323 +606,6 @@
 
         <!-- /filter section -->
 
-        <!-- filter section -->
-
-        <div class="filter lender closed" id="lender">
-
-          <div class="title">
-
-            <a href="#lender"><h3><i class="icon-minus-alt"></i> Lender</h3></a>
-
-            <div class="desc">Lender ID and federal agency</div>
-
-          </div>
-
-          <ul class="fields">
-
-            <!-- placeholder text for filter field -->
-            <li class="lender-name-temp">
-              <div class="lender-name-label">Lender name:</div>
-              <div class="lender-name-text"><i>This feature coming soon!</i></div>
-            </li>
-            <!-- filter field -->
-
-            <!-- filter field -->
-            <li class="field">
-              <label for="respondent_id">Lender ID:</label>
-              <div class="widget range">
-                <input type="text" class="param require-numeric" name="respondent_id" value="" maxlength="10" placeholder="Enter a lender ID">
-                <p class="ffiec-lookup">Don't know a lender's ID?<br>Use the <a href="http://www.ffiec.gov/hmdaadwebreport/DisWelcome.aspx" target="_blank" class="dont-redirect">FFIEC's disclosure tool</a> to look it up.</p>
-              </div>
-              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
-              <span class="help-text"><%= explore_tooltips_respondent_id %></span>
-            </li>
-            <!-- /filter field -->
-
-            <!-- filter field -->
-            <li class="field">
-              <label for="agency_code">Federal agency:</label>
-              <div class="widget select">
-                <select class="param" name="agency_code" id="agency_code" multiple data-placeholder="Select an agency">
-                  <option value="1">Office of the Comptroller of the Currency (OCC)</option>
-                  <option value="2">Federal Reserve System (FRS)</option>
-                  <option value="3">Federal Deposit Insurance Corporation (FDIC)</option>
-                  <option value="4">Office of Thrift Supervision (OTS)</option>
-                  <option value="5">National Credit Union Administration (NCUA)</option>
-                  <option value="7">Department of Housing and Urban Development (HUD)</option>
-                  <option value="9">Consumer Financial Protection Bureau (CFPB)</option>
-                </select>
-              </div>
-              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
-              <span class="help-text"><%= explore_tooltips_agency_code %></span>
-            </li>
-            <!-- /filter field -->
-
-
-          </ul>
-          
-        </div>
-
-        <!-- /filter section -->
-
-        <!-- filter section -->
-
-        <div class="filter property closed" id="property">
-
-          <div class="title">
-
-            <a href="#property"><h3><i class="icon-minus-alt"></i> Property</h3></a>
-
-            <div class="desc">Property type and occupancy</div>
-
-          </div>
-
-          <ul class="fields">
-            
-            <!-- filter field -->
-            <li class="field popular">
-              <label for="property_type">Property Type:</label>
-              <div class="widget checkbox">
-                <label><input type="checkbox" class="param" name="property_type[]" value="1" id="foo"/>One-to-four family dwelling<br><label class="helper-text"> (other than manufactured housing)</label></label>
-                <label><input type="checkbox" class="param" name="property_type[]" value="2" />Manufactured housing</label>
-                <label><input type="checkbox" class="param" name="property_type[]" value="3" />Multifamily dwelling</label>
-              </div>
-              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
-              <span class="help-text"><%= explore_tooltips_property_type %></span>
-            </li>
-            <!-- /filter field -->
-
-            <!-- filter field -->
-            <li class="field popular">
-              <label for="owner_occupancy">Will the owner use the property<br> as their primary residence?</label>
-              <div class="widget checkbox">
-                <label><input type="checkbox" class="param" name="owner_occupancy[]" value="1" />Owner-occupied as a principal dwelling</label>
-                <label><input type="checkbox" class="param" name="owner_occupancy[]" value="2" />Not owner-occupied as a principal dwelling</label>
-                <label><input type="checkbox" class="param" name="owner_occupancy[]" value="3" />Not applicable</label>
-              </div>
-              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
-              <span class="help-text"><%= explore_tooltips_owner_occupancy %></span>
-            </li>
-            <!-- /filter field -->
-
-          </ul>
-          
-        </div>
-
-        <!-- /filter section -->
-
-        <!-- filter section -->
-
-        <div class="filter description closed" id="description">
-
-          <div class="title">
-
-            <a href="#description"><h3><i class="icon-minus-alt"></i> Loan Description</h3></a>
-
-            <div class="desc">Loan purpose, type, amount, and more</div>
-
-          </div>
-
-          <ul class="fields">
-
-            <!-- filter field -->
-            <li class="field popular">
-              <label for="lien_status">What is the loan's lien status?</label>
-              <div class="widget checkbox">
-                <label><input type="checkbox" class="param" name="lien_status[]" value="1" />Secured by a first lien</label>
-                <label><input type="checkbox" class="param" name="lien_status[]" value="2" />Secured by a subordinate lien</label>
-                <label><input type="checkbox" class="param" name="lien_status[]" value="3" />Not secured by a lien</label>
-                <label><input type="checkbox" class="param" name="lien_status[]" value="4" />Not applicable (purchased loans)</label>
-              </div>
-              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
-              <span class="help-text"><%= explore_tooltips_lien_status %></span>
-              
-            </li>
-            <!-- /filter field -->
-
-            <!-- filter field -->
-            <li class="field">
-              <label for="loan_purpose">What is the loan being used for?</label>
-              <div class="widget checkbox">
-                <label><input type="checkbox" class="param" name="loan_purpose[]" value="1" />Home purchase</label>
-                <label><input type="checkbox" class="param" name="loan_purpose[]" value="2" />Home improvement</label>
-                <label><input type="checkbox" class="param" name="loan_purpose[]" value="3" />Refinancing</label>
-              </div>
-            </li>
-            <!-- /filter field -->
-
-            <!-- filter field -->
-            <li class="field">
-              <label for="loan_type">What type of loan is it?</label>
-              <div class="widget checkbox">
-                <label><input type="checkbox" class="param" name="loan_type[]" value="1" />Conventional</label>
-                <label><input type="checkbox" class="param" name="loan_type[]" value="2" />FHA-insured</label>
-                <label><input type="checkbox" class="param" name="loan_type[]" value="3" />VA-guaranteed</label>
-                <label><input type="checkbox" class="param" name="loan_type[]" value="4" />FSA/RHS-guaranteed</label>
-              </div>
-              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
-              <span class="help-text"><%= explore_tooltips_loan_type %></span>
-            </li>
-            <!-- /filter field -->
-
-            <!-- filter field -->
-            <li class="field loan_amount_000s">
-              <label for="loan_amount_000s">How much is the loan for?</label>
-              <div class="widget range check-range">
-                <span>$</span><input type="text" class="param require-numeric min-value" name="loan_amount_000s-min" data-comparator=">" value="" placeholder="Min."><span class="thousands">,000 &nbsp; to &nbsp;</span>
-                <span>$</span><input type="text" class="param require-numeric max-value" name="loan_amount_000s-max" data-comparator="<" value="" placeholder="Max."><span class="thousands">,000</span>
-              </div>
-              
-            </li>
-            <!-- /filter field -->
-
-            <!-- filter field -->
-            <li class="field rate_spread">
-              <label for="rate_spread">Is it a higher-priced loan?</label>
-              <div class="widget radio inline rate_spread">
-                <label><input type="radio" class="param" name="rate_spread" data-comparator="!=" value="null" />Yes</label>
-                <label><input type="radio" class="param" name="rate_spread" data-comparator="=" value="null" />No</label>
-              </div>
-              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
-              <span class="help-text"><%= explore_tooltips_rate_spread %></span>
-            </li>
-            <!-- /filter field -->
-
-            <!-- filter field -->
-            <li class="field optional-toggle" data-optional="hoepa_loan">
-              <label for="include_hoepa_loan">Show additional filters?</label>
-              <div class="widget radio inline include_hoepa_loan">
-                <label><input type="radio" name="include_hoepa_loan" value="1" />Yes</label>
-                <label><input type="radio" name="include_hoepa_loan" value="0" checked />No</label>
-              </div>
-              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
-              <span class="help-text"><%= explore_tooltips_include_hoepa_loan %></span>
-            </li>
-            <!-- /filter field -->
-
-            <!-- filter field -->
-            <li class="field optional hoepa_loan hidden">
-              <label for="hoepa_status">Is it a HOEPA loan?</label>
-              <div class="widget checkbox inline">
-                <label><input type="checkbox" class="param" name="hoepa_status[]" value="1" />Yes</label>
-                <label><input type="checkbox" class="param" name="hoepa_status[]" value="0" />No</label>
-              </div>
-              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
-              <span class="help-text"><%= explore_tooltips_hoepa_status %></span>
-            </li>
-            <!-- /filter field -->
-
-          </ul>
-          
-        </div>
-
-        <!-- /filter section -->
-
-        <!-- filter section -->
-
-        <div class="filter action closed" id="action">
-
-          <div class="title">
-
-            <a href="#action"><h3><i class="icon-minus-alt"></i> Loan Action</h3></a>
-
-            <div class="desc">Status of the application, secondary purchaser, and more</div>
-
-          </div>
-
-          <ul class="fields">
-
-            <!-- filter field -->
-            <li class="field popular">
-              <label for="action_taken">What action was taken<br> on the loan or application?</label>
-              <div class="widget select">
-                <select class="param" name="action_taken" id="action_taken" multiple data-placeholder="Select an action">
-                  <option value="1">Loan originated</option>
-                  <option value="2">Application approved but not accepted</option>
-                  <option value="3">Application denied by financial institution</option>
-                  <option value="4">Application withdrawn by applicant</option>
-                  <option value="5">File closed for incompleteness</option>
-                  <option value="6">Loan purchased by the institution</option>
-                  <option value="7">Preapproval request denied by financial institution</option>
-                  <option value="8">Preapproval request approved but not accepted</option>
-                </select>
-              </div>
-            </li>
-            <!-- /filter field -->
-
-            <!-- filter field -->
-            <li class="field optional-toggle" data-optional="hmda_reporting">
-              <label for="include_hmda_reporting">Show additional filters?</label>
-              <div class="widget radio inline include_hmda_reporting">
-                <label><input type="radio" name="include_hmda_reporting" value="1" />Yes</label>
-                <label><input type="radio" name="include_hmda_reporting" value="0" checked />No</label>
-              </div>
-              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
-              <span class="help-text"><%= explore_tooltips_include_hmda_reporting %></span>
-            </li>
-            <!-- /filter field -->
-
-            <!-- filter field -->
-            <li class="field optional hmda_reporting hidden" data-optional="hmda_reporting">
-              <label for="preapproval">Did the applicant request <br>pre-approval?</label>
-              <div class="widget checkbox inline">
-                <label><input type="checkbox" class="param" name="preapproval[]" value="1" />Yes</label>
-                <label><input type="checkbox" class="param" name="preapproval[]" value="2" />No</label>
-                <label><input type="checkbox" class="param" name="preapproval[]" value="3" />Not applicable</label>
-              </div>
-            </li>
-            <!-- /filter field -->
-
-            <!-- filter field -->
-            <li class="field optional hmda_reporting hidden" data-optional="hmda_reporting">
-              <label for="denial_reason_1">If the loan or application was denied, did the lender<br> report a reason?</label>
-              <div class="widget select">
-                <select class="param" name="denial_reason_1" id="denial_reason_1" data-placeholder="Select a denial reason">
-                  <option value></option>
-                  <option value="1">Debt-to-income ratio</option>
-                  <option value="2">Employment history</option>
-                  <option value="3">Credit history</option>
-                  <option value="4">Collateral</option>
-                  <option value="5">Insufficient cash (downpayment, closing costs)</option>
-                  <option value="6">Unverifiable information</option>
-                  <option value="7">Credit application incomplete</option>
-                  <option value="8">Mortgage insurance denied</option>
-                  <option value="9">Other</option>
-                </select>
-              </div>
-              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
-              <span class="help-text"><%= explore_tooltips_denial_reason_1 %></span>
-            </li>
-            <!-- /filter field -->
-
-            <!-- filter field -->
-            <li class="field optional hmda_reporting hidden" data-optional="hmda_reporting">
-              <label for="purchaser_type">If this loan was sold on the secondary market,<br> who purchased it?</label>
-              <div class="widget select">
-                <select class="param" name="purchaser_type" id="purchaser_type" multiple data-placeholder="Select a purchaser type">
-                  <option value="0">Loan was not originated or was not sold in calendar year covered by register</option>
-                  <option value="1">Fannie Mae (FNMA)</option>
-                  <option value="2">Ginnie Mae (GNMA)</option>
-                  <option value="3">Freddie Mac (FHLMC)</option>
-                  <option value="4">Farmer Mac (FAMC)</option>
-                  <option value="5">Private securitization</option>
-                  <option value="6">Commercial bank, savings bank or savings association</option>
-                  <option value="7">Life insurance company, credit union, mortgage bank, or finance company</option>
-                  <option value="8">Affiliate institution</option>
-                  <option value="9">Other type of purchaser</option>
-                </select>
-              </div>
-              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
-              <span class="help-text"><%= explore_tooltips_purchaser_type %></span>
-            </li>
-            <!-- /filter field -->
-
-          </ul>
-          
-        </div>
-
-        <!-- /filter section -->
-
         <!-- filter footer -->
 
         <div class="filter footer">
@@ -707,8 +675,8 @@
             </div>
 
             <div class="radio widget codes">
-              <label><input type="radio" name="codes" value="0" checked />Include plain language labels with codes</label>
-              <label><input type="radio" name="codes" value="1" />Include only the codes</label>
+              <label><input type="radio" name="codes" value="0" checked />Include labels</label>
+              <label><input type="radio" name="codes" value="1" />Include labels and codes</label>
               
               <div class="help" role="tooltip"><i class="icon-help-alt bump-up"></i></div>
               <span class="help-text"><%= explore_tooltips_download_raw_data %></span>

@@ -402,59 +402,64 @@
 <span class="s1">&#39;CBSA49740&#39;</span><span class="o">:</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;YUMA - AZ&#39;</span><span class="p">,</span> <span class="nx">data</span><span class="o">:</span><span class="p">[[</span><span class="mi">1834</span><span class="p">,</span><span class="mi">1591</span><span class="p">,</span><span class="mi">1920</span><span class="p">],[</span><span class="mi">1419</span><span class="p">,</span><span class="mi">1233</span><span class="p">,</span><span class="mi">1441</span><span class="p">],[</span><span class="mi">84</span><span class="p">,</span><span class="mi">58</span><span class="p">,</span><span class="mi">58</span><span class="p">],[</span><span class="mi">33</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">27</span><span class="p">],[</span><span class="mi">2714</span><span class="p">,</span><span class="mi">2151</span><span class="p">,</span><span class="mi">3850</span><span class="p">],[</span><span class="mi">1391</span><span class="p">,</span><span class="mi">1094</span><span class="p">,</span><span class="mi">2317</span><span class="p">]]},</span>
 <span class="s1">&#39;CBSA00000&#39;</span><span class="o">:</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;U.S. Total&#39;</span><span class="p">,</span> <span class="nx">data</span><span class="o">:</span><span class="p">[[</span><span class="mi">3358121</span><span class="p">,</span><span class="mi">3117454</span><span class="p">,</span><span class="mi">3448970</span><span class="p">],[</span><span class="mi">2213631</span><span class="p">,</span><span class="mi">2060808</span><span class="p">,</span><span class="mi">2331989</span><span class="p">],[</span><span class="mi">245034</span><span class="p">,</span><span class="mi">235335</span><span class="p">,</span><span class="mi">270879</span><span class="p">],[</span><span class="mi">142357</span><span class="p">,</span><span class="mi">136967</span><span class="p">,</span><span class="mi">169193</span><span class="p">],[</span><span class="mi">7609156</span><span class="p">,</span><span class="mi">6560190</span><span class="p">,</span><span class="mi">9264878</span><span class="p">],[</span><span class="mi">4509310</span><span class="p">,</span><span class="mi">3840044</span><span class="p">,</span><span class="mi">5900788</span><span class="p">]]}</span>
 
-    <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-2">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-2">&#182;</a>               </div>               <p>the button action
-console.log(chart1DataObj.msa01.data[0]);</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="kd">var</span> <span class="nx">$home_purchase_checkbox</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#home_purchase_checkbox&quot;</span><span class="p">);</span>
-    <span class="nx">$home_purchase_checkbox</span><span class="p">.</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">series1</span> <span class="o">=</span> <span class="nx">applicationsOriginationsChart</span><span class="p">.</span><span class="nx">series</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-        <span class="kd">var</span> <span class="nx">series2</span> <span class="o">=</span> <span class="nx">applicationsOriginationsChart</span><span class="p">.</span><span class="nx">series</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">series1</span><span class="p">.</span><span class="nx">visible</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">series1</span><span class="p">.</span><span class="nx">hide</span><span class="p">();</span>
-            <span class="nx">series2</span><span class="p">.</span><span class="nx">hide</span><span class="p">();</span>
-            <span class="nx">$home_purchase_checkbox</span><span class="p">.</span><span class="nx">removeAttr</span><span class="p">(</span><span class="s2">&quot;checked&quot;</span><span class="p">);</span>
+    <span class="p">};</span>
+    
+    <span class="kd">var</span> <span class="nx">SeriesToggle</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">el</span> <span class="p">)</span> <span class="p">{</span>
 
+      <span class="kd">var</span> <span class="nx">applications</span> <span class="o">=</span> <span class="p">[],</span>
+          <span class="nx">originations</span> <span class="o">=</span> <span class="p">[],</span>
+          <span class="nx">checkVal</span><span class="p">,</span>
+          <span class="nx">showSeries</span><span class="p">,</span>
+          <span class="nx">hideSeries</span><span class="p">;</span>
+
+      <span class="k">for</span> <span class="p">(</span> <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">applicationsOriginationsChart</span><span class="p">.</span><span class="nx">series</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="nx">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="p">)</span> <span class="p">{</span>
+          <span class="nx">originations</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span> <span class="nx">applicationsOriginationsChart</span><span class="p">.</span><span class="nx">series</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">);</span>
         <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="nx">series1</span><span class="p">.</span><span class="nx">show</span><span class="p">();</span>
-            <span class="nx">series2</span><span class="p">.</span><span class="nx">show</span><span class="p">();</span>
-            <span class="nx">$home_purchase_checkbox</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;checked&quot;</span><span class="p">);</span>
+          <span class="nx">applications</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span> <span class="nx">applicationsOriginationsChart</span><span class="p">.</span><span class="nx">series</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">);</span>
         <span class="p">}</span>
-    <span class="p">});</span>
+      <span class="p">}</span>
 
-    <span class="kd">var</span> <span class="nx">$home_improvements_checkbox</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#home_improvements_checkbox&quot;</span><span class="p">);</span>
-    <span class="nx">$home_improvements_checkbox</span><span class="p">.</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">series1</span> <span class="o">=</span> <span class="nx">applicationsOriginationsChart</span><span class="p">.</span><span class="nx">series</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
-        <span class="kd">var</span> <span class="nx">series2</span> <span class="o">=</span> <span class="nx">applicationsOriginationsChart</span><span class="p">.</span><span class="nx">series</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">series1</span><span class="p">.</span><span class="nx">visible</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">series1</span><span class="p">.</span><span class="nx">hide</span><span class="p">();</span>
-            <span class="nx">series2</span><span class="p">.</span><span class="nx">hide</span><span class="p">();</span>
-            <span class="nx">$home_improvements_checkbox</span><span class="p">.</span><span class="nx">removeAttr</span><span class="p">(</span><span class="s2">&quot;checked&quot;</span><span class="p">);</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">init</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$el</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span> <span class="nx">el</span> <span class="p">);</span>
+        <span class="nx">showSeries</span><span class="p">(</span> <span class="nx">applications</span> <span class="p">);</span>
+        <span class="nx">hideSeries</span><span class="p">(</span> <span class="nx">originations</span> <span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span> <span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="nx">checkVal</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span> <span class="k">this</span> <span class="p">)</span> <span class="p">);</span>
+      <span class="p">};</span>
 
+      <span class="nx">checkVal</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="nb">Number</span><span class="p">(</span> <span class="k">this</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;input:checked&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">()</span> <span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+          <span class="nx">showSeries</span><span class="p">(</span> <span class="nx">applications</span> <span class="p">);</span>
+          <span class="nx">hideSeries</span><span class="p">(</span> <span class="nx">originations</span> <span class="p">);</span>
         <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="nx">series1</span><span class="p">.</span><span class="nx">show</span><span class="p">();</span>
-            <span class="nx">series2</span><span class="p">.</span><span class="nx">show</span><span class="p">();</span>
-            <span class="nx">$home_improvements_checkbox</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;checked&quot;</span><span class="p">);</span>
+          <span class="nx">hideSeries</span><span class="p">(</span> <span class="nx">applications</span> <span class="p">);</span>
+          <span class="nx">showSeries</span><span class="p">(</span> <span class="nx">originations</span> <span class="p">);</span>
         <span class="p">}</span>
-    <span class="p">});</span>
+      <span class="p">};</span>
 
-    <span class="kd">var</span> <span class="nx">$refinancing_checkbox</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#refinancing_checkbox&quot;</span><span class="p">);</span>
-    <span class="nx">$refinancing_checkbox</span><span class="p">.</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">series1</span> <span class="o">=</span> <span class="nx">applicationsOriginationsChart</span><span class="p">.</span><span class="nx">series</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
-        <span class="kd">var</span> <span class="nx">series2</span> <span class="o">=</span> <span class="nx">applicationsOriginationsChart</span><span class="p">.</span><span class="nx">series</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">series1</span><span class="p">.</span><span class="nx">visible</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">series1</span><span class="p">.</span><span class="nx">hide</span><span class="p">();</span>
-            <span class="nx">series2</span><span class="p">.</span><span class="nx">hide</span><span class="p">();</span>
-            <span class="nx">$refinancing_checkbox</span><span class="p">.</span><span class="nx">removeAttr</span><span class="p">(</span><span class="s2">&quot;checked&quot;</span><span class="p">);</span>
+      <span class="nx">showSeries</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">series</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="nx">series</span> <span class="o">=</span> <span class="nx">series</span> <span class="k">instanceof</span> <span class="nb">Array</span> <span class="o">?</span> <span class="nx">series</span> <span class="o">:</span> <span class="p">[</span><span class="nx">series</span><span class="p">];</span>
+        <span class="nx">_</span><span class="p">(</span> <span class="nx">series</span> <span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span> <span class="nx">series</span> <span class="p">){</span>
+          <span class="nx">series</span><span class="p">.</span><span class="nx">show</span><span class="p">();</span>
+        <span class="p">});</span>
+      <span class="p">};</span>
 
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="nx">series1</span><span class="p">.</span><span class="nx">show</span><span class="p">();</span>
-            <span class="nx">series2</span><span class="p">.</span><span class="nx">show</span><span class="p">();</span>
-            <span class="nx">$refinancing_checkbox</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;checked&quot;</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">});</span>
+      <span class="nx">hideSeries</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">series</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="nx">series</span> <span class="o">=</span> <span class="nx">series</span> <span class="k">instanceof</span> <span class="nb">Array</span> <span class="o">?</span> <span class="nx">series</span> <span class="o">:</span> <span class="p">[</span><span class="nx">series</span><span class="p">];</span>
+        <span class="nx">_</span><span class="p">(</span> <span class="nx">series</span> <span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span> <span class="nx">series</span> <span class="p">){</span>
+          <span class="nx">series</span><span class="p">.</span><span class="nx">hide</span><span class="p">();</span>
+        <span class="p">});</span>
+      <span class="p">};</span>
+
+    <span class="p">};</span>
+
+    <span class="kd">var</span> <span class="nx">chartOneToggle</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SeriesToggle</span><span class="p">(</span><span class="s1">&#39;.toggle-series-controls.applications&#39;</span><span class="p">);</span>
+    <span class="nx">chartOneToggle</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span>
 
     <span class="kd">var</span> <span class="nx">$msa</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#hmda_chart_1_msa&#39;</span><span class="p">);</span>
     <span class="nx">$msa</span><span class="p">.</span><span class="nx">change</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
         <span class="kd">var</span> <span class="nx">msaID</span> <span class="o">=</span> <span class="nx">$msa</span><span class="p">.</span><span class="nx">val</span><span class="p">();</span>
-        <span class="kd">var</span> <span class="nx">msaName</span> <span class="o">=</span> <span class="nx">chart1DataObj</span><span class="p">[</span><span class="nx">msaID</span><span class="p">].</span><span class="nx">name</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s2">&quot;&amp;apos;&quot;</span><span class="p">,</span> <span class="s2">&quot;’&quot;</span><span class="p">).</span><span class="nx">toUpperCase</span><span class="p">();</span></pre></div>             </td>           </tr>                               <tr id="section-3">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-3">&#182;</a>               </div>               <p>console.log(msaName);
+        <span class="kd">var</span> <span class="nx">msaName</span> <span class="o">=</span> <span class="nx">chart1DataObj</span><span class="p">[</span><span class="nx">msaID</span><span class="p">].</span><span class="nx">name</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s2">&quot;&amp;apos;&quot;</span><span class="p">,</span> <span class="s2">&quot;’&quot;</span><span class="p">).</span><span class="nx">toUpperCase</span><span class="p">();</span></pre></div>             </td>           </tr>                               <tr id="section-2">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-2">&#182;</a>               </div>               <p>console.log(msaName);
 Update the chart name from the chart data object:</p>             </td>             <td class="code">               <div class="highlight"><pre>        <span class="nx">applicationsOriginationsChart</span><span class="p">.</span><span class="nx">setTitle</span><span class="p">({</span>
             <span class="nx">text</span><span class="o">:</span> <span class="nx">msaName</span>
         <span class="p">});</span>
