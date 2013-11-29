@@ -179,8 +179,9 @@
 
     <div id="map">
       <div id="map-title" class="hidden">
-        <h3>Change in mortgage applications & originations</h3>
+        <h3>Change in mortgage volume</h3>
         <p>Application and loan volumes increased as most local mortgage markets improved in 2012.</p>
+        <a href="explore#!/as_of_year=2012,2011,2010&property_type=1,2&owner_occupancy=1&lien_status=1&action_taken=1&select=state_name,county_name,as_of_year,count&section=summary" class="action-arrow">See the underlying data<i class="icon-right"></i></a>
         <div class="controls">
           <div class="year">
             <label><input type="radio" name="year" value="2011" />2010-2011</label>&nbsp; or &nbsp;
@@ -220,7 +221,10 @@
 
               <div class="toggle-series-controls applications">
                   <label><input type="radio" name="toggle-applications" value="1" checked />Applications</label>
-                  <label><input type="radio" name="toggle-applications" value="0" />Originations</label>
+                  <label><input type="radio" name="toggle-applications" value="0" />Originations
+                    <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
+                    <span class="help-text">Originations are applications that resulted in a mortgage loan.</span>
+                  </label>
               </div>
 
               <!-- /.row -->
