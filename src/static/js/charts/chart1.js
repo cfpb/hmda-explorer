@@ -422,8 +422,8 @@ $(document).ready(function() {
 
       this.init = function() {
         this.$el = $( el );
-        showSeries( applications );
-        hideSeries( originations );
+        showSeries( originations );
+        hideSeries( applications );
         this.$el.find('input').on( 'click', checkVal.bind( this ) );
       };
 
