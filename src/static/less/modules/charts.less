@@ -35,21 +35,34 @@
     } 
 
     .toggle-series-heading {
-        margin-top: 1.2em;
+        margin-top: 1.3em;
         border-width: 0 !important;
         .column(5);
     }
 
     .toggle-series-controls {
-        font-size: 0.75em;
         line-height: 2em;
         margin-top: 1.5em;
         .column(7);
-
-        input {
-            padding-left: 4px;
+        .avenir-next;
+        font-weight: 400;
+        font-size: .8em;
+        border-width: 0;
+        label {
+            .avenir-next;
+            font-weight: 400;
+            font-size: 1em;
+            margin-right: 15px;
+            width: 100%;
+            display: inline;
         }
+        input {
+            margin-right: 8px;
+      }
+    }
 
+    .toggle-series-controls:nth-child(1) {
+        width: 100%;
     }
 
     .chart-legend,
