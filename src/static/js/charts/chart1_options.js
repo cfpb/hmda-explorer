@@ -39,7 +39,7 @@ var chart1_options = {
     enabled: false
   },
   colors: [
-    '#c9d5e2', '#c9d5e2', '#003071', '#003071', '#7796b7', '#7796b7'
+    '#c9d5e2', '#c9d5e2', '#7796b7', '#7796b7', '#003071', '#003071'
   ],
   legend: {
     enabled: false

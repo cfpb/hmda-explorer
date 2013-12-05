@@ -14,7 +14,21 @@ function addCommas(nStr)
 }
 
 $('.charts .help').tooltip({
+  placement: 'right',
+  container: 'body',
   title: function getTooltipTitle(){
     return $( this ).attr('title') || $( this ).next('.help-text').html();
   }
+}).on('shown.bs.tooltip', function () {
+  $('.tooltip').css({
+    'margin-left': '15px',
+    'margin-top': '11px',
+    'width': '250px'
+  });
+}).on('hide.bs.tooltip', function () {
+  $('.tooltip').css({
+    'margin-left': '0',
+    'margin-top': '0',
+    'width': 'auto'
+  });
 });

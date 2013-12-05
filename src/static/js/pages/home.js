@@ -135,8 +135,8 @@ $(function(){
         }
       }).on('shown.bs.tooltip', function () {
         $('.tooltip').css({
-          'margin-left': '10px',
-          'margin-top': '-2px',
+          'margin-left': '15px',
+          'margin-top': '6px',
           'width': '250px'
         });
       }).on('hide.bs.tooltip', function () {
