@@ -111,12 +111,6 @@
 
         <div class="filter year" id="year">
 
-          <div class="intro">
-
-            <%= explore_intro_text %>
-
-          </div>
-
           <ul class="fields">
 
             <!-- filter field -->
@@ -151,6 +145,12 @@
             <!-- /filter field -->
 
           </ul>
+
+          <div class="intro">
+
+            <%= explore_intro_text %>
+
+          </div>
           
         </div>
 
@@ -828,8 +828,8 @@
             </div>
 
             <div class="radio widget raw-codes">
-              <label><input type="radio" name="codes" value="0" checked />Include plain language labels with codes</label>
-              <label><input type="radio" name="codes" value="1" />Include only the codes</label>
+              <label><input type="radio" name="codes" value="0" checked />Include labels</label>
+              <label><input type="radio" name="codes" value="1" />Include labels and codes</label>
 
               <div class="help" role="tooltip"><i class="icon-help-alt bump-up"></i></div>
               <span class="help-text"><%= explore_tooltips_download_raw_data %></span>

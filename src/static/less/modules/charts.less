@@ -2,6 +2,7 @@
     
     .avenir-next;
     margin-top: 0;
+    margin-bottom: 50px;
 
     h3 {
         .avenir-next-demi;
@@ -15,42 +16,79 @@
         line-height: 1.375em;
     }
 
-    .chart-label {
-        .avenir-next-demi;
-        font-size: 0.875em;
-        line-height: 1.25em;
-    }
+
+    a.action-arrow {
+        font-size: .95em;
+        color: @pacific;
+        margin-bottom: 2em;
+        .avenir-next;
+        font-weight: 400;
+      }
 
     .help {
-        position: relative;
-
+        height: 0;
         i {
+            font-size: 15px;
+            left: 10px;
             top: 7px;
+        }
+        i.bump-up {
+            top: 0;
         }
     }
 
+    
+
+
+    label,
+    .chart-label {
+        .avenir-next-demi;
+        font-weight: 600;
+        font-size: 0.875em;
+        line-height: 1.25em; 
+    } 
+
     .toggle-series-heading {
-        margin-top: 1.1em;
+        margin-top: 30px;
         border-width: 0 !important;
         .column(5);
     }
 
     .toggle-series-controls {
-        font-size: 0.75em;
-        line-height: 2em;
-        margin-top: 1.5em;
-        .column(7);
-
-        input {
-            padding-left: 4px;
+        margin-top: 30px;
+        label {
+            margin-right: 20px;
+            .avenir-next;
+            font-weight: 400;
+            font-size: .8em;
+            line-height: 2em;
+            border: none;
+            padding: 0;
+            input {
+                margin-right: 8px;
+            }
         }
-
     }
 
-    .chart-note {   
-        font-size: 0.75em;
+    .toggle-series-controls.chart2 {
+        .column(7);
+        display: inline-block;
         .avenir-next;
-        padding: 30px 15px 0 15px;
+        font-weight: 400;
+        font-size: .8em;
+        line-height: 2em;
+        box-sizing: border-box;
+        border: solid transparent;
+        border-width: 0 15px;
+        margin-right: -.25em;
+        vertical-align: top;
+        input {
+            margin-right: 8px;
+        }
+    }
+
+    .toggle-series-controls:nth-child(1) {
+        width: 100%;
     }
 
     .chart-legend,
@@ -119,11 +157,11 @@
             }
         }
         .chart-legend {
-            margin: 0 auto 0 45px;
+            margin: 0 auto 0 210px;
         }
 
         .oblt {
-            margin: 0 auto 0 115px;
+            margin: 0 auto 0 150px;
         }
     }
 
