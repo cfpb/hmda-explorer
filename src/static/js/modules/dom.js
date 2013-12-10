@@ -198,17 +198,14 @@ var PDP = (function ( pdp ) {
 
     ev.preventDefault();
 
+    pdp.form.hideSections();
     $.removeCookie('_hmda');
+    pdp.query.reset('all');
     pdp.form.resetFields();
-    pdp.query.reset( { empty: true } );
+    pdp.form.setFields();
     pdp.form.updateShareLink();
-
-    var parents = _.map( $('select[data-dependent], input[data-dependent]'), function( el ){
-      return $( el ).attr('id');
-    });
-    pdp.form.checkDeps( parents );
-
     pdp.preview.update();
+    $('.field.suggested select').val('default').trigger('liszt:updated');
 
   });
 
