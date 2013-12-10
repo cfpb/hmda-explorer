@@ -191,7 +191,6 @@ keep checking the API for completion</p>             </td>             <td class
   <span class="p">};</span>
 
   <span class="nx">table</span><span class="p">.</span><span class="nx">_handleApiResponse</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">response</span> <span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">response</span><span class="p">));</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">resetTable</span><span class="p">();</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">updateTableHeaders</span><span class="p">();</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">populateTable</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_prepData</span><span class="p">(</span><span class="nx">response</span><span class="p">));</span>

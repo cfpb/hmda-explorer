@@ -185,7 +185,7 @@ var PDP = (function ( pdp ) {
     pdp.query.format = $( this ).val();
   });
 
-  // When a link pointing to the download section is clicked, jump the user there.
+  // When a link pointing to the download section is clicked, jump the user there (to the bottom of the page).
   $('a[href=#download]').on( 'click', function( ev ){
 
     ev.preventDefault();
