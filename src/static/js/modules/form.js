@@ -43,11 +43,13 @@ var PDP = (function ( pdp ) {
   // This is used if a filter set other than `custom` is chosen.
   form.hideSections = function() {
     $('.filter:not(.year)').not('.footer').addClass('hidden');
+    $('.year .intro').addClass('hidden');
   };
 
   // The `showSections` method shows all filter sections (location, applicant, lender, etc.)
   form.showSections = function() {
     $('.filter:not(.year)').not('.footer').removeClass('hidden');
+    $('.year .intro').removeClass('hidden');
   };
 
   // The `setCustom` method modifies the custom suggested filter text.
