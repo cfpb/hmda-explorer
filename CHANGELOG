@@ -1,3 +1,8 @@
+v0.18.2:
+  date: 2013-12-10
+  changes:
+    - Add the reset button back.
+
 v0.18.1:
   date: 2013-11-27
   changes:
