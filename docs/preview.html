@@ -67,6 +67,8 @@ visualize the loading of content.</p>             </td>             <td class="c
     <span class="kd">function</span> <span class="nx">_abort</span><span class="p">(</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">textStatus</span> <span class="p">)</span> <span class="p">{</span>
 
       <span class="nx">aborted</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+      <span class="nx">preview</span><span class="p">.</span><span class="nx">nlw</span><span class="p">.</span><span class="nx">count</span> <span class="o">=</span> <span class="s1">&#39;probably a whole lot of&#39;</span><span class="p">;</span>
+      <span class="nx">preview</span><span class="p">.</span><span class="nx">updateNLW</span><span class="p">();</span>
       <span class="nx">preview</span><span class="p">.</span><span class="nx">stopLoading</span><span class="p">();</span>
       <span class="nx">preview</span><span class="p">.</span><span class="nx">disableTable</span><span class="p">();</span>
       <span class="nx">pdp</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">disableField</span><span class="p">(</span> <span class="nx">$downloadButton</span> <span class="p">);</span>
@@ -90,7 +92,7 @@ visualize the loading of content.</p>             </td>             <td class="c
 
       <span class="nx">preview</span><span class="p">.</span><span class="nx">nlw</span><span class="p">.</span><span class="nx">count</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">total</span><span class="p">;</span>
       <span class="nx">preview</span><span class="p">.</span><span class="nx">updateTable</span><span class="p">(</span> <span class="nx">data</span><span class="p">.</span><span class="nx">results</span> <span class="p">);</span>
-      <span class="nx">preview</span><span class="p">.</span><span class="nx">updateNLW</span><span class="p">(</span> <span class="mi">0</span> <span class="p">);</span>
+      <span class="nx">preview</span><span class="p">.</span><span class="nx">updateNLW</span><span class="p">();</span>
       <span class="nx">preview</span><span class="p">.</span><span class="nx">updateDownloadSize</span><span class="p">();</span>
       <span class="nx">preview</span><span class="p">.</span><span class="nx">stopLoading</span><span class="p">();</span>
 
@@ -144,7 +146,7 @@ Otherwise, join with commas for a list.</p>             </td>             <td cl
 updates the text under the download button.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">preview</span><span class="p">.</span><span class="nx">updateDownloadSize</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 
     <span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="nx">preview</span><span class="p">.</span><span class="nx">nlw</span><span class="p">.</span><span class="nx">count</span><span class="p">,</span>
-        <span class="nx">multiplier</span> <span class="o">=</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">codes</span> <span class="o">?</span> <span class="mi">511</span> <span class="o">:</span> <span class="mi">489</span><span class="p">,</span>
+        <span class="nx">multiplier</span> <span class="o">=</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">codes</span> <span class="o">?</span> <span class="mi">640</span> <span class="o">:</span> <span class="mi">600</span><span class="p">,</span>
         <span class="nx">filesize</span><span class="p">;</span>
 
     <span class="k">if</span> <span class="p">(</span> <span class="nb">isNaN</span><span class="p">(</span> <span class="nx">count</span> <span class="p">)</span> <span class="o">||</span> <span class="o">!</span><span class="nx">count</span> <span class="p">)</span> <span class="p">{</span>

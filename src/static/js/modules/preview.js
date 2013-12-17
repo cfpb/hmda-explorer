@@ -112,6 +112,8 @@ var PDP = (function ( pdp ) {
     function _abort( data, textStatus ) {
 
       aborted = true;
+      preview.nlw.count = 'probably a whole lot of';
+      preview.updateNLW();
       preview.stopLoading();
       preview.disableTable();
       pdp.form.disableField( $downloadButton );
@@ -135,7 +137,7 @@ var PDP = (function ( pdp ) {
 
       preview.nlw.count = data.total;
       preview.updateTable( data.results );
-      preview.updateNLW( 0 );
+      preview.updateNLW();
       preview.updateDownloadSize();
       preview.stopLoading();
 
@@ -204,7 +206,7 @@ var PDP = (function ( pdp ) {
   preview.updateDownloadSize = function() {
 
     var count = preview.nlw.count,
-        multiplier = pdp.query.codes ? 511 : 489,
+        multiplier = pdp.query.codes ? 640 : 600,
         filesize;
 
     if ( isNaN( count ) || !count ) {
