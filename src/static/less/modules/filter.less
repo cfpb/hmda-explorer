@@ -73,20 +73,10 @@
 
   &.footer {
     .need-more {
-      span {
-        .avenir-next-bold;
-        display: block;
-        text-transform: uppercase;
-        padding-bottom: 10px;
-      }
       width: 90%;
       margin-bottom: 20px;
       float: left;
       display: inline-block;
-    }
-    .insight {
-      margin-top: 20px;
-      display: block;
     }
   }
 
@@ -240,7 +230,8 @@
 }
 
 .explanation .data-minicon,
-.intro .data-minicon {
+.intro .data-minicon,
+.preview .data-minicon {
   float: left;
   position: relative;
   bottom: 5px;
@@ -255,9 +246,12 @@
 
     .intro {
       
-      padding: 15px 15px 0 15px;
-      .clear-text {
-        font-size: .75em;
+      padding: 15px 15px 30px 15px;
+      p {
+        margin: 0;
+      }
+      .start-over {
+        font-size: .875em;
         margin-left: 10px;
       }
     }
@@ -271,6 +265,12 @@
       font-size: 1em;
       margin-left: 20px;
       margin-top: 0;
+    }
+
+    .next-steps {
+      a.action-arrow {
+        margin-top: 34px;
+      }
     }
 
     .widget {
@@ -350,6 +350,17 @@
       position: static;
     }
 
+  }
+
+  .filter.year {
+    .fields {
+      margin: 30px 0;
+    }
+    label {
+      width: 20%;
+      text-align: left;
+      margin-left: 30px;
+    }
   }
 
   .widget {
