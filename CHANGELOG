@@ -1,3 +1,10 @@
+v0.18.3:
+  date: 2013-12-16
+  changes:
+    - Remove lender name text (#452).
+    - Make 'calculate by' dropdown more verbose (#423).
+    - Improve file size estimation accuracy (#379).
+
 v0.18.2:
   date: 2013-12-10
   changes:

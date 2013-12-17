@@ -493,6 +493,11 @@ var PDP = (function ( pdp ) {
     table.disableDownload();
     table.$page.find('.share_url').tooltip({ title: 'Copied to clipboard!', trigger: 'manual' });
     table.$page.initTooltips({ placement: 'right' });
+
+    $('#calculate-by option').each(function(){
+      var short = $( this ).text();
+      $( this ).attr( 'data-abbr', short );
+    });
     
     //check for select values in params 
     selectParams = ((pdp.query.params.select || {}).values || []);
@@ -520,6 +525,19 @@ var PDP = (function ( pdp ) {
         if (position > 0) {
           $('#reset-' + e.target.id).removeClass('hidden');
         }
+      } else {
+
+        var val = $('#calculate-by').val(),
+            long = $( '#calculate-by option[value=' + $('#calculate-by').val() + ']' ).attr('data-verbose') || val;
+
+        $('#calculate-by option').each(function(){
+          var short = $( this ).attr('data-abbr');
+          $( this ).text( short );
+        });
+        
+        $( '#calculate-by option[value=' + val + ']' ).text( long );
+        $('#calculate-by').trigger('liszt:updated');
+
       }
 
     }.bind(this));
