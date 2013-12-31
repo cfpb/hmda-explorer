@@ -28,10 +28,12 @@ var PDP = (function ( pdp ) {
     if ( preset === 'custom' ) {
       return;
     } else if ( preset === 'default' ) {
-      pdp.query.reset('all');
+      pdp.query.reset();
     } else {
       pdp.query.reset( preset );
     }
+
+    console.log(pdp.query.params);
 
     pdp.form.resetFields();
     pdp.form.setFields();
@@ -200,8 +202,8 @@ var PDP = (function ( pdp ) {
 
     pdp.form.hideSections();
     $.removeCookie('_hmda');
-    pdp.query.reset('all');
-    pdp.form.resetFields('all');
+    pdp.query.reset();
+    pdp.form.resetFields(true);
     pdp.form.setFields();
     pdp.form.updateShareLink();
     pdp.preview.update();
