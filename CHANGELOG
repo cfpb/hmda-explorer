@@ -1,3 +1,8 @@
+v0.18.4:
+  date: 2013-12-31
+  changes:
+    - Include year in reset filters (#458).
+
 v0.18.3:
   date: 2013-12-16
   changes:

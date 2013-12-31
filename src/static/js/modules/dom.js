@@ -201,7 +201,7 @@ var PDP = (function ( pdp ) {
     pdp.form.hideSections();
     $.removeCookie('_hmda');
     pdp.query.reset('all');
-    pdp.form.resetFields();
+    pdp.form.resetFields('all');
     pdp.form.setFields();
     pdp.form.updateShareLink();
     pdp.preview.update();
