@@ -335,6 +335,7 @@ module.exports = function(grunt) {
             'src/static/vendor/jquery-ui/ui/jquery.ui.slider.js',
             'src/static/vendor/zeroclipboard/ZeroClipboard.js',
             'src/static/vendor/jquery.cookie/jquery.cookie.js',
+            'src/static/vendor/jquery-jsonp/src/jquery.jsonp.js',
             'src/static/js/templates/template.js',
             'src/static/js/modules/observer.js',
             'src/static/js/modules/utils.js',
