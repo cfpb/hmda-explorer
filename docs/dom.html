@@ -20,10 +20,12 @@
     <span class="k">if</span> <span class="p">(</span> <span class="nx">preset</span> <span class="o">===</span> <span class="s1">&#39;custom&#39;</span> <span class="p">)</span> <span class="p">{</span>
       <span class="k">return</span><span class="p">;</span>
     <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="nx">preset</span> <span class="o">===</span> <span class="s1">&#39;default&#39;</span> <span class="p">)</span> <span class="p">{</span>
-      <span class="nx">pdp</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">reset</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">);</span>
+      <span class="nx">pdp</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">reset</span><span class="p">();</span>
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
       <span class="nx">pdp</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">reset</span><span class="p">(</span> <span class="nx">preset</span> <span class="p">);</span>
     <span class="p">}</span>
+
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">pdp</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">params</span><span class="p">);</span>
 
     <span class="nx">pdp</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">resetFields</span><span class="p">();</span>
     <span class="nx">pdp</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">setFields</span><span class="p">();</span>
@@ -150,8 +152,8 @@ the suggestion dropdown and the 'custom' suggestion isn't already chosen.</p>   
 
     <span class="nx">pdp</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">hideSections</span><span class="p">();</span>
     <span class="nx">$</span><span class="p">.</span><span class="nx">removeCookie</span><span class="p">(</span><span class="s1">&#39;_hmda&#39;</span><span class="p">);</span>
-    <span class="nx">pdp</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">reset</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">);</span>
-    <span class="nx">pdp</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">resetFields</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">);</span>
+    <span class="nx">pdp</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">reset</span><span class="p">();</span>
+    <span class="nx">pdp</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">resetFields</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
     <span class="nx">pdp</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">setFields</span><span class="p">();</span>
     <span class="nx">pdp</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">updateShareLink</span><span class="p">();</span>
     <span class="nx">pdp</span><span class="p">.</span><span class="nx">preview</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>

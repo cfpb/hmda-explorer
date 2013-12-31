@@ -76,6 +76,16 @@ var PDP = (function ( pdp ) {
         };
       break;
 
+      // Default to an empty state with whatever years they've selected.
+      case 'all':
+        this.params = {
+          as_of_year: {
+            values: years,
+            comparator: '='
+          }
+        };
+        break;
+
       // Empty everything.
       case 'clear':
         this.params = {};
