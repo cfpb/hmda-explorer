@@ -448,9 +448,9 @@ var PDP = (function ( pdp ) {
 
   // The `resetFields` method clears all values from all fields and tells
   // `chosen` to update selects accordingly.
-  form.resetFields = function() {
+  form.resetFields = function( all ) {
 
-    var $fields = pdp.app.$el.find('.param:not(#as_of_year)');
+    var $fields = !all ? pdp.app.$el.find('.param:not(#as_of_year)') : pdp.app.$el.find('.param');
 
     $fields.each( function() {
 

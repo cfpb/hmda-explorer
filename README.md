@@ -33,6 +33,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2013-12-31   [v0.18.4](../../tree/v0.18.4)   Include year in reset filters (#458).
  * 2013-12-16   [v0.18.3](../../tree/v0.18.3)   Remove lender name text (#452). Make 'calculate by' dropdown more verbose (#423). Improve file size estimation accuracy (#379).
  * 2013-12-10   [v0.18.2](../../tree/v0.18.2)   Add the reset button back.
  * 2013-11-27   [v0.18.1](../../tree/v0.18.1)   Improve charts' UX (#333).
@@ -96,4 +97,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Mon Dec 16 2013 23:09:40.*
+*This file was generated on Tue Dec 31 2013 08:24:56.*

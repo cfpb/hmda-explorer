@@ -32,7 +32,7 @@ var PDP = (function ( pdp ) {
 
     // The year is selected independent of the preset, because 
     // of this we have to ensure it doesn't get overwritten.
-    var years = $('.field.as_of_year select').val() || [];
+    var years = $('.field.as_of_year select').val() || [2012];
 
     switch( preset ) {
 
@@ -85,7 +85,7 @@ var PDP = (function ( pdp ) {
       default:
         this.params = {
           as_of_year: {
-            values: years,
+            values: [2012],
             comparator: '='
           }
         };
