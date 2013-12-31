@@ -125,7 +125,7 @@ var PDP = (function( pdp ) {
 
     function getJSON( url ) {
 
-      var deferred = $.getJSON( url );
+      var deferred = $.jsonp({ url: url });
 
       deferred.done(function(data) {
         
@@ -142,7 +142,7 @@ var PDP = (function( pdp ) {
         }
         // This is a safety to prevent the polyfill object from growing too huge.
         // @TODO: Make this less lame.
-        if ( window.localStorage.length > 5 ) {
+        if ( window.localStorage.length > 100 ) {
           clearStorage();
         }
       });

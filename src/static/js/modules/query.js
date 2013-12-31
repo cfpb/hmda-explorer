@@ -30,8 +30,8 @@ var PDP = (function ( pdp ) {
   // If a preset is passed, some defaults will be set.
   query.reset = function( preset ) {
 
-    // The year is selected independent of the preset so we
-    // have to ensure it doesn't get overwritten.
+    // The year is selected independent of the preset, because 
+    // of this we have to ensure it doesn't get overwritten.
     var years = $('.field.as_of_year select').val() || [];
 
     switch( preset ) {
