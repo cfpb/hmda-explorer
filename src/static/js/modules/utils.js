@@ -120,7 +120,8 @@ var PDP = (function( pdp ) {
   utils.getJSON = function( url ) {
 
     var supportsLocalStorage = 'localStorage' in window,
-        storageKey = 'cfpb:' + url.substring( url.indexOf('?') + 1 );
+        keyPrefix = 'cfpb',
+        storageKey = keyPrefix + ':' + url.substring( url.indexOf('?') + 1 );
 
     function getJSON( url ) {
 
@@ -137,13 +138,12 @@ var PDP = (function( pdp ) {
         try {
           localStorage.setItem( storageKey, JSON.stringify(data) );
         } catch( e ) {
-          // @TODO: Only clear out PDP relevant storage.
-          window.localStorage.clear();
+          clearStorage();
         }
         // This is a safety to prevent the polyfill object from growing too huge.
         // @TODO: Make this less lame.
-        if ( window.localStorage.length > 100 ) {
-          window.localStorage.clear();
+        if ( window.localStorage.length > 5 ) {
+          clearStorage();
         }
       });
 
@@ -171,6 +171,18 @@ var PDP = (function( pdp ) {
       return promise;
 
     }
+
+    function clearStorage() {
+
+      _.keys( localStorage ).forEach( function( key ){
+        if ( key.indexOf( keyPrefix ) !== -1 ) {
+          localStorage.removeItem(key);
+        }
+      });
+
+    }
+
+    window.clearStorage = clearStorage;
 
     // Both functions return a promise, so no matter which function
     // gets called, the API is the same.
