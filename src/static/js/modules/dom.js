@@ -25,6 +25,9 @@ var PDP = (function ( pdp ) {
 
     ev.preventDefault();
 
+    // Log event to GA
+    track( 'explore data page', 'suggested filter select', preset );
+
     if ( preset === 'custom' ) {
       return;
     } else if ( preset === 'default' ) {
@@ -98,6 +101,9 @@ var PDP = (function ( pdp ) {
         showCodes = !!parseInt( $('.codes input[type=radio]:checked').val(), 10 ),
         url = pdp.query.generateApiUrl( format, showCodes ) + '&$limit=0';
 
+    // Log event to GA
+    track( 'downloads', 'HMDA raw data', url );
+
     ev.preventDefault();
     pdp.app.redirect( url );
 
@@ -109,6 +115,9 @@ var PDP = (function ( pdp ) {
     var format = $('#raw-format').val(),
         showCodes = !!parseInt( $('.raw-codes input[type=radio]:checked').val(), 10 ),
         url = pdp.query.generateApiUrl( format, showCodes ) + '&$limit=0';
+
+    // Log event to GA
+    track( 'downloads', 'HMDA raw data', url );
 
     ev.preventDefault();
     pdp.app.redirect( url );
