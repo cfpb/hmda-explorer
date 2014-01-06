@@ -8,7 +8,8 @@
 <span class="cm"> 5. Social Tracking</span>
 <span class="cm"> 6. Newsletter Signup Form</span>
 <span class="cm"> 7. Data tracking</span>
-<span class="cm"> 8. Find and Track YouTube Videos</span>
+<span class="cm"> 8. Custom events on the Explore Data page</span>
+<span class="cm"> 9. Find and Track YouTube Videos</span>
 
 <span class="cm">An analytics file to fire custom events based on on Google&#39;s ga.js:</span>
 <span class="cm">https://developers.google.com/analytics/devguides/collection/gajs/</span>
@@ -172,10 +173,9 @@ http://support.google.com/analytics/answer/1136920?hl=en</p>             </td>  
             <span class="nx">track</span><span class="p">(</span><span class="s1">&#39;social&#39;</span><span class="p">,</span> <span class="s1">&#39;signup&#39;</span><span class="p">,</span> <span class="s1">&#39;mailing list signup&#39;</span><span class="p">);</span>
         <span class="p">});</span>
 
-        <span class="cm">/* 7. Data tracking */</span>
-        <span class="cm">/* On download button */</span>
-        <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#download .submit.btn&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-            <span class="nx">track</span><span class="p">(</span><span class="s1">&#39;downloads&#39;</span><span class="p">,</span> <span class="s1">&#39;HMDA raw data&#39;</span><span class="p">);</span>
+        <span class="cm">/* Chart&#39;s underlying data on the homepage */</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;a.underlying&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+            <span class="nx">track</span><span class="p">(</span><span class="s1">&#39;homepage&#39;</span><span class="p">,</span> <span class="s1">&#39;underlying data link click&#39;</span><span class="p">,</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;data-track-label&#39;</span><span class="p">));</span>
         <span class="p">});</span>
 
         <span class="cm">/* On focus of text area; also fires when button is clicked */</span>
@@ -189,7 +189,7 @@ http://support.google.com/analytics/answer/1136920?hl=en</p>             </td>  
     <span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
     <span class="cm">/**</span>
 <span class="cm">     * ========================================================================</span>
-<span class="cm">     * 8. Find and Track YouTube Videos</span>
+<span class="cm">     * 9. Find and Track YouTube Videos</span>
 <span class="cm">     * Find YouTube videos on a page and track them with google analytics</span>
 <span class="cm">     * ========================================================================</span>
 <span class="cm">     * cfpb.github.com: @davidakennedy, @mikem</span>

@@ -120,8 +120,10 @@ when passed the param's name.</p>             </td>             <td class="code"
     <span class="p">}</span>
 
     <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">currentSection</span> <span class="o">===</span> <span class="s1">&#39;summary&#39;</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">track</span><span class="p">(</span> <span class="s1">&#39;Explore data page&#39;</span><span class="p">,</span> <span class="s1">&#39;Section viewed&#39;</span><span class="p">,</span> <span class="s1">&#39;Summary table&#39;</span> <span class="p">);</span>
       <span class="nx">pdp</span><span class="p">.</span><span class="nx">summaryTable</span><span class="p">.</span><span class="nx">setupTable</span><span class="p">();</span>
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">track</span><span class="p">(</span> <span class="s1">&#39;Explore data page&#39;</span><span class="p">,</span> <span class="s1">&#39;Section viewed&#39;</span><span class="p">,</span> <span class="s1">&#39;Filters&#39;</span> <span class="p">);</span>
       <span class="nx">pdp</span><span class="p">.</span><span class="nx">summaryTable</span><span class="p">.</span><span class="nx">cancelTimeout</span><span class="p">();</span>
     <span class="p">}</span>
 
