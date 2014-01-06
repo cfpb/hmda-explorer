@@ -43,11 +43,18 @@ It is used to send the user to the Qu URL with their results.</p>             </
 when passed the param's name.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">app</span><span class="p">.</span><span class="nx">getUrlValue</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">name</span> <span class="p">)</span> <span class="p">{</span>
 
     <span class="kd">var</span> <span class="nx">param</span><span class="p">,</span>
-        <span class="nx">params</span> <span class="o">=</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">getHashParams</span><span class="p">();</span>
+        <span class="nx">params</span> <span class="o">=</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">getHashParams</span><span class="p">(),</span>
+        <span class="nx">values</span><span class="p">;</span>
 
     <span class="k">if</span> <span class="p">(</span> <span class="nx">name</span> <span class="o">===</span> <span class="s1">&#39;section&#39;</span> <span class="p">)</span> <span class="p">{</span>
       <span class="k">return</span> <span class="k">typeof</span> <span class="nx">params</span><span class="p">.</span><span class="nx">section</span> <span class="o">!==</span> <span class="s1">&#39;undefined&#39;</span> <span class="o">?</span> <span class="nx">params</span><span class="p">.</span><span class="nx">section</span><span class="p">.</span><span class="nx">values</span> <span class="o">:</span> <span class="s1">&#39;filters&#39;</span><span class="p">;</span>
-    <span class="p">}</span></pre></div>             </td>           </tr>                               <tr id="section-31">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-31">&#182;</a>               </div>               <p>Build and return the param's deets.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">param</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">}</span>
+
+    <span class="nx">values</span> <span class="o">=</span> <span class="nx">params</span><span class="p">[</span> <span class="nx">name</span> <span class="p">].</span><span class="nx">values</span><span class="p">;</span>
+
+    <span class="nx">values</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span> <span class="nx">values</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">v</span> <span class="p">){</span>
+      <span class="k">return</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">sanitize</span><span class="p">(</span> <span class="nx">v</span> <span class="p">);</span>
+    <span class="p">});</span></pre></div>             </td>           </tr>                               <tr id="section-31">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-31">&#182;</a>               </div>               <p>Build and return the param's deets.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">param</span> <span class="o">=</span> <span class="p">{</span>
       <span class="nx">name</span><span class="o">:</span> <span class="nx">name</span><span class="p">,</span>
       <span class="nx">value</span><span class="o">:</span> <span class="nx">params</span><span class="p">[</span> <span class="nx">name</span> <span class="p">].</span><span class="nx">values</span><span class="p">,</span>
       <span class="nx">comparator</span><span class="o">:</span> <span class="nx">params</span><span class="p">[</span> <span class="nx">name</span> <span class="p">].</span><span class="nx">comparator</span>
@@ -64,7 +71,11 @@ when passed the param's name.</p>             </td>             <td class="code"
 
       <span class="kd">var</span> <span class="nx">_param</span> <span class="o">=</span> <span class="p">{},</span>
           <span class="nx">_values</span> <span class="o">=</span> <span class="p">[],</span>
-          <span class="nx">values</span> <span class="o">=</span> <span class="nx">val</span><span class="p">.</span><span class="nx">values</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-33">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-33">&#182;</a>               </div>               <p>If it's the section hash, save it and abort.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="k">if</span> <span class="p">(</span> <span class="nx">name</span> <span class="o">===</span> <span class="s1">&#39;section&#39;</span> <span class="p">)</span> <span class="p">{</span>
+          <span class="nx">values</span> <span class="o">=</span> <span class="nx">val</span><span class="p">.</span><span class="nx">values</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">);</span>
+
+      <span class="nx">values</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span> <span class="nx">values</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">v</span> <span class="p">){</span>
+        <span class="k">return</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">sanitize</span><span class="p">(</span> <span class="nx">v</span> <span class="p">);</span>
+      <span class="p">});</span></pre></div>             </td>           </tr>                               <tr id="section-33">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-33">&#182;</a>               </div>               <p>If it's the section hash, save it and abort.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="k">if</span> <span class="p">(</span> <span class="nx">name</span> <span class="o">===</span> <span class="s1">&#39;section&#39;</span> <span class="p">)</span> <span class="p">{</span>
         <span class="nx">app</span><span class="p">.</span><span class="nx">currentSection</span> <span class="o">=</span> <span class="nx">values</span><span class="p">;</span>
         <span class="k">return</span><span class="p">;</span>
       <span class="p">}</span>
@@ -84,6 +95,7 @@ when passed the param's name.</p>             </td>             <td class="code"
     <span class="p">}</span>
 
     <span class="nx">_</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span> <span class="nx">params</span><span class="p">,</span> <span class="nx">buildParam</span> <span class="p">);</span>
+
     <span class="k">return</span> <span class="nx">_params</span><span class="p">;</span>
 
   <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-34">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-34">&#182;</a>               </div>               <p>The <code>changeSection</code> toggles between the filters and summary tables sections.
