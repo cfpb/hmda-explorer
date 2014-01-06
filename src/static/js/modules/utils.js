@@ -78,6 +78,25 @@ var PDP = (function( pdp ) {
 
   };
 
+  // Sanitize strings
+  utils.sanitize = function( string ) {
+
+    var tagBody = '(?:[^"\'>]|"[^"]*"|\'[^\']*\')*',
+        tagOrComment = new RegExp('<(?:!--(?:(?:-*[^->])*--+|-?)|script\\b' + tagBody + '>[\\s\\S]*?</script\\s*|style\\b' + tagBody + '>[\\s\\S]*?</style\\s*|/?[a-z]' + tagBody + ')>', 'gi');
+
+    function removeTags( html ) {
+      var oldHtml;
+      do {
+        oldHtml = html;
+        html = html.replace(tagOrComment, '');
+      } while (html !== oldHtml);
+      return html.replace(/</g, '&lt;');
+    }
+
+    return removeTags( string );
+
+  };
+
   // Add commas to a number to make it pretty.
   utils.commify = function( num ) {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');

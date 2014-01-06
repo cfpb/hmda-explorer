@@ -127,11 +127,18 @@ var PDP = (function ( pdp ) {
   app.getUrlValue = function( name ) {
 
     var param,
-        params = pdp.utils.getHashParams();
+        params = pdp.utils.getHashParams(),
+        values;
 
     if ( name === 'section' ) {
       return typeof params.section !== 'undefined' ? params.section.values : 'filters';
     }
+
+    values = params[ name ].values;
+
+    values = _.map( values, function( v ){
+      return pdp.utils.sanitize( v );
+    });
 
     // Build and return the param's deets.
     param = {
@@ -156,6 +163,10 @@ var PDP = (function ( pdp ) {
           _values = [],
           values = val.values.split(',');
 
+      values = _.map( values, function( v ){
+        return pdp.utils.sanitize( v );
+      });
+
       // If it's the section hash, save it and abort.
       if ( name === 'section' ) {
         app.currentSection = values;
@@ -177,6 +188,7 @@ var PDP = (function ( pdp ) {
     }
 
     _.forEach( params, buildParam );
+
     return _params;
 
   };
