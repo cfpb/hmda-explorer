@@ -8,7 +8,8 @@
  5. Social Tracking
  6. Newsletter Signup Form
  7. Data tracking
- 8. Find and Track YouTube Videos
+ 8. Custom events on the Explore Data page
+ 9. Find and Track YouTube Videos
 
 An analytics file to fire custom events based on on Google's ga.js:
 https://developers.google.com/analytics/devguides/collection/gajs/
@@ -227,10 +228,9 @@ var track = function(category, name, value) {
             track('social', 'signup', 'mailing list signup');
         });
 
-        /* 7. Data tracking */
-        /* On download button */
-        $('#download .submit.btn').on('click', function() {
-            track('downloads', 'HMDA raw data');
+        /* Chart's underlying data on the homepage */
+        $('a.underlying').on('click', function() {
+            track('homepage', 'underlying data link click', $(this).attr('data-track-label'));
         });
 
         /* On focus of text area; also fires when button is clicked */
@@ -244,7 +244,7 @@ var track = function(category, name, value) {
     'use strict';
     /**
      * ========================================================================
-     * 8. Find and Track YouTube Videos
+     * 9. Find and Track YouTube Videos
      * Find YouTube videos on a page and track them with google analytics
      * ========================================================================
      * cfpb.github.com: @davidakennedy, @mikem

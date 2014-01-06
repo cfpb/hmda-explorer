@@ -230,8 +230,10 @@ var PDP = (function ( pdp ) {
     }
 
     if (this.currentSection === 'summary') {
+      track( 'Explore data page', 'Section viewed', 'Summary table' );
       pdp.summaryTable.setupTable();
     } else {
+      track( 'Explore data page', 'Section viewed', 'Filters' );
       pdp.summaryTable.cancelTimeout();
     }
 
