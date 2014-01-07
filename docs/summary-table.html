@@ -453,6 +453,7 @@ ones are undefined</p>             </td>             <td class="code">          
     
     <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#summary-submit&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
       <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+      <span class="nx">track</span><span class="p">(</span> <span class="s1">&#39;Page Interaction&#39;</span><span class="p">,</span> <span class="s1">&#39;Click Submit&#39;</span><span class="p">,</span> <span class="s1">&#39;Generate Summary Table&#39;</span> <span class="p">);</span>
       <span class="k">this</span><span class="p">.</span><span class="nx">setupTable</span><span class="p">();</span>
     <span class="p">}.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
     

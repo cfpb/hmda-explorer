@@ -196,6 +196,7 @@ var PDP = (function ( pdp ) {
   // The `changeSection` toggles between the filters and summary tables sections.
   // @section = id of the section to show.
   app.changeSection = function( section, changeUrl ) {
+
     section = section || this.currentSection;
     changeUrl = typeof changeUrl === 'undefined' ? true : changeUrl;
 
@@ -230,10 +231,8 @@ var PDP = (function ( pdp ) {
     }
 
     if (this.currentSection === 'summary') {
-      track( 'Page Interaction', 'Tab Click', 'Summary Tables' );
       pdp.summaryTable.setupTable();
     } else {
-      track( 'Page Interaction', 'Tab Click', 'Custom Datasets' );
       pdp.summaryTable.cancelTimeout();
     }
 
