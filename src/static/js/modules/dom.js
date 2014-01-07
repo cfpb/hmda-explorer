@@ -36,8 +36,6 @@ var PDP = (function ( pdp ) {
       pdp.query.reset( preset );
     }
 
-    console.log(pdp.query.params);
-
     pdp.form.resetFields();
     pdp.form.setFields();
     pdp.form.showSections();
