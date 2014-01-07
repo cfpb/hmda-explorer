@@ -100,6 +100,7 @@ when passed the param's name.</p>             </td>             <td class="code"
 
   <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-34">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-34">&#182;</a>               </div>               <p>The <code>changeSection</code> toggles between the filters and summary tables sections.
 @section = id of the section to show.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">app</span><span class="p">.</span><span class="nx">changeSection</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">section</span><span class="p">,</span> <span class="nx">changeUrl</span> <span class="p">)</span> <span class="p">{</span>
+
     <span class="nx">section</span> <span class="o">=</span> <span class="nx">section</span> <span class="o">||</span> <span class="k">this</span><span class="p">.</span><span class="nx">currentSection</span><span class="p">;</span>
     <span class="nx">changeUrl</span> <span class="o">=</span> <span class="k">typeof</span> <span class="nx">changeUrl</span> <span class="o">===</span> <span class="s1">&#39;undefined&#39;</span> <span class="o">?</span> <span class="kc">true</span> <span class="o">:</span> <span class="nx">changeUrl</span><span class="p">;</span>
 
@@ -120,10 +121,8 @@ when passed the param's name.</p>             </td>             <td class="code"
     <span class="p">}</span>
 
     <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">currentSection</span> <span class="o">===</span> <span class="s1">&#39;summary&#39;</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">track</span><span class="p">(</span> <span class="s1">&#39;Page Interaction&#39;</span><span class="p">,</span> <span class="s1">&#39;Tab Click&#39;</span><span class="p">,</span> <span class="s1">&#39;Summary Tables&#39;</span> <span class="p">);</span>
       <span class="nx">pdp</span><span class="p">.</span><span class="nx">summaryTable</span><span class="p">.</span><span class="nx">setupTable</span><span class="p">();</span>
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-      <span class="nx">track</span><span class="p">(</span> <span class="s1">&#39;Page Interaction&#39;</span><span class="p">,</span> <span class="s1">&#39;Tab Click&#39;</span><span class="p">,</span> <span class="s1">&#39;Custom Datasets&#39;</span> <span class="p">);</span>
       <span class="nx">pdp</span><span class="p">.</span><span class="nx">summaryTable</span><span class="p">.</span><span class="nx">cancelTimeout</span><span class="p">();</span>
     <span class="p">}</span>
 

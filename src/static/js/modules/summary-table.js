@@ -561,6 +561,7 @@ var PDP = (function ( pdp ) {
     
     $('#summary-submit').on('click', function(e) {
       e.preventDefault();
+      track( 'Page Interaction', 'Click Submit', 'Generate Summary Table' );
       this.setupTable();
     }.bind(this));
     
