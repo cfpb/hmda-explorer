@@ -144,7 +144,7 @@ var PDP = (function( pdp ) {
 
     function getJSON( url ) {
 
-      var deferred = $.jsonp({ url: url });
+      var deferred = url.indexOf('jsonp') !== -1 ? $.jsonp({ url: url }) : $.getJSON( url );
 
       deferred.done(function(data) {
         
