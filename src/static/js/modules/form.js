@@ -450,8 +450,6 @@ var PDP = (function ( pdp ) {
   // `chosen` to update selects accordingly.
   form.resetFields = function( reset ) {
 
-    console.log(reset);
-
     var $fields = !reset ? pdp.app.$el.find('.param:not(#as_of_year)') : pdp.app.$el.find('.param');
 
     $fields.each( function() {
