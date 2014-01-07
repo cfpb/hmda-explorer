@@ -33,6 +33,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2013-01-07   [v0.18.6](../../tree/v0.18.6)   Roll back icon font.
  * 2013-01-06   [v0.18.5](../../tree/v0.18.5)   Improve URL param sanitization.
  * 2013-12-31   [v0.18.4](../../tree/v0.18.4)   Include year in reset filters (#458).
  * 2013-12-16   [v0.18.3](../../tree/v0.18.3)   Remove lender name text (#452). Make 'calculate by' dropdown more verbose (#423). Improve file size estimation accuracy (#379).
@@ -98,4 +99,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Mon Jan 06 2014 15:00:08.*
+*This file was generated on Tue Jan 07 2014 01:14:33.*
