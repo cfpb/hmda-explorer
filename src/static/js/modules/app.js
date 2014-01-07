@@ -230,10 +230,10 @@ var PDP = (function ( pdp ) {
     }
 
     if (this.currentSection === 'summary') {
-      track( 'Explore data page', 'Section viewed', 'Summary table' );
+      track( 'Page Interaction', 'Tab Click', 'Summary Tables' );
       pdp.summaryTable.setupTable();
     } else {
-      track( 'Explore data page', 'Section viewed', 'Filters' );
+      track( 'Page Interaction', 'Tab Click', 'Custom Datasets' );
       pdp.summaryTable.cancelTimeout();
     }
 

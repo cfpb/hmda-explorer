@@ -26,7 +26,7 @@ var PDP = (function ( pdp ) {
     ev.preventDefault();
 
     // Log event to GA
-    track( 'explore data page', 'suggested filter select', preset );
+    track( 'Page Interaction', 'Filters', preset );
 
     if ( preset === 'custom' ) {
       return;
@@ -100,7 +100,7 @@ var PDP = (function ( pdp ) {
         url = pdp.query.generateApiUrl( format, showCodes ) + '&$limit=0';
 
     // Log event to GA
-    track( 'downloads', 'HMDA raw data', url );
+    track( 'downloads', 'HMDA raw data', 'filter-page:' + url );
 
     ev.preventDefault();
     pdp.app.redirect( url );
@@ -115,7 +115,7 @@ var PDP = (function ( pdp ) {
         url = pdp.query.generateApiUrl( format, showCodes ) + '&$limit=0';
 
     // Log event to GA
-    track( 'downloads', 'HMDA raw data', url );
+    track( 'downloads', 'HMDA raw data', 'summary-table-page:' + url );
 
     ev.preventDefault();
     pdp.app.redirect( url );
