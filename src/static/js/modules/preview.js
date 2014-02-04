@@ -44,6 +44,14 @@ var PDP = (function ( pdp ) {
     this.nlw.$el.find('.calculating').hide();
     this.nlw.$el.find('.count').show();
 
+    // Temporary message we're showing until we fix the sluggishness of
+    // large file downloads
+    if ( pdp.preview.nlw.count === parseInt( pdp.preview.nlw.count, 10 ) && pdp.preview.nlw.count > 250000 ) {
+      $('.msg.size-warning').removeClass('hidden');
+    } else {
+      $('.msg.size-warning').addClass('hidden');
+    }
+
   };
 
   // Show the preview table.
