@@ -419,13 +419,14 @@
           <ul class="fields">
 
             <!-- filter field -->
-            <li class="field respondent_name">
-              <label for="respondent_name">Lender name:</label>
-              <div class="widget select">
-                <input type="hidden" class="param" name="respondent_name" id="respondent_name" multiple style="width:100%">
-                <input type="hidden" class="param" name="respondent_name">
-                <!-- <select multiple name="respondent_name" id="respondent_name" style="width:300px" data-placeholder="Select one or more lenders"></select> -->
+            <li class="field">
+              <label for="respondent_id">Lender ID:</label>
+              <div class="widget range">
+                <input type="text" class="param require-numeric" name="respondent_id" value="" maxlength="10" placeholder="Enter a lender ID">
+                <p class="ffiec-lookup">Don't know a lender's ID?<br>Use the <a href="http://www.ffiec.gov/hmdaadwebreport/DisWelcome.aspx" target="_blank" class="dont-redirect">FFIEC's disclosure tool</a> to look it up.</p>
               </div>
+              <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
+              <span class="help-text"><%= explore_tooltips_respondent_id %></span>
             </li>
             <!-- /filter field -->
 
