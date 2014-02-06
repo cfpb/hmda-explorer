@@ -688,7 +688,15 @@
             <div class="action">
 
               <button type="submit" class="submit btn" id="download-button"><i class="icon-download"></i>Download</button>
-              <p class="download-size hidden">The file is ~<span class="bytes">1 MB</span></p>
+
+              <div class="filesize hidden">
+
+                <p class="download-size">The file is approx. <span class="bytes">1 MB</span></p>
+
+                <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
+                <span class="help-text"><%= explore_tooltips_filesize %></span>
+
+              </div>
 
             </div>
 
@@ -841,7 +849,14 @@
 
               <button type="submit" class="submit btn" id="download-raw-button"><i class="icon-download"></i>Download</button>
 
-              <p class="download-size hidden">The file is ~ <span class="bytes">1 MB</span></p>
+              <div class="filesize hidden">
+
+                <p class="download-size">The file is approx. <span class="bytes">1 MB</span></p>
+
+                <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>
+                <span class="help-text"><%= explore_tooltips_filesize %></span>
+
+              </div>
 
             </div>
 
