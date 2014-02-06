@@ -69,7 +69,7 @@
       fs = PDP.utils.getPrettyFilesize(10485778);
       expect(fs).toBe('10.0 MB');
       fs = PDP.utils.getPrettyFilesize(760737418249);
-      expect(fs).toBe('708.49 GB');
+      expect(fs).toBe('708.5 GB');
     });
   });
 

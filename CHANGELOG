@@ -1,3 +1,8 @@
+v0.19.0:
+  date: 2013-02-06
+  changes:
+    - Improve usability of file size estimation (#466).
+
 v0.18.7:
   date: 2013-01-07
   changes:

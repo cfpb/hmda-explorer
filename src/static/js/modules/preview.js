@@ -11,7 +11,7 @@ var PDP = (function ( pdp ) {
   preview.$el = $('#preview');
 
   // Cache a reference to the download size messaging section.
-  preview.$downloadSize = $('.download-size');
+  preview.$downloadSize = $('.filesize');
 
   // Whether or not the preview is currently updating.
   preview._updating = false;
@@ -206,7 +206,7 @@ var PDP = (function ( pdp ) {
   preview.updateDownloadSize = function() {
 
     var count = preview.nlw.count,
-        multiplier = pdp.query.codes ? 640 : 600,
+        multiplier = pdp.query.codes ? 724.88 : 684.88,
         filesize;
 
     if ( isNaN( count ) || !count ) {

@@ -42,7 +42,7 @@ var PDP = (function( pdp ) {
   // When given a number of bytes, this'll return a string with proper units.
   utils.getPrettyFilesize = function( bytes ) {
     if (bytes>=1073741824) {
-      bytes = ( bytes/1073741824 ).toFixed( 2 ) + ' GB';
+      bytes = ( bytes/1073741824 ).toFixed( 1 ) + ' GB';
     } else if ( bytes>=1048576 ) {
       bytes = ( bytes/1048576 ).toFixed( 1 ) + ' MB';
     } else if ( bytes >= 1024 ) {

@@ -33,6 +33,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2013-02-06   [v0.19.0](../../tree/v0.19.0)   Improve usability of file size estimation (#466).
  * 2013-01-07   [v0.18.7](../../tree/v0.18.7)   Update GA nomenclature.
  * 2013-01-07   [v0.18.6](../../tree/v0.18.6)   Roll back icon font.
  * 2013-01-06   [v0.18.5](../../tree/v0.18.5)   Improve URL param sanitization.
@@ -100,4 +101,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Tue Jan 07 2014 15:30:52.*
+*This file was generated on Thu Feb 06 2014 14:59:38.*
