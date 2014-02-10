@@ -24,7 +24,7 @@ var PDP = (function ( pdp ) {
   // we could call the api every time
   // or we can just do this
   // this is a subset of all available dimensions anyway
-  table.fields = ['action_taken_name','agency_name', 'applicant_ethnicity_name', 'applicant_sex_name', 'applicant_race_name_1','census_tract_number','co_applicant_ethnicity_name','co_applicant_race_name_1','co_applicant_sex_name','county_name','denial_reason_name_1','hoepa_status_name','lien_status_name','loan_purpose_name','loan_type_name','msamd_name','owner_occupancy_name','preapproval_name','property_type_name','purchaser_type_name', 'respondent_id', 'state_name', 'as_of_year'];
+  table.fields = ['action_taken_name','agency_name','applicant_ethnicity_name','applicant_sex_name','applicant_race_name_1','co_applicant_ethnicity_name','co_applicant_race_name_1','co_applicant_sex_name','county_name','denial_reason_name_1','hoepa_status_name','lien_status_name','loan_purpose_name','loan_type_name','msamd_name','owner_occupancy_name','preapproval_name','property_type_name','purchaser_type_name', 'respondent_id', 'state_name', 'as_of_year'];
 
   // map for select clause statements and calculate by field values
   table.metrics = {
