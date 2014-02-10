@@ -383,6 +383,7 @@ var PDP = (function ( pdp ) {
 
     // formats api call values that have a comparison operator
     _formatComparisonValues: function( param, paramName ){
+
       var paramVal,
           paramVals = [];
 
@@ -412,14 +413,14 @@ var PDP = (function ( pdp ) {
         _.forEach( param.values, function( val, key ){
 
           if ( isNaN( val ) || paramName === 'msamd' || paramName === 'respondent_id' || paramName === 'census_tract_number' ) {
-            paramVals.push( paramName + param.comparator + '"' + val + '"' );
+            paramVals.push( '"' + val + '"' );
           } else {
-            paramVals.push( paramName + param.comparator + val );
+            paramVals.push( val );
           }
 
         });
 
-        return '(' + paramVals.join(' OR ') + ')';
+        return paramName + ' IN (' + paramVals + ')';
 
       }
 
