@@ -33,10 +33,11 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
- * 2013-02-06   [v0.19.0](../../tree/v0.19.0)   Improve usability of file size estimation (#466).
- * 2013-01-07   [v0.18.7](../../tree/v0.18.7)   Update GA nomenclature.
- * 2013-01-07   [v0.18.6](../../tree/v0.18.6)   Roll back icon font.
- * 2013-01-06   [v0.18.5](../../tree/v0.18.5)   Improve URL param sanitization.
+ * 2014-02-10   [v0.19.1](../../tree/v0.19.1)   Remove census tract from summary tables.
+ * 2014-02-06   [v0.19.0](../../tree/v0.19.0)   Improve usability of file size estimation (#466).
+ * 2014-01-07   [v0.18.7](../../tree/v0.18.7)   Update GA nomenclature.
+ * 2014-01-07   [v0.18.6](../../tree/v0.18.6)   Roll back icon font.
+ * 2014-01-06   [v0.18.5](../../tree/v0.18.5)   Improve URL param sanitization.
  * 2013-12-31   [v0.18.4](../../tree/v0.18.4)   Include year in reset filters (#458).
  * 2013-12-16   [v0.18.3](../../tree/v0.18.3)   Remove lender name text (#452). Make 'calculate by' dropdown more verbose (#423). Improve file size estimation accuracy (#379).
  * 2013-12-10   [v0.18.2](../../tree/v0.18.2)   Add the reset button back.
@@ -101,4 +102,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Thu Feb 06 2014 14:59:38.*
+*This file was generated on Mon Feb 10 2014 11:49:12.*

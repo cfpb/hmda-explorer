@@ -1,3 +1,8 @@
+v0.19.1:
+  date: 2014-02-10
+  changes:
+    - Remove census tract from summary tables.
+
 v0.19.0:
   date: 2014-02-06
   changes:
