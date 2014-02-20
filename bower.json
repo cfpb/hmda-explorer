@@ -1,6 +1,6 @@
 {
   "name": "CFPB PDP",
-  "version": "0.19.1",
+  "version": "0.19.2",
   "devDependencies": {
     "ghost": "https://fake.ghe.domain/front/ghost.git",
     "jquery": "~1.10.2",
@@ -20,6 +20,7 @@
     "html5-placeholder-polyfill": "~2.0.8",
     "es5-shim": "~2.1.0",
     "jquery.cookie": "~1.4.0",
-    "jquery-jsonp": "~2.4.0"
+    "jquery-jsonp": "~2.4.0",
+    "poly": "~0.6.0"
   }
 }
