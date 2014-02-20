@@ -33,6 +33,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2014-02-20   [v0.19.2](../../tree/v0.19.2)   Add `bind()` polyfill to homepage to aid automated testing.
  * 2014-02-10   [v0.19.1](../../tree/v0.19.1)   Remove census tract from summary tables.
  * 2014-02-06   [v0.19.0](../../tree/v0.19.0)   Improve usability of file size estimation (#466).
  * 2014-01-07   [v0.18.7](../../tree/v0.18.7)   Update GA nomenclature.
@@ -102,4 +103,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Mon Feb 10 2014 11:49:12.*
+*This file was generated on Thu Feb 20 2014 13:27:07.*
