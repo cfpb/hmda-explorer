@@ -42,3 +42,7 @@ test/junit
 #############
 dist/
 dist-plan-b/
+
+# Jasmine runner #
+# ################
+_SpecRunner.html
