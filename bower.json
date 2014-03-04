@@ -21,6 +21,6 @@
     "es5-shim": "~2.1.0",
     "jquery.cookie": "~1.4.0",
     "jquery-jsonp": "~2.4.0",
-    "poly": "~0.6.0"
+    "polyfills-pkg": "~0.1.2"
   }
 }
