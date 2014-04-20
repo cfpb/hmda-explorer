@@ -357,7 +357,7 @@ module.exports = function(grunt) {
         },
         files: {
           'dist/static/js/charts.min.js': [
-            'src/static/vendor/highcharts.com/js/highcharts.src.js',
+            'src/static/vendor/highcharts-release/highcharts.js',
             'src/static/js/charts/main.js',
             'src/static/js/charts/chart1_options.js',
             'src/static/js/charts/chart1.js',
