@@ -49,7 +49,7 @@ __p += '<ul class="fields location-set location-set-' +
 ((__t = ( num )) == null ? '' : __t) +
 '" id="census_tract_number-' +
 ((__t = ( num )) == null ? '' : __t) +
-'" multiple data-concept="census_tract_number" data-placeholder="Select a state above" data-pre-placeholder="Select a state above" data-post-placeholder="Select a census tract" disabled>\n      </select>\n    </div>\n    <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>\n    <span class="help-text">A census tract is a small geographic area within a county. Census tracts vary in size, but on average about 4,000 people live in a census tract. Census tract numbers are unique within a county.</span>\n  </li>\n  <!-- /filter field -->\n\n<ul>';
+'" multiple data-concept="census_tract_number" data-placeholder="Select a state above" data-pre-placeholder="Select a state above" data-post-placeholder="Select a census tract" disabled>\n      </select>\n    </div>\n    <div class="help" role="tooltip"><i class="icon-help-alt"></i></div>\n    <span class="help-text">A census tract is a small geographic area within a county. Census tracts vary in size, but on average about 4,000 people live in a census tract. Census tract numbers are unique within a county.</span>\n  </li>\n  <!-- /filter field -->\n\n<ul>\n';
 
 }
 return __p
@@ -63,7 +63,7 @@ __p += '<option value="' +
 ((__t = ( value )) == null ? '' : __t) +
 '">' +
 ((__t = ( label )) == null ? '' : __t) +
-'</option>';
+'</option>\n';
 
 }
 return __p
@@ -73,7 +73,7 @@ this["PDP"]["templates"]["spinner"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="spinning"></div>';
+__p += '<div class="spinning"></div>\n';
 
 }
 return __p

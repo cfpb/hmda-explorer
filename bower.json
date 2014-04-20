@@ -1,6 +1,6 @@
 {
   "name": "CFPB PDP",
-  "version": "0.19.2",
+  "version": "0.19.3",
   "devDependencies": {
     "ghost": "cfpb/cf-grid#0.7.0",
     "jquery": "~1.10.2",
