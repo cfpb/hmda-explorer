@@ -1,8 +1,8 @@
 {
-  "name": "public-data-platform-static",
-  "description": "CFPB's Public Data Platform",
-  "version": "0.19.2",
-  "homepage": "http://consumerfinance.gov",
+  "name": "hmda-explore",
+  "description": "Home Mortgage Disclore Act explorer",
+  "version": "0.19.3",
+  "homepage": "http://consumerfinance.gov/hmda",
   "author": {
     "name": "Consumer Financial Protection Bureau",
     "email": "christopher.contolini@cfpb.gov",
@@ -10,10 +10,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@fake.ghe.domain:data-platform/public-data-platform.git"
+    "url": "git@github.com:cfpb/hmda-explore.git"
   },
   "bugs": {
-    "url": "https://fake.ghe.domain/data-platform/public-data-platform/issues"
+    "url": "https://github.com/cfpb/hmda-explore/issues"
   },
   "licenses": [
     {

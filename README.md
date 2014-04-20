@@ -1,6 +1,6 @@
-# CFPB's Public Data Platform
+# [CFPB's HMDA Website](http://www.consumerfinance.gov/hmda)
 
-An interactive front-end for HMDA data served from [Qu](https://github.com/cfpb/qu). View the [nightly](https://fake.ghe.domain/pages/data-platform/public-data-platform/) demo.
+The [interactive front-end](http://www.consumerfinance.gov/hmda) for HMDA data served from [Qu](https://github.com/cfpb/qu).
 
 ## Documentation
 
@@ -31,8 +31,10 @@ Only edit files in `src`. When anything is changed, Grunt will lint, test, compi
 
 In lieu of a formal styleguide, take care to maintain the existing coding style.
 
+
 ## Release History
 
+ * 2014-04-20   [v0.19.3](../../tree/v0.19.3)   Prep code for open source release.
  * 2014-02-20   [v0.19.2](../../tree/v0.19.2)   Add `bind()` polyfill to homepage to aid automated testing.
  * 2014-02-10   [v0.19.1](../../tree/v0.19.1)   Remove census tract from summary tables.
  * 2014-02-06   [v0.19.0](../../tree/v0.19.0)   Improve usability of file size estimation (#466).
@@ -101,6 +103,7 @@ Software source code previously released under an open source license and then m
 
 For further details, please see: http://www.consumerfinance.gov/developers/sourcecodepolicy/
 
+
 ---
 
-*This file was generated on Tue Mar 04 2014 13:33:34.*
+*This file was generated on Mon Apr 21 2014 00:32:34.*
