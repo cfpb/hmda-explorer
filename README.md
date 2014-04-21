@@ -1,10 +1,10 @@
-# [CFPB's HMDA Website](http://www.consumerfinance.gov/hmda)
+# Home Mortgage Disclosure Act
 
-The [interactive front-end](http://www.consumerfinance.gov/hmda) for HMDA data served from [Qu](https://github.com/cfpb/qu).
+An [interactive front-end app](http://www.consumerfinance.gov/hmda) for HMDA data served from [Qu](https://github.com/cfpb/qu).
 
 ## Documentation
 
-See some [front-end notes](https://fake.ghe.domain/data-platform/data-platform-docs/wiki/Front-End-Framework-Notes) or the [documented source](https://fake.ghe.domain/pages/data-platform/public-data-platform/docs/main.html) (use the top right menu).
+View the [documented source](http://cfpb.github.io/hmda-explorer/docs/main.html) (use the top right menu).
 
 ## Deployment
 
@@ -14,23 +14,19 @@ Follow the steps below to get your environment set up. `grunt build` will create
 
 Please use the [fork and pull](https://help.github.com/articles/using-pull-requests#fork--pull) collaborative model.
 
-1. [Install Node and Grunt](https://fake.ghe.domain/contolini/grunt-init-cfpb#prerequisites) *Just do the prerequisites section on that page, ignore all the other stuff.*
-1. Install Bower v0.10.0: `npm install -g bower@0.10.0` *Avoid newer versions due to a [node-tar bug](https://github.com/bower/bower/issues/727#issuecomment-22309010).*
-1. [Fork this repo](https://fake.ghe.domain/data-platform/public-data-platform/fork) to your personal GH account.
-1. `git clone git@fake.ghe.domain:YOUR-USERNAME/public-data-platform.git`
-1. `cd public-data-platform`
+1. Install [Node](http://nodejs.org/) and [Grunt](http://gruntjs.com/).
+1. [Fork this repo](https://github.com/cfpb/hmda-explorer/fork) to your personal GH account.
+1. `git clone git@github.com:YOUR-USERNAME/hmda-explorer.git`
+1. `cd hmda-explorer`
 1. `npm install`
 1. `bower install`
 1. `grunt build`
 1. `grunt`
 1. Open `localhost:8000` in a browser.
 
-[Comprehensive setup notes](https://fake.ghe.domain/gist/382) from @danmurphy are also available.
-
-Only edit files in `src`. When anything is changed, Grunt will lint, test, compile and build everything. [grunt-cfpb-internal](https://fake.ghe.domain/front/grunt-cfpb-internal) generates this README.
+Only edit files in `src`. When anything is changed, Grunt will lint, test, compile and build everything. [grunt-cfpb-internal](https://github.com/cfpb/grunt-cfpb-internal) generates this README.
 
 In lieu of a formal styleguide, take care to maintain the existing coding style.
-
 
 ## Release History
 
@@ -106,4 +102,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Mon Apr 21 2014 00:32:34.*
+*This file was generated on Mon Apr 21 2014 03:25:30.*
