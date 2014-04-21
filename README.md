@@ -1,10 +1,10 @@
 # Home Mortgage Disclosure Act
 
-An [interactive front-end app](http://www.consumerfinance.gov/hmda) for HMDA data served from [Qu](https://github.com/cfpb/qu).
+A static web app for exploring HMDA data served from [Qu](https://github.com/cfpb/qu). This code is live at [http://consumerfinance.gov/hmda](http://consumerfinance.gov/hmda).
 
 ## Documentation
 
-View the [documented source](http://cfpb.github.io/hmda-explorer/docs/main.html) (use the top right menu).
+View the [documented source code](http://cfpb.github.io/hmda-explorer/docs/main.html) (use the top right menu).
 
 ## Deployment
 
@@ -14,12 +14,11 @@ Follow the steps below to get your environment set up. `grunt build` will create
 
 Please use the [fork and pull](https://help.github.com/articles/using-pull-requests#fork--pull) collaborative model.
 
-1. Install [Node](http://nodejs.org/) and [Grunt](http://gruntjs.com/).
+1. Install [Node.js](http://nodejs.org/), [Grunt](http://gruntjs.com/) and [Bower](http://bower.io/).
 1. [Fork this repo](https://github.com/cfpb/hmda-explorer/fork) to your personal GH account.
 1. `git clone git@github.com:YOUR-USERNAME/hmda-explorer.git`
 1. `cd hmda-explorer`
-1. `npm install`
-1. `bower install`
+1. `npm install && bower install`
 1. `grunt build`
 1. `grunt`
 1. Open `localhost:8000` in a browser.
