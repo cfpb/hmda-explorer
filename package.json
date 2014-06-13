@@ -1,7 +1,7 @@
 {
   "name": "hmda-explore",
   "description": "Home Mortgage Disclore Act explorer",
-  "version": "0.19.3",
+  "version": "1.0.0",
   "homepage": "http://consumerfinance.gov/hmda",
   "author": {
     "name": "Consumer Financial Protection Bureau",

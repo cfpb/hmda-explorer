@@ -1,3 +1,9 @@
+v1.0.0:
+  date: 2014-06-13
+  changes:
+    - Add `endpoint` build flag for internal testing.
+    - Update Learn More content.
+
 v0.19.3:
   date: 2014-04-20
   changes:

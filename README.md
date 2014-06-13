@@ -18,11 +18,12 @@ By default, this app will serve data from [api.consumerfinance.gov](http://api.c
 
 Please use the [fork and pull](https://help.github.com/articles/using-pull-requests#fork--pull) collaborative model.
 
-1. Install [Node.js](http://nodejs.org/), [Grunt](http://gruntjs.com/) and [Bower](http://bower.io/).
+1. Install [Node](http://nodejs.org/) and [Grunt](http://gruntjs.com/).
 1. [Fork this repo](https://github.com/cfpb/hmda-explorer/fork) to your personal GH account.
 1. `git clone git@github.com:YOUR-USERNAME/hmda-explorer.git`
 1. `cd hmda-explorer`
-1. `npm install && bower install`
+1. `npm install`
+1. `bower install`
 1. `grunt build`
 1. `grunt`
 1. Open `localhost:8000` in a browser.
@@ -33,6 +34,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2014-06-13   [v1.0.0](../../tree/v1.0.0)   Add `endpoint` build flag for internal testing. Update Learn More content.
  * 2014-04-20   [v0.19.3](../../tree/v0.19.3)   Prep code for open source release.
  * 2014-02-20   [v0.19.2](../../tree/v0.19.2)   Add `bind()` polyfill to homepage to aid automated testing.
  * 2014-02-10   [v0.19.1](../../tree/v0.19.1)   Remove census tract from summary tables.
@@ -105,4 +107,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Mon Apr 21 2014 03:25:30.*
+*This file was generated on Fri Jun 13 2014 14:39:38.*
