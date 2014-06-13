@@ -37,7 +37,7 @@
     "grunt-contrib-uglify": "~0.2.7",
     "grunt-contrib-jshint": "~0.6.0",
     "grunt-contrib-jasmine": "~0.4.2",
-    "grunt-cfpb-internal": "cfpb/grunt-cfpb-internal",
+    "grunt-cfpb-internal": "cfpb/grunt-cfpb-internal#v0.5.3",
     "grunt-contrib-cssmin": "~0.6.1",
     "grunt-docco": "~0.2.0",
     "grunt-remove-logging": "~0.1.1",
@@ -50,7 +50,8 @@
     "marked": "~0.2.9",
     "grunt-contrib-copy": "~0.4.1",
     "grunt-concurrent": "~0.4.1",
-    "time-grunt": "~0.2.1"
+    "time-grunt": "~0.2.1",
+    "grunt-string-replace": "~0.2.7"
   },
   "keywords": []
 }
