@@ -12,6 +12,17 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
     /**
+     * If you'd like to point the app to an API endpoint other than
+     * api.consumerfinance.gov, run `grunt build` with an endpoint flag:
+     * 
+     * `grunt build --endpoint=http://someotherurl.com/api/whatever/`
+     * 
+     * Make sure to include a trailing slash. The provided URL will be
+     * used instead of 'https://api.consumerfinance.gov/data/hmda/'.
+     */
+    apiEndpoint: grunt.option('endpoint') || 'https://api.consumerfinance.gov/data/hmda/',
+
+    /**
      * Here's a banner with some template variables.
      * We'll be inserting it at the top of minified assets.
      */
@@ -595,6 +606,25 @@ module.exports = function(grunt) {
     },
 
     /**
+     * grunt-string-replace: https://github.com/erickrdch/grunt-string-replace
+     * 
+     * Replaces strings on files by using string or regex patterns.
+     */
+    'string-replace': {
+      dist: {
+        files: {
+          'dist/static/js/explore.min.js': 'dist/static/js/explore.min.js'
+        },
+        options: {
+          replacements: [{
+            pattern: /https\:\/\/api\.consumerfinance\.gov\/data\/hmda\//ig,
+            replacement: '<%= apiEndpoint %>'
+          }]
+        }
+      }
+    },
+
+    /**
      * Watch: https://github.com/gruntjs/grunt-contrib-watch
      * 
      * Run predefined tasks whenever watched file patterns are added, changed or deleted.
@@ -656,6 +686,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-saucelabs');
   grunt.loadNpmTasks('grunt-concurrent');
+  grunt.loadNpmTasks('grunt-string-replace');
 
   /**
    * Create task aliases by registering new tasks
@@ -664,7 +695,7 @@ module.exports = function(grunt) {
   grunt.registerTask('sauce', ['connect:sauce', 'jasmine:sauce', 'saucelabs-jasmine', 'shell:sauce']);
   grunt.registerTask('mogo', ['connect:mogo', 'shell:mogo']);
   grunt.registerTask('docs', ['removelogging', 'docco', 'build-cfpb']);
-  grunt.registerTask('build', ['concurrent:compile', 'concurrent:package']);
+  grunt.registerTask('build', ['concurrent:compile', 'concurrent:package', 'string-replace']);
   grunt.registerTask('ghpages', ['build', 'copy:ghpages']);
 
   /**

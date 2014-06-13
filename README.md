@@ -1,6 +1,8 @@
 # Home Mortgage Disclosure Act
 
-A static web app for exploring HMDA data served from [Qu](https://github.com/cfpb/qu). This code is live at [http://consumerfinance.gov/hmda](http://consumerfinance.gov/hmda).
+A single-page application for exploring HMDA data served from [Qu](https://github.com/cfpb/qu). This code is live at [http://consumerfinance.gov/hmda](http://consumerfinance.gov/hmda).
+
+![Home Mortgage Disclosure Act](https://github.com/cfpb/hmda-explorer/raw/master/docs/screenshot.png)
 
 ## Documentation
 
@@ -9,6 +11,8 @@ View the [documented source code](http://cfpb.github.io/hmda-explorer/docs/main.
 ## Deployment
 
 Follow the steps below to get your environment set up. `grunt build` will create a `dist` directory. Copy the contents of `dist` to wherever you want the app to live.
+
+By default, this app will serve data from [api.consumerfinance.gov](http://api.consumerfinance.gov/data/hmda/). If you'd like to use a different endpoint, build the app with an [`endpoint` flag](https://github.com/cfpb/hmda-explorer/blob/master/Gruntfile.js#L15-L21): `grunt build --endpoint=http://someotherurl.com/api/whatever/`.
 
 ## Contributing
 
