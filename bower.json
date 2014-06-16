@@ -1,5 +1,5 @@
 {
-  "name": "CFPB PDP",
+  "name": "hmda-explorer",
   "version": "1.0.0",
   "devDependencies": {
     "ghost": "cfpb/cf-grid#0.7.0",

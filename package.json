@@ -1,5 +1,5 @@
 {
-  "name": "hmda-explore",
+  "name": "hmda-explorer",
   "description": "Home Mortgage Disclore Act explorer",
   "version": "1.0.0",
   "homepage": "http://consumerfinance.gov/hmda",
@@ -10,10 +10,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:cfpb/hmda-explore.git"
+    "url": "git@github.com:cfpb/hmda-explorer.git"
   },
   "bugs": {
-    "url": "https://github.com/cfpb/hmda-explore/issues"
+    "url": "https://github.com/cfpb/hmda-explorer/issues"
   },
   "licenses": [
     {
