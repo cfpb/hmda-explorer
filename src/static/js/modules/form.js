@@ -311,7 +311,7 @@ var PDP = (function ( pdp ) {
     this.resetField( el );
 
     // If there's a data-concept attribute, use it, otherwise use the id. This is because
-    // some fields have weird concept names (e.g. county_name is [fips](http://qu.demo.cfpb.gov/data/hmda/concept/fips.json))
+    // some fields have weird concept names (e.g. county_name is [fips](https://api.consumerfinance.gov/data/hmda/concept/fips.json))
     var concept = $(el).find('select').data('concept') || $(el).find('select').attr('id'),
         id = $(el).find('select').attr('id'),
         conceptProperty = $(el).find('select').data('concept-property') || $(el).find('select').attr('id'),
