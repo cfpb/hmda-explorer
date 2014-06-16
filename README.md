@@ -1,4 +1,4 @@
-# Home Mortgage Disclosure Act
+# Home Mortgage Disclosure Act [![Build Status](https://travis-ci.org/cfpb/hmda-explorer.svg?branch=master)](https://travis-ci.org/cfpb/hmda-explorer)
 
 A single-page application for exploring HMDA data served from [Qu](https://github.com/cfpb/qu). This code is live at [http://consumerfinance.gov/hmda](http://consumerfinance.gov/hmda).
 
