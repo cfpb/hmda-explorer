@@ -3,7 +3,7 @@
   'use strict';
 
   function setUpHTMLFixture() {
-    jasmine.getFixtures().set('<h2>Preview the results</h2><div class="msg preview-table"></div><div class="preview closed"><p class="nlw">There are <em class="calculating"><img src="static/img/icon_spinner_2x.gif" alt="Loading icon" height="30" width="30" class="spinnergif"></em><strong class="count">many</strong> HMDA records from <strong class="years">2007 - 2012</strong> with the above selected filters.</p><div class="title"><a href="#preview"><h3><i class="icon-minus-alt"></i>Preview the first 100 rows</h3></a></div><div id="preview"><div class="spinning"></div></div></div>');
+    jasmine.getFixtures().set('<h2>Preview the results</h2><div class="msg preview-table"></div><div class="preview closed"><p class="nlw">There are <em class="calculating"><img src="static/img/icon_spinner_2x.gif" alt="Loading icon" height="30" width="30" class="spinnergif"></em><strong class="count">many</strong> HMDA records from <strong class="years">2007 - 2013</strong> with the above selected filters.</p><div class="title"><a href="#preview"><h3><i class="icon-minus-alt"></i>Preview the first 100 rows</h3></a></div><div id="preview"><div class="spinning"></div></div></div>');
   }
 
   describe('The preview panel on the filter page', function(){
