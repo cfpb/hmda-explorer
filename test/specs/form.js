@@ -111,19 +111,6 @@
       expect( $($('#as_of_year option')[0]).text() ).toBe( 'bar' );
     });
 
-    it('be able to fetch field options', function() {
-      var expected = '',
-          actual = PDP.form.fetchFieldOptions( 'census_tract_number', [2] );
-
-      waitsFor(function() {
-        return actual.state() === 'resolved';
-      }, 'Could not fetch field options -- API timeout. Make sure you can access api.consumerfinance.gov', 10000);
-
-      runs(function () {
-        expect( actual.statusText ).toEqual('success');
-      });
-    });
-
     it('be able to reset a field', function() {
       setUpParamFixture();
       var before = $('#filters option').length;
