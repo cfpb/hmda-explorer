@@ -12,7 +12,6 @@ using = function (values, func) {
       func.call( this, values[item] );
       //Description should be positional; i.e., 3rd argument
       var _description = ( values[item][2] ? values[item][2] : '' );
-      jasmine.currentEnv_.currentSpec.description += ' ' + _description + ' (Input: ' + values[item][0] + '. Expected: ' + values[item][1] + ')';
+      jasmine.getEnv().currentSpec += ' ' + _description + ' (Input: ' + values[item][0] + '. Expected: ' + values[item][1] + ')';
      }
-}
-
+};
