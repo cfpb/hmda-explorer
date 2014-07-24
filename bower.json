@@ -11,7 +11,7 @@
     "json3": "~3.2.5",
     "bootstrap": "~3.0.0",
     "chosen": "contolini/chosen#v10.0.0",
-    "cfpb-font-icons": "cfpb/cf-icons#0.2.1",
+    "cfpb-font-icons": "cfpb/cf-icons#0.2.5",
     "font-awesome": "~3.2.1",
     "zeroclipboard": "~1.2.0-beta.3",
     "jquery-ui": "~1.10.3",
