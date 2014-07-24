@@ -307,7 +307,6 @@ var PDP = (function ( pdp ) {
         var consolidatedName, groupName;
         // If the parameter is an enumerated (state-code-1) field then
         if ( paramName.match(/\-\d+$/) ) {
-          param.joiner = ' OR ';
           
           // If this is a special case with county, state, or census tract
           // then they needs to be grouped together as an object for appropriate query creation
