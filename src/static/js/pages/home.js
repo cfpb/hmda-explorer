@@ -28,24 +28,55 @@ $(function(){
       o2011: L.mapbox.tileLayer('cfpb.HMDA_O2011_003')
     };
 
-    // In order to get a nice fade when we toggle between layers, 
-    // add them all at once but hide their containers.
-    map.addLayers = function() {
+    map.layersLoaded = 0;
+    
 
-      _( map.layers ).forEach( function( layer ){
-        layer.addTo( map.base );
+    map.firstLoad = function() {
+      
+      var selectedLayer = map.getSelectedLayer(),
+          otherLayers = _.omit(  map.layers, selectedLayer );
+      
+      map.addAndHide( map.layers[ selectedLayer ] );
 
-        // IE and MapBox don't completely get along so we only add snazzy
-        // fade-in effects with non-IE browsers.
-        if ( !$('body').hasClass('lt-ie9') ) {
-          map.base.addLayer( layer );
-          $( layer._tileContainer ).hide();
-        }
+      $( document ).one('scroll',function( e ){
+        _( otherLayers ).forEach( function( layer ){
+          map.addAndHide( layer );
+        });
 
+        map.layersLoaded = 1;
       });
 
     };
+    
+    map.addAndHide = function(layer) {
+      layer.addTo( map.base );
+       
+      // IE and MapBox don't completely get along so we only add snazzy
+      // fade-in effects with non-IE browsers.
+    
+      if ( !$('body').hasClass('lt-ie9') ) {
+        map.base.addLayer( layer );
+        $( layer._tileContainer ).hide();
+      }
 
+    }; 
+
+    // In order to get a nice fade when we toggle between layers, 
+    // add them before they are needed, but don't add the currently
+    // hidden ones until a scroll event is fired.
+    map.addLayers = function() {
+      if ( map.layersLoaded ){
+        _( map.layers ).forEach( function( layer ){
+          addAndHide( layer );
+        });
+      }else{
+        map.firstLoad();
+      }
+
+    };
+
+
+     
     map.showMap = function() {
 
       this.addLayers();
@@ -60,11 +91,17 @@ $(function(){
 
     };
 
-    map.showLayer = function() {
+    map.getSelectedLayer = function() {
 
       var type = $('#map .type input:checked').val(),
-          year = $('#map .year input:checked').val(),
-          selectedLayer = type + year,
+          year = $('#map .year input:checked').val();
+      return type + year;
+
+    };
+
+    map.showLayer = function() {
+
+      var selectedLayer = map.getSelectedLayer(),
           otherLayers = _.omit( map.layers, selectedLayer );
 
       // IE and MapBox don't completely get along so we only add snazzy
