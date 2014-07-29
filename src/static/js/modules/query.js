@@ -290,37 +290,70 @@ var PDP = (function ( pdp ) {
 
       var _params = {},
           queryVals = [],
+          locVals = [],
+          locGroup = {}, //Create a group that finds state / counties with similar numbers.
           where;
 
       // In order to compensate for enumerated location fields (state_code-1, county_name-1, etc.)
       // we have to go through and consolidate all enumerated params into unified objects.
       _.forEach( params, function( param, paramName ) {
+        //joiner used to allow for congifurable AND/OR statements in query
+        param.joiner = ' AND ';
 
         if ( !param.values || !param.values[0] ) {
           return;
         }
 
-        var consolidatedName;
-
+        var consolidatedName, groupName;
+        // If the parameter is an enumerated (state-code-1) field then
         if ( paramName.match(/\-\d+$/) ) {
-          consolidatedName = paramName.replace(/\-\d+$/, '');
+          
+          // If this is a special case with county, state, or census tract
+          // then they needs to be grouped together as an object for appropriate query creation
+          if ( paramName.indexOf('state_code') > -1 || paramName.indexOf('county_code') > -1 || paramName.indexOf('census_tract_number') > -1 ){
+            // If a number exists, create a location group to bring city, state, and census tract together
+            groupName = paramName.slice(-2);
 
-          // Initalize an empty param object if need be.
-          if ( typeof _params[ consolidatedName ] === 'undefined' ) {
-            _params[ consolidatedName ] = {
-              values: [],
-              comparator: '='
-            };
+            // Initialize an empty location group if necessary
+            if( typeof locGroup[ groupName ] === 'undefined' ){
+              locGroup[ groupName ] = {
+                stateValue: '',
+                countyValues: [],
+                censusValues: [],
+                comparator: '=',
+                joiner: ' OR '
+              };
+            }
+            // Loop through each location group parameter and push it to the appropriate object
+            _.forEach( param.values, function( value ){
+              if ( paramName.indexOf('state_code') > -1 ){
+                locGroup[ groupName ].stateValue = value;             
+              } else if ( paramName.indexOf('county_code') > -1 ){
+                locGroup[ groupName ].countyValues.push( value );
+              } else if ( paramName.indexOf('census_tract_number') > -1 ){
+                locGroup[ groupName ].censusValues.push( '"' + value + '"' );
+              }
+            });
+          // If not state, county, census, then create a consolidated parameter (ie 'msamd')
+          } else {
+            // Initalize an empty param object if need be.
+            consolidatedName = paramName.replace(/\-\d+$/, '');
+            if ( typeof _params[ consolidatedName ] === 'undefined' ) {
+              _params[ consolidatedName ] = {
+                values: [],
+                comparator: '=',
+                joiner: ' AND '
+              };
+            }
+
+            _.forEach( param.values, function( value ){
+              _params[ consolidatedName ].values.push( value );
+            });
           }
-
-          _.forEach( param.values, function( value ){
-            _params[ consolidatedName ].values.push( value );
-          });
-
+        // If the parameter is NOT an enumerated field, push it to _params
         } else {
           _params[ paramName ] = param;
         }
-
       });
 
       // We can now get back to business and generate that WERECLAWS
@@ -331,21 +364,44 @@ var PDP = (function ( pdp ) {
         // Strip `-min/max` from the end of the param. This is mainly done for the loan_amount_000s fields.
         paramName = paramName.replace( /\-(min|max)$/, '' );
         paramVals = this._formatComparisonValues( param, paramName );
-        queryVals.push( paramVals );
-
+        // If calling msamd, then it needs to be joined to location data with "OR" and placed at end of array
+        if( paramName.indexOf('msamd') > -1 ){
+          param.joiner = ' OR ';
+          locVals.push( paramVals );
+          locVals.push( param.joiner );
+        // Otherwise, push the parameter to the queryVals array which is joined first (below)  
+        } else {
+          queryVals.push( paramVals );
+        }
       }.bind( this ));
-
-      // Join all the params with `AND` operators
-      where = queryVals.join(' AND ');
-
-      // All params are joined with `AND` operators... except with locations things
-      // get weird. If the user selects multiple states and MSAs, records should be
-      // shown that match any of the locations. `OR` operators need to be used.
-      // The simplest way of dealing with this one-off use case is to replace()
-      // after building the query string.
-      where = where.replace( /(msamd|state_code)=([\d"]+)\)? (AND) \(?(msamd|state_code)/, function replacer( match ){
-        return match.replace( 'AND', 'OR' );
+      
+      // For each location group, iterate through and create valid, grouped query string
+      _.forEach( locGroup, function(i, val){
+        var queryStr = '', item = locGroup[val];
+        if( item.stateValue === "" ){
+        } else if( item.countyValues.length === 0 ){
+          queryStr += 'state_code=' + item.stateValue;
+          locVals.push(queryStr);
+          locVals.push(item.joiner);
+        } else if( item.censusValues.length === 0 ){
+          queryStr += '(state_code=' + item.stateValue + ' AND county_code IN (' + item.countyValues.toString() + '))';
+          locVals.push(queryStr);
+          locVals.push(item.joiner);
+        } else {
+          queryStr += '(state_code=' + item.stateValue + ' AND county_code IN (' + item.countyValues.toString() + ') AND census_tract_number IN (' + item.censusValues + '))';
+          locVals.push(queryStr);
+          locVals.push(item.joiner);
+        }
       });
+
+      locVals.pop(); //Get rid of the last joiner / operator - not needed.
+      // Add each queryVals parameter and their joiner string to where variable
+      where = queryVals.join(' AND ');
+      // If location information selected, then join that as well
+      if( locVals.length > 0 ){
+        where += ' AND (' + locVals.join('') + ')';
+      }
+      // A REGEX used to be here that substituted in certain scenarios - this was not sufficient for the use case.
 
       // Encode for URIs and replace spaces with plus signs.
       return '&$where=' + encodeURI( where ).replace( /%20/g, '+' );
