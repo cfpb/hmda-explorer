@@ -396,10 +396,17 @@ var PDP = (function ( pdp ) {
 
       locVals.pop(); //Get rid of the last joiner / operator - not needed.
       // Add each queryVals parameter and their joiner string to where variable
-      where = queryVals.join(' AND ');
-      // If location information selected, then join that as well
-      if( locVals.length > 0 ){
-        where += ' AND (' + locVals.join('') + ')';
+      if( queryVals.length > 0 ){
+        where = queryVals.join(' AND ');  
+        // If location information selected, then join that as well
+        if( locVals.length > 0 ){
+          where += ' AND (' + locVals.join('') + ')';
+        }
+      } else {
+        where = '';
+        if( locVals.length > 0 ){
+          where += '(' + locVals.join('') + ')';
+        }
       }
       // A REGEX used to be here that substituted in certain scenarios - this was not sufficient for the use case.
 
