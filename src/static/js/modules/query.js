@@ -398,11 +398,12 @@ var PDP = (function ( pdp ) {
       // Add each queryVals parameter and their joiner string to where variable
       if( queryVals.length > 0 ){
         where = queryVals.join(' AND ');  
-        // If location information selected, then join that as well
+        // If location information selected, then join that to the existing query
         if( locVals.length > 0 ){
           where += ' AND (' + locVals.join('') + ')';
         }
       } else {
+        // If no queryvals exist, set to empty and append any location filter without AND
         where = '';
         if( locVals.length > 0 ){
           where += '(' + locVals.join('') + ')';
