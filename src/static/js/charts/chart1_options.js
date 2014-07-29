@@ -161,7 +161,7 @@ var chart1_options = {
     labels: {
       style: {
         color: '#212121',
-        fontSize: '10pt',
+        fontSize: '9pt',
         fontFamily: '"Avenir Next LT W01 Regular", "Avenir Next", "Arial"',
         fontWeight: '400'
       },
