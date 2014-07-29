@@ -378,7 +378,7 @@ var PDP = (function ( pdp ) {
       // For each location group, iterate through and create valid, grouped query string
       _.forEach( locGroup, function(i, val){
         var queryStr = '', item = locGroup[val];
-        if( item.stateValue === "" ){
+        if( item.stateValue === '' ){
         } else if( item.countyValues.length === 0 ){
           queryStr += 'state_code=' + item.stateValue;
           locVals.push(queryStr);
