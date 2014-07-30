@@ -13,7 +13,9 @@ var PDP = (function ( pdp ) {
   // Maximum number of locations a person can search on.
   form.maxNumLocations = 15;
   // Set the starting number of location sets available.
-  form.locationNumber = 1;
+  form.locationCount = 1;
+  // Set a counter so group set IDs are unique (never decremented)
+  form.locationSetNum = 1;
 
   // Cache a reference to all the filter fields.
   form.init = function() {

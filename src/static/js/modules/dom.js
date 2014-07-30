@@ -70,9 +70,10 @@ var PDP = (function ( pdp ) {
   $('a#add-state').on( 'click', function( ev ){
 
     ev.preventDefault();
-    pdp.form.locationNumber++;
-    pdp.form.addState( pdp.form.locationNumber );
-    if ( pdp.form.locationNumber >= pdp.form.maxNumLocations ) {
+    pdp.form.locationCount++;
+    pdp.form.locationSetNum++;
+    pdp.form.addState( pdp.form.locationSetNum );
+    if ( pdp.form.locationCount >= pdp.form.maxNumLocations ) {
       $('a#add-state').hide();
     }
 
