@@ -12,6 +12,10 @@ var PDP = (function ( pdp ) {
 
   // Maximum number of locations a person can search on.
   form.maxNumLocations = 15;
+  // Set the starting number of location sets available.
+  form.locationCount = 1;
+  // Set a counter so group set IDs are unique (never decremented)
+  form.locationSetNum = 1;
 
   // Cache a reference to all the filter fields.
   form.init = function() {
@@ -596,7 +600,19 @@ var PDP = (function ( pdp ) {
 
     $('#location-sets').append( template( { num: num } ) ).initTooltips({ placement: tooltipPlacement, container: 'body' });
     $( '.location-set-' + num ).find('select').chosen({ width: '100%', disable_search_threshold: 10, allow_single_deselect: true });
-
+    
+    // If a state is removed from a location query, remove its parent set from the DOM / query
+    $('#state_code-' + num).on('change', function(evt, params){
+      // If no current option is selected, then remove the parent location set
+      var self = $(this);
+      pdp.observer.emitEvent('field:changed');
+      if( typeof params === 'undefined') {
+        self.closest('.location-set').remove();
+        // Decrement locationNumber and show Add-State button after removal
+        pdp.form.locationNumber--;
+        $('a#add-state').show();
+      }
+    });
   };
 
   // Toggle optional sections.
