@@ -69,12 +69,11 @@ var PDP = (function ( pdp ) {
   // Add a new location section whenever the `#add-state` link is clicked.
   $('a#add-state').on( 'click', function( ev ){
 
-    var numLocations = $('#location-sets .location-set').last().data('location-num');
-
     ev.preventDefault();
-    pdp.form.addState( ++numLocations );
-
-    if ( numLocations > pdp.form.maxNumLocations ) {
+    pdp.form.locationCount++;
+    pdp.form.locationSetNum++;
+    pdp.form.addState( pdp.form.locationSetNum );
+    if ( pdp.form.locationCount >= pdp.form.maxNumLocations ) {
       $('a#add-state').hide();
     }
 
