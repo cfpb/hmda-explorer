@@ -379,16 +379,20 @@ var PDP = (function ( pdp ) {
       _.forEach( locGroup, function(i, val){
         var queryStr = '', item = locGroup[val];
         if( item.stateValue === '' ){
-        } else if( item.countyValues.length === 0 ){
-          queryStr += 'state_code=' + item.stateValue;
-          locVals.push(queryStr);
-          locVals.push(item.joiner);
+        } else if( item.countyValues.length === 0 && item.censusValues.length === 0 ){
+            queryStr += 'state_code=' + item.stateValue;
+            locVals.push(queryStr);
+            locVals.push(item.joiner);
+        } else if( item.countyValues.length === 0 && item.censusValues.length > 0 ){
+            queryStr += '(state_code=' + item.stateValue + ' AND census_tract_number IN (' + item.censusValues + '))';
+            locVals.push(queryStr);
+            locVals.push(item.joiner);
         } else if( item.censusValues.length === 0 ){
           queryStr += '(state_code=' + item.stateValue + ' AND county_code IN (' + item.countyValues.toString() + '))';
           locVals.push(queryStr);
           locVals.push(item.joiner);
         } else {
-          queryStr += '(state_code=' + item.stateValue + ' AND county_code IN (' + item.countyValues.toString() + ') AND census_tract_number IN (' + item.censusValues + '))';
+          queryStr += '(state_code=' + item.stateValue + ' AND county_code IN (' + item.countyValues.toString() + ') AND census_tract_number IN (' + item.censusValues.toString() + '))';
           locVals.push(queryStr);
           locVals.push(item.joiner);
         }
