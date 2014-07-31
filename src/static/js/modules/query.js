@@ -392,7 +392,7 @@ var PDP = (function ( pdp ) {
           locVals.push(queryStr);
           locVals.push(item.joiner);
         } else {
-          queryStr += '(state_code=' + item.stateValue + ' AND county_code IN (' + item.countyValues.toString() + ') AND census_tract_number IN (' + item.censusValues + '))';
+          queryStr += '(state_code=' + item.stateValue + ' AND county_code IN (' + item.countyValues.toString() + ') AND census_tract_number IN (' + item.censusValues.toString() + '))';
           locVals.push(queryStr);
           locVals.push(item.joiner);
         }
