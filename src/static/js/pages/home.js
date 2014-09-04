@@ -6,7 +6,7 @@ $(function(){
       video;
 
   // Circle nav on the homepage.
-  $('.homepage .hero a.anchor').on( 'click', function( ev ){
+  $('.homepage .hero a').on( 'click', function( ev ){
 
     var target = $( this ).attr('href');
     ev.preventDefault();
