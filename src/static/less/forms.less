@@ -22,7 +22,7 @@ textarea {
     font-weight: 400;
 }
 
-button {
+button, a.btn {
     font-size: 0.875em; /* 14/16 */
     line-height: 1em;
     background-color: @pacific;
@@ -52,7 +52,8 @@ button {
 }
 
 button:hover,
-button.clipboard-hover {
+button.clipboard-hover,
+a.btn:hover {
     background-color: @navy;
     color: @white;
     text-decoration: none;
@@ -80,6 +81,104 @@ label {
     display: inline-block;
     padding: 0.5em 0; /* 7/14 */
     vertical-align: baseline;
+}
+
+.btn-secondary,
+.btn-secondary:link,
+.btn-secondary:visited {
+  background-color: #75787b;
+  color: #ffffff;
+}
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary.hover {
+  background-color: #919395;
+}
+.btn-secondary:active,
+.btn-secondary.active {
+  background-color: #43484e;
+}
+
+.btn-link,
+.btn-link:link,
+.btn-link:visited {
+  padding: 0;
+  border-bottom: 1px dotted #0072ce;
+  border-radius: 0;
+  margin: 0.64285714em 0;
+  background-color: transparent;
+  color: #0072ce;
+}
+.btn-link:hover,
+.btn-link.hover {
+  border-bottom: 1px solid #7fb8e6;
+  background-color: transparent;
+  text-decoration: none;
+  color: #7fb8e6;
+}
+.btn-link:focus,
+.btn-link.focus {
+  border-bottom-style: solid;
+  background-color: transparent;
+  outline: thin dotted;
+}
+.btn-link:active,
+.btn-link.active {
+  border-bottom: 1px solid #002d72;
+  background-color: transparent;
+  color: #002d72;
+}
+.lt-ie8 button.btn-link,
+.lt-ie8 input.btn-link {
+  padding: 0;
+}
+
+.btn__secondary,
+.btn__secondary:link,
+.btn__secondary:visited {
+  background-color: #75787b;
+  color: #ffffff;
+}
+.btn__secondary:hover,
+.btn__secondary:focus,
+.btn__secondary.hover {
+  background-color: #919395;
+}
+.btn__secondary:active,
+.btn__secondary.active {
+  background-color: #43484e;
+}
+
+.btn_icon__left {
+  padding: 0 0.75em 0 0;
+  border-right: 1px solid #ffffff;
+  border-right: 1px solid rgba(255, 255, 255, 0.4);
+  margin: 0 0.5em 0 0;
+}
+.btn__disabled .btn_icon__left {
+  border-right-color: #babbbd;
+}
+.btn_icon__right {
+  padding: 0 0 0 0.75em;
+  border-right: 0;
+  border-left: 1px solid #ffffff;
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
+  margin: 0 0 0 0.5em;
+}
+.btn__disabled .btn_icon__right {
+  border-left-color: #babbbd;
+}
+.btn__super, a.btn__super {
+  padding: 0.61111111em 1.61111111em;
+  font-size: 1.125em;
+}
+.btn__super + .btn__super {
+  margin-left: 0.33333333em;
+}
+.lt-ie8 button.btn__super,
+.lt-ie8 input.btn__super {
+  padding-top: 0.66666667em;
+  padding-bottom: 0.66666667em;
 }
 
 input[type="text"],
