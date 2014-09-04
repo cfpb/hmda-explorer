@@ -60,10 +60,15 @@ module.exports = function(grunt) {
       main: {
         options: {
           banner: '<%= banner.cfpb %>',
-          paths: ['src/static']
+          paths: ['src/static'],
+          compress: true,
+          sourceMap: true,
+          sourceMapFilename: 'dist/static/css/main.min.css.map',
+          sourceMapBasepath: 'dist/static/less/',
+          sourceMapURL: '/static/css/main.min.css.map'
         },
         files: {
-          'dist/static/css/main.css': ['src/static/less/main.less']
+          'dist/static/css/main.min.css': ['src/static/less/main.less']
         }
       },
       ie8: {
@@ -82,20 +87,20 @@ module.exports = function(grunt) {
      * 
      * Compress CSS files.
      */
-    cssmin: {
-      main: {
-        keepSpecialComments: '*',
-        files: {
-          'dist/static/css/main.min.css': ['<%= banner.cfpb %>', 'dist/static/css/main.css']
-        }
-      },
-      ie8: {
-        keepSpecialComments: '*',
-        files: {
-          'dist/static/css/ie8.min.css': ['src/static/vendor/html5-placeholder-polyfill/dist/placeholder_polyfill.min.css', 'dist/static/css/ie8.css']
-        }
-      }
-    },
+    // cssmin: {
+    //   main: {
+    //     keepSpecialComments: '*',
+    //     files: {
+    //       'dist/static/css/main.min.css': ['<%= banner.cfpb %>', 'dist/static/css/main.css']
+    //     }
+    //   },
+    //   ie8: {
+    //     keepSpecialComments: '*',
+    //     files: {
+    //       'dist/static/css/ie8.min.css': ['src/static/vendor/html5-placeholder-polyfill/dist/placeholder_polyfill.min.css', 'dist/static/css/ie8.css']
+    //     }
+    //   }
+    // },
 
     /**
      * HTMLmin: https://github.com/gruntjs/grunt-contrib-htmlmin
@@ -644,7 +649,7 @@ module.exports = function(grunt) {
      */
     concurrent: {
       compile: ['template', 'less', 'jst'],
-      package: ['copy:dist', 'cssmin', 'uglify'],
+      package: ['copy:dist', 'uglify'],
       test: ['jshint', 'jasmine:cover']
     },
 
