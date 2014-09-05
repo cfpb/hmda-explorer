@@ -173,15 +173,15 @@ var chart1_options = {
   series: [
     {
       name: 'Home purchase originations',
-      data: [2213631, 2060808, 2331989]
+      data: [2060808,2331989,2680340]
     },
     {
       name: 'Home improvement originations',
-      data: [142357, 136967, 169193]
+      data: [136967,169193,173880]
     },
     {
       name: 'Refinancing originations',
-      data: [4509310, 3840044, 5900788]
+      data: [3840044,5900788,4384836]
     }
   ]
 };
