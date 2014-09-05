@@ -39,7 +39,7 @@ var chart1_options = {
     enabled: false
   },
   colors: [
-    '#c9d5e2', '#c9d5e2', '#7796b7', '#7796b7', '#003071', '#003071'
+    '#c9d5e2', '#7796b7', '#003071'
   ],
   legend: {
     enabled: false
@@ -113,9 +113,9 @@ var chart1_options = {
   },
   xAxis: {
     categories: [
-      '2010',
       '2011',
-      '2012'
+      '2012',
+      '2013'
     ],
     gridLineWidth: 0,
     labels: {
@@ -148,7 +148,7 @@ var chart1_options = {
   },
   yAxis: {
     title: {
-      text: 'Number of applications and originations',
+      text: 'Number of originations',
       margin: 10,
       style: {
         color: '#101820',
@@ -172,28 +172,16 @@ var chart1_options = {
   },
   series: [
     {
-      name: 'Home purchase applications',
-      data: [3358121, 3117454, 3448970]
-    },
-    {
       name: 'Home purchase originations',
-      data: [2213631, 2060808, 2331989]
-    },
-    {
-      name: 'Home improvement applications',
-      data: [245034, 235335, 270879]
+      data: [2060808,2331989,2680340]
     },
     {
       name: 'Home improvement originations',
-      data: [142357, 136967, 169193]
-    },
-    {
-      name: 'Refinancing applications',
-      data: [7609156, 6560190, 9264878]
+      data: [136967,169193,173880]
     },
     {
       name: 'Refinancing originations',
-      data: [4509310, 3840044, 5900788]
+      data: [3840044,5900788,4384836]
     }
   ]
 };
