@@ -161,9 +161,9 @@ var chart2_options = {
 
     xAxis: {
         categories: [
-            '2010',
             '2011',
-            '2012'
+            '2012',
+            '2013'
         ],
         gridLineWidth: 0,
         labels: {
@@ -244,21 +244,21 @@ var chart2_options = {
         }
     ],
     series: [
-        {
+        { 
             name: 'Conventional',
-            data: [47.37,50.28,55.3]
+            data: [50.3,55.3,62.4]
         },
         {
             name: 'FHA',
-            data: [40.8,35.34,30.5]
+            data: [35.3,30.5,23.6]
         },
         {
             name: 'VA',
-            data: [3.85,5.31,5.3]
+            data: [5.3,5.3,4.8]
         },
         {
             name: 'RHS',
-            data: [7.98,9.07,8.9]
+            data: [9.1,8.9,9.1]
 
         }
     ]
