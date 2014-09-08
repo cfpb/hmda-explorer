@@ -426,7 +426,10 @@ var PDP = (function ( pdp ) {
       // Census tract concept data is a format totally different from normal concept data so
       // we have to handle it in a special way.
       case 'census_tract_number':
-        promise = pdp.utils.getJSON( pdp.query.endpoint + 'slice/census_tracts.' + pdp.query.format + '?&$where=state_code=' + dependencies[1] + '+AND+county_code=' + dependencies[0] + '&$limit=3000' );
+      console.log('dependencies: ', dependencies);
+        var state = dependencies.pop();
+        console.log('state / county: ', state, ' / ', dependencies );
+        promise = pdp.utils.getJSON( pdp.query.endpoint + 'slice/census_tracts.' + pdp.query.format + '?&$where=state_code=' + state + '+AND+county_code+IN+(' + dependencies + ')&$limit=3000' );
         break;
 
       // Default course for getting concept data.
