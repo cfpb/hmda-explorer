@@ -4,7 +4,7 @@
   <li class="field state_code state_code-<%= num %>">
     <label for="state_code-<%= num %>">State:</label>
     <div class="widget select">
-      <select class="param" name="state_code-<%= num %>" id="state_code-<%= num %>" data-dependent="county_code-<%= num %> census_tract_number-<%= num %>" data-toggle="msamd-<%= num %>" data-placeholder="Select a state">
+      <select class="param" name="state_code-<%= num %>" id="state_code-<%= num %>" data-dependent="county_code-<%= num %>" data-toggle="msamd-<%= num %>" data-placeholder="Select a state">
         <option value=""></option>
         <option value="1">Alabama</option>
         <option value="2">Alaska</option>
@@ -480,7 +480,7 @@
   <li class="field county_code county_code-<%= num %> disabled hidden">
     <label for="county_code-<%= num %>">County:</label>
     <div class="widget select">
-      <select class="param" name="county_code-<%= num %>" id="county_code-<%= num %>" multiple data-concept="fips" data-concept-property="county_name" data-placeholder="Select a state above" data-pre-placeholder="Select a state above" data-post-placeholder="Select a county" disabled>
+      <select class="param" name="county_code-<%= num %>" id="county_code-<%= num %>" multiple data-concept="fips" data-dependent="census_tract_number-<%= num %>" data-concept-property="county_name" data-placeholder="Select a state above" data-pre-placeholder="Select a state above" data-post-placeholder="Select a county" disabled>
       </select>
     </div>
   </li>
