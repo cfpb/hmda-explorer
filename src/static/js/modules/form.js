@@ -426,7 +426,7 @@ var PDP = (function ( pdp ) {
       // Census tract concept data is a format totally different from normal concept data so
       // we have to handle it in a special way.
       case 'census_tract_number':
-        promise = pdp.utils.getJSON( pdp.query.endpoint + 'slice/census_tracts.' + pdp.query.format + '?&$where=state_code=' + dependencies[0] + '&$limit=1000' );
+        promise = pdp.utils.getJSON( pdp.query.endpoint + 'slice/census_tracts.' + pdp.query.format + '?&$where=state_code=' + dependencies[1] + '+AND+county_code=' + dependencies[0] + '&$limit=3000' );
         break;
 
       // Default course for getting concept data.
@@ -556,6 +556,15 @@ var PDP = (function ( pdp ) {
             // `dependency` should be an array of the values the parent is supplying.
             // For example with states, it might be: [CA, WA, OR]
             var dependencies = form.getField( $el ).values;
+
+            // Workaround for passing multiple parameters to census tract:
+            // If the parent class if county_code, which passes deps to census,
+            // then get the value already selected in the "state" field and
+            // add it to the dependencies array
+            if( $el.parent().parent().hasClass('county_code') ){
+              dependencies.push( $el.closest('.fields').find('li.state_code').find('.chzn-done').val() );
+            }
+            
             emit( 'shown', $dependent, dependencies );
           });
         } else {
