@@ -254,12 +254,12 @@ var chart2_options = {
         },
         {
             name: 'VA',
-            data: [5.3,5.3,4.8]
-        },
-        {
-            name: 'RHS',
             data: [9.1,8.9,9.1]
 
-        }
+        },
+        {
+            name: 'RHS/FSA',
+            data: [5.3,5.3,4.8]
+        },
     ]
 };
