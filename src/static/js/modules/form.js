@@ -661,12 +661,12 @@ var PDP = (function ( pdp ) {
     apiCallParams = PDP.query._buildApiQuery(apiCallParams);
 
     // If a static file exists, then return the appropriate URL
-    if( typeof hmdaMapLoc[apiCallParams] === 'undefined' ){
+    if( typeof hmdaMapLoc[apiCallParams][codeStatus] === 'undefined' ){
       return false;
     } else {
       return fileMap.endpoint + hmdaMapLoc[apiCallParams][codeStatus] + '.zip';
     }
-  }; 
+  };
 
   pdp.form = form;
 
