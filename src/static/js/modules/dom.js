@@ -126,9 +126,9 @@ var PDP = (function ( pdp ) {
       codeStatus = 'core';
     }
 
-    if( pdp.form.checkStatic( codeStatus ) && format === 'csv' ){
+    if( format === 'csv' && pdp.form.checkStatic( codeStatus ) ){
       url = pdp.form.checkStatic( codeStatus );
-    }    
+    }   
 
     // Log event to GA
     track( 'downloads', 'HMDA raw data', 'summary-table-page:' + url );
