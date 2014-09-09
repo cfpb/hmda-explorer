@@ -157,7 +157,7 @@ var PDP = (function ( pdp ) {
   preview.updateNLW = function() {
 
     // If there are year(s) selected use 'em, otherwise use all years.
-    var years = typeof pdp.query.params.as_of_year !== 'undefined' && !_.isEmpty( pdp.query.params.as_of_year.values ) ? _.clone( pdp.query.params.as_of_year.values ).sort() : [2007, 2008, 2009, 2010, 2011, 2012],
+    var years = typeof pdp.query.params.as_of_year !== 'undefined' && !_.isEmpty( pdp.query.params.as_of_year.values ) ? _.clone( pdp.query.params.as_of_year.values ).sort() : [2007, 2008, 2009, 2010, 2011, 2012, 2013],
         countFormatted = pdp.utils.commify( preview.nlw.count ),
         filters,
         areConsecutive;
