@@ -648,6 +648,26 @@ var PDP = (function ( pdp ) {
 
   };
 
+  // Check to see if a static file has been generated for this API Query string
+  // If a static file is present in the mapping, re-route the download function
+  // to a static file as indicated in mapping.js
+  form.checkStatic = function( codeStatus ){
+    var apiCallParams = pdp.query.params,
+    hmdaMapLoc = fileMap.slices[0].staticFiles;
+
+    // Remove the select parameters that may be there after summary table generation
+    apiCallParams = pdp.query.removeSelectParam( apiCallParams );
+    // Get the exact value for comparison with mapping.js
+    apiCallParams = PDP.query._buildApiQuery(apiCallParams);
+
+    // If a static file exists, then return the appropriate URL
+    if( typeof hmdaMapLoc[apiCallParams] === 'undefined' ){
+      return false;
+    } else {
+      return fileMap.endpoint + hmdaMapLoc[apiCallParams][codeStatus] + '.zip';
+    }
+  }; 
+
   pdp.form = form;
 
   return pdp;
