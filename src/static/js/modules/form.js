@@ -651,7 +651,7 @@ var PDP = (function ( pdp ) {
   // Check to see if a static file has been generated for this API Query string
   // If a static file is present in the mapping, re-route the download function
   // to a static file as indicated in mapping.js
-  form.checkStatic = function( codeStatus ){
+  form.checkStatic = function( codeStatus, format ){
     var apiCallParams = pdp.query.params,
     hmdaMapLoc = fileMap.slices[0].staticFiles;
 
@@ -661,10 +661,10 @@ var PDP = (function ( pdp ) {
     apiCallParams = PDP.query._buildApiQuery(apiCallParams);
 
     // If a static file exists, then return the appropriate URL
-    if( typeof hmdaMapLoc[apiCallParams] === 'undefined' || typeof hmdaMapLoc[apiCallParams][codeStatus] === 'undefined' ){
+    if( typeof hmdaMapLoc[apiCallParams] === 'undefined' || typeof hmdaMapLoc[apiCallParams][codeStatus] === 'undefined' || typeof hmdaMapLoc[apiCallParams][codeStatus][format] === 'undefined'){
       return false;
     } else {
-      return fileMap.endpoint + hmdaMapLoc[apiCallParams][codeStatus] + '.zip';
+      return fileMap.endpoint + hmdaMapLoc[apiCallParams][codeStatus][format] + '.zip';
     }
   };
 
