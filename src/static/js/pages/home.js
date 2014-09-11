@@ -20,7 +20,7 @@ $(function(){
     if( radio.val() === 'r' ){
       $( '#map-title' ).find('a.underlying').attr('href', 'explore#!/as_of_year=2013,2012,2011&property_type=1,2&owner_occupancy=1&action_taken=1&loan_purpose=3&lien_status=1&select=state_name,county_name,as_of_year,count&section=summary');
     } else {
-      $( '#map-title' ).find('a.underlying').attr('href', 'explore#!/as_of_year=2013,2012,2011&property_type=1,2&owner_occupancy=1&action_taken=1&loan_purpose=1&lien_status=1&section=summary');
+      $( '#map-title' ).find('a.underlying').attr('href', 'explore#!/as_of_year=2013,2012,2011&property_type=1,2&owner_occupancy=1&action_taken=1&loan_purpose=1&lien_status=1&select=state_name,county_name,as_of_year,count&section=summary');
     }
   });
 
