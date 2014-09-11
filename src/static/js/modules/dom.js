@@ -103,8 +103,8 @@ var PDP = (function ( pdp ) {
       codeStatus = 'core';
     }
 
-    if( format === 'csv' && pdp.form.checkStatic( codeStatus ) ){
-      url = pdp.form.checkStatic( codeStatus );
+    if( pdp.form.checkStatic( codeStatus, format ) ){
+      url = pdp.form.checkStatic( codeStatus, format );
     }
 
     // Log event to GA
@@ -126,8 +126,8 @@ var PDP = (function ( pdp ) {
       codeStatus = 'core';
     }
 
-    if( format === 'csv' && pdp.form.checkStatic( codeStatus ) ){
-      url = pdp.form.checkStatic( codeStatus );
+    if( pdp.form.checkStatic( codeStatus, format ) ){
+      url = pdp.form.checkStatic( codeStatus, format );
     }
 
     // Log event to GA
