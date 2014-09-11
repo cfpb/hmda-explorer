@@ -332,7 +332,7 @@ module.exports = function(grunt) {
         },
         files: {
           'dist/static/js/home.min.js': [
-            'src/static/vendor/polyfills-pkg/dist/polyfills-pkg.js',
+            //'src/static/vendor/polyfills-pkg/dist/polyfills-pkg.js',
             'src/static/js/pages/home.js',
           ]
         }
