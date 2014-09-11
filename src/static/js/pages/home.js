@@ -14,6 +14,16 @@ $(function(){
 
   });
 
+  // Change the underlying data link for graph when a different radio is selected
+  $('#map_radios').on('change', function( ev ){
+    var radio = $(this).find('input[type=radio]:checked');
+    if( radio.val() === 'r' ){
+      $( '#map-title' ).find('a.underlying').attr('href', 'explore#!/as_of_year=2013,2012,2011&property_type=1,2&owner_occupancy=1&action_taken=1&loan_purpose=3&lien_status=1&select=state_name,county_name,as_of_year,count&section=summary');
+    } else {
+      $( '#map-title' ).find('a.underlying').attr('href', 'explore#!/as_of_year=2013,2012,2011&property_type=1,2&owner_occupancy=1&action_taken=1&loan_purpose=1&lien_status=1&select=state_name,county_name,as_of_year,count&section=summary');
+    }
+  });
+
   // Map toggling on the homepage.
   map = (function(){
 
@@ -22,10 +32,10 @@ $(function(){
     map.base = L.mapbox.map('map', 'cfpb.HMDA_basemap_003').setView([39.54, -97.87], 4);
     
     map.layers = {
-      a2012: L.mapbox.tileLayer('cfpb.HMDA_A2012_003'),
-      a2011: L.mapbox.tileLayer('cfpb.HMDA_A2011_003'),
-      o2012: L.mapbox.tileLayer('cfpb.HMDA_O2012_003'),
-      o2011: L.mapbox.tileLayer('cfpb.HMDA_O2011_003')
+      r2012: L.mapbox.tileLayer('cfpb.HMDA_A2012_003'),
+      r2011: L.mapbox.tileLayer('cfpb.HMDA_A2011_003'),
+      p2012: L.mapbox.tileLayer('cfpb.HMDA_O2012_003'),
+      p2011: L.mapbox.tileLayer('cfpb.HMDA_O2011_003')
     };
 
     map.layersLoaded = 0;
@@ -59,7 +69,7 @@ $(function(){
         $( layer._tileContainer ).hide();
       }
 
-    }; 
+    };
 
     // In order to get a nice fade when we toggle between layers, 
     // add them before they are needed, but don't add the currently
