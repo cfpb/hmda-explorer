@@ -1,3 +1,18 @@
+v1.1.0:
+  date: 2014-09-18
+  changes:
+    - Updated charts, maps and copy with 2013 changes
+    - Updated Explorer to route to static .zip files where efficient
+    - Changed census query location filter to reflect mapping to county
+    - Style / copy updates to navigation and footer
+
+v1.0.1:
+  date: 2014-09-11
+  changes:
+    - Updated location filters to group state and county properly
+    - Added display fixes to axes labels, mobile rendering
+    - Updated map layers to load lazily to speed load times
+
 v1.0.0:
   date: 2014-06-13
   changes:
