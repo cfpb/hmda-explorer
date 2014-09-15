@@ -114,6 +114,8 @@ $(function(){
       var selectedLayer = map.getSelectedLayer(),
           otherLayers = _.omit( map.layers, selectedLayer );
 
+      console.log('selectedLayer: ', selectedLayer );
+
       // IE and MapBox don't completely get along so we only add snazzy
       // fade-in effects with non-IE browsers.
       if ( !$('body').hasClass('lt-ie9') ) {
