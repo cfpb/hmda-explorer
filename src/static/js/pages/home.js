@@ -29,13 +29,13 @@ $(function(){
 
     var map = {};
 
-    map.base = L.mapbox.map('map', 'cfpb.HMDA_basemap_003').setView([39.54, -97.87], 4);
+    map.base = L.mapbox.map('map', 'cfpb.fxomkj4i').setView([39.54, -97.87], 4);
     
     map.layers = {
-      r2012: L.mapbox.tileLayer('cfpb.HMDA_A2012_003'),
-      r2011: L.mapbox.tileLayer('cfpb.HMDA_A2011_003'),
-      p2012: L.mapbox.tileLayer('cfpb.HMDA_O2012_003'),
-      p2011: L.mapbox.tileLayer('cfpb.HMDA_O2011_003')
+      r2013: L.mapbox.tileLayer('cfpb.6uwyiudi'),
+      r2012: L.mapbox.tileLayer('cfpb.2yugzaor'),
+      p2013: L.mapbox.tileLayer('cfpb.c0nyu8fr'),
+      p2012: L.mapbox.tileLayer('cfpb.pbjoflxr')
     };
 
     map.layersLoaded = 0;
