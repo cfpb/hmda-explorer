@@ -34,7 +34,7 @@ $(function(){
     map.layers = {
       r2013: L.mapbox.tileLayer('cfpb.6uwyiudi'),
       r2012: L.mapbox.tileLayer('cfpb.2yugzaor'),
-      p2013: L.mapbox.tileLayer('cfpb.c0nyu8fr'),
+      p2013: L.mapbox.tileLayer('cfpb.z2z3q5mi'),
       p2012: L.mapbox.tileLayer('cfpb.pbjoflxr')
     };
 
@@ -113,8 +113,6 @@ $(function(){
 
       var selectedLayer = map.getSelectedLayer(),
           otherLayers = _.omit( map.layers, selectedLayer );
-
-      console.log('selectedLayer: ', selectedLayer );
 
       // IE and MapBox don't completely get along so we only add snazzy
       // fade-in effects with non-IE browsers.
