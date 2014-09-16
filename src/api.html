@@ -38,9 +38,18 @@
   <!--[if IE 8]>         <body class="lt-ie9 hmda explore api-docs"> <![endif]-->
   <!--[if IE 9]>         <body class="lt-ie10 hmda explore api-docs"> <![endif]-->
   <!--[if gt IE 9]><!--><body class="hmda explore api-docs"><!--<![endif]-->
-    <div id="wrap">
 
-      
+    <!-- Google Tag Manager -->
+  <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KMMLRS"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KMMLRS');</script>
+  <!-- End Google Tag Manager -->
+
+  <div id="wrap">  
     <div class="top-banner">
       <div class = "inner">
         <p class="return-cfgov">Return to <a href="http://www.consumerfinance.gov">consumerfinance.gov</a></p>
@@ -48,79 +57,79 @@
       </div>
     </div> 
 
-      <header role="banner"> 
+    <header role="banner"> 
 
-        <div class="logo">
+      <div class="logo">
 
-          <a href="http://www.consumerfinance.gov"><img src="static/img/logo_2x.png" width="211" height="52" alt="Consumer Financial Protection Bureau" /></a>
-
-        </div>
-
-        <button class="navicon">
-          <i class="cf-icon cf-icon-menu"></i>
-        </button>
-
-        <nav role="navigation" aria-label="Main HMDA Menu">
-            <ul>
-              <li><a href=".">Home</a></li>
-              <li><a href="explore">Explore the data</a></li>
-              <li><a href="learn-more">About HMDA</a></li>
-              <li><a href="api" class="active" class="developers">Public API</a></li>
-            </ul>
-        </nav>
-
-      </header>
-
-      <div class="hero" role="main">
-
-        <div class="inner">
-
-          <h1>Public API</h1>
-
-        </div>
+        <a href="http://www.consumerfinance.gov"><img src="static/img/logo_2x.png" width="211" height="52" alt="Consumer Financial Protection Bureau" /></a>
 
       </div>
+
+      <button class="navicon">
+        <i class="cf-icon cf-icon-menu"></i>
+      </button>
+
+      <nav role="navigation" aria-label="Main HMDA Menu">
+          <ul>
+            <li><a href=".">Home</a></li>
+            <li><a href="explore">Explore the data</a></li>
+            <li><a href="learn-more">About HMDA</a></li>
+            <li><a href="api" class="active" class="developers">Public API</a></li>
+          </ul>
+      </nav>
+
+    </header>
+
+    <div class="hero" role="main">
+
+      <div class="inner">
+
+        <h1>Public API</h1>
+
+      </div>
+
+    </div>
 
 
       <!-- api section -->
       <div id="main"> 
-      <div id="api-docs">
-      
-
-
-      <section id="api-documentation"> 
+        <div id="api-docs">
         
-        <div class="background">
-        <div class="inner">
-      
-        <%= api_api_body %>
 
-        <div class="links">
-          <ul>
-            <li>
-              <a href="http://cfpb.github.io/api/hmda/" class="action-arrow">Documentation<i class="cf-icon cf-icon-external-link"></i></a>
-            </li>
-            <li>
-              <a href="http://github.com/cfpb/qu" class="action-arrow">Contribute to Project Qu<i class="cf-icon cf-icon-external-link"></i></a>
-            </li>
-          </ul>
+
+        <section id="api-documentation"> 
+          
+          <div class="background">
+            <div class="inner">
+          
+            <%= api_api_body %>
+
+              <div class="links">
+                <ul>
+                  <li>
+                    <a href="http://cfpb.github.io/api/hmda/" class="action-arrow">Documentation<i class="cf-icon cf-icon-external-link"></i></a>
+                  </li>
+                  <li>
+                    <a href="http://github.com/cfpb/qu" class="action-arrow">Contribute to Project Qu<i class="cf-icon cf-icon-external-link"></i></a>
+                  </li>
+                </ul>
+              </div>
+
+
+            </div>
+          </div>
+
+        </section>
+
+
+        
+
         </div>
-
-
-        </div>
-      </div>
-
-  </section>
-
-
-      
-
-      </div>
 
       <!-- /api section -->
 
-    </div> <!--main-->
-  </div> <!--wrap-->
+      </div> <!--main-->
+    </div> <!--wrap-->
 
     <%= footer %>
 
