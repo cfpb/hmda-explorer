@@ -214,7 +214,7 @@ $(function(){
   video = (function(){
 
     var $vid = $('#youtube'),
-        $embed = $('<iframe width="100%" height="100%" src="//www.youtube.com/embed/wR9Tsdqgmuk?rel=0&version=3&enablejsapi=1&autoplay=1" frameborder="0" allowfullscreen></iframe>'),
+        $embed = $('<iframe width="100%" height="100%" src="//www.youtube.com/embed/wR9Tsdqgmuk?rel=0&version=3&enablejsapi=1&autoplay=1" frameborder="0" enablejsapi=1)allowfullscreen></iframe>'),
         $exit = $('#youtube .exit'),
         pos = $('.video').position().top + ( $('section.video').height() / 2 );
 
@@ -233,7 +233,7 @@ $(function(){
               setTimeout( function(){
                 $vid.append( $embed );
                 $exit.show();
-                onYouTubeIframeAPIReady();
+                //onYouTubeIframeAPIReady();
               }, 500 );
             });
         $embed.css( 'height', $(window).height() - 60 + 'px')

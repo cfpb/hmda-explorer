@@ -372,10 +372,10 @@ var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 // This function gets called by the YouTube Iframe API
-function onYouTubeIframeAPIReady() {
-    'use strict';
-    // We're only calling the plugin when the YouTube Iframe API is ready
-    // because we need it to create YouTube player objects for tracking.
-    $.fn.findAndTrackYouTubeVideos.isIframeApiReady = true;
-    $('iframe').findAndTrackYouTubeVideos();
-}
+// function onYouTubeIframeAPIReady() {
+//     'use strict';
+//     // We're only calling the plugin when the YouTube Iframe API is ready
+//     // because we need it to create YouTube player objects for tracking.
+//     $.fn.findAndTrackYouTubeVideos.isIframeApiReady = true;
+//     $('iframe').findAndTrackYouTubeVideos();
+// }
