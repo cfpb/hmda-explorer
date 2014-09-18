@@ -233,7 +233,7 @@ $(function(){
               setTimeout( function(){
                 $vid.append( $embed );
                 $exit.show();
-                //onYouTubeIframeAPIReady();
+                onYouTubeIframeAPIReady();
               }, 500 );
             });
         $embed.css( 'height', $(window).height() - 60 + 'px')
