@@ -33,7 +33,8 @@ Only edit files in `src`. When anything is changed, Grunt will lint, test, compi
 In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
-
+ * 2014-09-22...[v1.1.0]()...Updated with 2013 Data and Static S3 File Routing
+ * 2014-08-05...[v1.0.1](https://github.com/cfpb/hmda-explorer/releases/tag/v1.0.1)...Location filters and display bug fixes
  * 2014-06-13   [v1.0.0](../../tree/v1.0.0)   Add `endpoint` build flag for internal testing. Update Learn More content.
  * 2014-04-20   [v0.19.3](../../tree/v0.19.3)   Prep code for open source release.
  * 2014-02-20   [v0.19.2](../../tree/v0.19.2)   Add `bind()` polyfill to homepage to aid automated testing.
