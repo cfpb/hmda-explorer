@@ -1,1 +1,0 @@
-Lender ID is a 10-digit code. To uniquely identify each reporting financial institution, the Lender ID must be combined with a federal agency code.

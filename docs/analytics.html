@@ -1,302 +1,902 @@
-<!DOCTYPE html>  <html> <head>   <title>analytics.js</title>   <meta http-equiv="content-type" content="text/html; charset=UTF-8">   <link rel="stylesheet" media="all" href="docco.css" /> </head> <body>   <div id="container">     <div id="background"></div>            <div id="jump_to">         Jump To &hellip;         <div id="jump_wrapper">           <div id="jump_page">                                           <a class="source" href="analytics.html">                 analytics.js               </a>                                           <a class="source" href="chart1.html">                 chart1.js               </a>                                           <a class="source" href="chart1_options.html">                 chart1_options.js               </a>                                           <a class="source" href="chart2.html">                 chart2.js               </a>                                           <a class="source" href="chart2_options.html">                 chart2_options.js               </a>                                           <a class="source" href="main.html">                 main.js               </a>                                           <a class="source" href="main.html">                 main.js               </a>                                           <a class="source" href="mobile.html">                 mobile.js               </a>                                           <a class="source" href="app.html">                 app.js               </a>                                           <a class="source" href="dom.html">                 dom.js               </a>                                           <a class="source" href="form.html">                 form.js               </a>                                           <a class="source" href="ie8.html">                 ie8.js               </a>                                           <a class="source" href="observer.html">                 observer.js               </a>                                           <a class="source" href="preview.html">                 preview.js               </a>                                           <a class="source" href="query.html">                 query.js               </a>                                           <a class="source" href="summary-table.html">                 summary-table.js               </a>                                           <a class="source" href="utils.html">                 utils.js               </a>                                           <a class="source" href="home.html">                 home.js               </a>                                           <a class="source" href="template.html">                 template.js               </a>                        </div>         </div>       </div>          <table cellpadding="0" cellspacing="0">       <thead>         <tr>           <th class="docs">             <h1>               analytics.js             </h1>           </th>           <th class="code">           </th>         </tr>       </thead>       <tbody>                               <tr id="section-1">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-1">&#182;</a>               </div>                            </td>             <td class="code">               <div class="highlight"><pre><span class="cm">/*</span>
-<span class="cm"> Contents</span>
-<span class="cm"> --------</span>
-<span class="cm"> 1. Utililty functions</span>
-<span class="cm"> 2. Exit Links</span>
-<span class="cm"> 3. Tracked Links</span>
-<span class="cm"> 4. File Downloads</span>
-<span class="cm"> 5. Social Tracking</span>
-<span class="cm"> 6. Newsletter Signup Form</span>
-<span class="cm"> 7. Data tracking</span>
-<span class="cm"> 8. Custom events on the Explore Data page</span>
-<span class="cm"> 9. Find and Track YouTube Videos</span>
+<!DOCTYPE html>
 
-<span class="cm">An analytics file to fire custom events based on on Google&#39;s ga.js:</span>
-<span class="cm">https://developers.google.com/analytics/devguides/collection/gajs/</span>
+<html>
+<head>
+  <title>analytics.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="analytics.html">
+                analytics.js
+              </a>
+            
+              
+              <a class="source" href="main.html">
+                main.js
+              </a>
+            
+              
+              <a class="source" href="mobile.html">
+                mobile.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>analytics.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/*
+ Contents
+ --------
+ 1. Utililty functions
+ 2. Exit Links
+ 3. Tracked Links
+ 4. File Downloads
+ 5. Social Tracking
+ 6. Newsletter Signup Form
+ 7. Data tracking
+ 8. Custom events on the Explore Data page
+ 9. Find and Track YouTube Videos
 
-<span class="cm">*/</span></pre></div>             </td>           </tr>                               <tr id="section-2">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-2">&#182;</a>               </div>               <p>Add in Google Analytics tracking check wrapper</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="kd">var</span> <span class="nx">track</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">category</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
-    <span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">_gaq</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nb">window</span><span class="p">.</span><span class="nx">_gaq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;_trackEvent&#39;</span><span class="p">,</span> <span class="nx">category</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">value</span><span class="p">]);</span>
-    <span class="p">}</span>
-<span class="p">};</span> <span class="c1">// End Google Analytics tracking check</span></pre></div>             </td>           </tr>                               <tr id="section-3">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-3">&#182;</a>               </div>               <ol>
+An analytics file to fire custom events based on on Google's ga.js:
+https://developers.google.com/analytics/devguides/collection/gajs/
+
+*/</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Add in Google Analytics tracking check wrapper</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> track = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(category, name, value)</span> </span>{
+<span class="hljs-pi">    'use strict'</span>;
+    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>._gaq) {
+        <span class="hljs-built_in">window</span>._gaq.push([<span class="hljs-string">'_trackEvent'</span>, category, name, value]);
+    }
+}; <span class="hljs-comment">// End Google Analytics tracking check</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <ol>
 <li>Utililty functions
 Check if URL is internal.</li>
-</ol>             </td>             <td class="code">               <div class="highlight"><pre> <span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
-    <span class="kd">function</span> <span class="nx">isInternalHref</span><span class="p">(</span> <span class="nx">href</span> <span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">href</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;https:&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nx">href</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;http:&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nx">href</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;//&#39;</span><span class="p">)</span> <span class="o">!==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// There&#39;s no protocol, so it&#39;s internal</span>
-            <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">else</span> <span class="p">{</span> <span class="c1">// There is a protocol, so we check for our domain.</span>
-            <span class="k">if</span> <span class="p">(</span><span class="nx">href</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;consumerfinance.gov&#39;</span><span class="p">)</span> <span class="o">!==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// It contains our domain, so it&#39;s internal.</span>
-                <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
-            <span class="p">}</span>
-            <span class="k">else</span> <span class="p">{</span> <span class="c1">// There is a protocol and not our domain, so it&#39;s external.</span>
-                <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span></pre></div>             </td>           </tr>                               <tr id="section-4">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-4">&#182;</a>               </div>               <p>Now, track stuff like this: track(category, name, value);</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span></pre></div>             </td>           </tr>                               <tr id="section-5">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-5">&#182;</a>               </div>               <p>Just for testing purposes
-var a = 'http://www.consumerfinance.gov';
-var b = 'http://davidakennedy.com';
-var c = '/about';</p>             </td>             <td class="code">               <div class="highlight"><pre></pre></div>             </td>           </tr>                               <tr id="section-6">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-6">&#182;</a>               </div>               <p>var testInternal = isInternalHref(a);
-console.log(testInternal); // Prints true.</p>             </td>             <td class="code">               <div class="highlight"><pre></pre></div>             </td>           </tr>                               <tr id="section-7">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-7">&#182;</a>               </div>               <p>var testExit = isInternalHref(b);
-console.log(testExit); // Prints false.</p>             </td>             <td class="code">               <div class="highlight"><pre></pre></div>             </td>           </tr>                               <tr id="section-8">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-8">&#182;</a>               </div>               <p>var testNoProt = isInternalHref(c);
-console.log(testNoProt); // Prints true.
-End testing</p>             </td>             <td class="code">               <div class="highlight"><pre>        <span class="nx">$</span><span class="p">(</span> <span class="s1">&#39;a&#39;</span> <span class="p">).</span><span class="nx">not</span><span class="p">(</span><span class="s1">&#39;.exit-link, .internal-link&#39;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// In case our links already have the class; don&#39;t include.</span>
-            <span class="kd">var</span> <span class="nx">href</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">);</span>
-            <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nx">href</span> <span class="p">)</span> <span class="p">{</span>
-                <span class="k">return</span><span class="p">;</span>
-            <span class="p">}</span>
-            <span class="k">if</span> <span class="p">(</span> <span class="nx">isInternalHref</span><span class="p">(</span> <span class="nx">href</span> <span class="p">)</span> <span class="p">)</span> <span class="p">{</span> <span class="c1">// Internal links get a class; not tracked in Analytics.</span>
-                <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;internal-link&#39;</span><span class="p">);</span>
-            <span class="p">}</span>
-            <span class="k">else</span> <span class="p">{</span> <span class="c1">// Exit links get a class; this is tracked with Analytics.</span>
-                <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;exit-link&#39;</span><span class="p">);</span>
-            <span class="p">}</span>
-        <span class="p">});</span></pre></div>             </td>           </tr>                               <tr id="section-9">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-9">&#182;</a>               </div>               <ol>
-<li>Exit Links</li>
-</ol>             </td>             <td class="code">               <div class="highlight"><pre>        <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;a.exit-link&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-            <span class="kd">var</span> <span class="nx">linkDelay</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span>
-            <span class="kd">var</span> <span class="nx">link_text</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">text</span><span class="p">();</span>
-            <span class="kd">var</span> <span class="nx">link_url</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">);</span>
-            <span class="kd">var</span> <span class="nx">isCtrlPressed</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">ctrlKey</span> <span class="o">||</span> <span class="nx">e</span><span class="p">.</span><span class="nx">metaKey</span><span class="p">;</span></pre></div>             </td>           </tr>                               <tr id="section-10">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-10">&#182;</a>               </div>               <p>Stop the link from going anywhere
-(it's ok we saved the href and we'll fire it later)</p>             </td>             <td class="code">               <div class="highlight"><pre>            <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
-            <span class="k">try</span> <span class="p">{</span> <span class="nx">track</span><span class="p">(</span><span class="s1">&#39;exit link&#39;</span><span class="p">,</span> <span class="nx">link_text</span><span class="p">,</span> <span class="nx">link_url</span><span class="p">);</span> <span class="p">}</span>
-            <span class="k">catch</span><span class="p">(</span> <span class="nx">error</span> <span class="p">)</span> <span class="p">{}</span>
+</ol>
 
-            <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">hasClass</span><span class="p">(</span><span class="s1">&#39;dont-redirect&#39;</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span></pre></div>             </td>           </tr>                               <tr id="section-11">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-11">&#182;</a>               </div>               <p>Give google analytics time to do its thing before changing the page url
-http://support.google.com/analytics/answer/1136920?hl=en</p>             </td>             <td class="code">               <div class="highlight"><pre>                <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-                    <span class="k">if</span> <span class="p">(</span><span class="nx">isCtrlPressed</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nx">link_url</span><span class="p">,</span> <span class="s1">&#39;_blank&#39;</span><span class="p">);</span>
-                    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-                        <span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="nx">link_url</span><span class="p">;</span>
-                    <span class="p">}</span>
-                <span class="p">},</span> <span class="nx">linkDelay</span><span class="p">);</span>
-            <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">is</span><span class="p">(</span><span class="s1">&#39;[target=_blank]&#39;</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
-                <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nx">link_url</span><span class="p">,</span> <span class="s1">&#39;_blank&#39;</span><span class="p">);</span>
-            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-                <span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="nx">link_url</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">});</span></pre></div>             </td>           </tr>                               <tr id="section-12">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-12">&#182;</a>               </div>               <ol>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre> $(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+<span class="hljs-pi">    'use strict'</span>;
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isInternalHref</span><span class="hljs-params">( href )</span> </span>{
+        <span class="hljs-keyword">if</span> (href.indexOf(<span class="hljs-string">'https:'</span>) == -<span class="hljs-number">1</span> &amp;&amp; href.indexOf(<span class="hljs-string">'http:'</span>) == -<span class="hljs-number">1</span> &amp;&amp; href.indexOf(<span class="hljs-string">'//'</span>) !== <span class="hljs-number">0</span>) { <span class="hljs-comment">// There's no protocol, so it's internal</span>
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    }
+    <span class="hljs-keyword">else</span> { <span class="hljs-comment">// There is a protocol, so we check for our domain.</span>
+            <span class="hljs-keyword">if</span> (href.indexOf(<span class="hljs-string">'consumerfinance.gov'</span>) !== -<span class="hljs-number">1</span>) { <span class="hljs-comment">// It contains our domain, so it's internal.</span>
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+            }
+            <span class="hljs-keyword">else</span> { <span class="hljs-comment">// There is a protocol and not our domain, so it's external.</span>
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+            }
+        }
+    }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Now, track stuff like this: track(category, name, value);</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+    $(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>Just for testing purposes
+var a = ‘<a href="http://www.consumerfinance.gov">http://www.consumerfinance.gov</a>‘;
+var b = ‘<a href="http://davidakennedy.com">http://davidakennedy.com</a>‘;
+var c = ‘/about’;</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>var testInternal = isInternalHref(a);
+console.log(testInternal); // Prints true.</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>var testExit = isInternalHref(b);
+console.log(testExit); // Prints false.</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>var testNoProt = isInternalHref(c);
+console.log(testNoProt); // Prints true.
+End testing</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+        $( <span class="hljs-string">'a'</span> ).not(<span class="hljs-string">'.exit-link, .internal-link'</span>).each(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{ <span class="hljs-comment">// In case our links already have the class; don't include.</span>
+            <span class="hljs-keyword">var</span> href = $(<span class="hljs-keyword">this</span>).attr(<span class="hljs-string">'href'</span>);
+            <span class="hljs-keyword">if</span> ( !href ) {
+                <span class="hljs-keyword">return</span>;
+            }
+            <span class="hljs-keyword">if</span> ( isInternalHref( href ) ) { <span class="hljs-comment">// Internal links get a class; not tracked in Analytics.</span>
+                $(<span class="hljs-keyword">this</span>).addClass(<span class="hljs-string">'internal-link'</span>);
+            }
+            <span class="hljs-keyword">else</span> { <span class="hljs-comment">// Exit links get a class; this is tracked with Analytics.</span>
+                $(<span class="hljs-keyword">this</span>).addClass(<span class="hljs-string">'exit-link'</span>);
+            }
+        });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <ol>
+<li>Exit Links</li>
+</ol>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        $(<span class="hljs-string">'a.exit-link'</span>).on(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span> </span>{
+            <span class="hljs-keyword">var</span> linkDelay = <span class="hljs-number">500</span>;
+            <span class="hljs-keyword">var</span> link_text = $(<span class="hljs-keyword">this</span>).text();
+            <span class="hljs-keyword">var</span> link_url = $(<span class="hljs-keyword">this</span>).attr(<span class="hljs-string">'href'</span>);
+            <span class="hljs-keyword">var</span> isCtrlPressed = e.ctrlKey || e.metaKey;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>Stop the link from going anywhere
+(it’s ok we saved the href and we’ll fire it later)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            e.preventDefault();
+            <span class="hljs-keyword">try</span> { track(<span class="hljs-string">'exit link'</span>, link_text, link_url); }
+            <span class="hljs-keyword">catch</span>( error ) {}
+
+            <span class="hljs-keyword">if</span> ( !$(<span class="hljs-keyword">this</span>).hasClass(<span class="hljs-string">'dont-redirect'</span>) ) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>Give google analytics time to do its thing before changing the page url
+<a href="http://support.google.com/analytics/answer/1136920?hl=en">http://support.google.com/analytics/answer/1136920?hl=en</a></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+                    <span class="hljs-keyword">if</span> (isCtrlPressed) {
+                        <span class="hljs-built_in">window</span>.open(link_url, <span class="hljs-string">'_blank'</span>);
+                    } <span class="hljs-keyword">else</span> {
+                        <span class="hljs-built_in">document</span>.location.href = link_url;
+                    }
+                }, linkDelay);
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ( $(<span class="hljs-keyword">this</span>).is(<span class="hljs-string">'[target=_blank]'</span>) ) {
+                <span class="hljs-built_in">window</span>.open(link_url, <span class="hljs-string">'_blank'</span>);
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-built_in">document</span>.location.href = link_url;
+            }
+        });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <ol>
 <li>Tracked Links</li>
-</ol>             </td>             <td class="code">               <div class="highlight"><pre>        <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;a.tracked-link&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-            <span class="kd">var</span> <span class="nx">linkDelay</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span>
-            <span class="kd">var</span> <span class="nx">link_text</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">text</span><span class="p">();</span>
-            <span class="kd">var</span> <span class="nx">link_url</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-13">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-13">&#182;</a>               </div>               <p>Stop the link from going anywhere
-(it's ok we saved the href and we'll fire it later)</p>             </td>             <td class="code">               <div class="highlight"><pre>            <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
-            <span class="k">try</span> <span class="p">{</span> <span class="nx">track</span><span class="p">(</span><span class="s1">&#39;internal links&#39;</span><span class="p">,</span> <span class="nx">link_text</span><span class="p">,</span> <span class="nx">link_url</span><span class="p">);</span> <span class="p">}</span>
-            <span class="k">catch</span><span class="p">(</span> <span class="nx">error</span> <span class="p">)</span> <span class="p">{}</span></pre></div>             </td>           </tr>                               <tr id="section-14">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-14">&#182;</a>               </div>               <p>Give google analytics time to do its thing before changing the page url
-http://support.google.com/analytics/answer/1136920?hl=en</p>             </td>             <td class="code">               <div class="highlight"><pre>            <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="nx">link_url</span><span class="p">;</span> <span class="p">},</span> <span class="nx">linkDelay</span><span class="p">);</span>
-        <span class="p">});</span></pre></div>             </td>           </tr>                               <tr id="section-15">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-15">&#182;</a>               </div>               <ol>
+</ol>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        $(<span class="hljs-string">'a.tracked-link'</span>).on(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span> </span>{
+            <span class="hljs-keyword">var</span> linkDelay = <span class="hljs-number">500</span>;
+            <span class="hljs-keyword">var</span> link_text = $(<span class="hljs-keyword">this</span>).text();
+            <span class="hljs-keyword">var</span> link_url = $(<span class="hljs-keyword">this</span>).attr(<span class="hljs-string">'href'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p>Stop the link from going anywhere
+(it’s ok we saved the href and we’ll fire it later)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            e.preventDefault();
+            <span class="hljs-keyword">try</span> { track(<span class="hljs-string">'internal links'</span>, link_text, link_url); }
+            <span class="hljs-keyword">catch</span>( error ) {}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>Give google analytics time to do its thing before changing the page url
+<a href="http://support.google.com/analytics/answer/1136920?hl=en">http://support.google.com/analytics/answer/1136920?hl=en</a></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{ <span class="hljs-built_in">document</span>.location.href = link_url; }, linkDelay);
+        });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <ol>
 <li>File Downloads
-a[href$="pdf#page=315"] is special to CFPB Exam Manual</li>
-</ol>             </td>             <td class="code">               <div class="highlight"><pre>        <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;a[href$=&quot;zip&quot;],a[href$=&quot;pdf&quot;],a[href$=&quot;pdf#page=315&quot;],a[href$=&quot;doc&quot;],a[href$=&quot;docx&quot;],a[href$=&quot;xls&quot;],a[href$=&quot;xlsx&quot;],a[href$=&quot;ppt&quot;],a[href$=&quot;pptx&quot;],a[href$=&quot;txt&quot;],a[href$=&quot;csv&quot;],a[href$=&quot;jpg&quot;],a[href$=&quot;jpeg&quot;],a[href$=&quot;png&quot;],a[href$=&quot;mov&quot;],a[href$=&quot;wma&quot;]&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-            <span class="kd">var</span> <span class="nx">linkDelay</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span>
-            <span class="kd">var</span> <span class="nx">link_text</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">text</span><span class="p">();</span>
-            <span class="kd">var</span> <span class="nx">link_url</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-16">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-16">&#182;</a>               </div>               <p>Stop the link from going anywhere
-(it's ok we saved the href and we'll fire it later)</p>             </td>             <td class="code">               <div class="highlight"><pre>            <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
-            <span class="k">try</span> <span class="p">{</span> <span class="nx">track</span><span class="p">(</span><span class="s1">&#39;downloads&#39;</span><span class="p">,</span> <span class="nx">link_text</span><span class="p">,</span> <span class="nx">link_url</span><span class="p">);</span> <span class="p">}</span>
-            <span class="k">catch</span><span class="p">(</span> <span class="nx">error</span> <span class="p">)</span> <span class="p">{}</span></pre></div>             </td>           </tr>                               <tr id="section-17">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-17">&#182;</a>               </div>               <p>Give google analytics time to do its thing before changing the page url
-http://support.google.com/analytics/answer/1136920?hl=en</p>             </td>             <td class="code">               <div class="highlight"><pre>            <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="nx">link_url</span><span class="p">;</span> <span class="p">},</span> <span class="nx">linkDelay</span><span class="p">);</span>
-        <span class="p">});</span></pre></div>             </td>           </tr>                               <tr id="section-18">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-18">&#182;</a>               </div>               <ol>
+a[href$=”pdf#page=315”] is special to CFPB Exam Manual</li>
+</ol>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        $(<span class="hljs-string">'a[href$="zip"],a[href$="pdf"],a[href$="pdf#page=315"],a[href$="doc"],a[href$="docx"],a[href$="xls"],a[href$="xlsx"],a[href$="ppt"],a[href$="pptx"],a[href$="txt"],a[href$="csv"],a[href$="jpg"],a[href$="jpeg"],a[href$="png"],a[href$="mov"],a[href$="wma"]'</span>).on(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span> </span>{
+            <span class="hljs-keyword">var</span> linkDelay = <span class="hljs-number">500</span>;
+            <span class="hljs-keyword">var</span> link_text = $(<span class="hljs-keyword">this</span>).text();
+            <span class="hljs-keyword">var</span> link_url = $(<span class="hljs-keyword">this</span>).attr(<span class="hljs-string">'href'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p>Stop the link from going anywhere
+(it’s ok we saved the href and we’ll fire it later)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            e.preventDefault();
+            <span class="hljs-keyword">try</span> { track(<span class="hljs-string">'downloads'</span>, link_text, link_url); }
+            <span class="hljs-keyword">catch</span>( error ) {}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-17">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-17">&#182;</a>
+              </div>
+              <p>Give google analytics time to do its thing before changing the page url
+<a href="http://support.google.com/analytics/answer/1136920?hl=en">http://support.google.com/analytics/answer/1136920?hl=en</a></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{ <span class="hljs-built_in">document</span>.location.href = link_url; }, linkDelay);
+        });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-18">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-18">&#182;</a>
+              </div>
+              <ol>
 <li>Social Tracking
 Links in the footer</li>
-</ol>             </td>             <td class="code">               <div class="highlight"><pre>        <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;ul.social &gt; a&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// Selector is a placeholder for redesign.</span>
-            <span class="kd">var</span> <span class="nx">linkDelay</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span>
-            <span class="kd">var</span> <span class="nx">link_text</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">text</span><span class="p">();</span>
-            <span class="kd">var</span> <span class="nx">link_url</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-19">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-19">&#182;</a>               </div>               <p>Stop the link from going anywhere
-(it's ok we saved the href and we'll fire it later)</p>             </td>             <td class="code">               <div class="highlight"><pre>            <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
-            <span class="k">try</span> <span class="p">{</span> <span class="nx">track</span><span class="p">(</span><span class="s1">&#39;social&#39;</span><span class="p">,</span> <span class="nx">link_text</span><span class="p">,</span> <span class="nx">link_url</span><span class="p">);</span> <span class="p">}</span>
-            <span class="k">catch</span><span class="p">(</span> <span class="nx">error</span> <span class="p">)</span> <span class="p">{}</span></pre></div>             </td>           </tr>                               <tr id="section-20">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-20">&#182;</a>               </div>               <p>Give google analytics time to do its thing before changing the page url
-http://support.google.com/analytics/answer/1136920?hl=en</p>             </td>             <td class="code">               <div class="highlight"><pre>            <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="nx">link_url</span><span class="p">;</span> <span class="p">},</span> <span class="nx">linkDelay</span><span class="p">);</span>
-        <span class="p">});</span>
+</ol>
 
-        <span class="cm">/* Twitter follow button */</span>
-        <span class="cm">/* Follow button not needed</span>
-<span class="cm">        if ( typeof twttr !== &#39;undefined&#39; ) {</span>
-<span class="cm">            twttr.ready(function ( twttr ) {</span>
-<span class="cm">                twttr.events.bind( &#39;click&#39;, trackTwitterFollow );</span>
-<span class="cm">            });</span>
-<span class="cm">        }</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        $(<span class="hljs-string">'ul.social &gt; a'</span>).on(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span> </span>{ <span class="hljs-comment">// Selector is a placeholder for redesign.</span>
+            <span class="hljs-keyword">var</span> linkDelay = <span class="hljs-number">500</span>;
+            <span class="hljs-keyword">var</span> link_text = $(<span class="hljs-keyword">this</span>).text();
+            <span class="hljs-keyword">var</span> link_url = $(<span class="hljs-keyword">this</span>).attr(<span class="hljs-string">'href'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-19">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-19">&#182;</a>
+              </div>
+              <p>Stop the link from going anywhere
+(it’s ok we saved the href and we’ll fire it later)</p>
 
-<span class="cm">        function trackTwitterFollow() {</span>
-<span class="cm">            try { track(&#39;social&#39;, &#39;follow&#39;, &#39;twitter&#39;); }</span>
-<span class="cm">            catch( error ) {}</span>
-<span class="cm">        } */</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            e.preventDefault();
+            <span class="hljs-keyword">try</span> { track(<span class="hljs-string">'social'</span>, link_text, link_url); }
+            <span class="hljs-keyword">catch</span>( error ) {}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-20">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-20">&#182;</a>
+              </div>
+              <p>Give google analytics time to do its thing before changing the page url
+<a href="http://support.google.com/analytics/answer/1136920?hl=en">http://support.google.com/analytics/answer/1136920?hl=en</a></p>
 
-        <span class="cm">/* Facebook Like button */</span>
-        <span class="cm">/* Follow button not needed</span>
-<span class="cm">        if ( typeof FB !== &#39;undefined&#39; ) {</span>
-<span class="cm">            FB.Event.subscribe( &#39;edge.create&#39;, trackFacebookLike );</span>
-<span class="cm">        }</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{ <span class="hljs-built_in">document</span>.location.href = link_url; }, linkDelay);
+        });
 
-<span class="cm">        function trackFacebookLike() {</span>
-<span class="cm">            try { track(&#39;social&#39;, &#39;follow&#39;, &#39;facebook&#39;); }</span>
-<span class="cm">            catch( error ) {}</span>
-<span class="cm">        } */</span>
+        <span class="hljs-comment">/* Twitter follow button */</span>
+        <span class="hljs-comment">/* Follow button not needed
+        if ( typeof twttr !== 'undefined' ) {
+            twttr.ready(function ( twttr ) {
+                twttr.events.bind( 'click', trackTwitterFollow );
+            });
+        }
 
-        <span class="cm">/* Social sharing buttons */</span>
-        <span class="cm">/* Facebook */</span>
-        <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.share-facebook&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// Selector is a placeholder for redesign.</span>
-            <span class="kd">var</span> <span class="nx">linkDelay</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span>
-            <span class="kd">var</span> <span class="nx">link_url</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-21">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-21">&#182;</a>               </div>               <p>Stop the link from going anywhere
-(it's ok we saved the href and we'll fire it later)</p>             </td>             <td class="code">               <div class="highlight"><pre>            <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
-            <span class="k">try</span> <span class="p">{</span> <span class="nx">track</span><span class="p">(</span><span class="s1">&#39;social&#39;</span><span class="p">,</span> <span class="s1">&#39;share&#39;</span><span class="p">,</span> <span class="s1">&#39;facebook&#39;</span><span class="p">);</span> <span class="p">}</span>
-            <span class="k">catch</span><span class="p">(</span> <span class="nx">error</span> <span class="p">)</span> <span class="p">{}</span></pre></div>             </td>           </tr>                               <tr id="section-22">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-22">&#182;</a>               </div>               <p>Give google analytics time to do its thing before changing the page url
-http://support.google.com/analytics/answer/1136920?hl=en</p>             </td>             <td class="code">               <div class="highlight"><pre>            <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="nx">link_url</span><span class="p">;</span> <span class="p">},</span> <span class="nx">linkDelay</span><span class="p">);</span>
-        <span class="p">});</span>
+        function trackTwitterFollow() {
+            try { track('social', 'follow', 'twitter'); }
+            catch( error ) {}
+        } */</span>
 
-        <span class="cm">/* Twitter */</span>
-        <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.share-twitter&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// Selector is a placeholder for redesign.</span>
-            <span class="kd">var</span> <span class="nx">linkDelay</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span>
-            <span class="kd">var</span> <span class="nx">link_url</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-23">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-23">&#182;</a>               </div>               <p>Stop the link from going anywhere
-(it's ok we saved the href and we'll fire it later)</p>             </td>             <td class="code">               <div class="highlight"><pre>            <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
-            <span class="k">try</span> <span class="p">{</span> <span class="nx">track</span><span class="p">(</span><span class="s1">&#39;social&#39;</span><span class="p">,</span> <span class="s1">&#39;share&#39;</span><span class="p">,</span> <span class="s1">&#39;twitter&#39;</span><span class="p">);</span> <span class="p">}</span>
-            <span class="k">catch</span><span class="p">(</span> <span class="nx">error</span> <span class="p">)</span> <span class="p">{}</span></pre></div>             </td>           </tr>                               <tr id="section-24">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-24">&#182;</a>               </div>               <p>Give google analytics time to do its thing before changing the page url
-http://support.google.com/analytics/answer/1136920?hl=en</p>             </td>             <td class="code">               <div class="highlight"><pre>            <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="nx">link_url</span><span class="p">;</span> <span class="p">},</span> <span class="nx">linkDelay</span><span class="p">);</span>
-        <span class="p">});</span>
+        <span class="hljs-comment">/* Facebook Like button */</span>
+        <span class="hljs-comment">/* Follow button not needed
+        if ( typeof FB !== 'undefined' ) {
+            FB.Event.subscribe( 'edge.create', trackFacebookLike );
+        }
 
-        <span class="cm">/* Email */</span>
-        <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.share-email&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// Selector is a placeholder for redesign.</span>
-            <span class="kd">var</span> <span class="nx">linkDelay</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span>
-            <span class="kd">var</span> <span class="nx">link_url</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-25">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-25">&#182;</a>               </div>               <p>Stop the link from going anywhere
-(it's ok we saved the href and we'll fire it later)</p>             </td>             <td class="code">               <div class="highlight"><pre>            <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
-            <span class="k">try</span> <span class="p">{</span> <span class="nx">track</span><span class="p">(</span><span class="s1">&#39;social&#39;</span><span class="p">,</span> <span class="s1">&#39;share&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">);</span> <span class="p">}</span>
-            <span class="k">catch</span><span class="p">(</span> <span class="nx">error</span> <span class="p">)</span> <span class="p">{}</span></pre></div>             </td>           </tr>                               <tr id="section-26">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-26">&#182;</a>               </div>               <p>Give google analytics time to do its thing before changing the page url
-http://support.google.com/analytics/answer/1136920?hl=en</p>             </td>             <td class="code">               <div class="highlight"><pre>            <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="nx">link_url</span><span class="p">;</span> <span class="p">},</span> <span class="nx">linkDelay</span><span class="p">);</span>
-        <span class="p">});</span>
+        function trackFacebookLike() {
+            try { track('social', 'follow', 'facebook'); }
+            catch( error ) {}
+        } */</span>
 
-        <span class="cm">/* 6. Newsletter signup form */</span>
-        <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.signup&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="s1">&#39;button&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-            <span class="kd">var</span> <span class="nx">zip</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">closest</span><span class="p">(</span><span class="s1">&#39;.signup&#39;</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;questionid_10376&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
-            <span class="nx">track</span><span class="p">(</span><span class="s1">&#39;social&#39;</span><span class="p">,</span> <span class="s1">&#39;signup&#39;</span><span class="p">,</span> <span class="s1">&#39;mailing list signup&#39;</span><span class="p">);</span>
-        <span class="p">});</span>
+        <span class="hljs-comment">/* Social sharing buttons */</span>
+        <span class="hljs-comment">/* Facebook */</span>
+        $(<span class="hljs-string">'.share-facebook'</span>).on(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span> </span>{ <span class="hljs-comment">// Selector is a placeholder for redesign.</span>
+            <span class="hljs-keyword">var</span> linkDelay = <span class="hljs-number">500</span>;
+            <span class="hljs-keyword">var</span> link_url = $(<span class="hljs-keyword">this</span>).attr(<span class="hljs-string">'href'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-21">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-21">&#182;</a>
+              </div>
+              <p>Stop the link from going anywhere
+(it’s ok we saved the href and we’ll fire it later)</p>
 
-        <span class="cm">/* Chart&#39;s underlying data on the homepage */</span>
-        <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;a.underlying&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-            <span class="nx">track</span><span class="p">(</span><span class="s1">&#39;homepage&#39;</span><span class="p">,</span> <span class="s1">&#39;underlying data link click&#39;</span><span class="p">,</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;data-track-label&#39;</span><span class="p">));</span>
-        <span class="p">});</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            e.preventDefault();
+            <span class="hljs-keyword">try</span> { track(<span class="hljs-string">'social'</span>, <span class="hljs-string">'share'</span>, <span class="hljs-string">'facebook'</span>); }
+            <span class="hljs-keyword">catch</span>( error ) {}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-22">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-22">&#182;</a>
+              </div>
+              <p>Give google analytics time to do its thing before changing the page url
+<a href="http://support.google.com/analytics/answer/1136920?hl=en">http://support.google.com/analytics/answer/1136920?hl=en</a></p>
 
-        <span class="cm">/* On focus of text area; also fires when button is clicked */</span>
-        <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#share .share_url&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;focus&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-            <span class="nx">track</span><span class="p">(</span><span class="s1">&#39;share URL link&#39;</span><span class="p">,</span> <span class="s1">&#39;HMDA box&#39;</span><span class="p">);</span>
-        <span class="p">});</span>
-    <span class="p">});</span> <span class="c1">// End document ready.</span>
-<span class="p">});</span> <span class="c1">// End anonymous function.</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{ <span class="hljs-built_in">document</span>.location.href = link_url; }, linkDelay);
+        });
 
-<span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$</span><span class="p">)</span> <span class="p">{</span>
-    <span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
-    <span class="cm">/**</span>
-<span class="cm">     * ========================================================================</span>
-<span class="cm">     * 9. Find and Track YouTube Videos</span>
-<span class="cm">     * Find YouTube videos on a page and track them with google analytics</span>
-<span class="cm">     * ========================================================================</span>
-<span class="cm">     * cfpb.github.com: @davidakennedy, @mikem</span>
-<span class="cm">     *</span>
-<span class="cm">     * YouTube Iframe API Documentation</span>
-<span class="cm">     * https://developers.google.com/youtube/iframe_api_reference</span>
-<span class="cm">     * </span>
-<span class="cm">     * Code adapted from:</span>
-<span class="cm">     * - http://www.lunametrics.com/blog/2012/10/22/automatically-track-youtube-videos-events-google-analytics/</span>
-<span class="cm">     * - http://lunametrics.wpengine.netdna-cdn.com/js/lunametrics-youtube.js</span>
-<span class="cm">     * Code adapted by Alex Mueller for ISITE Design http://isitedesign.com</span>
-<span class="cm">     */</span>
+        <span class="hljs-comment">/* Twitter */</span>
+        $(<span class="hljs-string">'.share-twitter'</span>).on(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span> </span>{ <span class="hljs-comment">// Selector is a placeholder for redesign.</span>
+            <span class="hljs-keyword">var</span> linkDelay = <span class="hljs-number">500</span>;
+            <span class="hljs-keyword">var</span> link_url = $(<span class="hljs-keyword">this</span>).attr(<span class="hljs-string">'href'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-23">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-23">&#182;</a>
+              </div>
+              <p>Stop the link from going anywhere
+(it’s ok we saved the href and we’ll fire it later)</p>
 
-    <span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">findAndTrackYouTubeVideos</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="p">)</span> <span class="p">{</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            e.preventDefault();
+            <span class="hljs-keyword">try</span> { track(<span class="hljs-string">'social'</span>, <span class="hljs-string">'share'</span>, <span class="hljs-string">'twitter'</span>); }
+            <span class="hljs-keyword">catch</span>( error ) {}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-24">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-24">&#182;</a>
+              </div>
+              <p>Give google analytics time to do its thing before changing the page url
+<a href="http://support.google.com/analytics/answer/1136920?hl=en">http://support.google.com/analytics/answer/1136920?hl=en</a></p>
 
-        <span class="kd">var</span> <span class="nx">videoObjects</span> <span class="o">=</span> <span class="p">[],</span> <span class="c1">// Stores all of the videos</span></pre></div>             </td>           </tr>                               <tr id="section-27">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-27">&#182;</a>               </div>               <p>Simple variable to track if the event was captured once,
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{ <span class="hljs-built_in">document</span>.location.href = link_url; }, linkDelay);
+        });
+
+        <span class="hljs-comment">/* Email */</span>
+        $(<span class="hljs-string">'.share-email'</span>).on(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span> </span>{ <span class="hljs-comment">// Selector is a placeholder for redesign.</span>
+            <span class="hljs-keyword">var</span> linkDelay = <span class="hljs-number">500</span>;
+            <span class="hljs-keyword">var</span> link_url = $(<span class="hljs-keyword">this</span>).attr(<span class="hljs-string">'href'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-25">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-25">&#182;</a>
+              </div>
+              <p>Stop the link from going anywhere
+(it’s ok we saved the href and we’ll fire it later)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            e.preventDefault();
+            <span class="hljs-keyword">try</span> { track(<span class="hljs-string">'social'</span>, <span class="hljs-string">'share'</span>, <span class="hljs-string">'email'</span>); }
+            <span class="hljs-keyword">catch</span>( error ) {}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-26">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-26">&#182;</a>
+              </div>
+              <p>Give google analytics time to do its thing before changing the page url
+<a href="http://support.google.com/analytics/answer/1136920?hl=en">http://support.google.com/analytics/answer/1136920?hl=en</a></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{ <span class="hljs-built_in">document</span>.location.href = link_url; }, linkDelay);
+        });
+
+        <span class="hljs-comment">/* 6. Newsletter signup form */</span>
+        $(<span class="hljs-string">'.signup'</span>).on(<span class="hljs-string">'click'</span>, <span class="hljs-string">'button'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+            <span class="hljs-keyword">var</span> zip = $(<span class="hljs-keyword">this</span>).closest(<span class="hljs-string">'.signup'</span>).find(<span class="hljs-string">'questionid_10376'</span>).val();
+            track(<span class="hljs-string">'social'</span>, <span class="hljs-string">'signup'</span>, <span class="hljs-string">'mailing list signup'</span>);
+        });
+
+        <span class="hljs-comment">/* Chart's underlying data on the homepage */</span>
+        $(<span class="hljs-string">'a.underlying'</span>).on(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+            track(<span class="hljs-string">'homepage'</span>, <span class="hljs-string">'underlying data link click'</span>, $(<span class="hljs-keyword">this</span>).attr(<span class="hljs-string">'data-track-label'</span>));
+        });
+
+        <span class="hljs-comment">/* On focus of text area; also fires when button is clicked */</span>
+        $(<span class="hljs-string">'#share .share_url'</span>).on(<span class="hljs-string">'focus'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+            track(<span class="hljs-string">'share URL link'</span>, <span class="hljs-string">'HMDA box'</span>);
+        });
+    }); <span class="hljs-comment">// End document ready.</span>
+}); <span class="hljs-comment">// End anonymous function.</span>
+
+(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($)</span> </span>{
+<span class="hljs-pi">    'use strict'</span>;
+    <span class="hljs-comment">/**
+     * ========================================================================
+     * 9. Find and Track YouTube Videos
+     * Find YouTube videos on a page and track them with google analytics
+     * ========================================================================
+     * cfpb.github.com: @davidakennedy, @mikem
+     *
+     * YouTube Iframe API Documentation
+     * https://developers.google.com/youtube/iframe_api_reference
+     * 
+     * Code adapted from:
+     * - http://www.lunametrics.com/blog/2012/10/22/automatically-track-youtube-videos-events-google-analytics/
+     * - http://lunametrics.wpengine.netdna-cdn.com/js/lunametrics-youtube.js
+     * Code adapted by Alex Mueller for ISITE Design http://isitedesign.com
+     */</span>
+
+    $.fn.findAndTrackYouTubeVideos = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( )</span> </span>{
+
+        <span class="hljs-keyword">var</span> videoObjects = [], <span class="hljs-comment">// Stores all of the videos</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-27">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-27">&#182;</a>
+              </div>
+              <p>Simple variable to track if the event was captured once,
 we had a problem with events firing more than once in firefox
-and during scrubbing so this is a temporary stopgap.</p>             </td>             <td class="code">               <div class="highlight"><pre>            <span class="nx">wasTriggeredOnce</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="nx">playing</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-                <span class="nx">ended</span><span class="o">:</span> <span class="kc">false</span>
-            <span class="p">};</span>
+and during scrubbing so this is a temporary stopgap.</p>
 
-        <span class="kd">function</span> <span class="nx">onPlayerStateChange</span><span class="p">(</span> <span class="nx">event</span> <span class="p">)</span> <span class="p">{</span>
-            <span class="kd">var</span> <span class="nx">videoIndex</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">id</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
-            <span class="k">if</span> <span class="p">(</span> <span class="nx">event</span><span class="p">.</span><span class="nx">data</span> <span class="o">==</span> <span class="nx">YT</span><span class="p">.</span><span class="nx">PlayerState</span><span class="p">.</span><span class="nx">PLAYING</span> <span class="o">&amp;&amp;</span> <span class="nx">wasTriggeredOnce</span><span class="p">.</span><span class="nx">playing</span> <span class="o">===</span> <span class="kc">false</span> <span class="p">)</span> <span class="p">{</span>
-                 <span class="nx">wasTriggeredOnce</span><span class="p">.</span><span class="nx">playing</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-                <span class="k">try</span> <span class="p">{</span> <span class="nx">track</span><span class="p">(</span><span class="s1">&#39;videos&#39;</span><span class="p">,</span> <span class="s1">&#39;play&#39;</span><span class="p">,</span> <span class="nx">videoObjects</span><span class="p">[</span><span class="nx">videoIndex</span><span class="p">].</span><span class="nx">title</span><span class="p">);</span> <span class="p">}</span>
-                <span class="k">catch</span><span class="p">(</span> <span class="nx">error</span> <span class="p">)</span> <span class="p">{}</span>
-            <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="nx">event</span><span class="p">.</span><span class="nx">data</span> <span class="o">==</span> <span class="nx">YT</span><span class="p">.</span><span class="nx">PlayerState</span><span class="p">.</span><span class="nx">ENDED</span> <span class="o">&amp;&amp;</span> <span class="nx">wasTriggeredOnce</span><span class="p">.</span><span class="nx">ended</span> <span class="o">===</span> <span class="kc">false</span> <span class="p">)</span> <span class="p">{</span>
-                 <span class="nx">wasTriggeredOnce</span><span class="p">.</span><span class="nx">ended</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-                <span class="k">try</span> <span class="p">{</span> <span class="nx">track</span><span class="p">(</span><span class="s1">&#39;videos&#39;</span><span class="p">,</span> <span class="s1">&#39;ended&#39;</span><span class="p">,</span> <span class="nx">videoObjects</span><span class="p">[</span><span class="nx">videoIndex</span><span class="p">].</span><span class="nx">title</span><span class="p">);</span> <span class="p">}</span>
-                <span class="k">catch</span><span class="p">(</span> <span class="nx">error</span> <span class="p">)</span> <span class="p">{}</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            wasTriggeredOnce = {
+                playing: <span class="hljs-literal">false</span>,
+                ended: <span class="hljs-literal">false</span>
+            };
 
-        <span class="kd">function</span> <span class="nx">isSrcYouTubeVideo</span><span class="p">(</span> <span class="nx">src</span> <span class="p">)</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nx">src</span> <span class="p">)</span> <span class="p">{</span>
-                <span class="k">return</span><span class="p">;</span>
-            <span class="p">}</span>
-            <span class="k">if</span> <span class="p">(</span> <span class="nx">src</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;youtube.com/embed/&#39;</span><span class="p">)</span> <span class="o">!==</span> <span class="o">-</span><span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
-                <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
-            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-                <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">onPlayerStateChange</span><span class="hljs-params">( event )</span> </span>{
+            <span class="hljs-keyword">var</span> videoIndex = event.target.id - <span class="hljs-number">1</span>;
+            <span class="hljs-keyword">if</span> ( event.data == YT.PlayerState.PLAYING &amp;&amp; wasTriggeredOnce.playing === <span class="hljs-literal">false</span> ) {
+                 wasTriggeredOnce.playing = <span class="hljs-literal">true</span>;
+                <span class="hljs-keyword">try</span> { track(<span class="hljs-string">'videos'</span>, <span class="hljs-string">'play'</span>, videoObjects[videoIndex].title); }
+                <span class="hljs-keyword">catch</span>( error ) {}
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ( event.data == YT.PlayerState.ENDED &amp;&amp; wasTriggeredOnce.ended === <span class="hljs-literal">false</span> ) {
+                 wasTriggeredOnce.ended = <span class="hljs-literal">true</span>;
+                <span class="hljs-keyword">try</span> { track(<span class="hljs-string">'videos'</span>, <span class="hljs-string">'ended'</span>, videoObjects[videoIndex].title); }
+                <span class="hljs-keyword">catch</span>( error ) {}
+            }
+        }
 
-        <span class="kd">function</span> <span class="nx">getYouTubeVideoIdFromSrc</span><span class="p">(</span> <span class="nx">src</span> <span class="p">)</span> <span class="p">{</span>
-            <span class="kd">var</span> <span class="nx">videoId</span><span class="p">;</span></pre></div>             </td>           </tr>                               <tr id="section-28">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-28">&#182;</a>               </div>               <p>The ID comes after '/embed/'</p>             </td>             <td class="code">               <div class="highlight"><pre>            <span class="k">if</span> <span class="p">(</span> <span class="nx">src</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span><span class="mi">24</span> <span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;//www.youtube.com/embed/&#39;</span> <span class="p">)</span> <span class="p">{</span>
-                <span class="nx">videoId</span> <span class="o">=</span> <span class="nx">src</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span> <span class="mi">24</span> <span class="p">);</span>
-            <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="nx">src</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span><span class="mi">29</span> <span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;http://www.youtube.com/embed/&#39;</span> <span class="p">)</span> <span class="p">{</span>
-                <span class="nx">videoId</span> <span class="o">=</span> <span class="nx">src</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span> <span class="mi">29</span> <span class="p">);</span>
-            <span class="p">}</span>
-            <span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="nx">src</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span><span class="mi">30</span> <span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;https://www.youtube.com/embed/&#39;</span> <span class="p">)</span> <span class="p">{</span>
-                <span class="nx">videoId</span> <span class="o">=</span> <span class="nx">src</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span> <span class="mi">30</span> <span class="p">);</span>
-            <span class="p">}</span></pre></div>             </td>           </tr>                               <tr id="section-29">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-29">&#182;</a>               </div>               <p>If the ID ends with extra characters remove them</p>             </td>             <td class="code">               <div class="highlight"><pre>            <span class="k">if</span> <span class="p">(</span> <span class="nx">videoId</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;?&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
-                <span class="nx">videoId</span> <span class="o">=</span> <span class="nx">videoId</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">videoId</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;?&#39;</span><span class="p">)</span> <span class="p">);</span>
-            <span class="p">}</span>
-            <span class="k">return</span> <span class="nx">videoId</span><span class="p">;</span>
-        <span class="p">}</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isSrcYouTubeVideo</span><span class="hljs-params">( src )</span> </span>{
+            <span class="hljs-keyword">if</span> ( !src ) {
+                <span class="hljs-keyword">return</span>;
+            }
+            <span class="hljs-keyword">if</span> ( src.indexOf(<span class="hljs-string">'youtube.com/embed/'</span>) !== -<span class="hljs-number">1</span> ) {
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+            }
+        }
 
-        <span class="kd">function</span> <span class="nx">checkInitConditions</span><span class="p">(</span> <span class="nx">e</span> <span class="p">)</span> <span class="p">{</span>
-            <span class="kd">var</span> <span class="nx">$e</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span> <span class="nx">e</span> <span class="p">),</span>
-                <span class="nx">isIframe</span> <span class="o">=</span> <span class="nx">$e</span><span class="p">.</span><span class="nx">is</span><span class="p">(</span><span class="s1">&#39;iframe&#39;</span><span class="p">),</span>
-                <span class="nx">notAlreadyTracked</span> <span class="o">=</span> <span class="o">!</span><span class="nx">$e</span><span class="p">.</span><span class="nx">is</span><span class="p">(</span><span class="s1">&#39;[data-is-findAndTrackYouTubeVideos]&#39;</span><span class="p">),</span>
-                <span class="nx">hasYouTubeSrc</span> <span class="o">=</span> <span class="nx">isSrcYouTubeVideo</span><span class="p">(</span> <span class="nx">$e</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;src&#39;</span><span class="p">)</span> <span class="p">);</span>
-            <span class="k">return</span> <span class="p">(</span> <span class="nx">isIframe</span> <span class="o">&amp;&amp;</span> <span class="nx">notAlreadyTracked</span> <span class="o">&amp;&amp;</span> <span class="nx">hasYouTubeSrc</span> <span class="p">);</span>
-        <span class="p">}</span></pre></div>             </td>           </tr>                               <tr id="section-30">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-30">&#182;</a>               </div>               <p>Loop through each object to see if it meets our init conditions. If
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getYouTubeVideoIdFromSrc</span><span class="hljs-params">( src )</span> </span>{
+            <span class="hljs-keyword">var</span> videoId;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-28">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-28">&#182;</a>
+              </div>
+              <p>The ID comes after ‘/embed/‘</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-keyword">if</span> ( src.substr( <span class="hljs-number">0</span>,<span class="hljs-number">24</span> ) == <span class="hljs-string">'//www.youtube.com/embed/'</span> ) {
+                videoId = src.substr( <span class="hljs-number">24</span> );
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ( src.substr( <span class="hljs-number">0</span>,<span class="hljs-number">29</span> ) == <span class="hljs-string">'http://www.youtube.com/embed/'</span> ) {
+                videoId = src.substr( <span class="hljs-number">29</span> );
+            }
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ( src.substr( <span class="hljs-number">0</span>,<span class="hljs-number">30</span> ) == <span class="hljs-string">'https://www.youtube.com/embed/'</span> ) {
+                videoId = src.substr( <span class="hljs-number">30</span> );
+            }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-29">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-29">&#182;</a>
+              </div>
+              <p>If the ID ends with extra characters remove them</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-keyword">if</span> ( videoId.indexOf(<span class="hljs-string">'?'</span>) &gt; -<span class="hljs-number">1</span> ) {
+                videoId = videoId.substr( <span class="hljs-number">0</span>, videoId.indexOf(<span class="hljs-string">'?'</span>) );
+            }
+            <span class="hljs-keyword">return</span> videoId;
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">checkInitConditions</span><span class="hljs-params">( e )</span> </span>{
+            <span class="hljs-keyword">var</span> $e = $( e ),
+                isIframe = $e.is(<span class="hljs-string">'iframe'</span>),
+                notAlreadyTracked = !$e.is(<span class="hljs-string">'[data-is-findAndTrackYouTubeVideos]'</span>),
+                hasYouTubeSrc = isSrcYouTubeVideo( $e.attr(<span class="hljs-string">'src'</span>) );
+            <span class="hljs-keyword">return</span> ( isIframe &amp;&amp; notAlreadyTracked &amp;&amp; hasYouTubeSrc );
+        }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-30">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-30">&#182;</a>
+              </div>
+              <p>Loop through each object to see if it meets our init conditions. If
 it does then save the info we need for tracking and attach tracking
-events.</p>             </td>             <td class="code">               <div class="highlight"><pre>        <span class="k">if</span> <span class="p">(</span> <span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">findAndTrackYouTubeVideos</span><span class="p">.</span><span class="nx">isIframeApiReady</span> <span class="p">)</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-                <span class="kd">var</span> <span class="nx">$iframe</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span> <span class="k">this</span> <span class="p">),</span>
-                    <span class="nx">video</span> <span class="o">=</span> <span class="p">{};</span></pre></div>             </td>           </tr>                               <tr id="section-31">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-31">&#182;</a>               </div>               <p>Grab the video info we'll need to track it</p>             </td>             <td class="code">               <div class="highlight"><pre>                <span class="k">if</span> <span class="p">(</span> <span class="nx">checkInitConditions</span><span class="p">(</span> <span class="nx">$iframe</span> <span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
-                    <span class="nx">video</span><span class="p">.</span><span class="nx">id</span> <span class="o">=</span> <span class="nx">getYouTubeVideoIdFromSrc</span><span class="p">(</span> <span class="nx">$iframe</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;src&#39;</span><span class="p">)</span> <span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-32">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-32">&#182;</a>               </div>               <p>Saving the title is trickier we need to pull it from the
-YouTube data API</p>             </td>             <td class="code">               <div class="highlight"><pre>                    <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-                        <span class="nx">dataType</span><span class="o">:</span> <span class="s1">&#39;JSON&#39;</span><span class="p">,</span>
-                        <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;https://gdata.youtube.com/feeds/api/videos/&#39;</span> <span class="o">+</span> <span class="nx">video</span><span class="p">.</span><span class="nx">id</span> <span class="o">+</span> <span class="s1">&#39;?v=2&amp;alt=json&#39;</span>
-                    <span class="p">})</span>
-                    <span class="p">.</span><span class="nx">done</span><span class="p">(</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">data</span> <span class="p">)</span> <span class="p">{</span>
-                        <span class="nx">video</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">entry</span><span class="p">.</span><span class="nx">title</span><span class="p">.</span><span class="nx">$t</span><span class="p">;</span>
-                    <span class="p">});</span></pre></div>             </td>           </tr>                               <tr id="section-33">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-33">&#182;</a>               </div>               <p>Flag this element so we know we're tracking it</p>             </td>             <td class="code">               <div class="highlight"><pre>                    <span class="nx">$iframe</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span> <span class="s1">&#39;data-is-findAndTrackYouTubeVideos&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span> <span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-34">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-34">&#182;</a>               </div>               <p>Put the video ID on the iframe as its id attribute</p>             </td>             <td class="code">               <div class="highlight"><pre>                    <span class="nx">$iframe</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="nx">video</span><span class="p">.</span><span class="nx">id</span> <span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-35">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-35">&#182;</a>               </div>               <p>Create a player to attach events to</p>             </td>             <td class="code">               <div class="highlight"><pre>                    <span class="nx">video</span><span class="p">.</span><span class="nx">player</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">YT</span><span class="p">.</span><span class="nx">Player</span><span class="p">(</span> <span class="nx">video</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="p">{</span> <span class="nx">events</span><span class="o">:</span> <span class="p">{</span> <span class="s1">&#39;onStateChange&#39;</span><span class="o">:</span> <span class="nx">onPlayerStateChange</span> <span class="p">}</span> <span class="p">}</span> <span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-36">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-36">&#182;</a>               </div>               <p>Save the video object so the events can reference it</p>             </td>             <td class="code">               <div class="highlight"><pre>                    <span class="k">if</span> <span class="p">(</span> <span class="nx">$</span><span class="p">.</span><span class="nx">inArray</span><span class="p">(</span> <span class="nx">video</span><span class="p">,</span> <span class="nx">videoObjects</span> <span class="o">===</span> <span class="o">-</span><span class="mi">1</span> <span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
-                        <span class="nx">videoObjects</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span> <span class="nx">video</span> <span class="p">);</span>
-                    <span class="p">}</span>
-                <span class="p">}</span>
-            <span class="p">});</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">};</span>
+events.</p>
 
-    <span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">findAndTrackYouTubeVideos</span><span class="p">.</span><span class="nx">isIframeApiReady</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">if</span> ( $.fn.findAndTrackYouTubeVideos.isIframeApiReady ) {
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.each(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">var</span> $iframe = $( <span class="hljs-keyword">this</span> ),
+                    video = {};</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-31">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-31">&#182;</a>
+              </div>
+              <p>Grab the video info we’ll need to track it</p>
 
-<span class="p">}(</span><span class="nx">jQuery</span><span class="p">));</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                <span class="hljs-keyword">if</span> ( checkInitConditions( $iframe ) ) {
+                    video.id = getYouTubeVideoIdFromSrc( $iframe.attr(<span class="hljs-string">'src'</span>) );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-32">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-32">&#182;</a>
+              </div>
+              <p>Saving the title is trickier we need to pull it from the
+YouTube data API</p>
 
-<span class="cm">/**</span>
-<span class="cm"> * ============================================================================</span>
-<span class="cm"> * YouTube API Functions</span>
-<span class="cm"> * Keep this stuff in the global namespace</span>
-<span class="cm"> * ============================================================================</span>
-<span class="cm"> */</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    $.ajax({
+                        dataType: <span class="hljs-string">'JSON'</span>,
+                        url: <span class="hljs-string">'https://gdata.youtube.com/feeds/api/videos/'</span> + video.id + <span class="hljs-string">'?v=2&amp;alt=json'</span>
+                    })
+                    .done( <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( data )</span> </span>{
+                        video.title = data.entry.title.$t;
+                    });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-33">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-33">&#182;</a>
+              </div>
+              <p>Flag this element so we know we’re tracking it</p>
 
-<span class="kd">var</span> <span class="nx">tag</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;script&#39;</span><span class="p">);</span>
-<span class="nx">tag</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s1">&#39;//www.youtube.com/iframe_api&#39;</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">firstScriptTag</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;script&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
-<span class="nx">firstScriptTag</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">tag</span><span class="p">,</span> <span class="nx">firstScriptTag</span><span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-37">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-37">&#182;</a>               </div>               <p>This function gets called by the YouTube Iframe API</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="kd">function</span> <span class="nx">onYouTubeIframeAPIReady</span><span class="p">()</span> <span class="p">{</span>
-    <span class="s1">&#39;use strict&#39;</span><span class="p">;</span></pre></div>             </td>           </tr>                               <tr id="section-38">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-38">&#182;</a>               </div>               <p>We're only calling the plugin when the YouTube Iframe API is ready
-because we need it to create YouTube player objects for tracking.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">findAndTrackYouTubeVideos</span><span class="p">.</span><span class="nx">isIframeApiReady</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;iframe&#39;</span><span class="p">).</span><span class="nx">findAndTrackYouTubeVideos</span><span class="p">();</span>
-<span class="p">}</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    $iframe.attr( <span class="hljs-string">'data-is-findAndTrackYouTubeVideos'</span>, <span class="hljs-string">''</span> );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-34">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-34">&#182;</a>
+              </div>
+              <p>Put the video ID on the iframe as its id attribute</p>
 
-</pre></div>             </td>           </tr>                </tbody>     </table>   </div> </body> </html> 
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    $iframe.attr( <span class="hljs-string">'id'</span>, video.id );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-35">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-35">&#182;</a>
+              </div>
+              <p>Create a player to attach events to</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    video.player = <span class="hljs-keyword">new</span> YT.Player( video.id, { events: { <span class="hljs-string">'onStateChange'</span>: onPlayerStateChange } } );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-36">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-36">&#182;</a>
+              </div>
+              <p>Save the video object so the events can reference it</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                    <span class="hljs-keyword">if</span> ( $.inArray( video, videoObjects === -<span class="hljs-number">1</span> ) ) {
+                        videoObjects.push( video );
+                    }
+                }
+            });
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        }
+    };
+
+    $.fn.findAndTrackYouTubeVideos.isIframeApiReady = <span class="hljs-literal">false</span>;
+
+}(jQuery));
+
+<span class="hljs-comment">/**
+ * ============================================================================
+ * YouTube API Functions
+ * Keep this stuff in the global namespace
+ * ============================================================================
+ */</span>
+
+<span class="hljs-keyword">var</span> tag = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'script'</span>);
+tag.src = <span class="hljs-string">'//www.youtube.com/iframe_api'</span>;
+<span class="hljs-keyword">var</span> firstScriptTag = <span class="hljs-built_in">document</span>.getElementsByTagName(<span class="hljs-string">'script'</span>)[<span class="hljs-number">0</span>];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-37">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-37">&#182;</a>
+              </div>
+              <p>This function gets called by the YouTube Iframe API
+function onYouTubeIframeAPIReady() {
+    ‘use strict’;
+    // We’re only calling the plugin when the YouTube Iframe API is ready
+    // because we need it to create YouTube player objects for tracking.
+    $.fn.findAndTrackYouTubeVideos.isIframeApiReady = true;
+    $(‘iframe’).findAndTrackYouTubeVideos();
+}</p>
+
+            </div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

@@ -1,1 +1,0 @@
-Identifies the federal agency to which the HMDA-reporting institution submits its HMDA data.

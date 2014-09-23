@@ -1,393 +1,1867 @@
-<!DOCTYPE html>  <html> <head>   <title>form.js</title>   <meta http-equiv="content-type" content="text/html; charset=UTF-8">   <link rel="stylesheet" media="all" href="docco.css" /> </head> <body>   <div id="container">     <div id="background"></div>            <div id="jump_to">         Jump To &hellip;         <div id="jump_wrapper">           <div id="jump_page">                                           <a class="source" href="analytics.html">                 analytics.js               </a>                                           <a class="source" href="chart1.html">                 chart1.js               </a>                                           <a class="source" href="chart1_options.html">                 chart1_options.js               </a>                                           <a class="source" href="chart2.html">                 chart2.js               </a>                                           <a class="source" href="chart2_options.html">                 chart2_options.js               </a>                                           <a class="source" href="main.html">                 main.js               </a>                                           <a class="source" href="main.html">                 main.js               </a>                                           <a class="source" href="mobile.html">                 mobile.js               </a>                                           <a class="source" href="app.html">                 app.js               </a>                                           <a class="source" href="dom.html">                 dom.js               </a>                                           <a class="source" href="form.html">                 form.js               </a>                                           <a class="source" href="ie8.html">                 ie8.js               </a>                                           <a class="source" href="observer.html">                 observer.js               </a>                                           <a class="source" href="preview.html">                 preview.js               </a>                                           <a class="source" href="query.html">                 query.js               </a>                                           <a class="source" href="summary-table.html">                 summary-table.js               </a>                                           <a class="source" href="utils.html">                 utils.js               </a>                                           <a class="source" href="home.html">                 home.js               </a>                                           <a class="source" href="template.html">                 template.js               </a>                        </div>         </div>       </div>          <table cellpadding="0" cellspacing="0">       <thead>         <tr>           <th class="docs">             <h1>               form.js             </h1>           </th>           <th class="code">           </th>         </tr>       </thead>       <tbody>                               <tr id="section-1">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-1">&#182;</a>               </div>                            </td>             <td class="code">               <div class="highlight"><pre><span class="kd">var</span> <span class="nx">PDP</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span> <span class="p">(</span> <span class="nx">pdp</span> <span class="p">)</span> <span class="p">{</span>
-
-  <span class="s1">&#39;use strict&#39;</span><span class="p">;</span></pre></div>             </td>           </tr>                               <tr id="section-2">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-2">&#182;</a>               </div>               <h2>The Form Object</h2>
-
-<p>The <code>form</code> object stores stuff specific to the DOM form.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="kd">var</span> <span class="nx">form</span> <span class="o">=</span> <span class="p">{};</span></pre></div>             </td>           </tr>                               <tr id="section-3">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-3">&#182;</a>               </div>               <p>Cache a reference to the form's jQuery object and field sections.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">form</span><span class="p">.</span><span class="nx">$el</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;form&#39;</span><span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-4">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-4">&#182;</a>               </div>               <p>Maximum number of locations a person can search on.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">form</span><span class="p">.</span><span class="nx">maxNumLocations</span> <span class="o">=</span> <span class="mi">15</span><span class="p">;</span></pre></div>             </td>           </tr>                               <tr id="section-5">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-5">&#182;</a>               </div>               <p>Cache a reference to all the filter fields.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">form</span><span class="p">.</span><span class="nx">init</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">$fields</span> <span class="o">=</span> <span class="nx">form</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.field:not(.ignore)&#39;</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nx">_</span><span class="p">.</span><span class="nx">isEmpty</span><span class="p">(</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">getHashParams</span><span class="p">()</span> <span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
-      <span class="nx">pdp</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">setCustom</span><span class="p">(</span> <span class="s1">&#39;User modified (see filters below)&#39;</span> <span class="p">);</span>
-      <span class="nx">pdp</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">selectCustom</span><span class="p">();</span>
-    <span class="p">}</span>
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-6">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-6">&#182;</a>               </div>               <p>Initialize ZeroClipboard on the share button.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">form</span><span class="p">.</span><span class="nx">clip</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ZeroClipboard</span><span class="p">(</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.share.btn&#39;</span><span class="p">),</span> <span class="p">{</span>
-    <span class="nx">moviePath</span><span class="o">:</span> <span class="s1">&#39;static/js/zeroclipboard/ZeroClipboard.swf&#39;</span><span class="p">,</span>
-    <span class="nx">hoverClass</span><span class="o">:</span> <span class="s1">&#39;clipboard-hover&#39;</span>
-  <span class="p">});</span></pre></div>             </td>           </tr>                               <tr id="section-7">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-7">&#182;</a>               </div>               <p>When the share URL has been saved to clipboard, show a tooltip for a few seconds.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">form</span><span class="p">.</span><span class="nx">clip</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span> <span class="s1">&#39;complete&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">client</span><span class="p">,</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
-
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.share_url&#39;</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">(</span><span class="s1">&#39;show&#39;</span><span class="p">);</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.share_url&#39;</span><span class="p">).</span><span class="nx">select</span><span class="p">();</span>
-    <span class="nx">setTimeout</span><span class="p">(</span> <span class="kd">function</span><span class="p">(){</span>
-      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.share_url&#39;</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">(</span><span class="s1">&#39;hide&#39;</span><span class="p">);</span>
-    <span class="p">},</span> <span class="mi">3000</span><span class="p">);</span>
-
-  <span class="p">});</span></pre></div>             </td>           </tr>                               <tr id="section-8">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-8">&#182;</a>               </div>               <p>The <code>hideSections</code> method hides all filter sections (location, applicant, lender, etc.)
-This is used if a filter set other than <code>custom</code> is chosen.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">form</span><span class="p">.</span><span class="nx">hideSections</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.filter:not(.year)&#39;</span><span class="p">).</span><span class="nx">not</span><span class="p">(</span><span class="s1">&#39;.footer&#39;</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;hidden&#39;</span><span class="p">);</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.year .intro&#39;</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;hidden&#39;</span><span class="p">);</span>
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-9">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-9">&#182;</a>               </div>               <p>The <code>showSections</code> method shows all filter sections (location, applicant, lender, etc.)</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">form</span><span class="p">.</span><span class="nx">showSections</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.filter:not(.year)&#39;</span><span class="p">).</span><span class="nx">not</span><span class="p">(</span><span class="s1">&#39;.footer&#39;</span><span class="p">).</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;hidden&#39;</span><span class="p">);</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.year .intro&#39;</span><span class="p">).</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;hidden&#39;</span><span class="p">);</span>
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-10">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-10">&#182;</a>               </div>               <p>The <code>setCustom</code> method modifies the custom suggested filter text.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">form</span><span class="p">.</span><span class="nx">setCustom</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">text</span> <span class="p">)</span> <span class="p">{</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.suggested .custom&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span> <span class="nx">text</span> <span class="p">).</span><span class="nx">parent</span><span class="p">(</span><span class="s1">&#39;select&#39;</span><span class="p">).</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">&#39;liszt:updated&#39;</span><span class="p">);</span>
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-11">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-11">&#182;</a>               </div>               <p>The <code>selectCustom</code> method selects the custom option in the suggested filter dropdown.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">form</span><span class="p">.</span><span class="nx">selectCustom</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#suggested&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="s1">&#39;custom&#39;</span><span class="p">).</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">&#39;liszt:updated&#39;</span><span class="p">);</span>
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-12">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-12">&#182;</a>               </div>               <p>The <code>removeCustom</code> method removes the custom option in the suggested filter dropdown.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">form</span><span class="p">.</span><span class="nx">removeCustom</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.suggested .custom&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">).</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">&#39;liszt:updated&#39;</span><span class="p">);</span>
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-13">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-13">&#182;</a>               </div>               <p>The <code>showFilter</code> method shows all the fields of a given filter section.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">form</span><span class="p">.</span><span class="nx">showFilter</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">el</span> <span class="p">)</span> <span class="p">{</span>
-
-    <span class="kd">var</span> <span class="nx">$el</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span> <span class="nx">el</span> <span class="p">),</span>
-        <span class="nx">$fields</span> <span class="o">=</span> <span class="nx">$el</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.fields&#39;</span><span class="p">),</span>
-        <span class="nx">height</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span> <span class="nx">$fields</span><span class="p">.</span><span class="nx">show</span><span class="p">().</span><span class="nx">height</span><span class="p">(),</span> <span class="mi">10</span> <span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-14">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-14">&#182;</a>               </div>               <p>This is a hack to calculate the height of the DOM element ahead of time so
-there's no irritating jump when it slides open.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">$fields</span><span class="p">.</span><span class="nx">hide</span><span class="p">().</span><span class="nx">css</span><span class="p">(</span> <span class="s1">&#39;height&#39;</span><span class="p">,</span> <span class="mi">0</span> <span class="p">);</span>
-    <span class="nx">$fields</span><span class="p">.</span><span class="nx">show</span><span class="p">().</span><span class="nx">animate</span><span class="p">(</span> <span class="p">{</span><span class="nx">height</span><span class="o">:</span> <span class="nx">height</span><span class="p">},</span> <span class="mi">150</span><span class="p">,</span> <span class="s1">&#39;swing&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span></pre></div>             </td>           </tr>                               <tr id="section-15">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-15">&#182;</a>               </div>               <p>We set height to auto after the animation so that the div can expand 
-if a lot of items in a 'chosen' select widget are chosen.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="nx">$</span><span class="p">(</span> <span class="k">this</span> <span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">&#39;height&#39;</span><span class="p">,</span> <span class="s1">&#39;auto&#39;</span><span class="p">);</span>
-    <span class="p">});</span>
-
-    <span class="nx">$el</span><span class="p">.</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;closed&#39;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span> <span class="p">);</span>
-    <span class="nx">pdp</span><span class="p">.</span><span class="nx">observer</span><span class="p">.</span><span class="nx">emitEvent</span><span class="p">(</span> <span class="s1">&#39;filter:shown&#39;</span><span class="p">,</span> <span class="nx">el</span> <span class="p">);</span>
-
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-16">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-16">&#182;</a>               </div>               <p>The <code>hideFilter</code> method hides all the fields of a given filter section.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">form</span><span class="p">.</span><span class="nx">hideFilter</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">el</span> <span class="p">)</span> <span class="p">{</span>
-
-    <span class="nx">$</span><span class="p">(</span> <span class="nx">el</span> <span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;closed&#39;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;Show this filter section&#39;</span> <span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.fields&#39;</span><span class="p">).</span><span class="nx">slideUp</span><span class="p">(</span> <span class="mi">200</span> <span class="p">);</span>
-    <span class="nx">pdp</span><span class="p">.</span><span class="nx">observer</span><span class="p">.</span><span class="nx">emitEvent</span><span class="p">(</span> <span class="s1">&#39;filter:hidden&#39;</span><span class="p">,</span> <span class="nx">el</span> <span class="p">);</span>
-
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-17">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-17">&#182;</a>               </div>               <p>The <code>checkFilters</code> method checks all the filters for any fields with values
-and expands them if so.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">form</span><span class="p">.</span><span class="nx">checkFilters</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-
-    <span class="nx">pdp</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">$fields</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-
-      <span class="kd">var</span> <span class="nx">$el</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span> <span class="k">this</span> <span class="p">),</span>
-          <span class="nx">$parentFilter</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">parents</span><span class="p">(</span><span class="s1">&#39;.filter.closed&#39;</span><span class="p">);</span>
-
-      <span class="k">if</span> <span class="p">(</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">hasValue</span><span class="p">(</span> <span class="nx">$el</span> <span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">$parentFilter</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
-        <span class="nx">pdp</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">showFilter</span><span class="p">(</span> <span class="nx">$parentFilter</span> <span class="p">);</span>
-      <span class="p">}</span>
-
-    <span class="p">});</span></pre></div>             </td>           </tr>                               <tr id="section-18">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-18">&#182;</a>               </div>               <p>Check if any optional fields needs to be shown.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.field.optional&#39;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-
-      <span class="k">if</span> <span class="p">(</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">hasValue</span><span class="p">(</span> <span class="nx">$</span><span class="p">(</span> <span class="k">this</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">children</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span> <span class="k">this</span> <span class="p">).</span><span class="nx">data</span><span class="p">(</span><span class="s1">&#39;optional&#39;</span><span class="p">).</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">);</span>
-        <span class="nx">_</span><span class="p">(</span> <span class="nx">children</span> <span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span> <span class="nx">child</span> <span class="p">){</span>
-          <span class="nx">pdp</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">toggleOptional</span><span class="p">(</span> <span class="nx">child</span><span class="p">,</span> <span class="s1">&#39;show&#39;</span> <span class="p">);</span>
-        <span class="p">});</span>
-      <span class="p">}</span>
-
-    <span class="p">});</span>
-
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-19">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-19">&#182;</a>               </div>               <p>The <code>checkLocations</code> method checks if any state/msa sections need to be added.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">form</span><span class="p">.</span><span class="nx">checkLocations</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-
-    <span class="kd">var</span> <span class="nx">currentLocations</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="nx">totalLocations</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="nx">currentNum</span> <span class="o">=</span> <span class="p">[];</span></pre></div>             </td>           </tr>                               <tr id="section-20">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-20">&#182;</a>               </div>               <p>Iterate over the param keys and see if any are states or msa's greater than 1.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">_</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span> <span class="nx">_</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">params</span> <span class="p">),</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">param</span> <span class="p">){</span>
-      <span class="nx">currentNum</span> <span class="o">=</span> <span class="nx">param</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/(state_code|msamd)\-(\d+)$/</span><span class="p">);</span>
-      <span class="k">if</span> <span class="p">(</span> <span class="nx">currentNum</span> <span class="o">&amp;&amp;</span> <span class="nx">currentNum</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
-        <span class="nx">totalLocations</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span> <span class="nx">currentNum</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="nx">totalLocations</span> <span class="p">);</span>
-      <span class="p">}</span>
-    <span class="p">});</span></pre></div>             </td>           </tr>                               <tr id="section-21">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-21">&#182;</a>               </div>               <p>Add the appropriate number of state/msa sections, counting up to the total quantity.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="k">while</span> <span class="p">(</span> <span class="nx">currentLocations</span> <span class="o">&lt;</span> <span class="nx">totalLocations</span> <span class="p">)</span> <span class="p">{</span>
-      <span class="nx">currentLocations</span><span class="o">++</span><span class="p">;</span>
-      <span class="nx">form</span><span class="p">.</span><span class="nx">addState</span><span class="p">(</span> <span class="nx">currentLocations</span> <span class="p">);</span>
-    <span class="p">}</span>
-
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-22">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-22">&#182;</a>               </div>               <p>The 'hasValue' method checks if a field has any value selected.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">form</span><span class="p">.</span><span class="nx">hasValue</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">$el</span> <span class="p">)</span> <span class="p">{</span>
-
-    <span class="kd">var</span> <span class="nx">$els</span> <span class="o">=</span> <span class="nx">$el</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;select, input&#39;</span><span class="p">);</span>
-
-    <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nx">$els</span> <span class="p">)</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-    <span class="p">}</span></pre></div>             </td>           </tr>                               <tr id="section-23">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-23">&#182;</a>               </div>               <p>If it's a select element or text box</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="k">if</span> <span class="p">(</span> <span class="nx">$els</span><span class="p">.</span><span class="nx">prop</span><span class="p">(</span><span class="s1">&#39;tagName&#39;</span><span class="p">).</span><span class="nx">toLowerCase</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;select&#39;</span> <span class="o">||</span> <span class="nx">$els</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">)</span> <span class="o">===</span> <span class="s1">&#39;text&#39;</span> <span class="p">)</span> <span class="p">{</span>
-
-      <span class="k">if</span> <span class="p">(</span> <span class="nx">$els</span><span class="p">.</span><span class="nx">val</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="nx">$els</span><span class="p">.</span><span class="nx">val</span><span class="p">().</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span>
-      <span class="p">}</span></pre></div>             </td>           </tr>                               <tr id="section-24">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-24">&#182;</a>               </div>               <p>If it's a checkbox or radio element</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="nx">$els</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">)</span> <span class="o">===</span> <span class="p">(</span> <span class="s1">&#39;checkbox&#39;</span> <span class="o">||</span> <span class="s1">&#39;radio&#39;</span> <span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
-
-      <span class="kd">var</span> <span class="nx">any</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">some</span><span class="p">(</span><span class="nx">$els</span><span class="p">,</span>  <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
-        <span class="k">return</span> <span class="nx">$</span><span class="p">(</span><span class="nx">e</span><span class="p">).</span><span class="nx">prop</span><span class="p">(</span><span class="s1">&#39;checked&#39;</span><span class="p">);</span>
-      <span class="p">});</span>
-
-      <span class="k">return</span> <span class="nx">any</span><span class="p">;</span>
-
-    <span class="p">}</span></pre></div>             </td>           </tr>                               <tr id="section-25">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-25">&#182;</a>               </div>               <p>Return false by default</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-26">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-26">&#182;</a>               </div>               <p>The <code>getField</code> method returns a field's attributes and value(s) when given
-a jQuery object of the field's HTML element.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">form</span><span class="p">.</span><span class="nx">getField</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">$el</span> <span class="p">)</span> <span class="p">{</span>
-
-    <span class="kd">var</span> <span class="nx">tagName</span> <span class="o">=</span> <span class="nx">$el</span><span class="p">.</span><span class="nx">prop</span><span class="p">(</span><span class="s1">&#39;tagName&#39;</span><span class="p">).</span><span class="nx">toLowerCase</span><span class="p">(),</span>
-        <span class="nx">type</span> <span class="o">=</span> <span class="nx">$el</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">),</span>
-        <span class="nx">name</span> <span class="o">=</span> <span class="nx">$el</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span> <span class="o">||</span> <span class="kc">undefined</span><span class="p">,</span>
-        <span class="nx">value</span> <span class="o">=</span> <span class="nx">$el</span><span class="p">.</span><span class="nx">val</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="nx">$el</span><span class="p">.</span><span class="nx">val</span><span class="p">().</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span> <span class="o">!==</span> <span class="o">-</span><span class="mi">1</span> <span class="o">?</span> <span class="nx">$el</span><span class="p">.</span><span class="nx">val</span><span class="p">().</span><span class="nx">replace</span><span class="p">(</span> <span class="sr">/,/g</span><span class="p">,</span> <span class="s1">&#39;&#39;</span> <span class="p">)</span> <span class="o">:</span> <span class="nx">$el</span><span class="p">.</span><span class="nx">val</span><span class="p">(),</span>
-        <span class="nx">field</span> <span class="o">=</span> <span class="p">{},</span>
-        <span class="nx">comparator</span> <span class="o">=</span> <span class="s1">&#39;=&#39;</span><span class="p">;</span></pre></div>             </td>           </tr>                               <tr id="section-27">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-27">&#182;</a>               </div>               <p>If the element has no tag name or type, or it has no <code>value</code>, abort.
-It's either not selected or broken.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="p">(</span> <span class="nx">tagName</span> <span class="o">||</span> <span class="nx">type</span> <span class="p">)</span> <span class="o">||</span> <span class="o">!</span><span class="nx">value</span> <span class="p">)</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-    <span class="p">}</span></pre></div>             </td>           </tr>                               <tr id="section-28">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-28">&#182;</a>               </div>               <p>If it's a radio or checkbox element, abort if it's not selected. Otherwise,
-remove the empty array from the value name (which really only applies to checkboxes).</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="k">if</span> <span class="p">(</span> <span class="nx">type</span> <span class="o">===</span> <span class="s1">&#39;radio&#39;</span> <span class="o">||</span> <span class="nx">type</span> <span class="o">===</span> <span class="s1">&#39;checkbox&#39;</span> <span class="p">)</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nx">$el</span><span class="p">.</span><span class="nx">is</span><span class="p">(</span><span class="s1">&#39;:checked&#39;</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span> <span class="s1">&#39;[]&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span> <span class="p">);</span>
-      <span class="p">}</span>
-    <span class="p">}</span></pre></div>             </td>           </tr>                               <tr id="section-29">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-29">&#182;</a>               </div>               <p>Build and return the field's deets.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">field</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="nx">name</span><span class="o">:</span> <span class="nx">name</span><span class="p">,</span>
-      <span class="nx">tagName</span><span class="o">:</span> <span class="nx">tagName</span><span class="p">,</span>
-      <span class="nx">type</span><span class="o">:</span> <span class="nx">type</span><span class="p">,</span>
-      <span class="nx">values</span><span class="o">:</span> <span class="nx">value</span> <span class="k">instanceof</span> <span class="nb">Array</span> <span class="o">?</span> <span class="nx">value</span> <span class="o">:</span> <span class="p">[</span> <span class="nx">value</span> <span class="p">],</span>
-      <span class="nx">comparator</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">isEmpty</span><span class="p">(</span> <span class="nx">$el</span><span class="p">.</span><span class="nx">data</span><span class="p">(</span><span class="s1">&#39;comparator&#39;</span><span class="p">)</span> <span class="p">)</span> <span class="o">?</span> <span class="s1">&#39;=&#39;</span> <span class="o">:</span> <span class="nx">$el</span><span class="p">.</span><span class="nx">data</span><span class="p">(</span><span class="s1">&#39;comparator&#39;</span><span class="p">)</span>
-    <span class="p">};</span>
-
-    <span class="k">return</span> <span class="nx">field</span><span class="p">;</span>
-
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-30">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-30">&#182;</a>               </div>               <p>The 'getFields' method returns an array of <em>all</em> fields' attributes and values.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">form</span><span class="p">.</span><span class="nx">getFields</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-
-    <span class="kd">var</span> <span class="nx">fields</span> <span class="o">=</span> <span class="p">[],</span>
-        <span class="nx">$fields</span> <span class="o">=</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.param&#39;</span><span class="p">);</span>
-
-    <span class="nx">$fields</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span> <span class="kd">function</span><span class="p">(){</span>
-
-      <span class="kd">var</span> <span class="nx">$this</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span> <span class="k">this</span> <span class="p">),</span>
-          <span class="nx">field</span> <span class="o">=</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">getField</span><span class="p">(</span> <span class="nx">$this</span> <span class="p">);</span>
-
-      <span class="k">if</span> <span class="p">(</span> <span class="nx">field</span> <span class="p">)</span> <span class="p">{</span>
-        <span class="nx">fields</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span> <span class="nx">field</span> <span class="p">);</span>
-      <span class="p">}</span>
-
-    <span class="p">});</span>
-
-    <span class="k">return</span> <span class="nx">fields</span><span class="p">;</span>
-
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-31">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-31">&#182;</a>               </div>               <p>The <code>setField</code> method sets a field's values/options.
-@name = param key of the field (e.g. as<em>of</em>year)</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">form</span><span class="p">.</span><span class="nx">setField</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">name</span> <span class="p">)</span> <span class="p">{</span>
-
-    <span class="kd">var</span> <span class="nx">params</span> <span class="o">=</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">params</span><span class="p">,</span>
-        <span class="nx">field</span> <span class="o">=</span> <span class="nx">params</span><span class="p">[</span> <span class="nx">name</span> <span class="p">];</span>
-
-    <span class="nx">_</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span> <span class="nx">field</span><span class="p">.</span><span class="nx">values</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">val</span> <span class="p">){</span></pre></div>             </td>           </tr>                               <tr id="section-32">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-32">&#182;</a>               </div>               <p>Set radios.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;input[name=&#39;</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span> <span class="s1">&#39;][value=&quot;&#39;</span> <span class="o">+</span> <span class="nx">val</span> <span class="o">+</span> <span class="s1">&#39;&quot;]&#39;</span><span class="p">).</span><span class="nx">prop</span><span class="p">(</span><span class="s1">&#39;checked&#39;</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-33">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-33">&#182;</a>               </div>               <p>Set checkboxes.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;input[name=&#39;</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span> <span class="s1">&#39;\\[\\]][value=&quot;&#39;</span> <span class="o">+</span> <span class="nx">val</span> <span class="o">+</span> <span class="s1">&#39;&quot;]&#39;</span><span class="p">).</span><span class="nx">prop</span><span class="p">(</span><span class="s1">&#39;checked&#39;</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
-
-    <span class="p">});</span></pre></div>             </td>           </tr>                               <tr id="section-34">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-34">&#182;</a>               </div>               <p>Set selects.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;select[name=&#39;</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span> <span class="s1">&#39;]&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span> <span class="nx">field</span><span class="p">.</span><span class="nx">values</span> <span class="p">).</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">&#39;liszt:updated&#39;</span><span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-35">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-35">&#182;</a>               </div>               <p>Set textboxes.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="k">if</span> <span class="p">(</span> <span class="nx">params</span><span class="p">[</span><span class="nx">name</span><span class="p">].</span><span class="nx">comparator</span> <span class="o">!==</span> <span class="s1">&#39;=&#39;</span> <span class="p">)</span> <span class="p">{</span>
-      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;input[type=text][name=&#39;</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span> <span class="s1">&#39;][data-comparator=&quot;&#39;</span> <span class="o">+</span> <span class="nx">params</span><span class="p">[</span><span class="nx">name</span><span class="p">].</span><span class="nx">comparator</span> <span class="o">+</span> <span class="s1">&#39;&quot;]&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span> <span class="nx">field</span><span class="p">.</span><span class="nx">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">);</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;input[type=text][name=&#39;</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span> <span class="s1">&#39;]&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span> <span class="nx">field</span><span class="p">.</span><span class="nx">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">);</span>
-    <span class="p">}</span>
-
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-36">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-36">&#182;</a>               </div>               <p>The <code>setFields</code> method sets all fields' values/options from the <code>query.params</code> hash.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">form</span><span class="p">.</span><span class="nx">setFields</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">options</span> <span class="p">)</span> <span class="p">{</span>
-
-    <span class="kd">var</span> <span class="nx">opts</span> <span class="o">=</span> <span class="nx">options</span> <span class="o">||</span> <span class="p">{},</span>
-        <span class="nx">params</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">params</span> <span class="p">);</span>
-
-    <span class="kd">function</span> <span class="nx">emptyOptions</span><span class="p">(</span> <span class="nx">field</span><span class="p">,</span> <span class="nx">param</span> <span class="p">)</span> <span class="p">{</span></pre></div>             </td>           </tr>                               <tr id="section-37">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-37">&#182;</a>               </div>               <p>Clear radios.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">).</span><span class="nx">prop</span><span class="p">(</span><span class="s1">&#39;checked&#39;</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-38">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-38">&#182;</a>               </div>               <p>Clear selects.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;select&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">).</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">&#39;liszt:updated&#39;</span><span class="p">);</span>
-
-    <span class="p">}</span>
-
-    <span class="nx">_</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span> <span class="nx">params</span><span class="p">,</span> <span class="nx">opts</span><span class="p">.</span><span class="nx">empty</span> <span class="o">?</span> <span class="nx">emptyOptions</span> <span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">setField</span> <span class="p">);</span>
-
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-39">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-39">&#182;</a>               </div>               <p>The <code>updateFieldOptions</code> method fetches and sets a field's options</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">form</span><span class="p">.</span><span class="nx">updateFieldOptions</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">el</span><span class="p">,</span> <span class="nx">dependencies</span> <span class="p">)</span> <span class="p">{</span></pre></div>             </td>           </tr>                               <tr id="section-40">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-40">&#182;</a>               </div>               <p>Abort if this isn't a select field</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="k">if</span> <span class="p">(</span> <span class="nx">$</span><span class="p">(</span><span class="nx">el</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;select&#39;</span><span class="p">).</span><span class="nx">length</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="k">if</span> <span class="p">(</span> <span class="nx">$</span><span class="p">(</span> <span class="nx">el</span> <span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.spinning&#39;</span><span class="p">).</span><span class="nx">length</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
-      <span class="nx">$</span><span class="p">(</span> <span class="nx">el</span> <span class="p">).</span><span class="nx">append</span><span class="p">(</span> <span class="nx">PDP</span><span class="p">.</span><span class="nx">templates</span><span class="p">.</span><span class="nx">spinner</span> <span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="nx">$</span><span class="p">(</span> <span class="nx">el</span> <span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.spinning&#39;</span><span class="p">).</span><span class="nx">show</span><span class="p">();</span></pre></div>             </td>           </tr>                               <tr id="section-41">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-41">&#182;</a>               </div>               <p>Broadcast that an update is starting.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">pdp</span><span class="p">.</span><span class="nx">observer</span><span class="p">.</span><span class="nx">emitEvent</span><span class="p">(</span><span class="s1">&#39;update:started&#39;</span><span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-42">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-42">&#182;</a>               </div>               <p>Remove all current options from field.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="k">this</span><span class="p">.</span><span class="nx">resetField</span><span class="p">(</span> <span class="nx">el</span> <span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-43">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-43">&#182;</a>               </div>               <p>If there's a data-concept attribute, use it, otherwise use the id. This is because
-some fields have weird concept names (e.g. county_name is <a href="https://api.consumerfinance.gov/data/hmda/concept/fips.json">fips</a>)</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="kd">var</span> <span class="nx">concept</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">el</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;select&#39;</span><span class="p">).</span><span class="nx">data</span><span class="p">(</span><span class="s1">&#39;concept&#39;</span><span class="p">)</span> <span class="o">||</span> <span class="nx">$</span><span class="p">(</span><span class="nx">el</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;select&#39;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">),</span>
-        <span class="nx">id</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">el</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;select&#39;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">),</span>
-        <span class="nx">conceptProperty</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">el</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;select&#39;</span><span class="p">).</span><span class="nx">data</span><span class="p">(</span><span class="s1">&#39;concept-property&#39;</span><span class="p">)</span> <span class="o">||</span> <span class="nx">$</span><span class="p">(</span><span class="nx">el</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;select&#39;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">),</span>
-        <span class="nx">conceptFetch</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">fetchFieldOptions</span><span class="p">(</span> <span class="nx">concept</span><span class="p">,</span> <span class="nx">dependencies</span> <span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-44">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-44">&#182;</a>               </div>               <p>Fetch form field options and set fields when that request is fulfilled.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">conceptFetch</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">data</span> <span class="p">)</span> <span class="p">{</span></pre></div>             </td>           </tr>                               <tr id="section-45">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-45">&#182;</a>               </div>               <p>Grab the id of this element's dependency (e.g. state_code), @TODO rework this
-as it's kinda dumb and inefficient.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="kd">var</span> <span class="nx">options</span><span class="p">,</span>
-          <span class="nx">dependency</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span> <span class="s1">&#39;[data-dependent~=&#39;</span> <span class="o">+</span> <span class="nx">id</span> <span class="o">+</span> <span class="s1">&#39;]&#39;</span> <span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span> <span class="sr">/\-[\w^_]+$/</span><span class="p">,</span> <span class="s1">&#39;&#39;</span> <span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-46">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-46">&#182;</a>               </div>               <p>Only return objects from the JSON that match the the id of the depdency.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="kd">function</span> <span class="nx">filterDeps</span><span class="p">(</span> <span class="nx">obj</span> <span class="p">){</span>
-        <span class="k">return</span> <span class="nx">_</span><span class="p">.</span><span class="nx">contains</span><span class="p">(</span> <span class="nx">dependencies</span><span class="p">,</span> <span class="nx">obj</span><span class="p">[</span> <span class="nx">dependency</span> <span class="p">]</span> <span class="p">);</span>
-      <span class="p">}</span></pre></div>             </td>           </tr>                               <tr id="section-47">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-47">&#182;</a>               </div>               <p>Modify the object to fit the underscore template.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="kd">function</span> <span class="nx">mapDeps</span><span class="p">(</span> <span class="nx">obj</span> <span class="p">){</span>
-        <span class="k">return</span> <span class="p">{</span>
-          <span class="nx">label</span><span class="o">:</span> <span class="nx">obj</span><span class="p">[</span> <span class="nx">conceptProperty</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span> <span class="sr">/\-[\w^_]+$/</span><span class="p">,</span> <span class="s1">&#39;&#39;</span> <span class="p">)</span> <span class="p">],</span>
-          <span class="nx">value</span><span class="o">:</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">_id</span>
-        <span class="p">};</span>
-      <span class="p">}</span></pre></div>             </td>           </tr>                               <tr id="section-48">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-48">&#182;</a>               </div>               <p>Modify census tract objects to fit the underscore template (they have a totally different format).</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="kd">function</span> <span class="nx">mapCensus</span><span class="p">(</span> <span class="nx">obj</span> <span class="p">){</span>
-        <span class="k">return</span> <span class="p">{</span>
-          <span class="nx">label</span><span class="o">:</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">census_tract_number</span><span class="p">,</span>
-          <span class="nx">value</span><span class="o">:</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">census_tract_number</span>
-        <span class="p">};</span>
-      <span class="p">}</span></pre></div>             </td>           </tr>                               <tr id="section-49">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-49">&#182;</a>               </div>               <p>Sort all the options into alphabetical order.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="kd">function</span> <span class="nx">sortDeps</span><span class="p">(</span> <span class="nx">obj</span> <span class="p">){</span>
-        <span class="k">return</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">label</span><span class="p">;</span>
-      <span class="p">}</span></pre></div>             </td>           </tr>                               <tr id="section-50">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-50">&#182;</a>               </div>               <p>FIPS is weird, gotta trim the first two digits of the county ids.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="kd">function</span> <span class="nx">cleanCounties</span><span class="p">(</span> <span class="nx">obj</span> <span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="nx">concept</span> <span class="o">===</span> <span class="s1">&#39;fips&#39;</span> <span class="p">)</span> <span class="p">{</span>
-          <span class="k">return</span> <span class="p">{</span>
-            <span class="nx">label</span><span class="o">:</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">label</span><span class="p">,</span>
-            <span class="nx">value</span><span class="o">:</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">toString</span><span class="p">().</span><span class="nx">substr</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-          <span class="p">};</span>
-        <span class="p">}</span>
-        <span class="k">return</span> <span class="nx">obj</span><span class="p">;</span>
-      <span class="p">}</span></pre></div>             </td>           </tr>                               <tr id="section-51">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-51">&#182;</a>               </div>               <p>If any data was returned.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="k">if</span> <span class="p">(</span> <span class="k">typeof</span> <span class="nx">data</span><span class="p">.</span><span class="nx">table</span> <span class="o">!==</span> <span class="s1">&#39;undefined&#39;</span> <span class="p">)</span> <span class="p">{</span>
-
-        <span class="nx">options</span> <span class="o">=</span> <span class="nx">_</span><span class="p">(</span> <span class="nx">data</span><span class="p">.</span><span class="nx">table</span><span class="p">.</span><span class="nx">data</span> <span class="p">).</span><span class="nx">filter</span><span class="p">(</span> <span class="nx">filterDeps</span> <span class="p">).</span><span class="nx">map</span><span class="p">(</span> <span class="nx">mapDeps</span> <span class="p">).</span><span class="nx">map</span><span class="p">(</span> <span class="nx">cleanCounties</span> <span class="p">).</span><span class="nx">sortBy</span><span class="p">(</span> <span class="nx">sortDeps</span> <span class="p">).</span><span class="nx">value</span><span class="p">();</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">setFieldOptions</span><span class="p">(</span> <span class="nx">el</span><span class="p">,</span> <span class="nx">options</span> <span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-52">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-52">&#182;</a>               </div>               <p>Broadcast that the update has ended.</p>             </td>             <td class="code">               <div class="highlight"><pre>        <span class="nx">pdp</span><span class="p">.</span><span class="nx">observer</span><span class="p">.</span><span class="nx">emitEvent</span><span class="p">(</span><span class="s1">&#39;field:updated&#39;</span><span class="p">);</span>
-
-      <span class="p">}</span></pre></div>             </td>           </tr>                               <tr id="section-53">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-53">&#182;</a>               </div>               <p>Census tract concept data is in a different format.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="k">if</span> <span class="p">(</span> <span class="k">typeof</span> <span class="nx">data</span><span class="p">.</span><span class="nx">results</span> <span class="o">!==</span> <span class="s1">&#39;undefined&#39;</span> <span class="p">)</span> <span class="p">{</span>
-
-        <span class="nx">options</span> <span class="o">=</span> <span class="nx">_</span><span class="p">(</span> <span class="nx">data</span><span class="p">.</span><span class="nx">results</span> <span class="p">).</span><span class="nx">map</span><span class="p">(</span> <span class="nx">mapCensus</span> <span class="p">).</span><span class="nx">sortBy</span><span class="p">(</span> <span class="nx">sortDeps</span> <span class="p">).</span><span class="nx">uniq</span><span class="p">(</span> <span class="kc">true</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span> <span class="p">).</span><span class="nx">value</span><span class="p">();</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">setFieldOptions</span><span class="p">(</span> <span class="nx">el</span><span class="p">,</span> <span class="nx">options</span> <span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-54">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-54">&#182;</a>               </div>               <p>Broadcast that the update has ended.</p>             </td>             <td class="code">               <div class="highlight"><pre>        <span class="nx">pdp</span><span class="p">.</span><span class="nx">observer</span><span class="p">.</span><span class="nx">emitEvent</span><span class="p">(</span><span class="s1">&#39;field:updated&#39;</span><span class="p">);</span>
-
-      <span class="p">}</span>
-
-      <span class="nx">pdp</span><span class="p">.</span><span class="nx">observer</span><span class="p">.</span><span class="nx">emitEvent</span><span class="p">(</span><span class="s1">&#39;update:stopped&#39;</span><span class="p">);</span>
-
-      <span class="nx">$</span><span class="p">(</span> <span class="nx">el</span> <span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.spinning&#39;</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
-
-    <span class="p">}.</span><span class="nx">bind</span><span class="p">(</span> <span class="k">this</span> <span class="p">));</span>
-
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-55">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-55">&#182;</a>               </div>               <p>The <code>setFieldOptions</code> populates a select element with supplied options.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">form</span><span class="p">.</span><span class="nx">setFieldOptions</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">el</span><span class="p">,</span> <span class="nx">options</span> <span class="p">)</span> <span class="p">{</span>
-
-    <span class="kd">var</span> <span class="nx">dropdown</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span> <span class="nx">el</span> <span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;select&#39;</span><span class="p">),</span>
-        <span class="nx">template</span> <span class="o">=</span> <span class="nx">PDP</span><span class="p">.</span><span class="nx">templates</span><span class="p">.</span><span class="nx">option</span><span class="p">;</span>
-
-    <span class="nx">_</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span> <span class="nx">options</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">option</span> <span class="p">)</span> <span class="p">{</span>
-      <span class="nx">dropdown</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span> <span class="nx">template</span><span class="p">(</span> <span class="nx">option</span> <span class="p">)</span> <span class="p">);</span>
-    <span class="p">});</span>
-
-    <span class="nx">dropdown</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">&#39;liszt:updated&#39;</span><span class="p">);</span>
-
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-56">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-56">&#182;</a>               </div>               <p>The <code>fetchFieldOptions</code> method returns a promise to a field's options.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">form</span><span class="p">.</span><span class="nx">fetchFieldOptions</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">concept</span><span class="p">,</span> <span class="nx">dependencies</span> <span class="p">)</span> <span class="p">{</span>
-
-    <span class="kd">var</span> <span class="nx">promise</span><span class="p">;</span>
-
-    <span class="k">switch</span><span class="p">(</span> <span class="nx">concept</span> <span class="p">)</span> <span class="p">{</span></pre></div>             </td>           </tr>                               <tr id="section-57">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-57">&#182;</a>               </div>               <p>Use custom static data for fips because the concept data doesn't have state_codes in it.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="k">case</span> <span class="s1">&#39;fips&#39;</span><span class="o">:</span>
-        <span class="nx">promise</span> <span class="o">=</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">(</span> <span class="s1">&#39;static/js/static_data/concept/fips.json&#39;</span> <span class="p">);</span>
-        <span class="k">break</span><span class="p">;</span>
-        </pre></div>             </td>           </tr>                               <tr id="section-58">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-58">&#182;</a>               </div>               <p>Census tract concept data is a format totally different from normal concept data so
-we have to handle it in a special way.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="k">case</span> <span class="s1">&#39;census_tract_number&#39;</span><span class="o">:</span>
-        <span class="nx">promise</span> <span class="o">=</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">(</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">endpoint</span> <span class="o">+</span> <span class="s1">&#39;slice/census_tracts.&#39;</span> <span class="o">+</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">format</span> <span class="o">+</span> <span class="s1">&#39;?&amp;$where=state_code=&#39;</span> <span class="o">+</span> <span class="nx">dependencies</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;&amp;$limit=1000&#39;</span> <span class="p">);</span>
-        <span class="k">break</span><span class="p">;</span></pre></div>             </td>           </tr>                               <tr id="section-59">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-59">&#182;</a>               </div>               <p>Default course for getting concept data.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="k">default</span><span class="o">:</span>
-        <span class="nx">promise</span> <span class="o">=</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">(</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">endpoint</span> <span class="o">+</span> <span class="s1">&#39;concept/&#39;</span> <span class="o">+</span> <span class="nx">concept</span> <span class="o">+</span> <span class="s1">&#39;.&#39;</span> <span class="o">+</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">format</span> <span class="o">+</span> <span class="s1">&#39;?&#39;</span> <span class="p">);</span>
-
-    <span class="p">}</span>
-
-    <span class="nb">window</span><span class="p">.</span><span class="nx">prms</span> <span class="o">=</span> <span class="nx">promise</span><span class="p">;</span>
-
-    <span class="k">return</span> <span class="nx">promise</span><span class="p">;</span>
-
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-60">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-60">&#182;</a>               </div>               <p>The <code>resetField</code> method removes all options from a <code>select</code> element and tells
-<code>chosen</code> to update the element accordingly.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">form</span><span class="p">.</span><span class="nx">resetField</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">el</span> <span class="p">)</span> <span class="p">{</span>
-
-    <span class="nx">$</span><span class="p">(</span> <span class="nx">el</span> <span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;option&#39;</span><span class="p">).</span><span class="nx">remove</span><span class="p">();</span>
-    <span class="nx">$</span><span class="p">(</span> <span class="nx">el</span> <span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;select&#39;</span><span class="p">).</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">&#39;liszt:updated&#39;</span><span class="p">);</span>
-
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-61">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-61">&#182;</a>               </div>               <p>The <code>resetFields</code> method clears all values from all fields and tells
-<code>chosen</code> to update selects accordingly.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">form</span><span class="p">.</span><span class="nx">resetFields</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">reset</span> <span class="p">)</span> <span class="p">{</span>
-
-    <span class="kd">var</span> <span class="nx">$fields</span> <span class="o">=</span> <span class="o">!</span><span class="nx">reset</span> <span class="o">?</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.param:not(#as_of_year)&#39;</span><span class="p">)</span> <span class="o">:</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.param&#39;</span><span class="p">);</span>
-
-    <span class="nx">$fields</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-
-        <span class="kd">var</span> <span class="nx">param</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span> <span class="k">this</span> <span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\[\]/g</span><span class="p">,</span> <span class="s1">&#39;\\[\\]&#39;</span><span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-62">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-62">&#182;</a>               </div>               <p>Clear radios and checkboxes</p>             </td>             <td class="code">               <div class="highlight"><pre>        <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;input[type=radio][name=&#39;</span> <span class="o">+</span> <span class="nx">param</span> <span class="o">+</span> <span class="s1">&#39;]&#39;</span><span class="p">).</span><span class="nx">prop</span><span class="p">(</span><span class="s1">&#39;checked&#39;</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
-        <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;input[type=checkbox][name=&#39;</span> <span class="o">+</span> <span class="nx">param</span> <span class="o">+</span> <span class="s1">&#39;]&#39;</span><span class="p">).</span><span class="nx">prop</span><span class="p">(</span><span class="s1">&#39;checked&#39;</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
-        <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;input[type=text][name=&#39;</span> <span class="o">+</span> <span class="nx">param</span> <span class="o">+</span> <span class="s1">&#39;]&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
-        <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;select[name=&#39;</span> <span class="o">+</span> <span class="nx">param</span> <span class="o">+</span> <span class="s1">&#39;]&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">).</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">&#39;liszt:updated&#39;</span><span class="p">);</span>
-        <span class="nx">form</span><span class="p">.</span><span class="nx">checkMutuallyExclusive</span><span class="p">(</span> <span class="nx">param</span> <span class="p">);</span>
-
-    <span class="p">});</span>
-
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-63">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-63">&#182;</a>               </div>               <p>The <code>disableField</code> method disables a <code>select</code> and its <code>chosen</code> container.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">form</span><span class="p">.</span><span class="nx">disableField</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">el</span> <span class="p">)</span> <span class="p">{</span>
-
-    <span class="kd">var</span> <span class="nx">$el</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span> <span class="nx">el</span> <span class="p">),</span>
-        <span class="nx">$select</span> <span class="o">=</span> <span class="nx">$el</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;select&#39;</span><span class="p">),</span>
-        <span class="nx">placeholder</span><span class="p">;</span>
-
-    <span class="nx">$el</span><span class="p">.</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;disabled&#39;</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;select, input, button&#39;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;disabled&#39;</span><span class="p">,</span> <span class="s1">&#39;disabled&#39;</span><span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-64">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-64">&#182;</a>               </div>               <p>If it's a select element, swap out its placeholder text</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nx">_</span><span class="p">.</span><span class="nx">isEmpty</span><span class="p">(</span> <span class="nx">$select</span> <span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
-      <span class="nx">placeholder</span> <span class="o">=</span> <span class="nx">$select</span><span class="p">.</span><span class="nx">data</span><span class="p">(</span><span class="s1">&#39;pre-placeholder&#39;</span><span class="p">);</span>
-      <span class="nx">$select</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;data-placeholder&#39;</span><span class="p">,</span> <span class="nx">placeholder</span><span class="p">).</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">&#39;liszt:updated&#39;</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="k">return</span> <span class="nx">el</span><span class="p">;</span>
-
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-65">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-65">&#182;</a>               </div>               <p>The <code>enableField</code> method enables a <code>select</code> and its <code>chosen</code> container.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">form</span><span class="p">.</span><span class="nx">enableField</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">el</span> <span class="p">)</span> <span class="p">{</span>
-
-    <span class="kd">var</span> <span class="nx">$el</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span> <span class="nx">el</span> <span class="p">),</span>
-        <span class="nx">$select</span> <span class="o">=</span> <span class="nx">$el</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;select&#39;</span><span class="p">),</span>
-        <span class="nx">placeholder</span><span class="p">;</span>
-
-    <span class="nx">$el</span><span class="p">.</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;disabled&#39;</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;select, input, button&#39;</span><span class="p">).</span><span class="nx">removeAttr</span><span class="p">(</span><span class="s1">&#39;disabled&#39;</span><span class="p">).</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">&#39;liszt:updated&#39;</span><span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-66">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-66">&#182;</a>               </div>               <p>If it's a select element, swap out its placeholder text</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nx">_</span><span class="p">.</span><span class="nx">isEmpty</span><span class="p">(</span> <span class="nx">$select</span> <span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
-      <span class="nx">placeholder</span> <span class="o">=</span> <span class="nx">$select</span><span class="p">.</span><span class="nx">data</span><span class="p">(</span><span class="s1">&#39;post-placeholder&#39;</span><span class="p">);</span>
-      <span class="nx">$select</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;data-placeholder&#39;</span><span class="p">,</span> <span class="nx">placeholder</span><span class="p">).</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">&#39;liszt:updated&#39;</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="k">return</span> <span class="nx">el</span><span class="p">;</span>
-
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-67">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-67">&#182;</a>               </div>               <p>The <code>hideField</code> shows a field.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">form</span><span class="p">.</span><span class="nx">hideField</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">el</span> <span class="p">)</span> <span class="p">{</span>
-    <span class="nx">$</span><span class="p">(</span> <span class="nx">el</span> <span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;hidden&#39;</span><span class="p">);</span>
-    <span class="k">return</span> <span class="nx">el</span><span class="p">;</span>
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-68">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-68">&#182;</a>               </div>               <p>The <code>showField</code> shows a field.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">form</span><span class="p">.</span><span class="nx">showField</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">el</span> <span class="p">)</span> <span class="p">{</span>
-    <span class="nx">$</span><span class="p">(</span> <span class="nx">el</span> <span class="p">).</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;hidden&#39;</span><span class="p">);</span>
-    <span class="k">return</span> <span class="nx">el</span><span class="p">;</span>
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-69">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-69">&#182;</a>               </div>               <p>Check if any filter fields need to be shown or hidden.
-@names = array of param keys (e.g. as<em>of</em>year)</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">form</span><span class="p">.</span><span class="nx">checkDeps</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">names</span> <span class="p">)</span> <span class="p">{</span></pre></div>             </td>           </tr>                               <tr id="section-70">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-70">&#182;</a>               </div>               <p>Ensure names is an array.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">names</span> <span class="o">=</span> <span class="nx">names</span> <span class="k">instanceof</span> <span class="nb">Array</span> <span class="o">?</span> <span class="nx">names</span> <span class="o">:</span> <span class="p">[</span> <span class="nx">names</span> <span class="p">];</span></pre></div>             </td>           </tr>                               <tr id="section-71">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-71">&#182;</a>               </div>               <p>Helper function to emit events</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="kd">function</span> <span class="nx">emit</span><span class="p">(</span> <span class="nx">activity</span><span class="p">,</span> <span class="nx">el</span><span class="p">,</span> <span class="nx">dependencies</span> <span class="p">)</span> <span class="p">{</span>
-      <span class="nx">pdp</span><span class="p">.</span><span class="nx">observer</span><span class="p">.</span><span class="nx">emitEvent</span><span class="p">(</span> <span class="s1">&#39;field:&#39;</span> <span class="o">+</span> <span class="nx">activity</span><span class="p">,</span> <span class="p">[</span><span class="nx">el</span><span class="p">,</span> <span class="nx">dependencies</span><span class="p">]</span> <span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="nx">_</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span> <span class="nx">names</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">name</span> <span class="p">){</span></pre></div>             </td>           </tr>                               <tr id="section-72">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-72">&#182;</a>               </div>               <p>The form field element is passed from the observer.
-Grab the data-dependent attribute on the form field.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="kd">var</span> <span class="nx">$el</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span> <span class="s1">&#39;#&#39;</span> <span class="o">+</span> <span class="nx">name</span> <span class="p">),</span>
-          <span class="nx">dependents</span> <span class="o">=</span> <span class="nx">$el</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;data-dependent&#39;</span><span class="p">),</span>
-          <span class="nx">$dependents</span><span class="p">;</span></pre></div>             </td>           </tr>                               <tr id="section-73">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-73">&#182;</a>               </div>               <p>If the form field does in fact have any dependents.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="k">if</span> <span class="p">(</span> <span class="nx">dependents</span> <span class="p">)</span> <span class="p">{</span></pre></div>             </td>           </tr>                               <tr id="section-74">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-74">&#182;</a>               </div>               <p>Split and join the dependents with hashes if there are multiple 
-so we can reference the appropriate fields by id later.</p>             </td>             <td class="code">               <div class="highlight"><pre>        <span class="nx">dependents</span> <span class="o">=</span> <span class="nx">dependents</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;, #&#39;</span><span class="p">);</span>
-        <span class="nx">$dependents</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span> <span class="s1">&#39;#&#39;</span> <span class="o">+</span> <span class="nx">dependents</span> <span class="p">).</span><span class="nx">parents</span><span class="p">(</span><span class="s1">&#39;.field&#39;</span><span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-75">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-75">&#182;</a>               </div>               <p>If it has a value, show all of its dependent fields. For each
-dependent field, broadcast that is has been shown.</p>             </td>             <td class="code">               <div class="highlight"><pre>        <span class="k">if</span> <span class="p">(</span> <span class="nx">$el</span><span class="p">.</span><span class="nx">val</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span>
-          <span class="nx">_</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span> <span class="nx">$dependents</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">$dependent</span> <span class="p">){</span></pre></div>             </td>           </tr>                               <tr id="section-76">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-76">&#182;</a>               </div>               <p><code>dependency</code> should be an array of the values the parent is supplying.
-For example with states, it might be: [CA, WA, OR]</p>             </td>             <td class="code">               <div class="highlight"><pre>            <span class="kd">var</span> <span class="nx">dependencies</span> <span class="o">=</span> <span class="nx">form</span><span class="p">.</span><span class="nx">getField</span><span class="p">(</span> <span class="nx">$el</span> <span class="p">).</span><span class="nx">values</span><span class="p">;</span>
-            <span class="nx">emit</span><span class="p">(</span> <span class="s1">&#39;shown&#39;</span><span class="p">,</span> <span class="nx">$dependent</span><span class="p">,</span> <span class="nx">dependencies</span> <span class="p">);</span>
-          <span class="p">});</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-          <span class="nx">_</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span> <span class="nx">$dependents</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">$dependent</span> <span class="p">){</span>
-            <span class="nx">emit</span><span class="p">(</span> <span class="s1">&#39;hidden&#39;</span><span class="p">,</span> <span class="nx">$dependent</span><span class="p">,</span> <span class="nx">$el</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span> <span class="p">);</span>
-          <span class="p">});</span>
-        <span class="p">}</span>
-
-      <span class="p">}</span>
-
-    <span class="p">});</span>
-
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-77">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-77">&#182;</a>               </div>               <p>Check if any filter fields are mutally exclusive and need to be shown or hidden.
-@names = array of param keys (e.g. as<em>of</em>year)</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">form</span><span class="p">.</span><span class="nx">checkMutuallyExclusive</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">names</span> <span class="p">)</span> <span class="p">{</span></pre></div>             </td>           </tr>                               <tr id="section-78">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-78">&#182;</a>               </div>               <p>Ensure names is an array.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">names</span> <span class="o">=</span> <span class="nx">names</span> <span class="k">instanceof</span> <span class="nb">Array</span> <span class="o">?</span> <span class="nx">names</span> <span class="o">:</span> <span class="p">[</span> <span class="nx">names</span> <span class="p">];</span>
-
-    <span class="nx">_</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span> <span class="nx">names</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">name</span> <span class="p">){</span>
-
-      <span class="kd">var</span> <span class="nx">$el</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span> <span class="s1">&#39;#&#39;</span> <span class="o">+</span> <span class="nx">name</span> <span class="p">),</span>
-          <span class="nx">$partner</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span> <span class="s1">&#39;.field.&#39;</span> <span class="o">+</span> <span class="nx">$el</span><span class="p">.</span><span class="nx">data</span><span class="p">(</span><span class="s1">&#39;toggle&#39;</span><span class="p">)</span> <span class="p">);</span>
-
-      <span class="k">if</span> <span class="p">(</span> <span class="nx">$partner</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">$el</span><span class="p">.</span><span class="nx">val</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="nx">$el</span><span class="p">.</span><span class="nx">val</span><span class="p">().</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
-        <span class="nx">form</span><span class="p">.</span><span class="nx">disableField</span><span class="p">(</span> <span class="nx">$partner</span> <span class="p">);</span>
-      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="nx">form</span><span class="p">.</span><span class="nx">enableField</span><span class="p">(</span> <span class="nx">$partner</span> <span class="p">);</span>
-      <span class="p">}</span>
-
-    <span class="p">});</span>
-
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-79">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-79">&#182;</a>               </div>               <p>Add a new state/MSA location section thingy.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">form</span><span class="p">.</span><span class="nx">addState</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">num</span> <span class="p">)</span> <span class="p">{</span>
-
-    <span class="kd">var</span> <span class="nx">template</span> <span class="o">=</span> <span class="nx">PDP</span><span class="p">.</span><span class="nx">templates</span><span class="p">.</span><span class="nx">location</span><span class="p">,</span>
-        <span class="nx">tooltipPlacement</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span> <span class="nb">window</span> <span class="p">).</span><span class="nx">width</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">768</span> <span class="o">?</span> <span class="s1">&#39;right&#39;</span> <span class="o">:</span> <span class="s1">&#39;left&#39;</span><span class="p">;</span>
-
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#location-sets&#39;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span> <span class="nx">template</span><span class="p">(</span> <span class="p">{</span> <span class="nx">num</span><span class="o">:</span> <span class="nx">num</span> <span class="p">}</span> <span class="p">)</span> <span class="p">).</span><span class="nx">initTooltips</span><span class="p">({</span> <span class="nx">placement</span><span class="o">:</span> <span class="nx">tooltipPlacement</span><span class="p">,</span> <span class="nx">container</span><span class="o">:</span> <span class="s1">&#39;body&#39;</span> <span class="p">});</span>
-    <span class="nx">$</span><span class="p">(</span> <span class="s1">&#39;.location-set-&#39;</span> <span class="o">+</span> <span class="nx">num</span> <span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;select&#39;</span><span class="p">).</span><span class="nx">chosen</span><span class="p">({</span> <span class="nx">width</span><span class="o">:</span> <span class="s1">&#39;100%&#39;</span><span class="p">,</span> <span class="nx">disable_search_threshold</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span> <span class="nx">allow_single_deselect</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
-
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-80">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-80">&#182;</a>               </div>               <p>Toggle optional sections.
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>form.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="app.html">
+                app.js
+              </a>
+            
+              
+              <a class="source" href="dom.html">
+                dom.js
+              </a>
+            
+              
+              <a class="source" href="form.html">
+                form.js
+              </a>
+            
+              
+              <a class="source" href="ie8.html">
+                ie8.js
+              </a>
+            
+              
+              <a class="source" href="observer.html">
+                observer.js
+              </a>
+            
+              
+              <a class="source" href="preview.html">
+                preview.js
+              </a>
+            
+              
+              <a class="source" href="query.html">
+                query.js
+              </a>
+            
+              
+              <a class="source" href="summary-table.html">
+                summary-table.js
+              </a>
+            
+              
+              <a class="source" href="utils.html">
+                utils.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>form.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> PDP = (<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( pdp )</span> </span>{
+<span class="hljs-pi">
+  'use strict'</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <h2 id="the-form-object">The Form Object</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>The <code>form</code> object stores stuff specific to the DOM form.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-keyword">var</span> form = {};</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Cache a reference to the form’s jQuery object and field sections.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  form.$el = $(<span class="hljs-string">'form'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>Maximum number of locations a person can search on.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  form.maxNumLocations = <span class="hljs-number">15</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>Set the starting number of location sets available.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  form.locationCount = <span class="hljs-number">1</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>Set a counter so group set IDs are unique (never decremented)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  form.locationSetNum = <span class="hljs-number">1</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>Cache a reference to all the filter fields.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  form.init = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">this</span>.$fields = form.$el.find(<span class="hljs-string">'.field:not(.ignore)'</span>);
+    <span class="hljs-keyword">if</span> ( !_.isEmpty( pdp.utils.getHashParams() ) ) {
+      pdp.form.setCustom( <span class="hljs-string">'User modified (see filters below)'</span> );
+      pdp.form.selectCustom();
+    }
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>Initialize ZeroClipboard on the share button.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  form.clip = <span class="hljs-keyword">new</span> ZeroClipboard( $(<span class="hljs-string">'.share.btn'</span>), {
+    moviePath: <span class="hljs-string">'static/js/zeroclipboard/ZeroClipboard.swf'</span>,
+    hoverClass: <span class="hljs-string">'clipboard-hover'</span>
+  });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>When the share URL has been saved to clipboard, show a tooltip for a few seconds.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  form.clip.on( <span class="hljs-string">'complete'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(client, args)</span> </span>{
+
+    $(<span class="hljs-string">'.share_url'</span>).tooltip(<span class="hljs-string">'show'</span>);
+    $(<span class="hljs-string">'.share_url'</span>).select();
+    setTimeout( <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+      $(<span class="hljs-string">'.share_url'</span>).tooltip(<span class="hljs-string">'hide'</span>);
+    }, <span class="hljs-number">3000</span>);
+
+  });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>The <code>hideSections</code> method hides all filter sections (location, applicant, lender, etc.)
+This is used if a filter set other than <code>custom</code> is chosen.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  form.hideSections = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    $(<span class="hljs-string">'.filter:not(.year)'</span>).not(<span class="hljs-string">'.footer'</span>).addClass(<span class="hljs-string">'hidden'</span>);
+    $(<span class="hljs-string">'.year .intro'</span>).addClass(<span class="hljs-string">'hidden'</span>);
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>The <code>showSections</code> method shows all filter sections (location, applicant, lender, etc.)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  form.showSections = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    $(<span class="hljs-string">'.filter:not(.year)'</span>).not(<span class="hljs-string">'.footer'</span>).removeClass(<span class="hljs-string">'hidden'</span>);
+    $(<span class="hljs-string">'.year .intro'</span>).removeClass(<span class="hljs-string">'hidden'</span>);
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p>The <code>setCustom</code> method modifies the custom suggested filter text.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  form.setCustom = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( text )</span> </span>{
+    $(<span class="hljs-string">'.suggested .custom'</span>).text( text ).parent(<span class="hljs-string">'select'</span>).trigger(<span class="hljs-string">'liszt:updated'</span>);
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>The <code>selectCustom</code> method selects the custom option in the suggested filter dropdown.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  form.selectCustom = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+    $(<span class="hljs-string">'#suggested'</span>).val(<span class="hljs-string">'custom'</span>).trigger(<span class="hljs-string">'liszt:updated'</span>);
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p>The <code>removeCustom</code> method removes the custom option in the suggested filter dropdown.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  form.removeCustom = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+    $(<span class="hljs-string">'.suggested .custom'</span>).text(<span class="hljs-string">''</span>).trigger(<span class="hljs-string">'liszt:updated'</span>);
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p>The <code>showFilter</code> method shows all the fields of a given filter section.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  form.showFilter = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( el )</span> </span>{
+
+    <span class="hljs-keyword">var</span> $el = $( el ),
+        $fields = $el.find(<span class="hljs-string">'.fields'</span>),
+        height = <span class="hljs-built_in">Math</span>.max( $fields.show().height(), <span class="hljs-number">10</span> );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-17">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-17">&#182;</a>
+              </div>
+              <p>This is a hack to calculate the height of the DOM element ahead of time so
+there’s no irritating jump when it slides open.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    $fields.hide().css( <span class="hljs-string">'height'</span>, <span class="hljs-number">0</span> );
+    $fields.show().animate( {height: height}, <span class="hljs-number">150</span>, <span class="hljs-string">'swing'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-18">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-18">&#182;</a>
+              </div>
+              <p>We set height to auto after the animation so that the div can expand 
+if a lot of items in a ‘chosen’ select widget are chosen.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      $( <span class="hljs-keyword">this</span> ).css(<span class="hljs-string">'height'</span>, <span class="hljs-string">'auto'</span>);
+    });
+
+    $el.removeClass(<span class="hljs-string">'closed'</span>).attr( <span class="hljs-string">'title'</span>, <span class="hljs-string">''</span> );
+    pdp.observer.emitEvent( <span class="hljs-string">'filter:shown'</span>, el );
+
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-19">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-19">&#182;</a>
+              </div>
+              <p>The <code>hideFilter</code> method hides all the fields of a given filter section.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  form.hideFilter = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( el )</span> </span>{
+
+    $( el ).addClass(<span class="hljs-string">'closed'</span>).attr( <span class="hljs-string">'title'</span>, <span class="hljs-string">'Show this filter section'</span> ).find(<span class="hljs-string">'.fields'</span>).slideUp( <span class="hljs-number">200</span> );
+    pdp.observer.emitEvent( <span class="hljs-string">'filter:hidden'</span>, el );
+
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-20">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-20">&#182;</a>
+              </div>
+              <p>The <code>checkFilters</code> method checks all the filters for any fields with values
+and expands them if so.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  form.checkFilters = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+
+    pdp.form.$fields.each(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+
+      <span class="hljs-keyword">var</span> $el = $( <span class="hljs-keyword">this</span> ),
+          $parentFilter = $(<span class="hljs-keyword">this</span>).parents(<span class="hljs-string">'.filter.closed'</span>);
+
+      <span class="hljs-keyword">if</span> ( pdp.form.hasValue( $el ) &amp;&amp; $parentFilter.length &gt; <span class="hljs-number">0</span> ) {
+        pdp.form.showFilter( $parentFilter );
+      }
+
+    });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-21">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-21">&#182;</a>
+              </div>
+              <p>Check if any optional fields needs to be shown.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    $(<span class="hljs-string">'.field.optional'</span>).each(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+
+      <span class="hljs-keyword">if</span> ( pdp.form.hasValue( $( <span class="hljs-keyword">this</span> ) ) ) {
+        <span class="hljs-keyword">var</span> children = $( <span class="hljs-keyword">this</span> ).data(<span class="hljs-string">'optional'</span>).split(<span class="hljs-string">' '</span>);
+        _( children ).forEach(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( child )</span></span>{
+          pdp.form.toggleOptional( child, <span class="hljs-string">'show'</span> );
+        });
+      }
+
+    });
+
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-22">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-22">&#182;</a>
+              </div>
+              <p>The <code>checkLocations</code> method checks if any state/msa sections need to be added.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  form.checkLocations = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+
+    <span class="hljs-keyword">var</span> currentLocations = <span class="hljs-number">0</span>,
+        totalLocations = <span class="hljs-number">1</span>,
+        currentNum = [];</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-23">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-23">&#182;</a>
+              </div>
+              <p>Iterate over the param keys and see if any are states or msa’s greater than 1.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    _.forEach( _.keys( pdp.query.params ), <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( param )</span></span>{
+      currentNum = param.match(<span class="hljs-regexp">/(state_code|msamd)\-(\d+)$/</span>);
+      <span class="hljs-keyword">if</span> ( currentNum &amp;&amp; currentNum.length &gt; <span class="hljs-number">0</span> ) {
+        totalLocations = <span class="hljs-built_in">Math</span>.max( currentNum[<span class="hljs-number">2</span>], totalLocations );
+      }
+    });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-24">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-24">&#182;</a>
+              </div>
+              <p>Add the appropriate number of state/msa sections, counting up to the total quantity.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">while</span> ( currentLocations &lt; totalLocations ) {
+      currentLocations++;
+      form.addState( currentLocations );
+    }
+
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-25">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-25">&#182;</a>
+              </div>
+              <p>The ‘hasValue’ method checks if a field has any value selected.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  form.hasValue = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( $el )</span> </span>{
+
+    <span class="hljs-keyword">var</span> $els = $el.find(<span class="hljs-string">'select, input'</span>);
+
+    <span class="hljs-keyword">if</span> ( !$els ) {
+      <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-26">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-26">&#182;</a>
+              </div>
+              <p>If it’s a select element or text box</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">if</span> ( $els.prop(<span class="hljs-string">'tagName'</span>).toLowerCase() === <span class="hljs-string">'select'</span> || $els.attr(<span class="hljs-string">'type'</span>) === <span class="hljs-string">'text'</span> ) {
+
+      <span class="hljs-keyword">if</span> ( $els.val() ) {
+        <span class="hljs-keyword">return</span> $els.val().length &gt; <span class="hljs-number">0</span>;
+      }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-27">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-27">&#182;</a>
+              </div>
+              <p>If it’s a checkbox or radio element</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ( $els.attr(<span class="hljs-string">'type'</span>) === ( <span class="hljs-string">'checkbox'</span> || <span class="hljs-string">'radio'</span> ) ) {
+
+      <span class="hljs-keyword">var</span> any = _.some($els,  <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span></span>{
+        <span class="hljs-keyword">return</span> $(e).prop(<span class="hljs-string">'checked'</span>);
+      });
+
+      <span class="hljs-keyword">return</span> any;
+
+    }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-28">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-28">&#182;</a>
+              </div>
+              <p>Return false by default</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-29">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-29">&#182;</a>
+              </div>
+              <p>The <code>getField</code> method returns a field’s attributes and value(s) when given
+a jQuery object of the field’s HTML element.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  form.getField = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( $el )</span> </span>{
+
+    <span class="hljs-keyword">var</span> tagName = $el.prop(<span class="hljs-string">'tagName'</span>).toLowerCase(),
+        type = $el.attr(<span class="hljs-string">'type'</span>),
+        name = $el.attr(<span class="hljs-string">'name'</span>) || <span class="hljs-literal">undefined</span>,
+        value = $el.val() &amp;&amp; $el.val().indexOf(<span class="hljs-string">','</span>) !== -<span class="hljs-number">1</span> ? $el.val().replace( <span class="hljs-regexp">/,/g</span>, <span class="hljs-string">''</span> ) : $el.val(),
+        field = {},
+        comparator = <span class="hljs-string">'='</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-30">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-30">&#182;</a>
+              </div>
+              <p>If the element has no tag name or type, or it has no <code>value</code>, abort.
+It’s either not selected or broken.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">if</span> ( !( tagName || type ) || !value ) {
+      <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-31">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-31">&#182;</a>
+              </div>
+              <p>If it’s a radio or checkbox element, abort if it’s not selected. Otherwise,
+remove the empty array from the value name (which really only applies to checkboxes).</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">if</span> ( type === <span class="hljs-string">'radio'</span> || type === <span class="hljs-string">'checkbox'</span> ) {
+      <span class="hljs-keyword">if</span> ( !$el.is(<span class="hljs-string">':checked'</span>) ) {
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+      } <span class="hljs-keyword">else</span> {
+        name = name.replace( <span class="hljs-string">'[]'</span>, <span class="hljs-string">''</span> );
+      }
+    }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-32">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-32">&#182;</a>
+              </div>
+              <p>Build and return the field’s deets.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    field = {
+      name: name,
+      tagName: tagName,
+      type: type,
+      values: value <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Array</span> ? value : [ value ],
+      comparator: _.isEmpty( $el.data(<span class="hljs-string">'comparator'</span>) ) ? <span class="hljs-string">'='</span> : $el.data(<span class="hljs-string">'comparator'</span>)
+    };
+
+    <span class="hljs-keyword">return</span> field;
+
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-33">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-33">&#182;</a>
+              </div>
+              <p>The ‘getFields’ method returns an array of <em>all</em> fields’ attributes and values.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  form.getFields = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+
+    <span class="hljs-keyword">var</span> fields = [],
+        $fields = pdp.app.$el.find(<span class="hljs-string">'.param'</span>);
+
+    $fields.each( <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+
+      <span class="hljs-keyword">var</span> $<span class="hljs-keyword">this</span> = $( <span class="hljs-keyword">this</span> ),
+          field = pdp.form.getField( $<span class="hljs-keyword">this</span> );
+
+      <span class="hljs-keyword">if</span> ( field ) {
+        fields.push( field );
+      }
+
+    });
+
+    <span class="hljs-keyword">return</span> fields;
+
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-34">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-34">&#182;</a>
+              </div>
+              <p>The <code>setField</code> method sets a field’s values/options.
+@name = param key of the field (e.g. as_of_year)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  form.setField = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( name )</span> </span>{
+
+    <span class="hljs-keyword">var</span> params = pdp.query.params,
+        field = params[ name ];
+
+    _.forEach( field.values, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( val )</span></span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-35">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-35">&#182;</a>
+              </div>
+              <p>Set radios.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      $(<span class="hljs-string">'input[name='</span> + name + <span class="hljs-string">'][value="'</span> + val + <span class="hljs-string">'"]'</span>).prop(<span class="hljs-string">'checked'</span>, <span class="hljs-literal">true</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-36">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-36">&#182;</a>
+              </div>
+              <p>Set checkboxes.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      $(<span class="hljs-string">'input[name='</span> + name + <span class="hljs-string">'\\[\\]][value="'</span> + val + <span class="hljs-string">'"]'</span>).prop(<span class="hljs-string">'checked'</span>, <span class="hljs-literal">true</span>);
+
+    });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-37">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-37">&#182;</a>
+              </div>
+              <p>Set selects.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    $(<span class="hljs-string">'select[name='</span> + name + <span class="hljs-string">']'</span>).val( field.values ).trigger(<span class="hljs-string">'liszt:updated'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-38">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-38">&#182;</a>
+              </div>
+              <p>Set textboxes.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">if</span> ( params[name].comparator !== <span class="hljs-string">'='</span> ) {
+      $(<span class="hljs-string">'input[type=text][name='</span> + name + <span class="hljs-string">'][data-comparator="'</span> + params[name].comparator + <span class="hljs-string">'"]'</span>).val( field.values[<span class="hljs-number">0</span>] );
+    } <span class="hljs-keyword">else</span> {
+      $(<span class="hljs-string">'input[type=text][name='</span> + name + <span class="hljs-string">']'</span>).val( field.values[<span class="hljs-number">0</span>] );
+    }
+
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-39">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-39">&#182;</a>
+              </div>
+              <p>The <code>setFields</code> method sets all fields’ values/options from the <code>query.params</code> hash.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  form.setFields = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( options )</span> </span>{
+
+    <span class="hljs-keyword">var</span> opts = options || {},
+        params = _.keys( pdp.query.params );
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">emptyOptions</span><span class="hljs-params">( field, param )</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-40">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-40">&#182;</a>
+              </div>
+              <p>Clear radios.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      $(<span class="hljs-string">'input'</span>).prop(<span class="hljs-string">'checked'</span>, <span class="hljs-literal">false</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-41">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-41">&#182;</a>
+              </div>
+              <p>Clear selects.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      $(<span class="hljs-string">'select'</span>).val(<span class="hljs-string">''</span>).trigger(<span class="hljs-string">'liszt:updated'</span>);
+
+    }
+
+    _.forEach( params, opts.empty ? emptyOptions : <span class="hljs-keyword">this</span>.setField );
+
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-42">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-42">&#182;</a>
+              </div>
+              <p>The <code>updateFieldOptions</code> method fetches and sets a field’s options</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  form.updateFieldOptions = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( el, dependencies )</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-43">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-43">&#182;</a>
+              </div>
+              <p>Abort if this isn’t a select field</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">if</span> ( $(el).find(<span class="hljs-string">'select'</span>).length &lt; <span class="hljs-number">1</span> ) {
+      <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    }
+
+    <span class="hljs-keyword">if</span> ( $( el ).find(<span class="hljs-string">'.spinning'</span>).length &lt; <span class="hljs-number">1</span> ) {
+      $( el ).append( PDP.templates.spinner );
+    }
+
+    $( el ).find(<span class="hljs-string">'.spinning'</span>).show();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-44">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-44">&#182;</a>
+              </div>
+              <p>Broadcast that an update is starting.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    pdp.observer.emitEvent(<span class="hljs-string">'update:started'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-45">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-45">&#182;</a>
+              </div>
+              <p>Remove all current options from field.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">this</span>.resetField( el );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-46">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-46">&#182;</a>
+              </div>
+              <p>If there’s a data-concept attribute, use it, otherwise use the id. This is because
+some fields have weird concept names (e.g. county_name is <a href="https://api.consumerfinance.gov/data/hmda/concept/fips.json">fips</a>)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">var</span> concept = $(el).find(<span class="hljs-string">'select'</span>).data(<span class="hljs-string">'concept'</span>) || $(el).find(<span class="hljs-string">'select'</span>).attr(<span class="hljs-string">'id'</span>),
+        id = $(el).find(<span class="hljs-string">'select'</span>).attr(<span class="hljs-string">'id'</span>),
+        conceptProperty = $(el).find(<span class="hljs-string">'select'</span>).data(<span class="hljs-string">'concept-property'</span>) || $(el).find(<span class="hljs-string">'select'</span>).attr(<span class="hljs-string">'id'</span>),
+        conceptFetch = <span class="hljs-keyword">this</span>.fetchFieldOptions( concept, dependencies );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-47">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-47">&#182;</a>
+              </div>
+              <p>Fetch form field options and set fields when that request is fulfilled.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    conceptFetch.done( <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( data )</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-48">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-48">&#182;</a>
+              </div>
+              <p>Grab the id of this element’s dependency (e.g. state_code), @TODO rework this
+as it’s kinda dumb and inefficient.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">var</span> options,
+          dependency = $( <span class="hljs-string">'[data-dependent~='</span> + id + <span class="hljs-string">']'</span> ).attr(<span class="hljs-string">'id'</span>).replace( <span class="hljs-regexp">/\-[\w^_]+$/</span>, <span class="hljs-string">''</span> );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-49">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-49">&#182;</a>
+              </div>
+              <p>Only return objects from the JSON that match the the id of the depdency.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">filterDeps</span><span class="hljs-params">( obj )</span></span>{
+        <span class="hljs-keyword">return</span> _.contains( dependencies, obj[ dependency ] );
+      }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-50">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-50">&#182;</a>
+              </div>
+              <p>Modify the object to fit the underscore template.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mapDeps</span><span class="hljs-params">( obj )</span></span>{
+        <span class="hljs-keyword">return</span> {
+          label: obj[ conceptProperty.replace( <span class="hljs-regexp">/\-[\w^_]+$/</span>, <span class="hljs-string">''</span> ) ],
+          value: obj._id
+        };
+      }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-51">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-51">&#182;</a>
+              </div>
+              <p>Modify census tract objects to fit the underscore template (they have a totally different format).</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mapCensus</span><span class="hljs-params">( obj )</span></span>{
+        <span class="hljs-keyword">return</span> {
+          label: obj.census_tract_number,
+          value: obj.census_tract_number
+        };
+      }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-52">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-52">&#182;</a>
+              </div>
+              <p>Sort all the options into alphabetical order.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sortDeps</span><span class="hljs-params">( obj )</span></span>{
+        <span class="hljs-keyword">return</span> obj.label;
+      }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-53">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-53">&#182;</a>
+              </div>
+              <p>FIPS is weird, gotta trim the first two digits of the county ids.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">cleanCounties</span><span class="hljs-params">( obj )</span> </span>{
+        <span class="hljs-keyword">if</span> ( concept === <span class="hljs-string">'fips'</span> ) {
+          <span class="hljs-keyword">return</span> {
+            label: obj.label,
+            value: obj.value.toString().substr(<span class="hljs-number">2</span>,<span class="hljs-number">100</span>)
+          };
+        }
+        <span class="hljs-keyword">return</span> obj;
+      }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-54">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-54">&#182;</a>
+              </div>
+              <p>If any data was returned.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">if</span> ( <span class="hljs-keyword">typeof</span> data.table !== <span class="hljs-string">'undefined'</span> ) {
+
+        options = _( data.table.data ).filter( filterDeps ).map( mapDeps ).map( cleanCounties ).sortBy( sortDeps ).value();
+        <span class="hljs-keyword">this</span>.setFieldOptions( el, options );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-55">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-55">&#182;</a>
+              </div>
+              <p>Broadcast that the update has ended.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        pdp.observer.emitEvent(<span class="hljs-string">'field:updated'</span>);
+
+      }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-56">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-56">&#182;</a>
+              </div>
+              <p>Census tract concept data is in a different format.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">if</span> ( <span class="hljs-keyword">typeof</span> data.results !== <span class="hljs-string">'undefined'</span> ) {
+
+        options = _( data.results ).map( mapCensus ).sortBy( sortDeps ).uniq( <span class="hljs-literal">true</span>, <span class="hljs-string">'value'</span> ).value();
+        <span class="hljs-keyword">this</span>.setFieldOptions( el, options );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-57">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-57">&#182;</a>
+              </div>
+              <p>Broadcast that the update has ended.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        pdp.observer.emitEvent(<span class="hljs-string">'field:updated'</span>);
+
+      }
+
+      pdp.observer.emitEvent(<span class="hljs-string">'update:stopped'</span>);
+
+      $( el ).find(<span class="hljs-string">'.spinning'</span>).hide();
+
+    }.bind( <span class="hljs-keyword">this</span> ));
+
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-58">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-58">&#182;</a>
+              </div>
+              <p>The <code>setFieldOptions</code> populates a select element with supplied options.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  form.setFieldOptions = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( el, options )</span> </span>{
+
+    <span class="hljs-keyword">var</span> dropdown = $( el ).find(<span class="hljs-string">'select'</span>),
+        template = PDP.templates.option;
+
+    _.forEach( options, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( option )</span> </span>{
+      dropdown.append( template( option ) );
+    });
+
+    dropdown.trigger(<span class="hljs-string">'liszt:updated'</span>);
+
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-59">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-59">&#182;</a>
+              </div>
+              <p>The <code>fetchFieldOptions</code> method returns a promise to a field’s options.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  form.fetchFieldOptions = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( concept, dependencies )</span> </span>{
+
+    <span class="hljs-keyword">var</span> promise;
+
+    <span class="hljs-keyword">switch</span>( concept ) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-60">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-60">&#182;</a>
+              </div>
+              <p>Use custom static data for fips because the concept data doesn’t have state_codes in it.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">case</span> <span class="hljs-string">'fips'</span>:
+        promise = pdp.utils.getJSON( <span class="hljs-string">'static/js/static_data/concept/fips.json'</span> );
+        <span class="hljs-keyword">break</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-61">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-61">&#182;</a>
+              </div>
+              <p>Census tract concept data is a format totally different from normal concept data so
+we have to handle it in a special way.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">case</span> <span class="hljs-string">'census_tract_number'</span>:
+        <span class="hljs-keyword">var</span> state = dependencies.pop();
+        promise = pdp.utils.getJSON( pdp.query.endpoint + <span class="hljs-string">'slice/census_tracts.'</span> + pdp.query.format + <span class="hljs-string">'?&amp;$where=state_code='</span> + state + <span class="hljs-string">'+AND+county_code+IN+('</span> + dependencies + <span class="hljs-string">')&amp;$limit=3000'</span> );
+        <span class="hljs-keyword">break</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-62">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-62">&#182;</a>
+              </div>
+              <p>Default course for getting concept data.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">default</span>:
+        promise = pdp.utils.getJSON( pdp.query.endpoint + <span class="hljs-string">'concept/'</span> + concept + <span class="hljs-string">'.'</span> + pdp.query.format + <span class="hljs-string">'?'</span> );
+
+    }
+
+    <span class="hljs-built_in">window</span>.prms = promise;
+
+    <span class="hljs-keyword">return</span> promise;
+
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-63">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-63">&#182;</a>
+              </div>
+              <p>The <code>resetField</code> method removes all options from a <code>select</code> element and tells
+<code>chosen</code> to update the element accordingly.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  form.resetField = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( el )</span> </span>{
+
+    $( el ).find(<span class="hljs-string">'option'</span>).remove();
+    $( el ).find(<span class="hljs-string">'select'</span>).trigger(<span class="hljs-string">'liszt:updated'</span>);
+
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-64">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-64">&#182;</a>
+              </div>
+              <p>The <code>resetFields</code> method clears all values from all fields and tells
+<code>chosen</code> to update selects accordingly.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  form.resetFields = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( reset )</span> </span>{
+
+    <span class="hljs-keyword">var</span> $fields = !reset ? pdp.app.$el.find(<span class="hljs-string">'.param:not(#as_of_year)'</span>) : pdp.app.$el.find(<span class="hljs-string">'.param'</span>);
+
+    $fields.each( <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+
+        <span class="hljs-keyword">var</span> param = $( <span class="hljs-keyword">this</span> ).attr(<span class="hljs-string">'name'</span>).replace(<span class="hljs-regexp">/\[\]/g</span>, <span class="hljs-string">'\\[\\]'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-65">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-65">&#182;</a>
+              </div>
+              <p>Clear radios and checkboxes</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        $(<span class="hljs-string">'input[type=radio][name='</span> + param + <span class="hljs-string">']'</span>).prop(<span class="hljs-string">'checked'</span>, <span class="hljs-literal">false</span>);
+        $(<span class="hljs-string">'input[type=checkbox][name='</span> + param + <span class="hljs-string">']'</span>).prop(<span class="hljs-string">'checked'</span>, <span class="hljs-literal">false</span>);
+        $(<span class="hljs-string">'input[type=text][name='</span> + param + <span class="hljs-string">']'</span>).val(<span class="hljs-string">''</span>);
+        $(<span class="hljs-string">'select[name='</span> + param + <span class="hljs-string">']'</span>).val(<span class="hljs-string">''</span>).trigger(<span class="hljs-string">'liszt:updated'</span>);
+        form.checkMutuallyExclusive( param );
+
+    });
+
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-66">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-66">&#182;</a>
+              </div>
+              <p>The <code>disableField</code> method disables a <code>select</code> and its <code>chosen</code> container.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  form.disableField = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( el )</span> </span>{
+
+    <span class="hljs-keyword">var</span> $el = $( el ),
+        $select = $el.find(<span class="hljs-string">'select'</span>),
+        placeholder;
+
+    $el.addClass(<span class="hljs-string">'disabled'</span>).find(<span class="hljs-string">'select, input, button'</span>).attr(<span class="hljs-string">'disabled'</span>, <span class="hljs-string">'disabled'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-67">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-67">&#182;</a>
+              </div>
+              <p>If it’s a select element, swap out its placeholder text</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">if</span> ( !_.isEmpty( $select ) ) {
+      placeholder = $select.data(<span class="hljs-string">'pre-placeholder'</span>);
+      $select.attr(<span class="hljs-string">'data-placeholder'</span>, placeholder).trigger(<span class="hljs-string">'liszt:updated'</span>);
+    }
+
+    <span class="hljs-keyword">return</span> el;
+
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-68">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-68">&#182;</a>
+              </div>
+              <p>The <code>enableField</code> method enables a <code>select</code> and its <code>chosen</code> container.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  form.enableField = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( el )</span> </span>{
+
+    <span class="hljs-keyword">var</span> $el = $( el ),
+        $select = $el.find(<span class="hljs-string">'select'</span>),
+        placeholder;
+
+    $el.removeClass(<span class="hljs-string">'disabled'</span>).find(<span class="hljs-string">'select, input, button'</span>).removeAttr(<span class="hljs-string">'disabled'</span>).trigger(<span class="hljs-string">'liszt:updated'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-69">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-69">&#182;</a>
+              </div>
+              <p>If it’s a select element, swap out its placeholder text</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">if</span> ( !_.isEmpty( $select ) ) {
+      placeholder = $select.data(<span class="hljs-string">'post-placeholder'</span>);
+      $select.attr(<span class="hljs-string">'data-placeholder'</span>, placeholder).trigger(<span class="hljs-string">'liszt:updated'</span>);
+    }
+
+    <span class="hljs-keyword">return</span> el;
+
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-70">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-70">&#182;</a>
+              </div>
+              <p>The <code>hideField</code> shows a field.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  form.hideField = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( el )</span> </span>{
+    $( el ).addClass(<span class="hljs-string">'hidden'</span>);
+    <span class="hljs-keyword">return</span> el;
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-71">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-71">&#182;</a>
+              </div>
+              <p>The <code>showField</code> shows a field.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  form.showField = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( el )</span> </span>{
+    $( el ).removeClass(<span class="hljs-string">'hidden'</span>);
+    <span class="hljs-keyword">return</span> el;
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-72">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-72">&#182;</a>
+              </div>
+              <p>Check if any filter fields need to be shown or hidden.
+@names = array of param keys (e.g. as_of_year)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  form.checkDeps = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( names )</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-73">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-73">&#182;</a>
+              </div>
+              <p>Ensure names is an array.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    names = names <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Array</span> ? names : [ names ];</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-74">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-74">&#182;</a>
+              </div>
+              <p>Helper function to emit events</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">emit</span><span class="hljs-params">( activity, el, dependencies )</span> </span>{
+      pdp.observer.emitEvent( <span class="hljs-string">'field:'</span> + activity, [el, dependencies] );
+    }
+
+    _.forEach( names, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( name )</span></span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-75">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-75">&#182;</a>
+              </div>
+              <p>The form field element is passed from the observer.
+Grab the data-dependent attribute on the form field.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">var</span> $el = $( <span class="hljs-string">'#'</span> + name ),
+          dependents = $el.attr(<span class="hljs-string">'data-dependent'</span>),
+          $dependents;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-76">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-76">&#182;</a>
+              </div>
+              <p>If the form field does in fact have any dependents.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">if</span> ( dependents ) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-77">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-77">&#182;</a>
+              </div>
+              <p>Split and join the dependents with hashes if there are multiple 
+so we can reference the appropriate fields by id later.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        dependents = dependents.split(<span class="hljs-string">' '</span>).join(<span class="hljs-string">', #'</span>);
+        $dependents = $( <span class="hljs-string">'#'</span> + dependents ).parents(<span class="hljs-string">'.field'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-78">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-78">&#182;</a>
+              </div>
+              <p>If it has a value, show all of its dependent fields. For each
+dependent field, broadcast that is has been shown.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">if</span> ( $el.val() ) {
+          _.forEach( $dependents, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( $dependent )</span></span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-79">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-79">&#182;</a>
+              </div>
+              <p><code>dependency</code> should be an array of the values the parent is supplying.
+For example with states, it might be: [CA, WA, OR]</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-keyword">var</span> dependencies = form.getField( $el ).values;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-80">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-80">&#182;</a>
+              </div>
+              <p>Workaround for passing multiple parameters to census tract:
+If the parent class if county_code, which passes deps to census,
+then get the value already selected in the “state” field and
+add it to the dependencies array</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-keyword">if</span>( $el.parent().parent().hasClass(<span class="hljs-string">'county_code'</span>) ){
+              dependencies.push( $el.closest(<span class="hljs-string">'.fields'</span>).find(<span class="hljs-string">'li.state_code'</span>).find(<span class="hljs-string">'.chzn-done'</span>).val() );
+            }
+            
+            emit( <span class="hljs-string">'shown'</span>, $dependent, dependencies );
+          });
+        } <span class="hljs-keyword">else</span> {
+          _.forEach( $dependents, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( $dependent )</span></span>{
+            emit( <span class="hljs-string">'hidden'</span>, $dependent, $el.attr(<span class="hljs-string">'id'</span>) );
+          });
+        }
+
+      }
+
+    });
+
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-81">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-81">&#182;</a>
+              </div>
+              <p>Check if any filter fields are mutally exclusive and need to be shown or hidden.
+@names = array of param keys (e.g. as_of_year)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  form.checkMutuallyExclusive = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( names )</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-82">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-82">&#182;</a>
+              </div>
+              <p>Ensure names is an array.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    names = names <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Array</span> ? names : [ names ];
+
+    _.forEach( names, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( name )</span></span>{
+
+      <span class="hljs-keyword">var</span> $el = $( <span class="hljs-string">'#'</span> + name ),
+          $partner = $( <span class="hljs-string">'.field.'</span> + $el.data(<span class="hljs-string">'toggle'</span>) );
+
+      <span class="hljs-keyword">if</span> ( $partner.length &gt; <span class="hljs-number">0</span> &amp;&amp; $el.val() &amp;&amp; $el.val().length &gt; <span class="hljs-number">0</span> ) {
+        form.disableField( $partner );
+      } <span class="hljs-keyword">else</span> {
+        form.enableField( $partner );
+      }
+
+    });
+
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-83">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-83">&#182;</a>
+              </div>
+              <p>Add a new state/MSA location section thingy.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  form.addState = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( num )</span> </span>{
+
+    <span class="hljs-keyword">var</span> template = PDP.templates.location,
+        tooltipPlacement = $( <span class="hljs-built_in">window</span> ).width() &gt; <span class="hljs-number">768</span> ? <span class="hljs-string">'right'</span> : <span class="hljs-string">'left'</span>;
+
+    $(<span class="hljs-string">'#location-sets'</span>).append( template( { num: num } ) ).initTooltips({ placement: tooltipPlacement, container: <span class="hljs-string">'body'</span> });
+    $( <span class="hljs-string">'.location-set-'</span> + num ).find(<span class="hljs-string">'select'</span>).chosen({ width: <span class="hljs-string">'100%'</span>, disable_search_threshold: <span class="hljs-number">10</span>, allow_single_deselect: <span class="hljs-literal">true</span> });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-84">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-84">&#182;</a>
+              </div>
+              <p>If a state is removed from a location query, remove its parent set from the DOM / query</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    $(<span class="hljs-string">'#state_code-'</span> + num).on(<span class="hljs-string">'change'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(evt, params)</span></span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-85">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-85">&#182;</a>
+              </div>
+              <p>If no current option is selected, then remove the parent location set</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">var</span> self = $(<span class="hljs-keyword">this</span>);
+      pdp.observer.emitEvent(<span class="hljs-string">'field:changed'</span>);
+      <span class="hljs-keyword">if</span>( <span class="hljs-keyword">typeof</span> params === <span class="hljs-string">'undefined'</span>) {
+        self.closest(<span class="hljs-string">'.location-set'</span>).remove();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-86">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-86">&#182;</a>
+              </div>
+              <p>Decrement locationNumber and show Add-State button after removal</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        pdp.form.locationNumber--;
+        $(<span class="hljs-string">'a#add-state'</span>).show();
+      }
+    });
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-87">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-87">&#182;</a>
+              </div>
+              <p>Toggle optional sections.
 @name = name of field (e.g. co_applicant)
-@action = show/hide</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">form</span><span class="p">.</span><span class="nx">toggleOptional</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">action</span> <span class="p">)</span> <span class="p">{</span>
+@action = show/hide</p>
 
-    <span class="k">if</span> <span class="p">(</span> <span class="nx">action</span> <span class="o">===</span> <span class="s1">&#39;hide&#39;</span> <span class="p">)</span> <span class="p">{</span>
-      <span class="nx">$</span><span class="p">(</span> <span class="s1">&#39;.&#39;</span> <span class="o">+</span> <span class="nx">name</span> <span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;hidden&#39;</span><span class="p">);</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-      <span class="nx">$</span><span class="p">(</span> <span class="s1">&#39;.&#39;</span> <span class="o">+</span> <span class="nx">name</span> <span class="p">).</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;hidden&#39;</span><span class="p">);</span>
-      <span class="nx">$</span><span class="p">(</span> <span class="s1">&#39;.include_&#39;</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span>  <span class="s1">&#39; input[value=1]&#39;</span> <span class="p">).</span><span class="nx">prop</span><span class="p">(</span> <span class="s1">&#39;checked&#39;</span><span class="p">,</span> <span class="kc">true</span> <span class="p">);</span>
-    <span class="p">}</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  form.toggleOptional = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( name, action )</span> </span>{
 
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-81">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-81">&#182;</a>               </div>               <p>The <code>updateShareLink</code> method puts the current share link in the share text box.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">form</span><span class="p">.</span><span class="nx">updateShareLink</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">hash</span> <span class="o">=</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">generateUrlHash</span><span class="p">(),</span>
-        <span class="nx">baseUrl</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/#.*/</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
+    <span class="hljs-keyword">if</span> ( action === <span class="hljs-string">'hide'</span> ) {
+      $( <span class="hljs-string">'.'</span> + name ).addClass(<span class="hljs-string">'hidden'</span>);
+    } <span class="hljs-keyword">else</span> {
+      $( <span class="hljs-string">'.'</span> + name ).removeClass(<span class="hljs-string">'hidden'</span>);
+      $( <span class="hljs-string">'.include_'</span> + name +  <span class="hljs-string">' input[value=1]'</span> ).prop( <span class="hljs-string">'checked'</span>, <span class="hljs-literal">true</span> );
+    }
 
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.share_url&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span> <span class="nx">baseUrl</span> <span class="o">+</span> <span class="s1">&#39;#&#39;</span> <span class="o">+</span> <span class="nx">hash</span> <span class="p">);</span>
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-88">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-88">&#182;</a>
+              </div>
+              <p>The <code>updateShareLink</code> method puts the current share link in the share text box.</p>
 
-  <span class="p">};</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  form.updateShareLink = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">var</span> hash = pdp.query.generateUrlHash(),
+        baseUrl = <span class="hljs-built_in">window</span>.location.href.replace(<span class="hljs-regexp">/#.*/</span>, <span class="hljs-string">''</span>);
 
-  <span class="nx">pdp</span><span class="p">.</span><span class="nx">form</span> <span class="o">=</span> <span class="nx">form</span><span class="p">;</span>
+    $(<span class="hljs-string">'.share_url'</span>).val( baseUrl + <span class="hljs-string">'#'</span> + hash );
 
-  <span class="k">return</span> <span class="nx">pdp</span><span class="p">;</span>
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-89">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-89">&#182;</a>
+              </div>
+              <p>Check to see if a static file has been generated for this API Query string
+If a static file is present in the mapping, re-route the download function
+to a static file as indicated in mapping.js</p>
 
-<span class="p">}(</span> <span class="nx">PDP</span> <span class="o">||</span> <span class="p">{}</span> <span class="p">));</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  form.checkStatic = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( codeStatus, format )</span></span>{
+    <span class="hljs-keyword">var</span> apiCallParams = pdp.query.params,
+    hmdaMapLoc = fileMap.slices[<span class="hljs-number">0</span>].staticFiles;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-90">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-90">&#182;</a>
+              </div>
+              <p>Remove the select parameters that may be there after summary table generation</p>
 
-</pre></div>             </td>           </tr>                </tbody>     </table>   </div> </body> </html> 
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    apiCallParams = pdp.query.removeSelectParam( apiCallParams );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-91">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-91">&#182;</a>
+              </div>
+              <p>Get the exact value for comparison with mapping.js</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    apiCallParams = PDP.query._buildApiQuery(apiCallParams);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-92">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-92">&#182;</a>
+              </div>
+              <p>If a static file exists, then return the appropriate URL</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">if</span>( <span class="hljs-keyword">typeof</span> hmdaMapLoc[apiCallParams] === <span class="hljs-string">'undefined'</span> || <span class="hljs-keyword">typeof</span> hmdaMapLoc[apiCallParams][codeStatus] === <span class="hljs-string">'undefined'</span> || <span class="hljs-keyword">typeof</span> hmdaMapLoc[apiCallParams][codeStatus][format] === <span class="hljs-string">'undefined'</span>){
+      <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-keyword">return</span> fileMap.endpoint + hmdaMapLoc[apiCallParams][codeStatus][format] + <span class="hljs-string">'.zip'</span>;
+    }
+  };
+
+  pdp.form = form;
+
+  <span class="hljs-keyword">return</span> pdp;
+
+}( PDP || {} ));</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

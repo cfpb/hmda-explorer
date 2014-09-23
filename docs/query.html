@@ -1,296 +1,1414 @@
-<!DOCTYPE html>  <html> <head>   <title>query.js</title>   <meta http-equiv="content-type" content="text/html; charset=UTF-8">   <link rel="stylesheet" media="all" href="docco.css" /> </head> <body>   <div id="container">     <div id="background"></div>            <div id="jump_to">         Jump To &hellip;         <div id="jump_wrapper">           <div id="jump_page">                                           <a class="source" href="analytics.html">                 analytics.js               </a>                                           <a class="source" href="chart1.html">                 chart1.js               </a>                                           <a class="source" href="chart1_options.html">                 chart1_options.js               </a>                                           <a class="source" href="chart2.html">                 chart2.js               </a>                                           <a class="source" href="chart2_options.html">                 chart2_options.js               </a>                                           <a class="source" href="main.html">                 main.js               </a>                                           <a class="source" href="main.html">                 main.js               </a>                                           <a class="source" href="mobile.html">                 mobile.js               </a>                                           <a class="source" href="app.html">                 app.js               </a>                                           <a class="source" href="dom.html">                 dom.js               </a>                                           <a class="source" href="form.html">                 form.js               </a>                                           <a class="source" href="ie8.html">                 ie8.js               </a>                                           <a class="source" href="observer.html">                 observer.js               </a>                                           <a class="source" href="preview.html">                 preview.js               </a>                                           <a class="source" href="query.html">                 query.js               </a>                                           <a class="source" href="summary-table.html">                 summary-table.js               </a>                                           <a class="source" href="utils.html">                 utils.js               </a>                                           <a class="source" href="home.html">                 home.js               </a>                                           <a class="source" href="template.html">                 template.js               </a>                        </div>         </div>       </div>          <table cellpadding="0" cellspacing="0">       <thead>         <tr>           <th class="docs">             <h1>               query.js             </h1>           </th>           <th class="code">           </th>         </tr>       </thead>       <tbody>                               <tr id="section-1">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-1">&#182;</a>               </div>                            </td>             <td class="code">               <div class="highlight"><pre><span class="kd">var</span> <span class="nx">PDP</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span> <span class="p">(</span> <span class="nx">pdp</span> <span class="p">)</span> <span class="p">{</span>
+<!DOCTYPE html>
 
-  <span class="s1">&#39;use strict&#39;</span><span class="p">;</span></pre></div>             </td>           </tr>                               <tr id="section-2">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-2">&#182;</a>               </div>               <h2>The Query Object</h2>
-
-<p>The <code>query</code> object is used to cache filter values and store methods 
-that manipulate filter values. </p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="kd">var</span> <span class="nx">query</span> <span class="o">=</span> <span class="p">{};</span></pre></div>             </td>           </tr>                               <tr id="section-3">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-3">&#182;</a>               </div>               <p>If debug is set to true, dummy data will be used.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">query</span><span class="p">.</span><span class="nx">debug</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span></pre></div>             </td>           </tr>                               <tr id="section-4">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-4">&#182;</a>               </div>               <p>Set a default format for the data download.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">query</span><span class="p">.</span><span class="nx">format</span> <span class="o">=</span> <span class="nx">query</span><span class="p">.</span><span class="nx">debug</span> <span class="o">?</span> <span class="s1">&#39;json&#39;</span> <span class="o">:</span> <span class="s1">&#39;jsonp?$callback=&#39;</span><span class="p">;</span></pre></div>             </td>           </tr>                               <tr id="section-5">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-5">&#182;</a>               </div>               <p>Set a default endpoint for AJAX requests.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">query</span><span class="p">.</span><span class="nx">endpoint</span> <span class="o">=</span> <span class="nx">query</span><span class="p">.</span><span class="nx">debug</span> <span class="o">?</span> <span class="s1">&#39;static/js/static_data/&#39;</span> <span class="o">:</span> <span class="s1">&#39;https://api.consumerfinance.gov/data/hmda/&#39;</span><span class="p">;</span></pre></div>             </td>           </tr>                               <tr id="section-6">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-6">&#182;</a>               </div>               <p>Seconds to wait on a response from the API before giving up.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">query</span><span class="p">.</span><span class="nx">secondsToWait</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span></pre></div>             </td>           </tr>                               <tr id="section-7">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-7">&#182;</a>               </div>               <p>Whether or not they want codes in their downloaded file.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">query</span><span class="p">.</span><span class="nx">codes</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span></pre></div>             </td>           </tr>                               <tr id="section-8">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-8">&#182;</a>               </div>               <p><code>query</code>'s <code>params</code> stores filter values.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">query</span><span class="p">.</span><span class="nx">params</span> <span class="o">=</span> <span class="p">{};</span></pre></div>             </td>           </tr>                               <tr id="section-9">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-9">&#182;</a>               </div>               <p>The <code>reset</code> method empties the <code>params</code> object.
-If a preset is passed, some defaults will be set.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">query</span><span class="p">.</span><span class="nx">reset</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">preset</span> <span class="p">)</span> <span class="p">{</span></pre></div>             </td>           </tr>                               <tr id="section-10">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-10">&#182;</a>               </div>               <p>The year is selected independent of the preset, because 
-of this we have to ensure it doesn't get overwritten.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="kd">var</span> <span class="nx">years</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.field.as_of_year select&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">()</span> <span class="o">||</span> <span class="p">[</span><span class="mi">2012</span><span class="p">];</span>
-
-    <span class="k">switch</span><span class="p">(</span> <span class="nx">preset</span> <span class="p">)</span> <span class="p">{</span></pre></div>             </td>           </tr>                               <tr id="section-11">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-11">&#182;</a>               </div>               <p>All originated mortgages.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="k">case</span> <span class="s1">&#39;originations&#39;</span><span class="o">:</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">params</span> <span class="o">=</span> <span class="p">{</span>
-          <span class="nx">as_of_year</span><span class="o">:</span> <span class="p">{</span>
-            <span class="nx">values</span><span class="o">:</span> <span class="nx">years</span><span class="p">,</span>
-            <span class="nx">comparator</span><span class="o">:</span> <span class="s1">&#39;=&#39;</span>
-          <span class="p">},</span>
-          <span class="nx">action_taken</span><span class="o">:</span> <span class="p">{</span>
-            <span class="nx">values</span><span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-            <span class="nx">comparator</span><span class="o">:</span> <span class="s1">&#39;=&#39;</span>
-          <span class="p">}</span>
-        <span class="p">};</span>
-      <span class="k">break</span><span class="p">;</span></pre></div>             </td>           </tr>                               <tr id="section-12">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-12">&#182;</a>               </div>               <p>First-lien, owner-occupied, 1-4 family homes (including manufactured homes).</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="k">case</span> <span class="s1">&#39;common&#39;</span><span class="o">:</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">params</span> <span class="o">=</span> <span class="p">{</span>
-          <span class="nx">as_of_year</span><span class="o">:</span> <span class="p">{</span>
-            <span class="nx">values</span><span class="o">:</span> <span class="nx">years</span><span class="p">,</span>
-            <span class="nx">comparator</span><span class="o">:</span> <span class="s1">&#39;=&#39;</span>
-          <span class="p">},</span>
-          <span class="nx">property_type</span><span class="o">:</span> <span class="p">{</span>
-            <span class="nx">values</span><span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>
-            <span class="nx">comparator</span><span class="o">:</span> <span class="s1">&#39;=&#39;</span>
-          <span class="p">},</span>
-          <span class="nx">owner_occupancy</span><span class="o">:</span> <span class="p">{</span>
-            <span class="nx">values</span><span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-            <span class="nx">comparator</span><span class="o">:</span> <span class="s1">&#39;=&#39;</span>
-          <span class="p">},</span>
-          <span class="nx">lien_status</span><span class="o">:</span> <span class="p">{</span>
-            <span class="nx">values</span><span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-            <span class="nx">comparator</span><span class="o">:</span> <span class="s1">&#39;=&#39;</span>
-          <span class="p">},</span>
-          <span class="nx">action_taken</span><span class="o">:</span> <span class="p">{</span>
-            <span class="nx">values</span><span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-            <span class="nx">comparator</span><span class="o">:</span> <span class="s1">&#39;=&#39;</span>
-          <span class="p">}</span>
-        <span class="p">};</span>
-      <span class="k">break</span><span class="p">;</span></pre></div>             </td>           </tr>                               <tr id="section-13">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-13">&#182;</a>               </div>               <p>Default to an empty state with whatever years they've selected.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="k">case</span> <span class="s1">&#39;all&#39;</span><span class="o">:</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">params</span> <span class="o">=</span> <span class="p">{</span>
-          <span class="nx">as_of_year</span><span class="o">:</span> <span class="p">{</span>
-            <span class="nx">values</span><span class="o">:</span> <span class="nx">years</span><span class="p">,</span>
-            <span class="nx">comparator</span><span class="o">:</span> <span class="s1">&#39;=&#39;</span>
-          <span class="p">}</span>
-        <span class="p">};</span>
-        <span class="k">break</span><span class="p">;</span></pre></div>             </td>           </tr>                               <tr id="section-14">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-14">&#182;</a>               </div>               <p>Empty everything.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="k">case</span> <span class="s1">&#39;clear&#39;</span><span class="o">:</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">params</span> <span class="o">=</span> <span class="p">{};</span>
-        <span class="k">break</span><span class="p">;</span></pre></div>             </td>           </tr>                               <tr id="section-15">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-15">&#182;</a>               </div>               <p>Default to an empty state with whatever years they've selected.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="k">default</span><span class="o">:</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">params</span> <span class="o">=</span> <span class="p">{</span>
-          <span class="nx">as_of_year</span><span class="o">:</span> <span class="p">{</span>
-            <span class="nx">values</span><span class="o">:</span> <span class="p">[</span><span class="mi">2012</span><span class="p">],</span>
-            <span class="nx">comparator</span><span class="o">:</span> <span class="s1">&#39;=&#39;</span>
-          <span class="p">}</span>
-        <span class="p">};</span>
-        <span class="k">break</span><span class="p">;</span>
-
-    <span class="p">}</span>
-
-    <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
-
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-16">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-16">&#182;</a>               </div>               <p>The <code>updateAll</code> method runs through all the filter field values the user has selected
-and stores them in the <code>params</code> object.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">query</span><span class="p">.</span><span class="nx">updateAll</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">options</span> <span class="p">)</span> <span class="p">{</span>
-
-    <span class="kd">var</span> <span class="nx">fields</span><span class="p">,</span>
-        <span class="nx">opts</span> <span class="o">=</span> <span class="nx">options</span> <span class="o">||</span> <span class="p">{};</span>
-
-    <span class="k">switch</span><span class="p">(</span> <span class="nx">opts</span><span class="p">.</span><span class="nx">source</span> <span class="p">)</span> <span class="p">{</span>
-      <span class="k">case</span> <span class="s1">&#39;url&#39;</span><span class="o">:</span>
-        <span class="nx">fields</span> <span class="o">=</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">getUrlValues</span><span class="p">();</span>
-        <span class="k">break</span><span class="p">;</span></pre></div>             </td>           </tr>                               <tr id="section-17">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-17">&#182;</a>               </div>               <p>State is stored in a cookie. Removing this functionality for now because
-it's confusing the UX team. I'd rather work on other stuff than explain 
-to them how this works. Winter is coming.
-case 'session':
-  fields = pdp.query.getCookie();
-  break;</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="k">default</span><span class="o">:</span>
-        <span class="nx">fields</span> <span class="o">=</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">getFields</span><span class="p">();</span>
-    <span class="p">}</span>
-
-    <span class="k">this</span><span class="p">.</span><span class="nx">reset</span><span class="p">(</span><span class="s1">&#39;clear&#39;</span><span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-18">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-18">&#182;</a>               </div>               <p>Iterate over all the filter field values and push them into <code>query.params</code>.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="kd">function</span> <span class="nx">_processField</span><span class="p">(</span> <span class="nx">field</span> <span class="p">)</span> <span class="p">{</span>
-
-      <span class="k">if</span> <span class="p">(</span> <span class="nx">field</span><span class="p">.</span><span class="nx">name</span> <span class="o">&amp;&amp;</span> <span class="nx">field</span><span class="p">.</span><span class="nx">values</span> <span class="p">)</span> <span class="p">{</span></pre></div>             </td>           </tr>                               <tr id="section-19">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-19">&#182;</a>               </div>               <p>Initalize an empty param object if need be.</p>             </td>             <td class="code">               <div class="highlight"><pre>        <span class="k">if</span> <span class="p">(</span> <span class="k">typeof</span> <span class="nx">query</span><span class="p">.</span><span class="nx">params</span><span class="p">[</span> <span class="nx">field</span><span class="p">.</span><span class="nx">name</span> <span class="p">]</span> <span class="o">===</span> <span class="s1">&#39;undefined&#39;</span> <span class="p">)</span> <span class="p">{</span>
-          <span class="nx">query</span><span class="p">.</span><span class="nx">params</span><span class="p">[</span> <span class="nx">field</span><span class="p">.</span><span class="nx">name</span> <span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="nx">values</span><span class="o">:</span> <span class="p">[],</span>
-            <span class="nx">comparator</span><span class="o">:</span> <span class="s1">&#39;=&#39;</span>
-          <span class="p">};</span>
-        <span class="p">}</span></pre></div>             </td>           </tr>                               <tr id="section-20">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-20">&#182;</a>               </div>               <p>If the value is a string from a text box we don't want to iterate 
-over it because it will be split up the characters.</p>             </td>             <td class="code">               <div class="highlight"><pre>        <span class="k">if</span> <span class="p">(</span> <span class="nx">field</span><span class="p">.</span><span class="nx">type</span> <span class="o">===</span> <span class="s1">&#39;text&#39;</span> <span class="p">)</span> <span class="p">{</span>
-          <span class="nx">query</span><span class="p">.</span><span class="nx">params</span><span class="p">[</span> <span class="nx">field</span><span class="p">.</span><span class="nx">name</span> <span class="p">].</span><span class="nx">values</span> <span class="o">=</span> <span class="p">[</span> <span class="nx">field</span><span class="p">.</span><span class="nx">values</span> <span class="p">];</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-          <span class="nx">_</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span> <span class="nx">field</span><span class="p">.</span><span class="nx">values</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">val</span><span class="p">,</span> <span class="nx">name</span> <span class="p">){</span>
-
-            <span class="kd">var</span> <span class="nx">values</span> <span class="o">=</span> <span class="nx">query</span><span class="p">.</span><span class="nx">params</span><span class="p">[</span> <span class="nx">field</span><span class="p">.</span><span class="nx">name</span> <span class="p">].</span><span class="nx">values</span><span class="p">;</span></pre></div>             </td>           </tr>                               <tr id="section-21">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-21">&#182;</a>               </div>               <p>Only push the value if it's not already in there.</p>             </td>             <td class="code">               <div class="highlight"><pre>            <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nx">_</span><span class="p">.</span><span class="nx">contains</span><span class="p">(</span> <span class="nx">values</span><span class="p">,</span> <span class="nx">val</span> <span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
-              <span class="nx">values</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span> <span class="nx">val</span> <span class="p">);</span>
-            <span class="p">}</span>
-
-          <span class="p">});</span>
-        <span class="p">}</span>
-
-        <span class="nx">query</span><span class="p">.</span><span class="nx">params</span><span class="p">[</span> <span class="nx">field</span><span class="p">.</span><span class="nx">name</span> <span class="p">].</span><span class="nx">comparator</span> <span class="o">=</span> <span class="nx">field</span><span class="p">.</span><span class="nx">comparator</span><span class="p">;</span>
-
-      <span class="p">}</span>
-
-    <span class="p">}</span>
-
-    <span class="nx">_</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span> <span class="nx">fields</span><span class="p">,</span> <span class="nx">_processField</span> <span class="p">);</span>
-
-    <span class="nx">pdp</span><span class="p">.</span><span class="nx">observer</span><span class="p">.</span><span class="nx">emitEvent</span><span class="p">(</span> <span class="s1">&#39;params:updated&#39;</span> <span class="p">);</span>
-
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-22">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-22">&#182;</a>               </div>               <p>The <code>setCookie</code> method stores the param object in a cookie.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">query</span><span class="p">.</span><span class="nx">setCookie</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-
-    <span class="nx">$</span><span class="p">.</span><span class="nx">cookie</span><span class="p">(</span> <span class="s1">&#39;_hmda&#39;</span><span class="p">,</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">getFields</span><span class="p">(),</span> <span class="p">{</span> <span class="nx">expires</span><span class="o">:</span> <span class="mi">1</span> <span class="p">}</span> <span class="p">);</span>
-
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-23">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-23">&#182;</a>               </div>               <p>The <code>getCookie</code> method retrives the param object from a cookie.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">query</span><span class="p">.</span><span class="nx">getCookie</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-
-    <span class="k">return</span> <span class="nx">$</span><span class="p">.</span><span class="nx">cookie</span><span class="p">(</span> <span class="s1">&#39;_hmda&#39;</span> <span class="p">);</span>
-
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-24">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-24">&#182;</a>               </div>               <p>The <code>generateUrlHash</code> method builds and returns a URL hash from <code>query</code>'s <code>params</code>.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">query</span><span class="p">.</span><span class="nx">generateUrlHash</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">hash</span><span class="p">,</span>
-        <span class="nx">hashParams</span> <span class="o">=</span> <span class="p">[];</span></pre></div>             </td>           </tr>                               <tr id="section-25">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-25">&#182;</a>               </div>               <p>Loop through params, stringify them and push them into the temp array.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="kd">function</span> <span class="nx">buildHashParam</span><span class="p">(</span> <span class="nx">param</span><span class="p">,</span> <span class="nx">name</span> <span class="p">)</span> <span class="p">{</span>
-
-      <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nx">param</span><span class="p">.</span><span class="nx">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span><span class="p">;</span>
-      <span class="p">}</span></pre></div>             </td>           </tr>                               <tr id="section-26">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-26">&#182;</a>               </div>               <p>If it's not a number, add quotes around the params.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="nx">hashParams</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span> <span class="nx">name</span> <span class="o">+</span> <span class="nx">param</span><span class="p">.</span><span class="nx">comparator</span> <span class="o">+</span> <span class="nx">param</span><span class="p">.</span><span class="nx">values</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span> <span class="p">);</span>
-
-    <span class="p">}</span>
-    <span class="nx">_</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span> <span class="nx">query</span><span class="p">.</span><span class="nx">params</span><span class="p">,</span> <span class="nx">buildHashParam</span> <span class="p">);</span>
-
-    <span class="nx">hash</span> <span class="o">=</span> <span class="s1">&#39;!/&#39;</span> <span class="o">+</span> <span class="nx">hashParams</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;&amp;&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&amp;section=&#39;</span> <span class="o">+</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">currentSection</span><span class="p">;</span>
-    <span class="k">return</span> <span class="nx">hash</span><span class="p">;</span>
-
-  <span class="p">};</span>
-  
-  <span class="nx">query</span><span class="p">.</span><span class="nx">removeSelectParam</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">params</span><span class="p">)</span> <span class="p">{</span></pre></div>             </td>           </tr>                               <tr id="section-27">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-27">&#182;</a>               </div>               <p>using a copy of the params means that the select obj
-is still available on query.params for share url generation</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="kd">var</span> <span class="nx">paramsCopy</span> <span class="o">=</span> <span class="nx">$</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span> <span class="p">{},</span> <span class="nx">params</span><span class="p">);</span>
-    <span class="k">try</span> <span class="p">{</span>
-      <span class="k">delete</span> <span class="nx">paramsCopy</span><span class="p">.</span><span class="nx">clauses</span><span class="p">.</span><span class="nx">where</span><span class="p">.</span><span class="nx">select</span><span class="p">;</span>
-    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span></pre></div>             </td>           </tr>                               <tr id="section-28">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-28">&#182;</a>               </div>               <p>nested property doesn't exist</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="p">}</span>
-    <span class="k">delete</span> <span class="nx">paramsCopy</span><span class="p">.</span><span class="nx">select</span><span class="p">;</span>
-    <span class="k">return</span> <span class="nx">paramsCopy</span><span class="p">;</span>
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-29">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-29">&#182;</a>               </div>               <p>The <code>generateApiUrl</code> method builds and returns a Qu URL from <code>query</code>'s <code>params</code>.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">query</span><span class="p">.</span><span class="nx">generateApiUrl</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">format</span><span class="p">,</span> <span class="nx">codes</span><span class="p">,</span> <span class="nx">params</span> <span class="p">)</span> <span class="p">{</span>
+<html>
+<head>
+  <title>query.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
     
-    <span class="kd">var</span> <span class="nx">url</span><span class="p">,</span>
-        <span class="nx">apiCallParams</span> <span class="o">=</span> <span class="nx">params</span> <span class="o">||</span> <span class="k">this</span><span class="p">.</span><span class="nx">params</span><span class="p">,</span>
-        <span class="nx">showCodes</span> <span class="o">=</span> <span class="nx">codes</span> <span class="o">||</span> <span class="k">this</span><span class="p">.</span><span class="nx">codes</span><span class="p">,</span>
-        <span class="nx">downloadFormat</span> <span class="o">=</span> <span class="nx">format</span> <span class="o">||</span> <span class="k">this</span><span class="p">.</span><span class="nx">format</span><span class="p">;</span></pre></div>             </td>           </tr>                               <tr id="section-30">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-30">&#182;</a>               </div>               <p>remove 'select' from params so it won't be added to where clause </p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">apiCallParams</span> <span class="o">=</span> <span class="nx">query</span><span class="p">.</span><span class="nx">removeSelectParam</span><span class="p">(</span><span class="nx">apiCallParams</span><span class="p">);</span>
-    </pre></div>             </td>           </tr>                               <tr id="section-31">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-31">&#182;</a>               </div>               <p>Set a base url to append params to</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">url</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">endpoint</span> <span class="o">+</span> <span class="s1">&#39;slice/hmda_lar.&#39;</span> <span class="o">+</span> <span class="nx">downloadFormat</span> <span class="o">+</span> <span class="s1">&#39;?&#39;</span><span class="p">;</span>
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="app.html">
+                app.js
+              </a>
+            
+              
+              <a class="source" href="dom.html">
+                dom.js
+              </a>
+            
+              
+              <a class="source" href="form.html">
+                form.js
+              </a>
+            
+              
+              <a class="source" href="ie8.html">
+                ie8.js
+              </a>
+            
+              
+              <a class="source" href="observer.html">
+                observer.js
+              </a>
+            
+              
+              <a class="source" href="preview.html">
+                preview.js
+              </a>
+            
+              
+              <a class="source" href="query.html">
+                query.js
+              </a>
+            
+              
+              <a class="source" href="summary-table.html">
+                summary-table.js
+              </a>
+            
+              
+              <a class="source" href="utils.html">
+                utils.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>query.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> PDP = (<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( pdp )</span> </span>{
+<span class="hljs-pi">
+  'use strict'</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <h2 id="the-query-object">The Query Object</h2>
 
-    <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nx">showCodes</span> <span class="p">)</span> <span class="p">{</span>
-      <span class="nx">apiCallParams</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="nx">clauses</span><span class="o">:</span> <span class="p">{</span>
-          <span class="nx">where</span><span class="o">:</span> <span class="nx">apiCallParams</span><span class="p">,</span>
-          <span class="nx">select</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;action_taken_name&#39;</span><span class="p">,</span><span class="s1">&#39;agency_abbr&#39;</span><span class="p">,</span><span class="s1">&#39;agency_name&#39;</span><span class="p">,</span><span class="s1">&#39;applicant_ethnicity_name&#39;</span><span class="p">,</span><span class="s1">&#39;applicant_race_name_1&#39;</span><span class="p">,</span><span class="s1">&#39;applicant_race_name_2&#39;</span><span class="p">,</span><span class="s1">&#39;applicant_race_name_3&#39;</span><span class="p">,</span><span class="s1">&#39;applicant_race_name_4&#39;</span><span class="p">,</span><span class="s1">&#39;applicant_race_name_5&#39;</span><span class="p">,</span><span class="s1">&#39;applicant_sex_name&#39;</span><span class="p">,</span><span class="s1">&#39;application_date_indicator&#39;</span><span class="p">,</span><span class="s1">&#39;as_of_year&#39;</span><span class="p">,</span><span class="s1">&#39;census_tract_number&#39;</span><span class="p">,</span><span class="s1">&#39;co_applicant_ethnicity_name&#39;</span><span class="p">,</span><span class="s1">&#39;co_applicant_race_name_1&#39;</span><span class="p">,</span><span class="s1">&#39;co_applicant_race_name_2&#39;</span><span class="p">,</span><span class="s1">&#39;co_applicant_race_name_3&#39;</span><span class="p">,</span><span class="s1">&#39;co_applicant_race_name_4&#39;</span><span class="p">,</span><span class="s1">&#39;co_applicant_race_name_5&#39;</span><span class="p">,</span><span class="s1">&#39;co_applicant_sex_name&#39;</span><span class="p">,</span><span class="s1">&#39;county_name&#39;</span><span class="p">,</span><span class="s1">&#39;denial_reason_name_1&#39;</span><span class="p">,</span><span class="s1">&#39;denial_reason_name_2&#39;</span><span class="p">,</span><span class="s1">&#39;denial_reason_name_3&#39;</span><span class="p">,</span><span class="s1">&#39;edit_status_name&#39;</span><span class="p">,</span><span class="s1">&#39;hoepa_status_name&#39;</span><span class="p">,</span><span class="s1">&#39;lien_status_name&#39;</span><span class="p">,</span><span class="s1">&#39;loan_purpose_name&#39;</span><span class="p">,</span><span class="s1">&#39;loan_type_name&#39;</span><span class="p">,</span><span class="s1">&#39;msamd_name&#39;</span><span class="p">,</span><span class="s1">&#39;owner_occupancy_name&#39;</span><span class="p">,</span><span class="s1">&#39;preapproval_name&#39;</span><span class="p">,</span><span class="s1">&#39;property_type_name&#39;</span><span class="p">,</span><span class="s1">&#39;purchaser_type_name&#39;</span><span class="p">,</span><span class="s1">&#39;respondent_id&#39;</span><span class="p">,</span><span class="s1">&#39;sequence_number&#39;</span><span class="p">,</span><span class="s1">&#39;state_abbr&#39;</span><span class="p">,</span><span class="s1">&#39;state_name&#39;</span><span class="p">,</span><span class="s1">&#39;applicant_income_000s&#39;</span><span class="p">,</span><span class="s1">&#39;hud_median_family_income&#39;</span><span class="p">,</span><span class="s1">&#39;loan_amount_000s&#39;</span><span class="p">,</span><span class="s1">&#39;number_of_1_to_4_family_units&#39;</span><span class="p">,</span><span class="s1">&#39;number_of_owner_occupied_units&#39;</span><span class="p">,</span><span class="s1">&#39;minority_population&#39;</span><span class="p">,</span><span class="s1">&#39;population&#39;</span><span class="p">,</span><span class="s1">&#39;rate_spread&#39;</span><span class="p">,</span><span class="s1">&#39;tract_to_msamd_income&#39;</span><span class="p">]</span>
-        <span class="p">}</span>
-      <span class="p">};</span>
-    <span class="p">}</span></pre></div>             </td>           </tr>                               <tr id="section-32">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-32">&#182;</a>               </div>               <p>fetch, compile queries</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">url</span> <span class="o">+=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_buildApiQuery</span><span class="p">(</span> <span class="nx">apiCallParams</span> <span class="p">);</span>
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>The <code>query</code> object is used to cache filter values and store methods 
+that manipulate filter values. </p>
 
-    <span class="k">return</span> <span class="nx">url</span><span class="p">;</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-keyword">var</span> query = {};</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>If debug is set to true, dummy data will be used.</p>
 
-  <span class="p">};</span>
-  </pre></div>             </td>           </tr>                               <tr id="section-33">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-33">&#182;</a>               </div>               <p>builds the query string to append to api url
-arg: params, object. if you only need a 'where' clause, passing in
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  query.debug = <span class="hljs-literal">false</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>Set a default format for the data download.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  query.format = query.debug ? <span class="hljs-string">'json'</span> : <span class="hljs-string">'jsonp?$callback='</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>Set a default endpoint for AJAX requests.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  query.endpoint = query.debug ? <span class="hljs-string">'static/js/static_data/'</span> : <span class="hljs-string">'https://api.consumerfinance.gov/data/hmda/'</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>Seconds to wait on a response from the API before giving up.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  query.secondsToWait = <span class="hljs-number">300</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>Whether or not they want codes in their downloaded file.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  query.codes = <span class="hljs-literal">false</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p><code>query</code>‘s <code>params</code> stores filter values.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  query.params = {};</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>The <code>reset</code> method empties the <code>params</code> object.
+If a preset is passed, some defaults will be set.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  query.reset = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( preset )</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>The year is selected independent of the preset, because 
+of this we have to ensure it doesn’t get overwritten.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">var</span> years = $(<span class="hljs-string">'.field.as_of_year select'</span>).val() || [<span class="hljs-number">2013</span>];
+
+    <span class="hljs-keyword">switch</span>( preset ) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>All originated mortgages.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">case</span> <span class="hljs-string">'originations'</span>:
+        <span class="hljs-keyword">this</span>.params = {
+          as_of_year: {
+            values: years,
+            comparator: <span class="hljs-string">'='</span>
+          },
+          action_taken: {
+            values: [<span class="hljs-number">1</span>],
+            comparator: <span class="hljs-string">'='</span>
+          }
+        };
+      <span class="hljs-keyword">break</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p>First-lien, owner-occupied, 1-4 family homes (including manufactured homes).</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">case</span> <span class="hljs-string">'common'</span>:
+        <span class="hljs-keyword">this</span>.params = {
+          as_of_year: {
+            values: years,
+            comparator: <span class="hljs-string">'='</span>
+          },
+          property_type: {
+            values: [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>],
+            comparator: <span class="hljs-string">'='</span>
+          },
+          owner_occupancy: {
+            values: [<span class="hljs-number">1</span>],
+            comparator: <span class="hljs-string">'='</span>
+          },
+          lien_status: {
+            values: [<span class="hljs-number">1</span>],
+            comparator: <span class="hljs-string">'='</span>
+          },
+          action_taken: {
+            values: [<span class="hljs-number">1</span>],
+            comparator: <span class="hljs-string">'='</span>
+          }
+        };
+      <span class="hljs-keyword">break</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>Default to an empty state with whatever years they’ve selected.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">case</span> <span class="hljs-string">'all'</span>:
+        <span class="hljs-keyword">this</span>.params = {
+          as_of_year: {
+            values: years,
+            comparator: <span class="hljs-string">'='</span>
+          }
+        };
+        <span class="hljs-keyword">break</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p>Empty everything.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">case</span> <span class="hljs-string">'clear'</span>:
+        <span class="hljs-keyword">this</span>.params = {};
+        <span class="hljs-keyword">break</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p>Default to an empty state with whatever years they’ve selected.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">default</span>:
+        <span class="hljs-keyword">this</span>.params = {
+          as_of_year: {
+            values: [<span class="hljs-number">2013</span>],
+            comparator: <span class="hljs-string">'='</span>
+          }
+        };
+        <span class="hljs-keyword">break</span>;
+
+    }
+
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-17">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-17">&#182;</a>
+              </div>
+              <p>The <code>updateAll</code> method runs through all the filter field values the user has selected
+and stores them in the <code>params</code> object.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  query.updateAll = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( options )</span> </span>{
+
+    <span class="hljs-keyword">var</span> fields,
+        opts = options || {};
+
+    <span class="hljs-keyword">switch</span>( opts.source ) {
+      <span class="hljs-keyword">case</span> <span class="hljs-string">'url'</span>:
+        fields = pdp.app.getUrlValues();
+        <span class="hljs-keyword">break</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-18">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-18">&#182;</a>
+              </div>
+              <p>State is stored in a cookie. Removing this functionality for now because
+it’s confusing the UX team. I’d rather work on other stuff than explain 
+to them how this works. Winter is coming.
+case ‘session’:
+  fields = pdp.query.getCookie();
+  break;</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">default</span>:
+        fields = pdp.form.getFields();
+    }
+
+    <span class="hljs-keyword">this</span>.reset(<span class="hljs-string">'clear'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-19">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-19">&#182;</a>
+              </div>
+              <p>Iterate over all the filter field values and push them into <code>query.params</code>.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_processField</span><span class="hljs-params">( field )</span> </span>{
+
+      <span class="hljs-keyword">if</span> ( field.name &amp;&amp; field.values ) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-20">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-20">&#182;</a>
+              </div>
+              <p>Initalize an empty param object if need be.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">if</span> ( <span class="hljs-keyword">typeof</span> query.params[ field.name ] === <span class="hljs-string">'undefined'</span> ) {
+          query.params[ field.name ] = {
+            values: [],
+            comparator: <span class="hljs-string">'='</span>
+          };
+        }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-21">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-21">&#182;</a>
+              </div>
+              <p>If the value is a string from a text box we don’t want to iterate 
+over it because it will be split up the characters.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">if</span> ( field.type === <span class="hljs-string">'text'</span> ) {
+          query.params[ field.name ].values = [ field.values ];
+        } <span class="hljs-keyword">else</span> {
+          _.forEach( field.values, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( val, name )</span></span>{
+
+            <span class="hljs-keyword">var</span> values = query.params[ field.name ].values;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-22">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-22">&#182;</a>
+              </div>
+              <p>Only push the value if it’s not already in there.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-keyword">if</span> ( !_.contains( values, val ) ) {
+              values.push( val );
+            }
+
+          });
+        }
+
+        query.params[ field.name ].comparator = field.comparator;
+
+      }
+
+    }
+
+    _.forEach( fields, _processField );
+
+    pdp.observer.emitEvent( <span class="hljs-string">'params:updated'</span> );
+
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-23">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-23">&#182;</a>
+              </div>
+              <p>The <code>setCookie</code> method stores the param object in a cookie.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  query.setCookie = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+
+    $.cookie( <span class="hljs-string">'_hmda'</span>, pdp.form.getFields(), { expires: <span class="hljs-number">1</span> } );
+
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-24">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-24">&#182;</a>
+              </div>
+              <p>The <code>getCookie</code> method retrives the param object from a cookie.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  query.getCookie = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+
+    <span class="hljs-keyword">return</span> $.cookie( <span class="hljs-string">'_hmda'</span> );
+
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-25">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-25">&#182;</a>
+              </div>
+              <p>The <code>generateUrlHash</code> method builds and returns a URL hash from <code>query</code>‘s <code>params</code>.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  query.generateUrlHash = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">var</span> hash,
+        hashParams = [];</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-26">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-26">&#182;</a>
+              </div>
+              <p>Loop through params, stringify them and push them into the temp array.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">buildHashParam</span><span class="hljs-params">( param, name )</span> </span>{
+
+      <span class="hljs-keyword">if</span> ( !param.values[<span class="hljs-number">0</span>] ) {
+        <span class="hljs-keyword">return</span>;
+      }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-27">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-27">&#182;</a>
+              </div>
+              <p>If it’s not a number, add quotes around the params.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      hashParams.push( name + param.comparator + param.values.join(<span class="hljs-string">','</span>) );
+
+    }
+    _.forEach( query.params, buildHashParam );
+
+    hash = <span class="hljs-string">'!/'</span> + hashParams.join(<span class="hljs-string">'&amp;'</span>) + <span class="hljs-string">'&amp;section='</span> + pdp.app.currentSection;
+    <span class="hljs-keyword">return</span> hash;
+
+  };
+  
+  query.removeSelectParam = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(params)</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-28">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-28">&#182;</a>
+              </div>
+              <p>using a copy of the params means that the select obj
+is still available on query.params for share url generation</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">var</span> paramsCopy = $.extend(<span class="hljs-literal">true</span>, {}, params);
+    <span class="hljs-keyword">try</span> {
+      <span class="hljs-keyword">delete</span> paramsCopy.clauses.where.select;
+    } <span class="hljs-keyword">catch</span> (e) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-29">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-29">&#182;</a>
+              </div>
+              <p>nested property doesn’t exist</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    }
+    <span class="hljs-keyword">delete</span> paramsCopy.select;
+    <span class="hljs-keyword">return</span> paramsCopy;
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-30">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-30">&#182;</a>
+              </div>
+              <p>The <code>generateApiUrl</code> method builds and returns a Qu URL from <code>query</code>‘s <code>params</code>.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  query.generateApiUrl = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( format, codes, params )</span> </span>{
+    
+    <span class="hljs-keyword">var</span> url,
+        apiCallParams = params || <span class="hljs-keyword">this</span>.params,
+        showCodes = codes || <span class="hljs-keyword">this</span>.codes,
+        downloadFormat = format || <span class="hljs-keyword">this</span>.format;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-31">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-31">&#182;</a>
+              </div>
+              <p>remove ‘select’ from params so it won’t be added to where clause </p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    apiCallParams = query.removeSelectParam(apiCallParams);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-32">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-32">&#182;</a>
+              </div>
+              <p>Set a base url to append params to</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    url = <span class="hljs-keyword">this</span>.endpoint + <span class="hljs-string">'slice/hmda_lar.'</span> + downloadFormat + <span class="hljs-string">'?'</span>;
+
+    <span class="hljs-keyword">if</span> ( !showCodes ) {
+      apiCallParams = {
+        clauses: {
+          where: apiCallParams,
+          select: [<span class="hljs-string">'action_taken_name'</span>,<span class="hljs-string">'agency_abbr'</span>,<span class="hljs-string">'agency_name'</span>,<span class="hljs-string">'applicant_ethnicity_name'</span>,<span class="hljs-string">'applicant_race_name_1'</span>,<span class="hljs-string">'applicant_race_name_2'</span>,<span class="hljs-string">'applicant_race_name_3'</span>,<span class="hljs-string">'applicant_race_name_4'</span>,<span class="hljs-string">'applicant_race_name_5'</span>,<span class="hljs-string">'applicant_sex_name'</span>,<span class="hljs-string">'application_date_indicator'</span>,<span class="hljs-string">'as_of_year'</span>,<span class="hljs-string">'census_tract_number'</span>,<span class="hljs-string">'co_applicant_ethnicity_name'</span>,<span class="hljs-string">'co_applicant_race_name_1'</span>,<span class="hljs-string">'co_applicant_race_name_2'</span>,<span class="hljs-string">'co_applicant_race_name_3'</span>,<span class="hljs-string">'co_applicant_race_name_4'</span>,<span class="hljs-string">'co_applicant_race_name_5'</span>,<span class="hljs-string">'co_applicant_sex_name'</span>,<span class="hljs-string">'county_name'</span>,<span class="hljs-string">'denial_reason_name_1'</span>,<span class="hljs-string">'denial_reason_name_2'</span>,<span class="hljs-string">'denial_reason_name_3'</span>,<span class="hljs-string">'edit_status_name'</span>,<span class="hljs-string">'hoepa_status_name'</span>,<span class="hljs-string">'lien_status_name'</span>,<span class="hljs-string">'loan_purpose_name'</span>,<span class="hljs-string">'loan_type_name'</span>,<span class="hljs-string">'msamd_name'</span>,<span class="hljs-string">'owner_occupancy_name'</span>,<span class="hljs-string">'preapproval_name'</span>,<span class="hljs-string">'property_type_name'</span>,<span class="hljs-string">'purchaser_type_name'</span>,<span class="hljs-string">'respondent_id'</span>,<span class="hljs-string">'sequence_number'</span>,<span class="hljs-string">'state_abbr'</span>,<span class="hljs-string">'state_name'</span>,<span class="hljs-string">'applicant_income_000s'</span>,<span class="hljs-string">'hud_median_family_income'</span>,<span class="hljs-string">'loan_amount_000s'</span>,<span class="hljs-string">'number_of_1_to_4_family_units'</span>,<span class="hljs-string">'number_of_owner_occupied_units'</span>,<span class="hljs-string">'minority_population'</span>,<span class="hljs-string">'population'</span>,<span class="hljs-string">'rate_spread'</span>,<span class="hljs-string">'tract_to_msamd_income'</span>]
+        }
+      };
+    }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-33">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-33">&#182;</a>
+              </div>
+              <p>fetch, compile queries</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    url += <span class="hljs-keyword">this</span>._buildApiQuery( apiCallParams );
+
+    <span class="hljs-keyword">return</span> url;
+
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-34">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-34">&#182;</a>
+              </div>
+              <p>builds the query string to append to api url
+arg: params, object. if you only need a ‘where’ clause, passing in
 query.params will do just fine
-if you need to use the 'select' and 'group' clauses, pass an object
-that has a property 'clauses' with an array of objects that correspond to 
+if you need to use the ‘select’ and ‘group’ clauses, pass an object
+that has a property ‘clauses’ with an array of objects that correspond to 
 each clause. example:
 params = {
   clauses: {
-    select: ['var<em>one', 'var</em>two'],
-    group: ['var<em>one', 'var</em>two']
+    select: [‘var_one’, ‘var_two’],
+    group: [‘var_one’, ‘var_two’]
   }
-} </p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">query</span><span class="p">.</span><span class="nx">_buildApiQuery</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">params</span> <span class="p">)</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">key</span><span class="p">;</span>
+} </p>
 
-    <span class="k">if</span> <span class="p">(</span> <span class="nx">params</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="s1">&#39;clauses&#39;</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
-      <span class="k">for</span> <span class="p">(</span> <span class="nx">key</span> <span class="k">in</span> <span class="nx">params</span><span class="p">.</span><span class="nx">clauses</span> <span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="nx">params</span><span class="p">.</span><span class="nx">clauses</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span> <span class="nx">key</span> <span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
-          <span class="nx">url</span> <span class="o">+=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_buildClause</span><span class="p">[</span><span class="nx">key</span><span class="p">](</span> <span class="nx">params</span><span class="p">.</span><span class="nx">clauses</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="p">);</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-      <span class="nx">url</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_buildClause</span><span class="p">.</span><span class="nx">where</span><span class="p">(</span> <span class="nx">params</span> <span class="p">);</span>
-    <span class="p">}</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  query._buildApiQuery = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( params )</span> </span>{
+    <span class="hljs-keyword">var</span> url = <span class="hljs-string">''</span>, key;
 
-    <span class="k">return</span> <span class="nx">url</span><span class="p">;</span>
+    <span class="hljs-keyword">if</span> ( params.hasOwnProperty(<span class="hljs-string">'clauses'</span>) ) {
+      <span class="hljs-keyword">for</span> ( key <span class="hljs-keyword">in</span> params.clauses ) {
+        <span class="hljs-keyword">if</span> ( params.clauses.hasOwnProperty( key ) ) {
+          url += <span class="hljs-keyword">this</span>._buildClause[key]( params.clauses[key] );
+        }
+      }
+    } <span class="hljs-keyword">else</span> {
+      url = <span class="hljs-keyword">this</span>._buildClause.where( params );
+    }
 
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-34">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-34">&#182;</a>               </div>               <p>methods correspond to each type of clause that the API takes
-builds part of api call query string pertaining to clause</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">query</span><span class="p">.</span><span class="nx">_buildClause</span> <span class="o">=</span> <span class="p">{</span></pre></div>             </td>           </tr>                               <tr id="section-35">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-35">&#182;</a>               </div>               <p>Convert each param to a proper <a href="http://cfpb.github.io/qu/articles/queries.html#where_in_detail"><code>$where</code> clause</a>.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">where</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">params</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="hljs-keyword">return</span> url;
 
-      <span class="kd">var</span> <span class="nx">_params</span> <span class="o">=</span> <span class="p">{},</span>
-          <span class="nx">queryVals</span> <span class="o">=</span> <span class="p">[],</span>
-          <span class="nx">where</span><span class="p">;</span></pre></div>             </td>           </tr>                               <tr id="section-36">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-36">&#182;</a>               </div>               <p>In order to compensate for enumerated location fields (state<em>code-1, county</em>name-1, etc.)
-we have to go through and consolidate all enumerated params into unified objects.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="nx">_</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span> <span class="nx">params</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">param</span><span class="p">,</span> <span class="nx">paramName</span> <span class="p">)</span> <span class="p">{</span>
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-35">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-35">&#182;</a>
+              </div>
+              <p>methods correspond to each type of clause that the API takes
+builds part of api call query string pertaining to clause</p>
 
-        <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nx">param</span><span class="p">.</span><span class="nx">values</span> <span class="o">||</span> <span class="o">!</span><span class="nx">param</span><span class="p">.</span><span class="nx">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span> <span class="p">{</span>
-          <span class="k">return</span><span class="p">;</span>
-        <span class="p">}</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  query._buildClause = {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-36">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-36">&#182;</a>
+              </div>
+              <p>Convert each param to a proper <a href="http://cfpb.github.io/qu/articles/queries.html#where_in_detail"><code>$where</code> clause</a>.</p>
 
-        <span class="kd">var</span> <span class="nx">consolidatedName</span><span class="p">;</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    where: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( params )</span> </span>{
 
-        <span class="k">if</span> <span class="p">(</span> <span class="nx">paramName</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/\-\d+$/</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
-          <span class="nx">consolidatedName</span> <span class="o">=</span> <span class="nx">paramName</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\-\d+$/</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-37">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-37">&#182;</a>               </div>               <p>Initalize an empty param object if need be.</p>             </td>             <td class="code">               <div class="highlight"><pre>          <span class="k">if</span> <span class="p">(</span> <span class="k">typeof</span> <span class="nx">_params</span><span class="p">[</span> <span class="nx">consolidatedName</span> <span class="p">]</span> <span class="o">===</span> <span class="s1">&#39;undefined&#39;</span> <span class="p">)</span> <span class="p">{</span>
-            <span class="nx">_params</span><span class="p">[</span> <span class="nx">consolidatedName</span> <span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-              <span class="nx">values</span><span class="o">:</span> <span class="p">[],</span>
-              <span class="nx">comparator</span><span class="o">:</span> <span class="s1">&#39;=&#39;</span>
-            <span class="p">};</span>
-          <span class="p">}</span>
+      <span class="hljs-keyword">var</span> _params = {},
+          queryVals = [],
+          locVals = [],
+          locGroup = {}, <span class="hljs-comment">//Create a group that finds state / counties with similar numbers.</span>
+          where;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-37">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-37">&#182;</a>
+              </div>
+              <p>In order to compensate for enumerated location fields (state_code-1, county_name-1, etc.)
+we have to go through and consolidate all enumerated params into unified objects.</p>
 
-          <span class="nx">_</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span> <span class="nx">param</span><span class="p">.</span><span class="nx">values</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">value</span> <span class="p">){</span>
-            <span class="nx">_params</span><span class="p">[</span> <span class="nx">consolidatedName</span> <span class="p">].</span><span class="nx">values</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span> <span class="nx">value</span> <span class="p">);</span>
-          <span class="p">});</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      _.forEach( params, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( param, paramName )</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-38">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-38">&#182;</a>
+              </div>
+              <p>joiner used to allow for congifurable AND/OR statements in query</p>
 
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-          <span class="nx">_params</span><span class="p">[</span> <span class="nx">paramName</span> <span class="p">]</span> <span class="o">=</span> <span class="nx">param</span><span class="p">;</span>
-        <span class="p">}</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        param.joiner = <span class="hljs-string">' AND '</span>;
 
-      <span class="p">});</span></pre></div>             </td>           </tr>                               <tr id="section-38">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-38">&#182;</a>               </div>               <p>We can now get back to business and generate that WERECLAWS</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="nx">_</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span> <span class="nx">_params</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">param</span><span class="p">,</span> <span class="nx">paramName</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="hljs-keyword">if</span> ( !param.values || !param.values[<span class="hljs-number">0</span>] ) {
+          <span class="hljs-keyword">return</span>;
+        }
 
-        <span class="kd">var</span> <span class="nx">paramVals</span><span class="p">;</span></pre></div>             </td>           </tr>                               <tr id="section-39">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-39">&#182;</a>               </div>               <p>Strip <code>-min/max</code> from the end of the param. This is mainly done for the loan<em>amount</em>000s fields.</p>             </td>             <td class="code">               <div class="highlight"><pre>        <span class="nx">paramName</span> <span class="o">=</span> <span class="nx">paramName</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span> <span class="sr">/\-(min|max)$/</span><span class="p">,</span> <span class="s1">&#39;&#39;</span> <span class="p">);</span>
-        <span class="nx">paramVals</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_formatComparisonValues</span><span class="p">(</span> <span class="nx">param</span><span class="p">,</span> <span class="nx">paramName</span> <span class="p">);</span>
-        <span class="nx">queryVals</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span> <span class="nx">paramVals</span> <span class="p">);</span>
+        <span class="hljs-keyword">var</span> consolidatedName, groupName;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-39">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-39">&#182;</a>
+              </div>
+              <p>If the parameter is an enumerated (state-code-1) field then</p>
 
-      <span class="p">}.</span><span class="nx">bind</span><span class="p">(</span> <span class="k">this</span> <span class="p">));</span></pre></div>             </td>           </tr>                               <tr id="section-40">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-40">&#182;</a>               </div>               <p>Join all the params with <code>AND</code> operators</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="nx">where</span> <span class="o">=</span> <span class="nx">queryVals</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39; AND &#39;</span><span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-41">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-41">&#182;</a>               </div>               <p>All params are joined with <code>AND</code> operators... except with locations things
-get weird. If the user selects multiple states and MSAs, records should be
-shown that match any of the locations. <code>OR</code> operators need to be used.
-The simplest way of dealing with this one-off use case is to replace()
-after building the query string.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="nx">where</span> <span class="o">=</span> <span class="nx">where</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span> <span class="sr">/(msamd|state_code)=([\d&quot;]+)\)? (AND) \(?(msamd|state_code)/</span><span class="p">,</span> <span class="kd">function</span> <span class="nx">replacer</span><span class="p">(</span> <span class="nx">match</span> <span class="p">){</span>
-        <span class="k">return</span> <span class="nx">match</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span> <span class="s1">&#39;AND&#39;</span><span class="p">,</span> <span class="s1">&#39;OR&#39;</span> <span class="p">);</span>
-      <span class="p">});</span></pre></div>             </td>           </tr>                               <tr id="section-42">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-42">&#182;</a>               </div>               <p>Encode for URIs and replace spaces with plus signs.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="k">return</span> <span class="s1">&#39;&amp;$where=&#39;</span> <span class="o">+</span> <span class="nb">encodeURI</span><span class="p">(</span> <span class="nx">where</span> <span class="p">).</span><span class="nx">replace</span><span class="p">(</span> <span class="sr">/%20/g</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span> <span class="p">);</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">if</span> ( paramName.match(<span class="hljs-regexp">/\-\d+$/</span>) ) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-40">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-40">&#182;</a>
+              </div>
+              <p>If this is a special case with county, state, or census tract
+then they needs to be grouped together as an object for appropriate query creation</p>
 
-    <span class="p">},</span></pre></div>             </td>           </tr>                               <tr id="section-43">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-43">&#182;</a>               </div>               <p>select and group clauses are formatted the same way sans name</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">select</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">param</span> <span class="p">)</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="s1">&#39;&amp;$select=&#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">_listVals</span><span class="p">(</span> <span class="nx">param</span> <span class="p">);</span>
-    <span class="p">},</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>          <span class="hljs-keyword">if</span> ( paramName.indexOf(<span class="hljs-string">'state_code'</span>) &gt; -<span class="hljs-number">1</span> || paramName.indexOf(<span class="hljs-string">'county_code'</span>) &gt; -<span class="hljs-number">1</span> || paramName.indexOf(<span class="hljs-string">'census_tract_number'</span>) &gt; -<span class="hljs-number">1</span> ){</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-41">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-41">&#182;</a>
+              </div>
+              <p>If a number exists, create a location group to bring city, state, and census tract together</p>
 
-    <span class="nx">group</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">param</span> <span class="p">)</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="s1">&#39;&amp;$group=&#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">_listVals</span><span class="p">(</span> <span class="nx">param</span> <span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&amp;$orderBy=&#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">_listVals</span><span class="p">(</span> <span class="nx">_</span><span class="p">.</span><span class="nx">clone</span><span class="p">(</span> <span class="nx">param</span> <span class="p">).</span><span class="nx">reverse</span><span class="p">()</span> <span class="p">);</span>
-    <span class="p">},</span></pre></div>             </td>           </tr>                               <tr id="section-44">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-44">&#182;</a>               </div>               <p>formats single value clauses
-returns string of comma-delimited values</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">_listVals</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">param</span> <span class="p">)</span> <span class="p">{</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            groupName = paramName.slice(-<span class="hljs-number">2</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-42">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-42">&#182;</a>
+              </div>
+              <p>Initialize an empty location group if necessary</p>
 
-      <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">param</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span>
-          <span class="nx">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-keyword">if</span>( <span class="hljs-keyword">typeof</span> locGroup[ groupName ] === <span class="hljs-string">'undefined'</span> ){
+              locGroup[ groupName ] = {
+                stateValue: <span class="hljs-string">''</span>,
+                countyValues: [],
+                censusValues: [],
+                comparator: <span class="hljs-string">'='</span>,
+                joiner: <span class="hljs-string">' OR '</span>
+              };
+            }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-43">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-43">&#182;</a>
+              </div>
+              <p>Loop through each location group parameter and push it to the appropriate object</p>
 
-      <span class="k">while</span><span class="p">(</span> <span class="nx">i</span><span class="o">--</span> <span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="k">typeof</span> <span class="nx">param</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">!==</span> <span class="s1">&#39;undefined&#39;</span> <span class="p">)</span> <span class="p">{</span>
-          <span class="nx">str</span> <span class="o">+=</span> <span class="nx">param</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span></pre></div>             </td>           </tr>                               <tr id="section-45">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-45">&#182;</a>               </div>               <p>if this is not the last value, add comma</p>             </td>             <td class="code">               <div class="highlight"><pre>          <span class="k">if</span> <span class="p">(</span> <span class="nx">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
-            <span class="nx">str</span> <span class="o">+=</span> <span class="s1">&#39;,&#39;</span><span class="p">;</span>
-          <span class="p">}</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            _.forEach( param.values, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( value )</span></span>{
+              <span class="hljs-keyword">if</span> ( paramName.indexOf(<span class="hljs-string">'state_code'</span>) &gt; -<span class="hljs-number">1</span> ){
+                locGroup[ groupName ].stateValue = value;             
+              } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ( paramName.indexOf(<span class="hljs-string">'county_code'</span>) &gt; -<span class="hljs-number">1</span> ){
+                locGroup[ groupName ].countyValues.push( value );
+              } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ( paramName.indexOf(<span class="hljs-string">'census_tract_number'</span>) &gt; -<span class="hljs-number">1</span> ){
+                locGroup[ groupName ].censusValues.push( <span class="hljs-string">'"'</span> + value + <span class="hljs-string">'"'</span> );
+              }
+            });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-44">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-44">&#182;</a>
+              </div>
+              <p>If not state, county, census, then create a consolidated parameter (ie ‘msamd’)</p>
 
-      <span class="k">return</span> <span class="nx">str</span><span class="p">;</span>
-    <span class="p">},</span></pre></div>             </td>           </tr>                               <tr id="section-46">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-46">&#182;</a>               </div>               <p>formats api call values that have a comparison operator</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">_formatComparisonValues</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">param</span><span class="p">,</span> <span class="nx">paramName</span> <span class="p">){</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>          } <span class="hljs-keyword">else</span> {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-45">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-45">&#182;</a>
+              </div>
+              <p>Initalize an empty param object if need be.</p>
 
-      <span class="kd">var</span> <span class="nx">paramVal</span><span class="p">,</span>
-          <span class="nx">paramVals</span> <span class="o">=</span> <span class="p">[];</span></pre></div>             </td>           </tr>                               <tr id="section-47">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-47">&#182;</a>               </div>               <p>If there's only value for the param, meaning they only selected one item or
-it's a radio button that only allows once value, add the stringified
-param to the <code>queryVals</code> array.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="k">if</span> <span class="p">(</span> <span class="nx">param</span><span class="p">.</span><span class="nx">values</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span></pre></div>             </td>           </tr>                               <tr id="section-48">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-48">&#182;</a>               </div>               <p>Rate spread specialness</p>             </td>             <td class="code">               <div class="highlight"><pre>        <span class="k">if</span> <span class="p">(</span> <span class="nx">param</span><span class="p">.</span><span class="nx">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;null&#39;</span> <span class="p">)</span> <span class="p">{</span>
-          <span class="nx">paramVal</span> <span class="o">=</span> <span class="nx">paramName</span> <span class="o">+</span> <span class="nx">param</span><span class="p">.</span><span class="nx">comparator</span> <span class="o">+</span> <span class="s1">&#39;&quot;&quot;&#39;</span><span class="p">;</span></pre></div>             </td>           </tr>                               <tr id="section-49">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-49">&#182;</a>               </div>               <p>Strings</p>             </td>             <td class="code">               <div class="highlight"><pre>        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="nb">isNaN</span><span class="p">(</span> <span class="nx">param</span><span class="p">.</span><span class="nx">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span> <span class="o">||</span> <span class="nx">paramName</span> <span class="o">===</span> <span class="s1">&#39;msamd&#39;</span> <span class="o">||</span> <span class="nx">paramName</span> <span class="o">===</span> <span class="s1">&#39;respondent_id&#39;</span> <span class="o">||</span> <span class="nx">paramName</span> <span class="o">===</span> <span class="s1">&#39;census_tract_number&#39;</span> <span class="p">)</span> <span class="p">{</span>
-          <span class="nx">paramVal</span> <span class="o">=</span> <span class="nx">paramName</span> <span class="o">+</span> <span class="nx">param</span><span class="p">.</span><span class="nx">comparator</span> <span class="o">+</span> <span class="s1">&#39;&quot;&#39;</span> <span class="o">+</span> <span class="nx">param</span><span class="p">.</span><span class="nx">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">;</span></pre></div>             </td>           </tr>                               <tr id="section-50">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-50">&#182;</a>               </div>               <p>Numbers</p>             </td>             <td class="code">               <div class="highlight"><pre>        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-          <span class="nx">paramVal</span> <span class="o">=</span> <span class="nx">paramName</span> <span class="o">+</span> <span class="nx">param</span><span class="p">.</span><span class="nx">comparator</span> <span class="o">+</span> <span class="nx">param</span><span class="p">.</span><span class="nx">values</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-        <span class="p">}</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            consolidatedName = paramName.replace(<span class="hljs-regexp">/\-\d+$/</span>, <span class="hljs-string">''</span>);
+            <span class="hljs-keyword">if</span> ( <span class="hljs-keyword">typeof</span> _params[ consolidatedName ] === <span class="hljs-string">'undefined'</span> ) {
+              _params[ consolidatedName ] = {
+                values: [],
+                comparator: <span class="hljs-string">'='</span>,
+                joiner: <span class="hljs-string">' AND '</span>
+              };
+            }
 
-        <span class="k">return</span> <span class="nx">paramVal</span><span class="p">;</span></pre></div>             </td>           </tr>                               <tr id="section-51">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-51">&#182;</a>               </div>               <p>If there are multiple values for a single parameter, we iterate over them and
+            _.forEach( param.values, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( value )</span></span>{
+              _params[ consolidatedName ].values.push( value );
+            });
+          }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-46">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-46">&#182;</a>
+              </div>
+              <p>If the parameter is NOT an enumerated field, push it to _params</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        } <span class="hljs-keyword">else</span> {
+          _params[ paramName ] = param;
+        }
+      });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-47">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-47">&#182;</a>
+              </div>
+              <p>We can now get back to business and generate that WERECLAWS</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      _.forEach( _params, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( param, paramName )</span> </span>{
+
+        <span class="hljs-keyword">var</span> paramVals;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-48">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-48">&#182;</a>
+              </div>
+              <p>Strip <code>-min/max</code> from the end of the param. This is mainly done for the loan_amount_000s fields.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        paramName = paramName.replace( <span class="hljs-regexp">/\-(min|max)$/</span>, <span class="hljs-string">''</span> );
+        paramVals = <span class="hljs-keyword">this</span>._formatComparisonValues( param, paramName );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-49">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-49">&#182;</a>
+              </div>
+              <p>If calling msamd, then it needs to be joined to location data with “OR” and placed at end of array</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">if</span>( paramName.indexOf(<span class="hljs-string">'msamd'</span>) &gt; -<span class="hljs-number">1</span> ){
+          param.joiner = <span class="hljs-string">' OR '</span>;
+          locVals.push( paramVals );
+          locVals.push( param.joiner );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-50">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-50">&#182;</a>
+              </div>
+              <p>Otherwise, push the parameter to the queryVals array which is joined first (below)  </p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        } <span class="hljs-keyword">else</span> {
+          queryVals.push( paramVals );
+        }
+      }.bind( <span class="hljs-keyword">this</span> ));</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-51">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-51">&#182;</a>
+              </div>
+              <p>For each location group, iterate through and create valid, grouped query string</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      _.forEach( locGroup, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(i, val)</span></span>{
+        <span class="hljs-keyword">var</span> queryStr = <span class="hljs-string">''</span>, item = locGroup[val];
+        <span class="hljs-keyword">if</span>( item.stateValue === <span class="hljs-string">''</span> ){
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>( item.countyValues.length === <span class="hljs-number">0</span> &amp;&amp; item.censusValues.length === <span class="hljs-number">0</span> ){
+            queryStr += <span class="hljs-string">'state_code='</span> + item.stateValue;
+            locVals.push(queryStr);
+            locVals.push(item.joiner);
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>( item.countyValues.length === <span class="hljs-number">0</span> &amp;&amp; item.censusValues.length &gt; <span class="hljs-number">0</span> ){
+            queryStr += <span class="hljs-string">'(state_code='</span> + item.stateValue + <span class="hljs-string">' AND census_tract_number IN ('</span> + item.censusValues + <span class="hljs-string">'))'</span>;
+            locVals.push(queryStr);
+            locVals.push(item.joiner);
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>( item.censusValues.length === <span class="hljs-number">0</span> ){
+          queryStr += <span class="hljs-string">'(state_code='</span> + item.stateValue + <span class="hljs-string">' AND county_code IN ('</span> + item.countyValues.toString() + <span class="hljs-string">'))'</span>;
+          locVals.push(queryStr);
+          locVals.push(item.joiner);
+        } <span class="hljs-keyword">else</span> {
+          queryStr += <span class="hljs-string">'(state_code='</span> + item.stateValue + <span class="hljs-string">' AND county_code IN ('</span> + item.countyValues.toString() + <span class="hljs-string">') AND census_tract_number IN ('</span> + item.censusValues.toString() + <span class="hljs-string">'))'</span>;
+          locVals.push(queryStr);
+          locVals.push(item.joiner);
+        }
+      });
+
+      locVals.pop(); <span class="hljs-comment">//Get rid of the last joiner / operator - not needed.</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-52">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-52">&#182;</a>
+              </div>
+              <p>Add each queryVals parameter and their joiner string to where variable</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">if</span>( queryVals.length &gt; <span class="hljs-number">0</span> ){
+        where = queryVals.join(<span class="hljs-string">' AND '</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-53">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-53">&#182;</a>
+              </div>
+              <p>If location information selected, then join that to the existing query</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">if</span>( locVals.length &gt; <span class="hljs-number">0</span> ){
+          where += <span class="hljs-string">' AND ('</span> + locVals.join(<span class="hljs-string">''</span>) + <span class="hljs-string">')'</span>;
+        }
+      } <span class="hljs-keyword">else</span> {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-54">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-54">&#182;</a>
+              </div>
+              <p>If no queryvals exist, set to empty and append any location filter without AND</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        where = <span class="hljs-string">''</span>;
+        <span class="hljs-keyword">if</span>( locVals.length &gt; <span class="hljs-number">0</span> ){
+          where += <span class="hljs-string">'('</span> + locVals.join(<span class="hljs-string">''</span>) + <span class="hljs-string">')'</span>;
+        }
+      }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-55">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-55">&#182;</a>
+              </div>
+              <p>A REGEX used to be here that substituted in certain scenarios - this was not sufficient for the use case.</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-56">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-56">&#182;</a>
+              </div>
+              <p>Encode for URIs and replace spaces with plus signs.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">return</span> <span class="hljs-string">'&amp;$where='</span> + <span class="hljs-built_in">encodeURI</span>( where ).replace( <span class="hljs-regexp">/%20/g</span>, <span class="hljs-string">'+'</span> );
+
+    },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-57">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-57">&#182;</a>
+              </div>
+              <p>select and group clauses are formatted the same way sans name</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    select: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( param )</span> </span>{
+      <span class="hljs-keyword">return</span> <span class="hljs-string">'&amp;$select='</span> + <span class="hljs-keyword">this</span>._listVals( param );
+    },
+
+    group: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( param )</span> </span>{
+      <span class="hljs-keyword">return</span> <span class="hljs-string">'&amp;$group='</span> + <span class="hljs-keyword">this</span>._listVals( param ) + <span class="hljs-string">'&amp;$orderBy='</span> + <span class="hljs-keyword">this</span>._listVals( _.clone( param ).reverse() );
+    },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-58">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-58">&#182;</a>
+              </div>
+              <p>formats single value clauses
+returns string of comma-delimited values</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    _listVals: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( param )</span> </span>{
+
+      <span class="hljs-keyword">var</span> i = param.length,
+          str = <span class="hljs-string">''</span>;
+
+      <span class="hljs-keyword">while</span>( i-- ) {
+        <span class="hljs-keyword">if</span> ( <span class="hljs-keyword">typeof</span> param[i] !== <span class="hljs-string">'undefined'</span> ) {
+          str += param[i];</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-59">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-59">&#182;</a>
+              </div>
+              <p>if this is not the last value, add comma</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>          <span class="hljs-keyword">if</span> ( i &gt; <span class="hljs-number">0</span> ) {
+            str += <span class="hljs-string">','</span>;
+          }
+        }
+      }
+
+      <span class="hljs-keyword">return</span> str;
+    },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-60">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-60">&#182;</a>
+              </div>
+              <p>formats api call values that have a comparison operator</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    _formatComparisonValues: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( param, paramName )</span></span>{
+
+      <span class="hljs-keyword">var</span> paramVal,
+          paramVals = [];</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-61">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-61">&#182;</a>
+              </div>
+              <p>If there’s only value for the param, meaning they only selected one item or
+it’s a radio button that only allows once value, add the stringified
+param to the <code>queryVals</code> array.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">if</span> ( param.values.length === <span class="hljs-number">1</span> ) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-62">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-62">&#182;</a>
+              </div>
+              <p>Rate spread specialness</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">if</span> ( param.values[<span class="hljs-number">0</span>] == <span class="hljs-string">'null'</span> ) {
+          paramVal = paramName + param.comparator + <span class="hljs-string">'""'</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-63">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-63">&#182;</a>
+              </div>
+              <p>Strings</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ( <span class="hljs-built_in">isNaN</span>( param.values[<span class="hljs-number">0</span>] ) || paramName === <span class="hljs-string">'msamd'</span> || paramName === <span class="hljs-string">'respondent_id'</span> || paramName === <span class="hljs-string">'census_tract_number'</span> ) {
+          paramVal = paramName + param.comparator + <span class="hljs-string">'"'</span> + param.values[<span class="hljs-number">0</span>] + <span class="hljs-string">'"'</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-64">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-64">&#182;</a>
+              </div>
+              <p>Numbers</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        } <span class="hljs-keyword">else</span> {
+          paramVal = paramName + param.comparator + param.values[<span class="hljs-number">0</span>];
+        }
+
+        <span class="hljs-keyword">return</span> paramVal;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-65">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-65">&#182;</a>
+              </div>
+              <p>If there are multiple values for a single parameter, we iterate over them and
 put an <code>OR</code> operator between them. We then then <a href="http://cfpb.github.io/qu/articles/queries.html#boolean_operators">group them</a>
-with parens and add the grouping to the <code>params</code> array.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+with parens and add the grouping to the <code>params</code> array.</p>
 
-        <span class="nx">_</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span> <span class="nx">param</span><span class="p">.</span><span class="nx">values</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">val</span><span class="p">,</span> <span class="nx">key</span> <span class="p">){</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      } <span class="hljs-keyword">else</span> {
 
-          <span class="k">if</span> <span class="p">(</span> <span class="nb">isNaN</span><span class="p">(</span> <span class="nx">val</span> <span class="p">)</span> <span class="o">||</span> <span class="nx">paramName</span> <span class="o">===</span> <span class="s1">&#39;msamd&#39;</span> <span class="o">||</span> <span class="nx">paramName</span> <span class="o">===</span> <span class="s1">&#39;respondent_id&#39;</span> <span class="o">||</span> <span class="nx">paramName</span> <span class="o">===</span> <span class="s1">&#39;census_tract_number&#39;</span> <span class="p">)</span> <span class="p">{</span>
-            <span class="nx">paramVals</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span> <span class="s1">&#39;&quot;&#39;</span> <span class="o">+</span> <span class="nx">val</span> <span class="o">+</span> <span class="s1">&#39;&quot;&#39;</span> <span class="p">);</span>
-          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="nx">paramVals</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span> <span class="nx">val</span> <span class="p">);</span>
-          <span class="p">}</span>
+        _.forEach( param.values, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( val, key )</span></span>{
 
-        <span class="p">});</span>
+          <span class="hljs-keyword">if</span> ( <span class="hljs-built_in">isNaN</span>( val ) || paramName === <span class="hljs-string">'msamd'</span> || paramName === <span class="hljs-string">'respondent_id'</span> || paramName === <span class="hljs-string">'census_tract_number'</span> ) {
+            paramVals.push( <span class="hljs-string">'"'</span> + val + <span class="hljs-string">'"'</span> );
+          } <span class="hljs-keyword">else</span> {
+            paramVals.push( val );
+          }
 
-        <span class="k">return</span> <span class="nx">paramName</span> <span class="o">+</span> <span class="s1">&#39; IN (&#39;</span> <span class="o">+</span> <span class="nx">paramVals</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span><span class="p">;</span>
+        });
 
-      <span class="p">}</span>
+        <span class="hljs-keyword">return</span> paramName + <span class="hljs-string">' IN ('</span> + paramVals + <span class="hljs-string">')'</span>;
 
-    <span class="p">}</span>
+      }
 
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-52">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-52">&#182;</a>               </div>               <p>The <code>fetch</code> method requests and returns JSON from Qu matching the
-user's filter and grouping clauses</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">query</span><span class="p">.</span><span class="nx">fetch</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    }
 
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-53">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-53">&#182;</a>               </div>               <p>Export the public API.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">pdp</span><span class="p">.</span><span class="nx">query</span> <span class="o">=</span> <span class="nx">query</span><span class="p">;</span>
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-66">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-66">&#182;</a>
+              </div>
+              <p>The <code>fetch</code> method requests and returns JSON from Qu matching the
+user’s filter and grouping clauses</p>
 
-  <span class="k">return</span> <span class="nx">pdp</span><span class="p">;</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  query.fetch = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
 
-<span class="p">}(</span> <span class="nx">PDP</span> <span class="o">||</span> <span class="p">{}</span> <span class="p">));</span>
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-67">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-67">&#182;</a>
+              </div>
+              <p>Export the public API.</p>
 
-</pre></div>             </td>           </tr>                </tbody>     </table>   </div> </body> </html> 
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  pdp.query = query;
+
+  <span class="hljs-keyword">return</span> pdp;
+
+}( PDP || {} ));</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

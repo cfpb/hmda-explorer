@@ -1,1 +1,0 @@
-Indicates whether a loan is subject to the Home Ownership and Equity Protection Act of 1994 (HOEPA).

@@ -1,135 +1,824 @@
-<!DOCTYPE html>  <html> <head>   <title>app.js</title>   <meta http-equiv="content-type" content="text/html; charset=UTF-8">   <link rel="stylesheet" media="all" href="docco.css" /> </head> <body>   <div id="container">     <div id="background"></div>            <div id="jump_to">         Jump To &hellip;         <div id="jump_wrapper">           <div id="jump_page">                                           <a class="source" href="analytics.html">                 analytics.js               </a>                                           <a class="source" href="chart1.html">                 chart1.js               </a>                                           <a class="source" href="chart1_options.html">                 chart1_options.js               </a>                                           <a class="source" href="chart2.html">                 chart2.js               </a>                                           <a class="source" href="chart2_options.html">                 chart2_options.js               </a>                                           <a class="source" href="main.html">                 main.js               </a>                                           <a class="source" href="main.html">                 main.js               </a>                                           <a class="source" href="mobile.html">                 mobile.js               </a>                                           <a class="source" href="app.html">                 app.js               </a>                                           <a class="source" href="dom.html">                 dom.js               </a>                                           <a class="source" href="form.html">                 form.js               </a>                                           <a class="source" href="ie8.html">                 ie8.js               </a>                                           <a class="source" href="observer.html">                 observer.js               </a>                                           <a class="source" href="preview.html">                 preview.js               </a>                                           <a class="source" href="query.html">                 query.js               </a>                                           <a class="source" href="summary-table.html">                 summary-table.js               </a>                                           <a class="source" href="utils.html">                 utils.js               </a>                                           <a class="source" href="home.html">                 home.js               </a>                                           <a class="source" href="template.html">                 template.js               </a>                        </div>         </div>       </div>          <table cellpadding="0" cellspacing="0">       <thead>         <tr>           <th class="docs">             <h1>               app.js             </h1>           </th>           <th class="code">           </th>         </tr>       </thead>       <tbody>                               <tr id="section-1">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-1">&#182;</a>               </div>                            </td>             <td class="code">               <div class="highlight"><pre><span class="kd">var</span> <span class="nx">PDP</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span> <span class="p">(</span> <span class="nx">pdp</span> <span class="p">)</span> <span class="p">{</span>
+<!DOCTYPE html>
 
-  <span class="s1">&#39;use strict&#39;</span><span class="p">;</span></pre></div>             </td>           </tr>                               <tr id="section-2">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-2">&#182;</a>               </div>               <h2>The App Object</h2>
+<html>
+<head>
+  <title>app.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="app.html">
+                app.js
+              </a>
+            
+              
+              <a class="source" href="dom.html">
+                dom.js
+              </a>
+            
+              
+              <a class="source" href="form.html">
+                form.js
+              </a>
+            
+              
+              <a class="source" href="ie8.html">
+                ie8.js
+              </a>
+            
+              
+              <a class="source" href="observer.html">
+                observer.js
+              </a>
+            
+              
+              <a class="source" href="preview.html">
+                preview.js
+              </a>
+            
+              
+              <a class="source" href="query.html">
+                query.js
+              </a>
+            
+              
+              <a class="source" href="summary-table.html">
+                summary-table.js
+              </a>
+            
+              
+              <a class="source" href="utils.html">
+                utils.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>app.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> PDP = (<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( pdp )</span> </span>{
+<span class="hljs-pi">
+  'use strict'</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <h2 id="the-app-object">The App Object</h2>
 
-<p>The <code>app</code> object stores global app properties and methods.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="p">{};</span></pre></div>             </td>           </tr>                               <tr id="section-3">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-3">&#182;</a>               </div>               <p>Our itty-bitty router.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nb">window</span><span class="p">.</span><span class="nx">onhashchange</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span></pre></div>             </td>           </tr>                               <tr id="section-4">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-4">&#182;</a>               </div>               <p>Change to the section in the URL and don't change the URL afterward.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">app</span><span class="p">.</span><span class="nx">changeSection</span><span class="p">(</span> <span class="nx">app</span><span class="p">.</span><span class="nx">getUrlValue</span><span class="p">(</span><span class="s1">&#39;section&#39;</span><span class="p">),</span> <span class="kc">false</span> <span class="p">);</span>
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-5">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-5">&#182;</a>               </div>               <p>Cache a reference to the app's jQuery object.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">app</span><span class="p">.</span><span class="nx">$el</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#filters&#39;</span><span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-6">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-6">&#182;</a>               </div>               <p>The current section the user is viewing.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">app</span><span class="p">.</span><span class="nx">currentSection</span> <span class="o">=</span> <span class="s1">&#39;filters&#39;</span><span class="p">;</span></pre></div>             </td>           </tr>                               <tr id="section-7">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-7">&#182;</a>               </div>               <p>The <code>init</code> method is called when the DOM is loaded so we can do some preparation.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">app</span><span class="p">.</span><span class="nx">init</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>The <code>app</code> object stores global app properties and methods.</p>
 
-    <span class="kd">var</span> <span class="nx">hashParams</span> <span class="o">=</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">getHashParams</span><span class="p">(),</span>
-        <span class="nx">tooltipPlacement</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span> <span class="nb">window</span> <span class="p">).</span><span class="nx">width</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">768</span> <span class="o">?</span> <span class="s1">&#39;right&#39;</span> <span class="o">:</span> <span class="s1">&#39;left&#39;</span><span class="p">;</span></pre></div>             </td>           </tr>                               <tr id="section-8">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-8">&#182;</a>               </div>               <p>Turn on automatic storage of JSON objects passed as the cookie value.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">$</span><span class="p">.</span><span class="nx">cookie</span><span class="p">.</span><span class="nx">json</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span></pre></div>             </td>           </tr>                               <tr id="section-9">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-9">&#182;</a>               </div>               <p>Activate <a href="http://harvesthq.github.io/chosen/">chosen</a> on select elements and correct 
-a bug that cuts off the placeholder text.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">app</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;select&#39;</span><span class="p">).</span><span class="nx">chosen</span><span class="p">({</span> <span class="nx">width</span><span class="o">:</span> <span class="s1">&#39;100%&#39;</span><span class="p">,</span> <span class="nx">disable_search_threshold</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span> <span class="nx">allow_single_deselect</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.chzn-container .search-field input&#39;</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span> <span class="s1">&#39;width&#39;</span><span class="p">,</span> <span class="s1">&#39;130%&#39;</span> <span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-10">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-10">&#182;</a>               </div>               <p>Initialize Bootstrap tooltips</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">app</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">initTooltips</span><span class="p">({</span> <span class="nx">placement</span><span class="o">:</span> <span class="nx">tooltipPlacement</span> <span class="p">});</span>
-    <span class="nx">app</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.share_url&#39;</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">({</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Copied to clipboard!&#39;</span><span class="p">,</span> <span class="nx">trigger</span><span class="o">:</span> <span class="s1">&#39;manual&#39;</span> <span class="p">});</span></pre></div>             </td>           </tr>                               <tr id="section-11">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-11">&#182;</a>               </div>               <p>If there are hash params in the URL OR the only hashParam is to designate which section,
-grab them and populate the DOM fields.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nx">_</span><span class="p">.</span><span class="nx">isEmpty</span><span class="p">(</span> <span class="nx">hashParams</span> <span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
-      <span class="nx">pdp</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">updateAll</span><span class="p">({</span> <span class="nx">source</span><span class="o">:</span> <span class="s1">&#39;url&#39;</span> <span class="p">});</span></pre></div>             </td>           </tr>                               <tr id="section-12">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-12">&#182;</a>               </div>               <p>} else if ( !<em>.isEmpty( $.cookie('</em>hmda') ) ) {
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-keyword">var</span> app = {};</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Our itty-bitty router.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-built_in">window</span>.onhashchange = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>Change to the section in the URL and don’t change the URL afterward.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    app.changeSection( app.getUrlValue(<span class="hljs-string">'section'</span>), <span class="hljs-literal">false</span> );
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>Cache a reference to the app’s jQuery object.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  app.$el = $(<span class="hljs-string">'#filters'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>The current section the user is viewing.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  app.currentSection = <span class="hljs-string">'filters'</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>The <code>init</code> method is called when the DOM is loaded so we can do some preparation.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  app.init = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+
+    <span class="hljs-keyword">var</span> hashParams = pdp.utils.getHashParams(),
+        tooltipPlacement = $( <span class="hljs-built_in">window</span> ).width() &gt; <span class="hljs-number">768</span> ? <span class="hljs-string">'right'</span> : <span class="hljs-string">'left'</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>Turn on automatic storage of JSON objects passed as the cookie value.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    $.cookie.json = <span class="hljs-literal">true</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>Activate <a href="http://harvesthq.github.io/chosen/">chosen</a> on select elements and correct 
+a bug that cuts off the placeholder text.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    app.$el.find(<span class="hljs-string">'select'</span>).chosen({ width: <span class="hljs-string">'100%'</span>, disable_search_threshold: <span class="hljs-number">10</span>, allow_single_deselect: <span class="hljs-literal">true</span> });
+    $(<span class="hljs-string">'.chzn-container .search-field input'</span>).css( <span class="hljs-string">'width'</span>, <span class="hljs-string">'130%'</span> );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>Initialize Bootstrap tooltips</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    app.$el.initTooltips({ placement: tooltipPlacement });
+    app.$el.find(<span class="hljs-string">'.share_url'</span>).tooltip({ title: <span class="hljs-string">'Copied to clipboard!'</span>, trigger: <span class="hljs-string">'manual'</span> });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>If there are hash params in the URL OR the only hashParam is to designate which section,
+grab them and populate the DOM fields.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">if</span> ( !_.isEmpty( hashParams ) ) {
+      pdp.query.updateAll({ source: <span class="hljs-string">'url'</span> });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p>} else if ( !_.isEmpty( $.cookie(‘_hmda’) ) ) {
   // Read from the cookie if it exists.
-  pdp.query.updateAll({ source: 'session' });</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span></pre></div>             </td>           </tr>                               <tr id="section-13">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-13">&#182;</a>               </div>               <p>Clear out any cached values.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="nx">pdp</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">reset</span><span class="p">();</span>
-    <span class="p">}</span></pre></div>             </td>           </tr>                               <tr id="section-14">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-14">&#182;</a>               </div>               <p>Give our app a special class.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.app-section&#39;</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;ready&#39;</span><span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-15">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-15">&#182;</a>               </div>               <p>Broadcast that the app is loaded and good to go.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">pdp</span><span class="p">.</span><span class="nx">observer</span><span class="p">.</span><span class="nx">emitEvent</span><span class="p">(</span><span class="s1">&#39;app:ready&#39;</span><span class="p">);</span>
+  pdp.query.updateAll({ source: ‘session’ });</p>
 
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-16">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-16">&#182;</a>               </div>               <p>The <code>start</code> method is called when we're ready for the app to start chooglin'.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">app</span><span class="p">.</span><span class="nx">start</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    } <span class="hljs-keyword">else</span> {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>Clear out any cached values.</p>
 
-    <span class="kd">var</span> <span class="nx">parents</span><span class="p">,</span>
-        <span class="nx">toggles</span><span class="p">;</span></pre></div>             </td>           </tr>                               <tr id="section-17">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-17">&#182;</a>               </div>               <p>Check if any state/msa sections need to be added.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">pdp</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">checkLocations</span><span class="p">();</span></pre></div>             </td>           </tr>                               <tr id="section-18">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-18">&#182;</a>               </div>               <p>Initialize the form.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">pdp</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span>
-    <span class="nx">pdp</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">hideSections</span><span class="p">();</span></pre></div>             </td>           </tr>                               <tr id="section-19">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-19">&#182;</a>               </div>               <p>Pull any <code>param</code> entries into the DOM.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">pdp</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">setFields</span><span class="p">();</span></pre></div>             </td>           </tr>                               <tr id="section-20">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-20">&#182;</a>               </div>               <p>Check if any fields that were preloaded have dependents we need to show.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">parents</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;select[data-dependent], input[data-dependent]&#39;</span><span class="p">),</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">el</span> <span class="p">){</span>
-      <span class="k">return</span> <span class="nx">$</span><span class="p">(</span> <span class="nx">el</span> <span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">);</span>
-    <span class="p">});</span>
-    <span class="nx">pdp</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">checkDeps</span><span class="p">(</span> <span class="nx">parents</span> <span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-21">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-21">&#182;</a>               </div>               <p>Check if any fields that were preloaded have mutually exclusive fields that need to be disabled.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">toggles</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;select[data-toggle], input[data-toggle]&#39;</span><span class="p">),</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">el</span> <span class="p">){</span>
-      <span class="k">return</span> <span class="nx">$</span><span class="p">(</span> <span class="nx">el</span> <span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">);</span>
-    <span class="p">});</span>
-    <span class="nx">pdp</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">checkMutuallyExclusive</span><span class="p">(</span> <span class="nx">toggles</span> <span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-22">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-22">&#182;</a>               </div>               <p>Check if any filter sections are hiding fields with values.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">pdp</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">checkFilters</span><span class="p">();</span></pre></div>             </td>           </tr>                               <tr id="section-23">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-23">&#182;</a>               </div>               <p>Hide the preview table.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#preview&#39;</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span></pre></div>             </td>           </tr>                               <tr id="section-24">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-24">&#182;</a>               </div>               <p>Change sections if necessary.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">app</span><span class="p">.</span><span class="nx">changeSection</span><span class="p">(</span> <span class="nx">app</span><span class="p">.</span><span class="nx">currentSection</span><span class="p">,</span> <span class="kc">false</span> <span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-25">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-25">&#182;</a>               </div>               <p>Switch it into custom mode if need be.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nx">_</span><span class="p">.</span><span class="nx">isEmpty</span><span class="p">(</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">getHashParams</span><span class="p">()</span> <span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
-      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.field.suggested select&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="s1">&#39;custom&#39;</span><span class="p">).</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">&#39;liszt:updated&#39;</span><span class="p">);</span>
-      <span class="nx">pdp</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">showSections</span><span class="p">();</span>
-    <span class="p">}</span></pre></div>             </td>           </tr>                               <tr id="section-26">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-26">&#182;</a>               </div>               <p>Broadcast that the app has started.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">pdp</span><span class="p">.</span><span class="nx">observer</span><span class="p">.</span><span class="nx">emitEvent</span><span class="p">(</span><span class="s1">&#39;app:started&#39;</span><span class="p">);</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      pdp.query.reset();
+    }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p>Give our app a special class.</p>
 
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-27">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-27">&#182;</a>               </div>               <p>The <code>startLoading</code> method adds a class to the app's element so we can
-visualize the loading of content.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">app</span><span class="p">.</span><span class="nx">startLoading</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;loading&#39;</span><span class="p">);</span>
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-28">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-28">&#182;</a>               </div>               <p>The <code>stopLoading</code> method removes the app's loading class.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">app</span><span class="p">.</span><span class="nx">stopLoading</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;loading&#39;</span><span class="p">);</span>
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-29">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-29">&#182;</a>               </div>               <p>The <code>redirect</code> method redirects the browser to a new URL.
-It is used to send the user to the Qu URL with their results.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">app</span><span class="p">.</span><span class="nx">redirect</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">url</span> <span class="p">)</span> <span class="p">{</span>
-    <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span> <span class="nx">url</span><span class="p">,</span> <span class="s1">&#39;_blank&#39;</span> <span class="p">);</span>
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-30">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-30">&#182;</a>               </div>               <p>The 'getUrlValue' method returns an object containing a hash params name and value
-when passed the param's name.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">app</span><span class="p">.</span><span class="nx">getUrlValue</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">name</span> <span class="p">)</span> <span class="p">{</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    $(<span class="hljs-string">'.app-section'</span>).addClass(<span class="hljs-string">'ready'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p>Broadcast that the app is loaded and good to go.</p>
 
-    <span class="kd">var</span> <span class="nx">param</span><span class="p">,</span>
-        <span class="nx">params</span> <span class="o">=</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">getHashParams</span><span class="p">(),</span>
-        <span class="nx">values</span><span class="p">;</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    pdp.observer.emitEvent(<span class="hljs-string">'app:ready'</span>);
 
-    <span class="k">if</span> <span class="p">(</span> <span class="nx">name</span> <span class="o">===</span> <span class="s1">&#39;section&#39;</span> <span class="p">)</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="k">typeof</span> <span class="nx">params</span><span class="p">.</span><span class="nx">section</span> <span class="o">!==</span> <span class="s1">&#39;undefined&#39;</span> <span class="o">?</span> <span class="nx">params</span><span class="p">.</span><span class="nx">section</span><span class="p">.</span><span class="nx">values</span> <span class="o">:</span> <span class="s1">&#39;filters&#39;</span><span class="p">;</span>
-    <span class="p">}</span>
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-17">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-17">&#182;</a>
+              </div>
+              <p>The <code>start</code> method is called when we’re ready for the app to start chooglin’.</p>
 
-    <span class="nx">values</span> <span class="o">=</span> <span class="nx">params</span><span class="p">[</span> <span class="nx">name</span> <span class="p">].</span><span class="nx">values</span><span class="p">;</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  app.start = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
 
-    <span class="nx">values</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span> <span class="nx">values</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">v</span> <span class="p">){</span>
-      <span class="k">return</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">sanitize</span><span class="p">(</span> <span class="nx">v</span> <span class="p">);</span>
-    <span class="p">});</span></pre></div>             </td>           </tr>                               <tr id="section-31">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-31">&#182;</a>               </div>               <p>Build and return the param's deets.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">param</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="nx">name</span><span class="o">:</span> <span class="nx">name</span><span class="p">,</span>
-      <span class="nx">value</span><span class="o">:</span> <span class="nx">params</span><span class="p">[</span> <span class="nx">name</span> <span class="p">].</span><span class="nx">values</span><span class="p">,</span>
-      <span class="nx">comparator</span><span class="o">:</span> <span class="nx">params</span><span class="p">[</span> <span class="nx">name</span> <span class="p">].</span><span class="nx">comparator</span>
-    <span class="p">};</span>
+    <span class="hljs-keyword">var</span> parents,
+        toggles;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-18">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-18">&#182;</a>
+              </div>
+              <p>Check if any state/msa sections need to be added.</p>
 
-    <span class="k">return</span> <span class="nx">param</span><span class="p">;</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    pdp.form.checkLocations();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-19">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-19">&#182;</a>
+              </div>
+              <p>Initialize the form.</p>
 
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-32">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-32">&#182;</a>               </div>               <p>The 'getUrlValues' method returns an array of <em>all</em> hash param attributes and values.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">app</span><span class="p">.</span><span class="nx">getUrlValues</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    pdp.form.init();
+    pdp.form.hideSections();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-20">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-20">&#182;</a>
+              </div>
+              <p>Pull any <code>param</code> entries into the DOM.</p>
 
-    <span class="kd">var</span> <span class="nx">_params</span> <span class="o">=</span> <span class="p">[],</span>
-        <span class="nx">params</span> <span class="o">=</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">getHashParams</span><span class="p">();</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    pdp.form.setFields();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-21">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-21">&#182;</a>
+              </div>
+              <p>Check if any fields that were preloaded have dependents we need to show.</p>
 
-    <span class="kd">function</span> <span class="nx">buildParam</span><span class="p">(</span> <span class="nx">val</span><span class="p">,</span> <span class="nx">name</span> <span class="p">)</span> <span class="p">{</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    parents = _.map( $(<span class="hljs-string">'select[data-dependent], input[data-dependent]'</span>), <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( el )</span></span>{
+      <span class="hljs-keyword">return</span> $( el ).attr(<span class="hljs-string">'id'</span>);
+    });
+    pdp.form.checkDeps( parents );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-22">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-22">&#182;</a>
+              </div>
+              <p>Check if any fields that were preloaded have mutually exclusive fields that need to be disabled.</p>
 
-      <span class="kd">var</span> <span class="nx">_param</span> <span class="o">=</span> <span class="p">{},</span>
-          <span class="nx">_values</span> <span class="o">=</span> <span class="p">[],</span>
-          <span class="nx">values</span> <span class="o">=</span> <span class="nx">val</span><span class="p">.</span><span class="nx">values</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">);</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    toggles = _.map( $(<span class="hljs-string">'select[data-toggle], input[data-toggle]'</span>), <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( el )</span></span>{
+      <span class="hljs-keyword">return</span> $( el ).attr(<span class="hljs-string">'id'</span>);
+    });
+    pdp.form.checkMutuallyExclusive( toggles );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-23">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-23">&#182;</a>
+              </div>
+              <p>Check if any filter sections are hiding fields with values.</p>
 
-      <span class="nx">values</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span> <span class="nx">values</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">v</span> <span class="p">){</span>
-        <span class="k">return</span> <span class="nx">pdp</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">sanitize</span><span class="p">(</span> <span class="nx">v</span> <span class="p">);</span>
-      <span class="p">});</span></pre></div>             </td>           </tr>                               <tr id="section-33">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-33">&#182;</a>               </div>               <p>If it's the section hash, save it and abort.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="k">if</span> <span class="p">(</span> <span class="nx">name</span> <span class="o">===</span> <span class="s1">&#39;section&#39;</span> <span class="p">)</span> <span class="p">{</span>
-        <span class="nx">app</span><span class="p">.</span><span class="nx">currentSection</span> <span class="o">=</span> <span class="nx">values</span><span class="p">;</span>
-        <span class="k">return</span><span class="p">;</span>
-      <span class="p">}</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    pdp.form.checkFilters();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-24">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-24">&#182;</a>
+              </div>
+              <p>Hide the preview table.</p>
 
-      <span class="nx">_</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span> <span class="nx">values</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">value</span> <span class="p">){</span>
-        <span class="nx">_values</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span> <span class="nx">value</span> <span class="p">);</span>
-      <span class="p">});</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    $(<span class="hljs-string">'#preview'</span>).hide();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-25">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-25">&#182;</a>
+              </div>
+              <p>Change sections if necessary.</p>
 
-      <span class="nx">_param</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="nx">name</span><span class="o">:</span> <span class="nx">name</span><span class="p">,</span>
-        <span class="nx">values</span><span class="o">:</span> <span class="nx">_values</span><span class="p">,</span>
-        <span class="nx">comparator</span><span class="o">:</span> <span class="nx">val</span><span class="p">.</span><span class="nx">comparator</span>
-      <span class="p">};</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    app.changeSection( app.currentSection, <span class="hljs-literal">false</span> );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-26">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-26">&#182;</a>
+              </div>
+              <p>Switch it into custom mode if need be.</p>
 
-      <span class="nx">_params</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span> <span class="nx">_param</span> <span class="p">);</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">if</span> ( !_.isEmpty( pdp.utils.getHashParams() ) ) {
+      $(<span class="hljs-string">'.field.suggested select'</span>).val(<span class="hljs-string">'custom'</span>).trigger(<span class="hljs-string">'liszt:updated'</span>);
+      pdp.form.showSections();
+    }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-27">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-27">&#182;</a>
+              </div>
+              <p>Broadcast that the app has started.</p>
 
-    <span class="p">}</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    pdp.observer.emitEvent(<span class="hljs-string">'app:started'</span>);
 
-    <span class="nx">_</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span> <span class="nx">params</span><span class="p">,</span> <span class="nx">buildParam</span> <span class="p">);</span>
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-28">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-28">&#182;</a>
+              </div>
+              <p>The <code>startLoading</code> method adds a class to the app’s element so we can
+visualize the loading of content.</p>
 
-    <span class="k">return</span> <span class="nx">_params</span><span class="p">;</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  app.startLoading = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">this</span>.$el.addClass(<span class="hljs-string">'loading'</span>);
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-29">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-29">&#182;</a>
+              </div>
+              <p>The <code>stopLoading</code> method removes the app’s loading class.</p>
 
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-34">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-34">&#182;</a>               </div>               <p>The <code>changeSection</code> toggles between the filters and summary tables sections.
-@section = id of the section to show.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">app</span><span class="p">.</span><span class="nx">changeSection</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">section</span><span class="p">,</span> <span class="nx">changeUrl</span> <span class="p">)</span> <span class="p">{</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  app.stopLoading = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">this</span>.$el.removeClass(<span class="hljs-string">'loading'</span>);
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-30">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-30">&#182;</a>
+              </div>
+              <p>The <code>redirect</code> method redirects the browser to a new URL.
+It is used to send the user to the Qu URL with their results.</p>
 
-    <span class="nx">section</span> <span class="o">=</span> <span class="nx">section</span> <span class="o">||</span> <span class="k">this</span><span class="p">.</span><span class="nx">currentSection</span><span class="p">;</span>
-    <span class="nx">changeUrl</span> <span class="o">=</span> <span class="k">typeof</span> <span class="nx">changeUrl</span> <span class="o">===</span> <span class="s1">&#39;undefined&#39;</span> <span class="o">?</span> <span class="kc">true</span> <span class="o">:</span> <span class="nx">changeUrl</span><span class="p">;</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  app.redirect = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( url )</span> </span>{
+    <span class="hljs-built_in">window</span>.open( url, <span class="hljs-string">'_blank'</span> );
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-31">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-31">&#182;</a>
+              </div>
+              <p>The ‘getUrlValue’ method returns an object containing a hash params name and value
+when passed the param’s name.</p>
 
-    <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#&#39;</span> <span class="o">+</span> <span class="nx">section</span><span class="p">).</span><span class="nx">length</span> <span class="p">)</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span> <span class="nx">section</span> <span class="k">instanceof</span> <span class="nb">Array</span> <span class="p">)</span> <span class="p">{</span>
-        <span class="nx">section</span> <span class="o">=</span> <span class="nx">section</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;summary&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span> <span class="o">?</span> <span class="s1">&#39;summary&#39;</span> <span class="o">:</span> <span class="s1">&#39;filters&#39;</span><span class="p">;</span>
-      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="k">return</span><span class="p">;</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  app.getUrlValue = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( name )</span> </span>{
 
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.app-section&#39;</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;hidden&#39;</span><span class="p">);</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;nav a.section-toggle &#39;</span><span class="p">).</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;active&#39;</span><span class="p">);</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#&#39;</span> <span class="o">+</span> <span class="nx">section</span><span class="p">).</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;hidden&#39;</span><span class="p">);</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;nav a[href=#&#39;</span> <span class="o">+</span> <span class="nx">section</span> <span class="o">+</span> <span class="s1">&#39;].section-toggle&#39;</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;active&#39;</span><span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-35">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-35">&#182;</a>               </div>               <p>Update the current section</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="k">this</span><span class="p">.</span><span class="nx">currentSection</span> <span class="o">=</span> <span class="nx">section</span><span class="p">;</span></pre></div>             </td>           </tr>                               <tr id="section-36">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-36">&#182;</a>               </div>               <p>Update all the DOM fields.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">pdp</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">setFields</span><span class="p">();</span></pre></div>             </td>           </tr>                               <tr id="section-37">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-37">&#182;</a>               </div>               <p>Show relevant filters.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">pdp</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">checkFilters</span><span class="p">();</span></pre></div>             </td>           </tr>                               <tr id="section-38">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-38">&#182;</a>               </div>               <p>Scroll to the top of the page.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nb">window</span><span class="p">.</span><span class="nx">scrollTo</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+    <span class="hljs-keyword">var</span> param,
+        params = pdp.utils.getHashParams(),
+        values;
 
-    <span class="k">if</span> <span class="p">(</span> <span class="nx">changeUrl</span> <span class="p">)</span> <span class="p">{</span></pre></div>             </td>           </tr>                               <tr id="section-39">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-39">&#182;</a>               </div>               <p>Update URL hash</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">hash</span> <span class="o">=</span> <span class="nx">PDP</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">generateUrlHash</span><span class="p">();</span>
-    <span class="p">}</span>
+    <span class="hljs-keyword">if</span> ( name === <span class="hljs-string">'section'</span> ) {
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">typeof</span> params.section !== <span class="hljs-string">'undefined'</span> ? params.section.values : <span class="hljs-string">'filters'</span>;
+    }
 
-    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">currentSection</span> <span class="o">===</span> <span class="s1">&#39;summary&#39;</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">pdp</span><span class="p">.</span><span class="nx">summaryTable</span><span class="p">.</span><span class="nx">setupTable</span><span class="p">();</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-      <span class="nx">pdp</span><span class="p">.</span><span class="nx">summaryTable</span><span class="p">.</span><span class="nx">cancelTimeout</span><span class="p">();</span>
-    <span class="p">}</span>
+    values = params[ name ].values;
 
-  <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-40">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-40">&#182;</a>               </div>               <p>Export the public API.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">pdp</span><span class="p">.</span><span class="nx">app</span> <span class="o">=</span> <span class="nx">app</span><span class="p">;</span>
+    values = _.map( values, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( v )</span></span>{
+      <span class="hljs-keyword">return</span> pdp.utils.sanitize( v );
+    });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-32">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-32">&#182;</a>
+              </div>
+              <p>Build and return the param’s deets.</p>
 
-  <span class="k">return</span> <span class="nx">pdp</span><span class="p">;</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    param = {
+      name: name,
+      value: params[ name ].values,
+      comparator: params[ name ].comparator
+    };
 
-<span class="p">}(</span> <span class="nx">PDP</span> <span class="o">||</span> <span class="p">{}</span> <span class="p">));</span>
+    <span class="hljs-keyword">return</span> param;
 
-</pre></div>             </td>           </tr>                </tbody>     </table>   </div> </body> </html> 
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-33">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-33">&#182;</a>
+              </div>
+              <p>The ‘getUrlValues’ method returns an array of <em>all</em> hash param attributes and values.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  app.getUrlValues = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+
+    <span class="hljs-keyword">var</span> _params = [],
+        params = pdp.utils.getHashParams();
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">buildParam</span><span class="hljs-params">( val, name )</span> </span>{
+
+      <span class="hljs-keyword">var</span> _param = {},
+          _values = [],
+          values = val.values.split(<span class="hljs-string">','</span>);
+
+      values = _.map( values, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( v )</span></span>{
+        <span class="hljs-keyword">return</span> pdp.utils.sanitize( v );
+      });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-34">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-34">&#182;</a>
+              </div>
+              <p>If it’s the section hash, save it and abort.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">if</span> ( name === <span class="hljs-string">'section'</span> ) {
+        app.currentSection = values;
+        <span class="hljs-keyword">return</span>;
+      }
+
+      _.forEach( values, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( value )</span></span>{
+        _values.push( value );
+      });
+
+      _param = {
+        name: name,
+        values: _values,
+        comparator: val.comparator
+      };
+
+      _params.push( _param );
+
+    }
+
+    _.forEach( params, buildParam );
+
+    <span class="hljs-keyword">return</span> _params;
+
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-35">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-35">&#182;</a>
+              </div>
+              <p>The <code>changeSection</code> toggles between the filters and summary tables sections.
+@section = id of the section to show.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  app.changeSection = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( section, changeUrl )</span> </span>{
+
+    section = section || <span class="hljs-keyword">this</span>.currentSection;
+    changeUrl = <span class="hljs-keyword">typeof</span> changeUrl === <span class="hljs-string">'undefined'</span> ? <span class="hljs-literal">true</span> : changeUrl;
+
+    <span class="hljs-keyword">if</span> ( !$(<span class="hljs-string">'#'</span> + section).length ) {
+      <span class="hljs-keyword">if</span> ( section <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Array</span> ) {
+        section = section[<span class="hljs-number">0</span>].indexOf(<span class="hljs-string">'summary'</span>) &gt; -<span class="hljs-number">1</span> ? <span class="hljs-string">'summary'</span> : <span class="hljs-string">'filters'</span>;
+      } <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">return</span>;
+      }
+    }
+
+    $(<span class="hljs-string">'.app-section'</span>).addClass(<span class="hljs-string">'hidden'</span>);
+    $(<span class="hljs-string">'nav a.section-toggle '</span>).removeClass(<span class="hljs-string">'active'</span>);
+    $(<span class="hljs-string">'#'</span> + section).removeClass(<span class="hljs-string">'hidden'</span>);
+    $(<span class="hljs-string">'nav a[href=#'</span> + section + <span class="hljs-string">'].section-toggle'</span>).addClass(<span class="hljs-string">'active'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-36">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-36">&#182;</a>
+              </div>
+              <p>Update the current section</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">this</span>.currentSection = section;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-37">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-37">&#182;</a>
+              </div>
+              <p>Update all the DOM fields.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    pdp.form.setFields();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-38">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-38">&#182;</a>
+              </div>
+              <p>Show relevant filters.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    pdp.form.checkFilters();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-39">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-39">&#182;</a>
+              </div>
+              <p>Scroll to the top of the page.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-built_in">window</span>.scrollTo(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>);
+
+    <span class="hljs-keyword">if</span> ( changeUrl ) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-40">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-40">&#182;</a>
+              </div>
+              <p>Update URL hash</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-built_in">window</span>.location.hash = PDP.query.generateUrlHash();
+    }
+
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.currentSection === <span class="hljs-string">'summary'</span>) {
+      pdp.summaryTable.setupTable();
+    } <span class="hljs-keyword">else</span> {
+      pdp.summaryTable.cancelTimeout();
+    }
+
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-41">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-41">&#182;</a>
+              </div>
+              <p>Export the public API.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  pdp.app = app;
+
+  <span class="hljs-keyword">return</span> pdp;
+
+}( PDP || {} ));</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

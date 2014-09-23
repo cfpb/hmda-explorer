@@ -1,3 +1,0 @@
-All of our technical documentation is hosted on our GitHub pages. Please check out our [API docs](http://cfpb.github.io/api/hmda) to learn more about the technology driving this site and how you can incorporate it into your application or website. The API is more powerful than the tools available on this site, so we look forward to seeing what you create with it!
-
-We have made it easy to use HMDA data with Qu, the CFPB's in-progress data platform for serving public datasets. Qu is an open-source project, so we encourage you to contribute to it via [our Github repository](https://github.com/cfpb/qu) and help us serve more datasets in the future.

@@ -1,207 +1,515 @@
-<!DOCTYPE html>  <html> <head>   <title>home.js</title>   <meta http-equiv="content-type" content="text/html; charset=UTF-8">   <link rel="stylesheet" media="all" href="docco.css" /> </head> <body>   <div id="container">     <div id="background"></div>            <div id="jump_to">         Jump To &hellip;         <div id="jump_wrapper">           <div id="jump_page">                                           <a class="source" href="analytics.html">                 analytics.js               </a>                                           <a class="source" href="chart1.html">                 chart1.js               </a>                                           <a class="source" href="chart1_options.html">                 chart1_options.js               </a>                                           <a class="source" href="chart2.html">                 chart2.js               </a>                                           <a class="source" href="chart2_options.html">                 chart2_options.js               </a>                                           <a class="source" href="main.html">                 main.js               </a>                                           <a class="source" href="main.html">                 main.js               </a>                                           <a class="source" href="mobile.html">                 mobile.js               </a>                                           <a class="source" href="app.html">                 app.js               </a>                                           <a class="source" href="dom.html">                 dom.js               </a>                                           <a class="source" href="form.html">                 form.js               </a>                                           <a class="source" href="ie8.html">                 ie8.js               </a>                                           <a class="source" href="observer.html">                 observer.js               </a>                                           <a class="source" href="preview.html">                 preview.js               </a>                                           <a class="source" href="query.html">                 query.js               </a>                                           <a class="source" href="summary-table.html">                 summary-table.js               </a>                                           <a class="source" href="utils.html">                 utils.js               </a>                                           <a class="source" href="home.html">                 home.js               </a>                                           <a class="source" href="template.html">                 template.js               </a>                        </div>         </div>       </div>          <table cellpadding="0" cellspacing="0">       <thead>         <tr>           <th class="docs">             <h1>               home.js             </h1>           </th>           <th class="code">           </th>         </tr>       </thead>       <tbody>                               <tr id="section-1">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-1">&#182;</a>               </div>                            </td>             <td class="code">               <div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+<!DOCTYPE html>
 
-  <span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
-
-  <span class="kd">var</span> <span class="nx">map</span><span class="p">,</span>
-      <span class="nx">video</span><span class="p">;</span></pre></div>             </td>           </tr>                               <tr id="section-2">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-2">&#182;</a>               </div>               <p>Circle nav on the homepage.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.homepage .hero a&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span> <span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">ev</span> <span class="p">){</span>
-
-    <span class="kd">var</span> <span class="nx">target</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span> <span class="k">this</span> <span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">);</span>
-    <span class="nx">ev</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;html, body&#39;</span><span class="p">).</span><span class="nx">animate</span><span class="p">({</span> <span class="nx">scrollTop</span><span class="o">:</span> <span class="nx">$</span><span class="p">(</span> <span class="nx">target</span> <span class="p">).</span><span class="nx">position</span><span class="p">().</span><span class="nx">top</span> <span class="p">},</span> <span class="mi">200</span><span class="p">);</span>
-
-  <span class="p">});</span></pre></div>             </td>           </tr>                               <tr id="section-3">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-3">&#182;</a>               </div>               <p>Map toggling on the homepage.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">map</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-
-    <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="p">{};</span>
-
-    <span class="nx">map</span><span class="p">.</span><span class="nx">base</span> <span class="o">=</span> <span class="nx">L</span><span class="p">.</span><span class="nx">mapbox</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="s1">&#39;map&#39;</span><span class="p">,</span> <span class="s1">&#39;cfpb.HMDA_basemap_003&#39;</span><span class="p">).</span><span class="nx">setView</span><span class="p">([</span><span class="mf">39.54</span><span class="p">,</span> <span class="o">-</span><span class="mf">97.87</span><span class="p">],</span> <span class="mi">4</span><span class="p">);</span>
+<html>
+<head>
+  <title>home.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
     
-    <span class="nx">map</span><span class="p">.</span><span class="nx">layers</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="nx">a2012</span><span class="o">:</span> <span class="nx">L</span><span class="p">.</span><span class="nx">mapbox</span><span class="p">.</span><span class="nx">tileLayer</span><span class="p">(</span><span class="s1">&#39;cfpb.HMDA_A2012_003&#39;</span><span class="p">),</span>
-      <span class="nx">a2011</span><span class="o">:</span> <span class="nx">L</span><span class="p">.</span><span class="nx">mapbox</span><span class="p">.</span><span class="nx">tileLayer</span><span class="p">(</span><span class="s1">&#39;cfpb.HMDA_A2011_003&#39;</span><span class="p">),</span>
-      <span class="nx">o2012</span><span class="o">:</span> <span class="nx">L</span><span class="p">.</span><span class="nx">mapbox</span><span class="p">.</span><span class="nx">tileLayer</span><span class="p">(</span><span class="s1">&#39;cfpb.HMDA_O2012_003&#39;</span><span class="p">),</span>
-      <span class="nx">o2011</span><span class="o">:</span> <span class="nx">L</span><span class="p">.</span><span class="nx">mapbox</span><span class="p">.</span><span class="nx">tileLayer</span><span class="p">(</span><span class="s1">&#39;cfpb.HMDA_O2011_003&#39;</span><span class="p">)</span>
-    <span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-4">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-4">&#182;</a>               </div>               <p>In order to get a nice fade when we toggle between layers, 
-add them all at once but hide their containers.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">map</span><span class="p">.</span><span class="nx">addLayers</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>home.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>$(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+<span class="hljs-pi">
+  'use strict'</span>;
 
-      <span class="nx">_</span><span class="p">(</span> <span class="nx">map</span><span class="p">.</span><span class="nx">layers</span> <span class="p">).</span><span class="nx">forEach</span><span class="p">(</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">layer</span> <span class="p">){</span>
-        <span class="nx">layer</span><span class="p">.</span><span class="nx">addTo</span><span class="p">(</span> <span class="nx">map</span><span class="p">.</span><span class="nx">base</span> <span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-5">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-5">&#182;</a>               </div>               <p>IE and MapBox don't completely get along so we only add snazzy
-fade-in effects with non-IE browsers.</p>             </td>             <td class="code">               <div class="highlight"><pre>        <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">).</span><span class="nx">hasClass</span><span class="p">(</span><span class="s1">&#39;lt-ie9&#39;</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
-          <span class="nx">map</span><span class="p">.</span><span class="nx">base</span><span class="p">.</span><span class="nx">addLayer</span><span class="p">(</span> <span class="nx">layer</span> <span class="p">);</span>
-          <span class="nx">$</span><span class="p">(</span> <span class="nx">layer</span><span class="p">.</span><span class="nx">_tileContainer</span> <span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
-        <span class="p">}</span>
+  <span class="hljs-keyword">var</span> map,
+      video;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Circle nav on the homepage.</p>
 
-      <span class="p">});</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  $(<span class="hljs-string">'.homepage .hero a'</span>).on( <span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( ev )</span></span>{
 
-    <span class="p">};</span>
+    <span class="hljs-keyword">var</span> target = $( <span class="hljs-keyword">this</span> ).attr(<span class="hljs-string">'href'</span>);
+    ev.preventDefault();
+    $(<span class="hljs-string">'html, body'</span>).animate({ scrollTop: $( target ).position().top }, <span class="hljs-number">200</span>);
 
-    <span class="nx">map</span><span class="p">.</span><span class="nx">showMap</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>Change the underlying data link for graph when a different radio is selected</p>
 
-      <span class="k">this</span><span class="p">.</span><span class="nx">addLayers</span><span class="p">();</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">showLayer</span><span class="p">();</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  $(<span class="hljs-string">'#map_radios'</span>).on(<span class="hljs-string">'change'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( ev )</span></span>{
+    <span class="hljs-keyword">var</span> radio = $(<span class="hljs-keyword">this</span>).find(<span class="hljs-string">'input[type=radio]:checked'</span>);
+    <span class="hljs-keyword">if</span>( radio.val() === <span class="hljs-string">'r'</span> ){
+      $( <span class="hljs-string">'#map-title'</span> ).find(<span class="hljs-string">'a.underlying'</span>).attr(<span class="hljs-string">'href'</span>, <span class="hljs-string">'explore#!/as_of_year=2013,2012,2011&amp;property_type=1,2&amp;owner_occupancy=1&amp;action_taken=1&amp;loan_purpose=3&amp;lien_status=1&amp;select=state_name,county_name,as_of_year,count&amp;section=summary'</span>);
+    } <span class="hljs-keyword">else</span> {
+      $( <span class="hljs-string">'#map-title'</span> ).find(<span class="hljs-string">'a.underlying'</span>).attr(<span class="hljs-string">'href'</span>, <span class="hljs-string">'explore#!/as_of_year=2013,2012,2011&amp;property_type=1,2&amp;owner_occupancy=1&amp;action_taken=1&amp;loan_purpose=1&amp;lien_status=1&amp;select=state_name,county_name,as_of_year,count&amp;section=summary'</span>);
+    }
+  });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Map toggling on the homepage.</p>
 
-      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#map-title&#39;</span><span class="p">).</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;hidden&#39;</span><span class="p">);</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  map = (<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
 
-      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#map .controls input&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span> <span class="s1">&#39;change&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">ev</span> <span class="p">){</span>
-        <span class="nx">$</span><span class="p">(</span> <span class="k">this</span> <span class="p">).</span><span class="nx">parent</span><span class="p">().</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;selected&#39;</span><span class="p">).</span><span class="nx">siblings</span><span class="p">().</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;selected&#39;</span><span class="p">);</span>
-        <span class="nx">map</span><span class="p">.</span><span class="nx">showLayer</span><span class="p">();</span>
-      <span class="p">});</span>
+    <span class="hljs-keyword">var</span> map = {};
 
-    <span class="p">};</span>
+    map.base = L.mapbox.map(<span class="hljs-string">'map'</span>, <span class="hljs-string">'cfpb.fxomkj4i'</span>).setView([<span class="hljs-number">39.54</span>, -<span class="hljs-number">97.87</span>], <span class="hljs-number">4</span>);
+    
+    map.layers = {
+      r2013: L.mapbox.tileLayer(<span class="hljs-string">'cfpb.6uwyiudi'</span>),
+      r2012: L.mapbox.tileLayer(<span class="hljs-string">'cfpb.2yugzaor'</span>),
+      p2013: L.mapbox.tileLayer(<span class="hljs-string">'cfpb.z2z3q5mi'</span>),
+      p2012: L.mapbox.tileLayer(<span class="hljs-string">'cfpb.pbjoflxr'</span>)
+    };
 
-    <span class="nx">map</span><span class="p">.</span><span class="nx">showLayer</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    map.layersLoaded = <span class="hljs-number">0</span>;
+    
 
-      <span class="kd">var</span> <span class="nx">type</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#map .type input:checked&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">(),</span>
-          <span class="nx">year</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#map .year input:checked&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">(),</span>
-          <span class="nx">selectedLayer</span> <span class="o">=</span> <span class="nx">type</span> <span class="o">+</span> <span class="nx">year</span><span class="p">,</span>
-          <span class="nx">otherLayers</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">omit</span><span class="p">(</span> <span class="nx">map</span><span class="p">.</span><span class="nx">layers</span><span class="p">,</span> <span class="nx">selectedLayer</span> <span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-6">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-6">&#182;</a>               </div>               <p>IE and MapBox don't completely get along so we only add snazzy
-fade-in effects with non-IE browsers.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">).</span><span class="nx">hasClass</span><span class="p">(</span><span class="s1">&#39;lt-ie9&#39;</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
-
-        <span class="nx">$</span><span class="p">(</span> <span class="nx">map</span><span class="p">.</span><span class="nx">layers</span><span class="p">[</span> <span class="nx">selectedLayer</span> <span class="p">].</span><span class="nx">_tileContainer</span> <span class="p">).</span><span class="nx">fadeIn</span><span class="p">();</span>
-
-        <span class="nx">_</span><span class="p">(</span> <span class="nx">otherLayers</span> <span class="p">).</span><span class="nx">forEach</span><span class="p">(</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">layer</span> <span class="p">){</span>
-          <span class="nx">$</span><span class="p">(</span> <span class="nx">layer</span><span class="p">.</span><span class="nx">_tileContainer</span> <span class="p">).</span><span class="nx">fadeOut</span><span class="p">(</span> <span class="mi">800</span> <span class="p">);</span>
-        <span class="p">});</span>
-
-      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-
-        <span class="nx">map</span><span class="p">.</span><span class="nx">base</span><span class="p">.</span><span class="nx">addLayer</span><span class="p">(</span> <span class="nx">map</span><span class="p">.</span><span class="nx">layers</span><span class="p">[</span> <span class="nx">selectedLayer</span> <span class="p">]</span> <span class="p">);</span>
-
-        <span class="nx">_</span><span class="p">(</span> <span class="nx">otherLayers</span> <span class="p">).</span><span class="nx">forEach</span><span class="p">(</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">layer</span> <span class="p">){</span>
-          <span class="nx">map</span><span class="p">.</span><span class="nx">base</span><span class="p">.</span><span class="nx">removeLayer</span><span class="p">(</span> <span class="nx">layer</span> <span class="p">);</span>
-        <span class="p">});</span>
-
-      <span class="p">}</span>
+    map.firstLoad = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
       
-    <span class="p">};</span>
+      <span class="hljs-keyword">var</span> selectedLayer = map.getSelectedLayer(),
+          otherLayers = _.omit(  map.layers, selectedLayer );
+      
+      map.addAndHide( map.layers[ selectedLayer ] );
 
-    <span class="nx">map</span><span class="p">.</span><span class="nx">fixLegend</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      $( <span class="hljs-built_in">document</span> ).one(<span class="hljs-string">'scroll'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( e )</span></span>{
+        _( otherLayers ).forEach( <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( layer )</span></span>{
+          map.addAndHide( layer );
+        });
 
-      <span class="kd">var</span> <span class="nx">under30</span><span class="p">,</span>
-          <span class="nx">over30</span><span class="p">;</span>
+        map.layersLoaded = <span class="hljs-number">1</span>;
+      });
 
-      <span class="nx">under30</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#map .legend-labels li&#39;</span><span class="p">).</span><span class="nx">first</span><span class="p">().</span><span class="nx">html</span><span class="p">();</span>
-      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#map .legend-labels li&#39;</span><span class="p">).</span><span class="nx">first</span><span class="p">().</span><span class="nx">html</span><span class="p">(</span> <span class="nx">under30</span> <span class="o">+</span> <span class="s1">&#39;&lt; -30%&#39;</span> <span class="p">);</span>
+    };
+    
+    map.addAndHide = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(layer)</span> </span>{
+      layer.addTo( map.base );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>IE and MapBox don’t completely get along so we only add snazzy
+fade-in effects with non-IE browsers.</p>
 
-      <span class="nx">over30</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#map .legend-labels li:nth-last-child(2)&#39;</span><span class="p">).</span><span class="nx">html</span><span class="p">();</span>
-      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#map .legend-labels li:nth-last-child(2)&#39;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span> <span class="nx">over30</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span> <span class="s1">&#39;Over 30%&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt; 30%&#39;</span> <span class="p">)</span> <span class="p">);</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    
+      <span class="hljs-keyword">if</span> ( !$(<span class="hljs-string">'body'</span>).hasClass(<span class="hljs-string">'lt-ie9'</span>) ) {
+        map.base.addLayer( layer );
+        $( layer._tileContainer ).hide();
+      }
 
-      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#map .my-legend .legend-title&#39;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s1">&#39;Percentage Change&#39;</span><span class="p">);</span>
+    };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>In order to get a nice fade when we toggle between layers, 
+add them before they are needed, but don’t add the currently
+hidden ones until a scroll event is fired.</p>
 
-      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#map .my-legend .legend-source&#39;</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    map.addLayers = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+      <span class="hljs-keyword">if</span> ( map.layersLoaded ){
+        _( map.layers ).forEach( <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( layer )</span></span>{
+          addAndHide( layer );
+        });
+      }<span class="hljs-keyword">else</span>{
+        map.firstLoad();
+      }
 
-    <span class="p">};</span>
+    };
 
-    <span class="nx">map</span><span class="p">.</span><span class="nx">init</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 
-      <span class="k">this</span><span class="p">.</span><span class="nx">base</span><span class="p">.</span><span class="nx">scrollWheelZoom</span><span class="p">.</span><span class="nx">disable</span><span class="p">();</span>
+     
+    map.showMap = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
 
-      <span class="nx">map</span><span class="p">.</span><span class="nx">showMap</span><span class="p">();</span>
-      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#map-title&#39;</span><span class="p">).</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;hidden&#39;</span><span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-7">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-7">&#182;</a>               </div>               <p>Ensure the correct layer is shown whenever the user zooms.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="k">this</span><span class="p">.</span><span class="nx">base</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span> <span class="s1">&#39;zoomend&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+      <span class="hljs-keyword">this</span>.addLayers();
+      <span class="hljs-keyword">this</span>.showLayer();
 
-        <span class="k">this</span><span class="p">.</span><span class="nx">showLayer</span><span class="p">();</span>
+      $(<span class="hljs-string">'#map-title'</span>).removeClass(<span class="hljs-string">'hidden'</span>);
 
-      <span class="p">}.</span><span class="nx">bind</span><span class="p">(</span> <span class="k">this</span> <span class="p">));</span></pre></div>             </td>           </tr>                               <tr id="section-8">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-8">&#182;</a>               </div>               <p>Fix the darn legend.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="k">this</span><span class="p">.</span><span class="nx">base</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span> <span class="s1">&#39;ready&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+      $(<span class="hljs-string">'#map .controls input'</span>).on( <span class="hljs-string">'change'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( ev )</span></span>{
+        $( <span class="hljs-keyword">this</span> ).parent().addClass(<span class="hljs-string">'selected'</span>).siblings().removeClass(<span class="hljs-string">'selected'</span>);
+        map.showLayer();
+      });
 
-        <span class="nx">map</span><span class="p">.</span><span class="nx">fixLegend</span><span class="p">();</span>
+    };
 
-      <span class="p">}.</span><span class="nx">bind</span><span class="p">(</span> <span class="k">this</span> <span class="p">));</span>
+    map.getSelectedLayer = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
 
-      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#map .help&#39;</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">({</span>
-        <span class="nx">placement</span><span class="o">:</span> <span class="s1">&#39;right&#39;</span><span class="p">,</span>
-        <span class="nx">container</span><span class="o">:</span> <span class="s1">&#39;body&#39;</span><span class="p">,</span>
-        <span class="nx">title</span><span class="o">:</span> <span class="kd">function</span> <span class="nx">getTooltipTitle</span><span class="p">(){</span>
-          <span class="k">return</span> <span class="nx">$</span><span class="p">(</span> <span class="k">this</span> <span class="p">).</span><span class="nx">next</span><span class="p">(</span><span class="s1">&#39;.help-text&#39;</span><span class="p">).</span><span class="nx">html</span><span class="p">();</span>
-        <span class="p">}</span>
-      <span class="p">}).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;shown.bs.tooltip&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-        <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.tooltip&#39;</span><span class="p">).</span><span class="nx">css</span><span class="p">({</span>
-          <span class="s1">&#39;margin-left&#39;</span><span class="o">:</span> <span class="s1">&#39;15px&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;margin-top&#39;</span><span class="o">:</span> <span class="s1">&#39;6px&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;width&#39;</span><span class="o">:</span> <span class="s1">&#39;250px&#39;</span>
-        <span class="p">});</span>
-      <span class="p">}).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;hide.bs.tooltip&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-        <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.tooltip&#39;</span><span class="p">).</span><span class="nx">css</span><span class="p">({</span>
-          <span class="s1">&#39;margin-left&#39;</span><span class="o">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;margin-top&#39;</span><span class="o">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;width&#39;</span><span class="o">:</span> <span class="s1">&#39;auto&#39;</span>
-        <span class="p">});</span>
-      <span class="p">});</span></pre></div>             </td>           </tr>                               <tr id="section-9">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-9">&#182;</a>               </div>               <p>IE8 doesn't hear the map 'ready' event so here's a setinterval hack.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="k">if</span> <span class="p">(</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">).</span><span class="nx">hasClass</span><span class="p">(</span><span class="s1">&#39;lt-ie9&#39;</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">checkForLegend</span> <span class="o">=</span> <span class="nx">setInterval</span><span class="p">(</span> <span class="kd">function</span><span class="p">(){</span>
-          <span class="k">if</span> <span class="p">(</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#map .my-legend .legend-source&#39;</span><span class="p">).</span><span class="nx">length</span> <span class="p">)</span> <span class="p">{</span>
-            <span class="nx">map</span><span class="p">.</span><span class="nx">fixLegend</span><span class="p">();</span>
-            <span class="nx">clearInterval</span><span class="p">(</span> <span class="nx">checkForLegend</span> <span class="p">);</span>
-          <span class="p">}</span>
-        <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
-      <span class="p">}</span>
+      <span class="hljs-keyword">var</span> type = $(<span class="hljs-string">'#map .type input:checked'</span>).val(),
+          year = $(<span class="hljs-string">'#map .year input:checked'</span>).val();
+      <span class="hljs-keyword">return</span> type + year;
 
-    <span class="p">};</span>
+    };
 
-    <span class="nx">map</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span>
+    map.showLayer = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
 
-  <span class="p">})();</span></pre></div>             </td>           </tr>                               <tr id="section-10">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-10">&#182;</a>               </div>               <p>Methods to open and close the youtube video overlay on the homepage.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">video</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+      <span class="hljs-keyword">var</span> selectedLayer = map.getSelectedLayer(),
+          otherLayers = _.omit( map.layers, selectedLayer );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>IE and MapBox don’t completely get along so we only add snazzy
+fade-in effects with non-IE browsers.</p>
 
-    <span class="kd">var</span> <span class="nx">$vid</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#youtube&#39;</span><span class="p">),</span>
-        <span class="nx">$embed</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;iframe width=&quot;100%&quot; height=&quot;100%&quot; src=&quot;//www.youtube.com/embed/wR9Tsdqgmuk?rel=0&amp;version=3&amp;enablejsapi=1&amp;autoplay=1&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;&#39;</span><span class="p">),</span>
-        <span class="nx">$exit</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#youtube .exit&#39;</span><span class="p">),</span>
-        <span class="nx">pos</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.video&#39;</span><span class="p">).</span><span class="nx">position</span><span class="p">().</span><span class="nx">top</span> <span class="o">+</span> <span class="p">(</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;section.video&#39;</span><span class="p">).</span><span class="nx">height</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span> <span class="p">);</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">if</span> ( !$(<span class="hljs-string">'body'</span>).hasClass(<span class="hljs-string">'lt-ie9'</span>) ) {
 
-    <span class="k">return</span> <span class="p">{</span>
+        $( map.layers[ selectedLayer ]._tileContainer ).fadeIn();
 
-      <span class="nx">isOpen</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        _( otherLayers ).forEach( <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( layer )</span></span>{
+          $( layer._tileContainer ).fadeOut( <span class="hljs-number">800</span> );
+        });
 
-      <span class="nx">init</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      } <span class="hljs-keyword">else</span> {
 
-      <span class="p">},</span>
+        map.base.addLayer( map.layers[ selectedLayer ] );
 
-      <span class="nx">open</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
-        <span class="nx">$vid</span><span class="p">.</span><span class="nx">css</span><span class="p">(</span> <span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="nx">pos</span> <span class="o">+</span> <span class="s1">&#39;px&#39;</span> <span class="p">)</span>
-            <span class="p">.</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;hidden&#39;</span><span class="p">)</span>
-            <span class="p">.</span><span class="nx">animate</span><span class="p">({</span> <span class="s1">&#39;height&#39;</span><span class="o">:</span> <span class="s1">&#39;100%&#39;</span><span class="p">,</span> <span class="s1">&#39;margin-top&#39;</span><span class="o">:</span> <span class="o">-</span><span class="nx">pos</span> <span class="o">+</span> <span class="s1">&#39;px&#39;</span> <span class="p">},</span> <span class="mi">300</span><span class="p">,</span> <span class="s1">&#39;swing&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
-              <span class="nx">setTimeout</span><span class="p">(</span> <span class="kd">function</span><span class="p">(){</span>
-                <span class="nx">$vid</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span> <span class="nx">$embed</span> <span class="p">);</span>
-                <span class="nx">$exit</span><span class="p">.</span><span class="nx">show</span><span class="p">();</span>
-                <span class="nx">onYouTubeIframeAPIReady</span><span class="p">();</span>
-              <span class="p">},</span> <span class="mi">500</span> <span class="p">);</span>
-            <span class="p">});</span>
-        <span class="nx">$embed</span><span class="p">.</span><span class="nx">css</span><span class="p">(</span> <span class="s1">&#39;height&#39;</span><span class="p">,</span> <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">height</span><span class="p">()</span> <span class="o">-</span> <span class="mi">60</span> <span class="o">+</span> <span class="s1">&#39;px&#39;</span><span class="p">)</span>
-              <span class="p">.</span><span class="nx">css</span><span class="p">(</span> <span class="s1">&#39;width&#39;</span><span class="p">,</span> <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">width</span><span class="p">()</span> <span class="o">-</span> <span class="mi">60</span> <span class="o">+</span> <span class="s1">&#39;px&#39;</span><span class="p">);</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">isOpen</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-      <span class="p">},</span>
+        _( otherLayers ).forEach( <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( layer )</span></span>{
+          map.base.removeLayer( layer );
+        });
 
-      <span class="nx">close</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
-        <span class="nx">$embed</span><span class="p">.</span><span class="nx">remove</span><span class="p">();</span>
-        <span class="nx">$exit</span><span class="p">.</span><span class="nx">hide</span><span class="p">();</span>
-        <span class="nx">$vid</span><span class="p">.</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;closing&#39;</span><span class="p">);</span>
-        <span class="nx">setTimeout</span><span class="p">(</span> <span class="kd">function</span><span class="p">(){</span>
-          <span class="nx">$vid</span><span class="p">.</span><span class="nx">css</span><span class="p">({</span> <span class="s1">&#39;height&#39;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;margin-top&#39;</span><span class="o">:</span> <span class="mi">0</span> <span class="p">}).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;hidden&#39;</span><span class="p">).</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;closing&#39;</span><span class="p">);</span>
-        <span class="p">},</span> <span class="mi">500</span> <span class="p">);</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">isOpen</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
-      <span class="p">}</span>
+      }
+      
+    };
 
-    <span class="p">};</span>
-  <span class="p">})();</span></pre></div>             </td>           </tr>                               <tr id="section-11">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-11">&#182;</a>               </div>               <p>Remove the video embed for now.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">video</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span></pre></div>             </td>           </tr>                               <tr id="section-12">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-12">&#182;</a>               </div>               <p>Video overlay.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;a.launch-youtube&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span> <span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">ev</span> <span class="p">){</span>
+    map.fixLegend = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
 
-    <span class="nx">ev</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
-    <span class="nx">video</span><span class="p">.</span><span class="nx">open</span><span class="p">();</span>
+      <span class="hljs-keyword">var</span> under30,
+          over30;
 
-  <span class="p">});</span></pre></div>             </td>           </tr>                               <tr id="section-13">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-13">&#182;</a>               </div>               <p>Autoplay video if requested.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="k">if</span> <span class="p">(</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">hash</span> <span class="o">&amp;&amp;</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">hash</span> <span class="o">===</span> <span class="s1">&#39;#video&#39;</span> <span class="p">)</span> <span class="p">{</span>
-    <span class="nx">video</span><span class="p">.</span><span class="nx">open</span><span class="p">();</span>
-  <span class="p">}</span></pre></div>             </td>           </tr>                               <tr id="section-14">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-14">&#182;</a>               </div>               <p>Close video overlay</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">$</span><span class="p">(</span> <span class="nb">document</span> <span class="p">).</span><span class="nx">on</span><span class="p">(</span> <span class="s1">&#39;keyup&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">ev</span> <span class="p">)</span> <span class="p">{</span>
+      under30 = $(<span class="hljs-string">'#map .legend-labels li'</span>).first().html();
+      $(<span class="hljs-string">'#map .legend-labels li'</span>).first().html( under30 + <span class="hljs-string">'&lt; -30%'</span> );
 
-    <span class="k">if</span> <span class="p">(</span> <span class="nx">ev</span><span class="p">.</span><span class="nx">which</span> <span class="o">===</span> <span class="mi">27</span> <span class="p">)</span> <span class="p">{</span>
-      <span class="nx">ev</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
-      <span class="nx">video</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
-    <span class="p">}</span>
+      over30 = $(<span class="hljs-string">'#map .legend-labels li:nth-last-child(2)'</span>).html();
+      $(<span class="hljs-string">'#map .legend-labels li:nth-last-child(2)'</span>).html( over30.replace( <span class="hljs-string">'Over 30%'</span>, <span class="hljs-string">'&gt; 30%'</span> ) );
 
-  <span class="p">});</span></pre></div>             </td>           </tr>                               <tr id="section-15">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-15">&#182;</a>               </div>               <p>Close video overlay</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">$</span><span class="p">(</span> <span class="s1">&#39;section.video .exit, #youtube&#39;</span> <span class="p">).</span><span class="nx">on</span><span class="p">(</span> <span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">ev</span> <span class="p">)</span> <span class="p">{</span>
+      $(<span class="hljs-string">'#map .my-legend .legend-title'</span>).html(<span class="hljs-string">'Percentage Change'</span>);
 
-      <span class="nx">ev</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+      $(<span class="hljs-string">'#map .my-legend .legend-source'</span>).hide();
 
-      <span class="k">if</span> <span class="p">(</span> <span class="nx">video</span><span class="p">.</span><span class="nx">isOpen</span> <span class="p">)</span> <span class="p">{</span>
-        <span class="nx">video</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
-      <span class="p">}</span>
+    };
 
-  <span class="p">});</span>
+    map.init = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
 
-<span class="p">});</span>
+      <span class="hljs-keyword">this</span>.base.scrollWheelZoom.disable();
 
-</pre></div>             </td>           </tr>                </tbody>     </table>   </div> </body> </html> 
+      map.showMap();
+      $(<span class="hljs-string">'#map-title'</span>).removeClass(<span class="hljs-string">'hidden'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>Ensure the correct layer is shown whenever the user zooms.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">this</span>.base.on( <span class="hljs-string">'zoomend'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+
+        <span class="hljs-keyword">this</span>.showLayer();
+
+      }.bind( <span class="hljs-keyword">this</span> ));</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>Fix the darn legend.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">this</span>.base.on( <span class="hljs-string">'ready'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+
+        map.fixLegend();
+
+      }.bind( <span class="hljs-keyword">this</span> ));
+
+      $(<span class="hljs-string">'#map .help'</span>).tooltip({
+        placement: <span class="hljs-string">'right'</span>,
+        container: <span class="hljs-string">'body'</span>,
+        title: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getTooltipTitle</span><span class="hljs-params">()</span></span>{
+          <span class="hljs-keyword">return</span> $( <span class="hljs-keyword">this</span> ).next(<span class="hljs-string">'.help-text'</span>).html();
+        }
+      }).on(<span class="hljs-string">'shown.bs.tooltip'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+        $(<span class="hljs-string">'.tooltip'</span>).css({
+          <span class="hljs-string">'margin-left'</span>: <span class="hljs-string">'15px'</span>,
+          <span class="hljs-string">'margin-top'</span>: <span class="hljs-string">'6px'</span>,
+          <span class="hljs-string">'width'</span>: <span class="hljs-string">'250px'</span>
+        });
+      }).on(<span class="hljs-string">'hide.bs.tooltip'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+        $(<span class="hljs-string">'.tooltip'</span>).css({
+          <span class="hljs-string">'margin-left'</span>: <span class="hljs-string">'0'</span>,
+          <span class="hljs-string">'margin-top'</span>: <span class="hljs-string">'0'</span>,
+          <span class="hljs-string">'width'</span>: <span class="hljs-string">'auto'</span>
+        });
+      });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>IE8 doesn’t hear the map ‘ready’ event so here’s a setinterval hack.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">if</span> ( $(<span class="hljs-string">'body'</span>).hasClass(<span class="hljs-string">'lt-ie9'</span>) ) {
+        <span class="hljs-keyword">var</span> checkForLegend = setInterval( <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+          <span class="hljs-keyword">if</span> ( $(<span class="hljs-string">'#map .my-legend .legend-source'</span>).length ) {
+            map.fixLegend();
+            clearInterval( checkForLegend );
+          }
+        }, <span class="hljs-number">1000</span>);
+      }
+
+    };
+
+    map.init();
+
+  })();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>Methods to open and close the youtube video overlay on the homepage.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  video = (<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+
+    <span class="hljs-keyword">var</span> $vid = $(<span class="hljs-string">'#youtube'</span>),
+        $embed = $(<span class="hljs-string">'&lt;iframe width="100%" height="100%" src="//www.youtube.com/embed/wR9Tsdqgmuk?rel=0&amp;version=3&amp;enablejsapi=1&amp;autoplay=1" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;'</span>),
+        $exit = $(<span class="hljs-string">'#youtube .exit'</span>),
+        pos = $(<span class="hljs-string">'.video'</span>).position().top + ( $(<span class="hljs-string">'section.video'</span>).height() / <span class="hljs-number">2</span> );
+
+    <span class="hljs-keyword">return</span> {
+
+      isOpen: <span class="hljs-literal">false</span>,
+
+      init: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+
+      },
+
+      open: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+        $vid.css( <span class="hljs-string">'top'</span>, pos + <span class="hljs-string">'px'</span> )
+            .removeClass(<span class="hljs-string">'hidden'</span>)
+            .animate({ <span class="hljs-string">'height'</span>: <span class="hljs-string">'100%'</span>, <span class="hljs-string">'margin-top'</span>: -pos + <span class="hljs-string">'px'</span> }, <span class="hljs-number">300</span>, <span class="hljs-string">'swing'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+              setTimeout( <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+                $vid.append( $embed );
+                $exit.show();
+                <span class="hljs-keyword">if</span>( onYouTubeIframeAPIReady() ){
+                  onYouTubeIframeAPIReady();
+                }
+              }, <span class="hljs-number">500</span> );
+            });
+        $embed.css( <span class="hljs-string">'height'</span>, $(<span class="hljs-built_in">window</span>).height() - <span class="hljs-number">60</span> + <span class="hljs-string">'px'</span>)
+              .css( <span class="hljs-string">'width'</span>, $(<span class="hljs-built_in">window</span>).width() - <span class="hljs-number">60</span> + <span class="hljs-string">'px'</span>);
+        <span class="hljs-keyword">this</span>.isOpen = <span class="hljs-literal">true</span>;
+      },
+
+      close: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+        $embed.remove();
+        $exit.hide();
+        $vid.addClass(<span class="hljs-string">'closing'</span>);
+        setTimeout( <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+          $vid.css({ <span class="hljs-string">'height'</span>: <span class="hljs-number">0</span>, <span class="hljs-string">'margin-top'</span>: <span class="hljs-number">0</span> }).addClass(<span class="hljs-string">'hidden'</span>).removeClass(<span class="hljs-string">'closing'</span>);
+        }, <span class="hljs-number">500</span> );
+        <span class="hljs-keyword">this</span>.isOpen = <span class="hljs-literal">false</span>;
+      }
+
+    };
+  })();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>Remove the video embed for now.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  video.init();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p>Video overlay.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  $(<span class="hljs-string">'a.launch-youtube'</span>).on( <span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( ev )</span></span>{
+
+    ev.preventDefault();
+    video.open();
+
+  });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>Autoplay video if requested.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-keyword">if</span> ( <span class="hljs-built_in">window</span>.location.hash &amp;&amp; <span class="hljs-built_in">window</span>.location.hash === <span class="hljs-string">'#video'</span> ) {
+    video.open();
+  }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p>Close video overlay</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  $( <span class="hljs-built_in">document</span> ).on( <span class="hljs-string">'keyup'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( ev )</span> </span>{
+
+    <span class="hljs-keyword">if</span> ( ev.which === <span class="hljs-number">27</span> ) {
+      ev.preventDefault();
+      video.close();
+    }
+
+  });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p>Close video overlay</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  $( <span class="hljs-string">'section.video .exit, #youtube'</span> ).on( <span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( ev )</span> </span>{
+
+      ev.preventDefault();
+
+      <span class="hljs-keyword">if</span> ( video.isOpen ) {
+        video.close();
+      }
+
+  });
+
+});</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>
