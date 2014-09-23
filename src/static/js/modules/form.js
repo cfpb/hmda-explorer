@@ -426,7 +426,8 @@ var PDP = (function ( pdp ) {
       // Census tract concept data is a format totally different from normal concept data so
       // we have to handle it in a special way.
       case 'census_tract_number':
-        promise = pdp.utils.getJSON( pdp.query.endpoint + 'slice/census_tracts.' + pdp.query.format + '?&$where=state_code=' + dependencies[0] + '&$limit=1000' );
+        var state = dependencies.pop();
+        promise = pdp.utils.getJSON( pdp.query.endpoint + 'slice/census_tracts.' + pdp.query.format + '?&$where=state_code=' + state + '+AND+county_code+IN+(' + dependencies + ')&$limit=3000' );
         break;
 
       // Default course for getting concept data.
@@ -556,6 +557,15 @@ var PDP = (function ( pdp ) {
             // `dependency` should be an array of the values the parent is supplying.
             // For example with states, it might be: [CA, WA, OR]
             var dependencies = form.getField( $el ).values;
+
+            // Workaround for passing multiple parameters to census tract:
+            // If the parent class if county_code, which passes deps to census,
+            // then get the value already selected in the "state" field and
+            // add it to the dependencies array
+            if( $el.parent().parent().hasClass('county_code') ){
+              dependencies.push( $el.closest('.fields').find('li.state_code').find('.chzn-done').val() );
+            }
+            
             emit( 'shown', $dependent, dependencies );
           });
         } else {
@@ -636,6 +646,26 @@ var PDP = (function ( pdp ) {
 
     $('.share_url').val( baseUrl + '#' + hash );
 
+  };
+
+  // Check to see if a static file has been generated for this API Query string
+  // If a static file is present in the mapping, re-route the download function
+  // to a static file as indicated in mapping.js
+  form.checkStatic = function( codeStatus, format ){
+    var apiCallParams = pdp.query.params,
+    hmdaMapLoc = fileMap.slices[0].staticFiles;
+
+    // Remove the select parameters that may be there after summary table generation
+    apiCallParams = pdp.query.removeSelectParam( apiCallParams );
+    // Get the exact value for comparison with mapping.js
+    apiCallParams = PDP.query._buildApiQuery(apiCallParams);
+
+    // If a static file exists, then return the appropriate URL
+    if( typeof hmdaMapLoc[apiCallParams] === 'undefined' || typeof hmdaMapLoc[apiCallParams][codeStatus] === 'undefined' || typeof hmdaMapLoc[apiCallParams][codeStatus][format] === 'undefined'){
+      return false;
+    } else {
+      return fileMap.endpoint + hmdaMapLoc[apiCallParams][codeStatus][format] + '.zip';
+    }
   };
 
   pdp.form = form;

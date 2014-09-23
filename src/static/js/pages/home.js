@@ -14,18 +14,28 @@ $(function(){
 
   });
 
+  // Change the underlying data link for graph when a different radio is selected
+  $('#map_radios').on('change', function( ev ){
+    var radio = $(this).find('input[type=radio]:checked');
+    if( radio.val() === 'r' ){
+      $( '#map-title' ).find('a.underlying').attr('href', 'explore#!/as_of_year=2013,2012,2011&property_type=1,2&owner_occupancy=1&action_taken=1&loan_purpose=3&lien_status=1&select=state_name,county_name,as_of_year,count&section=summary');
+    } else {
+      $( '#map-title' ).find('a.underlying').attr('href', 'explore#!/as_of_year=2013,2012,2011&property_type=1,2&owner_occupancy=1&action_taken=1&loan_purpose=1&lien_status=1&select=state_name,county_name,as_of_year,count&section=summary');
+    }
+  });
+
   // Map toggling on the homepage.
   map = (function(){
 
     var map = {};
 
-    map.base = L.mapbox.map('map', 'cfpb.HMDA_basemap_003').setView([39.54, -97.87], 4);
+    map.base = L.mapbox.map('map', 'cfpb.fxomkj4i').setView([39.54, -97.87], 4);
     
     map.layers = {
-      a2012: L.mapbox.tileLayer('cfpb.HMDA_A2012_003'),
-      a2011: L.mapbox.tileLayer('cfpb.HMDA_A2011_003'),
-      o2012: L.mapbox.tileLayer('cfpb.HMDA_O2012_003'),
-      o2011: L.mapbox.tileLayer('cfpb.HMDA_O2011_003')
+      r2013: L.mapbox.tileLayer('cfpb.6uwyiudi'),
+      r2012: L.mapbox.tileLayer('cfpb.2yugzaor'),
+      p2013: L.mapbox.tileLayer('cfpb.z2z3q5mi'),
+      p2012: L.mapbox.tileLayer('cfpb.pbjoflxr')
     };
 
     map.layersLoaded = 0;
@@ -59,7 +69,7 @@ $(function(){
         $( layer._tileContainer ).hide();
       }
 
-    }; 
+    };
 
     // In order to get a nice fade when we toggle between layers, 
     // add them before they are needed, but don't add the currently
@@ -223,7 +233,9 @@ $(function(){
               setTimeout( function(){
                 $vid.append( $embed );
                 $exit.show();
-                onYouTubeIframeAPIReady();
+                if( onYouTubeIframeAPIReady() ){
+                  onYouTubeIframeAPIReady();
+                }
               }, 500 );
             });
         $embed.css( 'height', $(window).height() - 60 + 'px')

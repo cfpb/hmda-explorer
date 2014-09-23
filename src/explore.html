@@ -38,6 +38,16 @@
 <!--[if IE 8]>         <body class="lt-ie9 hmda explore"> <![endif]-->
 <!--[if IE 9]>         <body class="lt-ie10 hmda explore"> <![endif]-->
 <!--[if gt IE 9]><!--><body class="hmda explore"><!--<![endif]-->
+  
+  <!-- Google Tag Manager -->
+  <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KMMLRS"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KMMLRS');</script>
+  <!-- End Google Tag Manager -->
 
   <div class="top-banner">
     <div class="inner">
@@ -61,9 +71,9 @@
     <nav role="navigation" aria-label="Main HMDA Menu">
       <ul>
         <li><a href=".">Home</a></li>
-        <li><a href="learn-more">Learn more</a></li>
-        <li><a href="explore" class="active">Explore data</a></li>
-        <li><a href="api">API docs</a></li>
+        <li><a href="explore" class="active">Explore the data</a></li>
+        <li><a href="learn-more">About HMDA</a></li>
+        <li><a href="api" class="developers">Public API</a></li>
       </ul>
     </nav>
 
@@ -118,7 +128,8 @@
               <label for="as_of_year">Select year(s) of data:</label>
               <div class="widget select">
                 <select class="param" name="as_of_year" id="as_of_year" multiple data-placeholder="Select one or more years">
-                  <option value="2012" selected>2012</option>
+                  <option value="2013" selected>2013</option>
+                  <option value="2012">2012</option>
                   <option value="2011">2011</option>
                   <option value="2010">2010</option>
                   <option value="2009">2009</option>
@@ -633,7 +644,7 @@
       <div class="preview closed">
           <p class="nlw">
             <img src="static/img/icon_data_2x.png" width="30" height="30" alt="Data icon" class="data-minicon" />
-            There are <em class="calculating"><img src="static/img/icon_spinner_2x.gif" alt="Loading icon" height="30" width="30" class="spinnergif"></em><strong class="count">many</strong> HMDA records from <strong class="years">2007 - 2012</strong><span class="filter-selection"> with the above selected filters</span>.
+            There are <em class="calculating"><img src="static/img/icon_spinner_2x.gif" alt="Loading icon" height="30" width="30" class="spinnergif"></em><strong class="count">many</strong> HMDA records from <strong class="years">2007 - 2013</strong><span class="filter-selection"> with the above selected filters</span>.
           </p>
 
           <div class="title">
@@ -931,5 +942,6 @@
 
   <script src="static/js/main.min.js"></script>
   <script src="static/js/explore.min.js"></script>
+  <script src="https://s3.amazonaws.com/files.consumerfinance.gov/hmda_explorer_assets/hmda.js"></script>
 </body>
 </html>

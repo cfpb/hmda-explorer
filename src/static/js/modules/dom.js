@@ -96,7 +96,16 @@ var PDP = (function ( pdp ) {
   $('form#explore').on( 'submit', function( ev ){
     var format = $('#format').val(),
         showCodes = !!parseInt( $('.codes input[type=radio]:checked').val(), 10 ),
-        url = pdp.query.generateApiUrl( format, showCodes ) + '&$limit=0';
+        url = pdp.query.generateApiUrl( format, showCodes ) + '&$limit=0',
+        codeStatus = 'labels';
+
+    if( showCodes ){
+      codeStatus = 'core';
+    }
+
+    if( pdp.form.checkStatic( codeStatus, format ) ){
+      url = pdp.form.checkStatic( codeStatus, format );
+    }
 
     // Log event to GA
     track( 'downloads', 'HMDA raw data', 'filter-page:' + url );
@@ -108,10 +117,18 @@ var PDP = (function ( pdp ) {
 
   // Hijack the 'download raw data' button on the summary table page.
   $('#download-raw-button').on( 'click', function( ev ){
+    var format = $('#format').val(),
+        showCodes = !!parseInt( $('.codes input[type=radio]:checked').val(), 10 ),
+        url = pdp.query.generateApiUrl( format, showCodes ) + '&$limit=0',
+        codeStatus = 'labels';
 
-    var format = $('#raw-format').val(),
-        showCodes = !!parseInt( $('.raw-codes input[type=radio]:checked').val(), 10 ),
-        url = pdp.query.generateApiUrl( format, showCodes ) + '&$limit=0';
+    if( showCodes ){
+      codeStatus = 'core';
+    }
+
+    if( pdp.form.checkStatic( codeStatus, format ) ){
+      url = pdp.form.checkStatic( codeStatus, format );
+    }
 
     // Log event to GA
     track( 'downloads', 'HMDA raw data', 'summary-table-page:' + url );
