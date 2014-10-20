@@ -12,7 +12,7 @@ View the [documented source code](http://cfpb.github.io/hmda-explorer/docs/main.
 
 Follow the steps below to get your environment set up. `grunt build` will create a `dist` directory. Copy the contents of `dist` to wherever you want the app to live.
 
-By default, this app will serve data from [api.consumerfinance.gov](http://api.consumerfinance.gov/data/hmda/). If you'd like to use a different endpoint, build the app with an [`endpoint` flag](https://github.com/cfpb/hmda-explorer/blob/master/Gruntfile.js#L15-L21): `grunt build --endpoint=http://someotherurl.com/api/whatever/`.
+By default, this app will serve data from [api.consumerfinance.gov](http://api.consumerfinance.gov/data/hmda/). If you'd like to use a different endpoint, build the app with an [`endpoint` flag](https://github.com/cfpb/hmda-explorer/blob/master/Gruntfile.js#L15-L21): `grunt build --endpoint=https://someotherurl.com/api/whatever/`.
 
 ## Contributing
 
