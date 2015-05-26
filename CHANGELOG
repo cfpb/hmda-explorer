@@ -1,3 +1,8 @@
+v1.1.1:
+  date: 2015-05-26
+  changes:
+    - Fixes out-of-sequence CBSAs on homepage charts
+
 v1.1.0:
   date: 2014-09-18
   changes:
