@@ -32,9 +32,12 @@ Only edit files in `src`. When anything is changed, Grunt will lint, test, compi
 
 In lieu of a formal styleguide, take care to maintain the existing coding style.
 
+
 ## Release History
- * 2014-09-22...[v1.1.0]()...Updated with 2013 Data and Static S3 File Routing
- * 2014-08-05...[v1.0.1](https://github.com/cfpb/hmda-explorer/releases/tag/v1.0.1)...Location filters and display bug fixes
+
+ * 2015-05-26   [v1.1.1](../../tree/v1.1.1)   Fixes out-of-sequence CBSAs on homepage charts
+ * 2014-09-18   [v1.1.0](../../tree/v1.1.0)   Updated charts, maps and copy with 2013 changes Updated Explorer to route to static .zip files where efficient Changed census query location filter to reflect mapping to county Style / copy updates to navigation and footer
+ * 2014-09-11   [v1.0.1](../../tree/v1.0.1)   Updated location filters to group state and county properly Added display fixes to axes labels, mobile rendering Updated map layers to load lazily to speed load times
  * 2014-06-13   [v1.0.0](../../tree/v1.0.0)   Add `endpoint` build flag for internal testing. Update Learn More content.
  * 2014-04-20   [v0.19.3](../../tree/v0.19.3)   Prep code for open source release.
  * 2014-02-20   [v0.19.2](../../tree/v0.19.2)   Add `bind()` polyfill to homepage to aid automated testing.
@@ -108,4 +111,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Fri Jun 13 2014 14:39:38.*
+*This file was generated on Tue May 26 2015 16:10:39.*

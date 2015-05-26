@@ -661,8 +661,8 @@ module.exports = function(grunt) {
     'build-cfpb': {
       main: {
         options: {
-          commit: true,
-          tag: true,
+          commit: false,
+          tag: false,
           push: false
         }
       }
