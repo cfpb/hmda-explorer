@@ -166,11 +166,6 @@ module.exports = function(grunt) {
         command: [
           'rm -rf _SpecRunner.html .grunt sauce_connect.log*',
         ].join('&&')
-      },
-      mogo: {
-        command: [
-          'java -jar test/mogotest.jar ' + process.env.MOGO_API_KEY + ' www.hmda.test 9005',
-        ].join('&&')
       }
     },
 
@@ -436,12 +431,6 @@ module.exports = function(grunt) {
         options: {
           port: 9000
         }
-      },
-      mogo: {
-        options: {
-          port: 9005,
-          base: 'dist'
-        }
       }
     },
 
@@ -661,8 +650,8 @@ module.exports = function(grunt) {
     'build-cfpb': {
       main: {
         options: {
-          commit: false,
-          tag: false,
+          commit: true,
+          tag: true,
           push: false
         }
       }
@@ -698,7 +687,6 @@ module.exports = function(grunt) {
    */
   grunt.registerTask('test', ['concurrent:test']);
   grunt.registerTask('sauce', ['connect:sauce', 'jasmine:sauce', 'saucelabs-jasmine', 'shell:sauce']);
-  grunt.registerTask('mogo', ['connect:mogo', 'shell:mogo']);
   grunt.registerTask('docs', ['removelogging', 'docco', 'build-cfpb']);
   grunt.registerTask('build', ['concurrent:compile', 'concurrent:package', 'string-replace']);
   grunt.registerTask('ghpages', ['build', 'copy:ghpages']);
