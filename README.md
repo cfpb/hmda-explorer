@@ -16,6 +16,8 @@ By default, this app will serve data from [api.consumerfinance.gov](http://api.c
 
 ## Contributing
 
+## Running the site locally
+
 Please use the [fork and pull](https://help.github.com/articles/using-pull-requests#fork--pull) collaborative model.
 
 1. Install [Node](http://nodejs.org/) and [Grunt](http://gruntjs.com/).
@@ -28,16 +30,23 @@ Please use the [fork and pull](https://help.github.com/articles/using-pull-reque
 1. `grunt`
 1. Open `localhost:8000` in a browser.
 
-Only edit files in `src`. When anything is changed, Grunt will lint, test, compile and build everything. [grunt-cfpb-internal](https://github.com/cfpb/grunt-cfpb-internal) generates this README.
+Only edit files in `src`. When anything is changed, Grunt will lint, test, compile and build everything. Refresh `localhost:8000` to see your changes.
 
 In lieu of a formal styleguide, take care to maintain the existing coding style.
+
+## Tagging releases
+
+1. Add a new version to the top of `CHANGELOG` with today's date and a list of changes. Use [semver](http://semver.org/).
+1. Run `grunt docs`. This will generate some docs and run [grunt-cfpb-internal](https://github.com/cfpb/grunt-cfpb-internal).
+1. Push the tag to GitHub with `git push upstream --tags`.
 
 
 ## Release History
 
- * 2015-05-26   [v1.1.1](../../tree/v1.1.1)   Fixes out-of-sequence CBSAs on homepage charts
- * 2014-09-18   [v1.1.0](../../tree/v1.1.0)   Updated charts, maps and copy with 2013 changes Updated Explorer to route to static .zip files where efficient Changed census query location filter to reflect mapping to county Style / copy updates to navigation and footer
- * 2014-09-11   [v1.0.1](../../tree/v1.0.1)   Updated location filters to group state and county properly Added display fixes to axes labels, mobile rendering Updated map layers to load lazily to speed load times
+ * 2015-06-03   [v1.1.2](../../tree/v1.1.2)   Updates CONTRIBUTING docs to include tagging steps. Remove deprecated mogotest steps from gruntfile.
+ * 2015-05-26   [v1.1.1](../../tree/v1.1.1)   Fixes out-of-sequence CBSAs on homepage charts.
+ * 2014-09-18   [v1.1.0](../../tree/v1.1.0)   Updated charts, maps and copy with 2013 changes. Updated Explorer to route to static .zip files where efficient. Changed census query location filter to reflect mapping to county. Style / copy updates to navigation and footer.
+ * 2014-09-11   [v1.0.1](../../tree/v1.0.1)   Updated location filters to group state and county properly. Added display fixes to axes labels, mobile rendering. Updated map layers to load lazily to speed load times.
  * 2014-06-13   [v1.0.0](../../tree/v1.0.0)   Add `endpoint` build flag for internal testing. Update Learn More content.
  * 2014-04-20   [v0.19.3](../../tree/v0.19.3)   Prep code for open source release.
  * 2014-02-20   [v0.19.2](../../tree/v0.19.2)   Add `bind()` polyfill to homepage to aid automated testing.
@@ -111,4 +120,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Tue May 26 2015 16:10:39.*
+*This file was generated on Wed Jun 03 2015 12:10:56.*
