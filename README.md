@@ -34,21 +34,11 @@ Only edit files in `src`. When anything is changed, Grunt will lint, test, compi
 
 In lieu of a formal styleguide, take care to maintain the existing coding style.
 
-## Tagging releases for deployment.
+## Tagging releases
 
-To deploy code to production, you need to tag it and push the tag up to GitHub. The easiest way to do this is with [grunt-cfpb-internal](https://github.com/cfpb/grunt-cfpb-internal). Here's the process:
-
-1. Make sure the code is good-to-go. Tags can't be edited.
-1. Add a new version to the top of `CHANGELOG` with today's date and a list of changes. Use the [semver](http://semver.org/) convention. Save and close `CHANGELOG`.
-1. Run `grunt docs`.
-1. Everything is now tagged and ready for production.
-
-`grunt docs` generates new Docco docs from the source code and kicks off [grunt-cfpb-internal](https://github.com/cfpb/grunt-cfpb-internal) which:
-
-1. Appends the latest changes to the end of the `README`.
-1. Timestamps the `README`.
-1. Bumps the version number in package.json and bower.json.
-1. Creates an annotated git tag.
+1. Add a new version to the top of `CHANGELOG` with today's date and a list of changes. Use [semver](http://semver.org/).
+1. Run `grunt docs`. This will generate some docs and run [grunt-cfpb-internal](https://github.com/cfpb/grunt-cfpb-internal).
+1. Push the tag to GitHub with `git push upstream --tags`.
 
 
 ## Release History
@@ -130,4 +120,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Wed Jun 03 2015 11:58:42.*
+*This file was generated on Wed Jun 03 2015 12:10:56.*
