@@ -1,0 +1,27 @@
+<div id="heading">
+    <h2>Loan/Application Register</h2>
+    <h3>Code Sheet</h3>
+    <p>Use the following codes to complete the Loan/Application Register. The instructions to the HMDA-LAR explain the proper use of each code.</p>
+</div>
+
+{{#each sections}}
+    {{#each subsections}}
+        {{#each items}}
+            {{#each sections}}
+                {{#if codes}}
+                    <table class="table codesheet">
+                        <thead>
+                            <tr><th colspan="2">{{../../label}}</th></tr>
+                        </thead>
+                        <tbody>
+                        {{#each codes}}
+                            <tr><td width="75px">{{id}}</td><td>{{description}}</td></tr>
+                        {{/each}}
+                        </tbody>
+                    </table>
+                {{/if}}
+            {{/each}}
+        {{/each}}
+    {{/each}}
+{{/each}}
+
