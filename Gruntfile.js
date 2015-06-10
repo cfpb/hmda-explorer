@@ -116,7 +116,8 @@ module.exports = function(grunt) {
           'dist/index.html': 'dist/index.html',
           'dist/explore.html': 'dist/explore.html',
           'dist/learn-more.html': 'dist/learn-more.html',
-          'dist/api.html': 'dist/api.html'
+          'dist/api.html': 'dist/api.html',
+          'dist/for-filers.html': 'dist/for-filers.html'
         }
       }
     },
@@ -274,7 +275,8 @@ module.exports = function(grunt) {
           'dist/index.html': ['src/index.html'],
           'dist/learn-more.html': ['src/learn-more.html'],
           'dist/explore.html': ['src/explore.html'],
-          'dist/api.html': ['src/api.html']
+          'dist/api.html': ['src/api.html'],
+          'dist/for-filers.html': ['src/for-filers.html']
         }
       }
     },
