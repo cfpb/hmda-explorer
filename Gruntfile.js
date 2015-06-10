@@ -334,6 +334,18 @@ module.exports = function(grunt) {
           ]
         }
       },
+      spec: {
+        options: {
+          sourceMap: 'dist/static/js/source-maps/spec.js',
+          sourceMappingURL: 'source-maps/spec.js'
+        },
+        files: {
+          'dist/static/js/spec.min.js': [
+            'src/static/vendor/handlebars/handlebars.js',
+            'src/static/js/pages/spec.js'
+          ]
+        }
+      },
       explore: {
         options: {
           sourceMap: 'dist/static/js/source-maps/explore.js',
