@@ -72,6 +72,38 @@
     margin-bottom: 10px;
   }
 
+  // tables
+  .table {
+    background: none;
+    border-collapse: collapse;
+    border-spacing: 0;
+    color: @black;
+    th, td {
+        padding: 5px 7px;
+    }
+    th {
+        font-family: "AvenirNextLTW01-Demi", Helvetica, Arial, sans-serif;
+        text-align: left;
+    }
+    thead th {
+        border-right: 1px solid @light_neutral;
+        &:last-child {
+            border-right: none;
+        }
+    }
+    tbody td, tbody th {
+        border: 1px solid @light_neutral;
+    }
+    tbody th {
+        border-bottom-width: 3px;
+    }
+
+    &.codesheet {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+}
+
 }
   
 

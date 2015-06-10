@@ -280,7 +280,8 @@ module.exports = function(grunt) {
           'dist/explore.html': ['src/explore.html'],
           'dist/api.html': ['src/api.html'],
           'dist/for-filers.html': ['src/for-filers.html'],
-          'dist/tech-data-spec.html': ['src/tech-data-spec.html']
+          'dist/tech-data-spec.html': ['src/tech-data-spec.html'],
+          'dist/code-sheet.html': ['src/code-sheet.html']
         }
       }
     },
@@ -347,6 +348,18 @@ module.exports = function(grunt) {
           'dist/static/js/spec.min.js': [
             'src/static/vendor/handlebars/handlebars.js',
             'src/static/js/pages/spec.js'
+          ]
+        }
+      },
+      codesheet: {
+        options: {
+          sourceMap: 'dist/static/js/source-maps/codesheet.js',
+          sourceMappingURL: 'source-maps/codesheet.js'
+        },
+        files: {
+          'dist/static/js/codesheet.min.js': [
+            'src/static/vendor/handlebars/handlebars.js',
+            'src/static/js/pages/codesheet.js'
           ]
         }
       },
