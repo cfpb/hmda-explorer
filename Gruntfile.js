@@ -182,6 +182,9 @@ module.exports = function(grunt) {
           {expand: true, cwd: 'src/static/img/', src: ['**'], dest: 'dist/static/img/'},
           {expand: true, cwd: 'src/static/js/', src: ['**'], dest: 'dist/static/js/'},
           {expand: true, cwd: 'src/static/desc/', src: ['**'], dest: 'dist/static/desc/'},
+          // needed for local dev for now
+          // can remove for production
+          {expand: true, cwd: 'src/static/json/', src: ['**'], dest: 'dist/static/json/'},
           {expand: true, cwd: 'src/static/vendor/cfpb-font-icons/src/fonts/', src: ['**'], dest: 'dist/static/fonts/'},
           {expand: true, cwd: 'src/static/vendor/cfpb-font-icons/src/css/', src: ['icons-ie7.css'], dest: 'dist/static/css/'},
           {expand: true, cwd: 'src/static/vendor/zeroclipboard/', src: ['**'], dest: 'dist/static/js/zeroclipboard/'},
@@ -276,7 +279,8 @@ module.exports = function(grunt) {
           'dist/learn-more.html': ['src/learn-more.html'],
           'dist/explore.html': ['src/explore.html'],
           'dist/api.html': ['src/api.html'],
-          'dist/for-filers.html': ['src/for-filers.html']
+          'dist/for-filers.html': ['src/for-filers.html'],
+          'dist/tech-data-spec.html': ['src/tech-data-spec.html']
         }
       }
     },
