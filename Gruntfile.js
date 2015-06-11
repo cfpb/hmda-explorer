@@ -686,7 +686,26 @@ module.exports = function(grunt) {
           push: false
         }
       }
-    }
+    },
+
+    clean: ['dist/'],
+
+    /**
+      * Compile Handlesbars: https://github.com/patrickkettner/grunt-compile-handlebars
+      *
+      * compile static html from a handlebars plugin 
+      */
+    'compile-handlebars': {
+      allStatic: {
+        files: [{
+          src: 'src/static/hbs/spec.html',
+          dest: 'dist/test.html'
+        }],
+        //preHTML: 'test/fixtures/pre-dev.html',
+        //postHTML: 'test/fixtures/post-dev.html',
+        templateData: 'src/static/json/technical_data_specification.json'
+      }
+    },
 
   });
 
@@ -712,6 +731,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-saucelabs');
   grunt.loadNpmTasks('grunt-concurrent');
   grunt.loadNpmTasks('grunt-string-replace');
+  grunt.loadNpmTasks('grunt-compile-handlebars');
+  grunt.loadNpmTasks('grunt-contrib-clean');
 
   /**
    * Create task aliases by registering new tasks
@@ -719,8 +740,9 @@ module.exports = function(grunt) {
   grunt.registerTask('test', ['concurrent:test']);
   grunt.registerTask('sauce', ['connect:sauce', 'jasmine:sauce', 'saucelabs-jasmine', 'shell:sauce']);
   grunt.registerTask('docs', ['removelogging', 'docco', 'build-cfpb']);
-  grunt.registerTask('build', ['concurrent:compile', 'concurrent:package', 'string-replace']);
+  grunt.registerTask('build', ['clean', 'compile-handlebars:allStatic', 'concurrent:compile', 'concurrent:package', 'string-replace']);
   grunt.registerTask('ghpages', ['build', 'copy:ghpages']);
+  grunt.registerTask('hbs', ['clean', 'compile-handlebars:allStatic']);
 
   /**
    * The 'default' task will run whenever `grunt` is run without specifying a task
