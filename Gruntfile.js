@@ -279,9 +279,7 @@ module.exports = function(grunt) {
           'dist/learn-more.html': ['src/learn-more.html'],
           'dist/explore.html': ['src/explore.html'],
           'dist/api.html': ['src/api.html'],
-          'dist/for-filers.html': ['src/for-filers.html'],
-          'dist/tech-data-spec.html': ['src/tech-data-spec.html'],
-          'dist/code-sheet.html': ['src/code-sheet.html']
+          'dist/for-filers.html': ['src/for-filers.html']
         }
       }
     },
@@ -336,30 +334,6 @@ module.exports = function(grunt) {
           'dist/static/js/home.min.js': [
             //'src/static/vendor/polyfills-pkg/dist/polyfills-pkg.js',
             'src/static/js/pages/home.js',
-          ]
-        }
-      },
-      spec: {
-        options: {
-          sourceMap: 'dist/static/js/source-maps/spec.js',
-          sourceMappingURL: 'source-maps/spec.js'
-        },
-        files: {
-          'dist/static/js/spec.min.js': [
-            'src/static/vendor/handlebars/handlebars.js',
-            'src/static/js/pages/spec.js'
-          ]
-        }
-      },
-      codesheet: {
-        options: {
-          sourceMap: 'dist/static/js/source-maps/codesheet.js',
-          sourceMappingURL: 'source-maps/codesheet.js'
-        },
-        files: {
-          'dist/static/js/codesheet.min.js': [
-            'src/static/vendor/handlebars/handlebars.js',
-            'src/static/js/pages/codesheet.js'
           ]
         }
       },
@@ -699,7 +673,7 @@ module.exports = function(grunt) {
       allStatic: {
         files: [{
           src: 'src/static/hbs/spec.html',
-          dest: 'dist/test.html'
+          dest: 'dist/tech-data-spec.html'
         }],
         //preHTML: 'test/fixtures/pre-dev.html',
         //postHTML: 'test/fixtures/post-dev.html',
