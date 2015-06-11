@@ -631,7 +631,7 @@ module.exports = function(grunt) {
      */
     watch: {
       scripts: {
-        files: ['src/*.html', 'src/content/**/*', 'src/static/less/**/*.less', 'src/static/js/**/*.js', 'test/specs/*.js'],
+        files: ['src/*.html', 'src/content/**/*', 'src/static/less/**/*.less', 'src/static/js/**/*.js', 'test/specs/*.js', 'src/static/hbs/*'],
         tasks: ['build', 'test']
       }
     },
@@ -672,8 +672,8 @@ module.exports = function(grunt) {
     'compile-handlebars': {
       allStatic: {
         files: [{
-          src: 'src/static/hbs/spec.html',
-          dest: 'dist/tech-data-spec.html'
+          src: ['src/static/hbs/spec.html', 'src/static/hbs/codesheet.html'],
+          dest: ['dist/tech-data-spec.html', 'dist/code-sheet.html']
         }],
         //preHTML: 'test/fixtures/pre-dev.html',
         //postHTML: 'test/fixtures/post-dev.html',
