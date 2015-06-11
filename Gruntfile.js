@@ -716,7 +716,6 @@ module.exports = function(grunt) {
   grunt.registerTask('docs', ['removelogging', 'docco', 'build-cfpb']);
   grunt.registerTask('build', ['clean', 'compile-handlebars:allStatic', 'concurrent:compile', 'concurrent:package', 'string-replace']);
   grunt.registerTask('ghpages', ['build', 'copy:ghpages']);
-  grunt.registerTask('hbs', ['clean', 'compile-handlebars:allStatic']);
 
   /**
    * The 'default' task will run whenever `grunt` is run without specifying a task
