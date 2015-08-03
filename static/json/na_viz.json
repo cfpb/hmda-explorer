@@ -1,0 +1,647 @@
+{
+	"title": "NA Visualization Tool",
+	"loan_types": [
+		{
+			"type": "HELOC",
+			"rule": "Open-End Line of Credit Flag",
+			"rule_value":"1",
+			"affected_fields": [
+				{
+					"field": "Date Application Recieved",
+					"value": ""
+				},
+				{
+					"field": "Preapproval",
+					"value": "3"
+				},
+				{
+					"field": "Action Taken Date",
+					"value": ""
+				},
+				{
+					"field": "Ethnicity",
+					"value": ""
+				},
+				{
+					"field": "Race",
+					"value": ""
+				},
+				{
+					"field": "Gender",
+					"value": ""
+				},
+				{
+					"field": "Age",
+					"value": ""
+				},
+				{
+					"field": "Income",
+					"value": ""
+				},
+				{
+					"field": "Rate Spread",
+					"value": ""
+				},
+				{
+					"field": "HOEPA status",
+					"value": ""
+				},
+				{
+					"field": "Credit Score - Name and Version of Model",
+					"value": ""
+				},
+				{
+					"field": "Reason for Denial",
+					"value": ""
+				},
+				{
+					"field": "Total Points and Fees",
+					"value": ""
+				},
+				{
+					"field": "Total Origination Charges",
+					"value": "N/A"
+				},
+				{
+					"field": "Total Discount Points",
+					"value": "N/A"
+				},
+				{
+					"field": "Lender credits",
+					"value": "N/A"
+				},
+				{
+					"field": "Prepayment Penalty Term",
+					"value": ""
+				},
+				{
+					"field": "Debt-to-Income Ratio",
+					"value": ""
+				},
+				{
+					"field": "Loan Term",
+					"value": ""
+				},
+				{
+					"field": "Application Channel",
+					"value": ""
+				},
+				{
+					"field": "Initially Payable",
+					"value": ""
+				},
+				{
+					"field": "AUS",
+					"value": ""
+				},
+				{
+					"field": "AUS Result",
+					"value": ""
+				},
+				{
+					"field": "Reverse Mortgage Flag",
+					"value": ""
+				},
+				{
+					"field": "Open End Line of Credit Flag",
+					"value": "1"
+				}
+			]
+		},
+		{
+			"type": "Reverse Mortgage",
+			"rule": "Reverse Mortgage Flag",
+			"rule_value":"1",
+			"affected_fields": [
+				{
+					"field": "Date Application Recieved",
+					"value": ""
+				},
+				{
+					"field": "Preapproval",
+					"value": "3"
+				},
+				{
+					"field": "Action Taken Date",
+					"value": ""
+				},
+				{
+					"field": "Ethnicity",
+					"value": ""
+				},
+				{
+					"field": "Race",
+					"value": ""
+				},
+				{
+					"field": "Gender",
+					"value": ""
+				},
+				{
+					"field": "Age",
+					"value": ""
+				},
+				{
+					"field": "Income",
+					"value": ""
+				},
+				{
+					"field": "Rate Spread",
+					"value": "N/A"
+				},
+				{
+					"field": "HOEPA status",
+					"value": "3"
+				},
+				{
+					"field": "Credit Score - Name and Version of Model",
+					"value": ""
+				},
+				{
+					"field": "Reason for Denial",
+					"value": ""
+				},
+				{
+					"field": "Total Points and Fees",
+					"value": "N/A"
+				},
+				{
+					"field": "Total Origination Charges",
+					"value": "N/A"
+				},
+				{
+					"field": "Total Discount Points",
+					"value": "N/A"
+				},
+				{
+					"field": "Lender credits",
+					"value": "N/A"
+				},
+				{
+					"field": "Prepayment Penalty Term",
+					"value": ""
+				},
+				{
+					"field": "Debt-to-Income Ratio",
+					"value": "N/A"
+				},
+				{
+					"field": "Loan Term",
+					"value": "N/A"
+				},
+				{
+					"field": "Application Channel",
+					"value": ""
+				},
+				{
+					"field": "Initially Payable",
+					"value": ""
+				},
+				{
+					"field": "AUS",
+					"value": ""
+				},
+				{
+					"field": "AUS Result",
+					"value": ""
+				},
+				{
+					"field": "Reverse Mortgage Flag",
+					"value": "1"
+				},
+				{
+					"field": "Open End Line of Credit Flag",
+					"value": ""
+				}
+			]
+		},
+		{
+			"type": "Multifamily Dwellings",
+			"rule": "None",
+			"rule_value":"None",
+			"affected_fields": [
+				{
+					"field": "Date Application Recieved",
+					"value": ""
+				},
+				{
+					"field": "Preapproval",
+					"value": "3"
+				},
+				{
+					"field": "Action Taken Date",
+					"value": ""
+				},
+				{
+					"field": "Ethnicity",
+					"value": ""
+				},
+				{
+					"field": "Race",
+					"value": ""
+				},
+				{
+					"field": "Gender",
+					"value": ""
+				},
+				{
+					"field": "Age",
+					"value": ""
+				},
+				{
+					"field": "Income",
+					"value": "N/A"
+				},
+				{
+					"field": "Rate Spread",
+					"value": ""
+				},
+				{
+					"field": "HOEPA status",
+					"value": ""
+				},
+				{
+					"field": "Credit Score - Name and Version of Model",
+					"value": ""
+				},
+				{
+					"field": "Reason for Denial",
+					"value": ""
+				},
+				{
+					"field": "Total Points and Fees",
+					"value": ""
+				},
+				{
+					"field": "Total Origination Charges",
+					"value": ""
+				},
+				{
+					"field": "Total Discount Points",
+					"value": ""
+				},
+				{
+					"field": "Lender credits",
+					"value": ""
+				},
+				{
+					"field": "Prepayment Penalty Term",
+					"value": ""
+				},
+				{
+					"field": "Debt-to-Income Ratio",
+					"value": "N/A"
+				},
+				{
+					"field": "Loan Term",
+					"value": ""
+				},
+				{
+					"field": "Application Channel",
+					"value": ""
+				},
+				{
+					"field": "Initially Payable",
+					"value": ""
+				},
+				{
+					"field": "AUS",
+					"value": ""
+				},
+				{
+					"field": "AUS Result",
+					"value": ""
+				},
+				{
+					"field": "Reverse Mortgage Flag",
+					"value": ""
+				},
+				{
+					"field": "Open End Line of Credit Flag",
+					"value": ""
+				}
+			]
+		},
+		{
+			"type": "Non-Natural Person",
+			"rule": "TBD- flag?",
+			"rule_value":"None",
+			"affected_fields": [
+				{
+					"field": "Date Application Recieved",
+					"value": ""
+				},
+				{
+					"field": "Preapproval",
+					"value": ""
+				},
+				{
+					"field": "Action Taken Date",
+					"value": ""
+				},
+				{
+					"field": "Ethnicity",
+					"value": "4"
+				},
+				{
+					"field": "Race",
+					"value": "7"
+				},
+				{
+					"field": "Gender",
+					"value": "4"
+				},
+				{
+					"field": "Age",
+					"value": "1"
+				},
+				{
+					"field": "Income",
+					"value": "N/A"
+				},
+				{
+					"field": "Rate Spread",
+					"value": ""
+				},
+				{
+					"field": "HOEPA status",
+					"value": ""
+				},
+				{
+					"field": "Credit Score - Name and Version of Model",
+					"value": ""
+				},
+				{
+					"field": "Reason for Denial",
+					"value": ""
+				},
+				{
+					"field": "Total Points and Fees",
+					"value": ""
+				},
+				{
+					"field": "Total Origination Charges",
+					"value": ""
+				},
+				{
+					"field": "Total Discount Points",
+					"value": ""
+				},
+				{
+					"field": "Lender credits",
+					"value": ""
+				},
+				{
+					"field": "Prepayment Penalty Term",
+					"value": ""
+				},
+				{
+					"field": "Debt-to-Income Ratio",
+					"value": "N/A"
+				},
+				{
+					"field": "Loan Term",
+					"value": ""
+				},
+				{
+					"field": "Application Channel",
+					"value": ""
+				},
+				{
+					"field": "Initially Payable",
+					"value": ""
+				},
+				{
+					"field": "AUS",
+					"value": ""
+				},
+				{
+					"field": "AUS Result",
+					"value": ""
+				},
+				{
+					"field": "Reverse Mortgage Flag",
+					"value": ""
+				},
+				{
+					"field": "Open End Line of Credit Flag",
+					"value": ""
+				}
+			]
+		},
+		{
+			"type": "Not Subject to Regulation Z",
+			"rule": "None",
+			"rule_value":"None",
+			"affected_fields": [
+				{
+					"field": "Date Application Recieved",
+					"value": ""
+				},
+				{
+					"field": "Preapproval",
+					"value": ""
+				},
+				{
+					"field": "Action Taken Date",
+					"value": ""
+				},
+				{
+					"field": "Ethnicity",
+					"value": ""
+				},
+				{
+					"field": "Race",
+					"value": ""
+				},
+				{
+					"field": "Gender",
+					"value": ""
+				},
+				{
+					"field": "Age",
+					"value": ""
+				},
+				{
+					"field": "Income",
+					"value": ""
+				},
+				{
+					"field": "Rate Spread",
+					"value": "N/A"
+				},
+				{
+					"field": "HOEPA status",
+					"value": ""
+				},
+				{
+					"field": "Credit Score - Name and Version of Model",
+					"value": ""
+				},
+				{
+					"field": "Reason for Denial",
+					"value": ""
+				},
+				{
+					"field": "Total Points and Fees",
+					"value": ""
+				},
+				{
+					"field": "Total Origination Charges",
+					"value": ""
+				},
+				{
+					"field": "Total Discount Points",
+					"value": ""
+				},
+				{
+					"field": "Lender credits",
+					"value": ""
+				},
+				{
+					"field": "Prepayment Penalty Term",
+					"value": ""
+				},
+				{
+					"field": "Debt-to-Income Ratio",
+					"value": ""
+				},
+				{
+					"field": "Loan Term",
+					"value": ""
+				},
+				{
+					"field": "Application Channel",
+					"value": ""
+				},
+				{
+					"field": "Initially Payable",
+					"value": ""
+				},
+				{
+					"field": "AUS",
+					"value": ""
+				},
+				{
+					"field": "AUS Result",
+					"value": ""
+				},
+				{
+					"field": "Reverse Mortgage Flag",
+					"value": ""
+				},
+				{
+					"field": "Open End Line of Credit Flag",
+					"value": ""
+				}
+			]
+		},
+		{
+			"type": "Purchased Loan",
+			"rule": "Action Taken",
+			"rule_value":"6",
+			"affected_fields": [
+				{
+					"field": "Date Application Recieved",
+					"value": "N/A"
+				},
+				{
+					"field": "Preapproval",
+					"value": "3"
+				},
+				{
+					"field": "Action Taken Date",
+					"value": "Date of Purchase by Institution"
+				},
+				{
+					"field": "Ethnicity",
+					"value": "4"
+				},
+				{
+					"field": "Race",
+					"value": "7"
+				},
+				{
+					"field": "Gender",
+					"value": "4"
+				},
+				{
+					"field": "Age",
+					"value": "1"
+				},
+				{
+					"field": "Income",
+					"value": "N/A"
+				},
+				{
+					"field": "Rate Spread",
+					"value": "N/A"
+				},
+				{
+					"field": "HOEPA status",
+					"value": "3"
+				},
+				{
+					"field": "Credit Score - Name and Version of Model",
+					"value": "10"
+				},
+				{
+					"field": "Reason for Denial",
+					"value": "10"
+				},
+				{
+					"field": "Total Points and Fees",
+					"value": "N/A"
+				},
+				{
+					"field": "Total Origination Charges",
+					"value": ""
+				},
+				{
+					"field": "Total Discount Points",
+					"value": ""
+				},
+				{
+					"field": "Lender credits",
+					"value": ""
+				},
+				{
+					"field": "Prepayment Penalty Term",
+					"value": "N/A"
+				},
+				{
+					"field": "Debt-to-Income Ratio",
+					"value": ""
+				},
+				{
+					"field": "Loan Term",
+					"value": ""
+				},
+				{
+					"field": "Application Channel",
+					"value": "3"
+				},
+				{
+					"field": "Initially Payable",
+					"value": "3"
+				},
+				{
+					"field": "AUS",
+					"value": "7"
+				},
+				{
+					"field": "AUS Result",
+					"value": "16"
+				},
+				{
+					"field": "Reverse Mortgage Flag",
+					"value": "1"
+				},
+				{
+					"field": "Open End Line of Credit Flag",
+					"value": ""
+				}
+			]
+		}
+	]
+}

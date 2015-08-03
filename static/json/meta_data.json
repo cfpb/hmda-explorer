@@ -1,0 +1,221 @@
+{
+    "src": "https://github.cfpb.gov/HMDA-Operations/Repo-formerly-known-as-Prince/blob/master/Meta%20Data%20Fields.md",
+    "year": "2015",
+    "title": "Meta Data Fields (Transmittal Sheet)",
+    "sections": [
+        {
+            "title": "Meta Data (the document formerly known as Transmittal Sheet)",
+            "items": [
+                {
+                    "id": "1",
+                    "label": "Financial Institution Name.",
+                    "description": "Enter the name of the financial institution that is reporting HMDA.",
+                    "citation": {
+                        "paragraph": "5",
+                        "subparagraph": "(a)",
+                        "clause": "(3)",
+                        "subclause": "(i)"
+                    }
+                },
+                {
+                    "id": "1",
+                    "label": "Financial Institution Address.",
+                    "description": "Enter the address of the headquarters in the format described by the U.S. Postal Service Addressing Standards.",
+                    "citation": {
+                        "paragraph": "5",
+                        "subparagraph": "(a)",
+                        "clause": "(3)",
+                        "subclause": "X"
+                    },
+                    "parts": [
+                        {
+                            "part": "a",
+                            "label": "Street Address.",
+                            "description": "Enter the street address of the headquarters in the fomat described by the U.S. Postal Service Addressing Standards."
+                        },
+                        {
+                            "part": "b",
+                            "label": "City Name.",
+                            "description": "Enter the name of the city."
+                        },
+                        {
+                            "part": "c",
+                            "label": "State Code.",
+                            "description": "Enter the two letter State code for the applicable State, using the U.S. Postal Service official State abbreviations."
+                        },
+                        {
+                            "part": "d",
+                            "label": "Zip Code.",
+                            "description": "Enter the zip code."
+                        }
+                    ]
+                },
+                {
+                    "id": "1",
+                    "label": "Activity Year and Calendar Quarter.",
+                    "citation": {
+                        "paragraph": "5",
+                        "subparagraph": "(1)",
+                        "clause": "(3)",
+                        "subclause": "(ii)"
+                    },
+                    "sections": [
+                        {
+                            "id": "1",
+                            "label": "Activity Year.",
+                            "description": "Enter the year that the activity covers in the loan application register by year using numerals in the form YYYY."
+                        },
+                        {
+                            "id": "2",
+                            "label": "Activty Calendar Quarter.",
+                            "description": "Enter the calendar quarter that the activity covers in the loan application register using the applicable alpha numeric code from the following:",
+                            "codes": [
+                                {
+                                    "id": "Q1",
+                                    "description": "Activity occurring during the period between January 1st (01/01) and March 31st  (03/31)."
+                                },
+                                {
+                                    "id": "Q2",
+                                    "description": "Activity occurring during the period between April 1st (04/01) and June 30th (06/30)."
+                                },
+                                {
+                                    "id": "Q3",
+                                    "description": "Activity occurring during the period between July 1st (07/01) and September 30th (09/30)."
+                                }
+                            ],
+                            "notes": [
+                                {
+                                    "id": "a",
+                                    "description": "Enter “NA” for non-quarterly submissions."
+                                },
+                                {
+                                    "id": "b",
+                                    "description": "Activity occurring during the period between October 1st (10/01) and December 31st (12/31) will be submitted along with the annual submission. Financial institutions should not submit a separate loan/application register for the fourth calendar quarter."
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "1",
+                    "label": "Contact Information.",
+                    "description": "Enter the name and contact information of a person who may be contacted with questions about the institution’s submission.",
+                    "citation": {
+                        "paragraph": "5",
+                        "subparagraph": "(a)",
+                        "clause": "(3)",
+                        "subclause": "(iii)"
+                    },
+                    "parts": [
+                        {
+                            "part": "a",
+                            "label": "Contact Name.",
+                            "description": "Enter the name of the person who may be contacted with questions about the institution's submission."
+                        },
+                        {
+                            "part": "b",
+                            "label": "Contact Phone Number.",
+                            "description": "Enter the phone number of the person who may be contacted with questions about the institution's submission."
+                        },
+                        {
+                            "part": "c",
+                            "label": "Contact E-mail Address.",
+                            "description": "Enter the e-mail address of the person who may be contacted with questions about the institution's submission."
+                        }
+                    ]
+                },
+                {
+                    "id": "1",
+                    "label": "Federal Agency.",
+                    "description": "Enter the institution's appropriate Federal agency by entering the applicable Code from the following:",
+                    "citation": {
+                        "paragraph": "5",
+                        "subparagraph": "(a)",
+                        "clause": "(3)",
+                        "subclause": "(iv)"
+                    },
+                    "codes": [
+                        {
+                            "code": "1",
+                            "description": "OCC"
+                        },
+                        {
+                            "code": "2",
+                            "description": "FRS"
+                        },
+                        {
+                            "code": "3",
+                            "description": "FDIC"
+                        },
+                        {
+                            "code": "4",
+                            "description": "NCUA"
+                        },
+                        {
+                            "code": "5",
+                            "description": "HUD"
+                        },
+                        {
+                            "code": "6",
+                            "description": "CFPB"
+                        }
+                    ]
+                },
+                {
+                    "id": "1",
+                    "label": "Number of Entries.",
+                    "description": "Enter the total number of entries contained in the submission in numeral form.",
+                    "citation": {
+                        "paragraph": "5",
+                        "subparagraph": "(a)",
+                        "clause": "(3)",
+                        "subclause": "(v)"
+                    }
+                },
+                {
+                    "id": "1",
+                    "label": "Federal Taxpayer Identification Number.",
+                    "description": "Enter the financial institution’s Federal Taxpayer Identification Number.",
+                    "citation": {
+                        "paragraph": "5",
+                        "subparagraph": "(a)",
+                        "clause": "(3)",
+                        "subclause": "(vi)"
+                    }
+                },
+                {
+                    "id": "1",
+                    "label": "Parent Company.",
+                    "description": "Enter the name of the financial institution’s parent company.  Enter “NA” if there is no parent company.",
+                    "citation": {
+                        "paragraph": "5",
+                        "subparagraph": "(a)",
+                        "clause": "(3)",
+                        "subclause": "(vii)"
+                    }
+                },
+                {
+                    "id": "1",
+                    "label": "Legal Entity Identifier (LEI).",
+                    "description": "Enter the LEI of the financial institution.",
+                    "citation": {
+                        "paragraph": "5",
+                        "subparagraph": "(a)",
+                        "clause": "(3)",
+                        "subclause": "(viii)"
+                    },
+                    "notes":[
+                    	{
+                    		"id":"a",
+                    		"description":"Issued by a utility endorsed by the LEI Regulatory Oversight Committee; or "
+                    	},
+                    	{
+                    		"id":"b",
+                    		"description":"Issued by a utility endorsed or otherwise governed by the Global LEI Foundation (GLEIF) (or any successor of the GLEIF) after the GLEIF assumes operational governance of the global LEI system."
+                    	}
+                    ]
+                }
+            ]
+        }
+    ]
+}

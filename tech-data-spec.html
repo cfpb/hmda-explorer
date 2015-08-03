@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>The Home Mortgage Disclosure Act</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <script src="static/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="static/css/main.min.css">
+    <!--[if lt IE 8]>
+      <link rel="stylesheet" href="static/css/icons-ie7.css">
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="static/js/ie8.min.js"></script>
+      <link rel="stylesheet" href="static/css/ie8.min.css">
+      <script src="static/js/respond.min.js"></script>
+    <![endif]-->
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-20466645-3']);
+      _gaq.push(['_setDomainName', '.consumerfinance.gov']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    <script>
+      var docElement = document.documentElement;
+      docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2');
+    </script>
+  </head>
+  <!--[if lt IE 7]>      <body class="lt-ie9 lt-ie8 lt-ie7 hmda explore learn-more"> <![endif]-->
+  <!--[if IE 7]>         <body class="lt-ie9 lt-ie8 hmda explore learn-more"> <![endif]-->
+  <!--[if IE 8]>         <body class="lt-ie9 hmda explore learn-more"> <![endif]-->
+  <!--[if IE 9]>         <body class="lt-ie10 hmda explore learn-more"> <![endif]-->
+  <!--[if gt IE 9]><!--><body class="hmda explore for-filers"><!--<![endif]-->
+  
+  <!-- Google Tag Manager -->
+  <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KMMLRS"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KMMLRS');</script>
+  <!-- End Google Tag Manager -->
+
+    <div class="top-banner">
+      <div class="inner">
+        <p class="return-cfgov">Return to <a href="http://www.consumerfinance.gov">consumerfinance.gov</a></p>
+        <p class="official-website">An official website of the United States Government<img src="static/img/icon_usflag.png" width="16" height="11" alt="US Flag"></p>
+      </div>
+    </div> 
+
+    <header role="banner">
+
+        <div class="logo">
+
+          <a href="http://www.consumerfinance.gov"><img src="static/img/logo_2x.png" width="211" height="52" alt="Consumer Financial Protection Bureau"></a>
+
+        </div>
+
+        <button class="navicon">
+          <i class="cf-icon cf-icon-menu"></i>
+        </button>
+
+        <nav role="navigation" aria-label="Main HMDA Menu">
+              <ul>
+                <li><a href=".">Home</a></li>
+                <li><a href="learn-more">About HMDA</a></li>
+                <li><a href="for-filers" class="active">Resources for filers</a></li>
+                <li><a href="explore">Explore the data</a></li>
+                <li><a href="api" class="developers">Public API</a></li>
+              </ul>
+            </nav>
+
+      </header>
+
+      <div class="hero" role="main">
+
+        <div class="inner">
+
+          <h1>Technical Data Specification</h1>
+
+        </div>
+
+      </div>
+
+      
+        
+<div id="for-filers"> 
+  <div class="col-3">
+    <section id="what-is-hmda"> 
+      <div class="background">
+        <div class="inner">
+            <h2>APPENDIX A TO PART 1003 - FORM AND INSTRUCTIONS FOR COMPLETION OF HMDA LOAN APPLICATION REGISTER</h2>
+
+        <h3>PAPERWORK REDUCTION ACT NOTICE</h3>
+
+        <p>This report is required by law (12 U.S.C. 2801-2810 and 12 CFR 1003). An agency may not conduct or sponsor, and an organization is not required to respond to, a collection of information unless it displays a valid Office of Management and Budget (OMB) Control Number. See 12 CFR 1003.1(a) for the valid OMB Control Numbers applicable to this information collection. Send comments regarding this burden estimate or any other aspect of this collection of information, including suggestions for reducing the burden, to the respective agencies and to OMB, Office of Information and Regulatory Affairs, Paperwork Reduction Project, Washington, DC 20503. Be sure to reference the applicable agency and the OMB Control Number, as found in 12 CFR 1003.1(a), when submitting comments to OMB.</p>
+
+        <h3>I. INSTRUCTIONS FOR COMPLETION OF LOAN APPLICATION REGISTER</h3>
+
+
+            <div class="subsection">
+                <p>
+                    1. Instructions and designations.
+                 
+                    This part to this appendix contains instructions for the completion of the loan application register. Each instruction in this appendix is identified by a number and the regulatory section and paragraph which provides the reporting requirement. The instructions are designated according to the particular regulatory provision addressed. For example, the first instruction in this appendix for reporting the action taken under § 1003.4(a)(8) may be cited as instruction 4(a)(8)-1. This paragraph may be cited as instruction I-1.
+                </p>
+
+                    <div class="item">
+                                <p><strong>Paragraph 4(a)(1)(i)
+                                - ULI.</strong></p>
+
+                                    <p>1. 
+                                    Enter the universal loan identifier (ULI) assigned to the covered loan or application.</p>
+
+
+
+
+                                <p><strong>Paragraph 4(a)(1)(ii)
+                                - Date Application Received.</strong></p>
+
+                                    <p>1. 
+                                    Enter the date the application was received or the date shown on the application form by year, month, and day, using numerals in the form YYYYMMDD. 
+ Enter "NA" for covered loans purchased by your institution.</p>
+
+
+
+
+                                <p><strong>Paragraph 4(a)(2)
+                                - Loan or Application Type.</strong></p>
+
+                                    <p>1. 
+                                    Indicate the type of covered loan or application by entering the applicable Code from the following:</p>
+
+                                        <div class="codes">
+                                                <p>Code 1 - Conventional</p>
+                                                <p>Code 2 - FHA</p>
+                                                <p>Code 3 - VA</p>
+                                                <p>Code 4 - USDA Rural Housing Service or the Farm Service Agency</p>
+                                        </div>
+
+                                        <div class="notes">
+                                                <p>a. Use Code 2 for the Federal Housing Administration.</p>
+                                                <p>b. Use Code 3 for the Veterans Administration.</p>
+                                                <p>c. Use Code 4 for the Rural Housing Service or the Farm Service Agency.</p>
+                                                <p>d. Use Code 1 if the covered loan or application is not insured or guaranteed by the Federal Housing Administration, the Veterans Administration, or the USDA Rural Housing Service or the Farm Service Agency.</p>
+                                        </div>
+
+
+                                <p><strong>Paragraph 4(a)(3)
+                                - Purpose of Loan or Application.</strong></p>
+
+                                    <p>1. 
+                                    Indicate the purpose of the loan or application by entering the applicable Code from the following:</p>
+
+                                        <div class="codes">
+                                                <p>Code 1 - Home purchase</p>
+                                                <p>Code 2 - Home improvement</p>
+                                                <p>Code 3 - Cash-Out Refinancing</p>
+                                                <p>Code 4 - Refinancing</p>
+                                                <p>Code 5 - Other</p>
+                                        </div>
+
+                                        <div class="notes">
+                                                <p>a. For refinancings, enter Code 5 if, under the terms of the agreement, you were unconditionally obligated to refinance the obligation, or you were obligated to refinance the obligation subject to conditions within the borrower’s control.</p>
+                                        </div>
+
+
+                                <p><strong>Paragraph 4(a)(4)
+                                - Preapproval.</strong></p>
+
+                                    <p>1. 
+                                    Indicate whether the application or covered loan involved a request for preapproval for a home purchase loan by entering the applicable Code from the following:</p>
+
+                                        <div class="codes">
+                                                <p>Code 1 - Preapproval requested</p>
+                                                <p>Code 2 - Preapproval not requested</p>
+                                                <p>Code 3 - Not applicable</p>
+                                        </div>
+
+                                        <div class="notes">
+                                                <p>a. Enter Code 1 if your institution has a preapproval program as defined in § 1003.2(b)(2) and the applicant requests a preapproval for a home purchase loan. Do not use Code 1 if a request for preapproval is withdrawn or for requests for preapproval that are closed for incompleteness; such preapproval requests are not reported under HMDA as implemented by Regulation C.</p>
+                                                <p>b. Enter Code 2 if your institution has a preapproval program as defined in § 1003.2(b)(2) but the applicant does not request a preapproval.</p>
+                                                <p>c. Enter Code 3 if your institution does not have a preapproval program as defined in § 1003.2(b)(2).</p>
+                                                <p>d. Enter Code 3 for applications for, or originations of, home improvement loans and refinancings, open-end lines of credit, reverse mortgages, loans secured by multifamily dwellings, and for purchased covered loans.</p>
+                                        </div>
+
+
+                                <p><strong>Paragraph 4(a)(5)
+                                - Construction Method.</strong></p>
+
+                                    <p>1. 
+                                    Indicate the construction method for the dwelling related to the covered loan or application by entering the applicable Code from the following:</p>
+
+                                        <div class="codes">
+                                                <p>Code 1 - Site-Built</p>
+                                                <p>Code 2 - Manufactured Home</p>
+                                        </div>
+
+                                        <div class="notes">
+                                                <p>a. Enter Code 1 if most of the dwelling’s elements were created at the dwelling’s permanent site (including the use of prefabricated components), or if the dwelling is a modular or other factory-built home (including a modular home with a permanent metal chassis) that does not meet the definition of a manufactured home under § 1003.2(l).</p>
+                                                <p>b. Enter Code 2 if the dwelling meets the definition of a manufactured home under § 1003.2(l).</p>
+                                        </div>
+
+
+                                <p><strong>Paragraph 4(a)(6)
+                                - Occupancy Type.</strong></p>
+
+                                    <p>1. 
+                                    Indicate the occupancy status of the property to which the covered loan or application relates by entering the applicable Code from the following:</p>
+
+                                        <div class="codes">
+                                                <p>Code 1 - Principal residence</p>
+                                                <p>Code 2 - Second residence</p>
+                                                <p>Code 3 - Investment property</p>
+                                        </div>
+
+                                        <div class="notes">
+                                                <p>a. For purchased loans, use Code 1 unless the application or documents for the covered loan indicate that the property will not be occupied as a principal residence.</p>
+                                                <p>b. Use Code 2 for second homes or vacation homes.</p>
+                                                <p>c. Use Code 3 for investment properties.</p>
+                                        </div>
+
+
+                                <p><strong>Paragraph 4(a)(7)
+                                - Loan Amount.</strong></p>
+
+                                    <p>1. 
+                                    Enter the amount of the covered loan or the amount applied for, as applicable, in dollars.</p>
+
+
+
+
+                                <p><strong>Paragraph 4(a)(8)(i)
+                                - Action Taken.</strong></p>
+
+                                    <p>1. 
+                                        Type of Action. 
+                                    Indicate the type of action taken on the application or covered loan by using one of the following Codes.</p>
+
+                                        <div class="codes">
+                                                <p>Code 1 - Loan originated</p>
+                                                <p>Code 2 - Application approved but not accepted</p>
+                                                <p>Code 3 - Application denied</p>
+                                                <p>Code 4 - Application withdrawn</p>
+                                                <p>Code 5 - File closed for incompleteness</p>
+                                                <p>Code 6 - Loan purchased by your institution</p>
+                                                <p>Code 7 - Preapproval request denied</p>
+                                                <p>Code 8 - Preapproval request approved but not accepted</p>
+                                        </div>
+
+                                        <div class="notes">
+                                                <p>a. Use Code 1 for a covered loan that is originated, including one resulting from a request for preapproval.</p>
+                                                <p>b. For a counteroffer (your offer to the applicant to make the covered loan on different terms or in a different amount from the terms or amount applied for), use Code 1 if the applicant accepts. Use Code 3 if the applicant turns down the counteroffer or does not respond.</p>
+                                                <p>c. Use Code 2 when the application is approved but the applicant (or the party that initially received the application) fails to respond to your notification of approval or your commitment letter within the specific time. Do not use this Code for a preapproval request.</p>
+                                                <p>d. Use Code 4 only when the application is expressly withdrawn by the applicant before satisfying all underwriting or creditworthiness conditions and before the institution denies the application or closes the file for incompleteness. Do not use Code 4 if a request for preapproval is withdrawn; preapproval requests that are withdrawn are not reported under HMDA.</p>
+                                                <p>e. Use Code 5 if you sent a written notice of incompleteness under § 1002.9(c)(2) of Regulation B (Equal Credit Opportunity Act) and the applicant did not respond to your request for additional information within the period of time specified in your notice. Do not use this Code for requests for preapproval that are incomplete; these preapproval requests are not reported under HMDA.</p>
+                                        </div>
+
+
+                                <p><strong>Paragraph 4(a)(8)(ii)
+                                - Action Taken Date.</strong></p>
+
+                                    <p>1. 
+                                        Date of Action. 
+                                    Enter the date of action taken by year, month, and day, using numerals in the form YYYYMMDD.</p>
+
+
+                                        <div class="notes">
+                                                <p>a. For covered loans originated, enter the settlement or closing date.</p>
+                                                <p>b. For covered loans purchased, enter the date of purchase by your institution.</p>
+                                                <p>c. For applications and preapprovals denied, applications and preapprovals approved but not accepted by the applicant, and files closed for incompleteness, enter the date that the action was taken by your institution or the date the notice was sent to the applicant.</p>
+                                                <p>d. For applications withdrawn, enter the date you received the applicant’s express withdrawal, whether received in writing or orally, or enter the date shown on the notification from the applicant, in the case of a written withdrawal.</p>
+                                                <p>e. For preapprovals that lead to a loan origination by the financial institution, enter the date of the origination.</p>
+                                        </div>
+
+
+                                <p><strong>Paragraph 4(a)(9)
+                                - Property Address and Location of Subject Property.</strong></p>
+
+                                    <p>1. 
+                                        Property Address. 
+                                    Enter a property address provided in the format as described in Section 2 Postal Addressing Standards, of Mailing Standards of the United States Postal Service Publication 28 - Postal Addressing Standards (http://pe.usps.gov/text/pub28/welcome.htm). CASS Certified software will help to meet this format.  The general format requirements for a complete address are described in Publication 28 Sub-Section 21, and consist of both the Delivery Address Line and the Last Line.  Where appropriate include the Secondary Address Unit Designators such as apartment or suite.
+For example:
+1500 E MAIN 
+AVE STE 201
+SPRINGFIELD VA 22162-1010</p>
+
+
+
+                                        <div class="subsection">
+                                                <p>a. <strong></strong> a.  Details regarding formatting of the address are found in Publication 28 Sub-Section 23 Delivery Address Line.  The Delivery Address will be reported as one (1) data element.  Address components can be made up of all of the following individual items:</p>
+                                                
+                                                    <div class="notes">
+                                                            <p>i. Primary Address Number</p>
+                                                            <p>ii. Predirectional</p>
+                                                            <p>iii. Street Name</p>
+                                                            <p>iv. Suffix</p>
+                                                            <p>v. Postdirectional</p>
+                                                            <p>vi. Secondary Address Identifier</p>
+                                                            <p>vii. Secondary Address</p>
+                                                    </div>
+                                                <p>b. <strong></strong> Details regarding formatting of the City, State and ZIP are found in Publication 28 Sub-Section 22 Last Line.  The Last Line will be reported as three (3) separate elements.</p>
+                                                
+                                                <p>c. <strong></strong> Non-Standard U.S. Addressing.  Formatting for non-general U.S. style addressing including rural route, Highway Contract Route, and Puerto Rico addresses are found in Sub-Section 24, 25 and 29 respectively.</p>
+                                                
+                                                <p>d. <strong></strong> Addresses formats that will not be accepted:</p>
+                                                
+                                                    <div class="notes">
+                                                            <p>i. General Delivery addresses, described in Sub-section 26. </p>
+                                                            <p>ii. United States Postal Service addresses, described in Sub-section 27. </p>
+                                                            <p>iii. Post Office Box addresses described in Sub-section 28.</p>
+                                                    </div>
+                                                <p>e. <strong></strong> For originations and purchases, the address must correspond to the property identified on the legal obligation related to the covered loan.  For applications that did not result in an origination, the address must correspond to the property identified by the applicant.</p>
+                                                
+                                                <p>f. <strong></strong> Enter “NA” only if the street address is not known, for example, if the property does not have a property address at closing or if the applicant did not provide the property address of the property to the financial institution before the application was denied, withdrawn, or closed for incompleteness.</p>
+                                                
+                                                <p>g. <strong></strong> Enter “NA” only if the city location is not known, for example, if the property does not have a property address at closing or if the applicant did not provide the property address of the property to the financial institution before the application was denied, withdrawn, or closed for incompleteness.</p>
+                                                
+                                                <p>h. <strong></strong> Enter “NA” only if the zip code is not known, for example, if the property does not have a property address at closing or if the applicant did not provide the property address of the property to the financial institution before the application was denied, withdrawn, or closed for incompleteness.</p>
+                                                
+                                        </div>
+                                    <p>2. 
+                                        County. 
+                                    Enter the Federal Information Processing Standards (FIPS) three-digit numerical code for the county. These codes are available from the appropriate Federal Agency to which you report data.</p>
+
+
+
+                                    <p>3. 
+                                        Census Tract 
+                                    Enter the 11 digit census tract number.  Census tract numbers are defined by the U.S. Census Bureau.  Use the boundaries and codes that were in effect on January 1 of the calendar year for which you are reporting.</p>
+
+
+                                        <div class="notes">
+                                                <p>i. You may enter “NA” if the property is located in a county with a population of 30,000 or less according to the most recent decennial census conducted by the U.S. Census Bureau.</p>
+                                        </div>
+
+                                    <p>4. 
+                                        Certain Location Information Not Required. 
+                                    If your institution is not required to report data for CRA purposes under § 1003.4(e), you may elect to enter “NA” for census tract for entries related to properties that are not located in the MSAs or MDs in which you have a home or branch office.  If your institution is a nondepository financial institution, you may also enter “NA” for a particular entry if your institution has not received applications for, originated, or purchased five or more covered loans related to property located in the MSA or MD in which the property securing the loan reported in the entry is located.</p>
+
+
+
+
+                                <p><strong>Paragraph 4(a)(10)
+                                - Applicant or Borrower Information.</strong></p>
+
+                                    <p>1. 
+                                    Appendix B to this part contains instructions for the collection of data on ethnicity, race, and sex, and also contains a sample form for data collection.</p>
+
+
+
+                                    <p>2. 
+                                    Applicability. Report this information for covered loans that you originate as well as for applications that do not result in an origination.</p>
+
+
+
+
+                                    <div class="notes">
+                                            <p>a. You need not collect or report this information for covered loans that you purchase. If you choose not to report this information for covered loans that you purchase, use the Codes for "not applicable."</p>
+                                            <p>b. If the borrower or applicant is not a natural person (a corporation, partnership, or trust, for example), use the Codes for "not applicable."</p>
+                                    </div>
+                                <p><strong>Paragraph 4(a)(10)(i) and (ii)
+                                - Ethnicity, Race, Sex, and Age.</strong></p>
+
+                                    <p>1. 
+                                        Ethnicity of Borrower or Applicant. 
+                                    Use the following Codes to indicate the ethnicity of the applicant or borrower under column “A” and of any co-applicant or co-borrower under column “CA.” If there is more than one co-applicant or co-borrower, provide the required information only for the first co-applicant or co-borrower listed on the application form.</p>
+
+                                        <div class="codes">
+                                                <p>Code 1 - Hispanic or Latino</p>
+                                                <p>Code 11 - Mexican</p>
+                                                <p>Code 12 - Puerto Rican</p>
+                                                <p>Code 13 - Cuban</p>
+                                                <p>Code 14 - Other Hispanic or Latino</p>
+                                                <p>Code 141 - Conditional Free Form Text Field for Code 14: Other Hispanic or Latino</p>
+                                                <p>Code 2 - Not Hispanic or Latino</p>
+                                                <p>Code 3 - Information not provided by applicant in mail, internet, or telephone application</p>
+                                                <p>Code 4 - Not applicable</p>
+                                                <p>Code 5 - No co-applicant</p>
+                                        </div>
+
+                                        <div class="notes">
+                                                <p>a. If an applicant selects more than one ethnic designation, enter all Codes corresponding to the applicant’s selections.</p>
+                                                <p>b. Use Code 3 if the applicant or co-applicant does not provide the information in an application taken by mail, internet, or telephone.</p>
+                                                <p>c. Use Code 4 for “not applicable” only when the applicant or co-applicant is not a natural person or, for a covered loan that has been purchased by your institution, if you choose not to report the applicant or co-applicant information.</p>
+                                                <p>d. If there are no co-applicants or co-borrowers, use Code 5 for “no co-applicant” in the co-applicant column.</p>
+                                                <p>e. If Code 14 is selected, enter the origin, for example, Argentinean, Colombian, Dominican, Nicaraguan, Salvadoran, Spaniard, and so on.</p>
+                                        </div>
+
+                                    <p>2. 
+                                        Race of Borrower or Applicant. 
+                                    Use the following Codes to indicate the race of the applicant or borrower under column "A" and of any co-applicant or co-borrower under column "CA." If there is more than one co-applicant or co-borrower, provide the required information only for the first co-applicant or co-borrower listed on the application form.</p>
+
+                                        <div class="codes">
+                                                <p>Code 1 - American Indian or Alaska Native</p>
+                                                <p>Code 2 - Asian</p>
+                                                <p>Code 21 - Asian Indian</p>
+                                                <p>Code 22 - Chinese</p>
+                                                <p>Code 23 - Filipino</p>
+                                                <p>Code 24 - Japanese</p>
+                                                <p>Code 25 - Korean</p>
+                                                <p>Code 26 - Vietnamese</p>
+                                                <p>Code 27 - Other Asian</p>
+                                                <p>Code 271 - Conditional Free Form Text Field for Code 27: Other Asian</p>
+                                                <p>Code 3 - Black or African American</p>
+                                                <p>Code 4 - Native Hawaiian or Other Pacific Islander</p>
+                                                <p>Code 41 - Native Hawaiian</p>
+                                                <p>Code 42 - Guamanian or Chamorro</p>
+                                                <p>Code 43 - Samoan</p>
+                                                <p>Code 44 - Other Pacific Islander</p>
+                                                <p>Code 441 - Conditional Free Form Text Field for Code 41: Other Pacific Islander</p>
+                                                <p>Code 5 - White</p>
+                                                <p>Code 6 - Information not provided by applicant in mail, internet, or telephone application</p>
+                                                <p>Code 7 - Not applicable</p>
+                                                <p>Code 8 - No co-applicant</p>
+                                        </div>
+
+                                        <div class="notes">
+                                                <p>a. If an applicant selects more than one racial designation, enter all Codes corresponding to the applicant’s selections.</p>
+                                                <p>b. Use Code 6 if the applicant or co-applicant does not provide the information in an application taken by mail, internet, or telephone.</p>
+                                                <p>c. Use Code 7 for “not applicable” only when the applicant or co-applicant is not a natural person or, for a covered loan that has been purchased by your institution, if you choose not to report the applicant or co-applicant information.</p>
+                                                <p>d. If there are no co-applicants or co-borrowers, use Code 8 for “no co-applicant” in the co-applicant column.</p>
+                                                <p>e. If Code 27 is selected, enter the race, for example, Hmong, Laotian, Thai, Pakistani, Cambodian, and so on.</p>
+                                                <p>f. If Code 44 is selected, enter the race, for example, Fijian, Tongan, and so on.</p>
+                                        </div>
+
+                                    <p>3. 
+                                        Sex of Borrower or Applicant. 
+                                    Use the following Codes to indicate the sex of the applicant or borrower under column "A" and of any co-applicant or co-borrower under column "CA."</p>
+
+                                        <div class="codes">
+                                                <p>Code 1 - Male</p>
+                                                <p>Code 2 - Female</p>
+                                                <p>Code 3 - Information not provided by applicant in mail, internet, or telephone application</p>
+                                                <p>Code 4 - Not applicable</p>
+                                                <p>Code 5 - No co-applicant</p>
+                                        </div>
+
+                                        <div class="notes">
+                                                <p>a. Use Code 3 if the applicant or co-applicant does not provide the information in an application taken by mail, internet, or telephone.</p>
+                                                <p>b.  Use Code 4 for “not applicable” only when the applicant or co-applicant is not a natural person or, for a covered loan that has been purchased by your institution, if you choose not to report the applicant or co-applicant information.</p>
+                                                <p>c. If there are no co-applicants or co-borrowers, use Code 5 for “no co-applicant” in the co-applicant column.</p>
+                                        </div>
+
+                                    <p>4. 
+                                        Ethnicity, Race, and Sex of Borrower or Applicant Collected on the Basis of Visual Observation or Surname. 
+                                    Use the following Codes to indicate under column "A" or applicant or borrower and under column "CA" for any co-applicant or co-borrower whether the ethnicity, race, and sex of the applicant or borrower and of any co-applicant or co-borrower was collected on the basis of visual observation or surname.</p>
+
+                                        <div class="codes">
+                                                <p>Code 1 - Ethnicity, race, and sex collected on the basis of visual observation or surname</p>
+                                                <p>Code 2 - Ethnicity and race collected on the basis of visual observation or surname</p>
+                                                <p>Code 3 - Ethnicity and sex collected on the basis of visual observation or surname</p>
+                                                <p>Code 4 - Race and sex collected on the basis of visual observation or surname</p>
+                                                <p>Code 5 - Ethnicity collected on the basis of visual observation or surname</p>
+                                                <p>Code 6 - Race collected on the basis of visual observation or surname</p>
+                                                <p>Code 7 - sex collected on the basis of visual observation or surname</p>
+                                                <p>Code 8 - Ethnicity, race, and sex not collected on the basis of visual observation or surname</p>
+                                        </div>
+
+
+                                    <p>5. 
+                                        Age of Borrower or Applicant. 
+                                    Enter the age of the applicant or borrower, as of the date of application, derived from the date of birth as shown on the application form, in number of years under column "A" and of any co-applicant or co-borrower under column "CA." Or, use the following Codes as applicable.</p>
+
+                                        <div class="codes">
+                                                <p>Code 1 - Not applicable</p>
+                                                <p>Code 2 - No co-applicant</p>
+                                        </div>
+
+                                        <div class="notes">
+                                                <p>a. Use Code 1 for “not applicable” only when the applicant or co-applicant is not a natural person or, for a covered loan that has been purchased by your institution, if you choose not to report the applicant or co-applicant information.</p>
+                                                <p>b. If there are no co-applicants or co-borrowers, use Code 2 for “no co-applicant” in the co-applicant column.</p>
+                                        </div>
+
+
+                                <p><strong>Paragraph 4(a)(10)(iii)
+                                - Income.</strong></p>
+
+                                    <p>1. 
+                                    Income. Enter the gross annual income that your institution relied on in making the credit decision or, if the application was denied or withdrawn or the file was closed for incompleteness before a credit decision that would have considered income was made, the gross annual income collected as part of the application process.</p>
+
+
+                                        <div class="notes">
+                                                <p>a. For a covered loan or application related to a multifamily dwelling, enter "NA."</p>
+                                                <p>b. If no income information is collected as part of the application process or the covered loan applied for would not have or did not consider income, enter "NA."</p>
+                                                <p>c. Enter “NA” if the applicant or co-applicant is not a natural person or the covered loan has been purchased by your institution and you choose not to report the applicant or co-applicant information.</p>
+                                        </div>
+
+
+                                <p><strong>Paragraph 4(a)(11)
+                                - Type of Purchaser.</strong></p>
+
+                                    <p>1. 
+                                    Enter the applicable Code to indicate whether a covered loan that your institution originated or purchased was then sold to a secondary market entity within the same calendar year:</p>
+
+                                        <div class="codes">
+                                                <p>Code 0 - Covered loan was not originated or was originated or purchased but was not sold to a secondary market entity in the same calendar year covered by register.</p>
+                                                <p>Code 1 - Fannie Mae</p>
+                                                <p>Code 2 - Ginnie Mae</p>
+                                                <p>Code 3 - Freddie Mac</p>
+                                                <p>Code 4 - Farmer Mac</p>
+                                                <p>Code 5 - Private securitizer</p>
+                                                <p>Code 61 - Commercial bank</p>
+                                                <p>Code 62 - Savings bank</p>
+                                                <p>Code 63 - Savings association</p>
+                                                <p>Code 71 - Life insurance company</p>
+                                                <p>Code 72 - Credit union</p>
+                                                <p>Code 73 - Mortgage bank</p>
+                                                <p>Code 74 - Finance company</p>
+                                                <p>Code 8 - Affiliate institution</p>
+                                                <p>Code 9 - Other type of purchaser</p>
+                                        </div>
+
+                                        <div class="notes">
+                                                <p>a. Use Code 0 for applications that were denied, withdrawn, closed for incompleteness or approved but not accepted by the applicant; and for preapproval requests that were denied or approved but not accepted by the applicant.</p>
+                                                <p>b. Use Code 0 if you originated or purchased a covered loan and did not sell it during that same calendar year. For purposes of recording the type of purchaser within 30 calendar days after the end of the calendar quarter pursuant to § 1003.4(f), use Code 0 if you originated or purchased a covered loan and did not sell it during the calendar quarter for which you are recording the data. If you sell the covered loan in a subsequent quarter of the same calendar year, use the appropriate code for the type of purchaser on your loan application register for the quarter in which the covered loan was sold. If you sell the covered loan in a succeeding year, you should not report the sale.</p>
+                                                <p>c. Use Code 2 if you conditionally assign a covered loan to Ginnie Mae in connection with a mortgage-backed security transaction.</p>
+                                                <p>d. Use Code 5 for private securitizations by purchasers other than by one of the government-sponsored enterprises identified in Codes 1 through 4. If you know or reasonably believe that the covered loan you are selling will be securitized by the institution purchasing the covered loan, then use Code 5 regardless of the type or affiliation of the purchasing institution.</p>
+                                                <p>e. Use Code 8 for covered loans sold to an institution affiliated with you, such as your subsidiary or a subsidiary of your parent corporation. For purposes of § 1003.4(a)(11), the term “affiliate” means any company that controls, is controlled by, or is under common control with, another company, as set forth in the Bank Holding Company Act of 1956 (12 U.S.C. 1841 et seq.).</p>
+                                        </div>
+
+
+                                <p><strong>Paragraph 4(a)(12)
+                                - Rate Spread.</strong></p>
+
+                                    <p>1. 
+                                    If the APR exceeds the APOR, enter a positive value. For example, enter 3.295. If the APOR exceeds the APR, enter a negative value. For example, enter -3.295.</p>
+
+
+
+                                    <p>2. 
+                                    Enter “NA” in the case of a covered loan not subject to Regulation Z, 12 CFR part 1026, a reverse mortgage, an assumption, a purchased covered loan, or an application that does not result in a loan origination or the opening of a line of credit, except for an application that was approved but not accepted by the applicant.</p>
+
+
+
+
+                                <p><strong>Paragraph 4(a)(13)
+                                - HOEPA Status.</strong></p>
+
+                                    <p>1. 
+                                    Indicate whether the covered loan that you originated or purchased is a high-cost mortgage under the Home Ownership and Equity Protection Act of 1994 (HOEPA), as implemented in Regulation Z § 1026.32 using the following Codes as applicable:</p>
+
+                                        <div class="codes">
+                                                <p>Code 1 - True</p>
+                                                <p>Code 2 - False</p>
+                                                <p>Code 3 - Not applicable</p>
+                                        </div>
+
+                                        <div class="notes">
+                                                <p>a. Enter Code 1 if the covered loan you originated or purchased is a high-cost mortgage under HOEPA because the annual percentage rate and/or points and fees for the transaction exceed the high-cost mortgage thresholds.</p>
+                                                <p>b. Enter Code 2 if the covered loan you originated or purchased is not a high-cost mortgage under HOEPA.</p>
+                                                <p>c. Enter Code 3 if the transaction is not subject to coverage under HOEPA (e.g., reverse mortgage). Also enter Code 3 in the case of an application that does not result in an origination.</p>
+                                        </div>
+
+
+                                <p><strong>Paragraph 4(a)(14)
+                                - Lien Status.</strong></p>
+
+                                    <p>1. 
+                                    Enter the applicable Code for covered loans that you originate or purchase and for applications that do not result in an origination.</p>
+
+                                        <div class="codes">
+                                                <p>Code 1 - Secured by a first lien</p>
+                                                <p>Code 2 - Secured by a subordinate lien</p>
+                                        </div>
+
+                                        <div class="notes">
+                                                <p>a. Use Codes 1 or 2 for covered loans that you originate or purchase, as well as for applications that do not result in an origination (preapproval requests that are approved but not accepted, preapproval requests that are denied, applications that are approved but not accepted, denied, withdrawn, or closed for incompleteness).</p>
+                                        </div>
+
+
+                                <p><strong>Paragraph 4(a)(15)
+                                - Credit Score.</strong></p>
+
+                                    <p>1. 
+                                        Score. 
+                                    Enter the credit score or scores relied on in making the credit decision, using column "A" for the applicant or borrower and, where required by Regulation C, column "CA" for the first co-applicant or co-borrower. Where Regulation C requires you to report a single score for the transaction that corresponds to multiple applicants or borrowers, use column "A." Enter "NA" for purchased covered loans.</p>
+
+
+
+                                    <p>2. 
+                                        Name and Version of Model. 
+                                    For each credit score reported, use the following Codes to indicate the name and version of the model used to generate the credit score relied on in making the credit decision, using column “A” and column “CA” as applicable.</p>
+
+                                        <div class="codes">
+                                                <p>Code 1 - Equifax Beacon 5.0</p>
+                                                <p>Code 2 - Experian Fair Isaac</p>
+                                                <p>Code 3 - FICO Risk Score Classic 04</p>
+                                                <p>Code 4 - FICO Risk Score Classic 98</p>
+                                                <p>Code 5 - VantageScore 2.0</p>
+                                                <p>Code 6 - VantageScore 3.0</p>
+                                                <p>Code 7 - More than one credit scoring model</p>
+                                                <p>Code 8 - Other credit scoring model</p>
+                                                <p>Code 9 - Not applicable</p>
+                                                <p>Code 10 - Purchased loan</p>
+                                                <p>Code 11 - No co-applicant</p>
+                                        </div>
+
+                                        <div class="notes">
+                                                <p>a. Use Code 7 if more than one credit scoring model was used in developing the credit score.</p>
+                                                <p>b.  Use Code 8 for any credit scoring model that is not listed above, and provide the name and version of the scoring model used.</p>
+                                                <p>c. Use Code 9 if the file was closed for incompleteness or the application was withdrawn before a credit decision was made or if you did not rely on a credit score in making the credit decision.</p>
+                                                <p>d. Use Code 10 if the loan is a purchased loan.</p>
+                                                <p>e.  If there are no co-applicants or co-borrowers, use Code 11 for “no co-applicant” in the co-applicant column.</p>
+                                        </div>
+
+
+                                <p><strong>Paragraph 4(a)(16)
+                                - Reason for Denial.</strong></p>
+
+                                    <p>1. 
+                                    Use the following Codes to indicate the principal reason or reasons for denial, indicating up to four reasons.</p>
+
+                                        <div class="codes">
+                                                <p>Code 1 - Debt-to-income ratio</p>
+                                                <p>Code 2 - Employment history</p>
+                                                <p>Code 3 - Credit history</p>
+                                                <p>Code 4 - Collateral</p>
+                                                <p>Code 5 - Insufficient cash (downpayment, closing costs)</p>
+                                                <p>Code 6 - Unverifiable information</p>
+                                                <p>Code 7 - Credit application incomplete</p>
+                                                <p>Code 8 - Mortgage insurance denied</p>
+                                                <p>Code 9 - Other</p>
+                                                <p>Code 91 - Conditional Free Form Text Field for Code 91: Other</p>
+                                                <p>Code 10 - Not applicable</p>
+                                        </div>
+
+
+                                    <p>2. 
+                                    Use Code 9 for “other” when a principal reason your institution denied the application is not listed in Codes 1 through 8. For an application in which your institution enters Code 9, enter the principal reason or reasons the application was denied.</p>
+
+
+
+                                    <p>3. 
+                                    Use Code 10 for “not applicable” if the action taken on the application, pursuant to § 1003.4(a)(8), is not a denial. For example, use Code 10 if the loan is originated or purchased by your institution, or the application or preapproval request was approved but not accepted, or the application was withdrawn before a credit decision was made, or the file was closed for incompleteness.</p>
+
+
+
+                                    <p>4. 
+                                    If your institution uses the model form for adverse action contained in appendix C to Regulation B, 12 CFR part 1002 (Form C–1, Sample Notice of Action Taken and Statement of Reasons), use the foregoing Codes as follows:</p>
+
+
+                                        <div class="notes">
+                                                <p>a. Code 1 for: Income insufficient for amount of credit requested, and Excessive obligations in relation to income.</p>
+                                                <p>b. Code 2 for: Temporary or irregular employment, and Length of employment.</p>
+                                                <p>c. Code 3 for: Insufficient number of credit references provided; Unacceptable type of credit references provided; No credit file; Limited credit experience; Poor credit performance with us; Delinquent past or present credit obligations with others; Number of recent inquiries on credit bureau report; Garnishment, attachment, foreclosure, repossession, collection action, or judgment; and Bankruptcy.</p>
+                                                <p>d. Code 4 for: Value or type of collateral not sufficient.</p>
+                                                <p>e. Code 6 for: Unable to verify credit references; Unable to verify employment; Unable to verify income; and Unable to verify residence.</p>
+                                                <p>f. Code 7 for: Credit application incomplete.</p>
+                                                <p>g. Code 9 for: Length of residence; Temporary residence; and Other reasons specified on the adverse action notice. For an application in which your institution enters Code 9 for Other reasons, enter the principal reason or reasons the application was denied.</p>
+                                        </div>
+
+                                    <p>5. 
+                                     If Code 91 is selected, enter the denial reason.</p>
+
+
+
+
+                                <p><strong>Paragraph 4(a)(17)
+                                - Loan Costs.</strong></p>
+
+                                    <p>1. 
+                                    Enter the amount of total loan costs, expressed in dollars, as described in Regulation Z, 12 CFR 1026.38(f)(4) if a Closing Disclosure is provided for the covered loan pursuant to Regulation Z, 12 CFR 1026.19(f); or</p>
+
+
+
+                                    <p>2. 
+                                    Enter the total points and fees charged in connection with the covered loan, expressed in dollars and calculated pursuant to Regulation Z, 12 CFR 1026.32(b)(1) if the covered loan is not subject to the disclosure requirements in Regulation Z, 12 CFR 1026.19(f).</p>
+
+
+
+
+                                <p><strong>Paragraph 4(a)(18)
+                                - Total of All Itemized Amounts.</strong></p>
+
+                                    <p>1. 
+                                    Enter “NA” for applications or preapproval requests denied or approved but not accepted, or files closed for incompleteness.</p>
+
+
+
+                                    <p>2. 
+                                    Enter “NA” for covered loans not subject to this reporting requirement, such as open-end lines of credit or reverse mortgages.</p>
+
+
+
+
+                                <p><strong>Paragraph 4(a)(19)
+                                - Total Discount Points.</strong></p>
+
+                                    <p>1. 
+                                     Enter “NA” for applications withdrawn, applications or preapproval requests denied or approved but not accepted, or files closed for incompleteness.</p>
+
+
+
+                                    <p>2. 
+                                    Enter “NA” for covered loans not subject to this reporting requirement, such as open-end lines of credit or reverse mortgages.</p>
+
+
+
+
+                                <p><strong>Paragraph 4(a)(20)
+                                - Lender Credits.</strong></p>
+
+                                    <p>1. 
+                                    Enter “NA” for applications withdrawn, applications or preapproval requests denied or approved but not accepted, or files closed for incompleteness.</p>
+
+
+
+                                    <p>2. 
+                                    Enter “NA” for covered loans not subject to this reporting requirement, such as open-end lines of credit or reverse mortgages.</p>
+
+
+
+
+                                <p><strong>Paragraph 4(a)(21)
+                                - Interest Rate.</strong></p>
+
+                                    <p>1. 
+                                    Enter “NA” for covered loans for which no interest rate is applicable, or for applications or preapproval requests for which the interest rate was unknown at the time the final action was taken.</p>
+
+
+
+
+                                <p><strong>Paragraph 4(a)(22)
+                                - Prepayment Penalty Term.</strong></p>
+
+                                    <p>1. 
+                                    Enter the term in months of any prepayment penalty applicable to the covered loan or application. For example, if a prepayment penalty may be imposed within the first 24 months after closing or account opening, enter 24.</p>
+
+
+
+                                    <p>2. 
+                                    Enter “NA” for covered loans for which a prepayment penalty may not be imposed under the terms of the covered loan or for covered loans not subject to this reporting requirement, such as purchased covered loans.</p>
+
+
+
+
+                                <p><strong>Paragraph 4(a)(23)
+                                - Debt-to-income Ratio.</strong></p>
+
+                                    <p>1. 
+                                    Enter the ratio of the applicant’s or borrower’s total monthly debt to the total monthly income that your institution relied on in making the credit decision (debt-to-income ratio).</p>
+
+
+
+                                    <p>2. 
+                                    If your institution did not rely on the ratio of the applicant’s or borrower’s total monthly debt to the total monthly income in making the credit decision, if a file was closed for incompleteness, or if an application was withdrawn before a credit decision was made, enter “NA.” Also enter “NA” for reverse mortgages. Also enter “NA when the applicant or borrower is a non-natural person and when the property securing, or proposed to secure, the covered loan is a multifamily dwelling.</p>
+
+
+
+
+                                <p><strong>Paragraph 4(a)(24)
+                                - CLTV Ratio.</strong></p>
+
+                                    <p>1. 
+                                    If your institution did not rely on the combined loan-to-value ratio in making the credit decision, if the file was closed for incompleteness, or if the application was withdrawn before a credit decision was made, enter “NA” for not applicable.</p>
+
+
+
+
+                                <p><strong>Paragraph 4(a)(25)
+                                - Loan Term.</strong></p>
+
+                                    <p>1. 
+                                        Loan Term. 
+                                    Enter the scheduled number of months after which the legal obligation will mature or terminate or would have matured or terminated.</p>
+
+
+                                        <div class="notes">
+                                                <p>a. For a covered loan that you purchased, enter the number of months after which the legal obligation matures as measured from the covered loan’s origination.</p>
+                                                <p>b. For an open-end line of credit with a definite term, enter the number of months from origination until the account termination date, including both the draw and repayment period.</p>
+                                                <p>c. For a covered loan or application without a definite term, such as a reverse mortgage, enter "NA."</p>
+                                        </div>
+
+
+                                <p><strong>Paragraph 4(a)(26)
+                                - Introductory Rate Period.</strong></p>
+
+                                    <p>1. 
+                                    Enter the number of months from loan origination until the first date the interest rate may change.</p>
+
+
+                                        <div class="notes">
+                                                <p>a. For a fixed rate covered loan or an application for a fixed rate covered loan, enter "NA."</p>
+                                                <p>b. For a covered loan you purchased, enter the number of months until the first date the interest rate may change as measured from loan origination, or enter “NA” for a purchased fixed rate covered loan.</p>
+                                        </div>
+
+
+                                <p><strong>Paragraph 4(a)(27)(i)
+                                - Balloon Payment.</strong></p>
+
+                                    <p>1. 
+                                    Indicate if the covered loan or application requires a payment that is more than two times a regular periodic payment.</p>
+
+                                        <div class="codes">
+                                                <p>Code 1 - True</p>
+                                                <p>Code 2 - False</p>
+                                        </div>
+
+
+
+                                <p><strong>Paragraph 4(a)(27)(ii)
+                                - Interest-Only Payments.</strong></p>
+
+                                    <p>1. 
+                                    Indicate if the covered loan or application would permit one or more periodic payments to be applied solely to accrued interest and not to principal.</p>
+
+                                        <div class="codes">
+                                                <p>Code 1 - True</p>
+                                                <p>Code 2 - False</p>
+                                        </div>
+
+
+
+                                <p><strong>Paragraph 4(a)(27)(iii)
+                                - Negative Amortization.</strong></p>
+
+                                    <p>1. 
+                                    Indicate if the covered loan or application would permit a minimum periodic payment that covers only a portion of the accrued interest, resulting in an increase in the principal balance under the terms of the legal obligation.</p>
+
+                                        <div class="codes">
+                                                <p>Code 1 - True</p>
+                                                <p>Code 2 - False</p>
+                                        </div>
+
+
+
+                                <p><strong>Paragraph 4(a)(27)(iv)
+                                - Other Non-Amortizing Features.</strong></p>
+
+                                    <p>1. 
+                                    Indicate if the covered loan or application includes contractual terms other than contractual terms described in § 1003.4(a)(27)(i), (ii), and (iii) that would allow for payments other than fully amortizing payments during the loan term.</p>
+
+                                        <div class="codes">
+                                                <p>Code 1 - True</p>
+                                                <p>Code 2 - False</p>
+                                        </div>
+
+
+
+                                <p><strong>Paragraph 4(a)(28)
+                                - Property Value.</strong></p>
+
+                                    <p>1. 
+                                    Enter the value of the property securing the covered loan or, in the case of an application, proposed to secure the covered loan relied on in making the credit decision in dollars.</p>
+
+
+
+                                    <p>2. 
+                                    If your institution did not rely on the value of the property in making the credit decision, if the file was closed for incompleteness, or if the application was withdrawn before a credit decision was made, enter “NA” for not applicable.</p>
+
+
+
+
+                                <p><strong>Paragraph 4(a)(29)
+                                - Manufactured Home Secured Property Type.</strong></p>
+
+                                    <p>1. 
+                                    Indicate whether the covered loan is, or in the case of an application would have been, secured by a manufactured home and land or by a manufactured home and not land.</p>
+
+                                        <div class="codes">
+                                                <p>Code 1 - Manufactured Home and Land</p>
+                                                <p>Code 2 - Manufactured Home and Not Land</p>
+                                                <p>Code 3 - Not Applicable</p>
+                                        </div>
+
+                                        <div class="notes">
+                                                <p>a. Use Code 1 if the covered loan is or would have been secured by both a manufactured home and the land on which it is sited.</p>
+                                                <p>b. Use Code 2 if the covered loan is or would have been secured by a manufactured home, but not by the land on which it is sited, even if the manufactured home is considered real property under applicable State law.</p>
+                                                <p>c. Use Code 3 if the covered loan or application does not relate to a manufactured home or if it is or would have been secured by a multifamily dwelling including a manufactured home community.</p>
+                                        </div>
+
+
+                                <p><strong>Paragraph 4(a)(30)
+                                - Manufactured Home Land Property Interest.</strong></p>
+
+                                    <p>1. 
+                                    Indicate whether the applicant or borrower owns the land on which a manufactured home is or will be located through a direct or indirect ownership interest or leases the land through a paid or unpaid leasehold according to the following codes:</p>
+
+                                        <div class="codes">
+                                                <p>Code 1 - Direct Ownership</p>
+                                                <p>Code 2 - Indirect Ownership</p>
+                                                <p>Code 3 - Paid Leasehold</p>
+                                                <p>Code 4 - Unpaid Leasehold</p>
+                                                <p>Code 5 - Not Applicable</p>
+                                        </div>
+
+                                        <div class="notes">
+                                                <p>a. Use Code 1 for a covered loan or application for which the applicant or borrower has or will have a direct ownership interest in the land on which the dwelling is or is to be located, such as fee simple ownership.</p>
+                                                <p>b. Use Code 2 for a covered loan or application for which the applicant or borrower holds or will hold an indirect ownership interest in the land on which the dwelling is or is to be located, such as through a resident-owned community structured as a housing cooperative that owns the underlying land.</p>
+                                                <p>c. Use Code 3 for a covered loan or application for which the applicant or borrower leases or will lease the land on which the dwelling is or is to be located and pays or will make payments pursuant to the lease, such as a lease for a lot in a manufactured home community.</p>
+                                                <p>d. Use Code 4 for a covered loan or application for which the applicant or borrower is or will be a tenant on the land on which the dwelling is or is to be located and does not or will not make payments pursuant to the tenancy, such as tenancy on land owned by a family member who has given permission for the placement of the manufactured home.</p>
+                                                <p>e.  Use Code 5 if the covered loan or application does not relate to a manufactured home, if a location for a manufactured home related to a covered loan or application has not been determined, or if the covered loan is or would have been secured by a multifamily dwelling including a manufactured home community.</p>
+                                        </div>
+
+
+                                <p><strong>Paragraph 4(a)(31)
+                                - Total Units.</strong></p>
+
+                                    <p>1. 
+                                    Enter the number of individual dwelling units related to the property securing the covered loan or, in the case of an application, proposed to secure the covered loan.</p>
+
+
+
+
+                                <p><strong>Paragraph 4(a)(32)
+                                - Multifamly Affordable Units.</strong></p>
+
+                                    <p>1. 
+                                    Enter the number of individual dwelling units related to the property securing the covered loan or, in the case of an application, proposed to secure the covered loan that are income-restricted pursuant to Federal, State, or local affordable housing programs.</p>
+
+
+                                        <div class="notes">
+                                                <p>a. For a covered loan or application not related to a multifamily dwelling, enter "NA."</p>
+                                                <p>b. For a covered loan or application related to a multifamily dwelling that does not contain any such income-restricted individual dwelling units, enter "0."</p>
+                                        </div>
+
+
+                                <p><strong>Paragraph 4(a)(33)
+                                - Application Channel.</strong></p>
+
+                                    <p>1. 
+                                        Application. 
+                                    Indicate whether the applicant or borrower submitted the application directly to your institution.</p>
+
+                                        <div class="codes">
+                                                <p>Code 1 - True</p>
+                                                <p>Code 2 - False</p>
+                                                <p>Code 3 - Not applicable</p>
+                                        </div>
+
+                                        <div class="notes">
+                                                <p>a. Use Code 1 if the applicant or borrower submitted the application directly to your institution.</p>
+                                                <p>b. Use Code 2 if the applicant or borrower did not submit the application directly to your institution.</p>
+                                                <p>c. Use Code 3 only if the loan is a purchased loan.</p>
+                                        </div>
+
+                                    <p>2. 
+                                        Initially Payable. 
+                                    Indicate whether the covered loan was or, in the case of an application, would have been initially payable to your institution.</p>
+
+                                        <div class="codes">
+                                                <p>Code 1 - True</p>
+                                                <p>Code 2 - False</p>
+                                                <p>Code 3 - Not applicable</p>
+                                        </div>
+
+                                        <div class="notes">
+                                                <p>a. Use Code 1 if the covered loan was or, in the case of an application, would have been initially payable to your institution.</p>
+                                                <p>b. Use Code 2 if the covered loan was not or, in the case of an application, would not have been initially payable to your institution.</p>
+                                                <p>c. Use Code 3 if the loan is a purchased loan or for applications if you had not determined whether the loan would have been initially payable to your institution when the loan was withdrawn or denied.</p>
+                                        </div>
+
+
+                                <p><strong>Paragraph 4(a)(34)
+                                - Mortgage Loan Originator Identifier.</strong></p>
+
+                                    <p>1. 
+                                        NMLSR ID: 
+                                    Enter the Nationwide Mortgage Licensing System and Registry mortgage loan originator unique identifier (NMLSR ID) as set forth in the Secure and Fair Enforcement for Mortgage Licensing Act of 2008, title V of the Housing and Economic Recovery Act of 2008 (S.A.F.E. Act), 12 U.S.C. 5101 et seq., as implemented by Regulation G (S.A.F.E. Mortgage Licensing Act—Federal Registration of Residential Mortgage Loan Originators), 12 CFR part 1007, and Regulation H (S.A.F.E. Mortgage Licensing Act—State Compliance and Bureau Registration System), 12 CFR part 1008.</p>
+
+
+
+                                    <p>2. 
+                                        No NMLSR ID: 
+                                    If the mortgage loan originator is not required to obtain and has not been assigned an NMLSR ID, enter "NA" for not applicable.</p>
+
+
+
+
+                                <p><strong>Paragraph 4(a)(35)
+                                - Automated Underwriting System (AUS) and Recommendation.</strong></p>
+
+                                    <p>1. 
+                                        Automated Underwriting System. 
+                                    Indicate the name of the automated underwriting system (AUS) used by your institution to evaluate the application by entering the applicable Code from the following:</p>
+
+                                        <div class="codes">
+                                                <p>Code 1 - Desktop Underwriter</p>
+                                                <p>Code 2 - Loan Prospector</p>
+                                                <p>Code 3 - Technology Open to Approved Lenders (TOTAL Scorecard</p>
+                                                <p>Code 4 - Guaranteed Underwriting System (GUS)</p>
+                                                <p>Code 5 - Other</p>
+                                                <p>Code 6 - Not applicable</p>
+                                                <p>Code 7 - Purchased loan</p>
+                                        </div>
+
+                                        <div class="notes">
+                                                <p>a. Use Code 1 for the AUS developed by the Federal National Mortgage Association (Fannie Mae) or any successor.</p>
+                                                <p>b. Use Code 2 for the AUS developed by the Federal Home Loan Mortgage Corporation (Freddie Mac) or any successor.</p>
+                                                <p>c. Use Code 3 for the AUS developed by the U.S. Department of Housing and Urban Development for Federal Housing Administration (FHA) loans.</p>
+                                                <p>d. Use Code 4 for the AUS developed by the U.S. Department of Agriculture for Single Family Housing Guaranteed Loan Program loans.</p>
+                                                <p>e.  Use Code 5 for an AUS developed by a securitzer, Federal government insurer, or guarantor not listed in Codes 1 through 4. For a transaction in which your institution enters Code 5, enter the name of the AUS used to evaluate the application.</p>
+                                                <p>f. Use Code 6 for “not applicable” if your institution did not use an AUS developed by a securitzer, Federal government insurer, or guarantor to evaluate the application.</p>
+                                                <p>g. Use Code 7 if the loan is a purchased loan.</p>
+                                        </div>
+
+                                    <p>2. 
+                                        Automated Underwriting System Result: 
+                                    Indicate the result generated by the automated underwriting system (AUS) used by your institution to evaluate the application by entering the applicable Code from the following:</p>
+
+                                        <div class="codes">
+                                                <p>Code 1 - Approve/Eligible</p>
+                                                <p>Code 2 - Approve/Ineligible</p>
+                                                <p>Code 3 - Refer/Eligible</p>
+                                                <p>Code 4 - Refer/Ineligible</p>
+                                                <p>Code 5 - Refer with Caution</p>
+                                                <p>Code 6 - Out of Scope</p>
+                                                <p>Code 7 - Not Submitted</p>
+                                                <p>Code 8 - Accept</p>
+                                                <p>Code 9 - Caution</p>
+                                                <p>Code 10 - Ineligible</p>
+                                                <p>Code 11 - Incomplete</p>
+                                                <p>Code 12 - Invalid</p>
+                                                <p>Code 13 - Refer</p>
+                                                <p>Code 14 - Other</p>
+                                                <p>Code 15 - Not applicable</p>
+                                                <p>Code 16 - Purchased loan</p>
+                                        </div>
+
+                                        <div class="notes">
+                                                <p>a. Use Codes 1 through 7 for the AUS result returned by the AUS of the Federal National Mortgage Association (Fannie Mae) or any successor.</p>
+                                                <p>b. Use Code 8 through 12 for the AUS result returned by the AUS of the Federal Home Loan Mortgage Corporation (Freddie Mac) or any successor.</p>
+                                                <p>c. Use Code 8 or 13 for the AUS result returned by FHA TOTAL Scorecard.</p>
+                                                <p>d. Use Code 3, 8, or 13 for the AUS result returned by GUS.</p>
+                                                <p>e. Use Code 14 for any AUS result not listed in Codes 1 through 13. For a transaction in which your institution enters Code 14, enter the result generated by the AUS developed by a securitzer, Federal government insurer, or guarantor that was used to evaluate the application.</p>
+                                                <p>f. Use Code 15 for "not applicable" if your institution did not consider a result generated by an AUS developed by a securitzer, Federal government insurer, or guarantor in its underwriting process. For example, use Code 15 if your institution only manually underwrote the application. Also, use Code 10 if the file was closed for incompleteness or the application was withdrawn before a credit decision was made.</p>
+                                                <p>g. Use Code 16 if the loan is a purchased loan.</p>
+                                        </div>
+
+
+                                <p><strong>Paragraph 4(a)(36)
+                                - Reverse Mortgage Flag.</strong></p>
+
+                                    <p>1. 
+                                    Indicate whether the covered loan is, or the application is for, a reverse mortgage by entering one of the following Codes, as applicable:</p>
+
+                                        <div class="codes">
+                                                <p>Code 1 - True (Is a reverse mortgage)</p>
+                                                <p>Code 2 - False (Is not an open-end line of credit)</p>
+                                        </div>
+
+
+
+                                <p><strong>Paragraph 4(a)(37)
+                                - Open-End Line of Credit Flag.</strong></p>
+
+                                    <p>1. 
+                                    Indicate whether the covered loan is, or the application is for, an open-end line of credit by entering one of the following Codes, as applicable:</p>
+
+                                        <div class="codes">
+                                                <p>Code 1 - True (Is an open-end line of credit)</p>
+                                                <p>Code 2 - False (Is not an open-end line of credit)</p>
+                                        </div>
+
+
+
+                                <p><strong>Paragraph 4(a)(38)
+                                - Flag for Covered Loan With Business or Commercial Purpose.</strong></p>
+
+                                    <p>1. 
+                                    Indicate whether the loan or line of credit is, or the application is for, a covered loan that is primarily for a business or commercial purpose, by entering one of the following Codes, as applicable:</p>
+
+                                        <div class="codes">
+                                                <p>Code 1 - True (Is primarily for a business or commercial purpose)</p>
+                                                <p>Code 2 - False (Is not primarily for a business or commercial purpose)</p>
+                                        </div>
+
+                                        <div class="notes">
+                                                <p>a. If the application or covered loan is primarily for a business or commercial purpose, enter Code 1 (True).</p>
+                                                <p>b. Unless the application or covered loan is primarily for a business or commercial purpose, enter Code 2 (False).</p>
+                                        </div>
+
+
+                    </div>
+            </div>
+        <h3>II. INSTRUCTIONS FOR REPORTING TO THE BUREAU OF APPROPRIATE FEDERAL AGENCIES</h3>
+
+
+            <div class="subsection">
+                <p>
+                    <strong>Paragraph 5(a)-Reporting.</strong>
+                        <p>1. Financial institutions are required to submit all required data to the Bureau via the Bureau’s website or via secure electronic submission as specified by the Bureau in prescribed procedures and technical specifications.</p>
+                        <p>2. Data required to be submitted that are not recorded on the loan application register shall be submitted with the loan application register on the transmittal sheet or in such other format specified by the Bureau.</p>
+                 
+                </p>
+
+            </div>
+
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="col-1">
+    <div class="links">
+      <ul>
+        <li><a class="action-arrow internal-link" href="diff">Diff from App A<i class="cf-icon cf-icon-right"></i></a></li>
+        <li><a class="action-arrow internal-link" href="code-sheet">Code sheet<i class="cf-icon cf-icon-right"></i></a></li>
+      </ul>
+    </div>
+  </div>
+      
+
+            
+</div>
+
+  <footer role="contentinfo">
+  <nav role="navigation" aria-label="Footer Menu">
+    <ul class="primary">
+      <li><a href="http://www.consumerfinance.gov/">consumerfinance.gov</a>
+      </li>
+      <li><a href="http://www.consumerfinance.gov/contact-us/">Contact us</a>
+      </li>
+      <li><a href="http://www.consumerfinance.gov/newsroom/">Newsroom</a>
+      </li>
+      <li><a href="http://www.consumerfinance.gov/jobs/">Jobs</a>
+      </li>
+      <li><a href="http://www.consumerfinance.gov/open/">Open government</a>
+      </li>
+    </ul>
+    <ul class="social">
+      <li><a href="http://github.com/cfpb"><i class="cf-icon cf-icon-github" title="GitHub"></i><span class="visuallyhidden">Github</span></a>
+      </li>
+      <li><a href="http://facebook.com/cfpb"><i class="cf-icon cf-icon-facebook" title="Facebook"></i><span class="visuallyhidden">Facebook</span></a>
+      </li>
+      <li><a href="http://twitter.com/cfpb"><i class="cf-icon cf-icon-twitter" title="Twitter"></i><span class="visuallyhidden">Twitter</span></a>
+      </li>
+      <li><a href="http://youtube.com/cfpb"><i class="cf-icon cf-icon-youtube" title="YouTube"></i><span class="visuallyhidden">YouTube</span></a>
+      </li>
+      <li><a href="http://flickr.com/cfpbphotos"><i class="cf-icon cf-icon-flickr" title="Flickr"></i><span class="visuallyhidden">Flickr</span></a>
+      </li>
+      <li><a href="http://linkedin.com/company/consumer-financial-protection-bureau"><i class="cf-icon cf-icon-linkedin" title="Linkedin"></i><span class="visuallyhidden">Linkedin</span></a>
+      </li>
+    </ul>
+    <ul class="tertiary">
+      <li><a href="http://www.consumerfinance.gov/privacy-policy/">Privacy policy and legal notices</a>
+      </li>
+      <li><a href="http://www.consumerfinance.gov/accessibility/">Accessibility</a>
+      </li>
+      <li><a href="http://www.consumerfinance.gov/plain-writing/">Plain writing</a>
+      </li>
+      <li><a href="http://www.consumerfinance.gov/no-fear-act/">No FEAR Act</a>
+      </li>
+      <li><a href="http://www.consumerfinance.gov/foia/">FOIA</a>
+      </li>
+      <li><a href="http://usa.gov/">USA.gov</a>
+      </li>
+      <li><a href="http://www.federalreserve.gov/oig/default.htm">Office of Inspector General</a>
+      </li>
+      <li><a href="http://www.consumerfinance.gov/ombudsman/">Ombudsman</a>
+      </li>
+    </ul>
+  </nav>
+</footer>
+
+</body>
+</html>
