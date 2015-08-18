@@ -23,4 +23,4 @@ echo '</select>' >> $HTMLDROPDOWN_FILE
 echo 'successfully created msa-dropdown.html'
 
 # cleanup tmp file
-rm -f $TMPCSV
+rm $TMPCSV
