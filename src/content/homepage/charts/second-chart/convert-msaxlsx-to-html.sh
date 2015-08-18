@@ -1,7 +1,7 @@
 #! /bin/bash
 
 if [ $# -ne 1 ]; then
-     echo "usage: ./convert-msaxlsx.sh <xlsx-filename>"
+     echo "usage: $0 <xlsx-filename>"
      exit 1
 fi
 
