@@ -20,7 +20,7 @@ echo '<select name="hmda_chart_2_msa" id="hmda_chart_2_msa">
 awk -F "|" '{ if(NR>1){print("<option value=\"CBSA"$1"\">"$2"</option>")}}' $TMPCSV >> $HTMLDROPDOWN_FILE
 echo '</select>' >> $HTMLDROPDOWN_FILE
 
-echo 'successfully created msa-dropdown.html'
+echo 'successfully created: '$HTMLDROPDOWN_FILE
 
 # cleanup tmp file
 rm $TMPCSV
