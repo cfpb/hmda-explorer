@@ -322,10 +322,7 @@ section.video {
   
 }
 
-#about-the-rule a {
-  margin-bottom: 10px;
-}
-#get-the-data, #about-the-rule {
+#get-the-data {
   background: @white url(../img/bg_grid-tile.png) scroll repeat left top;
   border-top: 3px solid @light_field10;
   border-bottom: 3px solid @light_field10;
@@ -351,9 +348,9 @@ section.video {
     background-color: @light_field10;
     padding: 10px 20px;
     min-height: 200px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     .action-arrow {
-      display: block;
+      position: absolute;
     }
     p {
       line-height: 1.375em;
@@ -364,8 +361,7 @@ section.video {
       margin-bottom: 40px;
     }
     a {
-      /*margin-top: -25px;*/
-      display: block;
+      margin-top: -25px;
     }
   }
 }
@@ -474,12 +470,12 @@ section.video {
         margin-top: 25px;
         .clearfix();
         li {
-          width: 25%;
+          width: 33%;
           float: left;
           .clearfix();
         }
         li:first-child {
-          width: 25%;
+          width: 34%;
         }
         .title {
           text-transform: uppercase;
@@ -487,13 +483,12 @@ section.video {
         a {
           background-color: transparent;
           width: 160px;
-          margin: 0 auto;
           span {
             text-transform: none;
             font-family: @body-font;
             font-weight: 400;
           }
-          /*&.get-the-data {
+          &.get-the-data {
             margin: 0 auto;
             .circle-nav {
               margin: 0 auto 20px;
@@ -502,22 +497,17 @@ section.video {
               padding-left: 9%;
               padding-right: 9%;
             }
-          }*/
-          /*&.developers {
+          }
+          &.developers {
             .clearfix();
             float: right;
             width: 150px;
             .circle-nav {
               float: right;
             }
-          }*/
+          }
           &:hover {
             background-color: transparent;
-          }
-          &.about-the-rule {
-            .inner span {
-              padding: 65px 10% 50px;
-            }
           }
           &.facts-and-figures {
             .inner span {
@@ -568,7 +558,7 @@ section.video {
       }
       .inner {
         position: absolute;
-        top: 30px;
+        top: 32px;
         -webkit-transition: top .15s ease-in-out;
         -moz-transition: top .15s ease-in-out;
         -o-transition: top .15s ease-in-out;
@@ -635,7 +625,7 @@ section.video {
     }
   }
 
-  #get-the-data, #about-the-rule {
+  #get-the-data {
     h2 {
       .at2x( '../img/icon_getdata.png', 79px, 92px );
       strong {
@@ -646,7 +636,7 @@ section.video {
       width: 82%;
     }
     .filters {
-      margin-right: 1%;
+      margin-right: 3%;
     }
     .filters,
     .summary {
