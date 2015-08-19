@@ -47,7 +47,3 @@ dist-plan-b/
 # Jasmine runner #
 # ################
 _SpecRunner.html
-
-# JSON files #
-##############
-src/static/json
