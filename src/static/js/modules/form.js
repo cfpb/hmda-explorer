@@ -16,6 +16,8 @@ var PDP = (function ( pdp ) {
   form.locationCount = 1;
   // Set a counter so group set IDs are unique (never decremented)
   form.locationSetNum = 1;
+  // 2014 MSAs are weird. Let's take note if they select 2014 *and* another year.
+  form.yearsConflict = false;
 
   // Cache a reference to all the filter fields.
   form.init = function() {
@@ -85,6 +87,10 @@ var PDP = (function ( pdp ) {
       // We set height to auto after the animation so that the div can expand 
       // if a lot of items in a 'chosen' select widget are chosen.
       $( this ).css('height', 'auto');
+      // Disable MSAs if need be.
+      if (pdp.form.yearsConflict) {
+        pdp.form.disableField( $('.field.msamd') );
+      }
     });
 
     $el.removeClass('closed').attr( 'title', '' );
@@ -610,6 +616,11 @@ var PDP = (function ( pdp ) {
 
     $('#location-sets').append( template( { num: num } ) ).initTooltips({ placement: tooltipPlacement, container: 'body' });
     $( '.location-set-' + num ).find('select').chosen({ width: '100%', disable_search_threshold: 10, allow_single_deselect: true });
+
+    // Disable MSAs if need be.
+    if (pdp.form.yearsConflict) {
+      pdp.form.disableField( $('.field.msamd') );
+    }
     
     // If a state is removed from a location query, remove its parent set from the DOM / query
     $('#state_code-' + num).on('change', function(evt, params){
