@@ -3,11 +3,23 @@
 # Background:
 # This script can be used to import an XLSX file that contains MSA codes and
 # names. These fields will be pulled out and placed into an html formatted file
-# that can be used by hmda-explorer.
+# that can be used by hmda-explorer. The script will also create a CSV file
+# for use by other applications.
+#
+# The expected input format:
+#     code column: MSA code (e.g. 47894)
+#     text_column: MSA name (e.g. "WASHINGTON-ARLINGTON-ALEXANDRIA, DC-VA-MD-WV")
+#
+# The script does some cleanup on the MSA name to make it look like this:
+#     Washington, Arlington, Alexandria - DC, VA, MD, WV
+#
+# Requirements:
+#     xlsx2csv (pip install xlsx2csv)
+#     sed (Mac users: install a newer version of sed: `brew install gnu-sed`)
+#
 
 HTMLDROPDOWN_FILE="msa-dropdown.html"
 CSVBACKEND_FILE="msa-backend.csv"
-TMPCSV="tmp-msa.csv"
 CODE_COLUMN=1
 TEXT_COLUMN=2
 
@@ -62,19 +74,58 @@ Note that root access may be required to run pip commands. Aborting.";
     exit 1;
 } 
 
-# This gracefully handles unicode nastiness, thankfully.
-xlsx2csv -d '|' "$1" $TMPCSV
-# make the html dropdown
-echo '<select name="hmda_chart_2_msa" id="hmda_chart_2_msa">
-<option selected value="CBSA00000">U.S. Total</option>' > $HTMLDROPDOWN_FILE
-awk -F "|" '{ if(NR>1){print("<option value=\"CBSA"$'$CODE_COLUMN'"\">"$'$TEXT_COLUMN'"</option>")}}' $TMPCSV >> $HTMLDROPDOWN_FILE
-echo '</select>' >> $HTMLDROPDOWN_FILE
-echo 'successfully created: '$HTMLDROPDOWN_FILE
+# NOTE - if using OSX, you'll need to install a newer version of sed to support these queries.
+# `brew install gnu-sed` will create the gsed executable
+sed_bin='sed'
+command -v gsed 2> /dev/null && {
+  sed_bin='gsed'
+}
 
-# make a csv for backend use
-awk -F "|" '{ if(NR>1){print($'$CODE_COLUMN'",","\""$'$TEXT_COLUMN'"\"")}}' $TMPCSV > $CSVBACKEND_FILE
+sed_tweaks='
+  # sed input format       47894,"WASHINGTON-ARLINGTON-ALEXANDRIA, DC-VA-MD-WV",
+  # sed output format      47894,"Washington, Arlington, Alexandria - DC, VA, MD, WV"
+  # Note: also works if | is the delimiter
+
+  # remove any line that does not contain a 5 character integer (MSA code)
+  # i.e. remove any header rows
+  /[0-9]\{5\}[,|]/!d;
+
+  # remove the delimiter (| or ,) at the end of every line
+  s/[,|]$//;
+
+  # replace comma separating city block and state block
+  s/, / - /;
+
+  # replace hyphens between citys with comma and a space
+  s/\([A-Z]\)-\([A-Z]\)/\1, \2/g;
+
+  # remove "CBSA" from MSA codes, if present
+  s/CBSA\([0-9]\{5\}\)/\1/;
+
+  # lowercase words, but keep the first letter capitalized
+  s/\b\([[:alpha:]]\)\([[:alpha:]]\+\)\b/\u\1\L\2/g;
+
+  # uppercase any words that follow " - ", as those are state abbreviations
+  s/\( \- \(\(, \)\?[A-Z][a-z]\)\+\)/\U\1/;
+
+  # special case - uppercase the abbreviations in MSA #99999
+  s/Na (Outside Of Msa\/Md)/NA (Outside Of MSA\/MD)/;
+
+  # Remove MSA 00000, if present
+  /00000[,|]/d;
+
+  # remove quotes from lines without commas
+  s/"\([^,]\+\)"/\1/;
+'
+
+# make a csv for backend usage
+# xlsx2csv gracefully handles unicode nastiness, thankfully.
+xlsx2csv "$1" | $sed_bin "$sed_tweaks" > $CSVBACKEND_FILE
 echo 'successfully created: '$CSVBACKEND_FILE
 
-# cleanup tmp file
-rm $TMPCSV
-
+# make the html dropdown
+echo '<select name="hmda_chart_2_msa" id="hmda_chart_2_msa">
+  <option selected value="CBSA00000">U.S. Total</option>' > $HTMLDROPDOWN_FILE
+xlsx2csv -d '|' "$1" | $sed_bin "$sed_tweaks" | awk -F "|" '{print("  <option value=\"CBSA"$'$CODE_COLUMN'"\">"$'$TEXT_COLUMN'"</option>")}' >> $HTMLDROPDOWN_FILE
+echo '</select>' >> $HTMLDROPDOWN_FILE
+echo 'successfully created: '$HTMLDROPDOWN_FILE
