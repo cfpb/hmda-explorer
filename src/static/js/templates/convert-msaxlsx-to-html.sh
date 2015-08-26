@@ -122,7 +122,7 @@ sed_tweaks='
 
 # make a csv for backend usage
 # xlsx2csv gracefully handles unicode nastiness, thankfully.
-xlsx2csv "$1" | $sed_bin "$sed_tweaks" > $CSVBACKEND_FILE
+xlsx2csv -d '|' "$1" | awk -F '|' '{print $'$CODE_COLUMN'",\""$'$TEXT_COLUMN'"\""}' | $sed_bin "$sed_tweaks" > $CSVBACKEND_FILE
 echo 'successfully created: '$CSVBACKEND_FILE
 
 # make the html dropdown
