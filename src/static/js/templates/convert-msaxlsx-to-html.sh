@@ -3,8 +3,9 @@
 # Background:
 # This script can be used to import an XLSX file that contains MSA codes and
 # names. These fields will be pulled out and placed into an html formatted file
-# that can be used by hmda-explorer. The script will also create a CSV file
-# for use by other applications.
+# that can be used by hmda-explorer (e.g. location.html).
+#
+# The script will also create a CSV file for use by other applications.
 #
 # The expected input format:
 #     code column: MSA code (e.g. 47894)
@@ -97,7 +98,8 @@ sed_tweaks='
   s/, / - /;
 
   # replace hyphens between citys with comma and a space
-  s/\([A-Z]\)-\([A-Z]\)/\1, \2/g;
+  # also match -- and / as separators to be more flexible
+  s/\([A-Z]\)\(-\|--\|\/\)\([A-Z]\)/\1, \3/g;
 
   # remove "CBSA" from MSA codes, if present
   s/CBSA\([0-9]\{5\}\)/\1/;
@@ -109,7 +111,7 @@ sed_tweaks='
   s/\( \- \(\(, \)\?[A-Z][a-z]\)\+\)/\U\1/;
 
   # special case - uppercase the abbreviations in MSA #99999
-  s/Na (Outside Of Msa\/Md)/NA (Outside Of MSA\/MD)/;
+  s/Na (Outside Of Msa, Md)/NA (Outside Of MSA\/MD)/;
 
   # Remove MSA 00000, if present
   /00000[,|]/d;
