@@ -72,7 +72,7 @@ echo '</select>' >> $HTMLDROPDOWN_FILE
 echo 'successfully created: '$HTMLDROPDOWN_FILE
 
 # make a csv for backend use
-awk -F "|" '{ if(NR>1){print($'$CODE_COLUMN'",","\""$'$TEXT_COLUMN'"\"")}}' $TMPCSV >> $CSVBACKEND_FILE
+awk -F "|" '{ if(NR>1){print($'$CODE_COLUMN'",","\""$'$TEXT_COLUMN'"\"")}}' $TMPCSV > $CSVBACKEND_FILE
 echo 'successfully created: '$CSVBACKEND_FILE
 
 # cleanup tmp file
