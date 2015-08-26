@@ -102,7 +102,7 @@ sed_tweaks='
   # remove "CBSA" from MSA codes, if present
   s/CBSA\([0-9]\{5\}\)/\1/;
 
-  # lowercase words, but keep the first letter capitalized
+  # lowercase words (2+ chars), but keep the first letter capitalized
   s/\b\([[:alpha:]]\)\([[:alpha:]]\+\)\b/\u\1\L\2/g;
 
   # uppercase any words that follow " - ", as those are state abbreviations
@@ -124,8 +124,5 @@ xlsx2csv "$1" | $sed_bin "$sed_tweaks" > $CSVBACKEND_FILE
 echo 'successfully created: '$CSVBACKEND_FILE
 
 # make the html dropdown
-echo '<select name="hmda_chart_2_msa" id="hmda_chart_2_msa">
-  <option selected value="CBSA00000">U.S. Total</option>' > $HTMLDROPDOWN_FILE
-xlsx2csv -d '|' "$1" | $sed_bin "$sed_tweaks" | awk -F "|" '{print("  <option value=\"CBSA"$'$CODE_COLUMN'"\">"$'$TEXT_COLUMN'"</option>")}' >> $HTMLDROPDOWN_FILE
-echo '</select>' >> $HTMLDROPDOWN_FILE
+xlsx2csv -d '|' "$1" | $sed_bin "$sed_tweaks" | awk -F "|" '{print("<option value=\""$'$CODE_COLUMN'"\">"$'$TEXT_COLUMN'"</option>")}' > $HTMLDROPDOWN_FILE
 echo 'successfully created: '$HTMLDROPDOWN_FILE
