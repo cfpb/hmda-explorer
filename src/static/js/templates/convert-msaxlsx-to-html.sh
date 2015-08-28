@@ -9,7 +9,7 @@
 #
 # The expected input format:
 #     code column: MSA code (e.g. 47894)
-#     text_column: MSA name (e.g. "WASHINGTON-ARLINGTON-ALEXANDRIA, DC-VA-MD-WV")
+#     name_column: MSA name (e.g. "WASHINGTON-ARLINGTON-ALEXANDRIA, DC-VA-MD-WV")
 #
 # The script does some cleanup on the MSA name to make it look like this:
 #     Washington, Arlington, Alexandria - DC, VA, MD, WV
@@ -22,29 +22,48 @@
 HTMLDROPDOWN_FILE="msa-dropdown.html"
 CSVBACKEND_FILE="msa-backend.csv"
 CODE_COLUMN=1
-TEXT_COLUMN=2
+NAME_COLUMN=2
+INPUT_TYPE=csv
+PREPEND_YEAR=
 
-OPTIONS_GUIDE="Usage: convert-msalsx-to-html.sh [-c code-column] [-t text-column] [-o html-output-file] [-b csv-output-file] input-file
+OPTIONS_GUIDE="Usage: convert-msalsx-to-html.sh [-c code-column] [-n name-column] [-o html-output-file] [-b csv-output-file] [-t input-type] [-y year] input-file
     -c	Default: $CODE_COLUMN
-    -t	Default: $TEXT_COLUMN
+    -n	Default: $NAME_COLUMN
     -o	Default: $HTMLDROPDOWN_FILE
     -b	Default: $CSVBACKEND_FILE
+    -t  Options: csv, xlsx	Default: $INPUT_TYPE
+    -y  Prepend year as first column of csv
 "
 
 # Pull out the command line arguments (if any)
-while getopts ":c:t:o:b:h" opt; do
+while getopts ":c:n:o:b:t:y:h" opt; do
     case $opt in
         c)
             CODE_COLUMN=$OPTARG
             ;;
-        t)
-            TEXT_COLUMN=$OPTARG
+        n)
+            NAME_COLUMN=$OPTARG
             ;;
         o)
             HTMLDROPDOWN_FILE=$OPTARG
             ;;
         b)
             CSVBACKEND_FILE=$OPTARG
+            ;;
+        t)
+            case "$OPTARG" in
+                csv|xlsx)
+                    INPUT_TYPE=$OPTARG
+                    ;;
+                *)
+                    echo "Invalid file type specified" >&2
+                    echo "$OPTIONS_GUIDE" >&2
+                    echo 1
+                    ;;
+            esac
+            ;;
+        y)
+            PREPEND_YEAR=$OPTARG
             ;;
         h)
             echo "$OPTIONS_GUIDE" >&2
@@ -66,14 +85,17 @@ if [ $# -ne 1 ]; then
      exit 1
 fi
 
-# Use xlsx2csv to convert the xlsx file: https://github.com/dilshod/xlsx2csv
-# If xlsx2csv is not installed, exit
-command -v xlsx2csv 2> /dev/null || {
-    echo >&2 "'xlsx2csv' is required for this script to execute. To install, run:
+echo $INPUT_TYPE
+if [ $INPUT_TYPE = 'xlsx' ]; then
+    # Use xlsx2csv to convert the xlsx file: https://github.com/dilshod/xlsx2csv
+    # If xlsx2csv is not installed, exit
+    command -v xlsx2csv 2> /dev/null || {
+        echo >&2 "'xlsx2csv' is required for this script to execute. To install, run:
 pip install xlsx2csv 
 Note that root access may be required to run pip commands. Aborting.";
-    exit 1;
-} 
+        exit 1;
+    }
+fi
 
 # NOTE - if using OSX, you'll need to install a newer version of sed to support these queries.
 # `brew install gnu-sed` will create the gsed executable
@@ -122,9 +144,20 @@ sed_tweaks='
 
 # make a csv for backend usage
 # xlsx2csv gracefully handles unicode nastiness, thankfully.
-xlsx2csv -d '|' "$1" | awk -F '|' '{print $'$CODE_COLUMN'",\""$'$TEXT_COLUMN'"\""}' | $sed_bin "$sed_tweaks" > $CSVBACKEND_FILE
+if [ $INPUT_TYPE = 'xlsx' ]; then
+    dump_cmd="xlsx2csv -d '|' \"$1\""
+else
+    # To make the output match xlsx2csv...
+    # replace only the first comma with a |
+    # remove any quotes and end-of-line commas
+    dump_cmd="cat $1 | $sed_bin 's/,/|/' | $sed_bin 's/,$//' | tr -d '\"'"
+fi
+eval $dump_cmd | awk -F '|' '{print $'$CODE_COLUMN'",\""$'$NAME_COLUMN'"\""}' | $sed_bin "$sed_tweaks" > $CSVBACKEND_FILE
+if [ "$PREPEND_YEAR" != "" ]; then
+    $sed_bin -i 's/^/'$PREPEND_YEAR',/' $CSVBACKEND_FILE
+fi
 echo 'successfully created: '$CSVBACKEND_FILE
 
 # make the html dropdown
-xlsx2csv -d '|' "$1" | $sed_bin "$sed_tweaks" | awk -F "|" '{print("<option value=\""$'$CODE_COLUMN'"\">"$'$TEXT_COLUMN'"</option>")}' > $HTMLDROPDOWN_FILE
+eval $dump_cmd | $sed_bin "$sed_tweaks" | awk -F "|" '{print("<option value=\""$'$CODE_COLUMN'"\">"$'$NAME_COLUMN'"</option>")}' > $HTMLDROPDOWN_FILE
 echo 'successfully created: '$HTMLDROPDOWN_FILE
