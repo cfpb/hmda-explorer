@@ -31,7 +31,7 @@ $(function(){
 
     L.mapbox.accessToken = 'pk.eyJ1IjoiY29udG8iLCJhIjoiYWY0ODdmZTM2N2M1NTE4YmVkNTdkZWI1ZTcxNWRmNTgifQ.ZXAoSbSp6NTPLQ8zP0lQ2Q';
 
-    map.base = L.mapbox.map('map', 'conto.hmda_p_o_13_14').setView([39.54, -97.87], 4);
+    map.base = L.mapbox.map('map', 'conto.hmda_blank').setView([39.54, -97.87], 4);
     
     map.layers = {
       r2014: L.mapbox.tileLayer('conto.hmda_r_o_13_14'),
@@ -65,10 +65,10 @@ $(function(){
       // IE and MapBox don't completely get along so we only add snazzy
       // fade-in effects with non-IE browsers.
     
-      if ( !$('body').hasClass('lt-ie9') ) {
-        map.base.addLayer( layer );
-        $( layer._tileContainer ).hide();
-      }
+      // if ( !$('body').hasClass('lt-ie9') ) {
+      //   map.base.addLayer( layer );
+      //   $( layer._tileContainer ).hide();
+      // }
 
     };
 
@@ -80,13 +80,11 @@ $(function(){
         _( map.layers ).forEach( function( layer ){
           addAndHide( layer );
         });
-      }else{
+      } else {
         map.firstLoad();
       }
 
     };
-
-
      
     map.showMap = function() {
 
@@ -117,15 +115,15 @@ $(function(){
 
       // IE and MapBox don't completely get along so we only add snazzy
       // fade-in effects with non-IE browsers.
-      if ( !$('body').hasClass('lt-ie9') ) {
+      // if ( !$('body').hasClass('lt-ie9') ) {
 
-        $( map.layers[ selectedLayer ]._tileContainer ).fadeIn();
+      //   $('leaflet-tile-container').fadeIn();
 
-        _( otherLayers ).forEach( function( layer ){
-          $( layer._tileContainer ).fadeOut( 800 );
-        });
+      //   _( otherLayers ).forEach( function( layer ){
+      //     $( layer._tileContainer ).fadeOut( 800 );
+      //   });
 
-      } else {
+      // } else {
 
         map.base.addLayer( map.layers[ selectedLayer ] );
 
@@ -133,7 +131,7 @@ $(function(){
           map.base.removeLayer( layer );
         });
 
-      }
+      // }
       
     };
 
@@ -142,11 +140,11 @@ $(function(){
       var under30,
           over30;
 
-      under30 = $('#map .legend-labels li').first().html();
-      $('#map .legend-labels li').first().html( under30 + '< -30%' );
+      // under30 = $('#map .legend-labels li').first().html();
+      // $('#map .legend-labels li').first().html( under30 + '< -30%' );
 
-      over30 = $('#map .legend-labels li:nth-last-child(2)').html();
-      $('#map .legend-labels li:nth-last-child(2)').html( over30.replace( 'Over 30%', '> 30%' ) );
+      // over30 = $('#map .legend-labels li:nth-last-child(2)').html();
+      // $('#map .legend-labels li:nth-last-child(2)').html( over30.replace( 'Over 30%', '> 30%' ) );
 
       $('#map .my-legend .legend-title').html('Percentage Change');
 
@@ -206,6 +204,8 @@ $(function(){
       }
 
     };
+
+    window.map = map;
 
     map.init();
 
