@@ -161,9 +161,9 @@ var chart2_options = {
 
     xAxis: {
         categories: [
-            '2011',
             '2012',
-            '2013'
+            '2013',
+            '2014'
         ],
         gridLineWidth: 0,
         labels: {
