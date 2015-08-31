@@ -80,9 +80,13 @@ $(function(){
         _( map.layers ).forEach( function( layer ){
           addAndHide( layer );
         });
+      }else{
+        map.firstLoad();
       }
 
     };
+
+
      
     map.showMap = function() {
 
