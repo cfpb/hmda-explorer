@@ -31,7 +31,7 @@ $(function(){
 
     L.mapbox.accessToken = 'pk.eyJ1IjoiY29udG8iLCJhIjoiYWY0ODdmZTM2N2M1NTE4YmVkNTdkZWI1ZTcxNWRmNTgifQ.ZXAoSbSp6NTPLQ8zP0lQ2Q';
 
-    map.base = L.mapbox.map('map', 'cfpb.fxomkj4i').setView([39.54, -97.87], 4);
+    map.base = L.mapbox.map('map', 'conto.hmda_p_o_13_14').setView([39.54, -97.87], 4);
     
     map.layers = {
       r2014: L.mapbox.tileLayer('conto.hmda_r_o_13_14'),
@@ -41,7 +41,6 @@ $(function(){
     };
 
     map.layersLoaded = 0;
-    
 
     map.firstLoad = function() {
       
@@ -81,13 +80,9 @@ $(function(){
         _( map.layers ).forEach( function( layer ){
           addAndHide( layer );
         });
-      }else{
-        map.firstLoad();
       }
 
     };
-
-
      
     map.showMap = function() {
 
