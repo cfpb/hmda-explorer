@@ -39,10 +39,11 @@ def rangeify(years_list):
     #
     # e.g. [2009, 2011, 2012, 2013] -> ['2009', '2011-2013']
 
+    years_list = sorted(years_list)
     newlist = []
     start = None
 
-    for (idx, item) in enumerate(sorted(years_list)):
+    for (idx, item) in enumerate(years_list):
         if idx < len(years_list)-1 and item+1 == years_list[idx+1]:
             # if the next number is one more than the current,
             # then we've got a range.  if not already part of a range,
