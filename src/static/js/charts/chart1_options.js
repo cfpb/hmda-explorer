@@ -13,8 +13,7 @@ var chart1_options = {
     spacingLeft: 1,
     marginTop: 20,
     marginBottom: 80,
-    type: 'column',
-    animation: false
+    type: 'column'
   },
   exporting: {
     enabled: false
