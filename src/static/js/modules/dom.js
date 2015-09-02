@@ -19,27 +19,13 @@ var PDP = (function ( pdp ) {
   // 2014 introduced a lot of funky MSA anomalies.
   $('.field.as_of_year').on( 'change', _.debounce(function( ev ){
 
-    var $field = $('.field.as_of_year select'),
-        years = $field.val(),
-        parents;
+    var years = $('.field.as_of_year select').val();
 
     // Have they selected 2014 *and* another year?
     // (Selecting no years is the same as selecting all years.)
     pdp.form.yearsConflict = !years || years.length > 1 && years.indexOf('2014') > -1;
 
-    // This doesn't account for people following URLs with query params but for
-    // demoing purposes it'll do fine.
-    if (pdp.form.yearsConflict) {
-      pdp.form.disableField( $('.field.msamd') );
-      $('.msa-warning').removeClass('hidden');
-      $('#summary-table-form select').find('option[value=msamd_name]').remove();
-      $('#summary-table-form select').trigger('liszt:updated');
-    } else {
-      pdp.form.enableField( $('.field.msamd') );
-      $('.msa-warning').addClass('hidden');
-      $('#summary-table-form option[value=loan_type_name]').after('<option value="msamd_name">MSA</option>');
-      $('#summary-table-form select').trigger('liszt:updated');
-    }
+    pdp.form.checkYearsConflict();
 
   }, 100));
 

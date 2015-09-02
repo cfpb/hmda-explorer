@@ -3,13 +3,18 @@ this["PDP"]["templates"] = this["PDP"]["templates"] || {};
 
 this["PDP"]["templates"]["location"] = function(obj) {
 obj || (obj = {});
-var __t, __p = '', __e = _.escape;
+var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
+function print() { __p += __j.call(arguments, '') }
 with (obj) {
 __p += '<ul class="fields location-set location-set-' +
 ((__t = ( num )) == null ? '' : __t) +
 '" data-location-num="' +
 ((__t = ( num )) == null ? '' : __t) +
-'">\n\n  <!-- filter field -->\n  <li class="field state_code state_code-' +
+'">\n\n  ';
+ if (num === 1) { ;
+__p += '\n    <div class="msg msa-warning hidden">\n      <strong>Important note:</strong> The names, IDs, and boundary areas for over 100 Metropolitan Statistical Areas (MSAs) have changed for 2014. To accurately compare 2014 data to previous years, use this reference guide to understand the MSA changes: <a href="https://www.ffiec.gov/HMDA/pdf/edit2014.pdf">https://www.ffiec.gov/HMDA/pdf/edit2014.pdf</a>\n    </div>\n  ';
+ } ;
+__p += '\n\n  <!-- filter field -->\n  <li class="field state_code state_code-' +
 ((__t = ( num )) == null ? '' : __t) +
 '">\n    <label for="state_code-' +
 ((__t = ( num )) == null ? '' : __t) +
