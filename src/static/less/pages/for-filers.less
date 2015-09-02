@@ -1,0 +1,162 @@
+// Mobile first!
+
+.for-filers {
+
+  .hero {
+    h1 {
+      padding-bottom: 5px;
+      padding-left: 0;
+      background: transparent url() scroll no-repeat left center;
+      .avenir-next-bold;
+      //.at2x( '../img/book-isocon.png', 42px, 42px );
+      background-size: 42px 42px;
+    }
+  }
+  h2 {
+    margin-top: 10px;
+    padding-bottom: 5px;
+    .avenir-next-demi;
+    font-size: 1.5em;
+  }
+
+  .background {
+    padding: 1px 15px 0px 15px;
+  }
+
+
+  .col-3 {
+    float: left;
+    margin-right: 5%;
+    width: 70%;
+  }
+  .col-1 {
+    float: left;
+    width: 25%;
+  }
+
+}
+
+
+#for-filers {
+  margin: 25px auto 0;
+  max-width: 960px;
+
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  section {
+    min-height: 200px;
+  }
+
+  ul {
+    margin-right: 4%;
+    line-height: 1.375em;
+    display: inline-block;
+    font-size: 1em;
+  }
+
+  .links {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .links ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 8px 0 0 0;
+  }
+  
+  .links li {
+    margin-bottom: 10px;
+  }
+
+  // tables
+  .table {
+    background: none;
+    border-collapse: collapse;
+    border-spacing: 0;
+    color: @black;
+    th, td {
+        padding: 5px 7px;
+    }
+    th {
+        font-family: "AvenirNextLTW01-Demi", Helvetica, Arial, sans-serif;
+        text-align: left;
+    }
+    thead th {
+        border-right: 1px solid @light_neutral;
+        &:last-child {
+            border-right: none;
+        }
+    }
+    tbody td, tbody th {
+        border: 1px solid @light_neutral;
+    }
+    tbody th {
+        border-bottom-width: 3px;
+    }
+
+    &.codesheet {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+}
+
+}
+  
+
+
+// Adjustments for larger screens
+
+@media only screen and ( min-width: 768px ) {
+
+  #for-filers {
+
+  h2 {
+    margin-top: 40px;
+  }
+
+  .title {padding:0;}
+  .highlight {
+      background-color: @light_field10;
+      padding: 15px 20px;
+      width: 66%;
+      line-height: 1.375em;
+      margin-bottom: 20px;
+      display: inline-block;  
+      p {margin:0; padding:0; width: 100%;}
+    }
+
+  li {
+    width: 90%;
+    }
+
+  ul {
+    margin-right: 4%;
+    line-height: 1.375em;
+    display: inline-block;
+    font-size: 1em;
+    }
+
+  .links ul {
+    display: inline-block;
+    vertical-align: top;
+    list-style-type: none;
+    padding-left: 0;
+    }
+
+  .links li {
+    width: 100%;
+  }
+
+  .footnote {
+    width: 66%;
+  }
+    
+
+  }
+
+}
