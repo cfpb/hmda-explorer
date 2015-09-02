@@ -195,11 +195,11 @@
           <span class="help-text">These data represent first-lien mortgages for owner-occupied, 1- to 4-family homes (including manufactured housing).</span>
         </p>
 
-        <a href="explore#!/as_of_year=2013,2012,2011&property_type=1,2&owner_occupancy=1&action_taken=1&loan_purpose=1&lien_status=1&select=state_name,county_name,as_of_year,count&section=summary" class="action-arrow underlying" data-track-label="Map on homepage">See the underlying data<i class="cf-icon cf-icon-right"></i></a>
+        <a href="explore#!/as_of_year=2014,2013,2012&property_type=1,2&owner_occupancy=1&action_taken=1&loan_purpose=1&lien_status=1&select=state_name,county_name,as_of_year,count&section=summary" class="action-arrow underlying" data-track-label="Map on homepage">See the underlying data<i class="cf-icon cf-icon-right"></i></a>
         <div class="controls">
           <div class="year">
-            <label><input type="radio" name="year" value="2012" />2011-2012</label>&nbsp; or &nbsp;
-            <label class="selected"><input type="radio" name="year" value="2013" checked />2012-2013</label>
+            <label><input type="radio" name="year" value="2013" />2012-2013</label>&nbsp; or &nbsp;
+            <label class="selected"><input type="radio" name="year" value="2014" checked />2013-2014</label>
           </div>
           <div class="type" id="map_radios">
             <label><input type="radio" name="type" value="p" checked/>Home Purchases</label>
@@ -224,10 +224,7 @@
 
               <a href="explore#!/as_of_year=2013,2012,2011&property_type=1,2&owner_occupancy=1&lien_status=1&action_taken=1&select=as_of_year,msamd_name,loan_purpose_name,count&section=summary" class="action-arrow underlying" data-track-label="Number of applications and originations by loan purpose">See the underlying data<i class="cf-icon cf-icon-right"></i></a>
 
-              <label for="hmda_chart_1_msa" class="chart-label">Metropolitan Statistical Area</label>
-              
-              <div class="help" role="tooltip"><i class="cf-icon cf-icon-help-round"></i></div>
-              <span class="help-text"><%= homepage_charts_first_chart_help_text %></span>
+              <label for="hmda_chart_1_msa" class="chart-label">Select a U.S. State</label>
               
               <br>
               
@@ -279,10 +276,7 @@
 
             <a href="explore#!/as_of_year=2013,2012,2011&property_type=1,2&owner_occupancy=1&lien_status=1&loan_purpose=1&action_taken=1&select=as_of_year,msamd_name,loan_type_name,count&section=summary" class="action-arrow underlying" data-track-label="Percent of home purchases by loan type">See the underlying data<i class="cf-icon cf-icon-right"></i></a>
 
-            <label for="hmda_chart_2_msa" class="chart-label">Metropolitan Statistical Area</label>
-
-            <div class="help" role="tooltip"><i class="cf-icon cf-icon-help-round"></i></div>
-            <span class="help-text"><%= homepage_charts_second_chart_help_text %></span>
+            <label for="hmda_chart_2_msa" class="chart-label">Select a U.S. State</label>
               
               <br>
               
@@ -385,7 +379,7 @@
 
   <%= footer %>
 
-  <script src="//api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.js"></script>
+  <script src="//api.tiles.mapbox.com/mapbox.js/v2.0.0/mapbox.js"></script>
   <script src="static/js/home.min.js"></script>
   <script src="static/js/main.min.js"></script>
   <script src="static/js/charts.min.js"></script>
