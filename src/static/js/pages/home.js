@@ -29,17 +29,18 @@ $(function(){
 
     var map = {};
 
-    map.base = L.mapbox.map('map', 'cfpb.fxomkj4i').setView([39.54, -97.87], 4);
+    L.mapbox.accessToken = 'pk.eyJ1IjoiY29udG8iLCJhIjoiYWY0ODdmZTM2N2M1NTE4YmVkNTdkZWI1ZTcxNWRmNTgifQ.ZXAoSbSp6NTPLQ8zP0lQ2Q';
+
+    map.base = L.mapbox.map('map', 'cfpb.hmda_blank').setView([39.54, -97.87], 4);
     
     map.layers = {
-      r2013: L.mapbox.tileLayer('cfpb.6uwyiudi'),
-      r2012: L.mapbox.tileLayer('cfpb.2yugzaor'),
-      p2013: L.mapbox.tileLayer('cfpb.z2z3q5mi'),
-      p2012: L.mapbox.tileLayer('cfpb.pbjoflxr')
+      r2014: L.mapbox.tileLayer('cfpb.hmda_r_o_13_14'),
+      r2013: L.mapbox.tileLayer('cfpb.hmda_r_o_12_13'),
+      p2014: L.mapbox.tileLayer('cfpb.hmda_p_o_13_14'),
+      p2013: L.mapbox.tileLayer('cfpb.hmda_p_o_12_13')
     };
 
     map.layersLoaded = 0;
-    
 
     map.firstLoad = function() {
       
@@ -64,10 +65,10 @@ $(function(){
       // IE and MapBox don't completely get along so we only add snazzy
       // fade-in effects with non-IE browsers.
     
-      if ( !$('body').hasClass('lt-ie9') ) {
-        map.base.addLayer( layer );
-        $( layer._tileContainer ).hide();
-      }
+      // if ( !$('body').hasClass('lt-ie9') ) {
+      //   map.base.addLayer( layer );
+      //   $( layer._tileContainer ).hide();
+      // }
 
     };
 
@@ -79,13 +80,11 @@ $(function(){
         _( map.layers ).forEach( function( layer ){
           addAndHide( layer );
         });
-      }else{
+      } else {
         map.firstLoad();
       }
 
     };
-
-
      
     map.showMap = function() {
 
@@ -116,15 +115,15 @@ $(function(){
 
       // IE and MapBox don't completely get along so we only add snazzy
       // fade-in effects with non-IE browsers.
-      if ( !$('body').hasClass('lt-ie9') ) {
+      // if ( !$('body').hasClass('lt-ie9') ) {
 
-        $( map.layers[ selectedLayer ]._tileContainer ).fadeIn();
+      //   $('leaflet-tile-container').fadeIn();
 
-        _( otherLayers ).forEach( function( layer ){
-          $( layer._tileContainer ).fadeOut( 800 );
-        });
+      //   _( otherLayers ).forEach( function( layer ){
+      //     $( layer._tileContainer ).fadeOut( 800 );
+      //   });
 
-      } else {
+      // } else {
 
         map.base.addLayer( map.layers[ selectedLayer ] );
 
@@ -132,7 +131,7 @@ $(function(){
           map.base.removeLayer( layer );
         });
 
-      }
+      // }
       
     };
 
@@ -141,11 +140,11 @@ $(function(){
       var under30,
           over30;
 
-      under30 = $('#map .legend-labels li').first().html();
-      $('#map .legend-labels li').first().html( under30 + '< -30%' );
+      // under30 = $('#map .legend-labels li').first().html();
+      // $('#map .legend-labels li').first().html( under30 + '< -30%' );
 
-      over30 = $('#map .legend-labels li:nth-last-child(2)').html();
-      $('#map .legend-labels li:nth-last-child(2)').html( over30.replace( 'Over 30%', '> 30%' ) );
+      // over30 = $('#map .legend-labels li:nth-last-child(2)').html();
+      // $('#map .legend-labels li:nth-last-child(2)').html( over30.replace( 'Over 30%', '> 30%' ) );
 
       $('#map .my-legend .legend-title').html('Percentage Change');
 
@@ -205,6 +204,8 @@ $(function(){
       }
 
     };
+
+    window.map = map;
 
     map.init();
 
