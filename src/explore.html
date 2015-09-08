@@ -113,6 +113,11 @@
 
       <!-- all filters section -->
 
+      <div class="cf-notification">
+        <span class="cf-notification_icon cf-icon cf-icon-information-round"></span>
+        <p class="cf-notification_text"><%= explore_msa_warning %></p>
+      </div>
+
       <h2>Filter the data</h2>
 
       <div id="all">
@@ -128,7 +133,8 @@
               <label for="as_of_year">Select year(s) of data:</label>
               <div class="widget select">
                 <select class="param" name="as_of_year" id="as_of_year" multiple data-placeholder="Select one or more years">
-                  <option value="2013" selected>2013</option>
+                  <option value="2014" selected>2014</option>
+                  <option value="2013">2013</option>
                   <option value="2012">2012</option>
                   <option value="2011">2011</option>
                   <option value="2010">2010</option>

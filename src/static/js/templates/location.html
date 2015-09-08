@@ -1,5 +1,11 @@
 <ul class="fields location-set location-set-<%= num %>" data-location-num="<%= num %>">
 
+  <% if (num === 1) { %>
+    <div class="msg msa-warning hidden">
+      <strong>Important note:</strong> The names, IDs, and boundary areas for over 100 Metropolitan Statistical Areas (MSAs) have changed for 2014. To accurately compare 2014 data to previous years, use this reference guide to understand the MSA changes: <a href="https://www.ffiec.gov/HMDA/pdf/edit2014.pdf">https://www.ffiec.gov/HMDA/pdf/edit2014.pdf</a>
+    </div>
+  <% } %>
+
   <!-- filter field -->
   <li class="field state_code state_code-<%= num %>">
     <label for="state_code-<%= num %>">State:</label>
