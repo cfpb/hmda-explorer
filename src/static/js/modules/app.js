@@ -73,6 +73,10 @@ var PDP = (function ( pdp ) {
     // Pull any `param` entries into the DOM.
     pdp.form.setFields();
 
+    // Check if there's 2014 MSA year conflict insanity.
+    pdp.form.yearsConflict = !pdp.query.params.as_of_year || pdp.query.params.as_of_year.values.length > 1 && pdp.query.params.as_of_year.values.indexOf('2014') > -1;
+    pdp.form.checkYearsConflict();
+
     // Check if any fields that were preloaded have dependents we need to show.
     parents = _.map( $('select[data-dependent], input[data-dependent]'), function( el ){
       return $( el ).attr('id');

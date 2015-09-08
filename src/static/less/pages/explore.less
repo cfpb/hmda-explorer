@@ -249,7 +249,8 @@
     }
   }
   &.mobile-warning,
-  &.javascript-warning {
+  &.javascript-warning,
+  &.msa-warning {
     .avenir-next-demi;
     margin: 10px 0 10px;
     background-color: @red_orange;
@@ -264,6 +265,9 @@
     p {
       margin: 0;
     }
+  }
+  &.msa-warning {
+    .avenir-next;
   }
 }
 
@@ -414,3 +418,17 @@
   }
 
 }
+
+// This is the compiled CSS for cf-notifications. This project is pre-CF and it's
+// not worth porting the entire thing to CF, especially considering it doesn't
+// follow modern CFPB design guidelines.
+
+.cf-notification{position:relative;padding:11px;padding-left:40px;margin-bottom:15px;background:#dadada;border:1px solid #818181}
+.cf-notification__error{background:#fa9893;border-color:#d21209}
+.cf-notification__warning{background:#ffdfb3;border-color:#ff9201}
+.cf-notification__success{background:#7ceda5;border-color:#16a148}
+.cf-notification_icon{position:absolute;top:13px;left:15px;color:#818181;font-size:1.125em}
+.cf-notification_icon__error{color:#d21209}
+.cf-notification_icon__warning{color:#ff9201}
+.cf-notification_icon__success{color:#16a148}
+.cf-notification_text{margin:0;font-size:.9em}
