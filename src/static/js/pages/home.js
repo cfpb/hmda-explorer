@@ -67,10 +67,31 @@ $(function(){
       var selectedLayer = map.getSelectedLayer(),
           otherLayers = _.omit( map.layers, selectedLayer );
 
-      map.layers[ selectedLayer ].setOpacity(1);
+      function fadeIn( layer, cb ) {
 
-      _( otherLayers ).forEach( function( layer ){
-        layer.setOpacity(0);
+        var opacity = 0;
+
+        // Place the selected layer on top.
+        layer.setZIndex(1);
+        _( otherLayers ).forEach( function( otherLayer ) {
+          otherLayer.setZIndex(0);
+        });
+
+        var timer = setInterval(function() {
+          if ( opacity >= 1 ) {
+            clearInterval(timer);
+            cb();
+          }
+          opacity += 0.02;
+          layer.setOpacity(opacity);
+        }, 10);
+
+      }
+
+      fadeIn(map.layers[ selectedLayer ], function() {
+        _( otherLayers ).forEach( function( layer ) {
+          layer.setOpacity(0);
+        });
       });
       
     };
@@ -87,13 +108,6 @@ $(function(){
       this.base.scrollWheelZoom.disable();
 
       $('#map-title').removeClass('hidden');
-
-      // Ensure the correct layer is shown whenever the user zooms.
-      this.base.on( 'zoomend', function(){
-
-        this.showLayer();
-
-      }.bind( this ));
 
       // Fix the darn legend.
       this.base.on( 'ready', function(){
