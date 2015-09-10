@@ -157,10 +157,19 @@ var PDP = (function ( pdp ) {
   preview.updateNLW = function() {
 
     // If there are year(s) selected use 'em, otherwise use all years.
-    var years = typeof pdp.query.params.as_of_year !== 'undefined' && !_.isEmpty( pdp.query.params.as_of_year.values ) ? _.clone( pdp.query.params.as_of_year.values ).sort() : [2007, 2008, 2009, 2010, 2011, 2012, 2013],
-        countFormatted = pdp.utils.commify( preview.nlw.count ),
+    var countFormatted = pdp.utils.commify( preview.nlw.count ),
         filters,
-        areConsecutive;
+        areConsecutive,
+        years = $.map( $('#as_of_year option'), function( year ) {
+          return year.value;
+        });
+
+    // If there's a year param in the URL, grab any valid years from it.
+    if ( typeof pdp.query.params.as_of_year !== 'undefined' && !_.isEmpty(pdp.query.params.as_of_year.values) ) {
+      years = _.filter( _.clone( pdp.query.params.as_of_year.values ).sort(), function( year ) {
+        return years.indexOf( year ) > -1;
+      });
+    }
 
     switch( $('#suggested').val() ) {
       case 'common':
