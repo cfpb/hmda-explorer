@@ -12,7 +12,7 @@ __p += '<ul class="fields location-set location-set-' +
 ((__t = ( num )) == null ? '' : __t) +
 '">\n\n  ';
  if (num === 1) { ;
-__p += '\n    <div class="msg msa-warning hidden">\n      <strong>Important note:</strong> The names, IDs, and boundary areas for over 100 Metropolitan Statistical Areas (MSAs) have changed for 2014. To accurately compare 2014 data to previous years, use this reference guide to understand the MSA changes: <a href="https://www.ffiec.gov/HMDA/pdf/edit2014.pdf">https://www.ffiec.gov/HMDA/pdf/edit2014.pdf</a>\n    </div>\n  ';
+__p += '\n    <div class="msg msa-warning hidden">\n      Metro area filters are not available for the combination of years you selected.\n    </div>\n  ';
  } ;
 __p += '\n\n  <!-- filter field -->\n  <li class="field state_code state_code-' +
 ((__t = ( num )) == null ? '' : __t) +
