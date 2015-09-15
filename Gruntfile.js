@@ -672,8 +672,8 @@ module.exports = function(grunt) {
     'compile-handlebars': {
       allStatic: {
         files: [{
-          src: ['src/static/hbs/spec.html', 'src/static/hbs/codesheet.html'],
-          dest: ['dist/tech-data-spec.html', 'dist/code-sheet.html']
+          src: ['src/static/hbs/spec.html', 'src/static/hbs/list-of-fields.html'],
+          dest: ['dist/tech-data-spec.html', 'dist/list-of-fields.html']
         }],
         //preHTML: 'test/fixtures/pre-dev.html',
         //postHTML: 'test/fixtures/post-dev.html',
