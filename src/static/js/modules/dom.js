@@ -33,7 +33,7 @@ var PDP = (function ( pdp ) {
   $('#location').on( 'click', '#highlight-msa-note', function( ev ){
     ev.preventDefault();
     $('html, body').animate({ scrollTop: 0 }, 100);
-    $('#msa-note').addClass('highlight');
+    $('#msa-note .highlight').addClass('highlight-msa');
   });
 
   // Act appropriately when suggested filter sets are changed.
