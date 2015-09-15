@@ -140,6 +140,8 @@ else:
         for line in html_msa_list:
             htmlfile.write('        ' + line + "\n")
 
-        for line in range(cut_end_index, len(original_html)):
+        for line in range(cut_end_index, len(original_html)-1):
             htmlfile.write(original_html[line] + "\n")
+        # print the last line without a newline
+        htmlfile.write(original_html[-1])
 
