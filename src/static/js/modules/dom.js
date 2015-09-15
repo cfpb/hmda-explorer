@@ -29,6 +29,13 @@ var PDP = (function ( pdp ) {
 
   }, 100));
 
+  // Highlight the MSA message
+  $('#location').on( 'click', '#highlight-msa-note', function( ev ){
+    ev.preventDefault();
+    $('html, body').animate({ scrollTop: 0 }, 100);
+    $('#msa-note').addClass('highlight');
+  });
+
   // Act appropriately when suggested filter sets are changed.
   $('.field.suggested').on( 'change', _.debounce(function( ev ){
 
