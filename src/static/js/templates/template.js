@@ -12,7 +12,7 @@ __p += '<ul class="fields location-set location-set-' +
 ((__t = ( num )) == null ? '' : __t) +
 '">\n\n  ';
  if (num === 1) { ;
-__p += '\n    <div class="msg msa-warning hidden">\n      Metro area filters are not available for the combination of years you selected.\n      Due to the recent changes in MSA definitions, we\'ve disabled metro area filters when you select 2014 and another year. To learn more, see <a href="#msa-note" id="highlight-msa-note">note above</a>.\n    </div>\n  ';
+__p += '\n    <div class="msg msa-warning hidden">\n      Due to the recent changes in MSA definitions, we\'ve disabled metro area filters when you select 2014 and another year. To learn more, see <a href="#msa-note" id="highlight-msa-note">note above</a>.\n    </div>\n  ';
  } ;
 __p += '\n\n  <!-- filter field -->\n  <li class="field state_code state_code-' +
 ((__t = ( num )) == null ? '' : __t) +
