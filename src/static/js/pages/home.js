@@ -18,9 +18,9 @@ $(function(){
   $('#map_radios').on('change', function( ev ){
     var radio = $(this).find('input[type=radio]:checked');
     if( radio.val() === 'r' ){
-      $( '#map-title' ).find('a.underlying').attr('href', 'explore#!/as_of_year=2013,2012,2011&property_type=1,2&owner_occupancy=1&action_taken=1&loan_purpose=3&lien_status=1&select=state_name,county_name,as_of_year,count&section=summary');
+      $( '#map-title' ).find('a.underlying').attr('href', 'explore#!/as_of_year=2014,2013,2012&property_type=1,2&owner_occupancy=1&action_taken=1&loan_purpose=3&lien_status=1&select=state_name,county_name,as_of_year,count&section=summary');
     } else {
-      $( '#map-title' ).find('a.underlying').attr('href', 'explore#!/as_of_year=2013,2012,2011&property_type=1,2&owner_occupancy=1&action_taken=1&loan_purpose=1&lien_status=1&select=state_name,county_name,as_of_year,count&section=summary');
+      $( '#map-title' ).find('a.underlying').attr('href', 'explore#!/as_of_year=2014,2013,2012&property_type=1,2&owner_occupancy=1&action_taken=1&loan_purpose=1&lien_status=1&select=state_name,county_name,as_of_year,count&section=summary');
     }
   });
 
@@ -29,77 +29,30 @@ $(function(){
 
     var map = {};
 
-    map.base = L.mapbox.map('map', 'cfpb.fxomkj4i').setView([39.54, -97.87], 4);
+    L.mapbox.accessToken = 'pk.eyJ1IjoiY29udG8iLCJhIjoiYWY0ODdmZTM2N2M1NTE4YmVkNTdkZWI1ZTcxNWRmNTgifQ.ZXAoSbSp6NTPLQ8zP0lQ2Q';
+
+    map.base = L.mapbox.map('map', 'cfpb.hmda_blank').setView([39.54, -97.87], 4);
     
     map.layers = {
-      r2013: L.mapbox.tileLayer('cfpb.6uwyiudi'),
-      r2012: L.mapbox.tileLayer('cfpb.2yugzaor'),
-      p2013: L.mapbox.tileLayer('cfpb.z2z3q5mi'),
-      p2012: L.mapbox.tileLayer('cfpb.pbjoflxr')
+      r2013: L.mapbox.tileLayer('cfpb.hmda_r_o_12_13'),
+      r2014: L.mapbox.tileLayer('cfpb.hmda_r_o_13_14'),
+      p2013: L.mapbox.tileLayer('cfpb.hmda_p_o_12_13'),
+      p2014: L.mapbox.tileLayer('cfpb.hmda_p_o_13_14')
     };
 
-    map.layersLoaded = 0;
-    
+    // Add each layer and immediately hide it.
+    _( map.layers ).forEach( function( layer ) {
+      map.base.addLayer( layer );
+      layer.setOpacity(0);
+    });
 
-    map.firstLoad = function() {
-      
-      var selectedLayer = map.getSelectedLayer(),
-          otherLayers = _.omit(  map.layers, selectedLayer );
-      
-      map.addAndHide( map.layers[ selectedLayer ] );
+    // Un-hide the top layer.
+    map.layers.p2014.setOpacity(1);
 
-      $( document ).one('scroll',function( e ){
-        _( otherLayers ).forEach( function( layer ){
-          map.addAndHide( layer );
-        });
-
-        map.layersLoaded = 1;
-      });
-
-    };
-    
-    map.addAndHide = function(layer) {
-      layer.addTo( map.base );
-       
-      // IE and MapBox don't completely get along so we only add snazzy
-      // fade-in effects with non-IE browsers.
-    
-      if ( !$('body').hasClass('lt-ie9') ) {
-        map.base.addLayer( layer );
-        $( layer._tileContainer ).hide();
-      }
-
-    };
-
-    // In order to get a nice fade when we toggle between layers, 
-    // add them before they are needed, but don't add the currently
-    // hidden ones until a scroll event is fired.
-    map.addLayers = function() {
-      if ( map.layersLoaded ){
-        _( map.layers ).forEach( function( layer ){
-          addAndHide( layer );
-        });
-      }else{
-        map.firstLoad();
-      }
-
-    };
-
-
-     
-    map.showMap = function() {
-
-      this.addLayers();
-      this.showLayer();
-
-      $('#map-title').removeClass('hidden');
-
-      $('#map .controls input').on( 'change', function( ev ){
-        $( this ).parent().addClass('selected').siblings().removeClass('selected');
-        map.showLayer();
-      });
-
-    };
+    $('#map .controls input').on( 'change', function( ev ){
+      $( this ).parent().addClass('selected').siblings().removeClass('selected');
+      map.showLayer();
+    });
 
     map.getSelectedLayer = function() {
 
@@ -114,41 +67,38 @@ $(function(){
       var selectedLayer = map.getSelectedLayer(),
           otherLayers = _.omit( map.layers, selectedLayer );
 
-      // IE and MapBox don't completely get along so we only add snazzy
-      // fade-in effects with non-IE browsers.
-      if ( !$('body').hasClass('lt-ie9') ) {
+      function fadeIn( layer, cb ) {
 
-        $( map.layers[ selectedLayer ]._tileContainer ).fadeIn();
+        var opacity = 0;
 
-        _( otherLayers ).forEach( function( layer ){
-          $( layer._tileContainer ).fadeOut( 800 );
+        // Place the selected layer on top.
+        layer.setZIndex(1);
+        _( otherLayers ).forEach( function( otherLayer ) {
+          otherLayer.setZIndex(0);
         });
 
-      } else {
-
-        map.base.addLayer( map.layers[ selectedLayer ] );
-
-        _( otherLayers ).forEach( function( layer ){
-          map.base.removeLayer( layer );
-        });
+        var timer = setInterval(function() {
+          if ( opacity >= 1 ) {
+            clearInterval(timer);
+            cb();
+          }
+          opacity += 0.02;
+          layer.setOpacity(opacity);
+        }, 10);
 
       }
+
+      fadeIn(map.layers[ selectedLayer ], function() {
+        _( otherLayers ).forEach( function( layer ) {
+          layer.setOpacity(0);
+        });
+      });
       
     };
 
     map.fixLegend = function() {
 
-      var under30,
-          over30;
-
-      under30 = $('#map .legend-labels li').first().html();
-      $('#map .legend-labels li').first().html( under30 + '< -30%' );
-
-      over30 = $('#map .legend-labels li:nth-last-child(2)').html();
-      $('#map .legend-labels li:nth-last-child(2)').html( over30.replace( 'Over 30%', '> 30%' ) );
-
       $('#map .my-legend .legend-title').html('Percentage Change');
-
       $('#map .my-legend .legend-source').hide();
 
     };
@@ -157,20 +107,13 @@ $(function(){
 
       this.base.scrollWheelZoom.disable();
 
-      map.showMap();
       $('#map-title').removeClass('hidden');
-
-      // Ensure the correct layer is shown whenever the user zooms.
-      this.base.on( 'zoomend', function(){
-
-        this.showLayer();
-
-      }.bind( this ));
 
       // Fix the darn legend.
       this.base.on( 'ready', function(){
 
         map.fixLegend();
+        $('#map-title').removeClass('hidden');
 
       }.bind( this ));
 

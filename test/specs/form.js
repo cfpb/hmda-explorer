@@ -58,7 +58,7 @@
         name: 'as_of_year',
         tagName: 'select',
         type: undefined,
-        values: ['2013'],
+        values: ['2014'],
         comparator: '='
       };
       expect( JSON.stringify( field ) ).toBe( JSON.stringify( expected ) );
@@ -72,7 +72,7 @@
             name: 'as_of_year',
             tagName: 'select',
             type: undefined,
-            values: ['2013'],
+            values: ['2014'],
             comparator: '='
           }];
       expect( JSON.stringify( fields ) ).toBe( JSON.stringify( expected ) );
@@ -114,7 +114,7 @@
     it('be able to reset a field', function() {
       setUpParamFixture();
       var before = $('#filters option').length;
-      expect( before ).toEqual( 7 );
+      expect( before ).toEqual( 8 );
       PDP.form.resetField($('#filters'));
       var after = $('#filters option').length;
       expect( after ).toEqual( 0 );
@@ -182,7 +182,7 @@
   }
 
   function setUpParamFixture() {
-    jasmine.getFixtures().set('<div id="filters"><li class="field as_of_year"><label for="as_of_year">Select year(s) of data:</label><div class="widget select"><select class="param" name="as_of_year" id="as_of_year" multiple data-placeholder="Select one or more years"><option value="2013" selected></option><option value="2012">2012</option><option value="2011">2011</option><option value="2010">2010</option><option value="2009">2009</option><option value="2008">2008</option><option value="2007">2007</option></select></div></li></div>');
+    jasmine.getFixtures().set('<div id="filters"><li class="field as_of_year"><label for="as_of_year">Select year(s) of data:</label><div class="widget select"><select class="param" name="as_of_year" id="as_of_year" multiple data-placeholder="Select one or more years"><option value="2014" selected></option><option value="2013"></option><option value="2012">2012</option><option value="2011">2011</option><option value="2010">2010</option><option value="2009">2009</option><option value="2008">2008</option><option value="2007">2007</option></select></div></li></div>');
   }
 
   function setUpLocationFixture() {
