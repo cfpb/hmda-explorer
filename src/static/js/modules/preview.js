@@ -163,12 +163,12 @@ var PDP = (function ( pdp ) {
         years = $.map( $('#as_of_year option'), function( year ) {
           return year.value;
         });
-
-    // If there's a year param in the URL, grab any valid years from it.
+      
+    // If there's a year param in the query, grab any valid years from it.
     if ( typeof pdp.query.params.as_of_year !== 'undefined' && !_.isEmpty(pdp.query.params.as_of_year.values) ) {
-      years = _.filter( _.clone( pdp.query.params.as_of_year.values ).sort(), function( year ) {
-        return years.indexOf( year ) > -1;
-      });
+      years = _.filter( _.clone( pdp.query.params.as_of_year.values ), function( year ) {
+          return years.indexOf( String(year) ) > -1;
+      }); 
     }
 
     switch( $('#suggested').val() ) {
@@ -189,7 +189,8 @@ var PDP = (function ( pdp ) {
     }
 
     if ( years.length > 1 ) {
-
+          
+      years = years.sort()
       // Are the selected years consecutive?
       areConsecutive = _.every( years, function( val, i, arr ){
         if ( i > 0 ) {
