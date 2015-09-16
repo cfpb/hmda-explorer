@@ -84,7 +84,7 @@
 
         <div class="inner">
 
-          <h1>List of fields</h1>
+          <h1>List of fields and enumerations</h1>
 
         </div>
 
@@ -92,36 +92,82 @@
 
       
         
-<div id="for-filers"> 
+<div id="list-of-fields"> 
   <div class="col-4">
     <section id="what-is-hmda"> 
       <div class="background">
         <div class="inner">
 <div id="heading">
-    <h2>Loan/Application Register</h2>
-    <p>Use the following codes to complete the Loan/Application Register. The instructions to the HMDA-LAR explain the proper use of each code.</p>
+    <p>The following is a list of data fields collected by HMDA filers for completing the 2018 HMDA LAR to be submitted in 2019. Some data fields will be used more than once for the co-borrower or co-applicant, where applicable.</p>
 </div>
 
-{{#each sections}}
-    {{#each subsections}}
-        {{#each items}}
-            {{#each sections}}
-                {{#if codes}}
-                    <table class="table codesheet">
-                        <thead>
-                            <tr><th colspan="2">{{../../label}}</th></tr>
-                        </thead>
-                        <tbody>
-                        {{#each codes}}
-                            <tr><td width="75px">{{id}}</td><td>{{description}}</td></tr>
-                        {{/each}}
-                        </tbody>
-                    </table>
-                {{/if}}
-            {{/each}}
+<h3>Metadata Fields</h3>
+<table class="table">
+  <tbody>
+  {{#each metadata}}
+    <tr><td><h4>{{label}}</h4>
+    {{#if codes}}
+      <table class="table codesheet">
+        <thead>
+          <tr>
+            <th><h6>Code</h6></th>
+            <th><h6>Description</h6></th>
+          </tr>
+        </thead>
+        <tbody>
+        {{#each codes}}
+            <tr>
+              <td width="75px">{{id}}</td>
+              <td>{{description}}</td>
+            </tr>
+            {{#if conditional}}
+              <tr>
+                <td></td>
+                <td><em>{{conditional.id}}</em></td>
+              </tr>
+            {{/if}}
         {{/each}}
-    {{/each}}
-{{/each}}
+        </tbody>
+      </table>
+    {{/if}}
+    </td></tr>
+  {{/each}}
+  </tbody>
+</table>
+
+<h3>Data Fields</h3>
+<table class="table">
+  <tbody>
+  {{#each data}}
+    <tr><td><h4>{{label}}</h4>
+    {{#if codes}}
+      <table class="table codesheet">
+        <thead>
+          <tr>
+            <th><h6>Code</h6></th>
+            <th><h6>Description</h6></th>
+          </tr>
+        </thead>
+        <tbody>
+        {{#each codes}}
+            <tr>
+              <td width="75px">{{id}}</td>
+              <td>{{description}}</td>
+            </tr>
+            {{#if conditional}}
+              <tr>
+                <td></td>
+                <td><em>{{conditional.id}}</em></td>
+              </tr>
+            {{/if}}
+        {{/each}}
+        </tbody>
+      </table>
+    {{/if}}
+    </td></tr>
+  {{/each}}
+  </tbody>
+</table>
 
         </div>
       </div>

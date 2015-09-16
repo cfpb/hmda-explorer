@@ -72,7 +72,16 @@
   .links li {
     margin-bottom: 10px;
   }
+}
 
+#list-of-fields {
+  h3 {
+    margin-bottom: 10px;
+    margin-top: 30px;
+  }
+  h4 {
+    font-weight: bold;
+  }
   // tables
   .table {
     background: none;
@@ -86,28 +95,25 @@
         font-family: "AvenirNextLTW01-Demi", Helvetica, Arial, sans-serif;
         text-align: left;
     }
-    thead th {
-        border-right: 1px solid @light_neutral;
-        &:last-child {
-            border-right: none;
-        }
-    }
+    
     tbody td, tbody th {
         border: 1px solid @light_neutral;
     }
-    tbody th {
-        border-bottom-width: 3px;
+    tbody td {
+      border-left-width: 0;
+      border-right-width: 0;
     }
 
     &.codesheet {
-        margin-bottom: 20px;
-        width: 100%;
+      margin-top: 7px;
+      width: 100%;
+      td {
+        border-left-width: 1px;
+        border-right-width: 1px;
+      }
     }
+  }
 }
-
-}
-  
-
 
 // Adjustments for larger screens
 
