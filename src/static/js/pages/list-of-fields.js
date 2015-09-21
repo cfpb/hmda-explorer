@@ -15,7 +15,7 @@ $(function(){
 
   var template = Handlebars.compile(source);
 
-  $.getJSON('static/json/technical_data_specification.json', function(data) {
+  $.getJSON('static/json/field_viz.json', function(data) {
     $('#fields').html(template(data));
   });
 
