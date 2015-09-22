@@ -13,8 +13,7 @@ var chart1_options = {
     spacingLeft: 1,
     marginTop: 20,
     marginBottom: 80,
-    type: 'column',
-    animation: false
+    type: 'column'
   },
   exporting: {
     enabled: false
@@ -113,9 +112,9 @@ var chart1_options = {
   },
   xAxis: {
     categories: [
-      '2011',
       '2012',
-      '2013'
+      '2013',
+      '2014'
     ],
     gridLineWidth: 0,
     labels: {
@@ -173,15 +172,15 @@ var chart1_options = {
   series: [
     {
       name: 'Home purchase originations',
-      data: [2060808,2331989,2680340]
+      data: [2331989,2680340,2803706]
     },
     {
       name: 'Refinancing originations',
-      data: [3840044,5900788,4384836]
+      data: [5900788,4384836,1949833]
     },
         {
       name: 'Home improvement originations',
-      data: [136967,169193,173880]
+      data: [169193,173880,133601]
     }
   ]
 };
