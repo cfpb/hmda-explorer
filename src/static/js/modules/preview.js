@@ -190,7 +190,7 @@ var PDP = (function ( pdp ) {
 
     if ( years.length > 1 ) {
           
-      years = years.sort()
+      years = years.sort();
       // Are the selected years consecutive?
       areConsecutive = _.every( years, function( val, i, arr ){
         if ( i > 0 ) {
