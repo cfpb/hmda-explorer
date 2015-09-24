@@ -16,6 +16,8 @@ var PDP = (function ( pdp ) {
   form.locationCount = 1;
   // Set a counter so group set IDs are unique (never decremented)
   form.locationSetNum = 1;
+  // 2014 MSAs are weird. Let's take note if they select 2014 *and* another year.
+  form.yearsConflict = false;
 
   // Cache a reference to all the filter fields.
   form.init = function() {
@@ -85,6 +87,10 @@ var PDP = (function ( pdp ) {
       // We set height to auto after the animation so that the div can expand 
       // if a lot of items in a 'chosen' select widget are chosen.
       $( this ).css('height', 'auto');
+      // Disable MSAs if need be.
+      if (pdp.form.yearsConflict) {
+        pdp.form.disableMSAs();
+      }
     });
 
     $el.removeClass('closed').attr( 'title', '' );
@@ -590,16 +596,42 @@ var PDP = (function ( pdp ) {
     _.forEach( names, function( name ){
 
       var $el = $( '#' + name ),
-          $partner = $( '.field.' + $el.data('toggle') );
+          partner = $el.data('toggle'),
+          $partner = $( '.field.' + partner );
 
       if ( $partner.length > 0 && $el.val() && $el.val().length > 0 ) {
         form.disableField( $partner );
       } else {
+        // Don't reenable the MSA field if there's a wonky 2014 year conflict.
+        if (partner && partner.indexOf('msamd') > -1 && pdp.form.yearsConflict) {
+          return;
+        }
         form.enableField( $partner );
       }
 
     });
 
+  };
+
+  // Disable MSAs if there's a 2014 MSA conflict
+  form.disableMSAs = function() {
+    $('.field.msamd select').val('').trigger('liszt:updated');
+    pdp.form.checkMutuallyExclusive(['msamd-1', 'msamd-2', 'msamd-3', 'msamd-4', 'msamd-5']);
+    pdp.form.disableField( $('.field.msamd') );
+  };
+
+  form.checkYearsConflict = function() {
+    if (pdp.form.yearsConflict) {
+      pdp.form.disableMSAs();
+      $('.msa-warning').removeClass('hidden');
+      $('#summary-table-form select').find('option[value=msamd_name]').remove();
+      $('#summary-table-form select').trigger('liszt:updated');
+    } else {
+      pdp.form.enableField( $('.field.msamd') );
+      $('.msa-warning').addClass('hidden');
+      $('#summary-table-form option[value=loan_type_name]').after('<option value="msamd_name">MSA</option>');
+      $('#summary-table-form select').trigger('liszt:updated');
+    }
   };
 
   // Add a new state/MSA location section thingy.
@@ -610,19 +642,11 @@ var PDP = (function ( pdp ) {
 
     $('#location-sets').append( template( { num: num } ) ).initTooltips({ placement: tooltipPlacement, container: 'body' });
     $( '.location-set-' + num ).find('select').chosen({ width: '100%', disable_search_threshold: 10, allow_single_deselect: true });
-    
-    // If a state is removed from a location query, remove its parent set from the DOM / query
-    $('#state_code-' + num).on('change', function(evt, params){
-      // If no current option is selected, then remove the parent location set
-      var self = $(this);
-      pdp.observer.emitEvent('field:changed');
-      if( typeof params === 'undefined') {
-        self.closest('.location-set').remove();
-        // Decrement locationNumber and show Add-State button after removal
-        pdp.form.locationNumber--;
-        $('a#add-state').show();
-      }
-    });
+
+    if (pdp.form.yearsConflict) {
+      pdp.form.disableMSAs();
+    }
+
   };
 
   // Toggle optional sections.

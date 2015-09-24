@@ -171,6 +171,20 @@ section.video {
     background-image: none; 
   }
 
+  // We're on a MapBox Plus plan and are allowed to hide their logo.
+  .mapbox-logo {
+    .hidden;
+  }
+
+  // Override the legend's default width.
+  .map-legends, .map-tooltip {
+    max-width: inherit;
+  }
+
+  .leaflet-bar .leaflet-disabled {
+    opacity: .25;
+  }
+
   #map {
     width: 100%;
     height: 400px;
@@ -315,8 +329,6 @@ section.video {
         margin-right: 8px;
       }
     }
-
-
 
   }
   
