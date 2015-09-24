@@ -139,8 +139,10 @@ var PDP = (function( pdp ) {
   utils.getJSON = function( url ) {
 
     var supportsLocalStorage = 'localStorage' in window,
-        keyPrefix = 'cfpb',
-        storageKey = keyPrefix + ':' + url.substring( url.indexOf('?') + 1 );
+        keyPrefix = 'hmda',
+        storageKey = keyPrefix + ':' + url.substring( url.indexOf('?') + 1 ),
+        // 6 hour cache expiration in ms.
+        ttl = 6 * 60 * 60 * 1000;
 
     function getJSON( url ) {
 
@@ -156,6 +158,7 @@ var PDP = (function( pdp ) {
         
         try {
           localStorage.setItem( storageKey, JSON.stringify(data) );
+          localStorage.setItem( storageKey + ':expiration', +new Date() + ttl );
         } catch( e ) {
           clearStorage();
         }
@@ -173,9 +176,10 @@ var PDP = (function( pdp ) {
 
       var storageDfd = new $.Deferred(),
           storedData = localStorage.getItem( storageKey ),
+          storedDataExp = localStorage.getItem( storageKey + ':expiration' ),
           promise;
 
-      if (!storedData) {
+      if (!storedData || !storedDataExp || storedDataExp < +new Date()) {
         return getJSON( url );
       }
 
