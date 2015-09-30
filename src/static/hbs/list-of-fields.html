@@ -97,77 +97,47 @@
     <section id="what-is-hmda"> 
       <div class="background">
         <div class="inner">
-<div id="heading">
-    <p>Beginning in 2018, the following data fields must be collected by HMDA filers. Some data fields will also be collected for co-borrowers or co-applicants.</p>
-</div>
+          <div id="heading">
+              <p>Beginning in 2018, the following data fields must be collected by HMDA filers. Some data fields will also be collected for co-borrowers or co-applicants.</p>
+          </div>
 
-<h3>Metadata Fields</h3>
-<table class="table">
-  <tbody>
-  {{#each metadata}}
-    <tr><td><h4>{{label}}</h4>
-    {{#if codes}}
-      <table class="table codesheet">
-        <thead>
-          <tr>
-            <th><h5>Code</h5></th>
-            <th><h5>Description</h5></th>
-          </tr>
-        </thead>
-        <tbody>
-        {{#each codes}}
-            <tr>
-              <td width="75px">{{id}}</td>
-              <td>{{description}}</td>
-            </tr>
-            {{#if conditional}}
-              <tr>
-                <td></td>
-                <td><em>{{conditional.id}}</em></td>
-              </tr>
-            {{/if}}
-        {{/each}}
-        </tbody>
-      </table>
-    {{/if}}
-    </td></tr>
-  {{/each}}
-  </tbody>
-</table>
+          <h3 class="avenir-next-demi">Metadata Fields</h3>
+          <ul>
+            {{#each metadata}}
+              <li>
+                {{label}}
+                {{#if codes}}
+                  <ul>
+                    {{#each codes}}
+                        <li>Code {{id}}: {{description}}</li>
+                        {{#if conditional}}
+                          <li><em>{{conditional.id}}</em></li>
+                        {{/if}}
+                    {{/each}}
+                  </ul>
+                {{/if}}
+              </li>
+            {{/each}}
+          </ul>
 
-<h3>Data Fields</h3>
-<table class="table">
-  <tbody>
-  {{#each data}}
-    <tr><td><h4>{{label}}</h4>
-    {{#if codes}}
-      <table class="table codesheet">
-        <thead>
-          <tr>
-            <th><h5>Code</h5></th>
-            <th><h5>Description</h5></th>
-          </tr>
-        </thead>
-        <tbody>
-        {{#each codes}}
-            <tr>
-              <td width="75px">{{id}}</td>
-              <td>{{description}}</td>
-            </tr>
-            {{#if conditional}}
-              <tr>
-                <td></td>
-                <td><em>{{conditional.id}}</em></td>
-              </tr>
-            {{/if}}
-        {{/each}}
-        </tbody>
-      </table>
-    {{/if}}
-    </td></tr>
-  {{/each}}
-  </tbody>
-</table>
+          <h3 class="avenir-next-demi">Data Fields</h3>
+          <ul>
+            {{#each data}}
+              <li>
+                {{label}}
+                {{#if codes}}
+                  <ul>
+                    {{#each codes}}
+                        <li>Code {{id}}: {{description}}</li>
+                        {{#if conditional}}
+                          <li><em>{{conditional.id}}</em></li>
+                        {{/if}}
+                    {{/each}}
+                  </ul>
+                {{/if}}
+              </li>
+            {{/each}}
+          </ul>
 
         </div>
       </div>
