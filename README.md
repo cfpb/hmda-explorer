@@ -43,6 +43,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2015-09-22   [v2.0.0](../../tree/v2.0.0)   Updated with HMDA 2014 data and text! Added alerts about MSA changes.
  * 2015-06-03   [v1.1.2](../../tree/v1.1.2)   Updates CONTRIBUTING docs to include tagging steps. Remove deprecated mogotest steps from gruntfile.
  * 2015-05-26   [v1.1.1](../../tree/v1.1.1)   Fixes out-of-sequence CBSAs on homepage charts.
  * 2014-09-18   [v1.1.0](../../tree/v1.1.0)   Updated charts, maps and copy with 2013 changes. Updated Explorer to route to static .zip files where efficient. Changed census query location filter to reflect mapping to county. Style / copy updates to navigation and footer.
@@ -120,4 +121,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Wed Jun 03 2015 12:10:56.*
+*This file was generated on Fri Sep 25 2015 11:00:10.*
