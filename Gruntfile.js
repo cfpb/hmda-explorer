@@ -116,7 +116,8 @@ module.exports = function(grunt) {
           'dist/index.html': 'dist/index.html',
           'dist/explore.html': 'dist/explore.html',
           'dist/learn-more.html': 'dist/learn-more.html',
-          'dist/api.html': 'dist/api.html'
+          'dist/api.html': 'dist/api.html',
+          'dist/for-filers.html': 'dist/for-filers.html'
         }
       }
     },
@@ -181,6 +182,9 @@ module.exports = function(grunt) {
           {expand: true, cwd: 'src/static/img/', src: ['**'], dest: 'dist/static/img/'},
           {expand: true, cwd: 'src/static/js/', src: ['**'], dest: 'dist/static/js/'},
           {expand: true, cwd: 'src/static/desc/', src: ['**'], dest: 'dist/static/desc/'},
+          // needed for local dev for now
+          // can remove for production
+          {expand: true, cwd: 'src/static/json/', src: ['**'], dest: 'dist/static/json/'},
           {expand: true, cwd: 'src/static/vendor/cfpb-font-icons/src/fonts/', src: ['**'], dest: 'dist/static/fonts/'},
           {expand: true, cwd: 'src/static/vendor/cfpb-font-icons/src/css/', src: ['icons-ie7.css'], dest: 'dist/static/css/'},
           {expand: true, cwd: 'src/static/vendor/zeroclipboard/', src: ['**'], dest: 'dist/static/js/zeroclipboard/'},
@@ -274,7 +278,8 @@ module.exports = function(grunt) {
           'dist/index.html': ['src/index.html'],
           'dist/learn-more.html': ['src/learn-more.html'],
           'dist/explore.html': ['src/explore.html'],
-          'dist/api.html': ['src/api.html']
+          'dist/api.html': ['src/api.html'],
+          'dist/for-filers.html': ['src/for-filers.html']
         }
       }
     },
@@ -626,7 +631,7 @@ module.exports = function(grunt) {
      */
     watch: {
       scripts: {
-        files: ['src/*.html', 'src/content/**/*', 'src/static/less/**/*.less', 'src/static/js/**/*.js', 'test/specs/*.js'],
+        files: ['src/*.html', 'src/content/**/*', 'src/static/less/**/*.less', 'src/static/js/**/*.js', 'test/specs/*.js', 'src/static/hbs/*'],
         tasks: ['build', 'test']
       }
     },
@@ -655,7 +660,26 @@ module.exports = function(grunt) {
           push: false
         }
       }
-    }
+    },
+
+    clean: ['dist/'],
+
+    /**
+      * Compile Handlesbars: https://github.com/patrickkettner/grunt-compile-handlebars
+      *
+      * compile static html from a handlebars plugin 
+      */
+    'compile-handlebars': {
+      allStatic: {
+        files: [{
+          src: ['src/static/hbs/list-of-fields.html'],
+          dest: ['dist/list-of-fields.html']
+        }],
+        //preHTML: 'test/fixtures/pre-dev.html',
+        //postHTML: 'test/fixtures/post-dev.html',
+        templateData: 'src/static/json/field_viz.json'
+      }
+    },
 
   });
 
@@ -681,6 +705,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-saucelabs');
   grunt.loadNpmTasks('grunt-concurrent');
   grunt.loadNpmTasks('grunt-string-replace');
+  grunt.loadNpmTasks('grunt-compile-handlebars');
+  grunt.loadNpmTasks('grunt-contrib-clean');
 
   /**
    * Create task aliases by registering new tasks
@@ -688,7 +714,7 @@ module.exports = function(grunt) {
   grunt.registerTask('test', ['concurrent:test']);
   grunt.registerTask('sauce', ['connect:sauce', 'jasmine:sauce', 'saucelabs-jasmine', 'shell:sauce']);
   grunt.registerTask('docs', ['removelogging', 'docco', 'build-cfpb']);
-  grunt.registerTask('build', ['concurrent:compile', 'concurrent:package', 'string-replace']);
+  grunt.registerTask('build', ['clean', 'compile-handlebars:allStatic', 'concurrent:compile', 'concurrent:package', 'string-replace']);
   grunt.registerTask('ghpages', ['build', 'copy:ghpages']);
 
   /**
