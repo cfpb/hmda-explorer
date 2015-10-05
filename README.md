@@ -48,7 +48,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
- * 2015-10-15   [v2.1.0](../../tree/v2.1.0)   Added content for filers; links to ffiec.gov, list of fields for future hmda filing (requires the hmda-tech repo)
+ * 2015-10-15   [v2.1.0](../../tree/v2.1.0)   Added content for filers; links to ffiec.gov, list of fields for future hmda filing (requires the hmda-tech repo)
  * 2015-09-22   [v2.0.0](../../tree/v2.0.0)   Updated with HMDA 2014 data and text! Added alerts about MSA changes.
  * 2015-06-03   [v1.1.2](../../tree/v1.1.2)   Updates CONTRIBUTING docs to include tagging steps. Remove deprecated mogotest steps from gruntfile.
  * 2015-05-26   [v1.1.1](../../tree/v1.1.1)   Fixes out-of-sequence CBSAs on homepage charts.
