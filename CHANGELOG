@@ -1,3 +1,9 @@
+v2.0.0:
+  date: 2015-09-22
+  changes:
+    - Updated with HMDA 2014 data and text!
+    - Added alerts about MSA changes.
+
 v1.1.2:
   date: 2015-06-03
   changes:
