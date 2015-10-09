@@ -1,5 +1,9 @@
+v2.1.1:
+  date: 2015-10-9
+  changes:
+    - content and link changes for filers
 v2.1.0:
-  date: 2015-10-15
+  date: 2015-10-5
   changes:
     - Added content for filers; links to ffiec.gov, list of fields for future hmda filing (requires the hmda-tech repo)
 
