@@ -1,7 +1,14 @@
+v2.1.2:
+  date: 2016-01-20
+  changes:
+    - Added a section that describes the Consumer Complaint Database.
+    - Updated contributing docs.
+
 v2.1.1:
   date: 2015-10-9
   changes:
     - content and link changes for filers
+
 v2.1.0:
   date: 2015-10-5
   changes:
