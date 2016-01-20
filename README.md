@@ -48,7 +48,9 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
- * 2015-10-15   [v2.1.0](../../tree/v2.1.0)   Added content for filers; links to ffiec.gov, list of fields for future hmda filing (requires the hmda-tech repo)
+ * 2016-01-20   [v2.1.2](../../tree/v2.1.2)   Added a section that describes the Consumer Complaint Database. Updated contributing docs.
+ * 2015-10-09   [v2.1.1](../../tree/v2.1.1)   content and link changes for filers
+ * 2015-10-05   [v2.1.0](../../tree/v2.1.0)   Added content for filers; links to ffiec.gov, list of fields for future hmda filing (requires the hmda-tech repo)
  * 2015-09-22   [v2.0.0](../../tree/v2.0.0)   Updated with HMDA 2014 data and text! Added alerts about MSA changes.
  * 2015-06-03   [v1.1.2](../../tree/v1.1.2)   Updates CONTRIBUTING docs to include tagging steps. Remove deprecated mogotest steps from gruntfile.
  * 2015-05-26   [v1.1.1](../../tree/v1.1.1)   Fixes out-of-sequence CBSAs on homepage charts.
@@ -127,4 +129,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Fri Sep 25 2015 11:00:10.*
+*This file was generated on Wed Jan 20 2016 16:35:02.*

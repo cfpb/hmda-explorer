@@ -4,10 +4,15 @@ Please use the [fork and pull](https://help.github.com/articles/using-pull-reque
 
 1. Install [Node](http://nodejs.org/) and [Grunt](http://gruntjs.com/).
 1. [Fork this repo](https://github.com/cfpb/hmda-explorer/fork) to your personal GH account.
+1. [Fork the hmda-tech](https://github.com/cfpb/hmda-tech/fork) repo to your personal GH account.
 1. `git clone git@github.com:YOUR-USERNAME/hmda-explorer.git`
 1. `cd hmda-explorer`
 1. `npm install`
 1. `bower install`
+1. `cd src/static`
+1. `mkdir json`
+1. `cd json`
+1. `git clone git@github.com:YOUR-USERNAME/hmda-tech.git`
 1. `grunt build`
 1. `grunt`
 1. Open `localhost:8000` in a browser.
