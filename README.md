@@ -48,6 +48,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2016-01-21   [v2.1.3](../../tree/v2.1.3)   Fixed release tag. Updated code docs.
  * 2016-01-20   [v2.1.2](../../tree/v2.1.2)   Added a section that describes the Consumer Complaint Database. Updated contributing docs.
  * 2015-10-09   [v2.1.1](../../tree/v2.1.1)   content and link changes for filers
  * 2015-10-05   [v2.1.0](../../tree/v2.1.0)   Added content for filers; links to ffiec.gov, list of fields for future hmda filing (requires the hmda-tech repo)
@@ -129,4 +130,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Wed Jan 20 2016 16:35:02.*
+*This file was generated on Thu Jan 21 2016 16:55:13.*
