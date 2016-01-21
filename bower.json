@@ -1,6 +1,6 @@
 {
   "name": "hmda-explorer",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "devDependencies": {
     "ghost": "cfpb/cf-grid#0.7.0",
     "jquery": "~1.10.2",
