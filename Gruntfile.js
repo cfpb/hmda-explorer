@@ -14,9 +14,9 @@ module.exports = function(grunt) {
     /**
      * If you'd like to point the app to an API endpoint other than
      * api.consumerfinance.gov, run `grunt build` with an endpoint flag:
-     * 
+     *
      * `grunt build --endpoint=http://someotherurl.com/api/whatever/`
-     * 
+     *
      * Make sure to include a trailing slash. The provided URL will be
      * used instead of 'https://api.consumerfinance.gov/data/hmda/'.
      */
@@ -53,7 +53,7 @@ module.exports = function(grunt) {
 
     /**
      * LESS: https://github.com/gruntjs/grunt-contrib-less
-     * 
+     *
      * Compile LESS files to CSS.
      */
     less: {
@@ -84,7 +84,7 @@ module.exports = function(grunt) {
 
     /**
      * CSSMin: https://github.com/gruntjs/grunt-contrib-cssmin
-     * 
+     *
      * Compress CSS files.
      */
     // cssmin: {
@@ -104,7 +104,7 @@ module.exports = function(grunt) {
 
     /**
      * HTMLmin: https://github.com/gruntjs/grunt-contrib-htmlmin
-     * 
+     *
      * Minify HTML.
      */
     htmlmin: {
@@ -124,7 +124,7 @@ module.exports = function(grunt) {
 
     /**
      * JSHint: https://github.com/gruntjs/grunt-contrib-jshint
-     * 
+     *
      * Validate files with JSHint.
      * Below are options that conform to idiomatic.js standards.
      * Feel free to add/remove your favorites: http://www.jshint.com/docs/#options
@@ -159,7 +159,7 @@ module.exports = function(grunt) {
 
     /**
      * Shell: https://github.com/sindresorhus/grunt-shell
-     * 
+     *
      * Grunt task to run shell commands.
      */
     shell: {
@@ -172,7 +172,7 @@ module.exports = function(grunt) {
 
     /**
      * Copy: https://github.com/gruntjs/grunt-contrib-copy
-     * 
+     *
      * Copy files and folders.
      */
     copy: {
@@ -188,7 +188,9 @@ module.exports = function(grunt) {
           {expand: true, cwd: 'src/static/vendor/cfpb-font-icons/src/fonts/', src: ['**'], dest: 'dist/static/fonts/'},
           {expand: true, cwd: 'src/static/vendor/cfpb-font-icons/src/css/', src: ['icons-ie7.css'], dest: 'dist/static/css/'},
           {expand: true, cwd: 'src/static/vendor/zeroclipboard/', src: ['**'], dest: 'dist/static/js/zeroclipboard/'},
-          {expand: true, cwd: 'src/static/vendor/chosen/public/', src: ['*.png'], dest: 'dist/static/css/'}
+          {expand: true, cwd: 'src/static/vendor/chosen/public/', src: ['*.png'], dest: 'dist/static/css/'},
+          // content for filers
+          {expand: true, cwd: 'src/static/for-filers/', src: ['**'], dest: 'dist/static/for-filers/'}
         ]
       },
       ghpages: {
@@ -200,7 +202,7 @@ module.exports = function(grunt) {
 
     /**
      * JST: https://github.com/gruntjs/grunt-contrib-jst
-     * 
+     *
      * Precompile Underscore templates to JST file.
      */
     jst: {
@@ -222,7 +224,7 @@ module.exports = function(grunt) {
 
     /**
      * Template: https://github.com/mathiasbynens/grunt-template
-     * 
+     *
      * Interpolates template files with any data you provide and saves the result to another file.
      */
     template: {
@@ -241,7 +243,7 @@ module.exports = function(grunt) {
               var data = {},
                   markdown = require('marked'),
                   _process;
-              
+
               _process = function( abspath, rootdir, subdir, filename ) {
 
                 function _convert( string ) {
@@ -286,7 +288,7 @@ module.exports = function(grunt) {
 
     /**
      * Uglify: https://github.com/gruntjs/grunt-contrib-uglify
-     * 
+     *
      * Minify JS files.
      * Make sure to add any other JS libraries/files you'll be using.
      */
@@ -421,7 +423,7 @@ module.exports = function(grunt) {
 
     /**
      * Connect: https://github.com/gruntjs/grunt-contrib-connect
-     * 
+     *
      * Start a connect web server.
      */
     connect: {
@@ -441,7 +443,7 @@ module.exports = function(grunt) {
 
     /**
      * Jasmine: https://github.com/gruntjs/grunt-contrib-jasmine
-     * 
+     *
      * Run jasmine specs headlessly through PhantomJS.
      */
     jasmine: {
@@ -519,7 +521,7 @@ module.exports = function(grunt) {
 
     /**
      * Sauce Labs: https://github.com/axemclion/grunt-saucelabs
-     * 
+     *
      * A Grunt task for running QUnit, Jasmine, Mocha and YUI tests using Sauce Labs' Cloudified Browsers.
      */
     'saucelabs-jasmine': {
@@ -564,7 +566,7 @@ module.exports = function(grunt) {
 
     /**
      * Docco: https://github.com/DavidSouther/grunt-docco
-     * 
+     *
      * Grunt Docco plugin.
      */
     docco: {
@@ -578,7 +580,7 @@ module.exports = function(grunt) {
 
     /**
      * Remove logging: https://github.com/ehynds/grunt-remove-logging
-     * 
+     *
      * This task removes all console logging statements from your source code.
      */
     removelogging: {
@@ -606,7 +608,7 @@ module.exports = function(grunt) {
 
     /**
      * grunt-string-replace: https://github.com/erickrdch/grunt-string-replace
-     * 
+     *
      * Replaces strings on files by using string or regex patterns.
      */
     'string-replace': {
@@ -625,7 +627,7 @@ module.exports = function(grunt) {
 
     /**
      * Watch: https://github.com/gruntjs/grunt-contrib-watch
-     * 
+     *
      * Run predefined tasks whenever watched file patterns are added, changed or deleted.
      * Add files to monitor below.
      */
@@ -638,7 +640,7 @@ module.exports = function(grunt) {
 
     /**
      * Concurrent: https://github.com/sindresorhus/grunt-concurrent
-     * 
+     *
      * Run grunt tasks concurrently.
      */
     concurrent: {
@@ -649,7 +651,7 @@ module.exports = function(grunt) {
 
     /**
      * grunt-cfpb-internal: https://github.com/cfpb/grunt-cfpb-internal
-     * 
+     *
      * Some internal CFPB tasks.
      */
     'build-cfpb': {
@@ -667,7 +669,7 @@ module.exports = function(grunt) {
     /**
       * Compile Handlesbars: https://github.com/patrickkettner/grunt-compile-handlebars
       *
-      * compile static html from a handlebars plugin 
+      * compile static html from a handlebars plugin
       */
     'compile-handlebars': {
       allStatic: {
