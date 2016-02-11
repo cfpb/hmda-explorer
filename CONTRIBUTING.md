@@ -13,6 +13,7 @@ Please use the [fork and pull](https://help.github.com/articles/using-pull-reque
 1. `mkdir json`
 1. `cd json`
 1. `git clone git@github.com:YOUR-USERNAME/hmda-tech.git`
+1. `cd ../../../`
 1. `grunt build`
 1. `grunt`
 1. Open `localhost:8000` in a browser.
