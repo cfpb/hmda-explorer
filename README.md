@@ -48,6 +48,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2016-02-19   [v2.1.5](../../tree/v2.1.5)   Added in branding elements for the FFIEC.
  * 2016-02-17   [v2.1.4](../../tree/v2.1.4)   Added 2017 and 2018 file specifications for hmda filers. Updated content on for-filers page.
  * 2016-01-21   [v2.1.3](../../tree/v2.1.3)   Fixed release tag. Updated code docs.
  * 2016-01-20   [v2.1.2](../../tree/v2.1.2)   Added a section that describes the Consumer Complaint Database. Updated contributing docs.
