@@ -28,7 +28,7 @@
     "test": "grunt test"
   },
   "devDependencies": {
-    "grunt": "latest",
+    "grunt": "~0.4.0",
     "grunt-cfpb-internal": "git+https://github.com/cfpb/grunt-cfpb-internal#v0.5.3",
     "grunt-combine-media-queries": "~1.0.2",
     "grunt-compile-handlebars": "^2.0.0",
