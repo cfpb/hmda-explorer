@@ -45,7 +45,7 @@ module.exports = function(grunt) {
         '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
         '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
         '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
-        ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n\n',
+        ' Licensed <%= _.map(pkg.licenses, "type").join(", ") %> */\n\n',
 
       vendors: grunt.file.read('docs/vendor-licenses.txt')
 
@@ -59,7 +59,7 @@ module.exports = function(grunt) {
     less: {
       main: {
         options: {
-          //banner: '<%= banner.cfpb %>',
+          banner: '<%= banner.cfpb %>',
           paths: ['src/static'],
           compress: true,
           sourceMap: true,
@@ -73,7 +73,7 @@ module.exports = function(grunt) {
       },
       ie8: {
         options: {
-          //banner: '<%= banner.cfpb %>',
+          banner: '<%= banner.cfpb %>',
           paths: ['src/static']
         },
         files: {
@@ -298,7 +298,7 @@ module.exports = function(grunt) {
      */
     uglify: {
       options: {
-        //banner: '<%= banner.cfpb %> <%= banner.vendors %>',
+        banner: '<%= banner.cfpb %> <%= banner.vendors %>',
         compress: {},
         mangle: true,
         sourceMapRoot: '/static/',
