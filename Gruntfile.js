@@ -45,7 +45,7 @@ module.exports = function(grunt) {
         '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
         '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
         '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
-        ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n\n',
+        ' Licensed <%= _.map(pkg.licenses, "type").join(", ") %> */\n\n',
 
       vendors: grunt.file.read('docs/vendor-licenses.txt')
 
@@ -117,7 +117,9 @@ module.exports = function(grunt) {
           'dist/explore.html': 'dist/explore.html',
           'dist/learn-more.html': 'dist/learn-more.html',
           'dist/api.html': 'dist/api.html',
-          'dist/for-filers.html': 'dist/for-filers.html'
+          'dist/for-filers.html': 'dist/for-filers.html',
+          'dist/tech-preview.html': 'dist/tech-preview.html',
+          'dist/faq.html': 'dist/faq.html'
         }
       }
     },
@@ -281,7 +283,9 @@ module.exports = function(grunt) {
           'dist/learn-more.html': ['src/learn-more.html'],
           'dist/explore.html': ['src/explore.html'],
           'dist/api.html': ['src/api.html'],
-          'dist/for-filers.html': ['src/for-filers.html']
+          'dist/for-filers.html': ['src/for-filers.html'],
+          'dist/tech-preview.html': ['src/tech-preview.html'],
+          'dist/faq.html': ['src/faq.html']
         }
       }
     },
