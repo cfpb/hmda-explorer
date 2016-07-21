@@ -49,7 +49,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
- * 2016-07-21   [v2.1.6](../../tree/v2.1.6)   Remove old contact phone number.
+ * 2016-07-21   [v2.2.2](../../tree/v2.2.2)   Remove old contact phone number.
  * 2016-02-19   [v2.1.5](../../tree/v2.1.5)   Added in branding elements for the FFIEC.
  * 2016-02-17   [v2.1.4](../../tree/v2.1.4)   Added 2017 and 2018 file specifications for hmda filers. Updated content on for-filers page.
  * 2016-01-21   [v2.1.3](../../tree/v2.1.3)   Fixed release tag. Updated code docs.
@@ -134,4 +134,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Thu Jul 21 2016 15:32:39.*
+*This file was generated on Thu Jul 21 2016 15:35:34.*
