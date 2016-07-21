@@ -573,14 +573,14 @@ module.exports = function(grunt) {
      *
      * Grunt Docco plugin.
      */
-    docco: {
-      js: {
-        src: ['src/static/js/**/*.js'],
-        options: {
-          output: 'docs/'
-        }
-      }
-    },
+    // docco: {
+    //   js: {
+    //     src: ['src/static/js/**/*.js'],
+    //     options: {
+    //       output: 'docs/'
+    //     }
+    //   }
+    // },
 
     /**
      * Remove logging: https://github.com/ehynds/grunt-remove-logging
@@ -719,7 +719,7 @@ module.exports = function(grunt) {
    */
   grunt.registerTask('test', ['concurrent:test']);
   grunt.registerTask('sauce', ['connect:sauce', 'jasmine:sauce', 'saucelabs-jasmine', 'shell:sauce']);
-  grunt.registerTask('docs', ['removelogging', 'docco', 'build-cfpb']);
+  grunt.registerTask('docs', ['removelogging', 'build-cfpb']);
   grunt.registerTask('build', ['clean', 'compile-handlebars:allStatic', 'concurrent:compile', 'concurrent:package', 'string-replace']);
   grunt.registerTask('ghpages', ['build', 'copy:ghpages']);
 
