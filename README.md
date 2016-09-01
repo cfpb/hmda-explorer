@@ -21,6 +21,7 @@ By default, this app will serve data from [api.consumerfinance.gov](http://api.c
 Please use the [fork and pull](https://help.github.com/articles/using-pull-requests#fork--pull) collaborative model.
 
 1. Install [Node](http://nodejs.org/) and [Grunt](http://gruntjs.com/).
+2. Install [Bower] `npm install -g bower`
 1. [Fork this repo](https://github.com/cfpb/hmda-explorer/fork) to your personal GH account.
 1. `git clone git@github.com:YOUR-USERNAME/hmda-explorer.git`
 1. `cd hmda-explorer`
