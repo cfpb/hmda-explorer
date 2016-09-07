@@ -575,6 +575,9 @@ var PDP = (function ( pdp ) {
             emit( 'shown', $dependent, dependencies );
           });
         } else {
+          setTimeout(function(){
+            form.checkDeps([$el.attr('id')]);
+          }, 100);
           _.forEach( $dependents, function( $dependent ){
             emit( 'hidden', $dependent, $el.attr('id') );
           });
