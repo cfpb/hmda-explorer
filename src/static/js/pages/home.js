@@ -31,13 +31,13 @@ $(function(){
 
     L.mapbox.accessToken = 'pk.eyJ1IjoiY29udG8iLCJhIjoiYWY0ODdmZTM2N2M1NTE4YmVkNTdkZWI1ZTcxNWRmNTgifQ.ZXAoSbSp6NTPLQ8zP0lQ2Q';
 
-    map.base = L.mapbox.map('map', 'cfpb.hmda_blank').setView([39.54, -97.87], 4);
-    
+    map.base = L.mapbox.map('map', 'cfpb.cr4f3gpz').setView([39.54, -97.87], 4);
+
     map.layers = {
-      r_year1: L.mapbox.tileLayer('cfpb.hmda_r_o_12_13'),
-      r_year2: L.mapbox.tileLayer('cfpb.hmda_r_o_13_14'),
-      p_year1: L.mapbox.tileLayer('cfpb.hmda_p_o_12_13'),
-      p_year2: L.mapbox.tileLayer('cfpb.hmda_p_o_13_14')
+      r_year1: L.mapbox.tileLayer('cfpb.hmda_r_o_13_14'),
+      r_year2: L.mapbox.tileLayer('cfpb.hmda_r_o_14_15'),
+      p_year1: L.mapbox.tileLayer('cfpb.hmda_p_o_13_14'),
+      p_year2: L.mapbox.tileLayer('cfpb.hmda_p_o_14_15')
     };
 
     // Add each layer and immediately hide it.
