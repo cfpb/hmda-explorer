@@ -696,12 +696,14 @@ var PDP = (function ( pdp ) {
   // Rules
 
   form.checkYearRules = function(years) {
-    var hasData = years instanceof Array && years.length > 0;
-    var has2014 = hasData && years.indexOf('2014') > -1;
-    var has2015 = hasData && years.indexOf('2015') > -1;
+    var inside = _.some(years, function(y) {
+      return y === '2014' || y === '2015';
+    });
+    var outside = _.some(years, function(y) {
+      return y !== '2014' && y !== '2015';
+    });
 
-    pdp.form.warn2014Msa = has2014 || has2015;
-    pdp.form.warn2014Missing = has2014;
+    pdp.form.warn2014Msa = inside && outside;
 
     pdp.form.checkYearsConflict();
   };

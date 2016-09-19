@@ -176,39 +176,39 @@
     });
   });
 
-  describe('2014 MSA Conditions', function() {
+  describe('2014 MSA Warning', function() {
     beforeEach(function() {
         PDP.form.warn2014Msa = null;
     });
 
-    it('is not true when the array is null', function () {
+    it('is false when the array is null', function () {
       PDP.form.checkYearRules(null);
       expect(PDP.form.warn2014Msa).toEqual(false);
     });
 
-    it('is not true when the array is empty', function () {
+    it('is false when the array is empty', function () {
       PDP.form.checkYearRules([]);
       expect(PDP.form.warn2014Msa).toEqual(false);
     });
 
-    it('is not true when the array only contains 2013', function () {
+    it('is false when the array only contains 2013', function () {
       PDP.form.checkYearRules(['2013']);
       expect(PDP.form.warn2014Msa).toEqual(false);
     });
 
-    it('is true when the array only contains 2014', function () {
+    it('is false when the array only contains 2014', function () {
       PDP.form.checkYearRules(['2014']);
-      expect(PDP.form.warn2014Msa).toEqual(true);
+      expect(PDP.form.warn2014Msa).toEqual(false);
     });
 
-    it('is true when the array only contains 2015', function () {
+    it('is false when the array only contains 2015', function () {
       PDP.form.checkYearRules(['2015']);
-      expect(PDP.form.warn2014Msa).toEqual(true);
+      expect(PDP.form.warn2014Msa).toEqual(false);
     });
 
-    it('is true when the array contains 2014-2015', function () {
+    it('is false when the array contains 2014-2015', function () {
       PDP.form.checkYearRules(['2014', '2015']);
-      expect(PDP.form.warn2014Msa).toEqual(true);
+      expect(PDP.form.warn2014Msa).toEqual(false);
     });
 
     it('is true when the array contains 2013-2015', function () {
@@ -216,7 +216,7 @@
       expect(PDP.form.warn2014Msa).toEqual(true);
     });
 
-    it('is not true when the array contains 2010-2012', function () {
+    it('is false when the array contains 2010-2012', function () {
       PDP.form.checkYearRules(['2010', '2011', '2012']);
       expect(PDP.form.warn2014Msa).toEqual(false);
     });
