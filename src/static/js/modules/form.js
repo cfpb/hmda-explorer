@@ -19,6 +19,9 @@ var PDP = (function ( pdp ) {
   // 2014 MSAs may show the same name and code number in 2014/2015 as previous 
   // years, even though the underlying geography has changed
   form.warn2014Msa = false;
+  // 174,000 transactions were not incorporated into the public 2014 data
+  // until after the dataset was finalized.
+  form.warn2014Missing = false;
 
   // Cache a reference to all the filter fields.
   form.init = function() {
@@ -620,7 +623,7 @@ var PDP = (function ( pdp ) {
     pdp.form.disableField( $('.field.msamd') );
   };
 
-  form.checkYearsConflict = function() {
+  form.onUpdateWarnings = function() {
     if (pdp.form.warn2014Msa) {
       pdp.form.disableMSAs();
       $('.msa-warning').removeClass('hidden');
@@ -631,6 +634,12 @@ var PDP = (function ( pdp ) {
       $('.msa-warning').addClass('hidden');
       $('#summary-table-form option[value=loan_type_name]').after('<option value="msamd_name">MSA</option>');
       $('#summary-table-form select').trigger('liszt:updated');
+    }
+
+    if (pdp.form.warn2014Missing) {
+      $('.missing-2014-warning').removeClass('hidden');
+    } else {
+      $('.missing-2014-warning').addClass('hidden');
     }
   };
 
@@ -704,8 +713,9 @@ var PDP = (function ( pdp ) {
     });
 
     pdp.form.warn2014Msa = inside && outside;
+    pdp.form.warn2014Missing = _.contains(years, '2014');
 
-    pdp.form.checkYearsConflict();
+    pdp.form.onUpdateWarnings();
   };
 
   pdp.form = form;
