@@ -16,8 +16,9 @@ var PDP = (function ( pdp ) {
   form.locationCount = 1;
   // Set a counter so group set IDs are unique (never decremented)
   form.locationSetNum = 1;
-  // 2014 MSAs are weird. Let's take note if they select 2014 *and* another year.
-  form.yearsConflict = false;
+  // 2014 MSAs may show the same name and code number in 2014/2015 as previous 
+  // years, even though the underlying geography has changed
+  form.warn2014Msa = false;
 
   // Cache a reference to all the filter fields.
   form.init = function() {
@@ -87,10 +88,6 @@ var PDP = (function ( pdp ) {
       // We set height to auto after the animation so that the div can expand 
       // if a lot of items in a 'chosen' select widget are chosen.
       $( this ).css('height', 'auto');
-      // Disable MSAs if need be.
-      if (pdp.form.yearsConflict) {
-        pdp.form.disableMSAs();
-      }
     });
 
     $el.removeClass('closed').attr( 'title', '' );
@@ -606,7 +603,7 @@ var PDP = (function ( pdp ) {
         form.disableField( $partner );
       } else {
         // Don't reenable the MSA field if there's a wonky 2014 year conflict.
-        if (partner && partner.indexOf('msamd') > -1 && pdp.form.yearsConflict) {
+        if (partner && partner.indexOf('msamd') > -1 && pdp.form.warn2014Msa) {
           return;
         }
         form.enableField( $partner );
@@ -624,7 +621,7 @@ var PDP = (function ( pdp ) {
   };
 
   form.checkYearsConflict = function() {
-    if (pdp.form.yearsConflict) {
+    if (pdp.form.warn2014Msa) {
       pdp.form.disableMSAs();
       $('.msa-warning').removeClass('hidden');
       $('#summary-table-form select').find('option[value=msamd_name]').remove();
@@ -646,7 +643,7 @@ var PDP = (function ( pdp ) {
     $('#location-sets').append( template( { num: num } ) ).initTooltips({ placement: tooltipPlacement, container: 'body' });
     $( '.location-set-' + num ).find('select').chosen({ width: '100%', disable_search_threshold: 10, allow_single_deselect: true });
 
-    if (pdp.form.yearsConflict) {
+    if (pdp.form.warn2014Msa) {
       pdp.form.disableMSAs();
     }
 
@@ -693,6 +690,20 @@ var PDP = (function ( pdp ) {
     } else {
       return fileMap.endpoint + hmdaMapLoc[apiCallParams][codeStatus][format] + '.zip';
     }
+  };
+
+  //---------------------------------------------------------------------------
+  // Rules
+
+  form.checkYearRules = function(years) {
+    var hasData = years instanceof Array && years.length > 0;
+    var has2014 = hasData && years.indexOf('2014') > -1;
+    var has2015 = hasData && years.indexOf('2015') > -1;
+
+    pdp.form.warn2014Msa = has2014 || has2015;
+    pdp.form.warn2014Missing = has2014;
+
+    pdp.form.checkYearsConflict();
   };
 
   pdp.form = form;

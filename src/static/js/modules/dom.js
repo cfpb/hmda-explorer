@@ -16,16 +16,13 @@ var PDP = (function ( pdp ) {
 
   });
 
-  // 2014 introduced a lot of funky MSA anomalies.
+  // Check for year based anomalies
   $('.field.as_of_year').on( 'change', _.debounce(function( ev ){
 
     var years = $('.field.as_of_year select').val();
 
-    // Have they selected 2014 *and* another year?
-    // (Selecting no years is the same as selecting all years.)
-    pdp.form.yearsConflict = !years || years.length > 1 && years.indexOf('2014') > -1;
-
-    pdp.form.checkYearsConflict();
+    // Check for year-based rules
+    pdp.form.checkYearRules(years);
 
   }, 100));
 
