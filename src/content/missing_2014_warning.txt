@@ -1,0 +1,1 @@
+You may notice different transaction counts in the 2014 HMDA data compared to last year's release. This is because the 2014 data in our tool were updated to include approximately 174,000 transactions from Green Tree Servicing, LLC's HMDA submission, which were not incorporated into the public 2014 data until after the dataset was finalized.
