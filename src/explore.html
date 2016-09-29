@@ -114,9 +114,10 @@
 
       <!-- all filters section -->
 
-      <div class="cf-notification" id="msa-note">
-        <span class="cf-notification_icon cf-icon cf-icon-information-round highlight"></span>
-        <p class="cf-notification_text"><%= explore_msa_warning %></p>
+      <div class="cf-error" id="msa-note">
+        <span class="cf-icon cf-icon-error-round highlight"></span>
+        <p class="message">Use caution when analyzing Metropolitan Statistical Areas (MSAs) over multiple years.</p>
+        <p class="action">The 2014 and 2015 HMDA data use the <a href="http://www.census.gov/population/metro/data/metrodef.html">updated MSA definitions</a>, released Feb 2013. For example, some MSAs may show the same name and code number in 2014 and 2015 as previous years, even though the underlying geography has changed.</p>
       </div>
 
       <h2>Filter the data</h2>
@@ -134,7 +135,8 @@
               <label for="as_of_year">Select year(s) of data:</label>
               <div class="widget select">
                 <select class="param" name="as_of_year" id="as_of_year" multiple data-placeholder="Select one or more years">
-                  <option value="2014" selected>2014</option>
+                  <option value="2015" selected>2015</option>
+                  <option value="2014">2014</option>
                   <option value="2013">2013</option>
                   <option value="2012">2012</option>
                   <option value="2011">2011</option>
@@ -144,6 +146,12 @@
                   <option value="2007">2007</option>
                 </select>
               </div>
+
+              <div class="cf-error missing-2014-warning hidden">
+                <span class="cf-icon cf-icon-error-round highlight"></span>
+                <p class="message">Additional Data</p>
+                <p class="action"><%= missing_2014_warning %></p>
+              </div>              
             </li>
             <!-- /filter field -->
 
