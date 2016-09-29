@@ -16,8 +16,12 @@ var PDP = (function ( pdp ) {
   form.locationCount = 1;
   // Set a counter so group set IDs are unique (never decremented)
   form.locationSetNum = 1;
-  // 2014 MSAs are weird. Let's take note if they select 2014 *and* another year.
-  form.yearsConflict = false;
+  // 2014 MSAs may show the same name and code number in 2014/2015 as previous 
+  // years, even though the underlying geography has changed
+  form.warn2014Msa = false;
+  // 174,000 transactions were not incorporated into the public 2014 data
+  // until after the dataset was finalized.
+  form.warn2014Missing = false;
 
   // Cache a reference to all the filter fields.
   form.init = function() {
@@ -87,10 +91,6 @@ var PDP = (function ( pdp ) {
       // We set height to auto after the animation so that the div can expand 
       // if a lot of items in a 'chosen' select widget are chosen.
       $( this ).css('height', 'auto');
-      // Disable MSAs if need be.
-      if (pdp.form.yearsConflict) {
-        pdp.form.disableMSAs();
-      }
     });
 
     $el.removeClass('closed').attr( 'title', '' );
@@ -606,7 +606,7 @@ var PDP = (function ( pdp ) {
         form.disableField( $partner );
       } else {
         // Don't reenable the MSA field if there's a wonky 2014 year conflict.
-        if (partner && partner.indexOf('msamd') > -1 && pdp.form.yearsConflict) {
+        if (partner && partner.indexOf('msamd') > -1 && pdp.form.warn2014Msa) {
           return;
         }
         form.enableField( $partner );
@@ -623,8 +623,8 @@ var PDP = (function ( pdp ) {
     pdp.form.disableField( $('.field.msamd') );
   };
 
-  form.checkYearsConflict = function() {
-    if (pdp.form.yearsConflict) {
+  form.onUpdateWarnings = function() {
+    if (pdp.form.warn2014Msa) {
       pdp.form.disableMSAs();
       $('.msa-warning').removeClass('hidden');
       $('#summary-table-form select').find('option[value=msamd_name]').remove();
@@ -634,6 +634,12 @@ var PDP = (function ( pdp ) {
       $('.msa-warning').addClass('hidden');
       $('#summary-table-form option[value=loan_type_name]').after('<option value="msamd_name">MSA</option>');
       $('#summary-table-form select').trigger('liszt:updated');
+    }
+
+    if (pdp.form.warn2014Missing) {
+      $('.missing-2014-warning').removeClass('hidden');
+    } else {
+      $('.missing-2014-warning').addClass('hidden');
     }
   };
 
@@ -646,7 +652,7 @@ var PDP = (function ( pdp ) {
     $('#location-sets').append( template( { num: num } ) ).initTooltips({ placement: tooltipPlacement, container: 'body' });
     $( '.location-set-' + num ).find('select').chosen({ width: '100%', disable_search_threshold: 10, allow_single_deselect: true });
 
-    if (pdp.form.yearsConflict) {
+    if (pdp.form.warn2014Msa) {
       pdp.form.disableMSAs();
     }
 
@@ -693,6 +699,23 @@ var PDP = (function ( pdp ) {
     } else {
       return fileMap.endpoint + hmdaMapLoc[apiCallParams][codeStatus][format] + '.zip';
     }
+  };
+
+  //---------------------------------------------------------------------------
+  // Rules
+
+  form.checkYearRules = function(years) {
+    var inside = _.some(years, function(y) {
+      return y === '2014' || y === '2015';
+    });
+    var outside = _.some(years, function(y) {
+      return y !== '2014' && y !== '2015';
+    });
+
+    pdp.form.warn2014Msa = inside && outside;
+    pdp.form.warn2014Missing = _.contains(years, '2014');
+
+    pdp.form.onUpdateWarnings();
   };
 
   pdp.form = form;

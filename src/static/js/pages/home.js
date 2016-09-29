@@ -18,9 +18,9 @@ $(function(){
   $('#map_radios').on('change', function( ev ){
     var radio = $(this).find('input[type=radio]:checked');
     if( radio.val() === 'r' ){
-      $( '#map-title' ).find('a.underlying').attr('href', 'explore#!/as_of_year=2014,2013,2012&property_type=1,2&owner_occupancy=1&action_taken=1&loan_purpose=3&lien_status=1&select=state_name,county_name,as_of_year,count&section=summary');
+      $( '#map-title' ).find('a.underlying').attr('href', 'explore#!/as_of_year=2015,2014,2013&property_type=1,2&owner_occupancy=1&action_taken=1&loan_purpose=3&lien_status=1&select=state_name,county_name,as_of_year,count&section=summary');
     } else {
-      $( '#map-title' ).find('a.underlying').attr('href', 'explore#!/as_of_year=2014,2013,2012&property_type=1,2&owner_occupancy=1&action_taken=1&loan_purpose=1&lien_status=1&select=state_name,county_name,as_of_year,count&section=summary');
+      $( '#map-title' ).find('a.underlying').attr('href', 'explore#!/as_of_year=2015,2014,2013&property_type=1,2&owner_occupancy=1&action_taken=1&loan_purpose=1&lien_status=1&select=state_name,county_name,as_of_year,count&section=summary');
     }
   });
 
@@ -31,13 +31,13 @@ $(function(){
 
     L.mapbox.accessToken = 'pk.eyJ1IjoiY29udG8iLCJhIjoiYWY0ODdmZTM2N2M1NTE4YmVkNTdkZWI1ZTcxNWRmNTgifQ.ZXAoSbSp6NTPLQ8zP0lQ2Q';
 
-    map.base = L.mapbox.map('map', 'cfpb.hmda_blank').setView([39.54, -97.87], 4);
-    
+    map.base = L.mapbox.map('map', 'cfpb.cr4f3gpz').setView([39.54, -97.87], 4);
+
     map.layers = {
-      r2013: L.mapbox.tileLayer('cfpb.hmda_r_o_12_13'),
-      r2014: L.mapbox.tileLayer('cfpb.hmda_r_o_13_14'),
-      p2013: L.mapbox.tileLayer('cfpb.hmda_p_o_12_13'),
-      p2014: L.mapbox.tileLayer('cfpb.hmda_p_o_13_14')
+      r_year1: L.mapbox.tileLayer('cfpb.1qabis96'),
+      r_year2: L.mapbox.tileLayer('cfpb.hmda_r_o_14_15'),
+      p_year1: L.mapbox.tileLayer('cfpb.dfxcoiyb'),
+      p_year2: L.mapbox.tileLayer('cfpb.hmda_p_o_14_15')
     };
 
     // Add each layer and immediately hide it.
@@ -47,7 +47,7 @@ $(function(){
     });
 
     // Un-hide the top layer.
-    map.layers.p2014.setOpacity(1);
+    map.layers.p_year2.setOpacity(1);
 
     $('#map .controls input').on( 'change', function( ev ){
       $( this ).parent().addClass('selected').siblings().removeClass('selected');
@@ -58,7 +58,7 @@ $(function(){
 
       var type = $('#map .type input:checked').val(),
           year = $('#map .year input:checked').val();
-      return type + year;
+      return type + '_' +year;
 
     };
 
