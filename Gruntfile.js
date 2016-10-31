@@ -119,7 +119,8 @@ module.exports = function(grunt) {
           'dist/api.html': 'dist/api.html',
           'dist/for-filers.html': 'dist/for-filers.html',
           'dist/tech-preview.html': 'dist/tech-preview.html',
-          'dist/faq.html': 'dist/faq.html'
+          'dist/faq.html': 'dist/faq.html',
+          'dist/des-update-2017.html': 'dist/des-update-2017.html',
         }
       }
     },
@@ -285,7 +286,8 @@ module.exports = function(grunt) {
           'dist/api.html': ['src/api.html'],
           'dist/for-filers.html': ['src/for-filers.html'],
           'dist/tech-preview.html': ['src/tech-preview.html'],
-          'dist/faq.html': ['src/faq.html']
+          'dist/faq.html': ['src/faq.html'],
+          'dist/des-update-2017.html': ['src/des-update-2017.html']
         }
       }
     },
