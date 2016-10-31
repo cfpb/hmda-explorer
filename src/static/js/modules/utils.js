@@ -101,19 +101,19 @@ var PDP = (function( pdp ) {
   utils.commify = function( num ) {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   };
-  
+
   utils.isBlank = function (str) {
       return (!str || /^\s*$/.test(str));
   };
-  
+
   utils.emptyObject = function (obj) {
     if (_.isObject(obj)) {
       return !_.some(obj, function(val, key) {
           return !pdp.utils.isBlank(val);
       });
-    } 
+    }
   };
-  
+
   utils.nonEmptyValues = function (obj) {
     if (!_.isObject(obj)) {
       return [];
@@ -135,6 +135,18 @@ var PDP = (function( pdp ) {
     };
   }
 
+  function clearStorage() {
+
+    _.keys( localStorage ).forEach( function( key ){
+      if ( key.indexOf( keyPrefix ) !== -1 ) {
+        localStorage.removeItem(key);
+      }
+    });
+
+  }
+
+  window.clearStorage = clearStorage;
+
   // Cache AJAX requests in localStorage.
   utils.getJSON = function( url ) {
 
@@ -149,13 +161,13 @@ var PDP = (function( pdp ) {
       var deferred = url.indexOf('jsonp') !== -1 ? $.jsonp({ url: url }) : $.getJSON( url );
 
       deferred.done(function(data) {
-        
+
         // if the request returns a status of 'computing'
         // results are not ready and should not be cached
         if (data && data.computing) {
           return;
         }
-        
+
         try {
           localStorage.setItem( storageKey, JSON.stringify(data) );
           localStorage.setItem( storageKey + ':expiration', +new Date() + ttl );
@@ -186,7 +198,7 @@ var PDP = (function( pdp ) {
       setTimeout( function() {
         storageDfd.resolveWith( null, [ JSON.parse(storedData) ] );
       });
-      
+
       promise = storageDfd.promise();
       promise.status = 200;
       promise.statusText = 'success';
@@ -195,25 +207,13 @@ var PDP = (function( pdp ) {
 
     }
 
-    function clearStorage() {
-
-      _.keys( localStorage ).forEach( function( key ){
-        if ( key.indexOf( keyPrefix ) !== -1 ) {
-          localStorage.removeItem(key);
-        }
-      });
-
-    }
-
-    window.clearStorage = clearStorage;
-
     // Both functions return a promise, so no matter which function
     // gets called, the API is the same.
     return supportsLocalStorage ? getStorage( url ) : getJSON( url );
 
   };
 
-  // Pass a keypress event and its default action will be prevented if a 
+  // Pass a keypress event and its default action will be prevented if a
   // non-numeric key was pressed. Numbers, commas, tab, delete, backspace,
   // meta, A (for selecting all), V (for pasting) and arrow keys are allowed to be pressed.
   utils.requireNumeric = function( e ) {
