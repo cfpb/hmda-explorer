@@ -2,6 +2,10 @@
 
   'use strict';
 
+  function setUpErrorFixture() {
+    jasmine.getFixtures().set('<div id="error"></div>');
+  }
+
   describe('The browser\'s window object', function(){
     it('should exist', function(){
       expect( window ).not.toBeUndefined();
@@ -31,9 +35,9 @@
       expect( foo.bind ).not.toBeUndefined();
     });
   });
-  
+
   describe('emptyObject', function() {
-      var _data = [ 
+      var _data = [
         [[], true, 'should return true on empty array'],
         [[''], true, 'should return true on array containing only empty values'],
         [[null], true, 'should return true on array containing only null values'],
@@ -90,9 +94,5 @@
       expect( $('.tooltip').length ).toEqual( 1 );
     });
   });
-
-  function setUpErrorFixture() {
-    jasmine.getFixtures().set('<div id="error"></div>');
-  }
 
 })();

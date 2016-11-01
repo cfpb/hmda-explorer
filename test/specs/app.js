@@ -2,6 +2,10 @@
 
   'use strict';
 
+  function setUpAppFixture() {
+    jasmine.getFixtures().set('<div id="filters"><div class="app-section filters" id="foo"></div><div class="app-section summary" id="bar"></div><li class="field as_of_year"><label for="as_of_year">Select year(s) of data:</label><div class="widget select"><select class="param" name="as_of_year" id="as_of_year" multiple data-placeholder="Select one or more years"><option value="2012">2012</option><option value="2011">2011</option><option value="2010">2010</option><option value="2009">2009</option><option value="2008">2008</option><option value="2007">2007</option></select></div></li></div>');
+  }
+
   describe('The data platform', function(){
 
     it('should provide an object called PDP', function(){
@@ -60,8 +64,6 @@
 
   });
 
-  function setUpAppFixture() {
-    jasmine.getFixtures().set('<div id="filters"><div class="app-section filters" id="foo"></div><div class="app-section summary" id="bar"></div><li class="field as_of_year"><label for="as_of_year">Select year(s) of data:</label><div class="widget select"><select class="param" name="as_of_year" id="as_of_year" multiple data-placeholder="Select one or more years"><option value="2012">2012</option><option value="2011">2011</option><option value="2010">2010</option><option value="2009">2009</option><option value="2008">2008</option><option value="2007">2007</option></select></div></li></div>');
-  }
+
 
 })();
