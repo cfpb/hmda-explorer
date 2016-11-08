@@ -1,4 +1,4 @@
-// @TODO: 
+// @TODO:
 // - refactor to use tidy tables. I didn't realize it was in use when I wrote this
 // - move table.queryParams.clauses properties from arrays to objects. this will create a nicer branch in logic dealing with
 //   the calculate by values vs. the three variables
@@ -61,7 +61,7 @@ var PDP = (function ( pdp ) {
       'human': 'Loan Amount Sum Total'
     }
   };
-  
+
   //stores user-selected variables and calculate-by value
   //these are used in clause generation on submit
   table.fieldVals = {
@@ -74,11 +74,11 @@ var PDP = (function ( pdp ) {
 
   // clauses = { select|group: ['var_name_0', 'var_name_1', 'var_name_2', 'calculate-by'] }
   table.queryParams.clauses = {};
-    
+
   table._lastRequestTime = '';
-  
+
   table._lastTimeout = '';
-  
+
   // returns a templated option tag
   table.optionTmpl = function(field, defaultOp) {
     var def = (defaultOp) ? 'selected' : '';
@@ -126,7 +126,7 @@ var PDP = (function ( pdp ) {
     var value = e.target.value,
         position = e.target.id.substr( -1, 1 ),
         removedVal;
-    
+
     // if they've selected a placeholder, ignore it
     // a placeholder has no value
     if ($(e.target).find('option[value=' + value + ']').attr('placeholder')) {
@@ -156,9 +156,9 @@ var PDP = (function ( pdp ) {
           .toggleClass('hidden')
           .trigger('liszt:updated');
     }
-   
+
   };
-  
+
   table._showSpinner = function() {
     this.$page.addClass('loading');
   };
@@ -169,12 +169,12 @@ var PDP = (function ( pdp ) {
 
   table._requestData = function() {
     var check, responseJSON, itvl = 10;
-    
+
     this._lastRequestTime = new Date().getTime();
-    
+
     responseJSON = pdp.utils.getJSON( pdp.query.generateApiUrl( 'jsonp?$callback=', true, this.queryParams ) + '&$limit=0' );
     responseJSON.timestamp = this._lastRequestTime;
-    
+
     responseJSON.done(function( response ){
       table.cancelTimeout();
       if (responseJSON.timestamp === table._lastRequestTime) {
@@ -191,18 +191,18 @@ var PDP = (function ( pdp ) {
       }
     });
   };
-  
+
   /**
-   * This function performs output formatting of numbers in 1000s to a 
+   * This function performs output formatting of numbers in 1000s to a
    * US dollar format.; i.e.,"23.52323423" to "$23,523".
-   * The method includes multipling the original number by 1000, rounding to 
+   * The method includes multipling the original number by 1000, rounding to
    * the nearest whole dollar, and then adding comma separators and '$'.
    *
    * The implementation should be something like :
    *    ```amount = Math.round( the_number * 1000 ).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");```
    *    All non numerical values of ``the_number``` should be emitted as blanks; e.g., null and ""
    *    are represented as nothing on the screen.
-   *  
+   *
    */
   table._mungeDollarAmts = function( respData ) {
     var record, column, variable, amount, addCommas, dotIndex, amtParts, num;
@@ -217,7 +217,7 @@ var PDP = (function ( pdp ) {
           if ( this.metrics.hasOwnProperty( column ) ) {
 
             num = respData.results[record][column];
-            
+
             if ( num === null || num === '' || isNaN(num) ) {
               respData.results[record][column] = 'Data not available';
             }
@@ -306,7 +306,7 @@ var PDP = (function ( pdp ) {
 
         if ( typeof this.queryParams.clauses.select[column] !== 'undefined' ) {
           // reads like
-          // cellValue = response data object -> iteration we're on -> object key that matches the 
+          // cellValue = response data object -> iteration we're on -> object key that matches the
           // select clause array item for the inner interation we're on
           cellValue = responseData.results[i][this.queryParams.clauses.select[column]];
 
@@ -357,7 +357,7 @@ var PDP = (function ( pdp ) {
     for (i=0; i<=len; i++) {
       if (typeof columns[i] !== 'undefined') {
         // 3 = array index of calculate by
-        // calculate by = 3d vs. 2d since it has value id, 
+        // calculate by = 3d vs. 2d since it has value id,
         // query representation and human representation
         if ( i === (len-1) ) {
           // walk the calculate by or metrics map for the correct title
@@ -372,11 +372,11 @@ var PDP = (function ( pdp ) {
 
     $table.prepend($headerRow);
   };
-  
+
   table.cancelTimeout = function () {
     clearTimeout(this._lastTimeout);
   };
-  
+
   table._buildQueryArrays = function (vals) {
     //build arrays for select and group clauses
     //add filters as where clause
@@ -386,7 +386,7 @@ var PDP = (function ( pdp ) {
       where: pdp.query.params
     };
   };
-  
+
   table._updateShareLink = function (vals) {
     //add a select value consisting of variables + calculate-by to query.params
     vals = vals.variables.concat(vals.calculate);
@@ -396,7 +396,7 @@ var PDP = (function ( pdp ) {
     };
     pdp.form.updateShareLink();
   };
-  
+
   table._prepFieldVals = function () {
     //extract non-empty values from fieldVals.variables
     //ensure that there is a value for calculate
@@ -419,13 +419,13 @@ var PDP = (function ( pdp ) {
     pdp.form.enableField( $('#download-summary .action') );
     $('#summary-table').show();
   };
-  
+
   table.setupTable = function () {
     var queryVals = this._prepFieldVals();
-        
+
     this.cancelTimeout();
     this.resetTable();
-    
+
     if (queryVals.variables.length > 0) {
       this._showSpinner();
       this._buildQueryArrays(queryVals);
@@ -434,7 +434,7 @@ var PDP = (function ( pdp ) {
       this.enableDownload();
     }
   };
-  
+
   table._extractValuesFromUrlParams = function (vals) {
     _.each(vals, function (param, ind) {
       if (table.metrics[param]) {
@@ -449,7 +449,7 @@ var PDP = (function ( pdp ) {
       }
     });
   };
-  
+
   table._updateSummaryFields = function () {
     //update variable & calculate-by select values to match fieldVals
     var i, val;
@@ -464,7 +464,7 @@ var PDP = (function ( pdp ) {
       table._inputs.calculate.val(table.fieldVals.calculate).trigger('liszt:updated');
     }
   };
-  
+
   table._updateSummaryFieldsUI = function () {
     //conditionally display reset links based on number of variables chosen
     var reset_fields,
@@ -476,7 +476,7 @@ var PDP = (function ( pdp ) {
       $('#variable2').attr('disabled', 'disabled').trigger('liszt:updated');
     }
   };
-  
+
   table.showTableFromUrlParams = function (params) {
     this._extractValuesFromUrlParams(params);
     this._updateSummaryFields();
@@ -486,7 +486,7 @@ var PDP = (function ( pdp ) {
 
   table.init = function() {
     var selectParams;
-    
+
     table._populateOptions();
     table._chosenInit();
     table.createTable();
@@ -498,10 +498,10 @@ var PDP = (function ( pdp ) {
       var short = $( this ).text();
       $( this ).attr( 'data-abbr', short );
     });
-    
-    //check for select values in params 
+
+    //check for select values in params
     selectParams = ((pdp.query.params.select || {}).values || []);
-    
+
     if (selectParams.length > 0) {
         table.showTableFromUrlParams(selectParams);
     } else {
@@ -534,7 +534,7 @@ var PDP = (function ( pdp ) {
           var short = $( this ).attr('data-abbr');
           $( this ).text( short );
         });
-        
+
         $( '#calculate-by option[value=' + val + ']' ).text( long );
         $('#calculate-by').trigger('liszt:updated');
 
@@ -558,13 +558,13 @@ var PDP = (function ( pdp ) {
       $('#variable'.concat(++position)).attr('disabled', 'disabled').trigger('liszt:updated');
 
     }.bind( this ));
-    
+
     $('#summary-submit').on('click', function(e) {
       e.preventDefault();
-      track( 'Page Interaction', 'Click Submit', 'Generate Summary Table' );
+      //track( 'Page Interaction', 'Click Submit', 'Generate Summary Table' );
       this.setupTable();
     }.bind(this));
-    
+
   };
 
   // The `disableDownload` method disables the summary table download block.
