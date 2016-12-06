@@ -135,18 +135,6 @@ var PDP = (function( pdp ) {
     };
   }
 
-  function clearStorage() {
-
-    _.keys( localStorage ).forEach( function( key ){
-      if ( key.indexOf( keyPrefix ) !== -1 ) {
-        localStorage.removeItem(key);
-      }
-    });
-
-  }
-
-  window.clearStorage = clearStorage;
-
   // Cache AJAX requests in localStorage.
   utils.getJSON = function( url ) {
 
@@ -206,6 +194,18 @@ var PDP = (function( pdp ) {
       return promise;
 
     }
+
+    function clearStorage() {
+
+      _.keys( localStorage ).forEach( function( key ){
+        if ( key.indexOf( keyPrefix ) !== -1 ) {
+          localStorage.removeItem(key);
+        }
+      });
+
+    }
+
+    window.clearStorage = clearStorage;
 
     // Both functions return a promise, so no matter which function
     // gets called, the API is the same.
