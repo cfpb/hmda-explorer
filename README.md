@@ -43,7 +43,11 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 
 ## Release History
-
+ * 2016-12-05   [v2.4.2](../../tree/v2.4.2)   Resolves an issue with an incorrectly scoped localStorage function.
+ * 2016-11-08   [v2.4.1](../../tree/v2.4.1)   Resolves an issue with deprecated analytics tracker.
+ * 2016-11-01   [v2.4.0](../../tree/v2.4.0)   Adds an announcement about 2017 data and the DES tool.
+ * 2016-09-29   [v2.3.1](../../tree/v2.3.1)   A small update to one of the URLs.
+ * 2016-09-29   [v2.3.0](../../tree/v2.3.0)   Incorporated 2015 HMDA data Updated alert formatting / wording Bugfixes for census tracts URL parameters.
  * 2016-07-21   [v2.2.2](../../tree/v2.2.2)   Remove old contact phone number.
  * 2016-02-19   [v2.1.5](../../tree/v2.1.5)   Added in branding elements for the FFIEC.
  * 2016-02-17   [v2.1.4](../../tree/v2.1.4)   Added 2017 and 2018 file specifications for hmda filers. Updated content on for-filers page.
