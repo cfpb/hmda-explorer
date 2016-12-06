@@ -18,21 +18,15 @@
     <link rel="stylesheet" href="static/css/ie8.min.css">
     <script src="static/js/respond.min.js"></script>
   <![endif]-->
-  <script>
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-20466645-3']);
-  _gaq.push(['_setDomainName', '.consumerfinance.gov']); // For production
-  _gaq.push(['_trackPageview']);
 
-  (function() {
-    var ga = document.createElement('script');
-    ga.type = 'text/javascript';
-    ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(ga, s);
-  })();
-  </script>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KMMLRS');</script>
+  <!-- End Google Tag Manager -->
+
   <script>
   var docElement = document.documentElement;
   docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2');
@@ -44,16 +38,11 @@
 <!--[if IE 8]>         <body class="lt-ie9 hmda homepage"> <![endif]-->
 <!--[if IE 9]>         <body class="lt-ie10 hmda homepage"> <![endif]-->
 <!--[if gt IE 9]><!--><body class="hmda homepage"><!--<![endif]-->
-  
-  <!-- Google Tag Manager -->
-  <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KMMLRS"
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KMMLRS"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-KMMLRS');</script>
-  <!-- End Google Tag Manager -->
+  <!-- End Google Tag Manager (noscript) -->
 
   <div class="top-banner">
     <div class="inner">
@@ -267,15 +256,15 @@
               <a href="explore#!/as_of_year=2015,2014,2013&property_type=1,2&owner_occupancy=1&action_taken=1&lien_status=1&select=as_of_year,state_name,loan_purpose_name,count&section=summary" class="action-arrow underlying" data-track-label="Number of applications and originations by loan purpose">See the underlying data<i class="cf-icon cf-icon-right"></i></a>
 
               <label for="hmda_chart_1_msa" class="chart-label">Select a U.S. State</label>
-              
+
               <br>
-              
+
               <%= homepage_charts_first_chart_msa_dropdown %>
 
 
               <!-- /.row -->
-              
-            
+
+
             </div><!-- /.chart-info -->
 
             <div class="chart-content">
@@ -319,9 +308,9 @@
             <a href="explore#!/as_of_year=2015,2014,2013&property_type=1,2&owner_occupancy=1&action_taken=1&loan_purpose=1&lien_status=1&select=as_of_year,state_name,loan_type_name,count&section=summary" class="action-arrow underlying">See the underlying data<i class="cf-icon cf-icon-right"></i></a>
 
             <label for="hmda_chart_2_msa" class="chart-label">Select a U.S. State</label>
-              
+
               <br>
-              
+
               <%= homepage_charts_second_chart_msa_dropdown %>
 
             <div class="toggle-series-heading">
@@ -360,7 +349,7 @@
             </table>
 
           </div><!-- //.chart-content -->
-        
+
         </div><!-- //.background -->
       </section>
       <!-- END CHART 2 -->

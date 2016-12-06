@@ -16,6 +16,15 @@
     <link rel="stylesheet" href="static/css/ie8.min.css">
     <script src="static/js/respond.min.js"></script>
   <![endif]-->
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KMMLRS');</script>
+  <!-- End Google Tag Manager -->
+
   <script>
     var docElement = document.documentElement;
     docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2');
@@ -26,23 +35,18 @@
 <!--[if IE 8]>         <body class="lt-ie9 hmda explore"> <![endif]-->
 <!--[if IE 9]>         <body class="lt-ie10 hmda explore"> <![endif]-->
 <!--[if gt IE 9]><!--><body class="hmda explore"><!--<![endif]-->
-  
-  <!-- Google Tag Manager -->
-  <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KMMLRS"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-KMMLRS');</script>
-  <!-- End Google Tag Manager -->
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KMMLRS"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
   <div class="top-banner">
     <div class="inner">
       <p class="return-cfgov">Return to <a href="http://www.consumerfinance.gov">consumerfinance.gov</a></p>
       <p class="official-website">An official website of the United States Government<img src="static/img/icon_usflag.png" width="16" height="11" alt="US Flag" /></p>
     </div>
-  </div> 
+  </div>
 
   <header role="banner">
 
@@ -139,7 +143,7 @@
                 <span class="cf-icon cf-icon-error-round highlight"></span>
                 <p class="message">Additional Data</p>
                 <p class="action"><%= missing_2014_warning %></p>
-              </div>              
+              </div>
             </li>
             <!-- /filter field -->
 
@@ -167,7 +171,7 @@
             <%= explore_intro_text %>
 
           </div>
-          
+
         </div>
 
         <!-- /filter section -->
@@ -176,7 +180,7 @@
 
         <div class="filter location closed" id="location">
 
-          <div class="title"> 
+          <div class="title">
 
             <a href="#location"><h3><i class="cf-icon cf-icon-minus-round"></i> Location</h3></a>
 
@@ -187,7 +191,7 @@
           <div id="location-sets"></div>
 
           <a href="#" id="add-state" class="control">+ Add another state or metro area</a>
-          
+
         </div>
 
         <!-- /filter section -->
@@ -205,7 +209,7 @@
           </div>
 
           <ul class="fields">
-            
+
             <!-- filter field -->
             <li class="field popular">
               <label for="property_type">Property Type:</label>
@@ -233,7 +237,7 @@
             <!-- /filter field -->
 
           </ul>
-          
+
         </div>
 
         <!-- /filter section -->
@@ -306,7 +310,7 @@
               </div>
               <div class="help" role="tooltip"><i class="cf-icon cf-icon-help-round"></i></div>
               <span class="help-text"><%= explore_tooltips_lien_status %></span>
-              
+
             </li>
             <!-- /filter field -->
 
@@ -320,7 +324,7 @@
               <div class="help" role="tooltip"><i class="cf-icon cf-icon-help-round"></i></div>
               <span class="help-text"><%= explore_tooltips_rate_spread %></span>
             </li>
-            <!-- /filter field -->            
+            <!-- /filter field -->
 
             <!-- filter field -->
             <li class="field optional-toggle" data-optional="loan_optional">
@@ -341,7 +345,7 @@
                 <span>$</span><input type="text" class="param require-numeric min-value" name="loan_amount_000s-min" data-comparator=">=" value="" placeholder="Min."><span class="thousands">,000 &nbsp; to &nbsp;</span>
                 <span>$</span><input type="text" class="param require-numeric max-value" name="loan_amount_000s-max" data-comparator="<=" value="" placeholder="Max."><span class="thousands">,000</span>
               </div>
-              
+
             </li>
             <!-- /filter field -->
 
@@ -413,7 +417,7 @@
             <!-- /filter field -->
 
           </ul>
-          
+
         </div>
 
         <!-- /filter section -->
@@ -465,7 +469,7 @@
 
 
           </ul>
-          
+
         </div>
 
         <!-- /filter section -->
@@ -610,7 +614,7 @@
             <!-- /filter field -->
 
           </ul>
-          
+
         </div>
 
         <!-- /filter section -->
@@ -659,7 +663,7 @@
           <div id="preview">
             <div class="spinning"></div>
           </div>
-        
+
       </div>
 
       <!-- /preview section -->
@@ -687,10 +691,10 @@
             <div class="radio widget codes">
               <label><input type="radio" name="codes" value="0" checked />Include labels</label>
               <label><input type="radio" name="codes" value="1" />Include labels and codes</label>
-              
+
               <div class="help" role="tooltip"><i class="cf-icon cf-icon-help-round bump-up"></i></div>
               <span class="help-text"><%= explore_tooltips_download_raw_data %></span>
-              
+
             </div>
 
             <div class="msg mobile-warning">
@@ -769,10 +773,10 @@
     </div>
 
     <form id="summary-table-form">
-      
+
       <div class="drop-downs">
         <div class="variable">
-          
+
           <select id="variable0" class="chzn-single" data-summary-table-input="both" data-placeholder="Select the first variable">
             <option value></option>
           </select>
@@ -821,7 +825,7 @@
           </div>
         </div>
       </div>
-      
+
 
       <div class="spinning"></div>
 
@@ -934,7 +938,7 @@
       </div>
 
       <!-- download and share section -->
-        
+
     </form>
 
   </div>
