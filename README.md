@@ -21,12 +21,17 @@ By default, this app will serve data from [api.consumerfinance.gov](http://api.c
 Please use the [fork and pull](https://help.github.com/articles/using-pull-requests#fork--pull) collaborative model.
 
 1. Install [Node](http://nodejs.org/) and [Grunt](http://gruntjs.com/).
-2. Install [Bower] `npm install -g bower`
 1. [Fork this repo](https://github.com/cfpb/hmda-explorer/fork) to your personal GH account.
+1. [Fork the hmda-tech](https://github.com/cfpb/hmda-tech/fork) repo to your personal GH account.
 1. `git clone git@github.com:YOUR-USERNAME/hmda-explorer.git`
 1. `cd hmda-explorer`
 1. `npm install`
 1. `bower install`
+1. `cd src/static`
+1. `mkdir json`
+1. `cd json`
+1. `git clone git@github.com:YOUR-USERNAME/hmda-tech.git`
+1. `cd ../../../`
 1. `grunt build`
 1. `grunt`
 1. Open `localhost:8000` in a browser.
@@ -43,6 +48,8 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 
 ## Release History
+
+ * 2016-12-10   [v2.4.3](../../tree/v2.4.3)   Update Google Tag Manager snippet.
  * 2016-12-05   [v2.4.2](../../tree/v2.4.2)   Resolves an issue with an incorrectly scoped localStorage function.
  * 2016-11-08   [v2.4.1](../../tree/v2.4.1)   Resolves an issue with deprecated analytics tracker.
  * 2016-11-01   [v2.4.0](../../tree/v2.4.0)   Adds an announcement about 2017 data and the DES tool.
@@ -133,4 +140,4 @@ For further details, please see: http://www.consumerfinance.gov/developers/sourc
 
 ---
 
-*This file was generated on Thu Jul 21 2016 15:35:34.*
+*This file was generated on Fri Dec 09 2016 13:48:17.*
