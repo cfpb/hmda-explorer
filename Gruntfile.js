@@ -121,6 +121,7 @@ module.exports = function(grunt) {
           'dist/tech-preview.html': 'dist/tech-preview.html',
           'dist/faq.html': 'dist/faq.html',
           'dist/des-update-2017.html': 'dist/des-update-2017.html',
+          'dist/lar-formatting-tool.html': 'dist/lar-formatting-tool.html',
         }
       }
     },
@@ -193,7 +194,9 @@ module.exports = function(grunt) {
           {expand: true, cwd: 'src/static/vendor/zeroclipboard/', src: ['**'], dest: 'dist/static/js/zeroclipboard/'},
           {expand: true, cwd: 'src/static/vendor/chosen/public/', src: ['*.png'], dest: 'dist/static/css/'},
           // content for filers
-          {expand: true, cwd: 'src/static/for-filers/', src: ['**'], dest: 'dist/static/for-filers/'}
+          {expand: true, cwd: 'src/static/for-filers/', src: ['**'], dest: 'dist/static/for-filers/'},
+          // content lar formatting tool
+          {expand: true, cwd: 'src/static/lar-formatting-tool/', src: ['**'], dest: 'dist/static/lar-formatting-tool/'}
         ]
       },
       ghpages: {
@@ -287,7 +290,8 @@ module.exports = function(grunt) {
           'dist/for-filers.html': ['src/for-filers.html'],
           'dist/tech-preview.html': ['src/tech-preview.html'],
           'dist/faq.html': ['src/faq.html'],
-          'dist/des-update-2017.html': ['src/des-update-2017.html']
+          'dist/des-update-2017.html': ['src/des-update-2017.html'],
+          'dist/lar-formatting-tool.html': ['src/lar-formatting-tool.html'],
         }
       }
     },
