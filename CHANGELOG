@@ -1,3 +1,35 @@
+v2.4.3:
+  date: 2016-12-10
+  changes:
+    - Update Google Tag Manager snippet.
+
+v2.4.2:
+  date: 2016-12-05
+  changes:
+    - Resolves an issue with an incorrectly scoped localStorage function.
+
+v2.4.1:
+  date: 2016-11-08
+  changes:
+    - Resolves an issue with deprecated analytics tracker.
+
+v2.4.0:
+  date: 2016-11-01
+  changes:
+    - Adds an announcement about 2017 data and the DES tool.
+
+v2.3.1:
+  date: 2016-09-29
+  changes:
+    - A small update to one of the URLs.
+
+v2.3.0:
+  date: 2016-09-29
+  changes:
+    - Incorporated 2015 HMDA data
+    - Updated alert formatting / wording
+    - Bugfixes for census tracts URL parameters.
+
 v2.2.2:
   date: 2016-07-21
   changes:

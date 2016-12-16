@@ -6,7 +6,7 @@ var PDP = (function ( pdp ) {
   // ----------------
   // A place for misc. event handlers.
 
-  // Toggle the popular/all filters sections  
+  // Toggle the popular/all filters sections
   $('a.section-toggle').on( 'click', function( ev ){
 
     var targetSection = $( this ).attr('href').replace('#', '');
@@ -43,7 +43,7 @@ var PDP = (function ( pdp ) {
     ev.preventDefault();
 
     // Log event to GA
-    track( 'Page Interaction', 'Filters', preset );
+    //track( 'Page Interaction', 'Filters', preset );
 
     if ( preset === 'custom' ) {
       return;
@@ -70,7 +70,7 @@ var PDP = (function ( pdp ) {
 
     pdp.observer.emitEvent('field:changed', [ $( this ).attr('id') ] );
 
-    // Select the 'custom' suggestion if the field they're changing is NOT 
+    // Select the 'custom' suggestion if the field they're changing is NOT
     // the suggestion dropdown and the 'custom' suggestion isn't already chosen.
     if ( !isSuggestedField && !isCustomAlreadyChosen && value ) {
       name = $('.field.suggested select').find('option[value=' + $('.field.suggested select').val() + ']').text();
@@ -125,7 +125,7 @@ var PDP = (function ( pdp ) {
     }
 
     // Log event to GA
-    track( 'downloads', 'HMDA raw data', 'filter-page:' + url );
+    //track( 'downloads', 'HMDA raw data', 'filter-page:' + url );
 
     ev.preventDefault();
     pdp.app.redirect( url );
@@ -148,7 +148,7 @@ var PDP = (function ( pdp ) {
     }
 
     // Log event to GA
-    track( 'downloads', 'HMDA raw data', 'summary-table-page:' + url );
+    //track( 'downloads', 'HMDA raw data', 'summary-table-page:' + url );
 
     ev.preventDefault();
     pdp.app.redirect( url );
