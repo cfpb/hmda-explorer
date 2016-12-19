@@ -1,3 +1,9 @@
+v2.5.0:
+  date: 2017-01-04
+  changes:
+    - Add HMDA LAR Formatting Tool.
+    - Update content (web, FIG, tech preview) due to HMDA LAR Formatting Tool.
+
 v2.4.3:
   date: 2016-12-10
   changes:
