@@ -102,7 +102,7 @@
 
       <h2>What is a variable-width, pipe delimited text file?</h2>
       <ol>
-        <li>A pipe delimited text file is a file containing multiple data fields separated by a pipe character, “|”, to distinguish where each data field starts and ends. Files are stored in plain text as numbers and letters with one record per line.</li>
+        <li>A pipe delimited text file is a file containing multiple data fields separated by a pipe character, &ldquo;|&rdquo;, to distinguish where each data field starts and ends. Files are stored in plain text as numbers and letters with one record per line.</li>
         <li>Data fields will vary in width, depending on the response.</li>
         <li>To leave a data field blank, as permitted in some cases by Regulation C and the <a href="for-filers">Filing Instructions Guide</a> (FIG), enter two consecutive pipes with no spaces in between the pipes, like this &ldquo;||&rdquo;.</li>
         <li>
@@ -117,9 +117,6 @@
           <sup>1 This example is provided for illustrative purposes only and does not represent all the data fields reported in a row within the loan/application register. </sup>
         </li>
       </ol>
-
-      <h2>I need help formatting HMDA data into a pipe delimited text file. Is there a tool that can help?</h2>
-      <p>A loan/application register formatting tool will be provided to help filers format certain data into a pipe delimited text file. This tool may be especially helpful for filers with small volumes of reported loans who do not use vendors or other software to prepare their HMDA data for submission. Please refer to the <a href="http://www.ffiec.gov/hmda/">FFIEC</a> and the <a href="for-filers">CFPB</a> websites for resources to help you file.</p>
 
       <h2>Can I use the HMDA Data Entry Software (DES) for data collected in or after 2017?</h2>
       <p>No. Data collected by financial institutions in or after 2017 will be filed online with the CFPB. The DES will continue to be used only for data collected in or before 2016. Please refer to the <a href="http://www.ffiec.gov/hmda/">FFIEC</a> and the <a href="for-filers">CFPB</a> websites for resources to help you file.</p>
@@ -145,8 +142,42 @@
 
 
 
-
-
+      <h2>I need help formatting HMDA data into a pipe delimited text file. Is there a tool that can help?</h2>
+      <p>Yes. Many Loan Origination Software (LOS) systems, in addition to vendor HMDA software, can produce a pipe delimited text file for submission to the CFPB’s HMDA Platform. Microsoft<sup>&reg;</sup> Access<sup>&reg;</sup> or Excel<sup>&reg;</sup> may also be used for data entry and formatting.</p>
+      <p>The CFPB also provides a <a href="lar-formatting-tool">Loan/Application Register (LAR) Formatting Tool</a> into which filers can enter their HMDA data. This will produce a pipe delimited text file that can be submitted to the HMDA Platform. The filer can then proceed through the HMDA Platform to submit the LAR. This tool may be especially helpful for filers with small volumes of covered loans and applications.</p>
+      <h2>I am using a MAC<sup>&reg;</sup> computer. Can I use the CFPB’s 2017 LAR Formatting Tool?</h2>
+      <p>No. The CFPB’s 2017 LAR Formatting Tool requires the use of the Microsoft<sup>&reg;</sup> Visual Basic<sup>&reg;</sup> for Applications (VBA). VBA functionality is not supported on computers using operating systems other than Windows<sup>&reg;</sup>.</p>
+      <h2>Will the CFPB’s 2017 LAR Formatting Tool check the entered data for any HMDA edits?</h2>
+      <p>No. The CFPB’s 2017 LAR Formatting Tool is intended only to format HMDA data into a pipe delimited text file format. HMDA edits can be checked once the file has been uploaded to the HMDA Platform.</p>
+      <h2>Nothing happens when I select the &ldquo;Create LAR File&rdquo; button. How do I export my data?</h2>
+      <p>The macro, or code, that instructs the worksheet to export the information needs to be enabled for earlier versions of Microsoft<sup>&reg;</sup> Excel<sup>&reg;</sup>. Please refer to Appendix A: Enabling macros for Microsoft<sup>&reg;</sup> Excel<sup>&reg;</sup> 2002 and 2003 in the <a href="lar-formatting-tool">Instructions for HMDA LAR Formatting Tool</a>.</p>
+      <h2>When I type data into the 2017 LAR Formatting Tool that begins with a zero &ldquo;0&rdquo;, the zero &ldquo;0&rdquo; disappears from that data field. How do I format the data so that it begins with a leading zero &ldquo;0&rdquo;?</h2>
+      <p>For data that begin with zero &ldquo;0&rdquo;, you must enter a single quotation mark as the first character in the cell. For example, for the Respondent ZIP Code 00123, enter ‘00123 in cell K3 on the &ldquo;Data&rdquo; worksheet.</p>
+      <h2>Do I need to add a pipe, &ldquo;|&rdquo; in each cell of the 2017 LAR Formatting Tool?</h2>
+      <p>No. Enter your data only, without pipes or commas, into the respective cells on the &ldquo;Data&rdquo; worksheet. The pipes separating each data field will be added to the text file once you select the &ldquo;Create LAR file&rdquo; button.</p>
+      <h2>In the 2017 LAR Formatting Tool, can I modify the data once it is entered in the &ldquo;Data&rdquo; worksheet?</h2>
+      <p>Yes. Data entered in the &ldquo;Data&rdquo; worksheet can be modified any time prior to selecting the &ldquo;Create LAR File&rdquo; button to format the data into a pipe delimited text file.</p>
+      <h2>Will the &ldquo;Data&rdquo; worksheet remove duplicates?</h2>
+      <p>No. The macro, or code, only instructs the worksheet to format the data into a pipe delimited text file. Duplicates will not be automatically removed.</p>
+      <h2>How do I save the HMDA_2017_LAR_Formatting_Tool.xlsm into a text file?</h2>
+      <p>Select the &ldquo;Create LAR File&rdquo; button, and a separate text file will be created. If you would like to save the HMDA_2017_LAR_Formatting_Tool.xlsm file and update it throughout the year, or to use it as a reference, please refer to Section 2, step 13 of the <a href="lar-formatting-tool">Instructions for HMDA LAR Formatting Tool</a> for how to save the workbook.</p>
+      <h2>Can I save different versions of the pipe delimited text file?</h2>
+      <p>Yes. Select &ldquo;Create LAR File&rdquo; and a prompt to save the file will appear. Enter the file name and version, as applicable, and save the file type as &ldquo;Text Files&rdquo; format.</p>
+      <h2>Can I save the workbook on my computer and enter information in the file throughout the year?</h2>
+      <p>Yes. You can save the 2017 LAR Formatting Tool onto your computer and access it throughout the year. Please refer to Section 2, step 13 of the <a href="lar-formatting-tool">Instructions for HMDA LAR Formatting Tool</a> for how to save the file.</p>
+      <h2>When I export my data into the pipe delimited text file, double quotes appear around certain rows of my data. Is that the correct format?</h2>
+      <p>No. The double quotes appear around the data because there is a comma &ldquo;,&rdquo; within a data field in that specific row. Please remove the comma from the data field and re-export your HMDA data by selecting the &ldquo;Create LAR File&rdquo; button.</p>
+      <h2>What should I do if the data I entered into the &ldquo;Data&rdquo; spreadsheet is not displayed in the text file?</h2>
+      <p>Verify the following:</p>
+      <ul>
+        <li>The Respondent ID is entered in each row where there is data.</li>
+        <li>The data were entered in consecutive rows, without skipping rows. The embedded code in the 2017 LAR Formatting Tool will stop extracting data upon encountering the first blank row of the LAR. Therefore, any data entered after the blank row in the LAR will not be extracted.</li>
+      </ul>
+      <p>Once these issues have been resolved, please select the &ldquo;Create LAR File&rdquo; button to extract the data.</p>
+      <h2>Can I print the data that I entered into the 2017 LAR Formatting Tool?</h2>
+      <p>Due to the width of the &ldquo;Data&rdquo; worksheet, the data is best viewed using a computer. However, the &ldquo;Data&rdquo; worksheet can be printed on paper sizes 8.5&rdquo; x 14&rdquo; or 11&rdquo; x 17&rdquo;. You can also print the pipe delimited text file for your records.</p>
+      <h2>Can I use the same 2017 LAR Formatting Tool for the data collected in 2018?</h2>
+      <p>No. The 2017 LAR Formatting Tool is only for use for data collected in 2017. Since additional data points will be collected in 2018, a separate LAR Formatting Tool will be released at a later date that can be used for data collected in 2018.</p>
     </div>
   </div>
 </div>
