@@ -16,18 +16,15 @@
       <link rel="stylesheet" href="static/css/ie8.min.css">
       <script src="static/js/respond.min.js"></script>
     <![endif]-->
-    <script>
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-20466645-3']);
-      _gaq.push(['_setDomainName', '.consumerfinance.gov']);
-      _gaq.push(['_trackPageview']);
 
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KMMLRS');</script>
+    <!-- End Google Tag Manager -->
+
     <script>
       var docElement = document.documentElement;
       docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2');
@@ -39,15 +36,10 @@
   <!--[if IE 9]>         <body class="lt-ie10 hmda explore learn-more"> <![endif]-->
   <!--[if gt IE 9]><!--><body class="hmda explore for-filers"><!--<![endif]-->
 
-  <!-- Google Tag Manager -->
-  <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KMMLRS"
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KMMLRS"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-KMMLRS');</script>
-  <!-- End Google Tag Manager -->
+  <!-- End Google Tag Manager (noscript) -->
 
     <div class="top-banner">
       <div class="inner">
@@ -97,48 +89,63 @@
     <div class="inner">
       <img src="static/img/ffiec-logo.png" width="150px" />
       <h2>Introduction</h2>
-      <p>For HMDA data collected in or after 2017, a web-based data submission and edit-check system (the HMDA Platform) is being created to process Home Mortgage Disclosure Act (HMDA) data. It is expected that the HMDA Platform will streamline the HMDA submission process and reduce burden on HMDA filers. </p>
-      <p>This web page is intended to provide an initial view into the way HMDA filers will interact with the HMDA Platform. Additionally, this web page describes resources that will be available for filers, developers, and the interested public. This web page will be updated on an ongoing basis, to keep stakeholders informed of new developments.</p>
+      <p>For HMDA data collected in or after 2017, a web-based data submission and edit-check system (the HMDA Platform) is being created to process Home Mortgage Disclosure Act (HMDA) data. It is expected that the HMDA Platform will streamline the HMDA submission process and reduce burden on HMDA filers.</p>
+      <p>This webpage is intended to provide an initial view into the way HMDA filers will interact with the HMDA Platform. Additionally, this webpage describes resources that will be available for filers, developers, and the interested public. This webpage will be updated on an ongoing basis, to keep stakeholders informed of new developments.</p>
 
       <h2>Interacting with the HMDA Platform </h2>
-      <p>The HMDA Platform will be available online only and will guide filers through the entire filing process, including the review of any edits and the certification of the accuracy and completeness of the loan/application register. A separate <a href="for-filers">Filing Instructions Guide</a> (FIG) describes the file format and other requirements.</p>
+      <p>The HMDA Platform will be available online only and will guide filers through the entire filing process, including the review of any edits and the certification of the accuracy and completeness of the loan/application register (LAR). A separate <a href="for-filers">Filing Instructions Guide</a> (FIG) describes the file format and other requirements.</p>
 
       <h2>User accounts</h2>
-      <p>The HMDA Platform will require every HMDA filer to register online for login credentials and establish an account prior to using the system.</p>
-      <p>Once established, a HMDA filer’s account will allow a financial institution to upload its loan/application register, check on which stage it is in the filing process, complete the review and verification steps, and submit the loan/application register.</p>
-      <p>The CFPB will provide details on the registration process in a future update.</p>
+      <p>The HMDA Platform will require every HMDA filer to register online for login credentials and establish an account prior to using the system. For institutions that have previously filed HMDA data, an authorized representative of the financial institution can complete the process online. When new HMDA filers access the HMDA Platform, they will be directed to HMDA Help for further assistance in setting up their accounts.</p>
+      <p>Once established, a HMDA filer’s account will allow a financial institution to upload its LAR, check on which stage it is in within the filing process, complete the review and verification steps, and submit the LAR.</p>
+      <p>An individual can be authorized by more than one financial institution to file HMDA data on those institutions’ behalf, provided that under Regulation C, each such institution is a HMDA filer. Furthermore, each financial institution may have multiple users. During the registration process, a user indicates the institution(s) on behalf of which the user is authorized to file.</p>
+      <p>The Consumer Financial Protection Bureau (CFPB) will provide specific details on the registration process in a future update.</p>
 
-      <h2>Submitting a HMDA file</h2>
-      <p>The HMDA Platform will allow the filer to select the appropriate loan/application register from a local or network file system. The newly-uploaded file will supersede any previously uploaded file for which the filer did not complete the submission process.</p>
-      <p>The HMDA Platform will confirm the upload of the selected loan/application register, check that the file is pipe delimited (see <a href="for-filers">FIG sec 3</a>) and has the correct number of data fields (see <a href="for-filers">FIG sec 3</a>). If the file is not properly formatted, the HMDA Platform will send an error message and require the HMDA filer to correct and refile the loan/application register.</p>
+      <h2>Submitting a LAR</h2>
+      <p>The HMDA Platform will allow the filer to select the appropriate LAR from a local or network file system. This must be a single file that contains the entire LAR for the filer; the HMDA Platform will not allow users to combine multiple files.  The newly-uploaded LAR will supersede any previously uploaded LAR for which the filer did not complete the submission process.</p>
+      <p>The HMDA Platform will confirm the upload of the selected LAR, check that it is pipe delimited, and has the correct number of data fields (see <a href="for-filers">FIG sec 3</a>). If the LAR is not properly formatted, the HMDA Platform will display an error message and require the HMDA filer to correct and refile the LAR.</p>
 
       <h2>HMDA edits</h2>
-      <p>Once the HMDA Platform confirms that the loan/application register is in the correct format, it will check the accuracy and completeness of the loan/application register using the HMDA edits. An interactive process will inform the filer of the current stage of review, any items that need to be addressed, and next steps for completing the HMDA filing. At each stage, any edits identified in the loan/application register will be reported back to the filer.</p>
-      <p>For data collected in 2017, the edits are listed in <a href="for-filers">Section 4 of the FIG</a> for HMDA data collected in 2017.  Edits for data collected in 2018 will be released at a later date.</p>
+      <p>Once the HMDA Platform confirms that the LAR is in the correct format, it will check the accuracy and completeness of the LAR using the HMDA edits. An interactive process will inform the filer of the current stage of review, any items that need to be addressed, and next steps for completing the HMDA filing. At each stage, any edits identified in the LAR will be reported to the filer.</p>
+      <p>For data collected in 2017, the edits are listed in <a href="for-filers">Section 4 of the FIG</a> for HMDA data collected in 2017. Edits for data collected in 2018 will be released at a later date.</p>
+
 
       <h3>Syntactical and validity edit review</h3>
-      <p>The HMDA Platform will identify any syntactical or validity edit and the rows in the loan/application register where each edit is triggered. Additionally, a list of the edits identified in the loan/application register will be available for download.</p>
-      <p>Syntactical and validity edits must all be addressed prior to moving forward with the filing process. If the filer needs to correct any data, the filer must refile the updated loan/application register to the HMDA Platform. The loan/application register will then be rechecked for syntactical and validity edits.</p>
+      <p>The HMDA Platform will identify any syntactical or validity edit and the rows in the LAR where each edit is triggered. Additionally, a list of the edits identified in the LAR will be available for download.</p>
+      <p>Syntactical and validity edits must all be addressed prior to moving forward with the filing process. If the filer needs to correct any data, the filer must refile the updated LAR to the HMDA Platform. The LAR will then be rechecked for syntactical and validity edits.</p>
+
 
       <h3>Quality and macro quality edit review</h3>
-      <p>Once the HMDA Platform has confirmed there are no syntactical or validity edits, the filer will be prompted to review any quality and/or macro quality edits that the HMDA Platform identifies in individual rows in the loan/application register, groups of rows, or the entire loan/application register. The filer must either confirm the accuracy or correct all data flagged by the quality edits through the user interface and provide explanations for any macro quality edits. If a filer corrects any data in response to quality and macro edits, the filer must refile the updated loan/application register in the HMDA Platform.</p>
+      <p>Once the HMDA Platform has confirmed there are no syntactical or validity edits, the filer will be prompted to review any quality and/or macro quality edits that the HMDA Platform identifies in individual rows in the LAR, groups of rows, or the entire LAR. The filer must either confirm the accuracy of the data flagged by the quality edits or provide explanations for any macro quality edits. If a filer needs to correct any data in the file in response to quality and/or macro edits, the filer must correct the data and refile  the updated LAR to the HMDA Platform.</p>
 
       <h3>Final validation steps</h3>
-      <p>Once all edits have been addressed, the HMDA Platform will require an authorized representative of the filer’s institution to certify the completeness and accuracy of the loan/application register (see <a href="for-filers">FIG section 3.2</a>).</p>
+      <p>Once all edits have been addressed, the HMDA Platform will require an authorized representative of the filer’s institution to certify the completeness and accuracy of the LAR (see <a href="for-filers">FIG section 3.2</a>).</p>
+      <p>It is important to recall that all edits must be resolved prior to the March 1st annual HMDA submission deadline. Filers are encouraged to allow sufficient time, prior to the filing deadline, in order to address any edits. The submission must be completed by the March 1st annual deadline.</p>
 
       <h2>Complete a HMDA submission</h2>
-      <p>After the filer submits the loan/application register, the HMDA Platform will provide the filer with a summary screen acknowledging the time and date of submission.</p>
+      <p>After the filer submits the LAR, the HMDA Platform will provide the filer with a summary screen acknowledging the time and date of submission.</p>
 
       <h2>Resubmitting HMDA data</h2>
-      <p>In cases where a submission has been completed, the HMDA Platform will alert the filer that the loan/application register for the reporting year has already been filed, and prompt the filer to confirm that they wish to refile their loan/application register.</p>
-      <p>A HMDA resubmission requires the same edit review and certification by the institution’s authorized representative as an initial submission.</p>
+      <p>In cases where a submission has been completed and the filer wants to refile, the HMDA Platform will alert the filer that the LAR for the reporting year has already been filed, and prompt the filer to confirm that they wish to refile their LAR.</p>
+      <p>A HMDA resubmission requires the same edit review and certification by the institution’s authorized representative as with the previous submission.</p>
 
-      <h2>Future tools for HMDA filers</h2>
+      <h2>Other tools for HMDA filers</h2>
       <h3>Geocoding</h3>
       <p>A new online geocoding tool will be provided that identifies the census tract for a single address or batches of addresses. Further information will be forthcoming.</p>
 
-      <h3>Loan/Application Register Formatting Tool</h3>
-      <p>A loan/application register formatting tool will be provided to help filers format their HMDA data into a pipe delimited text file format. This tool may be especially helpful for filers with small volumes of reported loans. Further information will be forthcoming.</p>
+      <h3>Loan/Application Register (LAR) Formatting Tool</h3>
+      <p>Beginning with the HMDA data collected in 2017, the Data Entry Software currently provided by the FFIEC (DES) will no longer be available as a method of data entry or data submission.</p>
+      <p>Some financial institutions, typically those with small volumes of covered loans and applications, that currently manually enter each loan into the DES for submission, will need a software solution to create an electronic file that can be submitted to the new HMDA Platform.</p>
+      <p>Many solutions exist to create the electronic file. For example:</p>
+      <ul>
+        <li>A financial institution’s current Loan Origination Software (LOS) may meet this need.</li>
+        <li>Software commonly available on desktop computers such as Microsoft<sup>&reg;</sup> Access<sup>&reg;</sup> or Excel<sup>&reg;</sup> may also be used for data entry and formatting.</li>
+      </ul>
+      <p>In addition, the CFPB is publishing a Microsoft<sup>&reg;</sup> Excel<sup>&reg;</sup> HMDA LAR data entry formatting tool. This tool will help filers enter and format their HMDA data into a pipe delimited text file needed to submit the data to the CFPB’s HMDA Platform. Please visit the <a href="lar-formatting-tool">LAR Formatting Tool</a> webpage for more information.</p>
+
+      <h2>File Format Verification Tool</h2>
+      <p>In early 2017, the CFPB will also make available an electronic file format verification tool for filers who wish to confirm that a LAR is formatted in the required pipe delimited text file format. This verification tool will be available on a webpage that will run independently from the HMDA Platform, without the need for any special software (*minimum browser requirements will be provided at a later date). The tool will conduct the same initial checks that the future HMDA Platform will perform, and will provide a convenient test mechanism for filers, prior to the roll out of the full HMDA Platform.</p>
+
 
       <h2>Open source policy</h2>
       <p>The CFPB is committed to developing the programming code for the HMDA Platform in an open way. The HMDA Platform is being actively developed on the site, GitHub.com (see: <a href="https://github.com/cfpb/hmda-platform">https://github.com/cfpb/hmda-platform</a>). This provides transparency to the algorithms and methodologies used to parse and validate a HMDA file, as well as the code used to develop the HMDA Platform user interface and related tools for filers. This code is in the public domain and does not impact the privacy or security of the data.</p>
