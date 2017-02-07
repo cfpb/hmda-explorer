@@ -16,18 +16,15 @@
       <link rel="stylesheet" href="static/css/ie8.min.css">
       <script src="static/js/respond.min.js"></script>
     <![endif]-->
-    <script>
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-20466645-3']);
-      _gaq.push(['_setDomainName', '.consumerfinance.gov']); // For production
-      _gaq.push(['_trackPageview']);
 
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KMMLRS');</script>
+    <!-- End Google Tag Manager -->
+
     <script>
       var docElement = document.documentElement;
       docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2');
@@ -39,25 +36,20 @@
   <!--[if IE 9]>         <body class="lt-ie10 hmda explore api-docs"> <![endif]-->
   <!--[if gt IE 9]><!--><body class="hmda explore api-docs"><!--<![endif]-->
 
-    <!-- Google Tag Manager -->
-  <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KMMLRS"
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KMMLRS"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-KMMLRS');</script>
-  <!-- End Google Tag Manager -->
+  <!-- End Google Tag Manager (noscript) -->
 
-  <div id="wrap">  
+  <div id="wrap">
     <div class="top-banner">
       <div class = "inner">
         <p class="return-cfgov">Return to <a href="http://www.consumerfinance.gov">consumerfinance.gov</a></p>
         <p class="official-website">An official website of the United States Government<img src="static/img/icon_usflag.png" width="16" height="11" alt="US Flag" /></p>
       </div>
-    </div> 
+    </div>
 
-    <header role="banner"> 
+    <header role="banner">
 
       <div class="logo">
 
@@ -93,16 +85,16 @@
 
 
       <!-- api section -->
-      <div id="main"> 
+      <div id="main">
         <div id="api-docs">
-        
 
 
-        <section id="api-documentation"> 
-          
+
+        <section id="api-documentation">
+
           <div class="background">
             <div class="inner">
-          
+
             <%= api_api_body %>
 
               <div class="links">
@@ -123,7 +115,7 @@
         </section>
 
 
-        
+
 
         </div>
 
