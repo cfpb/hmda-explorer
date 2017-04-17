@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>The Home Mortgage Disclosure Act</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <script src="static/js/jquery.min.js"></script>
+  <link rel="stylesheet" href="static/css/main.min.css">
+  <!--[if lt IE 8]>
+    <link rel="stylesheet" href="static/css/icons-ie7.css">
+  <![endif]-->
+  <!--[if lt IE 9]>
+    <script src="static/js/ie8.min.js"></script>
+    <link rel="stylesheet" href="static/css/ie8.min.css">
+    <script src="static/js/respond.min.js"></script>
+  <![endif]-->
+  <script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-20466645-3']);
+    _gaq.push(['_setDomainName', '.consumerfinance.gov']); // For production
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  <script>
+    var docElement = document.documentElement;
+    docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2');
+  </script>
+</head>
+<!--[if lt IE 7]>      <body class="lt-ie9 lt-ie8 lt-ie7 hmda explore"> <![endif]-->
+<!--[if IE 7]>         <body class="lt-ie9 lt-ie8 hmda explore"> <![endif]-->
+<!--[if IE 8]>         <body class="lt-ie9 hmda explore"> <![endif]-->
+<!--[if IE 9]>         <body class="lt-ie10 hmda explore"> <![endif]-->
+<!--[if gt IE 9]><!--><body class="hmda explore"><!--<![endif]-->
+
+  <div class="top-banner">
+    <div class="inner">
+      <p class="return-cfgov">Return to <a href="http://www.consumerfinance.gov">consumerfinance.gov</a></p>
+      <p class="official-website">An official website of the United States Government<img src="static/img/icon_usflag.png" width="16" height="11" alt="US Flag" /></p>
+    </div>
+  </div> 
+
+  <header role="banner">
+
+    <div class="logo">
+
+      <a href="http://www.consumerfinance.gov"><img src="static/img/logo_2x.png" width="211" height="52" alt="Consumer Financial Protection Bureau" /></a>
+
+    </div>
+
+    <button class="navicon">
+      <i class="cf-icon cf-icon-menu"></i>
+    </button>
+
+    <nav role="navigation" aria-label="Main HMDA Menu">
+      <ul>
+        <li><a href=".">Home</a></li>
+        <li><a href="learn-more">Learn more</a></li>
+        <li><a href="explore" class="active">Explore data</a></li>
+        <li><a href="api">API docs</a></li>
+      </ul>
+    </nav>
+
+  </header>
+
+  <div class="hero" role="main">
+
+    <div class="inner">
+
+      <h1>Explore the data</h1>
+
+    </div>
+
+  </div>
+
+  <noscript>
+    <div class="js-disabled">
+      <div class="msg javascript-warning">
+        <%= explore_javascript_warning %>
+      </div>
+      <img src="static/img/bg_no-js-screenshot.jpg" alt="JavaScript is required to use this application">
+    </div>
+  </noscript>
+
+  <!-- filters -->
+
+  <div id="filters" class="app-section">
+    <div class="placeholder-grid">
+      <div class="isocon" id="download_isocon">
+        <img src="static/img/icon_getdata_2x.png" alt="Spreadsheet with download arrow">
+      </div>
+      <div class="placeholder-content" id="placeholder_content">
+        <h2>Our API is being updated. We expect it to be available later this month.</h2>
+        <p>HMDA data is still available for download in compressed CSV format. Thank you for your patience!</p>
+        <div class="links">
+          <ul class="static-file-listing">
+            <!-- see qu-static-files hmda.json for the query and name -->
+            <li class="static-file-item"><a class="action-arrow" href="https://s3.amazonaws.com/files.consumerfinance.gov/hmda_explorer_assets/f005c271b04379a092a32faaf4fc808a.zip">2013 All Records (1.24 GB)<span class="static-icon cf-icon cf-icon-download"></span></a></li>
+            <li class="static-file-item"><a class="action-arrow" href="https://s3.amazonaws.com/files.consumerfinance.gov/hmda_explorer_assets/d362ae1a27f50056503169991851c316.zip">2012 All Records (1.47 GB)<span class="static-icon cf-icon cf-icon-download"></span></a></li>
+            <li class="static-file-item"><a class="action-arrow" href="https://s3.amazonaws.com/files.consumerfinance.gov/hmda_explorer_assets/f0e02ddbeab2b689fc41df478abcc786.zip">2011 All Records (1.08 GB)<span class="static-icon cf-icon cf-icon-download"></span></a></li>
+            <li class="static-file-item"><a class="action-arrow" href="https://s3.amazonaws.com/files.consumerfinance.gov/hmda_explorer_assets/2a4ab645abe8fba5680d450bfadfd412.zip">2010 All Records (1.20 GB)<span class="static-icon cf-icon cf-icon-download"></span></a></li>
+          </ul>
+      </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- /group section -->
+
+  <%= footer %>
+
+  <script src="static/js/main.min.js"></script>
+  <script src="static/js/explore.min.js"></script>
+</body>
+</html>
