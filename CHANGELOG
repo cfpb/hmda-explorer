@@ -1,3 +1,9 @@
+v2.5.5:
+  date: 2017-07-26
+  changes:
+    - Add links to HMDA Help form.
+    - Update HMDA scenarios.
+
 v2.5.2:
   date: 2017-07-11
   changes:
