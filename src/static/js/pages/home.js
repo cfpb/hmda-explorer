@@ -18,9 +18,9 @@ $(function(){
   $('#map_radios').on('change', function( ev ){
     var radio = $(this).find('input[type=radio]:checked');
     if( radio.val() === 'r' ){
-      $( '#map-title' ).find('a.underlying').attr('href', 'explore#!/as_of_year=2015,2014,2013&property_type=1,2&owner_occupancy=1&action_taken=1&loan_purpose=3&lien_status=1&select=state_name,county_name,as_of_year,count&section=summary');
+      $( '#map-title' ).find('a.underlying').attr('href', 'explore#!/as_of_year=2016,2015,2014&property_type=1,2&owner_occupancy=1&action_taken=1&loan_purpose=3&lien_status=1&select=state_name,county_name,as_of_year,count&section=summary');
     } else {
-      $( '#map-title' ).find('a.underlying').attr('href', 'explore#!/as_of_year=2015,2014,2013&property_type=1,2&owner_occupancy=1&action_taken=1&loan_purpose=1&lien_status=1&select=state_name,county_name,as_of_year,count&section=summary');
+      $( '#map-title' ).find('a.underlying').attr('href', 'explore#!/as_of_year=2016,2015,2014&property_type=1,2&owner_occupancy=1&action_taken=1&loan_purpose=1&lien_status=1&select=state_name,county_name,as_of_year,count&section=summary');
     }
   });
 
@@ -34,10 +34,10 @@ $(function(){
     map.base = L.mapbox.map('map', 'cfpb.cr4f3gpz').setView([39.54, -97.87], 4);
 
     map.layers = {
-      r_year1: L.mapbox.tileLayer('cfpb.1qabis96'),
-      r_year2: L.mapbox.tileLayer('cfpb.hmda_r_o_14_15'),
-      p_year1: L.mapbox.tileLayer('cfpb.dfxcoiyb'),
-      p_year2: L.mapbox.tileLayer('cfpb.hmda_p_o_14_15')
+      r_year1: L.mapbox.tileLayer('cfpb.hmda_r_o_14_15'),
+      r_year2: L.mapbox.tileLayer('cfpb.hmda_r_o_15_16'),
+      p_year1: L.mapbox.tileLayer('cfpb.hmda_p_o_14_15'),
+      p_year2: L.mapbox.tileLayer('cfpb.hmda_p_o_15_16')
     };
 
     // Add each layer and immediately hide it.
