@@ -31,7 +31,7 @@ $(function(){
 
     L.mapbox.accessToken = 'pk.eyJ1IjoiY29udG8iLCJhIjoiYWY0ODdmZTM2N2M1NTE4YmVkNTdkZWI1ZTcxNWRmNTgifQ.ZXAoSbSp6NTPLQ8zP0lQ2Q';
 
-    map.base = L.mapbox.map('map', 'cfpb.cr4f3gpz').setView([39.54, -97.87], 4);
+    map.base = L.mapbox.map('map', 'cfpb.8yw756vz').setView([39.54, -97.87], 4);
 
     map.layers = {
       r_year1: L.mapbox.tileLayer('cfpb.hmda_r_o_14_15'),
