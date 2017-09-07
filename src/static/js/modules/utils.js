@@ -91,7 +91,6 @@ var PDP = (function( pdp ) {
       } while (html !== oldHtml);
       return html.replace(/</g, '&lt;');
     }
-    console.log('SANITIZE STRING: ', string);
     return removeTags( string );
 
   };
