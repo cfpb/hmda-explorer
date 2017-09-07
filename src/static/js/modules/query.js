@@ -4,8 +4,8 @@ var PDP = (function ( pdp ) {
 
   // The Query Object
   // ----------------
-  // The `query` object is used to cache filter values and store methods 
-  // that manipulate filter values. 
+  // The `query` object is used to cache filter values and store methods
+  // that manipulate filter values.
   var query = {};
 
   // If debug is set to true, dummy data will be used.
@@ -30,7 +30,7 @@ var PDP = (function ( pdp ) {
   // If a preset is passed, some defaults will be set.
   query.reset = function( preset ) {
 
-    // The year is selected independent of the preset, because 
+    // The year is selected independent of the preset, because
     // of this we have to ensure it doesn't get overwritten.
     var years = $('.field.as_of_year select').val() || [2015];
 
@@ -119,7 +119,7 @@ var PDP = (function ( pdp ) {
         fields = pdp.app.getUrlValues();
         break;
       // State is stored in a cookie. Removing this functionality for now because
-      // it's confusing the UX team. I'd rather work on other stuff than explain 
+      // it's confusing the UX team. I'd rather work on other stuff than explain
       // to them how this works. Winter is coming.
       // case 'session':
       //   fields = pdp.query.getCookie();
@@ -143,7 +143,7 @@ var PDP = (function ( pdp ) {
           };
         }
 
-        // If the value is a string from a text box we don't want to iterate 
+        // If the value is a string from a text box we don't want to iterate
         // over it because it will be split up the characters.
         if ( field.type === 'text' ) {
           query.params[ field.name ].values = [ field.values ];
@@ -208,7 +208,7 @@ var PDP = (function ( pdp ) {
     return hash;
 
   };
-  
+
   query.removeSelectParam = function (params) {
     //using a copy of the params means that the select obj
     //is still available on query.params for share url generation
@@ -224,14 +224,14 @@ var PDP = (function ( pdp ) {
 
   // The `generateApiUrl` method builds and returns a Qu URL from `query`'s `params`.
   query.generateApiUrl = function( format, codes, params ) {
-    
+
     var url,
         apiCallParams = params || this.params,
         showCodes = codes || this.codes,
         downloadFormat = format || this.format;
-    //remove 'select' from params so it won't be added to where clause 
+    //remove 'select' from params so it won't be added to where clause
     apiCallParams = query.removeSelectParam(apiCallParams);
-    
+
     // Set a base url to append params to
     url = this.endpoint + 'slice/hmda_lar.' + downloadFormat + '?';
 
@@ -250,20 +250,20 @@ var PDP = (function ( pdp ) {
     return url;
 
   };
-  
+
 
   // builds the query string to append to api url
   // arg: params, object. if you only need a 'where' clause, passing in
   // query.params will do just fine
   // if you need to use the 'select' and 'group' clauses, pass an object
-  // that has a property 'clauses' with an array of objects that correspond to 
+  // that has a property 'clauses' with an array of objects that correspond to
   // each clause. example:
   // params = {
   //   clauses: {
   //     select: ['var_one', 'var_two'],
   //     group: ['var_one', 'var_two']
   //   }
-  // } 
+  // }
   query._buildApiQuery = function( params ) {
     var url = '', key;
 
@@ -307,7 +307,7 @@ var PDP = (function ( pdp ) {
         var consolidatedName, groupName;
         // If the parameter is an enumerated (state-code-1) field then
         if ( paramName.match(/\-\d+$/) ) {
-          
+
           // If this is a special case with county, state, or census tract
           // then they needs to be grouped together as an object for appropriate query creation
           if ( paramName.indexOf('state_code') > -1 || paramName.indexOf('county_code') > -1 || paramName.indexOf('census_tract_number') > -1 ){
@@ -327,7 +327,7 @@ var PDP = (function ( pdp ) {
             // Loop through each location group parameter and push it to the appropriate object
             _.forEach( param.values, function( value ){
               if ( paramName.indexOf('state_code') > -1 ){
-                locGroup[ groupName ].stateValue = value;             
+                locGroup[ groupName ].stateValue = value;
               } else if ( paramName.indexOf('county_code') > -1 ){
                 locGroup[ groupName ].countyValues.push( value );
               } else if ( paramName.indexOf('census_tract_number') > -1 ){
@@ -369,12 +369,12 @@ var PDP = (function ( pdp ) {
           param.joiner = ' OR ';
           locVals.push( paramVals );
           locVals.push( param.joiner );
-        // Otherwise, push the parameter to the queryVals array which is joined first (below)  
+        // Otherwise, push the parameter to the queryVals array which is joined first (below)
         } else {
           queryVals.push( paramVals );
         }
       }.bind( this ));
-      
+
       // For each location group, iterate through and create valid, grouped query string
       _.forEach( locGroup, function(i, val){
         var queryStr = '', item = locGroup[val];
@@ -401,7 +401,7 @@ var PDP = (function ( pdp ) {
       locVals.pop(); //Get rid of the last joiner / operator - not needed.
       // Add each queryVals parameter and their joiner string to where variable
       if( queryVals.length > 0 ){
-        where = queryVals.join(' AND ');  
+        where = queryVals.join(' AND ');
         // If location information selected, then join that to the existing query
         if( locVals.length > 0 ){
           where += ' AND (' + locVals.join('') + ')';
