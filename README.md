@@ -40,7 +40,7 @@ Only edit files in `src`. When anything is changed, Grunt will lint, test, compi
 
 In lieu of a formal styleguide, take care to maintain the existing coding style.
 
-We recommend using Node 4.8.0 to run the test / build frameworks dependably for this application.
+We recommend using Node 0.10 to run the test / build frameworks dependably for this application.
 
 ## Tagging releases
 
