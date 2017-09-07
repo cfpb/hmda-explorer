@@ -257,17 +257,11 @@ var PDP = (function ( pdp ) {
 
     var params = pdp.query.params,
         field = params[ name ];
-
     _.forEach( field.values, function( val ){
 
 
       // Set radios.
       $('input[name=' + name + '][value="' + val + '"]').prop('checked', true);
-
-      // rate_spread specialness
-      if( name === 'rate_spread'){
-        $('input[name="rate_spread"][data-comparator="' + params['rate_spread'].comparator + '"]').prop('checked', true);
-      }
 
       // Set checkboxes.
       $('input[name=' + name + '\\[\\]][value="' + val + '"]').prop('checked', true);
@@ -277,8 +271,11 @@ var PDP = (function ( pdp ) {
     // Set selects.
     $('select[name=' + name + ']').val( field.values ).trigger('liszt:updated');
 
-    // Set textboxes.
-    if ( params[name].comparator !== '=' ) {
+    // Set textboxes, handle rate spread specialness.
+    // rate_spread specialness
+    if( name === 'rate_spread'){
+      $('input[name="rate_spread"][data-comparator="' + params['rate_spread'].comparator + '"]').prop('checked', true);
+    } else if ( params[name].comparator !== '=') {
       $('input[type=text][name=' + name + '][data-comparator="' + params[name].comparator + '"]').val( field.values[0] );
     } else {
       $('input[type=text][name=' + name + ']').val( field.values[0] );
@@ -288,7 +285,6 @@ var PDP = (function ( pdp ) {
 
   // The `setFields` method sets all fields' values/options from the `query.params` hash.
   form.setFields = function( options ) {
-
     var opts = options || {},
         params = _.keys( pdp.query.params );
 
