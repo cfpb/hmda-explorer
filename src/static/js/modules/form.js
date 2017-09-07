@@ -16,7 +16,7 @@ var PDP = (function ( pdp ) {
   form.locationCount = 1;
   // Set a counter so group set IDs are unique (never decremented)
   form.locationSetNum = 1;
-  // 2014 MSAs may show the same name and code number in 2014/2015 as previous 
+  // 2014 MSAs may show the same name and code number in 2014/2015 as previous
   // years, even though the underlying geography has changed
   form.warn2014Msa = false;
   // 174,000 transactions were not incorporated into the public 2014 data
@@ -88,7 +88,7 @@ var PDP = (function ( pdp ) {
     // there's no irritating jump when it slides open.
     $fields.hide().css( 'height', 0 );
     $fields.show().animate( {height: height}, 150, 'swing', function(){
-      // We set height to auto after the animation so that the div can expand 
+      // We set height to auto after the animation so that the div can expand
       // if a lot of items in a 'chosen' select widget are chosen.
       $( this ).css('height', 'auto');
     });
@@ -260,8 +260,14 @@ var PDP = (function ( pdp ) {
 
     _.forEach( field.values, function( val ){
 
+
       // Set radios.
       $('input[name=' + name + '][value="' + val + '"]').prop('checked', true);
+
+      // rate_spread specialness
+      if( name === 'rate_spread'){
+        $('input[name="rate_spread"][data-comparator="' + params['rate_spread'].comparator + '"]').prop('checked', true);
+      }
 
       // Set checkboxes.
       $('input[name=' + name + '\\[\\]][value="' + val + '"]').prop('checked', true);
@@ -428,7 +434,7 @@ var PDP = (function ( pdp ) {
       case 'fips':
         promise = pdp.utils.getJSON( 'static/js/static_data/concept/fips.json' );
         break;
-        
+
       // Census tract concept data is a format totally different from normal concept data so
       // we have to handle it in a special way.
       case 'census_tract_number':
@@ -551,7 +557,7 @@ var PDP = (function ( pdp ) {
       // If the form field does in fact have any dependents.
       if ( dependents ) {
 
-        // Split and join the dependents with hashes if there are multiple 
+        // Split and join the dependents with hashes if there are multiple
         // so we can reference the appropriate fields by id later.
         dependents = dependents.split(' ').join(', #');
         $dependents = $( '#' + dependents ).parents('.field');
@@ -571,7 +577,7 @@ var PDP = (function ( pdp ) {
             if( $el.parent().parent().hasClass('county_code') ){
               dependencies.push( $el.closest('.fields').find('li.state_code').find('.chzn-done').val() );
             }
-            
+
             emit( 'shown', $dependent, dependencies );
           });
         } else {

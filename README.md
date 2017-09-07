@@ -40,6 +40,8 @@ Only edit files in `src`. When anything is changed, Grunt will lint, test, compi
 
 In lieu of a formal styleguide, take care to maintain the existing coding style.
 
+We recommend using Node 4.8.0 to run the test / build frameworks dependably for this application.
+
 ## Tagging releases
 
 1. Add a new version to the top of `CHANGELOG` with today's date and a list of changes. Use [semver](http://semver.org/).
