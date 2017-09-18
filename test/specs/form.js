@@ -209,12 +209,12 @@
         PDP.form.warn2014Msa = null;
     });
 
-    it('is false when the array is null', function () {
+    it('is true when the array is null since all years are searched', function () {
       PDP.form.checkYearRules(null);
-      expect(PDP.form.warn2014Msa).toEqual(false);
+      expect(PDP.form.warn2014Msa).toEqual(true);
     });
 
-    it('is false when the array is empty', function () {
+    it('is false when the array is empty - this condition should not occur', function () {
       PDP.form.checkYearRules([]);
       expect(PDP.form.warn2014Msa).toEqual(false);
     });
@@ -234,13 +234,43 @@
       expect(PDP.form.warn2014Msa).toEqual(false);
     });
 
+    it('is false when the array only contains 2016', function () {
+      PDP.form.checkYearRules(['2016']);
+      expect(PDP.form.warn2014Msa).toEqual(false);
+    });
+
     it('is false when the array contains 2014-2015', function () {
       PDP.form.checkYearRules(['2014', '2015']);
       expect(PDP.form.warn2014Msa).toEqual(false);
     });
 
+    it('is false when the array contains 2015-2016', function () {
+      PDP.form.checkYearRules(['2015', '2016']);
+      expect(PDP.form.warn2014Msa).toEqual(false);
+    });
+
+    it('is false when the array contains 2014, 2016', function () {
+      PDP.form.checkYearRules(['2014', '2016']);
+      expect(PDP.form.warn2014Msa).toEqual(false);
+    });
+
+    it('is false when the array contains 2014-2016', function () {
+      PDP.form.checkYearRules(['2014', '2015', '2016']);
+      expect(PDP.form.warn2014Msa).toEqual(false);
+    });
+
     it('is true when the array contains 2013-2015', function () {
       PDP.form.checkYearRules(['2013', '2014', '2015']);
+      expect(PDP.form.warn2014Msa).toEqual(true);
+    });
+
+    it('is true when the array contains 2013, 2016', function () {
+      PDP.form.checkYearRules(['2013', '2016']);
+      expect(PDP.form.warn2014Msa).toEqual(true);
+    });
+
+    it('is true when the array contains 2012, 2016', function () {
+      PDP.form.checkYearRules(['2012', '2016']);
       expect(PDP.form.warn2014Msa).toEqual(true);
     });
 
@@ -283,75 +313,5 @@
     });
   });
 
-  describe('2014 Missing Warning', function() {
-    beforeEach(function() {
-        PDP.form.warn2014Missing = null;
-    });
-
-    it('is false when the array is null', function () {
-      PDP.form.checkYearRules(null);
-      expect(PDP.form.warn2014Missing).toEqual(false);
-    });
-
-    it('is false when the array is empty', function () {
-      PDP.form.checkYearRules([]);
-      expect(PDP.form.warn2014Missing).toEqual(false);
-    });
-
-    it('is false when the array only contains 2013', function () {
-      PDP.form.checkYearRules(['2013']);
-      expect(PDP.form.warn2014Missing).toEqual(false);
-    });
-
-    it('is true when the array only contains 2014', function () {
-      PDP.form.checkYearRules(['2014']);
-      expect(PDP.form.warn2014Missing).toEqual(true);
-    });
-
-    it('is false when the array only contains 2015', function () {
-      PDP.form.checkYearRules(['2015']);
-      expect(PDP.form.warn2014Missing).toEqual(false);
-    });
-
-    it('is true when the array contains 2014-2015', function () {
-      PDP.form.checkYearRules(['2014', '2015']);
-      expect(PDP.form.warn2014Missing).toEqual(true);
-    });
-
-    it('is true when the array contains 2013-2015', function () {
-      PDP.form.checkYearRules(['2013', '2014', '2015']);
-      expect(PDP.form.warn2014Missing).toEqual(true);
-    });
-
-    it('is false when the array contains 2010-2012', function () {
-      PDP.form.checkYearRules(['2010', '2011', '2012']);
-      expect(PDP.form.warn2014Missing).toEqual(false);
-    });
-
-    describe('when the rule is true', function() {
-      beforeEach(function() {
-          setUpMessageFixture();
-          PDP.form.warn2014Missing = true;
-          PDP.form.onUpdateWarnings();
-      });
-
-      it('displays the warning message', function() {
-          expect( $('#filters').find('.missing-2014-warning') ).not.toHaveClass('hidden');
-      });
-    });
-
-
-    describe('when the rule is false', function() {
-      beforeEach(function() {
-          setUpMessageFixture();
-          PDP.form.warn2014Missing = false;
-          PDP.form.onUpdateWarnings();
-      });
-
-      it('hides the warning message', function() {
-          expect( $('#filters').find('.missing-2014-warning') ).toHaveClass('hidden');
-      });
-    });
-  });
 
 })();
