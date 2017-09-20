@@ -77,6 +77,10 @@
       PDP.form.setField('rate_spread');
       expect( $('input[name="rate_spread"][data-comparator="!="]').is(':checked')).toBe(true);
       expect( $('input[name="rate_spread"][data-comparator="="]').is(':checked')).toBe(false);
+      PDP.query.params['rate_spread'] = { 'values': [null], 'comparator': '=' };
+      PDP.form.setField('rate_spread');
+      expect( $('input[name="rate_spread"][data-comparator="!="]').is(':checked')).toBe(false);
+      expect( $('input[name="rate_spread"][data-comparator="="]').is(':checked')).toBe(true);
     });
 
     it('be able to get info about a field', function() {
