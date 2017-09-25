@@ -251,7 +251,7 @@ var PDP = (function ( pdp ) {
   // The `setField` method sets a field's values/options.
   // @name = param key of the field (e.g. as_of_year)
   form.setField = function( name ) {
-
+    console.log('setField Name Parameter: ', name);
     var params = pdp.query.params,
         field = params[ name ];
     _.forEach( field.values, function( val ){
@@ -450,7 +450,6 @@ var PDP = (function ( pdp ) {
   // The `resetField` method removes all options from a `select` element and tells
   // `chosen` to update the element accordingly.
   form.resetField = function( el ) {
-
     $( el ).find('option').remove();
     $( el ).find('select').trigger('liszt:updated');
 
@@ -530,7 +529,6 @@ var PDP = (function ( pdp ) {
   // Check if any filter fields need to be shown or hidden.
   // @names = array of param keys (e.g. as_of_year)
   form.checkDeps = function( names ) {
-
     // Ensure names is an array.
     names = names instanceof Array ? names : [ names ];
 
@@ -576,7 +574,7 @@ var PDP = (function ( pdp ) {
         } else {
           setTimeout(function(){
             form.checkDeps([$el.attr('id')]);
-          }, 100);
+          }, 250);
           _.forEach( $dependents, function( $dependent ){
             emit( 'hidden', $dependent, $el.attr('id') );
           });

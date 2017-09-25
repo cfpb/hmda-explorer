@@ -28,9 +28,9 @@ var PDP = (function ( pdp ) {
     // When a field is changed: Update the `query.params` hash, check form
     // field dependencies and update the share link.
     'field:changed': [
-      pdp.query.updateAll.bind( pdp.query ),
       pdp.form.checkDeps.bind( pdp.form ),
       pdp.form.checkMutuallyExclusive.bind( pdp.form ),
+      pdp.query.updateAll.bind( pdp.query ),
       pdp.form.updateShareLink.bind( pdp.form ),
       pdp.query.setCookie.bind( pdp.query )
     ],
