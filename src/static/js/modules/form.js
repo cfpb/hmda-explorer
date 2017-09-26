@@ -19,6 +19,8 @@ var PDP = (function ( pdp ) {
   // 2014 MSAs may show the same name and code number in 2014/2015 as previous
   // years, even though the underlying geography has changed
   form.warn2014Msa = false;
+  // When users follow a permalink, have form dependencies already been checked?
+  var depsHaveBeenChecked = false;
 
   // Cache a reference to all the filter fields.
   form.init = function() {
@@ -572,9 +574,12 @@ var PDP = (function ( pdp ) {
             emit( 'shown', $dependent, dependencies );
           });
         } else {
-          setTimeout(function(){
-            form.checkDeps([$el.attr('id')]);
-          }, 250);
+          if ( !depsHaveBeenChecked ) {
+            setTimeout(function(){
+              form.checkDeps([$el.attr('id')]);
+              depsHaveBeenChecked = true;
+            }, 100);
+          }
           _.forEach( $dependents, function( $dependent ){
             emit( 'hidden', $dependent, $el.attr('id') );
           });
