@@ -577,13 +577,12 @@ var PDP = (function ( pdp ) {
             emit( 'shown', $dependent, dependencies );
           });
         } else {
-          if ( depsHaveBeenChecked ) {
-            return;
+          if ( !depsHaveBeenChecked ) {
+            setTimeout(function(){
+              form.checkDeps([$el.attr('id')]);
+              depsHaveBeenChecked = true;
+            }, 100);
           }
-          setTimeout(function(){
-            form.checkDeps([$el.attr('id')]);
-            depsHaveBeenChecked = true;
-          }, 100);
           _.forEach( $dependents, function( $dependent ){
             emit( 'hidden', $dependent, $el.attr('id') );
           });
