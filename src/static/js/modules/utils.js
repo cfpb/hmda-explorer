@@ -73,7 +73,6 @@ var PDP = (function( pdp ) {
         comparator: d(e[2])
       };
     }
-
     return hashParams;
 
   };
@@ -92,7 +91,6 @@ var PDP = (function( pdp ) {
       } while (html !== oldHtml);
       return html.replace(/</g, '&lt;');
     }
-
     return removeTags( string );
 
   };

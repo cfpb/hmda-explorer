@@ -20,18 +20,13 @@ By default, this app will serve data from [api.consumerfinance.gov](http://api.c
 
 Please use the [fork and pull](https://help.github.com/articles/using-pull-requests#fork--pull) collaborative model.
 
-1. Install [Node](http://nodejs.org/) and [Grunt](http://gruntjs.com/).
+1. Install [Node](http://nodejs.org/) and [Grunt](http://gruntjs.com/) (We recommend using Node 0.10 to run the test / build frameworks dependably for this application)
 1. [Fork this repo](https://github.com/cfpb/hmda-explorer/fork) to your personal GH account.
 1. [Fork the hmda-tech](https://github.com/cfpb/hmda-tech/fork) repo to your personal GH account.
 1. `git clone git@github.com:YOUR-USERNAME/hmda-explorer.git`
 1. `cd hmda-explorer`
 1. `npm install`
 1. `bower install`
-1. `cd src/static`
-1. `mkdir json`
-1. `cd json`
-1. `git clone git@github.com:YOUR-USERNAME/hmda-tech.git`
-1. `cd ../../../`
 1. `grunt build`
 1. `grunt`
 1. Open `localhost:8000` in a browser.
@@ -39,6 +34,7 @@ Please use the [fork and pull](https://help.github.com/articles/using-pull-reque
 Only edit files in `src`. When anything is changed, Grunt will lint, test, compile and build everything. Refresh `localhost:8000` to see your changes.
 
 In lieu of a formal styleguide, take care to maintain the existing coding style.
+
 
 ## Tagging releases
 

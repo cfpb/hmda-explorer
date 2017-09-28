@@ -16,12 +16,11 @@ var PDP = (function ( pdp ) {
   form.locationCount = 1;
   // Set a counter so group set IDs are unique (never decremented)
   form.locationSetNum = 1;
-  // 2014 MSAs may show the same name and code number in 2014/2015 as previous 
+  // 2014 MSAs may show the same name and code number in 2014/2015 as previous
   // years, even though the underlying geography has changed
   form.warn2014Msa = false;
-  // 174,000 transactions were not incorporated into the public 2014 data
-  // until after the dataset was finalized.
-  form.warn2014Missing = false;
+  // When users follow a permalink, have form dependencies already been checked?
+  var depsHaveBeenChecked = false;
 
   // Cache a reference to all the filter fields.
   form.init = function() {
@@ -88,7 +87,7 @@ var PDP = (function ( pdp ) {
     // there's no irritating jump when it slides open.
     $fields.hide().css( 'height', 0 );
     $fields.show().animate( {height: height}, 150, 'swing', function(){
-      // We set height to auto after the animation so that the div can expand 
+      // We set height to auto after the animation so that the div can expand
       // if a lot of items in a 'chosen' select widget are chosen.
       $( this ).css('height', 'auto');
     });
@@ -254,11 +253,11 @@ var PDP = (function ( pdp ) {
   // The `setField` method sets a field's values/options.
   // @name = param key of the field (e.g. as_of_year)
   form.setField = function( name ) {
-
+    console.log('setField Name Parameter: ', name);
     var params = pdp.query.params,
         field = params[ name ];
-
     _.forEach( field.values, function( val ){
+
 
       // Set radios.
       $('input[name=' + name + '][value="' + val + '"]').prop('checked', true);
@@ -271,8 +270,11 @@ var PDP = (function ( pdp ) {
     // Set selects.
     $('select[name=' + name + ']').val( field.values ).trigger('liszt:updated');
 
-    // Set textboxes.
-    if ( params[name].comparator !== '=' ) {
+    // Set textboxes, handle rate spread specialness.
+    // rate_spread specialness
+    if( name === 'rate_spread'){
+      $('input[name="rate_spread"][data-comparator="' + params['rate_spread'].comparator + '"]').prop('checked', true);
+    } else if ( params[name].comparator !== '=') {
       $('input[type=text][name=' + name + '][data-comparator="' + params[name].comparator + '"]').val( field.values[0] );
     } else {
       $('input[type=text][name=' + name + ']').val( field.values[0] );
@@ -282,7 +284,6 @@ var PDP = (function ( pdp ) {
 
   // The `setFields` method sets all fields' values/options from the `query.params` hash.
   form.setFields = function( options ) {
-
     var opts = options || {},
         params = _.keys( pdp.query.params );
 
@@ -428,7 +429,7 @@ var PDP = (function ( pdp ) {
       case 'fips':
         promise = pdp.utils.getJSON( 'static/js/static_data/concept/fips.json' );
         break;
-        
+
       // Census tract concept data is a format totally different from normal concept data so
       // we have to handle it in a special way.
       case 'census_tract_number':
@@ -451,7 +452,6 @@ var PDP = (function ( pdp ) {
   // The `resetField` method removes all options from a `select` element and tells
   // `chosen` to update the element accordingly.
   form.resetField = function( el ) {
-
     $( el ).find('option').remove();
     $( el ).find('select').trigger('liszt:updated');
 
@@ -531,7 +531,6 @@ var PDP = (function ( pdp ) {
   // Check if any filter fields need to be shown or hidden.
   // @names = array of param keys (e.g. as_of_year)
   form.checkDeps = function( names ) {
-
     // Ensure names is an array.
     names = names instanceof Array ? names : [ names ];
 
@@ -551,7 +550,7 @@ var PDP = (function ( pdp ) {
       // If the form field does in fact have any dependents.
       if ( dependents ) {
 
-        // Split and join the dependents with hashes if there are multiple 
+        // Split and join the dependents with hashes if there are multiple
         // so we can reference the appropriate fields by id later.
         dependents = dependents.split(' ').join(', #');
         $dependents = $( '#' + dependents ).parents('.field');
@@ -571,13 +570,16 @@ var PDP = (function ( pdp ) {
             if( $el.parent().parent().hasClass('county_code') ){
               dependencies.push( $el.closest('.fields').find('li.state_code').find('.chzn-done').val() );
             }
-            
+
             emit( 'shown', $dependent, dependencies );
           });
         } else {
-          setTimeout(function(){
-            form.checkDeps([$el.attr('id')]);
-          }, 100);
+          if ( !depsHaveBeenChecked ) {
+            setTimeout(function(){
+              form.checkDeps([$el.attr('id')]);
+              depsHaveBeenChecked = true;
+            }, 100);
+          }
           _.forEach( $dependents, function( $dependent ){
             emit( 'hidden', $dependent, $el.attr('id') );
           });
@@ -634,12 +636,6 @@ var PDP = (function ( pdp ) {
       $('.msa-warning').addClass('hidden');
       $('#summary-table-form option[value=loan_type_name]').after('<option value="msamd_name">MSA</option>');
       $('#summary-table-form select').trigger('liszt:updated');
-    }
-
-    if (pdp.form.warn2014Missing) {
-      $('.missing-2014-warning').removeClass('hidden');
-    } else {
-      $('.missing-2014-warning').addClass('hidden');
     }
   };
 
@@ -705,15 +701,20 @@ var PDP = (function ( pdp ) {
   // Rules
 
   form.checkYearRules = function(years) {
+    var showAllYears;
     var inside = _.some(years, function(y) {
-      return y === '2014' || y === '2015';
+      return y === '2014' || y === '2015' || y === '2016';
     });
     var outside = _.some(years, function(y) {
-      return y !== '2014' && y !== '2015';
+      return y !== '2014' && y !== '2015' && y !== '2016';
     });
 
-    pdp.form.warn2014Msa = inside && outside;
-    pdp.form.warn2014Missing = _.contains(years, '2014');
+    if( years ) {
+      pdp.form.warn2014Msa = inside && outside;
+    } else {
+      showAllYears = true;
+      pdp.form.warn2014Msa = true;
+    }
 
     pdp.form.onUpdateWarnings();
   };
