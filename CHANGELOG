@@ -1,3 +1,9 @@
+v2.6.3:
+  date: 2017-11-03
+  changes:
+    - Update to link to HMDA platform (beta release).
+    - Update to link to short HDMA video.
+
 v2.6.2:
   date: 2017-10-16
   changes:
