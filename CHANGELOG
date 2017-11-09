@@ -1,3 +1,10 @@
+v2.6.4:
+  date: 2017-11-09
+  changes:
+    - Add HMDA Tools Instructions guide.
+    - Update content to link to tool.
+    - Add FFVT section to for-filers.
+
 v2.6.3:
   date: 2017-11-03
   changes:
