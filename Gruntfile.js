@@ -1,3 +1,4 @@
+
 module.exports = function(grunt) {
 
   'use strict';
@@ -634,6 +635,18 @@ module.exports = function(grunt) {
       }
     },
 
+    /**
+     * Watch: https://github.com/gruntjs/grunt-contrib-watch
+     *
+     * Run predefined tasks whenever watched file patterns are added, changed or deleted.
+     * Add files to monitor below.
+     */
+    watch: {
+      scripts: {
+        files: ['src/*.html', 'src/content/**/*', 'src/static/less/**/*.less', 'src/static/js/**/*.js', 'test/specs/*.js', 'src/static/hbs/*'],
+        tasks: ['build', 'test']
+      }
+    },
 
     /**
      * Concurrent: https://github.com/sindresorhus/grunt-concurrent
@@ -688,6 +701,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.loadNpmTasks('grunt-shell');
@@ -718,6 +732,7 @@ module.exports = function(grunt) {
   /**
    * The 'default' task will run whenever `grunt` is run without specifying a task
    */
-  grunt.registerTask('default', ['connect:demo']);
+  grunt.registerTask('default', ['connect:demo', 'watch']);
 
 };
+;
