@@ -735,4 +735,3 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['connect:demo', 'watch']);
 
 };
-;
