@@ -109,7 +109,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="cf-error" id="msa-note">
         <span class="cf-icon cf-icon-error-round highlight"></span>
         <p class="message">Use caution when analyzing Metropolitan Statistical Areas (MSAs) over multiple years.</p>
-        <p class="action">HMDA data for 2014 and later use the MSA definitions that were released in Feburary, 2013. Some MSAs retained the same name and code number as in previous years, even though the underlying geography changed.</p>
+        <p class="action">HMDA data for 2014 and later use the MSA definitions that were released in Feburary, 2013. Some MSAs retained the same name and code number as in previous years, even though the underlying geography changed.</p><br/>
+        <span id="errorSecondary" class="cf-icon cf-icon-error-round highlight"></span>
+        <p class="message">Use caution when analyzing loan amount and income, which do not have an upper limit and may contain outliers.</p>
       </div>
 
       <h2>Filter the data</h2>
@@ -127,7 +129,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <label for="as_of_year">Select year(s) of data:</label>
               <div class="widget select">
                 <select class="param" name="as_of_year" id="as_of_year" multiple data-placeholder="Select one or more years">
-                  <option value="2016" selected>2016</option>
+                  <option value="2017" selected>2017</option>
+                  <option value="2016">2016</option>
                   <option value="2015">2015</option>
                   <option value="2014">2014</option>
                   <option value="2013">2013</option>
