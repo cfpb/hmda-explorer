@@ -112,9 +112,9 @@ var chart1_options = {
   },
   xAxis: {
     categories: [
-      '2014',
       '2015',
-      '2016'
+      '2016',
+      '2017'
     ],
     gridLineWidth: 0,
     labels: {
@@ -172,16 +172,15 @@ var chart1_options = {
   series: [
     {
       name: 'Home purchase originations',
-      data: [2804466,3199645,3544594]
+      data: [3199645,3544594,3686505]
     },
     {
       name: 'Refinancing originations',
-      data: [1994390,2841018,3370884]
+      data: [2841018,3370884,2200834]
     },
         {
       name: 'Home improvement originations',
-      data: [133993,183124,239511]
+      data: [183124,239511,227067]
     }
   ]
 };
-
