@@ -41,7 +41,7 @@ test/junit
 
 # Built app #
 #############
-dist-plan-b/
+dist/
 
 # Jasmine runner #
 # ################
