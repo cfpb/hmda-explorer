@@ -54,6 +54,12 @@
 
     });
 
+    it('replaces all years explicitly if user removes year from form', function(){
+      window.location.hash = '#!/state_abbr=OR';
+      PDP.query.updateAll({ source: 'url' });
+      expect( PDP.query.params.as_of_year.values.length ).toBe(11);
+    });
+
     it('should be able to generate a URL hash', function(){
 
       var originalHash = '#!/as_of_year=2011&state_abbr=OR';
