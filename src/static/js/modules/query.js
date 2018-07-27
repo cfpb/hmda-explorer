@@ -24,12 +24,7 @@ var PDP = (function ( pdp ) {
   query.codes = false;
 
   // `query`'s `params` stores filter values.
-  query.params = {
-    as_of_year: {
-      comparator: '=',
-      values: []
-    }
-  };
+  query.params = {};
 
   // The `reset` method empties the `params` object.
   // If a preset is passed, some defaults will be set.
