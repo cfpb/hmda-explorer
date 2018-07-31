@@ -130,9 +130,22 @@ var PDP = (function ( pdp ) {
 
     this.reset('clear');
 
+    // If all fields are updated and no as_of_year value is present,
+    // explicitly set all years of HMDA so Share links properly generate
+    // and Summary Tables function for All Years
+    // #UpdateYearly
+    if(  fields.length === 0 || fields[0].name !== 'as_of_year' ) {
+      fields.unshift( {
+        name: 'as_of_year',
+        tagName: 'select',
+        values: ['2017', '2016', '2015', '2014', '2013', '2012', '2011',
+                  '2010', '2009', '2008', '2007'],
+        comparator: '='
+      });
+    }
+
     // Iterate over all the filter field values and push them into `query.params`.
     function _processField( field ) {
-
       if ( field.name && field.values ) {
 
         // Initalize an empty param object if need be.
