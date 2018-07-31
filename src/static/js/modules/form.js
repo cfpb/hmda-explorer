@@ -253,7 +253,6 @@ var PDP = (function ( pdp ) {
   // The `setField` method sets a field's values/options.
   // @name = param key of the field (e.g. as_of_year)
   form.setField = function( name ) {
-    console.log('setField Name Parameter: ', name);
     var params = pdp.query.params,
         field = params[ name ];
     _.forEach( field.values, function( val ){
@@ -672,7 +671,6 @@ var PDP = (function ( pdp ) {
   form.updateShareLink = function() {
     var hash = pdp.query.generateUrlHash(),
         baseUrl = window.location.href.replace(/#.*/, '');
-
     $('.share_url').val( baseUrl + '#' + hash );
 
   };
@@ -703,10 +701,10 @@ var PDP = (function ( pdp ) {
   form.checkYearRules = function(years) {
     var showAllYears;
     var inside = _.some(years, function(y) {
-      return y === '2015' || y === '2016' || y === '2017';
+      return y === '2014' || y === '2015' || y === '2016' || y === '2017';
     });
     var outside = _.some(years, function(y) {
-      return y !== '2015' && y !== '2016' && y !== '2017';
+      return y !== '2014' && y !== '2015' && y !== '2016' && y !== '2017';
     });
 
     if( years ) {
