@@ -28,7 +28,7 @@ var chart2_options = {
         style: {
             color: '#000000',
             fontSize: '14pt',
-            fontFamily: '"Avenir Next LT W01 Demi", "Avenir Next Demi", "Avenir Next", "Arial"',
+            fontFamily: '"Source Sans 3 Variable", "Arial"',
             fontWeight: '600'
         }
     },
@@ -50,7 +50,7 @@ var chart2_options = {
             color: '#212121',
             fontSize: '12pt',
             lineHeight: '12pt',
-            fontFamily: '"Avenir Next LT W01 Medium Cn", "Avenir Next Light", "Avenir Next", "Arial Condensed", "Arial"',
+            fontFamily: '"Source Sans 3 Variable", "Arial Condensed", "Arial"',
             fontWeight: '',
             paddingBottom: '8pt'
         },
@@ -170,7 +170,7 @@ var chart2_options = {
             style: {
                 color: '#212121',
                 fontSize: '10pt',
-                fontFamily: '"Avenir Next LT W01 Regular", "Avenir Next", "Arial"',
+                fontFamily: '"Source Sans 3 Variable", "Arial"',
                 fontWeight: '400'
             },
             enabled: true,
@@ -184,7 +184,7 @@ var chart2_options = {
             style: {
                 color: '#101820',
                 fontSize: '12pt',
-                fontFamily: '"Avenir Next LT W01 Regular", "Avenir Next", "Arial"',
+                fontFamily: '"Source Sans 3 Variable", "Arial"',
                 fontWeight: '400'
             },
             x: -5
@@ -202,7 +202,7 @@ var chart2_options = {
                 style: {
                     color: '#101820',
                     fontSize: '12pt',
-                    fontFamily: '"Avenir Next LT W01 Regular", "Avenir Next", "Arial"',
+                    fontFamily: '"Source Sans 3 Variable", "Arial"',
                     fontWeight: '400'
                 },
                 enabled: false
@@ -211,7 +211,7 @@ var chart2_options = {
                 style: {
                     color: '#212121',
                     fontSize: '10pt',
-                    fontFamily: '"Avenir Next LT W01 Regular", "Avenir Next", "Arial"',
+                    fontFamily: '"Source Sans 3 Variable", "Arial"',
                     fontWeight: '400'
                 },
                 format: '{value}%',
@@ -232,7 +232,7 @@ var chart2_options = {
                 style: {
                     color: '#212121',
                     fontSize: '10pt',
-                    fontFamily: '"Avenir Next LT W01 Regular", "Avenir Next", "Arial"',
+                    fontFamily: '"Source Sans 3 Variable", "Arial"',
                     fontWeight: '400'
                 },
                 format: ' {value:,.0f} ',
@@ -244,7 +244,7 @@ var chart2_options = {
         }
     ],
     series: [
-        { 
+        {
             name: 'Conventional',
             data: [50.3,55.3,62.4]
         },

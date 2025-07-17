@@ -29,7 +29,7 @@ var chart1_options = {
     style: {
       color: '#000000',
       fontSize: '14pt',
-      fontFamily: '"Avenir Next LT W01 Demi", "Avenir Next Demi", "Avenir Next", "Arial"',
+      fontFamily: '"Source Sans 3 Variable", "Arial"',
       fontWeight: '600'
     }
 
@@ -122,7 +122,7 @@ var chart1_options = {
       style: {
         color: '#212121',
         fontSize: '10pt',
-        fontFamily: '"Avenir Next LT W01 Regular", "Avenir Next", "Arial"',
+        fontFamily: '"Source Sans 3 Variable", "Arial"',
         fontWeight: '400'
       },
       enabled: true,
@@ -135,7 +135,7 @@ var chart1_options = {
       style: {
         color: '#101820',
         fontSize: '12pt',
-        fontFamily: '"Avenir Next LT W01 Regular", "Avenir Next", "Arial"',
+        fontFamily: '"Source Sans 3 Variable", "Arial"',
         fontWeight: '400'
       },
       x: -5
@@ -153,7 +153,7 @@ var chart1_options = {
       style: {
         color: '#101820',
         fontSize: '12pt',
-        fontFamily: '"Avenir Next LT W01 Regular", "Avenir Next", "Arial"',
+        fontFamily: '"Source Sans 3 Variable", "Arial"',
         fontWeight: '400'
       },
       enabled: false
@@ -162,7 +162,7 @@ var chart1_options = {
       style: {
         color: '#212121',
         fontSize: '9pt',
-        fontFamily: '"Avenir Next LT W01 Regular", "Avenir Next", "Arial"',
+        fontFamily: '"Source Sans 3 Variable", "Arial"',
         fontWeight: '400'
       },
       format: '{value:,.0f}',
