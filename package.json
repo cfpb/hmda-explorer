@@ -31,7 +31,7 @@
     "grunt": "~0.4.0",
     "grunt-cfpb-internal":
       "git+https://github.com/cfpb/grunt-cfpb-internal#v0.5.3",
-    "grunt-combine-media-queries": "~1.0.2",
+    "grunt-combine-media-queries": "~1.0.20",
     "grunt-compile-handlebars": "^2.0.0",
     "grunt-concurrent": "~0.4.1",
     "grunt-contrib-clean": "^0.6.0",
